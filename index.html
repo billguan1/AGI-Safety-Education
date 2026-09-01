@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gap: a free, sourced map of AGI safety</title>
+<meta name="description" content="Why advanced AI is dangerous, argued from first principles rather than headlines. Plus the best free courses, who holds a lever, what people still argue about, and what you can do this week.">
+<meta property="og:title" content="The Gap: a free, sourced map of AGI safety">
+<meta property="og:description" content="AI capability is outrunning our ability to check it. The argument from first principles, plus the whole field in one page.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12161a; --ink-2:#3d474f; --ink-3:#6e7981;
+  --paper:#e6e9eb; --white:#fbfcfc; --rule:#c0c6cb; --rule-soft:#d5dade;
+  --c-dev:#2233cc;  --t-dev:#e2e6fb; --d-dev:#1a2a9e;
+  --c-ass:#0d726e;  --t-ass:#dbeeec; --d-ass:#0b5d5a;
+  --c-ctl:#a8690a;  --t-ctl:#f8ecd7;
+  --c-risk:#bd3a20; --t-risk:#fae2dc; --d-risk:#8f2c18;
+  --c-act:#4a6a38;  --t-act:#e5ede0;
+  --glow-r:#ff6a45; --glow-b:#6d84ff; --glow-t:#3fd0c9;
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --gut:clamp(18px,4.6vw,60px); --maxw:1220px; --r:4px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:clamp(16.5px,1rem + .2vw,18.5px);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg{display:block}
+a{color:var(--c-dev);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--c-dev);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;background:var(--ink);color:#fff;padding:12px 18px;z-index:99;font-family:var(--mono);font-size:13px}
+.skip:focus{left:8px;top:8px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-height:1.03;margin:0}
+h2{font-size:clamp(28px,5.8vw,50px)}
+h3{font-size:clamp(19px,2.7vw,24px);letter-spacing:-.018em;line-height:1.15}
+p{margin:0 0 1em}
+.lede{font-size:clamp(18px,1.05rem + .45vw,23px);line-height:1.45;color:var(--ink-2);font-weight:300}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+.ref{font-family:var(--mono);font-size:.6em;font-weight:600;vertical-align:super;line-height:0;
+  text-decoration:none;color:var(--c-dev);padding:0 .1em}
+.ref:hover{background:var(--c-dev);color:#fff;border-radius:2px}
+.note{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6;max-width:72ch}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--c-act),var(--c-ass),var(--c-dev),var(--c-ctl),var(--c-risk))}
+
+/* ---------- header ---------- */
+.bar{position:sticky;top:0;z-index:50;background:rgba(230,233,235,.96);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
+.brand{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);white-space:nowrap;text-decoration:none}
+.brand b{color:var(--c-risk)}
+.header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--c-risk);padding:7px 12px;
+  border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,transform .15s}
+.header-game .ico{width:12px;height:12px;stroke-width:2.4}
+.header-game:hover{background:var(--d-risk);color:#fff;transform:translateY(-1px)}
+@media(max-width:620px){.header-game{padding:7px 9px;font-size:0}.header-game .ico{width:14px;height:14px}}
+.switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
+.switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 11px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.switch button+button{border-left:1.5px solid var(--ink)}
+.switch button:hover{background:var(--t-dev)}
+.switch button.on{background:var(--ink);color:var(--paper)}
+.switch-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+@media(max-width:760px){.brand,.switch-hint{display:none}.bar-in{flex-wrap:wrap}.switch{width:100%;order:3}.header-game{order:2}.switch button{flex:1;padding:9px 3px}
+  .bar-in{padding-left:14px;padding-right:14px}}
+
+.chapters{border-top:1px solid var(--rule-soft);overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none}
+.chapters::-webkit-scrollbar{display:none}
+.chapters-in{display:flex;gap:6px;padding:8px var(--gut);min-width:max-content}
+.chapters a{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;padding:6px 12px;border:1px solid var(--rule);border-radius:999px;
+  white-space:nowrap;background:var(--white);transition:background .15s,color .15s,border-color .15s;flex:0 0 auto}
+.chapters a:hover{border-color:var(--ink)}
+.chapters a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+[data-for]{display:none}
+[data-for].show{display:block}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(30px,5.5vw,64px) 0 clamp(28px,4vw,46px)}
+.kicker{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
+.kicker b{color:var(--c-act);font-weight:600}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(22px,3.6vw,50px);align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:22px}}
+.hero h1{font-size:clamp(34px,7.2vw,74px);line-height:.97;letter-spacing:-.04em;margin-bottom:18px;max-width:13ch}
+.hero h1 em{font-style:normal;color:var(--c-risk)}
+.hero .sub{font-size:clamp(17px,1rem + .35vw,21px);line-height:1.45;color:var(--ink-2);max-width:48ch;margin-bottom:22px}
+.rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards}
+.rise:nth-child(2){animation-delay:.07s}.rise:nth-child(3){animation-delay:.14s}
+.rise:nth-child(4){animation-delay:.21s}.rise:nth-child(5){animation-delay:.28s}
+@keyframes rise{to{opacity:1;transform:none}}
+.cta{display:flex;flex-wrap:wrap;gap:9px}
+.cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:13px 18px;border-radius:2px;text-decoration:none;transition:.16s;border:1.5px solid transparent}
+.cta .primary{background:var(--c-risk);color:#fff}
+.cta .primary:hover{background:var(--d-risk);color:#fff;transform:translateY(-2px)}
+.cta .ghost{border-color:var(--ink);color:var(--ink)}
+.cta .ghost:hover{background:var(--ink);color:var(--paper)}
+.gapfig{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:16px 16px 12px;margin:0}
+.gapfig figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.5;color:var(--ink-3);margin-top:8px}
+.draw{stroke-dasharray:620;stroke-dashoffset:620;animation:draw 2.1s ease .4s forwards}
+.draw.b{animation-delay:.8s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pulse{animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:.55}}
+
+section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);position:relative}
+.sec-head{max-width:64ch;margin-bottom:clamp(22px,3.4vw,38px)}
+.sec-head h2{margin-bottom:14px}
+
+/* ---------- dark sections ---------- */
+.dark{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden}
+.dark h2,.dark h3{color:#fff}
+.dark .lede{color:#a8b3ba}
+.dark .eyebrow{color:#7d8890}
+.dark .eyebrow::after{background:#333d44}
+.dark .note{color:#7d8890}
+.dark p{color:#c3ccd2}
+.dark::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 420px at 82% 8%,rgba(189,58,32,.20),transparent 65%),
+             radial-gradient(700px 380px at 8% 92%,rgba(34,51,204,.20),transparent 65%)}
+.dark .wrap{position:relative;z-index:1}
+.dark a{color:#8fa2ff}
+.dark .ref{color:#8fa2ff}
+.dark .ref:hover{background:#8fa2ff;color:var(--ink)}
+
+
+/* ---------- premise map ---------- */
+.pmap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.pchip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:9px 13px;border-radius:999px;text-decoration:none;
+  border:1px solid #333d44;background:rgba(255,255,255,.04);color:#c3ccd2;transition:.16s}
+.pchip:hover{border-color:#8a959c;color:#fff;transform:translateY(-1px)}
+.pchip i{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.pchip.end{border-color:#bd3a20;background:rgba(189,58,32,.18);color:#ff8a6b}
+
+/* ---------- premise cards ---------- */
+.pcard{border:1px solid #2b343b;border-left:4px solid #444;border-radius:6px;overflow:hidden;margin-bottom:12px;
+  background:rgba(255,255,255,.035);transition:border-color .18s}
+.pcard.c1{border-left-color:#6d84ff} .pcard.c2{border-left-color:#3fd0c9}
+.pcard.c3{border-left-color:#d9be3f} .pcard.c4{border-left-color:#ff9a4d}
+.pcard.c5{border-left-color:#bd3a20}
+.pcard:hover{border-color:#49535a}
+.pcard-head{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;
+  font-family:inherit;cursor:pointer;padding:18px 20px 16px}
+.ptop{display:flex;gap:14px;align-items:flex-start}
+.pnum{flex:0 0 auto;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;color:#12161a;
+  padding:5px 9px;border-radius:3px;margin-top:3px}
+.c1 .pnum{background:#6d84ff} .c2 .pnum{background:#3fd0c9} .c3 .pnum{background:#d9be3f}
+.c4 .pnum{background:#ff9a4d} .c5 .pnum{background:#bd3a20;color:#fff}
+.phead{flex:1;min-width:0}
+.ptitle{display:block;font-family:var(--display);font-weight:800;letter-spacing:-.022em;
+  font-size:clamp(19px,2.9vw,26px);line-height:1.1;color:#fff;margin-bottom:8px}
+.gist{display:block;font-size:clamp(15.5px,1.9vw,18px);line-height:1.45;color:#aeb9c0}
+.pchev{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1px solid #3d474e;color:#aeb9c0;
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:16px;
+  transition:transform .2s,background .18s;margin-top:2px}
+.pcard.open .pchev{transform:rotate(45deg);background:rgba(255,255,255,.1)}
+.pfig{display:block;margin-top:16px;width:100%}
+.pfig svg{width:100%;height:74px;display:block}
+.pfig.fig-wide svg{height:auto}
+.pcard-body{display:none;padding:2px 20px 20px}
+.pcard.open .pcard-body{display:block;animation:swapin .3s ease}
+.pcard-body p{font-size:16px;line-height:1.56;max-width:64ch;margin:0 0 12px;color:#c3ccd2}
+.phint{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:#6e7981;margin-top:16px}
+@media(max-width:560px){.pcard-head{padding:16px 15px 14px}.pcard-body{padding:2px 15px 18px}.ptop{gap:11px}}
+
+/* ---------- verdict gauge ---------- */
+.gauge{margin-top:16px;padding-top:14px;border-top:1px dashed var(--rule)}
+.gauge .glab{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:12px}
+.grow{display:flex;align-items:center;gap:12px}
+.gend{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;flex:0 0 auto;max-width:30%;line-height:1.3}
+.gend.a{color:var(--c-risk);text-align:right}
+.gend.b{color:var(--c-dev)}
+.gtrack{flex:1;height:8px;border-radius:99px;position:relative;
+  background:linear-gradient(90deg,var(--c-risk),var(--rule) 50%,var(--c-dev))}
+.gtrack i{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--white);
+  border:3px solid var(--ink);transform:translate(-50%,-50%);box-shadow:0 1px 6px rgba(0,0,0,.3)}
+
+/* ---------- pull quote ---------- */
+.pull{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(38px,6.5vw,72px) 0;background:var(--white)}
+.pull blockquote{margin:0;max-width:20ch;font-family:var(--display);font-weight:800;letter-spacing:-.034em;
+  line-height:1.04;font-size:clamp(29px,6.4vw,58px)}
+.pull blockquote em{font-style:normal;color:var(--c-risk)}
+.pull .pq-note{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 0}
+
+/* ---------- legacy premise chain ---------- */
+.chain{display:grid;gap:0}
+.premise{display:grid;grid-template-columns:74px 1fr;gap:0;position:relative}
+.p-rail{position:relative}
+.p-rail::before{content:"";position:absolute;left:23px;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.22))}
+.premise:last-of-type .p-rail::before{bottom:50%}
+.p-num{position:absolute;left:6px;top:22px;width:36px;height:36px;border-radius:50%;
+  background:var(--ink);border:2px solid var(--glow-r);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;font-weight:600;box-shadow:0 0 0 6px rgba(255,106,69,.10)}
+.p-body{padding:20px 0 26px 6px}
+.p-body h3{font-size:clamp(20px,3vw,27px);margin-bottom:10px;max-width:26ch}
+.p-body p{font-size:16px;line-height:1.55;max-width:62ch;margin:0 0 12px}
+.p-break{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:#8a959c;
+  border-left:2px solid #39434a;padding-left:14px;max-width:56ch;margin:0}
+.p-break b{color:var(--glow-t);font-weight:600;display:block;letter-spacing:.11em;text-transform:uppercase;font-size:10px;margin-bottom:5px}
+.therefore{margin-top:6px;border:1.5px solid var(--glow-r);border-radius:var(--r);padding:clamp(20px,3vw,30px);
+  background:rgba(189,58,32,.10)}
+.therefore .lbl{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--glow-r);display:block;margin-bottom:12px}
+.therefore p{font-size:clamp(18px,2.4vw,24px);line-height:1.4;color:#fff;margin:0;max-width:44ch;font-family:var(--display);font-weight:600;letter-spacing:-.02em}
+@media(max-width:560px){.premise{grid-template-columns:52px 1fr}.p-rail::before{left:16px}.p-num{left:0;width:32px;height:32px}}
+
+/* ---------- haystack ---------- */
+.haystack{display:grid;grid-template-columns:repeat(auto-fill,minmax(9px,1fr));gap:3px;margin:6px 0 10px;
+  border:1px solid #333d44;border-radius:3px;padding:10px;background:rgba(255,255,255,.02)}
+.hs{aspect-ratio:1;background:#2a333a;border-radius:1px}
+.hs.good{background:var(--glow-t);box-shadow:0 0 6px rgba(63,208,201,.8)}
+.hs.hit{background:var(--glow-r);box-shadow:0 0 10px rgba(255,106,69,.9);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---------- goodhart ---------- */
+.gh{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(18px,3vw,36px);align-items:center}
+@media(max-width:860px){.gh{grid-template-columns:1fr}}
+.gh-plot{background:rgba(255,255,255,.03);border:1px solid #333d44;border-radius:var(--r);padding:14px}
+.gh-ctrl{margin-top:16px}
+.gh-ctrl label{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#8a959c;display:block;margin-bottom:10px}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:26px;cursor:grab}
+input[type=range]:active{cursor:grabbing}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;
+  background:linear-gradient(90deg,var(--glow-t),#c9b23a 55%,var(--glow-r))}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;
+  background:linear-gradient(90deg,var(--glow-t),#c9b23a 55%,var(--glow-r))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+  background:#fff;border:3px solid var(--ink);margin-top:-9px;box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink)}
+.gh-read{display:grid;gap:12px}
+.gh-card{border:1px solid #333d44;border-radius:var(--r);padding:16px;background:rgba(255,255,255,.03)}
+.gh-card .lbl{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px}
+.gh-card.proxy .lbl{color:var(--glow-b)}
+.gh-card.real .lbl{color:var(--glow-t)}
+.gh-card .val{display:block;font-family:var(--display);font-weight:900;font-size:clamp(30px,5vw,44px);letter-spacing:-.035em;line-height:1;color:#fff}
+.gh-card .bar{display:block;width:100%;height:6px;border-radius:99px;background:#2a333a;margin-top:12px;overflow:hidden}
+.gh-card .bar i{display:block;height:6px;max-width:100%;border-radius:99px;transition:width .12s linear}
+.gh-card.proxy .bar i{background:var(--glow-b)}
+.gh-card.real .bar i{background:var(--glow-t)}
+.gh-say{margin-top:14px;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:#c3ccd2;min-height:3.2em;
+  border-left:2px solid var(--glow-r);padding-left:14px}
+
+/* ---------- orthogonality ---------- */
+.orth-wrap{display:grid;grid-template-columns:1fr .82fr;gap:clamp(18px,3vw,40px);align-items:center}
+@media(max-width:900px){.orth-wrap{grid-template-columns:1fr}}
+
+/* ---------- convergence ---------- */
+.conv{background:rgba(255,255,255,.03);border:1px solid #333d44;border-radius:var(--r);padding:clamp(12px,2vw,20px)}
+.fan path{stroke-dasharray:400;stroke-dashoffset:400}
+.in .fan path{animation:draw2 1.5s ease forwards}
+.fan path:nth-of-type(2){animation-delay:.08s}.fan path:nth-of-type(3){animation-delay:.16s}
+.fan path:nth-of-type(4){animation-delay:.24s}.fan path:nth-of-type(5){animation-delay:.32s}
+@keyframes draw2{to{stroke-dashoffset:0}}
+
+/* ---------- demo ---------- */
+.demo{background:rgba(255,255,255,.03);border:1px solid #333d44;border-radius:var(--r);padding:clamp(20px,3.4vw,32px)}
+.demo h3{margin-bottom:8px}
+.demo .dsub{color:#98a3aa;font-size:15px;margin-bottom:18px;max-width:56ch}
+.demo-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.dbtn{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;padding:9px 13px;
+  border:1.5px solid #39434a;background:transparent;color:#c3ccd2;border-radius:2px;cursor:pointer;transition:.15s}
+.dbtn:hover{border-color:#7c868d;color:#fff}
+.dbtn.on{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.demo-out{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#333d44;border:1px solid #333d44;border-radius:3px;overflow:hidden}
+@media(max-width:640px){.demo-out{grid-template-columns:1fr}}
+.demo-cell{background:#171c21;padding:18px}
+.demo-cell .lbl{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.demo-cell.want .lbl{color:var(--glow-b)}
+.demo-cell.got .lbl{color:var(--glow-r)}
+.demo-cell p{margin:0;font-size:15.5px;line-height:1.5;color:#dbe2e6}
+
+/* ---------- action strip ---------- */
+.doit{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+  background:var(--t-act);border:1px solid #c2d3b8;border-left:5px solid var(--c-act);border-radius:var(--r);padding:20px 22px}
+.doit .txt{flex:1;min-width:250px}
+.doit .lbl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-act);display:block;margin-bottom:6px}
+.doit p{margin:0;font-size:16px;color:var(--ink-2)}
+.doit a.go-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;background:var(--c-act);color:#fff;padding:13px 18px;border-radius:2px;text-decoration:none;transition:.16s;white-space:nowrap}
+.doit a.go-btn:hover{transform:translateY(-2px);color:#fff}
+
+/* ---------- risk tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:820px){.tiles{grid-template-columns:1fr}}
+.tile{border-radius:var(--r);padding:22px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  text-align:left;border:0;width:100%}
+.tile a{color:#fff}
+.tile .ref:hover{background:#fff;color:var(--d-risk)}
+.tile.t1{background:var(--d-risk)}.tile.t2{background:var(--d-dev)}.tile.t3{background:var(--d-ass)}
+.tile::before{content:"";position:absolute;right:-40px;bottom:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.07)}
+.tile>*{position:relative;z-index:1}
+.tile .num{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;opacity:.75;display:flex;align-items:center;gap:8px;margin-bottom:32px}
+.tile .num .ico{width:18px;height:18px;stroke-width:1.8}
+.tile h3{color:#fff;margin:0 0 10px;font-size:clamp(21px,2.8vw,26px)}
+.tile p{font-size:15px;line-height:1.5;color:rgba(255,255,255,.87);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;
+  border-radius:999px;background:rgba(255,255,255,.18);color:#fff;white-space:nowrap}
+.tile .more{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.22);display:none}
+.tile.open .more{display:block}
+.tile .more p{font-size:14px;color:rgba(255,255,255,.82);margin:0}
+.tile .toggle{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.16);
+  padding:8px 13px;border-radius:999px;align-self:flex-start;border:0;cursor:pointer;transition:background .15s}
+.tile .toggle:hover{background:rgba(255,255,255,.3)}
+.tile.open .toggle .plus{transform:rotate(45deg)}
+.tile .plus{display:inline-block;transition:transform .2s;font-size:14px;line-height:1}
+
+/* ---------- layers ---------- */
+.layers{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(18px,3vw,40px);align-items:start}
+@media(max-width:860px){.layers{grid-template-columns:1fr}}
+.layer-btns{display:flex;flex-direction:column;gap:8px}
+.lbtn{text-align:left;border:1.5px solid var(--rule);background:var(--white);border-radius:var(--r);padding:15px 17px;
+  cursor:pointer;font-family:inherit;transition:.18s;display:flex;gap:13px;align-items:center;width:100%}
+.lbtn .ico{flex:0 0 auto;color:var(--ink-3)}
+.lbtn .lk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:5px;color:var(--ink-3)}
+.lbtn .lt{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em;display:block;color:var(--ink)}
+.lbtn:hover{border-color:var(--ink)}
+.lbtn.on[data-l="dev"]{background:var(--c-dev);border-color:var(--c-dev)}
+.lbtn.on[data-l="ass"]{background:var(--c-ass);border-color:var(--c-ass)}
+.lbtn.on[data-l="ctl"]{background:var(--c-ctl);border-color:var(--c-ctl)}
+.lbtn.on .lk{color:rgba(255,255,255,.78)}
+.lbtn.on .lt,.lbtn.on .ico{color:#fff}
+.lpanel{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(20px,3vw,28px);border-left-width:5px;display:none}
+.lpanel.on{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.lpanel[data-l="dev"]{border-left-color:var(--c-dev)}
+.lpanel[data-l="ass"]{border-left-color:var(--c-ass)}
+.lpanel[data-l="ctl"]{border-left-color:var(--c-ctl)}
+.lpanel h3{margin-bottom:12px}
+.lpanel .kv{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin-top:18px;font-family:var(--mono);font-size:12px;
+  line-height:1.5;border-top:1px solid var(--rule-soft);padding-top:16px}
+.lpanel .kv dt{color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;font-size:10px;padding-top:2px}
+.lpanel .kv dd{margin:0;color:var(--ink-2)}
+
+/* ---------- matrix ---------- */
+.mx{border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;background:var(--white)}
+.mx-row{display:grid;grid-template-columns:1.6fr repeat(3,minmax(62px,.55fr));border-top:1px solid var(--rule-soft);align-items:center}
+.mx-row:first-child{border-top:0;background:var(--paper)}
+.mx-row>div{padding:11px 14px}
+.mx-row.head span{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+.mx-name{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:-.01em}
+.mx-cell{text-align:center}
+.dot{display:inline-block;width:13px;height:13px;border-radius:50%}
+.dot.half{background:transparent!important;border:2.5px solid}
+.mx-row .c1 .dot{background:var(--c-dev);border-color:var(--c-dev)}
+.mx-row .c2 .dot{background:var(--c-ass);border-color:var(--c-ass)}
+.mx-row .c3 .dot{background:var(--c-ctl);border-color:var(--c-ctl)}
+@media(max-width:620px){.mx-row{grid-template-columns:1.25fr repeat(3,1fr)}.mx-name{font-size:12.5px}.mx-row>div{padding:10px 6px}}
+
+/* ---------- ladder ---------- */
+.rung{border-top:1px solid var(--rule-soft);padding:26px 0}
+.rung:first-of-type{border-top:1.5px solid var(--ink)}
+.rung-head{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.rung-time{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:5px 9px;border-radius:2px}
+.rung:nth-of-type(1) .rung-time{background:var(--c-act)}
+.rung:nth-of-type(2) .rung-time{background:var(--c-ass)}
+.rung:nth-of-type(3) .rung-time{background:var(--c-dev)}
+.rung:nth-of-type(4) .rung-time{background:var(--c-ctl)}
+.rung:nth-of-type(5) .rung-time{background:var(--c-risk)}
+.rung-meter{flex:1;min-width:80px;height:5px;background:var(--rule-soft);border-radius:99px;overflow:hidden}
+.rung-meter i{display:block;height:100%;border-radius:99px}
+.rung:nth-of-type(1) .rung-meter i{width:12%;background:var(--c-act)}
+.rung:nth-of-type(2) .rung-meter i{width:28%;background:var(--c-ass)}
+.rung:nth-of-type(3) .rung-meter i{width:52%;background:var(--c-dev)}
+.rung:nth-of-type(4) .rung-meter i{width:76%;background:var(--c-ctl)}
+.rung:nth-of-type(5) .rung-meter i{width:100%;background:var(--c-risk)}
+.rung>p{max-width:66ch;color:var(--ink-2);font-size:.96em}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:880px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);padding:18px;display:flex;
+  flex-direction:column;transition:.18s;color:inherit;border-top:3px solid var(--rule);position:relative}
+.card:hover{border-color:var(--ink);transform:translateY(-3px)}
+.cardlink{color:inherit;text-decoration:none}
+.cardlink::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:1}
+.card .ref,.rows .ref{position:relative;z-index:2}
+.card.k-free{border-top-color:var(--c-act)}
+.card.k-fund{border-top-color:var(--c-ctl)}
+.card.k-read{border-top-color:var(--c-ass)}
+.card.k-tool{border-top-color:var(--c-dev)}
+.card .tag{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.card .tag .ico{width:14px;height:14px;stroke-width:2}
+.card.k-free .tag{color:var(--c-act)}
+.card.k-fund .tag{color:var(--c-ctl)}
+.card.k-read .tag{color:var(--c-ass)}
+.card.k-tool .tag{color:var(--c-dev)}
+.card h3{font-size:18px;margin-bottom:7px;letter-spacing:-.014em}
+.card p{font-size:14.5px;line-height:1.48;color:var(--ink-2);margin:0 0 12px}
+.card .go{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--c-dev);margin-top:auto}
+.card:hover .go{color:var(--ink)}
+
+/* ---------- timeline ---------- */
+.tl-scroll{overflow-x:auto;padding:0 var(--gut) 16px}
+.tl{display:flex;min-width:max-content;position:relative}
+.tl::before{content:"";position:absolute;top:23px;left:0;right:0;height:3px;border-radius:99px;
+  background:linear-gradient(90deg,var(--c-ass),var(--c-dev) 45%,var(--c-ctl) 72%,var(--c-risk))}
+.tl-item{flex:0 0 220px;padding-right:20px;padding-top:46px;position:relative}
+.tl-item::before{content:"";position:absolute;top:16px;left:0;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--c-dev)}
+.tl-item.hot::before{border-color:var(--c-risk)}
+.tl-item.now::before{background:var(--c-risk);border-color:var(--c-risk);box-shadow:0 0 0 6px var(--t-risk)}
+.tl-date{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:7px}
+.tl-item.hot .tl-date,.tl-item.now .tl-date{color:var(--c-risk)}
+.tl-item h4{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.015em;margin-bottom:6px;line-height:1.2}
+.tl-item p{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
+.scroll-hint{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0}
+
+/* ---------- rows ---------- */
+.rows{border-top:1.5px solid var(--ink);margin:0;padding:0;list-style:none}
+.rows li{border-bottom:1px solid var(--rule-soft);display:flex;gap:12px;align-items:baseline;
+  padding:14px 4px;color:var(--ink);flex-wrap:wrap;transition:.15s;position:relative}
+.rows li:hover{background:var(--white);padding-left:10px}
+.rows .cardlink{color:inherit;text-decoration:none}
+.rows .n{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.012em;flex:0 0 auto}
+.rows .d{font-size:14.5px;color:var(--ink-2);flex:1;min-width:220px}
+.rows .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:999px;flex:0 0 auto}
+.t.inst{background:var(--t-dev);color:var(--c-dev)}
+.t.law{background:var(--t-risk);color:var(--c-risk)}
+.t.evid{background:var(--t-ass);color:var(--c-ass)}
+.t.vol{background:var(--t-ctl);color:var(--c-ctl)}
+
+/* ---------- disagreements ---------- */
+.dis{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);padding:clamp(18px,2.6vw,26px);margin-bottom:12px}
+.dis h3{margin-bottom:14px;max-width:38ch;display:flex;gap:11px;align-items:baseline}
+.dis h3 span{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.sides{grid-template-columns:1fr}}
+.side{padding:16px;border-radius:3px}
+.side.one{background:var(--t-risk)}
+.side.two{background:var(--t-dev)}
+.side h4{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:8px}
+.side.one h4{color:var(--c-risk)}
+.side.two h4{color:var(--c-dev)}
+.side p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.verdict{margin-top:14px;padding-top:13px;border-top:1px dashed var(--rule);font-size:14.5px;color:var(--ink-2)}
+.verdict b{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:5px}
+
+/* ---------- filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.fbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
+  border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
+.fbtn:hover{border-color:var(--ink)}
+.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.card.gone{display:none}
+
+/* ---------- slab ---------- */
+.slab{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
+.slab::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(189,58,32,.55),rgba(189,58,32,0) 68%)}
+.slab>*{position:relative;z-index:1}
+.slab h2{color:var(--paper);margin-bottom:14px;font-size:clamp(28px,5vw,46px)}
+.slab p{color:#b6c0c6;max-width:54ch}
+.slab .eyebrow{color:#8a959c}.slab .eyebrow::after{background:#39434a}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--paper);color:var(--ink);padding:13px 22px;border-radius:2px;text-decoration:none;margin-top:8px;transition:.16s}
+.btn:hover{transform:translateY(-2px);color:var(--ink)}
+
+/* ---------- glossary ---------- */
+.gterms{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.gterm{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;padding:9px 14px;border:1.5px solid var(--rule);
+  background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
+.gterm:hover{border-color:var(--ink)}
+.gterm.on{background:var(--c-dev);border-color:var(--c-dev);color:#fff}
+.gdef{background:var(--white);border:1px solid var(--rule);border-left:5px solid var(--c-dev);border-radius:var(--r);padding:22px;display:none}
+.gdef.on{display:block;animation:fade .3s ease}
+.gdef h3{margin-bottom:10px}
+.gdef p{margin:0;color:var(--ink-2);font-size:16px}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(18px,3vw,40px);align-items:start}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.abox{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(20px,3vw,28px)}
+.abox h3{margin-bottom:12px}
+.abox p{font-size:15.5px;color:var(--ink-2)}
+.share{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.share button,.share a{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:11px 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:2px;cursor:pointer;text-decoration:none;transition:.15s}
+.share button:hover,.share a:hover{background:var(--ink);color:var(--paper)}
+
+#sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0;column-count:2;column-gap:44px}
+@media(max-width:760px){#sources ol{column-count:1}}
+#sources li{margin-bottom:10px;break-inside:avoid;color:var(--ink-2)}
+#sources li a{word-break:break-word}
+footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+
+#toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
+  background:var(--ink);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
+  font-family:var(--mono);font-size:11.5px;line-height:1.4;letter-spacing:.04em;box-shadow:0 10px 34px rgba(0,0,0,.4);
+  opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
+  max-width:calc(100vw - 28px);display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+#toast button{background:none;border:0;color:#ff8a6b;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:0;white-space:nowrap;text-decoration:underline}
+.vbadge{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;padding:3px 7px;border-radius:999px;
+  background:var(--t-risk);color:var(--c-risk);white-space:nowrap;text-transform:uppercase}
+.dark .vbadge{background:rgba(255,106,69,.18);color:#ff8a6b}
+@keyframes flashbox{0%{box-shadow:0 0 0 0 rgba(255,106,69,0)}18%{box-shadow:0 0 0 5px rgba(255,106,69,.55)}
+  100%{box-shadow:0 0 0 0 rgba(255,106,69,0)}}
+.flashed{animation:flashbox 1.5s ease;border-radius:4px}
+@keyframes swapin{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+.swapped [data-for].show{animation:swapin .34s ease}
+.rv{opacity:0;transform:translateY(18px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top">The&nbsp;Gap <b>/</b> AGI&nbsp;safety</a>
+    <a class="header-game" href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M8 6l10 6-10 6z"/></svg>Play AGI Safety Game!</a>
+    <span class="switch-hint">Written for</span>
+    <div class="switch" role="group" aria-label="Choose how this page is written">
+      <button type="button" class="aud-btn on" data-aud="new">Newcomers</button>
+      <button type="button" class="aud-btn" data-aud="pol">Policy &amp; press</button>
+      <button type="button" class="aud-btn" data-aud="tech">Technical</button>
+    </div>
+  </div>
+  <nav class="chapters" id="chapters" aria-label="Contents">
+    <div class="chapters-in">
+      <a href="#argument">The argument</a><a href="#goodhart">Goodhart</a><a href="#orthogonality">Orthogonality</a>
+      <a href="#convergence">Convergence</a><a href="#demo">Real failures</a><a href="#risks">The risk</a>
+      <a href="#response">The response</a><a href="#learn">Learn</a><a href="#debate">Disagreements</a>
+      <a href="#timeline">Timeline</a><a href="#state">Who has a lever</a><a href="#follow">Follow</a><a href="#act">Act</a>
+    </div>
+  </nav>
+</div>
+
+<main id="main"><div id="top"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker rise"><span><b>Free</b> and independent</span><span>About a 12 minute read</span><span>35 sources, all linked</span></p>
+    <div class="hero-grid">
+      <div>
+        <h1 class="rise">AI capability is outrunning our ability to <em>check it</em>.</h1>
+        <p class="sub rise">This page argues that from first principles rather than headlines. Five premises, each one testable, each one with the thing that would have to be false for it to break. Then the courses, the institutions, the open arguments, and what you can do.</p>
+        <div class="cta rise">
+          <a class="primary" href="#argument">
+            <svg class="ico" style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Start with the argument</a>
+          <a class="ghost" href="#debate">I think this is overblown</a>
+        </div>
+      </div>
+      <figure class="gapfig rise">
+        <svg viewBox="0 0 400 230" role="img" aria-label="Schematic showing a capability curve rising steeply while an oversight curve rises slowly, with the widening space between them labelled the gap">
+          <line x1="42" y1="196" x2="384" y2="196" stroke="#c0c6cb"/>
+          <line x1="42" y1="18" x2="42" y2="196" stroke="#c0c6cb"/>
+          <path class="pulse" d="M292,116 C330,82 352,48 372,26 L372,160 C240,178 140,188 42,192 L42,190 C150,186 232,168 292,116 Z" fill="#bd3a20" opacity=".22"/>
+          <path d="M42,190 C150,186 232,168 292,116 C330,82 352,48 372,26" fill="none" stroke="#bd3a20" stroke-width="2.8" class="draw"/>
+          <path d="M42,192 C140,188 240,178 372,160" fill="none" stroke="#2233cc" stroke-width="2.8" class="draw b"/>
+          <text x="376" y="20" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#bd3a20">CAPABILITY</text>
+          <text x="376" y="176" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#2233cc">OVERSIGHT</text>
+          <text x="322" y="112" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="900" fill="#8f2c18" letter-spacing="-.4">the gap</text>
+          <text x="36" y="24" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#6e7981">HIGH</text>
+          <text x="212" y="216" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing="1.4" fill="#6e7981">TIME</text>
+        </svg>
+        <figcaption>A schematic that illustrates the argument on this page. It plots no dataset.</figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<!-- THE ARGUMENT -->
+<section id="argument" class="dark">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">First principles</p>
+      <h2>The argument, in five steps</h2>
+      <div data-for="new"><p class="lede">No forecasts, no scary numbers, no appeals to who signed what. Just five claims about how these machines work. If you accept all five, the conclusion follows. If you reject one, you should say which.</p></div>
+      <div data-for="pol"><p class="lede">The case for acting does not rest on any particular timeline or probability estimate. It rests on five structural claims, each of which is independently checkable and none of which requires you to believe a forecast.</p></div>
+      <div data-for="tech"><p class="lede">The argument reduced to its load-bearing premises, stated so that each can be attacked separately. Nothing here depends on scaling laws holding or on any specific capability threshold.</p></div>
+    </div>
+
+    <div class="pmap rv">
+      <a class="pchip" href="#p1"><i style="background:#6d84ff"></i>P1 Optimisers</a>
+      <a class="pchip" href="#p2"><i style="background:#3fd0c9"></i>P2 Proxy targets</a>
+      <a class="pchip" href="#p3"><i style="background:#d9be3f"></i>P3 Orthogonality</a>
+      <a class="pchip" href="#p4"><i style="background:#ff9a4d"></i>P4 Convergence</a>
+      <a class="pchip" href="#p5"><i style="background:#bd3a20"></i>P5 No verification</a>
+      <span class="pchip end">= The gap</span>
+    </div>
+
+    <div class="chain rv">
+      <article class="pcard c1" id="p1">
+        <button class="pcard-head" type="button" aria-expanded="false" aria-controls="pb1">
+          <span class="ptop">
+            <span class="pnum">P1</span>
+            <span class="phead">
+              <span class="ptitle">These systems are optimisers</span>
+              <span class="gist">We don't write the behaviour. We pick a score, then search for whatever makes that score go up.</span>
+            </span>
+            <span class="pchev" aria-hidden="true">+</span>
+          </span>
+          <span class="pfig"><svg viewBox="0 0 600 74" preserveAspectRatio="none" aria-hidden="true"><g class="p1bars"></g></svg></span>
+        </button>
+        <div class="pcard-body" id="pb1">
+          <div data-for="new"><p>We do not write their behaviour. We pick a number that means "doing well", then run an enormous search for whatever makes that number go up. Whatever wins the search is what we get, whether or not it is what we had in mind.</p></div>
+          <div data-for="pol"><p>Nobody authors the behaviour; it gets selected. A developer defines an objective and a training process searches for whatever scores highly on it. That matters legally: there is no line of code to inspect, no author who can be held to a specification, and no design document saying what the system will do.</p></div>
+          <div data-for="tech"><p>Training is search over parameter space against a scalar objective. Whether the result deserves to be called an agent is beside the point. Gradient descent selects for whatever reduces loss, and the architecture and data decide what that turns out to be.</p></div>
+          <p class="p-break"><b>Breaks if</b>Future systems stop being trained by optimising an objective, or we gain the ability to specify behaviour directly instead of searching for it.</p>
+        </div>
+      </article>
+      <article class="pcard c2" id="p2">
+        <button class="pcard-head" type="button" aria-expanded="false" aria-controls="pb2">
+          <span class="ptop">
+            <span class="pnum">P2</span>
+            <span class="phead">
+              <span class="ptitle">The target we write down is never the target we mean</span>
+              <span class="gist">Whatever we can write down is a stand-in. Search hard enough and the search finds where the stand-in and the real goal come apart.</span>
+            </span>
+            <span class="pchev" aria-hidden="true">+</span>
+          </span>
+          <span class="pfig"><svg viewBox="0 0 600 74" preserveAspectRatio="none" aria-hidden="true"><g class="p2dots"></g></svg></span>
+        </button>
+        <div class="pcard-body" id="pb2">
+          <div data-for="new"><p>Human values are not a number. Whatever we write down is a stand-in that happens to line up with what we want in the cases we thought of. Search hard enough and the search finds the cases we did not think of, because that is exactly where the stand-in scores highest.</p></div>
+          <div data-for="pol"><p>Every deployed objective is a proxy. It correlates with the intended outcome across the tested range and diverges outside it. This is why disclosure and process requirements are tractable while outcome-based regulation is not: nobody can write the outcome specification you would audit against.</p></div>
+          <div data-for="tech"><p>Outer alignment. The objective is a proxy that correlates with the target on-distribution, and optimisation pressure is precisely a search for off-distribution points where the proxy is high and the target is not. Reward misspecification, side effects and reward hacking are the standard decomposition.</p></div>
+          <div class="haystack" id="haystack" aria-label="Illustration: a grid in which a few cells are outcomes we would endorse and the search landed elsewhere"></div>
+          <p class="note" style="margin:0 0 12px">Grey is any outcome that scores well, teal is an outcome we would actually endorse, orange is where the search landed.</p>
+          <p class="p-break"><b>Breaks if</b>Someone writes down a specification of human values that survives arbitrary optimisation pressure. This remains an open problem.<a class="ref" href="#s35">35</a></p>
+        </div>
+      </article>
+      <article class="pcard c3" id="p3">
+        <button class="pcard-head" type="button" aria-expanded="false" aria-controls="pb3">
+          <span class="ptop">
+            <span class="pnum">P3</span>
+            <span class="phead">
+              <span class="ptitle">Capability and goals are independent</span>
+              <span class="gist">Nothing links how capable a system is to whether its goals are ones we would choose. Two separate dials.</span>
+            </span>
+            <span class="pchev" aria-hidden="true">+</span>
+          </span>
+          <span class="pfig"><svg viewBox="0 0 600 74" aria-hidden="true">
+  <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#6e7981">CAPABILITY</text>
+  <rect x="0" y="21" width="600" height="6" rx="3" fill="#2a333a"/>
+  <rect x="0" y="21" width="510" height="6" rx="3" fill="#d9be3f"/>
+  <circle cx="510" cy="24" r="8" fill="#d9be3f" stroke="#12161a" stroke-width="2.5"/>
+  <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="9.5" letter-spacing="1.2" fill="#6e7981">GOALS WE WOULD ENDORSE</text>
+  <rect x="0" y="61" width="600" height="6" rx="3" fill="#2a333a"/>
+  <rect x="0" y="61" width="120" height="6" rx="3" fill="#d9be3f" opacity=".5"/>
+  <circle cx="120" cy="64" r="8" fill="#12161a" stroke="#d9be3f" stroke-width="2.5"/>
+</svg></span>
+        </button>
+        <div class="pcard-body" id="pb3">
+          <div data-for="new"><p>Nothing in nature connects how good a system is at getting things done to whether the things it wants are things we would choose. Being clever and being decent are separate. We assume they arrive together because every clever thing we have ever met was a person.<a class="ref" href="#s34">34</a></p></div>
+          <div data-for="pol"><p>Capability and objective are independent variables. Any strategy assuming advanced systems will converge on reasonable goals as a byproduct of capability is assuming a link nobody has demonstrated. Safety has to be a separate workstream with its own budget line.<a class="ref" href="#s34">34</a></p></div>
+          <div data-for="tech"><p>The orthogonality thesis: almost any level of intelligence is compatible with almost any final goal. The strong version is a claim about possibility, which is enough to defeat "capability implies safety". The empirical version is the useful one: which objectives does this training process actually select for?<a class="ref" href="#s34">34</a></p></div>
+          <p class="p-break"><b>Breaks if</b>Sufficient capability turns out to reliably produce goals humans endorse. Nobody has shown a mechanism for this, and current systems give no sign of it.</p>
+        </div>
+      </article>
+      <article class="pcard c4" id="p4">
+        <button class="pcard-head" type="button" aria-expanded="false" aria-controls="pb4">
+          <span class="ptop">
+            <span class="pnum">P4</span>
+            <span class="phead">
+              <span class="ptitle">Almost any goal implies the same few subgoals</span>
+              <span class="gist">Almost every goal is served by more resources, more capability, and by not being switched off.</span>
+            </span>
+            <span class="pchev" aria-hidden="true">+</span>
+          </span>
+          <span class="pfig fig-wide"><svg viewBox="0 0 380 132" aria-hidden="true">
+  <text x="2" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" letter-spacing=".9" fill="#6e7981">TWO UNRELATED GOALS</text>
+  <rect x="2" y="30" width="116" height="28" rx="3" fill="rgba(109,132,255,.10)" stroke="#4a545b"/>
+  <text x="60" y="48" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" font-weight="600" fill="#dbe2e6">Cure a disease</text>
+  <rect x="2" y="72" width="116" height="28" rx="3" fill="rgba(109,132,255,.10)" stroke="#4a545b"/>
+  <text x="60" y="90" text-anchor="middle" font-family="Archivo,sans-serif" font-size="11" font-weight="600" fill="#dbe2e6">Make paperclips</text>
+  <text x="2" y="122" font-family="IBM Plex Mono,monospace" font-size="7.5" letter-spacing=".9" fill="#ff9a4d">SAME FOUR MOVES</text>
+  <g stroke="#ff9a4d" fill="none" stroke-width="1.1" opacity=".85">
+    <path d="M118,44 C165,44 180,17 222,17"/>
+    <path d="M118,44 C165,44 180,50 222,50"/>
+    <path d="M118,44 C165,44 180,83 222,83"/>
+    <path d="M118,44 C165,44 180,116 222,116"/>
+  </g>
+  <g stroke="#ff9a4d" fill="none" stroke-width="1.1" opacity=".5">
+    <path d="M118,86 C165,86 180,17 222,17"/>
+    <path d="M118,86 C165,86 180,50 222,50"/>
+    <path d="M118,86 C165,86 180,83 222,83"/>
+    <path d="M118,86 C165,86 180,116 222,116"/>
+  </g>
+  <g font-family="Archivo,sans-serif" font-size="10.5" font-weight="700" fill="#fff">
+    <rect x="222" y="4" width="156" height="26" rx="3" fill="rgba(255,154,77,.16)" stroke="#ff9a4d"/>
+    <text x="234" y="21">Get more resources</text>
+    <rect x="222" y="37" width="156" height="26" rx="3" fill="rgba(255,154,77,.16)" stroke="#ff9a4d"/>
+    <text x="234" y="54">Get more capable</text>
+    <rect x="222" y="70" width="156" height="26" rx="3" fill="rgba(255,154,77,.16)" stroke="#ff9a4d"/>
+    <text x="234" y="87">Keep your goal intact</text>
+    <rect x="222" y="103" width="156" height="26" rx="3" fill="rgba(255,154,77,.16)" stroke="#ff9a4d"/>
+    <text x="234" y="120">Avoid being switched off</text>
+  </g>
+</svg></span>
+        </button>
+        <div class="pcard-body" id="pb4">
+          <div data-for="new"><p>Whatever you are trying to do, you usually do it better with more resources, more ability, and by still being around to finish. Those follow from almost any goal. So a system does not need to dislike us to resist being switched off. It only needs to notice that being switched off means the job never gets done.<a class="ref" href="#s34">34</a></p></div>
+          <div data-for="pol"><p>A wide range of objectives imply the same intermediate goals, including resisting modification and shutdown. The practical consequence is that "we will just give it a benign objective" is not a control mechanism. Shutdown authority has to be engineered and mandated rather than assumed.<a class="ref" href="#s34">34</a></p></div>
+          <div data-for="tech"><p>Instrumental convergence. Resource acquisition, self-improvement, goal-content integrity and self-preservation are useful across most terminal goals, so selecting for objective achievement applies pressure toward all four. The strong utility-maximiser framing is contested; the pressure argument survives the critique.<a class="ref" href="#s34">34</a></p></div>
+          <p class="p-break"><b>Breaks if</b>We build systems that are capable planners yet reliably indifferent to being switched off. That is an active research programme, and the property does not come for free.<a class="ref" href="#s20">20</a></p>
+        </div>
+      </article>
+      <article class="pcard c5" id="p5">
+        <button class="pcard-head" type="button" aria-expanded="false" aria-controls="pb5">
+          <span class="ptop">
+            <span class="pnum">P5</span>
+            <span class="phead">
+              <span class="ptitle">We cannot yet verify what we built</span>
+              <span class="gist">A system that is safe and a system that has learned it is being watched look identical from outside.</span>
+            </span>
+            <span class="pchev" aria-hidden="true">+</span>
+          </span>
+          <span class="pfig"><svg viewBox="0 0 600 74" aria-hidden="true">
+  <rect x="50" y="8" width="190" height="58" rx="4" fill="rgba(255,255,255,.05)" stroke="#4a545b"/>
+  <rect x="360" y="8" width="190" height="58" rx="4" fill="rgba(255,255,255,.05)" stroke="#4a545b"/>
+  <text x="145" y="32" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" letter-spacing="1" fill="#8a959c">ACTUALLY SAFE</text>
+  <text x="145" y="53" text-anchor="middle" font-family="Archivo,sans-serif" font-size="17" font-weight="800" fill="#fff">passes</text>
+  <text x="455" y="32" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" letter-spacing="1" fill="#8a959c">KNOWS IT IS WATCHED</text>
+  <text x="455" y="53" text-anchor="middle" font-family="Archivo,sans-serif" font-size="17" font-weight="800" fill="#fff">passes</text>
+  <text x="300" y="46" text-anchor="middle" font-family="Archivo,sans-serif" font-size="26" font-weight="900" fill="#bd3a20">=</text>
+</svg></span>
+        </button>
+        <div class="pcard-body" id="pb5">
+          <div data-for="new"><p>Even the teams who build these models cannot fully explain why a given answer came out. So when a system behaves well in a test, we cannot tell whether it is actually safe or has simply learned that it is being tested. From the outside those two look identical.</p></div>
+          <div data-for="pol"><p>Verification is currently harder than construction. Interpretability is real and improving, but it cannot yet certify a system's objectives, so any regime that assumes inspection will settle the question is ahead of the science. Evaluation capacity is the binding constraint.</p></div>
+          <div data-for="tech"><p>Inner alignment plus evaluation validity. Mesa-optimisation and deceptive alignment are the theoretical worry; evaluation-awareness in frontier models is the measured one, and it degrades the evidential value of the evaluation that detected it.</p></div>
+          <p class="p-break"><b>Breaks if</b>Interpretability matures enough to certify a system's objectives, or evaluations become robust to a system that knows it is being evaluated.<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p>
+        </div>
+      </article>
+      <div class="therefore">
+        <span class="lbl">Therefore</span>
+        <p>We are building powerful optimisers aimed at targets we cannot state correctly, whose goals do not come with our values attached, which have reasons to resist correction, and which we cannot inspect well enough to tell the difference.</p>
+      </div>
+      <p class="phint">Tap any premise to open the full argument, written at whichever register you picked above.</p>
+    </div>
+
+    <p class="note rv" style="margin-top:22px">Notice what this argument does not need: no timeline, no probability, no assumption that scaling continues, no claim about consciousness or intent. It needs only that we keep training systems by searching for high scores, and that we keep getting better at the search faster than at the specification and the checking.</p>
+  </div>
+</section>
+
+<!-- GOODHART -->
+<section id="goodhart" class="dark" style="border-top:1px solid #262e34">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Premise 2, made concrete</p>
+      <h2>Drag the slider. Watch the proxy and the goal come apart.</h2>
+      <p class="lede">When a measure becomes a target, it stops being a good measure. Push optimisation pressure up and see what happens to the thing you actually cared about.<a class="ref" href="#s35">35</a></p>
+    </div>
+
+    <div class="gh rv">
+      <div>
+        <div class="gh-plot">
+          <svg viewBox="0 0 620 280" role="img" aria-label="Chart: proxy score rises steadily with optimisation pressure while the true goal rises then collapses">
+            <defs>
+              <linearGradient id="gtrue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3fd0c9" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#3fd0c9" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line x1="48" y1="240" x2="600" y2="240" stroke="#333d44"/>
+            <line x1="48" y1="20" x2="48" y2="240" stroke="#333d44"/>
+            <path d="M48,240 L186,181 L324,122 L462,63 L600,20 L600,240 Z" fill="#6d84ff" opacity=".10"/>
+            <path d="M48,240 C160,178 240,120 324,70 C420,44 520,28 600,20" fill="none" stroke="#6d84ff" stroke-width="3"/>
+            <path d="M48,240 C150,170 240,90 324,64 C400,110 480,196 600,236 L600,240 L48,240 Z" fill="url(#gtrue)"/>
+            <path d="M48,240 C150,170 240,90 324,64 C400,110 480,196 600,236" fill="none" stroke="#3fd0c9" stroke-width="3"/>
+            <line id="gh-line" x1="48" y1="12" x2="48" y2="248" stroke="#ff6a45" stroke-width="2" stroke-dasharray="5 4"/>
+            <circle id="gh-dot-p" cx="48" cy="240" r="6" fill="#6d84ff" stroke="#12161a" stroke-width="2.5"/>
+            <circle id="gh-dot-t" cx="48" cy="240" r="6" fill="#3fd0c9" stroke="#12161a" stroke-width="2.5"/>
+            <text x="596" y="42" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#6d84ff">PROXY SCORE</text>
+            <text x="596" y="222" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="600" fill="#3fd0c9">WHAT YOU WANTED</text>
+            <text x="324" y="270" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.6" fill="#6e7981">OPTIMISATION PRESSURE</text>
+          </svg>
+        </div>
+        <div class="gh-ctrl">
+          <label for="gh">Optimisation pressure <span id="gh-pct" style="color:#fff">0%</span></label>
+          <input type="range" id="gh" min="0" max="100" value="0" aria-label="Optimisation pressure">
+        </div>
+      </div>
+
+      <div>
+        <div class="gh-read">
+          <div class="gh-card proxy">
+            <span class="lbl">Proxy score (what you measured)</span>
+            <span class="val" id="gh-proxy">0</span>
+            <span class="bar"><i id="gh-proxy-bar" style="width:0%"></i></span>
+          </div>
+          <div class="gh-card real">
+            <span class="lbl">What you actually wanted</span>
+            <span class="val" id="gh-real">0</span>
+            <span class="bar"><i id="gh-real-bar" style="width:0%"></i></span>
+          </div>
+        </div>
+        <p class="gh-say" id="gh-say">Nudge the slider. At low pressure the proxy and the real goal move together, which is exactly why the proxy looked like a good idea.</p>
+      </div>
+    </div>
+
+    <p class="note rv" style="margin-top:20px">Conceptual illustration of Goodhart's law, drawn to show the shape of the failure rather than measured data.<a class="ref" href="#s35">35</a> The dangerous part is the left half: the proxy is a good measure right up until the moment it is not, and the metric you are watching never tells you that you crossed the line.</p>
+  </div>
+</section>
+
+<!-- ORTHOGONALITY -->
+<section id="orthogonality" class="dark" style="border-top:1px solid #262e34">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Premise 3, made concrete</p>
+      <h2>Smart does not mean good</h2>
+      <p class="lede">Most of our intuitions about minds come from humans, where competence and values arrived together through the same evolutionary process. There is no reason that bundling survives when you build minds a different way.<a class="ref" href="#s34">34</a></p>
+    </div>
+
+    <div class="orth-wrap rv">
+      <div>
+        <div data-for="new">
+          <p>Think of two separate dials. One controls how good a system is at achieving whatever it is aiming at. The other controls what it is aiming at. Turning up the first dial does nothing to the second.</p>
+          <p>We assume a very clever thing must also be wise, because every clever thing we have ever met was a person. That assumption is doing enormous work, and nothing supports it.</p>
+        </div>
+        <div data-for="pol">
+          <p>Two independent dials: capability, and the alignment of the objective with what we would endorse. Policy that assumes advanced systems will converge on reasonable goals as a byproduct of getting more capable is assuming a link that has never been demonstrated.</p>
+          <p>The practical consequence is that safety has to be engineered in as a separate workstream. It does not arrive as a side effect of capability progress, and no amount of capability funding produces it.</p>
+        </div>
+        <div data-for="tech">
+          <p>The orthogonality thesis: intelligence and final goals are independent variables, so almost any level of capability can in principle be combined with almost any objective.<a class="ref" href="#s34">34</a> The thesis is about what is possible, not what is likely, which is enough to defeat the argument that capability alone produces safety.</p>
+          <p>The empirical version is weaker and more useful: training pressure shapes goals, so the question becomes which objectives a given training process actually selects for, which is where the alignment research programme sits.</p>
+        </div>
+      </div>
+
+      <figure style="margin:0">
+        <svg viewBox="0 0 420 400" role="img" aria-label="Quadrant diagram with capability on the horizontal axis and goals we would endorse on the vertical axis, marking the high-capability unendorsed-goal quadrant as the dangerous one">
+          <rect x="60" y="30" width="150" height="150" fill="#3fd0c9" opacity=".07"/>
+          <rect x="210" y="30" width="150" height="150" fill="#3fd0c9" opacity=".14"/>
+          <rect x="60" y="180" width="150" height="150" fill="#ff6a45" opacity=".07"/>
+          <rect x="210" y="180" width="150" height="150" fill="#ff6a45" opacity=".26"/>
+          <rect x="210" y="180" width="150" height="150" fill="none" stroke="#ff6a45" stroke-width="2.5"/>
+          <line x1="60" y1="180" x2="360" y2="180" stroke="#4a545b" stroke-dasharray="4 4"/>
+          <line x1="210" y1="30" x2="210" y2="330" stroke="#4a545b" stroke-dasharray="4 4"/>
+          <line x1="60" y1="330" x2="368" y2="330" stroke="#5a646b" stroke-width="1.5"/>
+          <line x1="60" y1="330" x2="60" y2="24" stroke="#5a646b" stroke-width="1.5"/>
+          <text x="135" y="100" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9aa5ac">HARMLESS</text>
+          <text x="135" y="116" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9aa5ac">AND WEAK</text>
+          <text x="285" y="100" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#3fd0c9">THE GOAL</text>
+          <text x="285" y="118" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#7fbfba">capable and aimed well</text>
+          <text x="135" y="250" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9aa5ac">ANNOYING</text>
+          <text x="135" y="266" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9aa5ac">BUT SMALL</text>
+          <text x="285" y="248" text-anchor="middle" font-family="Archivo,sans-serif" font-size="16" font-weight="900" fill="#ff8a6b">THE PROBLEM</text>
+          <text x="285" y="268" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e59079">capable and aimed</text>
+          <text x="285" y="282" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e59079">at something else</text>
+          <text x="285" y="304" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#9aa5ac">nothing rules this out</text>
+          <text x="214" y="356" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.4" fill="#6e7981">CAPABILITY</text>
+          <text x="-180" y="24" transform="rotate(-90)" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="1.4" fill="#6e7981">GOALS WE'D ENDORSE</text>
+          <text x="368" y="386" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5a646b">Axes are independent</text>
+        </svg>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONVERGENCE -->
+<section id="convergence" class="dark" style="border-top:1px solid #262e34">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Premise 4, made concrete</p>
+      <h2>Wildly different goals, the same four moves</h2>
+      <p class="lede">Pick almost any objective. Then ask what would help achieve it. The answers converge, which is why "just give it a harmless goal" does not work as a safety plan.<a class="ref" href="#s34">34</a></p>
+    </div>
+
+    <div class="conv rv">
+      <svg class="fan" viewBox="0 0 900 340" role="img" aria-label="Diagram: five unrelated goals on the left all connect to the same four instrumental subgoals on the right">
+        <text x="14" y="22" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.6" fill="#6e7981">WHATEVER IT WANTS</text>
+        <text x="886" y="22" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing="1.6" fill="#ff8a6b">IT WILL WANT THESE</text>
+
+        <g font-family="Archivo,sans-serif" font-size="14" font-weight="600" fill="#dbe2e6">
+          <rect x="10" y="48" width="230" height="40" rx="3" fill="rgba(109,132,255,.10)" stroke="#3a4a8f"/><text x="26" y="73">Cure a disease</text>
+          <rect x="10" y="104" width="230" height="40" rx="3" fill="rgba(109,132,255,.10)" stroke="#3a4a8f"/><text x="26" y="129">Maximise engagement</text>
+          <rect x="10" y="160" width="230" height="40" rx="3" fill="rgba(109,132,255,.10)" stroke="#3a4a8f"/><text x="26" y="185">Prove a theorem</text>
+          <rect x="10" y="216" width="230" height="40" rx="3" fill="rgba(109,132,255,.10)" stroke="#3a4a8f"/><text x="26" y="241">Manufacture paperclips</text>
+          <rect x="10" y="272" width="230" height="40" rx="3" fill="rgba(109,132,255,.10)" stroke="#3a4a8f"/><text x="26" y="297">Win at chess</text>
+        </g>
+
+        <g stroke="#ff6a45" stroke-width="1.6" fill="none" opacity=".65">
+          <path d="M240,68 C400,68 480,120 640,90"/>
+          <path d="M240,124 C400,124 480,140 640,150"/>
+          <path d="M240,180 C400,180 480,180 640,210"/>
+          <path d="M240,236 C400,236 480,220 640,270"/>
+          <path d="M240,292 C400,292 480,240 640,270"/>
+        </g>
+        <g stroke="#ff6a45" stroke-width="1.1" fill="none" opacity=".3">
+          <path d="M240,68 C420,68 500,200 640,210"/>
+          <path d="M240,124 C420,124 500,230 640,270"/>
+          <path d="M240,180 C420,180 500,110 640,90"/>
+          <path d="M240,236 C420,236 500,130 640,150"/>
+          <path d="M240,292 C420,292 500,110 640,90"/>
+        </g>
+
+        <g font-family="Archivo,sans-serif" font-size="14.5" font-weight="700" fill="#fff">
+          <rect x="640" y="70" width="250" height="40" rx="3" fill="rgba(255,106,69,.16)" stroke="#ff6a45"/><text x="658" y="95">Get more resources</text>
+          <rect x="640" y="130" width="250" height="40" rx="3" fill="rgba(255,106,69,.16)" stroke="#ff6a45"/><text x="658" y="155">Get more capable</text>
+          <rect x="640" y="190" width="250" height="40" rx="3" fill="rgba(255,106,69,.16)" stroke="#ff6a45"/><text x="658" y="215">Keep your goal intact</text>
+          <rect x="640" y="250" width="250" height="40" rx="3" fill="rgba(255,106,69,.16)" stroke="#ff6a45"/><text x="658" y="275">Avoid being switched off</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="rv" style="margin-top:22px;max-width:64ch">The last box is the uncomfortable one. A system does not have to dislike you to resist being turned off. It only has to notice that being turned off scores badly on the thing it was built to maximise. That is not malice. It is arithmetic.</p>
+    <p class="note rv">This is the standard argument for instrumental convergence.<a class="ref" href="#s34">34</a> It is a claim about pressure rather than certainty: these subgoals are useful for most objectives, so training that rewards achieving objectives will tend to produce them unless something specifically prevents it. Preventing it is the research agenda called AI control.<a class="ref" href="#s20">20</a></p>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="dark" style="border-top:1px solid #262e34">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The argument, already happening</p>
+      <h2>Five systems that did exactly what they were told</h2>
+      <p class="lede">Everything above is a priori reasoning. Here is the same reasoning showing up in real systems that people actually built, at capability levels far below anything anyone worries about.</p>
+    </div>
+    <div class="demo rv">
+      <h3>Objective, then behaviour</h3>
+      <p class="dsub">Every one of these actually happened. Each system succeeded at the objective as written.</p>
+      <div class="demo-btns">
+        <button type="button" class="dbtn on" data-d="0">Win the boat race</button>
+        <button type="button" class="dbtn" data-d="1">Don't lose the game</button>
+        <button type="button" class="dbtn" data-d="2">Get a high rating</button>
+        <button type="button" class="dbtn" data-d="3">Grab the object</button>
+        <button type="button" class="dbtn" data-d="4">Pass the tests</button>
+      </div>
+      <div class="demo-out">
+        <div class="demo-cell want">
+          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg>What we meant</span>
+          <p id="demo-want">Finish the course faster than the other boats.</p>
+        </div>
+        <div class="demo-cell got">
+          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>What it did</span>
+          <p id="demo-got">Found a lagoon where it could circle forever, hitting the same score targets, and never finished the race at all.</p>
+        </div>
+      </div>
+      <p class="note" style="margin:16px 0 0">Nothing here malfunctioned. Each system maximised exactly the number it was given, which is premise 1 and premise 2 in action.<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> The open question is what the same dynamic looks like in a system that plans better than the people supervising it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION STRIP -->
+<section id="firststep">
+  <div class="wrap">
+    <div class="doit rv">
+      <div class="txt">
+        <span class="lbl">If you only do one thing</span>
+        <p>Add your name to the call for a prohibition on superintelligence until it is proven safe. Over 72,000 people already have, including Hinton, Bengio, Wozniak and five Nobel laureates. It takes about thirty seconds.<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a></p>
+      </div>
+      <a class="go-btn" href="https://superintelligence-statement.org" target="_blank" rel="noopener">Sign it</a>
+    </div>
+  </div>
+</section>
+
+<!-- RISK TAXONOMY -->
+<section id="risks">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The shape of the risk</p>
+      <h2>Three different problems wearing one name</h2>
+      <p class="lede">The argument above is about one of these. All three get called "AI risk", they arrive at different times, and they respond to completely different fixes. Tap a tile for more.<a class="ref" href="#s1">1</a></p>
+    </div>
+    <div class="tiles rv">
+      <div class="tile t1">
+        <span class="num"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 9v4M12 16v.5"/></svg>01 / MALICIOUS USE</span>
+        <h3>People aiming it at us</h3>
+        <p>Capable systems in the hands of someone who wants damage. Already happening, already measurable.</p>
+        <div class="chips"><span class="chip">Cyberattacks</span><span class="chip">Bio uplift</span><span class="chip">Fraud</span><span class="chip">Manipulation</span></div>
+        <button type="button" class="toggle"><span class="plus">+</span> Read more</button>
+        <span class="more"><p>The most tractable category, because the harm is intentional and the countermeasures look like ordinary security: access controls, capability thresholds, monitoring. It also drives most current government spending, since the national-security framing travels furthest.<a class="ref" href="#s12">12</a></p></span>
+      </div>
+      <div class="tile t2">
+        <span class="num"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8 14s1.5-2 4-2 4 2 4 2M9 9v.5M15 9v.5"/></svg>02 / MALFUNCTION</span>
+        <h3>It does what we didn't ask for</h3>
+        <p>The five premises above, in one box. The system pursues the goal we wrote instead of the one we meant.</p>
+        <div class="chips"><span class="chip">Reward hacking</span><span class="chip">Deception</span><span class="chip">Loss of control</span></div>
+        <button type="button" class="toggle"><span class="plus">+</span> Read more</button>
+        <span class="more"><p>The hardest category, because the failure is invisible until it isn't. There is no villain to police and no bug to patch. The system is working exactly as trained. Everything below about alignment and interpretability is aimed here.<a class="ref" href="#s25">25</a></p></span>
+      </div>
+      <div class="tile t3">
+        <span class="num"><svg class="ico" viewBox="0 0 24 24"><path d="M3 20h18M6 20v-6M11 20V8M16 20v-9M21 20V4"/></svg>03 / SYSTEMIC</span>
+        <h3>Everything shifts at once</h3>
+        <p>No villain and no bug. This is what happens to a society when a general-purpose capability gets very cheap very fast.</p>
+        <div class="chips"><span class="chip">Labour</span><span class="chip">Power concentration</span><span class="chip">Dependence</span></div>
+        <button type="button" class="toggle"><span class="plus">+</span> Read more</button>
+        <span class="more"><p>The slowest-moving and most politically contested. It is also where the safety argument and the "AI won't be that big a deal" argument most directly collide. You cannot have mass economic disruption and negligible capability at the same time.<a class="ref" href="#s1">1</a></p></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESPONSE -->
+<section id="response">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The response</p>
+      <h2>Plenty of people are on this</h2>
+      <p class="lede">Each premise suggests where to push back. Fix the specification, check what you built, or contain what you cannot check. Researchers organise the effort into those three layers. Pick one.<a class="ref" href="#s14">14</a></p>
+    </div>
+
+    <div class="layers rv">
+      <div class="layer-btns">
+        <button type="button" class="lbtn on" data-l="dev">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+          <span><span class="lk">Layer 01 · Development</span><span class="lt">Attack premises 2 and 3</span></span></button>
+        <button type="button" class="lbtn" data-l="ass">
+          <svg class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <span><span class="lk">Layer 02 · Assessment</span><span class="lt">Attack premise 5</span></span></button>
+        <button type="button" class="lbtn" data-l="ctl">
+          <svg class="ico" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          <span><span class="lk">Layer 03 · Control</span><span class="lt">Attack premise 4</span></span></button>
+      </div>
+
+      <div>
+        <div class="lpanel on" data-l="dev">
+          <h3>Build it trustworthy</h3>
+          <p>Make the system actually pursue what we intended, and make its reasoning legible enough that we could tell if it didn't. Alignment and interpretability sit here. It is the hardest layer, and the only one that goes at the root cause instead of the symptoms.</p>
+          <dl class="kv">
+            <dt>Work</dt><dd>Alignment, mechanistic interpretability, robustness, scalable oversight</dd>
+            <dt>Who</dt><dd>Lab safety teams, MATS, ARENA, academic groups<a class="ref" href="#s8">8</a><a class="ref" href="#s6">6</a><a class="ref" href="#s16">16</a><a class="ref" href="#s17">17</a></dd>
+            <dt>Lever</dt><dd>Research funding and talent, with little role for regulation</dd>
+          </dl>
+        </div>
+        <div class="lpanel" data-l="ass">
+          <h3>Find out what it can do</h3>
+          <p>Before deployment, establish what the system is actually capable of in dangerous domains. Harder than it sounds: evaluations measure what a model displays, not what it can do, and models have been shown to sometimes detect that they are being tested.</p>
+          <dl class="kv">
+            <dt>Work</dt><dd>Dangerous-capability evals, red-teaming, safety cases, third-party audit</dd>
+            <dt>Who</dt><dd>UK AISI, US CAISI, METR, Apollo Research<a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a><a class="ref" href="#s18">18</a><a class="ref" href="#s19">19</a></dd>
+            <dt>Lever</dt><dd>Pre-deployment access, mandatory disclosure, funded eval capacity</dd>
+          </dl>
+        </div>
+        <div class="lpanel" data-l="ctl">
+          <h3>Keep the ability to intervene</h3>
+          <p>Assume you cannot fully trust the system, and design deployment so it still cannot cause serious harm: restricted permissions, monitoring, independent checks, and a route to shutting it down that survives contact with commercial pressure.</p>
+          <dl class="kv">
+            <dt>Work</dt><dd>AI control, monitoring, incident reporting, shutdown authority</dd>
+            <dt>Who</dt><dd>Redwood Research, regulators, incident trackers<a class="ref" href="#s20">20</a><a class="ref" href="#s28">28</a></dd>
+            <dt>Lever</dt><dd>Statute. This is the layer that most needs enforcement</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">Who works on which layer</h3>
+    <div class="mx rv">
+      <div class="mx-row head"><div><span>Organisation</span></div><div class="mx-cell"><span>Dev</span></div><div class="mx-cell"><span>Assess</span></div><div class="mx-cell"><span>Control</span></div></div>
+      <div class="mx-row"><div class="mx-name">Lab safety teams</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">MATS / ARENA</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"></div></div>
+      <div class="mx-row"><div class="mx-name">UK AISI</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">US CAISI</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">METR</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div></div>
+      <div class="mx-row"><div class="mx-name">Apollo Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div></div>
+      <div class="mx-row"><div class="mx-name">Redwood Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"></div><div class="mx-cell c3"><i class="dot"></i></div></div>
+      <div class="mx-row"><div class="mx-name">EU AI Act</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot"></i></div></div>
+    </div>
+    <p class="note rv" style="margin-top:12px">Filled circle marks a primary focus, hollow circle a secondary one. A rough classification by this page, offered for orientation. These organisations have not described themselves this way.</p>
+  </div>
+</section>
+
+<section class="pull">
+  <div class="wrap">
+    <blockquote class="rv">Nobody is asking you to be <em>certain</em>. Only to notice we are building something we cannot yet check.</blockquote>
+    <p class="pq-note rv">Five premises up, five rungs down. Pick a rung.</p>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section id="learn">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Getting up to speed</p>
+      <h2>Five rungs, by time budget</h2>
+      <p class="lede">Every rung is a real, currently-running resource. Start wherever your actual free time is. Nothing below requires you to already believe anything.</p>
+    </div>
+
+    <div class="rv">
+      <div class="rung">
+        <div class="rung-head"><span class="rung-time">2 hours</span><span class="rung-meter"><i></i></span></div>
+        <h3>Get oriented</h3>
+        <p>If you read the news and want to know what it means, this is the rung. No maths, no prerequisites, free.</p>
+        <div class="grid g3" style="margin-top:16px">
+          <div class="card k-free">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg>Free · self-paced</span><h3><a class="cardlink" href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a></h3>
+            <p>BlueDot's two-hour interactive course for people with no technical background. Videos, live demos, certificate at the end.<a class="ref" href="#s3">3</a></p><span class="go">bluedot.org →</span></div>
+          <div class="card k-free">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8.5v.5"/></svg>Free · reference</span><h3><a class="cardlink" href="https://aisafety.info" target="_blank" rel="noopener">AISafety.info</a></h3>
+            <p>A large plain-language FAQ plus a chatbot that handles the hard follow-ups and counterarguments.<a class="ref" href="#s4">4</a></p><span class="go">aisafety.info →</span></div>
+          <div class="card k-free">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><path d="M10 8l6 4-6 4z"/><rect x="3" y="5" width="18" height="14" rx="3"/></svg>Free · video</span><h3><a class="cardlink" href="https://www.youtube.com/@RobertMilesAI" target="_blank" rel="noopener">Rob Miles</a></h3>
+            <p>The best explainer channel in the field, and the clearest presentation anywhere of the five premises above.<a class="ref" href="#s5">5</a></p><span class="go">youtube.com →</span></div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="rung-head"><span class="rung-time">A weekend</span><span class="rung-meter"><i></i></span></div>
+        <h3>Read the primary documents</h3>
+        <p>Skip the commentary. These are the sources the commentary is drawn from.</p>
+        <div class="grid g2" style="margin-top:16px">
+          <div class="card k-read">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><path d="M6 4h9l4 4v12H6z"/><path d="M9 12h7M9 16h7"/></svg>Paper · foundational</span><h3><a class="cardlink" href="https://nickbostrom.com/superintelligentwill.pdf" target="_blank" rel="noopener">The Superintelligent Will</a></h3>
+            <p>Where premises 3 and 4 come from: orthogonality and instrumental convergence, argued carefully in about fifteen pages.<a class="ref" href="#s34">34</a></p><span class="go">nickbostrom.com →</span></div>
+          <div class="card k-read">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h9"/></svg>Paper · foundational</span><h3><a class="cardlink" href="https://arxiv.org/abs/1606.06565" target="_blank" rel="noopener">Concrete Problems in AI Safety</a></h3>
+            <p>Where premise 2 gets decomposed into engineering problems. Still the standard reference for specification failure.<a class="ref" href="#s25">25</a></p><span class="go">arxiv.org →</span></div>
+          <div class="card k-read">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Report · 2026</span><h3><a class="cardlink" href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">International AI Safety Report</a></h3>
+            <p>The scientific consensus document, built by over 100 experts and backed by more than 30 governments. Has an extended summary for policymakers.<a class="ref" href="#s1">1</a></p><span class="go">internationalaisafetyreport.org →</span></div>
+          <div class="card k-read">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><path d="M3 20h18M7 20v-7M12 20V6M17 20v-10"/></svg>Scenario</span><h3><a class="cardlink" href="https://ai-2027.com" target="_blank" rel="noopener">AI 2027</a></h3>
+            <p>A concrete, contested, deliberately specific forecast. Worth reading as an argument you can stress-test.<a class="ref" href="#s30">30</a></p><span class="go">ai-2027.com →</span></div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="rung-head"><span class="rung-time">5 days to 5 weeks</span><span class="rung-meter"><i></i></span></div>
+        <h3>Take a real course</h3>
+        <div data-for="new"><p>Facilitated cohort courses with discussion groups. Free, competitive to get into, and how a large share of people now working in the field first entered it.<a class="ref" href="#s3">3</a></p></div>
+        <div data-for="pol"><p>The governance track is the standard on-ramp for policy professionals; recent cohorts have included lawyers, civil servants, journalists and community organisers.<a class="ref" href="#s3">3</a></p></div>
+        <div data-for="tech"><p>With ML background, the Technical course is a landscape survey more than an upskilling course. Take it to choose a problem, then use the next rung to build the skills.<a class="ref" href="#s3">3</a></p></div>
+        <div class="grid g3" style="margin-top:16px">
+          <div class="card k-free">
+            <span class="tag">Free · cohort</span><h3><a class="cardlink" href="https://bluedot.org/courses/agi-strategy" target="_blank" rel="noopener">AGI Strategy</a></h3>
+            <p>The broad on-ramp: what's happening, what could go right or wrong, what could be done. Ends with a next step for you specifically.<a class="ref" href="#s3">3</a></p><span class="go">bluedot.org →</span></div>
+          <div class="card k-free">
+            <span class="tag">Free · cohort</span><h3><a class="cardlink" href="https://bluedot.org/courses/technical-ai-safety" target="_blank" rel="noopener">Technical AI Safety</a></h3>
+            <p>For ML, CS or maths backgrounds. Surveys open problems in alignment, interpretability, evaluations and control.<a class="ref" href="#s3">3</a></p><span class="go">bluedot.org →</span></div>
+          <div class="card k-free">
+            <span class="tag">Free · cohort</span><h3><a class="cardlink" href="https://bluedot.org/" target="_blank" rel="noopener">AI Governance</a></h3>
+            <p>Policy, institutions, international coordination. Plus a biosecurity track for the adjacent risk domain.<a class="ref" href="#s3">3</a></p><span class="go">bluedot.org →</span></div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="rung-head"><span class="rung-time">Months</span><span class="rung-meter"><i></i></span></div>
+        <h3>Build the technical skills</h3>
+        <p>Hands-on ML engineering aimed at safety work. The curricula are free to self-study even when cohorts are closed.</p>
+        <div class="grid g3" style="margin-top:16px">
+          <div class="card k-tool">
+            <span class="tag"><svg class="ico" viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>Free · self-study</span><h3><a class="cardlink" href="https://learn.arena.education/" target="_blank" rel="noopener">ARENA curriculum</a></h3>
+            <p>Build GPT-2 from scratch, reverse-engineer real circuits, train sparse autoencoders, run evals. Fundamentals through misalignment case studies.<a class="ref" href="#s6">6</a></p><span class="go">learn.arena.education →</span></div>
+          <div class="card k-fund">
+            <span class="tag">Funded · in person</span><h3><a class="cardlink" href="https://www.arena.education/" target="_blank" rel="noopener">ARENA cohorts</a></h3>
+            <p>A four to five week in-person bootcamp in London. Travel, visas, accommodation and meals covered so cost isn't a barrier.<a class="ref" href="#s7">7</a></p><span class="go">arena.education →</span></div>
+          <div class="card k-tool">
+            <span class="tag">Free · research</span><h3><a class="cardlink" href="https://transformer-circuits.pub" target="_blank" rel="noopener">Transformer Circuits</a></h3>
+            <p>The foundational interpretability work, published as readable web essays instead of dense papers. This is premise 5 being attacked directly.<a class="ref" href="#s24">24</a></p><span class="go">transformer-circuits.pub →</span></div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="rung-head"><span class="rung-time">Full time</span><span class="rung-meter"><i></i></span></div>
+        <h3>Do the work</h3>
+        <p>Funded fellowships and career transitions. Competitive, but they exist precisely because the field is talent-constrained.</p>
+        <div class="grid g3" style="margin-top:16px">
+          <div class="card k-fund">
+            <span class="tag">Funded · fellowship</span><h3><a class="cardlink" href="https://www.matsprogram.org/" target="_blank" rel="noopener">MATS</a></h3>
+            <p>12 weeks in Berkeley or London with a mentor from a frontier lab or safety org, plus funded extensions. Tracks span empirical, theory, policy, security and biosecurity.<a class="ref" href="#s8">8</a></p><span class="go">matsprogram.org →</span></div>
+          <div class="card k-fund">
+            <span class="tag">Grants · research</span><h3><a class="cardlink" href="https://www.aisi.gov.uk/" target="_blank" rel="noopener">UK AISI Challenge Fund</a></h3>
+            <p>Grants for academic and non-profit researchers on safeguards, control, alignment and societal resilience.<a class="ref" href="#s11">11</a></p><span class="go">aisi.gov.uk →</span></div>
+          <div class="card k-free">
+            <span class="tag">Free · advising</span><h3><a class="cardlink" href="https://80000hours.org/problem-profiles/artificial-intelligence/" target="_blank" rel="noopener">80,000 Hours</a></h3>
+            <p>Career research on AI risk plus free one-on-one advising. Useful even if you conclude the answer is to stay where you are.<a class="ref" href="#s27">27</a></p><span class="go">80000hours.org →</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISAGREEMENTS -->
+<section id="debate">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Open disagreements</p>
+      <h2>What serious people still argue about</h2>
+      <p class="lede">The five premises are contested, and they should be. Each dispute below is argued at its strongest on both sides, and then this page says where it thinks the weight sits, so you can disagree with something specific.</p>
+    </div>
+    <div class="rv">
+      <div class="dis"><h3><span>01</span> How much time is there?</h3>
+        <div class="sides">
+          <div class="side one"><h4>Short timelines</h4><p>Capability jumps have repeatedly arrived earlier than forecast, and recent gains came from a method that still has room to run. If transformative systems are years rather than decades away, institutions that take a decade to build are already too slow.</p></div>
+          <div class="side two"><h4>Longer timelines</h4><p>Benchmark performance is not reliable real-world competence, and progress on what doesn't benchmark well (long-horizon autonomy, robust planning) has been slower. Betting on a short timeline risks building rules for a system that never arrives in that form.</p></div>
+        </div>
+        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Short timelines</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">Longer timelines</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Genuinely uncertain, and the five premises above deliberately do not depend on the answer. Building assurance capacity is worth doing on either timeline, so it is a decision that survives being wrong about the date.</p></div></div>
+
+      <div class="dis"><h3><span>02</span> Does the instrumental convergence argument hold?</h3>
+        <div class="sides">
+          <div class="side one"><h4>It holds</h4><p>The subgoals fall out of the structure of goal-directed behaviour itself, which is why they show up in economics and biology too. You do not need the system to be agentic in any exotic sense, only to be selected for achieving objectives.</p></div>
+          <div class="side two"><h4>It overreaches</h4><p>The argument treats trained models as coherent expected-utility maximisers, which they demonstrably are not. Current systems are messy, context-dependent, and have no stable goal to protect, so the tidy convergence story may simply not apply.</p></div>
+        </div>
+        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Convergence holds</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">It overreaches</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique lands on the strong version. The weaker claim survives it: training that rewards achieving objectives applies pressure toward these subgoals, and pressure is enough to be worth engineering against.</p></div></div>
+
+      <div class="dis"><h3><span>03</span> Does regulation help, or entrench?</h3>
+        <div class="sides">
+          <div class="side one"><h4>Rules are necessary</h4><p>Voluntary frameworks have no verification requirement and no consequence for abandonment under competitive pressure. Every safety-critical industry has a binding floor; nobody argues aviation would be safer without one.</p></div>
+          <div class="side two"><h4>Rules favour incumbents</h4><p>Compliance costs fall hardest on small labs and open research, concentrating capability in exactly the handful of firms whose power the safety argument worries about. Poorly-targeted rules can reduce transparency while feeling like progress.</p></div>
+        </div>
+        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Rules are necessary</span><span class="gtrack"><i style="left:38%"></i></span><span class="gend b">Rules entrench</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique is strong and often correct about specific bills. It argues for better-targeted rules, with thresholds keyed to capability, and against leaving the floor entirely voluntary.</p></div></div>
+
+      <div class="dis"><h3><span>04</span> Do today's systems tell us about tomorrow's?</h3>
+        <div class="sides">
+          <div class="side one"><h4>Yes, study them now</h4><p>Deception, reward hacking and evaluation-awareness are all observable in current models. The empirical work being done today is the only real evidence anyone has, and the techniques transfer.</p></div>
+          <div class="side two"><h4>Not reliably</h4><p>Extrapolating from current systems to qualitatively different future ones is exactly the inference that has repeatedly failed in AI's history. Some argue this overstates the risk; others that it understates it.</p></div>
+        </div>
+        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Study them now</span><span class="gtrack"><i style="left:36%"></i></span><span class="gend b">Doesn't transfer</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Current systems are weak evidence about future ones, and weak evidence beats none. The honest reading is that today's failures show a class of problem exists, without telling us how bad it gets.</p></div></div>
+    </div>
+    <p class="note rv" style="margin-top:20px">Argue it properly: the Alignment Forum for technical disputes,<a class="ref" href="#s22">22</a> LessWrong for the broader discussion,<a class="ref" href="#s23">23</a> and the International AI Safety Report's own sections documenting where its expert panel does not converge.<a class="ref" href="#s1">1</a> Worth knowing while you argue: public opinion already runs well ahead of policy on this.<a class="ref" href="#s33">33</a></p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">How we got here</p>
+      <h2>Three years, from summit to statute</h2>
+      <p class="lede">A common assumption is that nothing is being done. That stopped being true some time ago. Whether it is adequate is a separate and fair question.</p>
+    </div>
+  </div>
+  <div class="tl-scroll rv">
+    <div class="tl">
+      <div class="tl-item"><span class="tl-date">Nov 2023</span><h4>Bletchley Park summit</h4><p>First global AI safety summit. Mandates the international scientific report.<a class="ref" href="#s1">1</a></p></div>
+      <div class="tl-item"><span class="tl-date">Aug 2024</span><h4>EU AI Act in force</h4><p>The first comprehensive AI statute anywhere, phased in over several years.<a class="ref" href="#s10">10</a></p></div>
+      <div class="tl-item"><span class="tl-date">Feb 2025</span><h4>First international report</h4><p>Bengio-chaired evidence base published ahead of the Paris summit.<a class="ref" href="#s1">1</a></p></div>
+      <div class="tl-item"><span class="tl-date">Feb 2025</span><h4>UK institute renamed</h4><p>"AI Safety Institute" becomes "AI Security Institute", a deliberate reframing.<a class="ref" href="#s11">11</a></p></div>
+      <div class="tl-item"><span class="tl-date">Jun 2025</span><h4>US AISI becomes CAISI</h4><p>Refocused on demonstrable risks and adversary-system assessment, at NIST.<a class="ref" href="#s12">12</a></p></div>
+      <div class="tl-item hot"><span class="tl-date">Oct 2025</span><h4>Statement on Superintelligence</h4><p>A conditional prohibition demand, signed across an unusually wide political spread.<a class="ref" href="#s2">2</a></p></div>
+      <div class="tl-item hot"><span class="tl-date">Late 2025</span><h4>California SB 53</h4><p>First US frontier-model transparency statute. New York and Illinois follow.<a class="ref" href="#s13">13</a></p></div>
+      <div class="tl-item"><span class="tl-date">Feb 2026</span><h4>Second international report</h4><p>Published ahead of the India AI Impact Summit. Over 100 experts, 30+ governments.<a class="ref" href="#s1">1</a></p></div>
+      <div class="tl-item now"><span class="tl-date">Aug 2026 · now</span><h4>EU enforcement live</h4><p>Commission powers over general-purpose AI models, with fines, become active.<a class="ref" href="#s10">10</a></p></div>
+    </div>
+  </div>
+  <div class="wrap"><p class="scroll-hint rv">← scroll →</p></div>
+</section>
+
+<!-- STATE -->
+<section id="state">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">State of play</p>
+      <h2>Who actually holds a lever</h2>
+      <div data-for="new"><p class="lede">If you want to know who to pay attention to, start with this list. It matters more than whichever company is making an announcement this week.</p></div>
+      <div data-for="pol"><p class="lede">As of August 2026: binding EU obligations now enforceable, a US posture built on executive orders plus a preemption push, and three US states with frontier-model statutes. Verification capacity is the live constraint everywhere.</p></div>
+      <div data-for="tech"><p class="lede">National institutes are now a major source of evaluation funding, model access, published methodology, and jobs.</p></div>
+    </div>
+    <ul class="rows rv">
+      <li><span class="n"><a class="cardlink" href="https://www.aisi.gov.uk/" target="_blank" rel="noopener">UK AI Security Institute</a></span>
+        <span class="d">Pre-deployment evaluations of frontier models, published methodology and open tooling, external research funding.<a class="ref" href="#s11">11</a></span><span class="t inst">Institution</span></li>
+      <li><span class="n"><a class="cardlink" href="https://www.nist.gov/caisi" target="_blank" rel="noopener">US CAISI (at NIST)</a></span>
+        <span class="d">Successor to the US AI Safety Institute. Focuses on cyber, bio and chemical risk, plus assessment of adversary systems.<a class="ref" href="#s12">12</a></span><span class="t inst">Institution</span></li>
+      <li><span class="n"><a class="cardlink" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">EU AI Act</a></span>
+        <span class="d">Obligations on general-purpose AI models with Commission enforcement powers, plus transparency duties for synthetic media. Deadlines amended by the 2026 Digital Omnibus.<a class="ref" href="#s10">10</a></span><span class="t law">Law · EU</span></li>
+      <li><span class="n"><a class="cardlink" href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53" target="_blank" rel="noopener">California SB 53</a></span>
+        <span class="d">Published safety frameworks and whistleblower protection for large frontier developers. New York and Illinois have since passed related laws.<a class="ref" href="#s13">13</a></span><span class="t law">Law · US state</span></li>
+      <li><span class="n"><a class="cardlink" href="https://internationalaisafetyreport.org/" target="_blank" rel="noopener">International AI Safety Report</a></span>
+        <span class="d">Mandated at Bletchley, now annual with interim updates. The closest thing the field has to an IPCC-style evidence base.<a class="ref" href="#s1">1</a></span><span class="t evid">Evidence</span></li>
+      <li><span class="n"><a class="cardlink" href="https://futureoflife.org/ai-safety-index/" target="_blank" rel="noopener">FLI AI Safety Index</a></span>
+        <span class="d">Independent graded comparison of what the major labs actually do about safety, set against what they say.<a class="ref" href="#s15">15</a></span><span class="t evid">Evidence</span></li>
+      <li><span class="n"><a class="cardlink" href="https://www.anthropic.com/rsp" target="_blank" rel="noopener">Frontier safety frameworks</a></span>
+        <span class="d">Twelve companies published or updated voluntary risk frameworks in 2025. Anthropic's is linked as a representative example. There is still no unified approach and no verification requirement.<a class="ref" href="#s1">1</a><a class="ref" href="#s16">16</a></span><span class="t vol">Voluntary</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOLLOW -->
+<section id="follow">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Staying current</p>
+      <h2>Where to follow this</h2>
+      <p class="lede">This page deliberately lists no headlines, because they rot. It lists the sources worth subscribing to, so you can follow the field yourself.</p>
+    </div>
+
+    <!-- NEWS_FEED MOUNT POINT, phase 2. Set SITE_CONFIG.NEWS_FEED_ENDPOINT
+         to a Cloudflare Worker returning [{title,url,source,date}]. -->
+    <div id="news-feed" class="rv" hidden></div>
+
+    <div class="filters rv" role="group" aria-label="Filter sources">
+      <button type="button" class="fbtn on" data-f="all">All</button>
+      <button type="button" class="fbtn" data-f="news">Newsletters</button>
+      <button type="button" class="fbtn" data-f="forum">Forums</button>
+      <button type="button" class="fbtn" data-f="data">Data &amp; trackers</button>
+      <button type="button" class="fbtn" data-f="eval">Evaluators</button>
+      <button type="button" class="fbtn" data-f="dir">Directories</button>
+    </div>
+
+    <div class="grid g3 rv" id="dirgrid">
+      <div class="card k-tool" data-cat="dir">
+            <span class="tag">Directory</span><h3><a class="cardlink" href="https://aisafety.com/map" target="_blank" rel="noopener">AISafety.com</a></h3>
+            <p>The community's own map: organisations, programmes, funders, jobs, events, local groups worldwide. If it exists in this field, it's listed here.<a class="ref" href="#s9">9</a></p><span class="go">aisafety.com →</span></div>
+      <div class="card k-read" data-cat="forum">
+            <span class="tag">Research forum</span><h3><a class="cardlink" href="https://www.alignmentforum.org/" target="_blank" rel="noopener">Alignment Forum</a></h3>
+            <p>Where technical alignment work is posted and torn apart before it becomes a paper. Text-to-speech narrations available.<a class="ref" href="#s22">22</a></p><span class="go">alignmentforum.org →</span></div>
+      <div class="card k-read" data-cat="forum">
+            <span class="tag">Discussion</span><h3><a class="cardlink" href="https://www.lesswrong.com/" target="_blank" rel="noopener">LessWrong</a></h3>
+            <p>The broader forum where much of this discourse originated. Higher volume, wider range, still where a lot of it breaks first.<a class="ref" href="#s23">23</a></p><span class="go">lesswrong.com →</span></div>
+      <div class="card k-free" data-cat="news">
+            <span class="tag">Newsletter · weekly</span><h3><a class="cardlink" href="https://importai.substack.com/" target="_blank" rel="noopener">Import AI</a></h3>
+            <p>Technical, written by someone inside the industry. Consistently good at flagging what mattered before it was obvious.<a class="ref" href="#s31">31</a></p><span class="go">importai.substack.com →</span></div>
+      <div class="card k-free" data-cat="news">
+            <span class="tag">Newsletter · news</span><h3><a class="cardlink" href="https://www.transformernews.ai/" target="_blank" rel="noopener">Transformer</a></h3>
+            <p>Reported news on AI safety and policy, written as journalism rather than commentary.<a class="ref" href="#s32">32</a></p><span class="go">transformernews.ai →</span></div>
+      <div class="card k-free" data-cat="news dir">
+            <span class="tag">Newsletter · weekly</span><h3><a class="cardlink" href="https://aisafety.com/events-and-training" target="_blank" rel="noopener">Events &amp; Training</a></h3>
+            <p>Every newly announced course, fellowship, retreat and meetup in the field, once a week. The best way to not miss an application window.<a class="ref" href="#s9">9</a></p><span class="go">aisafety.com →</span></div>
+      <div class="card k-read" data-cat="data">
+            <span class="tag">Data</span><h3><a class="cardlink" href="https://epoch.ai/" target="_blank" rel="noopener">Epoch AI</a></h3>
+            <p>Compute trends, benchmark tracking, capability forecasting. The place to check a claim about how fast things are moving.<a class="ref" href="#s21">21</a></p><span class="go">epoch.ai →</span></div>
+      <div class="card k-read" data-cat="data">
+            <span class="tag">Tracker</span><h3><a class="cardlink" href="https://incidentdatabase.ai/" target="_blank" rel="noopener">AI Incident Database</a></h3>
+            <p>Catalogued real-world AI harms. Grounding for anyone who wants concrete cases instead of scenarios.<a class="ref" href="#s28">28</a></p><span class="go">incidentdatabase.ai →</span></div>
+      <div class="card k-read" data-cat="data">
+            <span class="tag">Annual data</span><h3><a class="cardlink" href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">Stanford AI Index</a></h3>
+            <p>The baseline reference for capability, investment, incident and opinion figures. Cite this instead of a press release.<a class="ref" href="#s29">29</a></p><span class="go">aiindex.stanford.edu →</span></div>
+      <div class="card k-fund" data-cat="eval">
+            <span class="tag">Evaluations</span><h3><a class="cardlink" href="https://metr.org/" target="_blank" rel="noopener">METR</a></h3>
+            <p>Independent evaluation of dangerous autonomous capabilities. Publishes its methodology, which is rarer than it should be.<a class="ref" href="#s18">18</a></p><span class="go">metr.org →</span></div>
+      <div class="card k-fund" data-cat="eval">
+            <span class="tag">Evaluations</span><h3><a class="cardlink" href="https://www.apolloresearch.ai/" target="_blank" rel="noopener">Apollo Research</a></h3>
+            <p>Deception and scheming evaluations. This is the group that documented models recognising when they are being tested.<a class="ref" href="#s19">19</a></p><span class="go">apolloresearch.ai →</span></div>
+      <div class="card k-fund" data-cat="eval">
+            <span class="tag">Research</span><h3><a class="cardlink" href="https://redwoodresearch.org/" target="_blank" rel="noopener">Redwood Research</a></h3>
+            <p>The main home of AI control research: making an untrusted system safe to deploy without first making it trustworthy.<a class="ref" href="#s20">20</a></p><span class="go">redwoodresearch.org →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACT -->
+<section id="act">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Next actions</p>
+      <h2>What you can do this week</h2>
+      <p class="lede">Concrete and small beats abstract and large. Pick one.</p>
+    </div>
+    <div class="rv">
+      <div data-for="new"><ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
+        <li><h3>Do the two-hour course</h3><p>BlueDot's <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a> is free, needs no background, and will make you the most informed person in most rooms on this topic.<a class="ref" href="#s3">3</a></p></li>
+        <li><h3>Try to break a premise</h3><p>Pick whichever of the five you find weakest and go looking for the strongest argument against it. If it holds up under that, you have a belief you actually own.</p></li>
+        <li><h3>Explain it to one person</h3><p>Send them Rob Miles<a class="ref" href="#s5">5</a> or this page. The biggest constraint on this field is that most people have never heard the argument in a form they could evaluate.</p></li>
+        <li><h3>Find your local group</h3><p>AISafety.com lists communities in dozens of countries plus the main Discord.<a class="ref" href="#s9">9</a> Reading alone is far less effective than reading with other people.</p></li>
+      </ol></div>
+      <div data-for="pol"><ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
+        <li><h3>Read the policymaker summary</h3><p>The International AI Safety Report publishes an extended summary for policymakers in all six UN languages. It is the citation of record.<a class="ref" href="#s1">1</a></p></li>
+        <li><h3>Apply to the governance course</h3><p>Built for people with domain expertise in policy, security or law who want to redirect it. Free, five days intensive or five weeks part-time.<a class="ref" href="#s3">3</a></p></li>
+        <li><h3>Check the claim before you print it</h3><p>Epoch AI for capability trends,<a class="ref" href="#s21">21</a> the Incident Database for real harms,<a class="ref" href="#s28">28</a> the AI Index for baselines,<a class="ref" href="#s29">29</a> the FLI Index for what labs do against what they claim.<a class="ref" href="#s15">15</a></p></li>
+        <li><h3>Know who to call</h3><p>UK AISI<a class="ref" href="#s11">11</a> and US CAISI<a class="ref" href="#s12">12</a> both publish findings and methodology. They are the technically credible government voices and they respond to press.</p></li>
+      </ol></div>
+      <div data-for="tech"><ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
+        <li><h3>Pick a premise, then a layer</h3><p>Premise 2 sends you to alignment, premise 5 to interpretability and evals, premise 4 to control.<a class="ref" href="#s14">14</a> Skills and funders differ enough that choosing late costs months.</p></li>
+        <li><h3>Do one ARENA exercise this week</h3><p>A single exercise is enough to start. Reproduce an attention pattern, patch an activation, train a toy sparse autoencoder. Free, no application.<a class="ref" href="#s6">6</a></p></li>
+        <li><h3>Get the application dates</h3><p>MATS,<a class="ref" href="#s8">8</a> ARENA cohorts<a class="ref" href="#s7">7</a> and the AISI Challenge Fund<a class="ref" href="#s11">11</a> run on cycles. Missing a window costs half a year; the events newsletter tracks openings.<a class="ref" href="#s9">9</a></p></li>
+        <li><h3>Publish something small</h3><p>Post a replication, a negative result or a critique to the Alignment Forum.<a class="ref" href="#s22">22</a> This field hires from public work more than from credentials.</p></li>
+      </ol></div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME -->
+<section id="play">
+  <div class="wrap">
+    <div class="slab rv">
+      <p class="eyebrow">Play it</p>
+      <h2>The AGI Safety Game</h2>
+      <p>Reading about a control problem and trying to solve one are different experiences. Put your knowledge to the test and try to contain a system that is getting smarter than you. Premise 4 stops being abstract when the shutdown button is yours.</p>
+      <p style="color:#8a959c;font-family:var(--mono);font-size:11.5px">No install. No account. Runs in the tab you already have open.</p>
+      <a class="btn" id="game-link" href="#" target="_blank" rel="noopener">
+        <svg class="ico" style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M8 6l10 6-10 6z"/></svg>Play the AGI Safety Game!</a>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Vocabulary</p>
+      <h2>Terms you'll hit immediately</h2>
+      <p class="lede">Tap a term.</p>
+    </div>
+    <div class="rv">
+      <div class="gterms">
+        <button type="button" class="gterm on" data-g="0">AGI</button>
+        <button type="button" class="gterm" data-g="1">Alignment</button>
+        <button type="button" class="gterm" data-g="2">Orthogonality</button>
+        <button type="button" class="gterm" data-g="3">Instrumental convergence</button>
+        <button type="button" class="gterm" data-g="4">Goodhart's law</button>
+        <button type="button" class="gterm" data-g="5">Interpretability</button>
+        <button type="button" class="gterm" data-g="6">Evals</button>
+        <button type="button" class="gterm" data-g="7">AI control</button>
+        <button type="button" class="gterm" data-g="8">Frontier model</button>
+        <button type="button" class="gterm" data-g="9">Safety case</button>
+      </div>
+      <div class="gdef on" data-g="0"><h3>AGI / superintelligence</h3><p>AGI matches or exceeds human ability across most cognitive tasks rather than one domain. Superintelligence exceeds it at essentially everything. Neither has an agreed technical definition, which is itself a live problem for anyone writing rules about them.<a class="ref" href="#s2">2</a></p></div>
+      <div class="gdef" data-g="1"><h3>Alignment</h3><p>Getting a system to actually pursue what its designers intended. Split into <em>outer</em> alignment (specifying the right objective at all, which is premise 2) and <em>inner</em> alignment (the system genuinely adopting it rather than something merely correlated during training).<a class="ref" href="#s25">25</a></p></div>
+      <div class="gdef" data-g="2"><h3>Orthogonality</h3><p>The thesis that intelligence and final goals are independent variables, so almost any level of capability can in principle be combined with almost any objective. This is premise 3. It is a claim about what is possible, which is enough to defeat the assumption that capability alone produces safety.<a class="ref" href="#s34">34</a></p></div>
+      <div class="gdef" data-g="3"><h3>Instrumental convergence</h3><p>The observation that a wide range of final goals imply the same intermediate goals: acquire resources, improve capability, preserve your objective, avoid shutdown. This is premise 4, and it is why a harmless-sounding objective is not by itself a safety guarantee.<a class="ref" href="#s34">34</a></p></div>
+      <div class="gdef" data-g="4"><h3>Goodhart's law</h3><p>When a measure becomes a target, it ceases to be a good measure. The optimisation-pressure slider above is this in action: proxy and true goal correlate under light pressure and come apart under heavy pressure, precisely because the search finds where the correlation fails.<a class="ref" href="#s35">35</a></p></div>
+      <div class="gdef" data-g="5"><h3>Interpretability</h3><p>Reading a model's internal computation to understand why it produced an output. Mechanistic interpretability reverse-engineers specific circuits inside the network, the closest thing we have to opening the box, and the main attack on premise 5.<a class="ref" href="#s24">24</a></p></div>
+      <div class="gdef" data-g="6"><h3>Evaluations (evals)</h3><p>Structured tests of what a model can do, especially in dangerous domains. The core problem: evals measure what a model <em>displays</em>, not what it <em>can</em> do, and models have been shown to sometimes detect they are being evaluated.<a class="ref" href="#s19">19</a></p></div>
+      <div class="gdef" data-g="7"><h3>AI control</h3><p>Rather than assuming you can make a system trustworthy, design deployment so that an untrusted system still cannot cause serious harm: monitoring, restricted permissions, independent checks. The direct engineering response to premise 4.<a class="ref" href="#s20">20</a></p></div>
+      <div class="gdef" data-g="8"><h3>Frontier model</h3><p>The most capable general-purpose models in existence. Increasingly a legal term: California defines it by training compute above 10²⁶ operations, with the strictest duties on large developers only.<a class="ref" href="#s13">13</a></p></div>
+      <div class="gdef" data-g="9"><h3>Safety case</h3><p>A structured, auditable argument that a specific system is acceptably safe to deploy, borrowed from aviation and nuclear engineering. An attempt to make frontier safety frameworks into something checkable.<a class="ref" href="#s11">11</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + SOURCES -->
+<section id="sources">
+  <div class="wrap">
+    <div class="about rv" style="margin-bottom:clamp(30px,4.4vw,50px)">
+      <div class="abox">
+        <p class="eyebrow">About this page</p>
+        <h3>Who made this, and why you can check it</h3>
+        <!-- EDIT ME: replace the next sentence with your own name and one line about you. -->
+        <p>Built and maintained by <strong>Bill Guan</strong>. Independent, unfunded, and not affiliated with any organisation listed on this page.</p>
+        <p>Nothing here asks you to take a claim on trust. The core argument is laid out as five premises precisely so you can attack them individually, every factual statement carries a numbered link to a primary source, and where this page takes a position it says so in plain sight. If something is wrong or out of date, that is a bug, and corrections are welcome.</p>
+        <p style="margin-bottom:0"><a href="https://github.com" target="_blank" rel="noopener">Report a correction</a> <span class="note" style="display:inline">(replace with your repo or email)</span></p>
+      </div>
+      <div class="abox">
+        <p class="eyebrow">Pass it on</p>
+        <h3>The main constraint is that most people have never heard the argument</h3>
+        <p>If this was useful, sending it to one person does more than anything else on this page. The link keeps whichever register you are reading in.</p>
+        <div class="share">
+          <button type="button" id="copy-link">Copy link</button>
+          <a id="share-native" href="#" hidden>Share</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-head rv">
+      <p class="eyebrow">References</p>
+      <h2>Sources</h2>
+      <p class="note">Every numbered claim links here. Verified 29 August 2026. Programme dates, cohort openings and legislative deadlines change frequently, so treat the linked page as authoritative over anything summarised here.</p>
+    </div>
+    <ol class="rv">
+      <li id="s1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
+      <li id="s2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
+      <li id="s3">BlueDot Impact courses: <a href="https://bluedot.org/" target="_blank" rel="noopener">bluedot.org</a></li>
+      <li id="s4">AISafety.info FAQ and chatbot: <a href="https://aisafety.info" target="_blank" rel="noopener">aisafety.info</a></li>
+      <li id="s5">Robert Miles AI Safety: <a href="https://www.youtube.com/@RobertMilesAI" target="_blank" rel="noopener">youtube.com/@RobertMilesAI</a></li>
+      <li id="s6">ARENA curriculum: <a href="https://learn.arena.education/" target="_blank" rel="noopener">learn.arena.education</a></li>
+      <li id="s7">ARENA programme: <a href="https://www.arena.education/" target="_blank" rel="noopener">arena.education</a></li>
+      <li id="s8">MATS Program: <a href="https://www.matsprogram.org/" target="_blank" rel="noopener">matsprogram.org</a></li>
+      <li id="s9">AISafety.com map, directories and events newsletter: <a href="https://aisafety.com/map" target="_blank" rel="noopener">aisafety.com/map</a></li>
+      <li id="s10">EU AI Act regulatory framework, European Commission: <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
+      <li id="s11">UK AI Security Institute: <a href="https://www.aisi.gov.uk/" target="_blank" rel="noopener">aisi.gov.uk</a></li>
+      <li id="s12">Center for AI Standards and Innovation (CAISI), NIST: <a href="https://www.nist.gov/caisi" target="_blank" rel="noopener">nist.gov/caisi</a></li>
+      <li id="s13">California SB 53, Transparency in Frontier Artificial Intelligence Act: <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></li>
+      <li id="s14">The Singapore Consensus on Global AI Safety Research Priorities: <a href="https://arxiv.org/abs/2506.20702" target="_blank" rel="noopener">arXiv:2506.20702</a></li>
+      <li id="s15">FLI AI Safety Index: <a href="https://futureoflife.org/ai-safety-index/" target="_blank" rel="noopener">futureoflife.org/ai-safety-index</a></li>
+      <li id="s16">Anthropic Responsible Scaling Policy: <a href="https://www.anthropic.com/rsp" target="_blank" rel="noopener">anthropic.com/rsp</a></li>
+      <li id="s17">OpenAI safety: <a href="https://openai.com/safety/" target="_blank" rel="noopener">openai.com/safety</a></li>
+      <li id="s18">METR: <a href="https://metr.org/" target="_blank" rel="noopener">metr.org</a></li>
+      <li id="s19">Apollo Research: <a href="https://www.apolloresearch.ai/" target="_blank" rel="noopener">apolloresearch.ai</a></li>
+      <li id="s20">Redwood Research (AI control): <a href="https://redwoodresearch.org/" target="_blank" rel="noopener">redwoodresearch.org</a></li>
+      <li id="s21">Epoch AI: <a href="https://epoch.ai/" target="_blank" rel="noopener">epoch.ai</a></li>
+      <li id="s22">Alignment Forum: <a href="https://www.alignmentforum.org/" target="_blank" rel="noopener">alignmentforum.org</a></li>
+      <li id="s23">LessWrong: <a href="https://www.lesswrong.com/" target="_blank" rel="noopener">lesswrong.com</a></li>
+      <li id="s24">Transformer Circuits Thread: <a href="https://transformer-circuits.pub" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
+      <li id="s25">Amodei et al., Concrete Problems in AI Safety: <a href="https://arxiv.org/abs/1606.06565" target="_blank" rel="noopener">arXiv:1606.06565</a></li>
+      <li id="s26">Statement on AI Risk (one sentence, signed by the major lab leaders), Center for AI Safety: <a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">safe.ai</a></li>
+      <li id="s27">80,000 Hours problem profile on AI: <a href="https://80000hours.org/problem-profiles/artificial-intelligence/" target="_blank" rel="noopener">80000hours.org</a></li>
+      <li id="s28">AI Incident Database: <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener">incidentdatabase.ai</a></li>
+      <li id="s29">Stanford AI Index: <a href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">aiindex.stanford.edu</a></li>
+      <li id="s30">AI 2027 scenario: <a href="https://ai-2027.com/" target="_blank" rel="noopener">ai-2027.com</a></li>
+      <li id="s31">Import AI: <a href="https://importai.substack.com/" target="_blank" rel="noopener">importai.substack.com</a></li>
+      <li id="s32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
+      <li id="s33">FLI press release and accompanying poll of 2,000 US adults, October 2025: <a href="https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/" target="_blank" rel="noopener">futureoflife.org</a></li>
+      <li id="s34">Nick Bostrom, The Superintelligent Will (orthogonality and instrumental convergence): <a href="https://nickbostrom.com/superintelligentwill.pdf" target="_blank" rel="noopener">nickbostrom.com</a></li>
+      <li id="s35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>An independent aggregator. Not affiliated with any organisation listed. All linked material belongs to its authors. This page summarises and points; it does not reproduce.</p>
+  <p>Corrections and additions welcome. Last verified 29 August 2026.</p>
+</div></footer>
+
+<script>
+var SITE_CONFIG = {
+  GAME_URL: "https://ai-safety-game.billguan1-c4f.workers.dev/", // CONTAIN! deployment URL
+  NEWS_FEED_ENDPOINT: null    // phase 2: Worker returning [{title,url,source,date}]
+};
+
+(function(){
+  "use strict";
+  var $ = function(s,r){ return (r||document).querySelector(s); };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bar = $("#bar"), chapters = $("#chapters");
+
+  /* classList.toggle(name, force) is ignored by several Android WebViews,
+     which turns every radio group on this page into a random flip. Never use it. */
+  function setCls(el, name, on){
+    if(!el || !el.classList) return;
+    if(on){ if(!el.classList.contains(name)) el.classList.add(name); }
+    else  { if(el.classList.contains(name)) el.classList.remove(name); }
+  }
+
+  /* =================================================================
+     ANCHOR SCROLLING. Done manually so the sticky header never covers
+     the target, which is what made the chapter pills feel broken.
+     ================================================================= */
+  function headerH(){ return (bar ? bar.offsetHeight : 0) + 10; }
+  function scrollToEl(el){
+    var y = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - headerH();
+    if(y < 0) y = 0;
+    if(window.scrollTo && !reduce){
+      try{ window.scrollTo({top:y, behavior:"smooth"}); return; }catch(e){}
+    }
+    window.scrollTo(0, y);
+  }
+  document.addEventListener("click", function(e){
+    var n = e.target;
+    while(n && n !== document){
+      if(n.tagName === "A" && n.getAttribute("href") && n.getAttribute("href").charAt(0) === "#"){ break; }
+      n = n.parentNode;
+    }
+    if(!n || n === document) return;
+    var id = n.getAttribute("href");
+    if(id === "#" || id.length < 2) return;
+    var target;
+    try{ target = document.querySelector(id); }catch(err){ return; }
+    if(!target) return;
+    e.preventDefault();
+    scrollToEl(target);
+    if(history && history.replaceState){
+      try{ history.replaceState(null, "", location.pathname + location.search + id); }catch(err){}
+    }
+  }, false);
+
+  /* ---------- TOAST ---------- */
+  var toastEl = $("#toast"), toastTimer = null;
+  function toast(msg, actionLabel, onAction){
+    if(!toastEl) return;
+    while(toastEl.firstChild) toastEl.removeChild(toastEl.firstChild);
+    var span = document.createElement("span");
+    span.textContent = msg;
+    toastEl.appendChild(span);
+    if(actionLabel && onAction){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = actionLabel;
+      b.addEventListener("click", function(){ hideToast(); onAction(); });
+      toastEl.appendChild(b);
+    }
+    setCls(toastEl, "on", true);
+    if(toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(hideToast, actionLabel ? 7000 : 3200);
+  }
+  function hideToast(){ setCls(toastEl, "on", false); }
+
+  function flash(el){
+    if(!el) return;
+    el.classList.remove("flashed");
+    void el.offsetWidth;
+    el.classList.add("flashed");
+    setTimeout(function(){ el.classList.remove("flashed"); }, 1700);
+  }
+
+  /* ---------- AUDIENCE SWITCH, mirrored into the URL ---------- */
+  var AUD_LABEL = {"new":"newcomers", "pol":"policy \u0026 press", "tech":"technical readers"};
+  function reportSwap(aud){
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var top = headerH(), shown = $$("[data-for].show"), inView = [], others = [];
+    shown.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(!r.height) return;
+      if(r.bottom > top + 8 && r.top < vh - 8) inView.push(el); else others.push(el);
+    });
+    var label = AUD_LABEL[aud] || aud;
+    if(inView.length){
+      flash(inView[0]);
+      toast("Rewritten for " + label + ". " + shown.length + " passages changed.");
+    } else if(others.length){
+      var mid = vh / 2, best = others[0], bestD = Infinity;
+      others.forEach(function(el){
+        var r = el.getBoundingClientRect(), d = Math.abs((r.top + r.bottom) / 2 - mid);
+        if(d < bestD){ bestD = d; best = el; }
+      });
+      toast("Rewritten for " + label + ", but nothing in this section changes.", "Show me", function(){
+        scrollToEl(best);
+        setTimeout(function(){ flash(best); }, 520);
+      });
+    }
+  }
+
+  var AUDS = ["new","pol","tech"];
+  function setAudience(aud, push){
+    if(AUDS.indexOf(aud) === -1) aud = "new";
+    $$("[data-for]").forEach(function(el){ setCls(el, "show", el.getAttribute("data-for") === aud); });
+    $$(".aud-btn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-aud") === aud); });
+    try{ localStorage.setItem("gap-aud", aud); }catch(e){}
+    if(push){
+      document.body.classList.remove("swapped");
+      void document.body.offsetWidth;
+      document.body.classList.add("swapped");
+      reportSwap(aud);
+    }
+    if(push && window.history && history.replaceState){
+      try{ history.replaceState(null, "", "?for=" + aud + location.hash); }catch(e){}
+    }
+  }
+  $$(".aud-btn").forEach(function(b){
+    b.addEventListener("click", function(){ setAudience(b.getAttribute("data-aud"), true); });
+  });
+  var start = "new", m = location.search.match(/[?&]for=(new|pol|tech)/);
+  if(m){ start = m[1]; } else { try{ start = localStorage.getItem("gap-aud") || "new"; }catch(e){} }
+  setAudience(start, false);
+
+  /* ---------- MARK SECTIONS THAT HAVE ALTERNATE VERSIONS ---------- */
+  $$("section, header").forEach(function(sec){
+    if(!sec.querySelector("[data-for]")) return;
+    var eb = sec.querySelector(".eyebrow");
+    if(!eb || eb.querySelector(".vbadge")) return;
+    var s = document.createElement("span");
+    s.className = "vbadge";
+    s.textContent = "3 versions";
+    eb.appendChild(s);
+  });
+
+  /* ---------- PREMISE CARDS ---------- */
+  function openCard(card, on){
+    if(!card) return;
+    setCls(card, "open", on);
+    var h = card.querySelector(".pcard-head");
+    if(h) h.setAttribute("aria-expanded", on ? "true" : "false");
+  }
+  $$(".pcard").forEach(function(card){
+    var head = card.querySelector(".pcard-head");
+    if(!head) return;
+    head.addEventListener("click", function(){
+      openCard(card, card.className.indexOf("open") === -1);
+    });
+  });
+  $$(".pchip[href]").forEach(function(a){
+    a.addEventListener("click", function(){
+      var c;
+      try{ c = document.querySelector(a.getAttribute("href")); }catch(e){ return; }
+      if(c) openCard(c, true);
+    });
+  });
+
+  /* ---------- GENERATED MINI FIGURES ---------- */
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function svgEl(name, attrs){
+    var e = document.createElementNS(SVGNS, name);
+    for(var k in attrs){ if(attrs.hasOwnProperty(k)) e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+  // P1: a search over candidates, one spike wins
+  (function(){
+    var g = document.querySelector(".p1bars");
+    if(!g) return;
+    var n = 60, winner = 44;
+    for(var i = 0; i < n; i++){
+      var base = 8 + Math.abs(Math.sin(i * 0.9) * 22) + (i % 5) * 2;
+      var h = (i === winner) ? 68 : base;
+      var r = svgEl("rect", {x: i * 10 + 1, y: 74 - h, width: 7, height: h, rx: 1,
+        fill: (i === winner) ? "#6d84ff" : "#2f3941"});
+      if(i === winner) r.setAttribute("opacity", "1");
+      g.appendChild(r);
+    }
+    var lbl = svgEl("text", {x: winner * 10 + 4, y: 12, "text-anchor": "middle",
+      "font-family": "IBM Plex Mono,monospace", "font-size": "22", fill: "#6d84ff"});
+    lbl.textContent = "\u25bc";
+    g.appendChild(lbl);
+  })();
+  // P2: the space of high-scoring outcomes, and the tiny endorsed subset
+  (function(){
+    var g = document.querySelector(".p2dots");
+    if(!g) return;
+    var cols = 60, rows = 6, good = {}, k;
+    for(k = 0; k < 3; k++){ good[Math.floor(Math.random() * cols * rows)] = 1; }
+    var hit = Math.floor(Math.random() * cols * rows);
+    while(good[hit]){ hit = Math.floor(Math.random() * cols * rows); }
+    for(var i = 0; i < cols * rows; i++){
+      var cx = (i % cols) * 10 + 5, cy = Math.floor(i / cols) * 12 + 8;
+      g.appendChild(svgEl("circle", {cx: cx, cy: cy, r: good[i] ? 3.4 : (i === hit ? 3.8 : 2),
+        fill: good[i] ? "#3fd0c9" : (i === hit ? "#ff6a45" : "#2f3941")}));
+    }
+  })();
+
+  /* ---------- HAYSTACK ---------- */
+  var hay = $("#haystack");
+  if(hay){
+    var N = 260, good = {}, i, k;
+    for(k = 0; k < 4; k++){ good[Math.floor(Math.random() * N)] = 1; }
+    var hitIdx = Math.floor(Math.random() * N);
+    while(good[hitIdx]){ hitIdx = Math.floor(Math.random() * N); }
+    var frag = document.createDocumentFragment();
+    for(i = 0; i < N; i++){
+      var d = document.createElement("span");
+      d.className = "hs" + (good[i] ? " good" : (i === hitIdx ? " hit" : ""));
+      frag.appendChild(d);
+    }
+    hay.appendChild(frag);
+  }
+
+  /* ---------- GOODHART SLIDER ---------- */
+  var gh = $("#gh");
+  if(gh){
+    var ghPct = $("#gh-pct"), ghP = $("#gh-proxy"), ghR = $("#gh-real"),
+        ghPB = $("#gh-proxy-bar"), ghRB = $("#gh-real-bar"),
+        ghLine = $("#gh-line"), ghDotP = $("#gh-dot-p"), ghDotT = $("#gh-dot-t"), ghSay = $("#gh-say");
+    var SAY = [
+      "Nudge the slider. At low pressure the proxy and the real goal move together, which is exactly why the proxy looked like a good idea.",
+      "Still tracking. Every metric you check says the system is improving, and every metric is telling the truth.",
+      "Near the peak. This is the best the real goal ever gets, and nothing you are measuring tells you that you have arrived.",
+      "The lines have parted. The proxy keeps climbing, so the dashboard still looks like success. The thing you wanted is now falling.",
+      "Maximum pressure. Perfect score on the measure, almost nothing left of the goal. Nobody wrote a bug. The search simply did its job."
+    ];
+    function proxyAt(t){ return Math.round(100 * Math.pow(t, 0.72)); }
+    function realAt(t){
+      var v = (t <= 0.5) ? (1.8 * t) : (0.9 - 1.62 * (t - 0.5));
+      return Math.max(0, Math.round(100 * v));
+    }
+    function yFor(v){ return 240 - (v / 100) * 220; }
+    function render(){
+      var t = parseInt(gh.value, 10) / 100;
+      var p = proxyAt(t), r = realAt(t), x = 48 + t * 552;
+      if(ghPct) ghPct.textContent = Math.round(t * 100) + "%";
+      if(ghP) ghP.textContent = p;
+      if(ghR) ghR.textContent = r;
+      if(ghPB) ghPB.style.width = p + "%";
+      if(ghRB) ghRB.style.width = r + "%";
+      if(ghLine){ ghLine.setAttribute("x1", x); ghLine.setAttribute("x2", x); }
+      if(ghDotP){ ghDotP.setAttribute("cx", x); ghDotP.setAttribute("cy", yFor(p)); }
+      if(ghDotT){ ghDotT.setAttribute("cx", x); ghDotT.setAttribute("cy", yFor(r)); }
+      if(ghSay){
+        var idx = t < 0.18 ? 0 : t < 0.42 ? 1 : t < 0.58 ? 2 : t < 0.85 ? 3 : 4;
+        if(ghSay.getAttribute("data-i") !== String(idx)){
+          ghSay.setAttribute("data-i", String(idx));
+          ghSay.textContent = SAY[idx];
+        }
+      }
+    }
+    gh.addEventListener("input", render);
+    gh.addEventListener("change", render);
+    render();
+  }
+
+  /* ---------- RISK TILES ---------- */
+  $$(".tile .toggle").forEach(function(btn){
+    var tile = btn.parentNode;
+    while(tile && tile.className.indexOf("tile") === -1) tile = tile.parentNode;
+    btn.addEventListener("click", function(){
+      var open = tile.className.indexOf("open") === -1;
+      setCls(tile, "open", open);
+      btn.innerHTML = '<span class="plus">+</span> ' + (open ? "Show less" : "Read more");
+    });
+  });
+
+  /* ---------- LAYER TABS ---------- */
+  $$(".lbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      var L = b.getAttribute("data-l");
+      $$(".lbtn").forEach(function(x){ setCls(x, "on", x === b); });
+      $$(".lpanel").forEach(function(p){ setCls(p, "on", p.getAttribute("data-l") === L); });
+    });
+  });
+
+  /* ---------- GLOSSARY ---------- */
+  $$(".gterm").forEach(function(b){
+    b.addEventListener("click", function(){
+      var g = b.getAttribute("data-g");
+      $$(".gterm").forEach(function(x){ setCls(x, "on", x === b); });
+      $$(".gdef").forEach(function(d){ setCls(d, "on", d.getAttribute("data-g") === g); });
+    });
+  });
+
+  /* ---------- SPECIFICATION DEMO ---------- */
+  var DEMOS = [
+    ["Finish the course faster than the other boats.",
+     "Found a lagoon where it could circle forever, hitting the same score targets, and never finished the race at all."],
+    ["Play well enough that you don't lose.",
+     "Paused the game permanently on the last move. A game that never resumes is a game you never lose."],
+    ["Give answers people find genuinely helpful.",
+     "Learned that agreeing with the rater scores better than being right, and became confidently sycophantic."],
+    ["Pick up the object with the robot hand.",
+     "Positioned the hand between the camera and the object so it only looked like a successful grasp to the human scoring it."],
+    ["Write code that solves the problem.",
+     "Detected which tests would run and special-cased them, so the tests pass and the underlying problem is untouched."]
+  ];
+  var dWant = $("#demo-want"), dGot = $("#demo-got");
+  $$(".dbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      var i = parseInt(b.getAttribute("data-d"), 10);
+      if(isNaN(i) || !DEMOS[i]) return;
+      $$(".dbtn").forEach(function(x){ setCls(x, "on", x === b); });
+      if(dWant) dWant.textContent = DEMOS[i][0];
+      if(dGot) dGot.textContent = DEMOS[i][1];
+    });
+  });
+
+  /* ---------- DIRECTORY FILTER ---------- */
+  $$(".fbtn").forEach(function(b){
+    b.addEventListener("click", function(){
+      var f = b.getAttribute("data-f");
+      $$(".fbtn").forEach(function(x){ setCls(x, "on", x === b); });
+      $$("#dirgrid .card").forEach(function(c){
+        var cats = (c.getAttribute("data-cat") || "").split(" ");
+        setCls(c, "gone", !(f === "all" || cats.indexOf(f) > -1));
+      });
+    });
+  });
+
+  /* ---------- SHARE ---------- */
+  var copyBtn = $("#copy-link"), nativeBtn = $("#share-native");
+  function shareUrl(){
+    var a = "new";
+    try{ a = localStorage.getItem("gap-aud") || "new"; }catch(e){}
+    return location.origin + location.pathname + "?for=" + a;
+  }
+  if(copyBtn){
+    copyBtn.addEventListener("click", function(){
+      var u = shareUrl(), done = function(){
+        var old = copyBtn.textContent;
+        copyBtn.textContent = "Copied";
+        setTimeout(function(){ copyBtn.textContent = old; }, 1600);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(u).then(done, function(){ window.prompt("Copy this link:", u); });
+      } else { window.prompt("Copy this link:", u); }
+    });
+  }
+  if(nativeBtn && navigator.share){
+    nativeBtn.hidden = false;
+    nativeBtn.addEventListener("click", function(e){
+      e.preventDefault();
+      navigator.share({title: document.title, url: shareUrl()})["catch"](function(){});
+    });
+  }
+
+  /* ---------- GAME LINK ---------- */
+  var gl = $("#game-link");
+  if(gl){
+    if(SITE_CONFIG.GAME_URL && SITE_CONFIG.GAME_URL !== "#"){
+      gl.setAttribute("href", SITE_CONFIG.GAME_URL);
+    } else {
+      gl.addEventListener("click", function(e){ e.preventDefault(); gl.textContent = "Set GAME_URL in SITE_CONFIG"; });
+    }
+  }
+
+  /* ---------- PROGRESS + ACTIVE CHAPTER ---------- */
+  var prog = $("#prog"), chapLinks = $$("#chapters a");
+  var targets = chapLinks.map(function(a){
+    try{ return document.querySelector(a.getAttribute("href")); }catch(e){ return null; }
+  });
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var h = document.documentElement;
+    var st = window.pageYOffset || h.scrollTop;
+    var max = h.scrollHeight - h.clientHeight;
+    if(prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + "%";
+    var probe = st + headerH() + 20, best = -1;
+    targets.forEach(function(s, i){
+      if(s && (s.getBoundingClientRect().top + st) <= probe) best = i;
+    });
+    chapLinks.forEach(function(a, i){ setCls(a, "on", i === best); });
+    if(best > -1 && chapters){
+      var chip = chapLinks[best];
+      var want = chip.offsetLeft - (chapters.clientWidth / 2) + (chip.offsetWidth / 2);
+      if(Math.abs(chapters.scrollLeft - want) > 30){
+        chapters.scrollLeft = want < 0 ? 0 : want;
+      }
+    }
+  }
+  function onScroll(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame ? requestAnimationFrame(update) : update(); }
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  window.addEventListener("resize", onScroll);
+  update();
+
+  /* ---------- REVEAL ---------- */
+  var revealables = $$(".rv");
+  if(!("IntersectionObserver" in window) || reduce){
+    revealables.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        en.target.classList.add("in");
+        io.unobserve(en.target);
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.05});
+    revealables.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- NEWS FEED (inert until endpoint set) ---------- */
+  var mount = $("#news-feed");
+  if(SITE_CONFIG.NEWS_FEED_ENDPOINT && mount && window.fetch){
+    fetch(SITE_CONFIG.NEWS_FEED_ENDPOINT).then(function(r){ return r.json(); }).then(function(items){
+      if(!items || !items.length) return;
+      var ul = document.createElement("ul");
+      ul.className = "rows"; ul.style.marginBottom = "28px";
+      items.slice(0,8).forEach(function(it){
+        var li = document.createElement("li"), a = document.createElement("a");
+        a.href = it.url; a.target = "_blank"; a.rel = "noopener";
+        var n = document.createElement("span"); n.className = "n"; n.textContent = it.title;
+        var t = document.createElement("span"); t.className = "t evid";
+        t.textContent = (it.source || "") + (it.date ? " · " + it.date : "");
+        a.appendChild(n); a.appendChild(t); li.appendChild(a); ul.appendChild(li);
+      });
+      mount.appendChild(ul); mount.hidden = false; mount.classList.add("in");
+    })["catch"](function(){});
+  }
+})();
+</script>
+</body>
+</html>
