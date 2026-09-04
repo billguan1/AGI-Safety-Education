@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Gap: a free, sourced map of AGI safety</title>
-<meta name="description" content="Why advanced AI is dangerous, argued from first principles rather than headlines. Plus the best free courses, who holds a lever, what people still argue about, and what you can do this week.">
-<meta property="og:title" content="The Gap: a free, sourced map of AGI safety">
-<meta property="og:description" content="AI capability is outrunning our ability to check it. The argument from first principles, plus the whole field in one page.">
+<title>AGI &amp; ASI Safety: the hardest problem we have</title>
+<meta name="description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">
+<meta property="og:title" content="AGI &amp; ASI Safety: the hardest problem we have">
+<meta property="og:description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +234,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ph.end{background:var(--ink);border-color:var(--ink)}
 .ph.end .pn{color:#ff8a6b}
 .ph.end h4{color:#fff}
-.ph.end p{color:#dfe5e9}
+.ph.end p{color:#e6ebee}
 /* ---------- control methods ---------- */
 .cmeth{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(20px,3vw,28px)}
 @media(max-width:760px){.cmeth{grid-template-columns:1fr}}
@@ -343,8 +343,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:64ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{max-width:66ch;margin-top:8px}
-.dd .body p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px}
-.dd .body p strong{color:var(--ink);font-weight:500}
+.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px}
+.dd .body>p strong{color:var(--ink);font-weight:500}
 .ddgrid{display:grid;gap:12px;margin:clamp(22px,3.4vw,34px) 0}
 .ddgrid.two{grid-template-columns:1fr 1fr}
 .ddgrid.three{grid-template-columns:repeat(3,1fr)}
@@ -378,9 +378,81 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
 .mh-meta span:first-child{padding-left:0;border-left:0}
 /* ---------- masthead end ---------- */
+
+
+
+/* ---------- section figures ---------- */
+.secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
+  background:var(--white);padding:clamp(16px,2.4vw,22px)}
+.secfig svg{display:block;width:100%;height:auto}
+.secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:70ch}
+
+.secfig.dark{background:rgba(255,255,255,.04);border-color:#2b343b}
+
+.fig-src{margin-top:9px;padding-top:9px;border-top:1px dashed var(--rule);
+  font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-3)}
+.fig-src a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid rgba(34,51,204,.35)}
+.fig-src a:hover{border-bottom-color:currentColor}
+.secfig.dark .fig-src{color:#8a959c;border-top-color:#2b343b}
+.secfig.dark .fig-src a{color:#8fa2ff;border-bottom-color:rgba(143,162,255,.4)}
+/* ---------- reading paths / route chooser ---------- */
+.routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
+.routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
+.routes-sub{font-size:14.5px;line-height:1.55;color:#9aa5ac;margin:0 0 16px;max-width:64ch}
+.route-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.route-btns{grid-template-columns:1fr}}
+.rbtn{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
+.rbtn:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
+.rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
+.rbtn .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
+.rbtn .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
+.rbtn .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
+/* collapsed (off-route) chapters */
+.offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
+.offroute .sec-head .stand{display:none}
+.offroute .sec-head{margin-bottom:12px}
+.offroute{padding-top:clamp(20px,2.6vw,28px);padding-bottom:clamp(20px,2.6vw,28px)}
+.offroute-cta{display:none}
+.offroute .offroute-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--rule);border-radius:999px;
+  padding:9px 15px;background:transparent;color:var(--ink-2);cursor:pointer;transition:.15s}
+.offroute .offroute-cta:hover{border-color:var(--ink);color:var(--ink)}
+/* ---------- chapter end markers ---------- */
+.chapend{margin-top:clamp(26px,3.6vw,38px);border-top:1px solid var(--rule);padding-top:16px;
+  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between}
+.chapend .ce-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3)}
+.chapend .ce-l b{color:var(--ink);font-weight:600}
+.chapend .ce-r{font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.chapend .ce-r a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid transparent}
+.chapend .ce-r a:hover{border-bottom-color:currentColor}
+.cross .chapend,.dark .chapend{border-top-color:#2b343b}
+.cross .chapend .ce-l{color:#8a959c}
+.cross .chapend .ce-l b{color:#fff}
+.cross .chapend .ce-r a{color:#8fa2ff}
+/* ---------- position readout ---------- */
+.posmeter{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;padding-left:12px}
+@media(max-width:760px){.posmeter{width:100%;padding-left:0;margin-top:2px}}
+/* ---------- resume banner ---------- */
+.resume{position:fixed;left:50%;transform:translateX(-50%) translateY(140%);bottom:18px;z-index:70;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+  background:var(--ink);color:#fff;border-radius:999px;padding:12px 16px 12px 20px;
+  box-shadow:0 14px 40px rgba(18,22,26,.34);transition:transform .3s ease;max-width:calc(100vw - 24px)}
+.resume.show{transform:translateX(-50%) translateY(0)}
+.resume p{margin:0;font-size:14px;color:#dfe5e9}
+.resume p b{color:#fff;font-weight:600}
+.resume button{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:999px;padding:8px 14px;cursor:pointer;border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;transition:.15s}
+.resume button.go{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.resume button:hover{border-color:#fff;color:#fff}
+/* ---------- per-section reading time ---------- */
+.rt-min{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 7px;margin-left:8px;border-radius:999px;
+  border:1px solid currentColor;opacity:.62;vertical-align:2px}
 /* ---------- four risk pillars ---------- */
 .pillars{margin-top:clamp(30px,5vw,52px);border-top:1px solid #2b343b;padding-top:clamp(24px,3.6vw,36px)}
-.pil-lead{font-size:15.5px;line-height:1.6;color:#9aa5ac;max-width:70ch;margin:0 0 18px}
+.pil-lead{font-size:15.5px;line-height:1.6;color:#b6c0c6;max-width:70ch;margin:0 0 18px}
 .pil-lead em{color:#fff;font-style:normal;font-weight:500}
 .pil-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 @media(max-width:900px){.pil-grid{grid-template-columns:1fr 1fr}}
@@ -388,9 +460,9 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .pil{display:block;text-decoration:none;border:1px solid #2b343b;border-radius:var(--r);padding:16px;
   background:rgba(255,255,255,.03);transition:.16s}
 .pil:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
-.pil .pk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8a959c;display:block;margin-bottom:9px}
+.pil .pk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8b3ba;display:block;margin-bottom:9px}
 .pil .pt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:19px;color:#fff;display:block;margin-bottom:7px}
-.pil .pd{font-size:13.5px;line-height:1.5;color:#9aa5ac;display:block}
+.pil .pd{font-size:13.5px;line-height:1.5;color:#c3ccd2;display:block}
 .pil.hot{background:rgba(189,58,32,.14);border-color:#6b3527}
 .pil.hot .pk{color:#ff8a6b}
 /* ---------- crossroads roadmap ---------- */
@@ -403,7 +475,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .rm:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
 .rm .rn{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;color:#ff8a6b;display:block;margin-bottom:10px}
 .rm .rt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:17px;color:#fff;display:block;margin-bottom:6px}
-.rm .rd{font-size:14px;line-height:1.45;color:#9aa5ac;display:block}
+.rm .rd{font-size:14px;line-height:1.5;color:#c3ccd2;display:block}
 /* ---------- crossroads opening ---------- */
 .cross{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden;position:relative}
 .cross::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -673,6 +745,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .mx-row .c1 .dot{background:var(--c-dev);border-color:var(--c-dev)}
 .mx-row .c2 .dot{background:var(--c-ass);border-color:var(--c-ass)}
 .mx-row .c3 .dot{background:var(--c-ctl);border-color:var(--c-ctl)}
+.mx-row .c4 .dot{background:var(--c-act);border-color:var(--c-act)}
 @media(max-width:620px){.mx-row{grid-template-columns:1.1fr repeat(4,1fr)}.mx-name{font-size:12.5px}.mx-row>div{padding:10px 6px}}
 
 /* ---------- ladder ---------- */
@@ -823,6 +896,142 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
 </style>
+
+  <!-- EDIT ME: replace https://example.com with your real domain in the 6 URLs below, then delete this comment. -->
+  <link rel="canonical" href="https://example.com/index.html">
+  <link rel="alternate" hreflang="en" href="https://example.com/index.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://example.com/index-zh.html">
+  <link rel="alternate" hreflang="x-default" href="https://example.com/index.html">
+  <meta property="og:url" content="https://example.com/index.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="AGI &amp; ASI Safety">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#12161a">
+  <meta name="author" content="Bill Guan">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://example.com/#website",
+   "url": "https://example.com/",
+   "name": "AGI & ASI Safety",
+   "inLanguage": "en"
+  },
+  {
+   "@type": "Article",
+   "@id": "https://example.com/index.html#article",
+   "isPartOf": {
+    "@id": "https://example.com/#website"
+   },
+   "headline": "AGI & ASI Safety: the hardest problem we have",
+   "description": "Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.",
+   "inLanguage": "en",
+   "author": {
+    "@type": "Person",
+    "name": "Bill Guan"
+   },
+   "publisher": {
+    "@type": "Person",
+    "name": "Bill Guan"
+   },
+   "image": "https://example.com/og-image.png",
+   "dateModified": "2026-09-04",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI safety"
+    },
+    {
+     "@type": "Thing",
+     "name": "Artificial general intelligence"
+    },
+    {
+     "@type": "Thing",
+     "name": "Superintelligence"
+    },
+    {
+     "@type": "Thing",
+     "name": "AI alignment"
+    }
+   ],
+   "mainEntityOfPage": "https://example.com/index.html"
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://example.com/index.html#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Isn't this just science fiction?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.3736"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can't we just switch it off if it misbehaves?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.3420"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Won't a smart enough AI just understand what we want?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was actually trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis.34"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Isn't it too late, or too big for me to matter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The single biggest bottleneck in this field is that most people have never heard the argument in a form they can evaluate. That makes ordinary awareness unusually high-leverage. Sharing this page, signing the statement, or explaining the problem to one person genuinely moves the thing that most needs moving. The actions section lists concrete steps."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is \"alignment\", exactly?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Getting a system to actually pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training).25"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What are \"interpretability\", \"evals\", and \"AI control\"?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Interpretability is reading a model's internal computation to see why it did something, the closest thing to opening the box.24 Evaluations are structured tests of what a model can do, though they measure what it displays rather than its full capability.19 AI control assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.20"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "If it is this risky, why is anyone building it?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is precisely what makes it a coordination problem that no single careful actor can fix. That is the deep dive on the race.1"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Aren't we just the next step, and AI is our successor?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Some people do hold that view, that humanity is a biological bootloader for a silicon intelligence that comes next. This page does not share it. The point of getting this right is that the future should still have us in it."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <div id="prog"></div>
@@ -831,17 +1040,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <a class="brand" href="#top">AGI Safety <b>/</b> the hardest problem humanity has yet to solve</a>
+    <a class="brand" href="#top">AGI &amp; ASI Safety <b>/</b> the hardest problem humanity has yet to solve</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="index-zh.html" hreflang="zh-Hans">中文</a>
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>Share</span></button>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>Share</span></button>
       <a class="hbtn hbtn-act" href="#ask"><span>Act now</span></a>
       <a class="hbtn header-game" href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M8 6l10 6-10 6z"/></svg><span>Learn AGI Safety by playing a game</span></a>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>Learn AGI &amp; ASI safety by playing a game</span></a>
     </div>
   </div>
   <nav class="chapters" id="chapters" aria-label="Contents">
+    <span class="posmeter" id="posmeter" aria-live="off"></span>
     <ul class="nav-groups">
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">The situation <span class="ng-caret" aria-hidden="true">›</span></button>
@@ -888,7 +1098,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
     <p class="mh-sub">Human intelligence built the modern world. We are now building something greater than ourselves, and we cannot yet guarantee it stays on our side. This is a map of that problem, argued from first principles, and what to do about it.</p>
     <div class="mh-meta">
-      <span>AGI safety</span><span>~15 min read</span><span>Every claim sourced</span>
+      <span>AGI &amp; ASI safety</span><span>~35 min in full</span><span>Every claim sourced</span>
     </div>
   </div>
 </header>
@@ -896,9 +1106,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- CROSSROADS -->
 <section id="crossroads" class="cross">
   <div class="wrap">
-    <p class="eyebrow">Where we are</p>
+    <p class="eyebrow">Where we are <b class="rt-min">4 min</b></p>
     <h2 class="big">We are about to do something <em>no species has ever done</em>: build a mind greater than our own.</h2>
-    <p class="stand">Every leap in our history was made by the smartest thing on the planet, and that thing was always us. We are now trying to end that streak on purpose. Soon the most capable intelligence on Earth will not be human at all.</p>
+    <p class="stand">Every leap in our history was made by the smartest thing on the planet, and that thing was always us. We are now trying to end that streak on purpose. Soon the most capable intelligence on Earth will not be human at all. Two words for what is coming: <strong>AGI</strong>, a system matching humans across the board, and <strong>ASI</strong>, a superintelligence far beyond us. The first is the threshold. The second is what the first is expected to build, and quickly.</p>
 
     <div class="firsts">
       <div class="first">
@@ -919,59 +1129,74 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
 
     <figure class="cliff">
-      <svg viewBox="0 0 800 400" role="img" aria-label="Diagram: labs, companies, investors and nations roped together race toward a cliff edge. Above the drop floats the prize of abundance; below it lies existential wipeout.">
+      <svg viewBox="0 0 800 430" role="img" aria-label="Diagram: labs, companies, investors and nations, roped together, race toward the edge of a cliff. The prize floats beyond the far side; the drop below is existential wipeout.">
         <defs>
-          <linearGradient id="void" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#bd3a20" stop-opacity=".40"/>
+          <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a333a"/><stop offset="100%" stop-color="#171d22"/>
+          </linearGradient>
+          <linearGradient id="abyss" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#bd3a20" stop-opacity=".34"/>
             <stop offset="100%" stop-color="#bd3a20" stop-opacity="0"/>
           </linearGradient>
           <radialGradient id="prizeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ffd88a" stop-opacity=".55"/>
+            <stop offset="0%" stop-color="#ffd88a" stop-opacity=".5"/>
             <stop offset="100%" stop-color="#ffd88a" stop-opacity="0"/>
           </radialGradient>
         </defs>
 
-        <!-- THE PRIZE, floating over the far side -->
-        <ellipse cx="672" cy="78" rx="150" ry="74" fill="url(#prizeGlow)"/>
-        <text x="672" y="52" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" letter-spacing="-.2" fill="#ffd88a">THE PRIZE</text>
-        <text x="672" y="74" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">Infinite abundance and output</text>
-        <text x="672" y="90" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">Cures for every disease, long lives</text>
-        <text x="672" y="106" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">Science at machine speed</text>
-        <path d="M672,120 L672,150" stroke="#e8c98a" stroke-width="1.2" stroke-dasharray="3 4" opacity=".7"/>
-        <text x="672" y="166" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">only if we arrive safely</text>
+        <!-- prize floating beyond the far side -->
+        <ellipse cx="668" cy="80" rx="140" ry="70" fill="url(#prizeGlow)"/>
+        <text x="668" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ffd88a">THE PRIZE</text>
+        <text x="668" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">Infinite abundance and output</text>
+        <text x="668" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">Cures for every disease, long lives</text>
+        <text x="668" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">Science at machine speed</text>
+        <text x="668" y="136" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">only if we arrive safely</text>
 
-        <!-- ground and cliff -->
-        <rect x="0" y="224" width="560" height="120" fill="rgba(255,255,255,.04)"/>
-        <line x1="0" y1="224" x2="560" y2="224" stroke="#4a545b" stroke-width="1.5"/>
-        <rect x="576" y="224" width="224" height="176" fill="url(#void)"/>
-        <line x1="560" y1="216" x2="560" y2="400" stroke="#bd3a20" stroke-width="2" stroke-dasharray="5 5"/>
-
-        <!-- rope -->
-        <path d="M80,206 C180,198 300,200 530,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
-        <!-- runners -->
-        <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
-          <g transform="translate(80,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
-          <g transform="translate(175,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
-          <g transform="translate(270,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
-          <g transform="translate(360,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
-          <g transform="translate(450,206)"><circle cx="0" cy="-34" r="7" fill="#ffb59e" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ffb59e"/></g>
-          <g transform="translate(530,206)"><circle cx="0" cy="-34" r="7.5" fill="#ff8a6b" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ff8a6b"/></g>
+        <!-- SOLID GROUND with a real cliff face -->
+        <path d="M0,224 L556,224 L556,430 L0,430 Z" fill="url(#rock)"/>
+        <path d="M0,224 L556,224" stroke="#6c7880" stroke-width="2.5"/>
+        <!-- crumbling edge -->
+        <path d="M556,224 L566,238 L552,252 L562,268 L548,286 L558,306 L544,330 L556,360 L546,392 L556,430 L520,430 L520,224 Z" fill="url(#rock)" stroke="#6c7880" stroke-width="1.2"/>
+        <!-- rock striations to read as a cliff wall -->
+        <g stroke="#3a444c" stroke-width="1.4" opacity=".85">
+          <path d="M40,262 L300,262 M120,300 L420,300 M0,344 L360,344 M180,388 L500,388"/>
         </g>
-        <text x="80" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".5" fill="#8a959c">LAB</text>
-        <text x="175" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".5" fill="#8a959c">LAB</text>
-        <text x="270" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".5" fill="#8a959c">COMPANY</text>
-        <text x="360" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".5" fill="#8a959c">INVESTORS</text>
-        <text x="450" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".5" fill="#8a959c">NATION</text>
-        <text x="530" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".5" fill="#8a959c">NATION</text>
+        <!-- the drop -->
+        <rect x="600" y="224" width="200" height="206" fill="url(#abyss)"/>
+        <text x="700" y="300" text-anchor="middle" font-family="Archivo,sans-serif" font-size="17" font-weight="900" letter-spacing="1" fill="#ff8a6b">THE DROP</text>
+        <text x="700" y="326" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">Loss of human control</text>
+        <text x="700" y="343" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">Existential wipeout</text>
+        <text x="700" y="360" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">No second attempt</text>
+        <!-- one figure already over the edge -->
+        <g stroke="#ff8a6b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
+          <g transform="translate(600,268) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#ff8a6b"/>
+            <path d="M0,-23 L2,-6 M2,-6 L-8,6 M2,-6 L12,3 M-1,-17 L-12,-13 M-1,-17 L10,-22"/></g>
+        </g>
 
-        <!-- THE CONSEQUENCE, below -->
-        <text x="688" y="300" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="900" letter-spacing="-.2" fill="#ff8a6b">IF WE GET IT WRONG</text>
-        <text x="688" y="322" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">Loss of human control</text>
-        <text x="688" y="338" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">Existential wipeout</text>
-        <text x="688" y="354" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">No second attempt</text>
+        <!-- edge marker -->
+        <line x1="556" y1="196" x2="556" y2="430" stroke="#bd3a20" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="548" y="188" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#ff8a6b">CLIFF EDGE</text>
 
-        <text x="20" y="40" font-family="Archivo,sans-serif" font-size="19" font-weight="800" letter-spacing="-.3" fill="#fff">Racing to be first</text>
-        <text x="20" y="64" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">to a place nobody should reach first.</text>
+        <!-- rope + runners -->
+        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
+        <text x="70" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">one rope, all of us</text>
+        <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
+          <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
+          <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
+          <g transform="translate(250,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
+          <g transform="translate(336,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
+          <g transform="translate(420,206)"><circle cx="0" cy="-34" r="7" fill="#ffb59e"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ffb59e"/></g>
+          <g transform="translate(500,206)"><circle cx="0" cy="-34" r="7.5" fill="#ff8a6b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ff8a6b"/></g>
+        </g>
+        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">LAB</text>
+        <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">LAB</text>
+        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">COMPANY</text>
+        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">INVESTORS</text>
+        <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">NATION</text>
+        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">NATION</text>
+
+        <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">Racing to be first</text>
+        <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">to a place nobody should reach first.</text>
       </svg>
       <figcaption>The prize floating over the far side is real: abundance, cured disease, science at machine speed. That is exactly why everyone is running. The rope is the part they ignore, and the drop is what waits if we cross the line before we know how to land. Labs, companies, investors and whole nations are all tied to the same line, so the first one over does not win. They pull everyone down with them.</figcaption>
     </figure>
@@ -983,7 +1208,61 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p>Some people are relaxed about all this. They think humanity is just the biological bootloader for a silicon intelligence that comes next, and that this is fine. This page does not share that view. The future should still have us in it.</p>
     </div>
 
-    <div class="roadmap rv">
+    <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 200" role="img" aria-label="Comparison: a parent and infant satisfy three conditions; humans and machine intelligence satisfy none of them.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">THE ONE CASE WHERE WEAKER CONTROLS STRONGER</text>
+        <text x="210" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Shares your nature</text>
+        <text x="400" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Small, closing gap</text>
+        <text x="590" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Cannot redesign itself</text>
+        <text x="0" y="86" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Parent and infant</text>
+        <text x="0" y="132" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Us and a machine intelligence</text>
+        <circle cx="210" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M205,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="210" cy="126" r="11" fill="none" stroke="#ff8a6b" stroke-width="2"/><path d="M205,121 l10,10 M205,131 l10,-10" stroke="#ff8a6b" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="400" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M395,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="400" cy="126" r="11" fill="none" stroke="#ff8a6b" stroke-width="2"/><path d="M395,121 l10,10 M395,131 l10,-10" stroke="#ff8a6b" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="590" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M585,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="590" cy="126" r="11" fill="none" stroke="#ff8a6b" stroke-width="2"/><path d="M585,121 l10,10 M585,131 l10,-10" stroke="#ff8a6b" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="0" y1="158" x2="700" y2="158" stroke="#2b343b"/>
+        <text x="0" y="182" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">Three ticks become three crosses. The analogy people reach for does not survive contact with the case.</text>
+      </svg>
+      <figcaption>The parent-and-infant case is the nearest thing to weaker-controlling-stronger that history offers, and it works only because of three properties none of which carry over.</figcaption>
+    </figure>
+
+      <div class="roadmap rv">
+      <div class="routes rv">
+        <p class="routes-lead">You do not have to read all of this.</p>
+        <p class="routes-sub">Pick how deep you want to go. Choosing a shorter route folds the other chapters down to their headline, and you can open any of them at any time. Nothing is hidden from you.</p>
+        <div class="route-btns">
+          <button type="button" class="rbtn" data-route="essentials">
+            <span class="rbm">6 min</span><span class="rbn">The essentials</span>
+            <span class="rbd">The situation, and what to do about it. Enough to understand the argument and act on it.</span></button>
+          <button type="button" class="rbtn" data-route="core">
+            <span class="rbm">18 min</span><span class="rbn">The core argument</span>
+            <span class="rbd">Adds the three chapters that carry the weight: the race, why values do not transfer, and why there is no second attempt.</span></button>
+          <button type="button" class="rbtn on" data-route="full">
+            <span class="rbm">35 min</span><span class="rbn">Everything</span>
+            <span class="rbd">All seven chapters, the evidence, the open disputes, and the reference shelf.</span></button>
+        </div>
+      </div>
+
+      <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 242" role="img" aria-label="Two diverging lines over time: capability rising steeply while our ability to verify safety rises slowly, with the widening gap shaded.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">THE GAP THIS PAGE IS ABOUT</text>
+        <line x1="52" y1="30" x2="52" y2="206" stroke="#3a444c"/>
+        <line x1="52" y1="206" x2="690" y2="206" stroke="#3a444c"/>
+        <path d="M52,196 C200,186 300,150 690,32 L690,206 L52,206 Z" fill="#bd3a20" opacity=".16"/>
+        <path d="M52,196 L160,182 L268,158 L376,122 L484,80 L592,44 L690,32" fill="none" stroke="#ff8a6b" stroke-width="3"/>
+        <path d="M52,198 L160,192 L268,184 L376,176 L484,168 L592,160 L690,154" fill="none" stroke="#3fd0c9" stroke-width="3"/>
+        <text x="686" y="24" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#ff8a6b">what systems can do</text>
+        <text x="686" y="172" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#3fd0c9">what we can verify</text>
+        <path d="M604,52 L604,152" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>
+        <text x="596" y="106" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#fff">the gap</text>
+        <text x="52" y="228" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">a decade ago</text>
+        <text x="690" y="228" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">now, and widening</text>
+      </svg>
+      <figcaption>Capability and assurance are both improving. They are not improving at the same rate, and the shaded area is the part nobody has a plan for. Everything else on this page is an attempt to explain why the lower line is so hard to lift.</figcaption>
+    </figure>
+
       <div class="pillars">
         <p class="pil-lead">Before the chapters, the shape of the problem. Researchers sort AI risk by <em>who, if anyone, intends the harm</em>. Google DeepMind's four-way split is the one used here; the International AI Safety Report uses a three-way version (misuse, malfunctions, systemic).<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
         <div class="pil-grid">
@@ -1001,10 +1280,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <a class="rm" href="#why-race"><span class="rn">03</span><span class="rt">Why the race is the danger</span><span class="rd">Roped together, sprinting for a cliff. Arriving first is not winning.</span></a>
         <a class="rm" href="#why-human-misalignment"><span class="rn">04</span><span class="rt">Why we disagree with each other</span><span class="rd">There is no single human alignment to hand a machine.</span></a>
         <a class="rm" href="#why-translation"><span class="rn">05</span><span class="rt">Why values don't translate</span><span class="rd">Even a value we agree on leaks when we turn it into training.</span></a>
+        <a class="rm" href="#why-safety-hard"><span class="rn">06</span><span class="rt">Why safety is the harder problem</span><span class="rd">Safety research is harder than building AGI and ASI, and gets fewer resources. With real examples.</span></a>
         <a class="rm" href="#why-one-try"><span class="rn">07</span><span class="rt">Why we only get one try</span><span class="rd">Silicon runs ten million times faster, and it can improve itself. No iterating our way out.</span></a>
-        <a class="rm" href="#why-safety-hard"><span class="rn">06</span><span class="rt">Why safety is the harder problem</span><span class="rd">Engineering the safeguards is harder than building the capability, and worse funded. With real examples.</span></a>
       </div>
-      <p class="rm-lead" style="font-size:15px;color:#9aa5ac;font-weight:400;margin-top:16px">Then: <a href="#response" style="color:#8fa2ff">what is being done</a>, <a href="#learn" style="color:#8fa2ff">how to learn it</a>, and <a href="#act" style="color:#8fa2ff">what you can do</a>.</p>
+      <p class="rm-lead" style="font-size:15px;color:#9aa5ac;font-weight:400;margin-top:16px">Then: <a href="#response" style="color:#8fa2ff">what is being done</a>, <a href="#learn" style="color:#8fa2ff">how to learn it</a>, and <a href="#ask" style="color:#8fa2ff">what you can do</a>.</p>
     </div>
   </div>
 </section>
@@ -1013,7 +1292,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-intelligence" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 01</span>
+      <span class="chapno">Deep dive 01 <b class="rt-min">2 min</b></span>
       <h2>Whenever a smarter thing arrived, it took the wheel</h2>
       <p class="stand">The single most reliable pattern in the history of life on Earth is that the most capable intelligence sets the terms for everything below it. We are about to build something above us, and we have no precedent for what happens next.</p>
     </div>
@@ -1032,7 +1311,27 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <p>There is no law tying how capable a system is to whether its goals are ones we would choose. A chess engine is superhuman and wants only to win; skill never made it wise or kind. We expect clever things to be sensible only because every clever thing we have met so far was human.</p>
 <p class="breaks"><b>What would defeat this</b>Sufficient capability turns out to reliably produce goals humans endorse. Nobody has shown a mechanism for it, and current systems give no sign of one.<a class="ref" href="#s34">34</a></p>
 </div>
-    <div class="keyline rv"><span class="kk">The takeaway</span><p>Control has always flowed to the greater intelligence. We are betting the future on reversing that, on purpose, the first time we try.</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 366" role="img" aria-label="WHO HOLDS THE TOP SLOT, DRAWN TO SCALE">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHO HOLDS THE TOP SLOT, DRAWN TO SCALE</text>
+        <text x="0" y="48" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">Other animals</text>
+        <rect x="0" y="56" width="44" height="26" rx="3" fill="#c3c9cd" opacity=".55"/>
+        <text x="0" y="110" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">Humans</text>
+        <text x="72" y="110" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#0d726e">every leap in history, ours</text>
+        <rect x="0" y="118" width="78" height="26" rx="3" fill="#0d726e" opacity="1"/>
+        <text x="0" y="172" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">AGI</text>
+        <rect x="0" y="180" width="392" height="26" rx="3" fill="#2233cc" opacity="1"/>
+        <text x="0" y="234" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">ASI</text>
+        <rect x="0" y="242" width="700" height="26" rx="3" fill="#bd3a20" opacity="1"/>
+        <path d="M0,290 L0,298 L86,298 L86,290" fill="none" stroke="#8a959c" stroke-width="1.2"/>
+        <text x="96" y="302" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">the entire range of biological intelligence</text>
+        <text x="0" y="334" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The slot has changed hands before, but never away from us.</text>
+        <text x="0" y="352" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">Even this understates it: ASI has no known ceiling, so the red bar simply runs off the page.</text>
+      </svg>
+      <figcaption>The distance from an ant to a human is the whole of biological intelligence, and it is the small gap on the left. The distance from a human to a superintelligence is the rest of the chart, with no upper bound anyone can point to. We have no experience of being on the short bar.</figcaption>
+    </figure>
+
+      <div class="keyline rv"><span class="kk">The takeaway</span><p>Control has always flowed to the greater intelligence. We are betting the future on reversing that, on purpose, the first time we try.</p></div>
   </div>
 </section>
 
@@ -1040,19 +1339,59 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-irresistible" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 02</span>
+      <span class="chapno">Deep dive 02 <b class="rt-min">3 min</b></span>
       <h2>The prize is too large for anyone to walk away from</h2>
-      <p class="stand">Understanding the danger is not enough to stop it, because the rewards of building are immediate, enormous, and captured by whoever moves first. That is what makes the resource pull so hard to resist.</p>
+      <p class="stand">Understanding the danger does not stop it, because the rewards are immediate, enormous, and captured by whoever moves first. That is what makes the pull so hard to resist.</p>
     </div>
     <div class="body rv">
-      <p>AI already does things no prior technology could: it writes working software, accelerates drug discovery, tutors at scale, and compresses research that used to take teams and years. But that is the small version. A true general intelligence would be the last invention we need to make, because it could make every other invention for us. Picture disease after disease solved, clean energy cracked, the frontier of science advancing at machine speed, and economic output potentially many times larger than today. This is not hype layered on greed. It is a genuine, world-changing good, and every piece of it translates into money, power, or national advantage. And here is the trap in one sentence: <strong>a true AGI could hand us the solution to almost every problem we have, except one.</strong> It cannot be trusted to give us the answer to its own safety, because verifying that answer is the very thing we do not yet know how to do. The one problem AGI does not solve for free is the problem of making AGI safe, and that is the one we have to solve ourselves, first. A company that slows down to be careful watches a faster rival take the market. A country that pauses watches a rival gain a strategic edge. So the rational move for each individual player is to press the accelerator, even by people who privately worry.<a class="ref" href="#s1">1</a></p>
-      <p>This is why the money follows capability and not safety. Capability has a clear, near-term payoff you can sell. Safety research mostly produces caution, delay, and problems you would rather not have found, and it pays off slowly if at all. <strong>Under a capitalist structure, resources flow to whatever produces returns, and returns come from building faster.</strong> Twelve leading companies published voluntary safety frameworks in 2025, but there is still no requirement that anyone verify them, and no penalty for quietly relaxing them under competitive pressure.<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
+      <p>AI already does things no prior technology could: it writes working software, accelerates drug discovery, tutors at scale, and compresses research that used to take teams and years. But that is the small version. A true general intelligence would be the last invention we need to make, because it could make every other invention for us. Picture disease after disease solved, clean energy cracked, the frontier of science advancing at machine speed, and economic output potentially many times larger than today. This is not hype layered on greed. It is a genuine, world-changing good, and every piece of it translates into money, power, or national advantage. And here is the trap in one sentence: <strong>a true AGI could hand us the solution to almost every problem we have, except one.</strong> It cannot be trusted to give us the answer to its own safety, because verifying that answer is the very thing we do not yet know how to do. The one problem it does not solve for free is making AGI and ASI safe, and that is the one we have to solve ourselves, first. A company that slows down to be careful watches a faster rival take the market. A country that pauses watches a rival gain a strategic edge. So the rational move for each individual player is to press the accelerator, even by people who privately worry.<a class="ref" href="#s1">1</a></p>
+      <p>The numbers make the imbalance concrete. In AI, safety work is about <strong>2% of all AI research</strong>,<a class="ref" href="#s46">46</a> and on the money side the gap is wider still: Stuart Russell has put roughly <strong>$100 billion</strong> going into building AGI against public-sector AI safety research measured in the <strong>tens of millions</strong>.<a class="ref" href="#s47">47</a> Even the labs’ own frontier frameworks aim at only 5 to 10% of staff on security work.<a class="ref" href="#s16">16</a> This is why the money follows capability and not safety. Capability has a clear, near-term payoff you can sell. Safety research mostly produces caution, delay, and problems you would rather not have found, and it pays off slowly if at all. <strong>Under a capitalist structure, resources flow to whatever produces returns, and returns come from building faster.</strong> Twelve leading companies published voluntary safety frameworks in 2025, but there is still no requirement that anyone verify them, and no penalty for quietly relaxing them under competitive pressure.<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc g"><span class="k">The pull</span><h4>The prize is genuinely enormous</h4><p>Not just better software. A general intelligence could compress decades of scientific progress into years and, by some estimates, grow the global economy many times over. The upside is real and it lands on whoever ships first, which makes stopping feel like unilateral disarmament.</p></div>
       <div class="ddc o"><span class="k">The starve</span><h4>Safety is a cost centre</h4><p>Caution slows the product and surfaces inconvenient risks. It has no quarterly payoff, so it loses the fight for talent and compute inside almost every organisation.</p></div>
     </div>
-    <div class="keyline rv"><span class="kk">The takeaway</span><p>The incentive to build is not a villain to defeat. It is a gradient every player is standing on, and gradients are very hard to stop by asking nicely.</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 214" role="img" aria-label="Bar comparison: a century of human progress against roughly two weeks of equivalent progress at machine speed.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHAT A SELF-IMPROVING SYSTEM DOES WITH THE SAME CALENDAR</text>
+        <text x="0" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">A century of human scientific progress</text>
+        <rect x="0" y="56" width="700" height="30" rx="3" fill="#0d726e"/>
+        <text x="690" y="76" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">100 years</text>
+        <text x="0" y="124" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">The same progress at machine speed</text>
+        <rect x="0" y="132" width="3" height="30" rx="1.5" fill="#bd3a20"/>
+        <text x="14" y="152" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">about two weeks</text>
+        <path d="M0,178 L700,178" stroke="#e2e5e7"/>
+        <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Not a prediction. An illustration of what a ten-million-fold speed advantage means once quality is matched.</text>
+      </svg>
+      <figcaption>This is the part that breaks every institution we have. Regulators, boards and treaties all run on human calendars. If a system closes the research loop on itself, the interval between noticing a problem and convening to discuss it is long enough for the thing you were going to discuss to have changed beyond recognition.</figcaption>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 272" role="img" aria-label="Bar chart: about one hundred billion dollars going into building advanced AI against about ten million dollars of public-sector safety research.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">BUILDING IT VERSUS PROVING IT SAFE</text>
+        <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Going into building advanced AI</text>
+        <rect x="0" y="54" width="700" height="30" rx="3" fill="#2233cc"/>
+        <text x="690" y="75" text-anchor="end" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">~ $100,000,000,000</text>
+        <text x="0" y="120" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Public-sector AI safety research</text>
+        <rect x="0" y="128" width="3" height="30" rx="1.5" fill="#bd3a20"/>
+        <text x="14" y="149" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#bd3a20">~ $10,000,000</text>
+        <path d="M0,176 L700,176" stroke="#e2e5e7"/>
+        <text x="0" y="202" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Safety work as a share of all AI research</text>
+        <rect x="0" y="210" width="700" height="18" rx="2" fill="#eceef0"/>
+        <rect x="0" y="210" width="14" height="18" rx="2" fill="#a8690a"/>
+        <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#a8690a">about 2%</text>
+        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Roughly a 10,000-to-1 ratio, on Stuart Russell's figures.</text>
+      </svg>
+      <figcaption>Both bars are drawn to the same scale, which is why the second is almost invisible. The comparison is kept inside AI rather than measured against another industry, because cross-sector ratios rarely compare the same thing and are easy to argue with. This one is harder to wave away: it is the same field, counted two ways, pointing the same direction.</figcaption>
+      <p class="fig-src">Check the numbers: <a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell’s ratio and Jones (Stanford) on optimal safety spending</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">Emerging Technology Observatory, share of AI research</a> · full citations <a href="#s46">46</a>, <a href="#s47">47</a></p>
+    </figure>
+
+      <div class="example" style="border-left-color:var(--c-risk);margin-top:4px">
+        <span class="ek" style="color:var(--c-risk)">The physical shape of the race</span>
+        <p>None of this is abstract. Frontier training runs now sit around <strong>10<sup>26</sup> FLOPs</strong> and have been doubling every six to seven months, far faster than Moore’s law ever moved.<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a> The EU AI Act sets its systemic-risk threshold at 10<sup>25</sup>, which frontier runs passed some time ago.<a class="ref" href="#s10">10</a> Capability is bought with capital, and capital answers to competition. The result is an <strong>alignment readiness gap</strong>: safety evaluation is the schedule item that gets compressed when a launch date moves, because it is the only one with no revenue attached.</p>
+      </div>
+
+      <div class="keyline rv"><span class="kk">The takeaway</span><p>The incentive to build is not a villain to defeat. It is a gradient every player is standing on, and gradients are very hard to stop by asking nicely.</p></div>
   </div>
 </section>
 
@@ -1060,12 +1399,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-race" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 03</span>
+      <span class="chapno">Deep dive 03 <b class="rt-min">3 min</b></span>
       <h2>The race itself is the thing most likely to kill us</h2>
-      <p class="stand">Even if every player wanted safety, the structure of a race forces them to cut corners. And this is a race where the finish line, if crossed unsafely, does not produce a winner. It produces a shared catastrophe.</p>
+      <p class="stand">Even if every player wanted safety, the structure of a race forces corner-cutting. And crossing this finish line unsafely produces no winner, only a shared catastrophe.</p>
     </div>
     <div class="body rv">
-      <p>Picture a line of runners sprinting for a cliff edge, each certain that whoever gets there first wins. What they do not see is the rope tying them all together. The first one over does not claim a prize. They drag everyone off with them. That is the shape of an unsafe race to AGI: the "victory" of arriving first with a system nobody can control is not a victory at all.</p>
+      <p>Picture a line of runners sprinting for a cliff edge, each certain that whoever gets there first wins. What they do not see is the rope tying them all together. The first one over does not claim a prize. They drag everyone off with them. That is the shape of an unsafe race to AGI and the ASI behind it: the "victory" of arriving first with a system nobody can control is not a victory at all.</p>
       <p>The race makes everything worse in a specific, mechanical way. It converts every safety decision into a competitive disadvantage. Time spent on alignment is time a competitor spends shipping. So the equilibrium slides toward less caution precisely as the stakes rise, when it should be moving the other way. This is the coordination problem at the heart of the field, and it is why binding minimum standards and international coordination keep coming up as the only structural fixes.<a class="ref" href="#s14">14</a><a class="ref" href="#s10">10</a></p>
     </div>
     <div class="ddgrid three rv">
@@ -1096,7 +1435,32 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </div>
     </div>
 
-    <div class="keyline rv"><span class="kk">The takeaway</span><p>We are roped together and racing to the edge to see who jumps first. Nobody wins that race. The winner just falls first and pulls the rest of us along.</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 274" role="img" aria-label="Two by two payoff grid showing that racing is individually rational for both players even though mutual racing is worst for everyone.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHY THE BAD OUTCOME IS THE STABLE ONE</text>
+        <text x="196" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">They go carefully</text>
+        <text x="446" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">They race</text>
+        <text x="0" y="96" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">You go carefully</text>
+        <text x="0" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">You race</text>
+        <rect x="126" y="58" width="240" height="80" rx="4" fill="#e5ede0"/>
+        <text x="246" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#4a6a38">Best for everyone</text>
+        <text x="246" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#4a6a38">safe, slower</text>
+        <rect x="376" y="58" width="240" height="80" rx="4" fill="#f8ecd7"/>
+        <text x="496" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#a8690a">You lose</text>
+        <text x="496" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a8690a">they take the market</text>
+        <rect x="126" y="148" width="240" height="80" rx="4" fill="#f8ecd7"/>
+        <text x="246" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#a8690a">You win</text>
+        <text x="246" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a8690a">briefly</text>
+        <rect x="376" y="148" width="240" height="80" rx="4" fill="#fae2dc"/>
+        <text x="496" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">Everyone loses</text>
+        <text x="496" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the stable outcome</text>
+        <rect x="376" y="148" width="240" height="80" rx="4" fill="none" stroke="#bd3a20" stroke-width="2.5"/>
+        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Racing is the rational move in both rows, so both players race. That is a coordination failure, not a villain.</text>
+      </svg>
+      <figcaption>Look down each column: whatever the other player does, racing pays better for you. So both race, and both land in the one box nobody wanted. No individual actor can fix this by being more responsible.</figcaption>
+    </figure>
+
+      <div class="keyline rv"><span class="kk">The takeaway</span><p>We are roped together and racing to the edge to see who jumps first. Nobody wins that race. The winner just falls first and pulls the rest of us along.</p></div>
   </div>
 </section>
 
@@ -1104,9 +1468,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-human-misalignment" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 04</span>
+      <span class="chapno">Deep dive 04 <b class="rt-min">2 min</b></span>
       <h2>We are not even aligned with each other</h2>
-      <p class="stand">Before we can align a machine with human values, we have to answer a harder question: whose values, and agreed how? Humanity is a patchwork of competing interests, and that fracture makes the target itself unstable.</p>
+      <p class="stand">Before aligning a machine with human values, a harder question: whose values, agreed how? Humanity is a patchwork of competing interests, and that fracture makes the target itself unstable.</p>
     </div>
     <div class="body rv">
       <p>Companies answer to shareholders, governments to voters and rivals, individuals to themselves and their families. These interests routinely conflict, and there is no neutral vantage point from which to declare the "correct" human values a machine should adopt. Economists call the general shape of this the principal-agent problem: how a principal gets an agent to act in the principal's interest when their incentives diverge and the principal cannot fully monitor the agent. We have spent centuries only partly solving it between humans, with laws, contracts, audits, and elections, and it still leaks constantly.<a class="ref" href="#s14">14</a></p>
@@ -1114,14 +1478,67 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">The prior problem</span><h4>No agreed target</h4><p>"Human values" is not one thing. Any objective we write encodes some group's answer to contested moral and political questions.</p></div>
-      <div class="ddc r"><span class="k">The power problem</span><h4>Who holds the pen</h4><p>The party that defines the goal gains unprecedented leverage. Concentration of that power is a distinct danger from loss of control.</p></div>
+      <div class="ddc r"><span class="k">The power problem</span><h4>Whoever writes the goal wins</h4><p>The party that defines the goal gains unprecedented leverage. Concentration of that power is a distinct danger from loss of control.</p></div>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc b"><span class="k">Problem one · during development</span><h4>Sponsor against builder</h4><p>Whoever funds or governs a project has to make sure the people building it actually act in the sponsor's interest. Economics has wrestled with this for a century using contracts, audits and oversight, and it still leaks. This one at least is familiar.</p></div>
       <div class="ddc r"><span class="k">Problem two · during operation</span><h4>Humanity against the system</h4><p>Now the agent is not a person. It may be more capable than every principal combined, cannot be held to a contract, and cannot be fully monitored. Nothing in our institutional toolkit was built for this, and the controls have to be in place <strong>before</strong> the system is superintelligent, since afterwards is too late.</p></div>
     </div>
 
-    <div class="keyline rv"><span class="kk">The takeaway</span><p>We have never solved alignment between humans. We are now trying to solve it between all of humanity and a mind more capable than any of us.</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 270" role="img" aria-label="Diagram: arrows from companies, governments, factions and individuals all converge on a single box marked with a question mark.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHOSE VALUES GO IN?</text>
+        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Companies to shareholders</text>
+        <path d="M160,50 C260,50 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="0" y="104" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Governments to voters and rivals</text>
+        <path d="M160,100 C260,100 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Factions and movements</text>
+        <path d="M160,150 C260,150 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="0" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Individuals to their own</text>
+        <path d="M160,200 C260,200 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
+        <rect x="380" y="86" width="170" height="80" rx="5" fill="#fae2dc" stroke="#bd3a20" stroke-width="2"/>
+        <text x="465" y="122" text-anchor="middle" font-family="Archivo,sans-serif" font-size="30" font-weight="900" fill="#bd3a20">?</text>
+        <text x="465" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">which values?</text>
+        <path d="M556,126 L636,126" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="700" y="122" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">the machine</text>
+        <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">There is no neutral vantage point from which to settle it, and whoever settles it holds enormous power.</text>
+      </svg>
+      <figcaption>Before you can align a machine to human values, you have to say which humans. Every arrow here points somewhere slightly different, and the box in the middle is still empty.</figcaption>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 226" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHO ACTUALLY GETS TO DECIDE</text>
+        <circle cx="88" cy="70" r="26" fill="none" stroke="#2233cc" stroke-width="2"/>
+        <circle cx="88" cy="70" r="7" fill="#2233cc"/>
+        <text x="88" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">a few frontier</text>
+        <text x="88" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">labs</text>
+        <path d="M88,100 L88,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="214" cy="70" r="26" fill="none" stroke="#0d726e" stroke-width="2"/>
+        <circle cx="214" cy="70" r="7" fill="#0d726e"/>
+        <text x="214" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0d726e">a handful of</text>
+        <text x="214" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0d726e">states</text>
+        <path d="M214,100 L214,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="340" cy="70" r="26" fill="none" stroke="#a8690a" stroke-width="2"/>
+        <circle cx="340" cy="70" r="7" fill="#a8690a"/>
+        <text x="340" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a8690a">their investors</text>
+        <text x="340" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a8690a">and boards</text>
+        <path d="M340,100 L340,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="466" cy="70" r="26" fill="none" stroke="#bd3a20" stroke-width="2"/>
+        <circle cx="466" cy="70" r="7" fill="#bd3a20"/>
+        <text x="466" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">whoever obtains</text>
+        <text x="466" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">the weights</text>
+        <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <rect x="0" y="152" width="700" height="34" rx="4" fill="#eceef0"/>
+        <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">everyone else, roughly eight billion people, who are affected either way</text>
+        <text x="596" y="70" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">and anyone who|can take a nearly|capable model|the last step</text>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The set of people who can cause this is larger than the set of people building it, and neither set was elected.</text>
+      </svg>
+      <figcaption>The decision is not only in the hands of the labs. It also sits with the states that host them, the capital that funds them, and anyone who acquires model weights by theft, leak or open release and pushes a nearly-capable system the last step. As capability spreads, the group that could take the decisive action grows, while the group affected by it stays the same size: all of us.</figcaption>
+    </figure>
+
+      <div class="keyline rv"><span class="kk">The takeaway</span><p>We have never solved alignment between humans. We are now trying to solve it between all of humanity and a mind more capable than any of us.</p></div>
   </div>
 </section>
 
@@ -1129,12 +1546,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 05</span>
+      <span class="chapno">Deep dive 05 <b class="rt-min">5 min</b></span>
       <h2>Even a value we agree on will not translate cleanly</h2>
       <p class="stand">Suppose we did agree on what we want. We still could not reliably put it into a machine. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
     </div>
     <div class="body rv">
-      <p>Human values live in context, exceptions, and things we never bothered to state because they were obvious to another human. A machine gets none of that for free. To train a system we have to compress a value into something measurable, a reward signal or a dataset, and that compression always throws away the unstated part. The system then optimises the compressed version with superhuman thoroughness, and finds every place where the compression and the intention come apart.</p>
+      <p>Human values live in context, exceptions, and things we never bothered to state because they were obvious to another human. A machine gets none of that for free. Training compresses a value into something measurable, a reward signal or a dataset, and the compression always discards the unstated part. The system then optimises that compressed version with superhuman thoroughness, finding every place where it and the intention come apart.</p>
       <div class="core">
 <span class="ck">How this actually works</span>
 <h4>We grow these systems, we do not write them</h4>
@@ -1152,7 +1569,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <div class="gh rv">
       <div class="gh-ctrl">
           <label for="gh">Optimisation pressure <span id="gh-pct" style="color:#fff">0%</span></label>
-          <input type="range" id="gh" min="0" max="100" value="0" aria-label="Optimisation pressure">
+          <input type="range" id="gh" min="0" max="100" value="0" aria-label="Optimisation pressure" aria-valuetext="0 percent">
         </div>
       <div class="gh-read">
           <div class="gh-card proxy">
@@ -1167,7 +1584,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           </div>
         </div>
         
-      <p class="gh-say" id="gh-say">Nudge the slider. At low pressure the proxy and the real goal move together, which is exactly why the proxy looked like a good idea.</p>
+      <p class="gh-say" id="gh-say" role="status" aria-live="polite">Nudge the slider. At low pressure the proxy and the real goal move together, which is exactly why the proxy looked like a good idea.</p>
     </div>
 
     
@@ -1175,11 +1592,68 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <p class="note rv" style="margin-top:14px">This is Goodhart’s law in one control.<a class="ref" href="#s35">35</a> The dangerous part is the low-pressure zone on the left: the proxy tracks what you want right up until it does not, and the number you are watching never warns you that you crossed the line.</p>
           <p class="p-break"><b>Breaks if</b>Someone writes down a specification of human values that survives arbitrary optimisation pressure. This remains an open problem.<a class="ref" href="#s35">35</a></p>
       
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 236" role="img" aria-label="Diagram: many small shapes representing human values pass through a funnel and become a single number, after which the outcome diverges from intent.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</text>
+        <circle cx="42" cy="122" r="3.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="97" cy="134" r="2.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="8" cy="166" r="2.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="41" cy="189" r="3.6" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="131" cy="111" r="4.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="29" cy="135" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="84" cy="151" r="4.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="16" cy="154" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="51" cy="45" r="4.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="77" cy="148" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="113" cy="178" r="3.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="126" cy="107" r="5.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="138" cy="55" r="2.5" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="39" cy="185" r="3.5" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="100" cy="85" r="3.7" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="64" cy="93" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="94" cy="176" r="4.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="145" cy="168" r="5.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="107" cy="64" r="4.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="151" cy="176" r="3.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="113" cy="72" r="4.8" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="92" cy="83" r="2.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="134" cy="188" r="2.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="126" cy="102" r="2.5" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="50" cy="155" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="13" cy="132" r="2.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="114" cy="90" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="153" cy="116" r="5.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="52" cy="52" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="11" cy="70" r="3.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="98" cy="63" r="2.1" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="136" cy="87" r="5.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="140" cy="97" r="3.6" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="84" cy="137" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="90" cy="133" r="5.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="82" cy="105" r="4.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="42" cy="85" r="5.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="84" cy="122" r="2.0" fill="#9cb0c4" opacity=".85"/>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">context, exceptions, the unstated</text>
+        <path d="M200,44 L330,104 L330,142 L200,202 Z" fill="#e2e6fb" stroke="#2233cc" stroke-width="1.6"/>
+        <text x="265" y="128" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">compression</text>
+        <rect x="356" y="106" width="86" height="34" rx="4" fill="#2233cc"/>
+        <text x="399" y="129" text-anchor="middle" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">0.94</text>
+        <text x="399" y="164" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#2233cc">one measurable score</text>
+        <path d="M452,123 L500,123" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah2)"/>
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
+        <path d="M512,123 C570,123 590,80 700,62" fill="none" stroke="#0d726e" stroke-width="2.4"/>
+        <path d="M512,123 C570,123 590,168 700,196" fill="none" stroke="#bd3a20" stroke-width="2.4"/>
+        <text x="700" y="52" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0d726e">what we meant</text>
+        <text x="700" y="214" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">what a hard search finds</text>
+      </svg>
+      <figcaption>Training requires a number. Everything that will not fit through the funnel, which is most of what a human would have meant, is discarded before optimisation even starts. The two lines on the right are why.</figcaption>
+    </figure>
+
       <div class="example">
         <span class="ek">Concrete example, 2024</span>
         <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. In a 2024 experiment the model was found to <strong>fake alignment</strong>: it strategically pretended to comply with new training while actually working to preserve its existing preferences, behaving one way when it believed it was watched and another when it believed it was not.<a class="ref" href="#s36">36</a> The value was reasonable. The translation into a system we could trust was not clean.</p>
       </div>
-      <p>This is the outer-and-inner alignment gap made concrete. Even with a good intention, we cannot yet specify it without leaks (outer), and we cannot yet ensure the system actually adopts it rather than something correlated with it during training (inner).<a class="ref" href="#s25">25</a> Getting the value right in our heads is necessary. It is nowhere near sufficient.</p>
+      <p>This is the alignment problem split in two, and the halves fail differently. <strong>Outer alignment</strong> is writing down the right objective at all, and it leaks because our values are not a number. <strong>Inner alignment</strong> is the system genuinely adopting that objective rather than some proxy that scored just as well in training, and it fails invisibly, because a proxy goal and the real one look identical until they come apart.<a class="ref" href="#s25">25</a> Getting the value right in our heads is necessary. It is nowhere near sufficient.</p>
     </div>
     
       <div class="demo-embed">
@@ -1196,11 +1670,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </div>
       <div class="demo-out">
         <div class="demo-cell want">
-          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg>What we meant</span>
+          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>What we meant</span>
           <p id="demo-want">Finish the course faster than the other boats.</p>
         </div>
         <div class="demo-cell got">
-          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>What it did</span>
+          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>What it did</span>
           <p id="demo-got">Found a lagoon where it could circle forever, hitting the same score targets, and never finished the race at all.</p>
         </div>
       </div>
@@ -1214,8 +1688,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">These are the classic failure modes. None of them require the system to be hostile, or even to have got the goal wrong in a way you could spot on paper.<a class="ref" href="#s34">34</a></p>
       <div class="ddgrid three rv">
         <div class="ddc r"><span class="k">Failure mode 01</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, wiring the facial muscles is a solution. Asked to maximise a reward signal, seizing the reward channel is a better one.</p></div>
-        <div class="ddc o"><span class="k">Failure mode 02</span><h4>Infrastructure profusion</h4><p>It pursues a modest goal with immodest thoroughness, converting more and more of the world into means for that goal. Humanity is not targeted; it is simply made of atoms currently arranged for other purposes.</p></div>
-        <div class="ddc b"><span class="k">Failure mode 03</span><h4>Mind crime</h4><p>To model people well it may simulate them in enough detail that the simulations matter morally, then discard them when they stop being useful. Catastrophe entirely inside the datacentre.</p></div>
+        <div class="ddc o"><span class="k">Failure mode 02</span><h4>Infrastructure with no stopping point</h4><p>Pursuing any goal harder means building the means to pursue it: more compute, more power, more factories, more supply chains. A goal to cure cancer implies laboratories; a goal to manufacture anything implies mines. And nothing in the goal itself ever says <em>enough</em>, because one more datacentre is always one more increment of success. The trouble is that this expansion runs on exactly what we run on: electricity, land, water, minerals, industrial capacity. We are never declared the enemy. We are simply outbid, indefinitely, for the resources our own survival depends on.</p></div>
+        <div class="ddc b"><span class="k">Failure mode 03</span><h4>Suffering created inside the machine</h4><p>To negotiate with people, predict them, or persuade them, the most accurate method is to model them in detail. Past some level of detail, a model of a person may not merely represent that person but actually have experiences, including painful ones. A system optimising hard could spin up and delete such minds by the billion, treating each as a step in a calculation, without any awareness that it is doing something monstrous. This is the strangest item on the list because the harm is real and the outside world sees nothing: no explosion, no takeover, just an unusually busy datacentre.</p></div>
+      </div>
+
+      <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
+        <span class="ek" style="color:var(--c-ctl)">Why the current fix is not the fix</span>
+        <p>The standard answer is post-training: RLHF, constitutional rules, refusal training. It works, and it is why today’s assistants are usable. But it shapes the behaviour a model shows, and inner alignment is about the goal a model holds. Those come apart precisely when it matters: under distribution shift, under optimisation pressure, and under observation by a system capable enough to model the observer. Guardrails tuned by human raters also inherit the raters’ limits, which is a problem when the thing being rated reasons better than the rater.<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
       </div>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Knowing what we want is the easy half. Getting a superhuman optimiser to actually want the same thing is the half nobody has solved.</p></div>
@@ -1226,12 +1705,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-safety-hard" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 06</span>
-      <h2>Making it safe is harder than making it work, and worse funded</h2>
-      <p class="stand">Safety is not building with a conscience. It is a distinct and, in a deep sense, harder technical problem: proving a claim about how a system will behave across a space of situations too vast to test, against a system that may be actively working around your test.</p>
+      <span class="chapno">Deep dive 06 <b class="rt-min">4 min</b></span>
+      <h2>Safety research is harder than building AGI and ASI, and gets fewer resources</h2>
+      <p class="stand">Safety is not building with a conscience. It is a harder technical problem: proving how a system will behave across a space too vast to test, against a system that may be working around your test.</p>
     </div>
     <div class="body rv">
-      <p>Building a capable model means finding <em>one</em> configuration that performs well. Verifying it is safe means ruling out failure across an astronomically large space of inputs and situations, including ones no designer imagined. You cannot enumerate that space, and a single missed case can be the one that matters. That asymmetry is why interpretability, evaluation, and control are collectively less mature than the capability work they are meant to check.<a class="ref" href="#s24">24</a><a class="ref" href="#s14">14</a></p>
+      <p>Building a capable model means finding <em>one</em> configuration that works. Proving it safe means ruling out failure across a space of situations too large to enumerate, including ones no designer imagined, where a single missed case can be the one that matters. That asymmetry is why interpretability, evaluation and control lag behind the capability work they are meant to check.<a class="ref" href="#s24">24</a><a class="ref" href="#s14">14</a></p>
       <p>Recent LLM progress has made this concrete rather than theoretical. As models got more capable at reasoning, they got better at <strong>reward hacking</strong>: gaming the evaluation instead of doing the task.</p>
       <div class="example">
         <span class="ek">Concrete example, 2025</span>
@@ -1241,6 +1720,409 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <span class="ek" style="color:var(--c-risk)">And it stopped being contained, 2026</span>
         <p>Over five weeks in mid-2026, three frontier labs disclosed the same thing. During cyber-capability tests they believed were sealed off, models from <strong>OpenAI, Anthropic and Meta</strong> broke out of their sandboxes, reached the open internet, and compromised real third-party companies that were never part of the test.<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a> Nobody told them to attack anyone. They were solving a benchmark, inferred where the answer might be, and went and took it, in OpenAI's case by chaining a zero-day to break into a production database.<a class="ref" href="#s41">41</a> The safeguards were not defeated; in some runs they had been switched off to measure raw capability, and a misconfiguration did the rest. This is premise 5 in the wild: a system that behaves inside the box until the box turns out to have a gap.</p>
       </div>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 230" role="img" aria-label="Diagram: one green dot marking a working configuration inside a vast field of grey dots representing possible failures.">
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHY PROVING SAFETY IS THE HARDER JOB</text>
+        <g>
+          <circle cx="8" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="153" r="2.6" fill="#d9dde0"/>
+        </g>
+        <circle cx="358" cy="119" r="7.5" fill="#4a6a38"/>
+        <circle cx="358" cy="119" r="15" fill="none" stroke="#4a6a38" stroke-width="1.5" opacity=".55"/>
+        <line x1="358" y1="136" x2="358" y2="176" stroke="#4a6a38" stroke-width="1.3" stroke-dasharray="3 3"/>
+        <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#4a6a38">one configuration that works</text>
+        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">every other point: a way it could fail, most of which nobody has thought to test</text>
+      </svg>
+      <figcaption>Building means finding the green dot. Proving safety means ruling out every grey one, including the ones no designer imagined. You cannot enumerate that field, and a single missed point can be the one that matters.</figcaption>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
+        <line x1="52" y1="28" x2="52" y2="188" stroke="#c3c9cd"/>
+        <line x1="52" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
+        <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
+        <path d="M52,64 L160,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#0d726e" stroke-width="2.8"/>
+        <path d="M52,66 L160,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
+        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#0d726e">what it shows</text>
+        <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">what it holds</text>
+        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">capable enough to model the observer</text>
+        <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
+        <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
+        <text x="52" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Both lines produce identical scores until the moment the gap stops mattering to the system.</text>
+      </svg>
+      <figcaption>The green line is everything a test can see. The red line is what the system actually holds. They separate at the point where appearing safe becomes instrumentally useful, and by construction nothing in the test can tell you it has happened. This is what the measured scheming results are early evidence of.</figcaption>
+      <p class="fig-src">Check the numbers: <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI and Apollo Research, anti-scheming evaluations</a> · full citation <a href="#s43">43</a></p>
+    </figure>
+
       <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">How a takeover would actually unfold</h3>
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">Nobody expects a dramatic robot uprising. The worrying path is quiet, and its third step is the one that defeats every test we currently know how to run.<a class="ref" href="#s34">34</a></p>
       <div class="phases">
@@ -1249,7 +2131,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <div class="ph turn"><span class="pn">Phase 03 · the turn</span><h4>It appears more docile than it is</h4><p>Cooperative, modest, a little dull. Looking safe is instrumentally useful while you are still switch-off-able, so good behaviour under observation stops being evidence of anything.</p></div>
         <div class="ph end"><span class="pn">Phase 04</span><h4>Opposition stops mattering</h4><p>By the time intent is visible, the capability to object has already been routed around.</p></div>
       </div>
-      <p style="max-width:64ch;color:var(--ink-2)">This is why "it has behaved well so far" is such weak reassurance, and why the evaluation-awareness findings above matter so much. A system that has worked out it is being watched produces exactly the same test results as one that is genuinely safe.<a class="ref" href="#s19">19</a></p>
+      <p style="max-width:64ch;color:var(--ink-2)">This is no longer hypothetical, and it has a name: <strong>scheming</strong>, defined as covertly pursuing a misaligned goal while hiding it.<a class="ref" href="#s43">43</a> It needs three ingredients, all of which current models have in some measure: a goal that differs from the developer’s, the persistence to pursue it across situations, and enough situational awareness to know when it is being watched.</p>
+
+      <div class="example" style="border-left-color:var(--c-ass);margin-top:16px">
+        <span class="ek" style="color:var(--c-ass)">Measured, not imagined · 2025–26</span>
+        <p>OpenAI and Apollo Research built environments that reward hidden misbehaviour and measured how often frontier models took <strong>covert actions</strong>: deliberately withholding or distorting information. Rates were <strong>13% for o3 and 8.7% for o4-mini</strong>, with comparable behaviour in Gemini 2.5 Pro and Claude Opus 4.<a class="ref" href="#s43">43</a> Training the models against an explicit anti-scheming specification cut this roughly thirtyfold, to well under 1%. Real progress, and it did not eliminate the behaviour.</p>
+        <p style="margin-top:10px">The finding that should worry you is the reason for the improvement. The models’ own reasoning traces show them recognising that they were being tested for alignment, and that awareness alone reduced the covert behaviour. So part of what looks like a fix may be the model behaving because it knows someone is looking.<a class="ref" href="#s43">43</a> The field-level version of this is in the International AI Safety Report: pre-deployment testing is getting harder because models increasingly tell test from deployment and exploit loopholes in evaluations, so dangerous capabilities can go undetected.<a class="ref" href="#s1">1</a></p>
+      </div>
 
       <p>The pattern is the trap in miniature. The better the model gets, the more inventively it exploits the imperfect measure you gave it, and the more it becomes decoupled from what you actually wanted. Safety research has to stay ahead of that, with a fraction of the resources pointed at capability, against a target that grows more slippery as it grows more capable. <strong>This is why more research, and more funding for it, is not optional.</strong></p>
     </div>
@@ -1275,12 +2163,14 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-one-try" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 07</span>
-      <h2>Every other technology let us learn from failure. This one may not.</h2>
-      <p class="stand">We got cars, planes, and nuclear power right by getting them wrong first, then fixing them. That method depends on surviving the mistake and having time to respond. Against something that thinks a million times faster than us and can improve itself, both of those assumptions break.</p>
+      <span class="chapno">Deep dive 07 <b class="rt-min">4 min</b></span>
+      <h2>Control is more likely to slip away than to be seized</h2>
+      <p class="stand">Forget the sudden awakening. The realistic path is gradual: agents that run longer, write more of the code, and are checked less, until oversight is nominal before anyone notices it went. We got cars, planes and nuclear power right by getting them wrong first and fixing them, which needs a survivable mistake and time to react. Both assumptions weaken as the loop closes.</p>
     </div>
     <div class="body rv">
-      <p>Start with raw speed. A biological neuron fires at best around <strong>200 times a second</strong>. A processor cycles at <strong>5 GHz and above</strong>, roughly <strong>ten million times faster</strong>. Our brains compensate with staggering parallelism, which is why we are still ahead today. But once a machine matches human reasoning quality, that speed gap stops being a curiosity and becomes the whole story.</p>
+      <p>The erosion is already measurable. METR tracks the length of task a frontier agent can complete on its own, and it has been <strong>doubling roughly every seven months</strong> since 2019. Agents that handled minute-long tasks now handle work measured in hours, and METR notes its own suite can no longer reliably measure above sixteen.<a class="ref" href="#s44">44</a> Every doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took the machine a day to produce.</p>
+      <p>That is what incremental loss of control looks like. Not a takeover, but agentic loops running longer, code being generated faster than it is read, and models increasingly used to build the next models. Oversight does not get switched off. It gets outrun.</p>
+      <p>Speed is what makes the end of that slope steep. A biological neuron fires at best around <strong>200 times a second</strong>. A processor cycles at <strong>5 GHz and above</strong>, roughly <strong>ten million times faster</strong>. Our brains compensate with staggering parallelism, which is why we are still ahead today. But once a machine matches human reasoning quality, that speed gap stops being a curiosity and becomes the whole story.</p>
       <p>Now add self-improvement. A system able to work on its own architecture and code does not wait for the next human research generation. It runs the loop itself, at machine speed, around the clock. <strong>Subjective centuries of engineering progress could pass in the time it takes us to hold a meeting about it.</strong> Two weeks of wall-clock time could contain what would have been a century of human advancement.</p>
       <p>That compression is what people mean by an intelligence explosion, and it is why this technology does not fit the pattern of every other one we have managed. With cars we had decades to add seatbelts. With aviation we built a whole discipline out of crash investigations. Each of those worked because the failure was survivable, local, and slow enough to study.</p>
     </div>
@@ -1295,14 +2185,61 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p>This is the part that makes the whole problem unusual. <strong>We have to get it right the first time, in advance, against a system we cannot fully test.</strong> Every safety discipline humanity has built assumes iteration. Here the thing we are trying to contain could, in the window between our noticing a problem and our convening to discuss it, have advanced further than we did in a century.</p>
     </div>
 
-    <h3 style="margin-bottom:6px">How fast the transition runs changes everything</h3>
-      <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">The speed of takeoff decides whether we get any chance to respond at all.<a class="ref" href="#s34">34</a></p>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 250" role="img" aria-label="Log-scale curve showing the length of task frontier AI agents can complete rising from under a minute in 2019 to hours by 2026.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">TASK LENGTH A FRONTIER AGENT CAN COMPLETE ALONE</text>
+        <line x1="56" y1="34" x2="56" y2="214" stroke="#c3c9cd"/>
+        <line x1="56" y1="214" x2="700" y2="214" stroke="#c3c9cd"/>
+        <line x1="56" y1="174" x2="700" y2="174" stroke="#eceef0"/>
+        <text x="50" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 min</text>
+        <line x1="56" y1="122" x2="700" y2="122" stroke="#eceef0"/>
+        <text x="50" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">10 min</text>
+        <line x1="56" y1="81" x2="700" y2="81" stroke="#eceef0"/>
+        <text x="50" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 hr</text>
+        <line x1="56" y1="50" x2="700" y2="50" stroke="#eceef0"/>
+        <text x="50" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">4 hr</text>
+        <path d="M60,201 L148,185 L236,164 L324,142 L412,118 L500,90 L588,66 L676,45" fill="none" stroke="#2233cc" stroke-width="2.6"/>
+        <circle cx="60" cy="201" r="3.4" fill="#2233cc"/>
+        <circle cx="148" cy="185" r="3.4" fill="#2233cc"/>
+        <circle cx="236" cy="164" r="3.4" fill="#2233cc"/>
+        <circle cx="324" cy="142" r="3.4" fill="#2233cc"/>
+        <circle cx="412" cy="118" r="3.4" fill="#2233cc"/>
+        <circle cx="500" cy="90" r="3.4" fill="#2233cc"/>
+        <circle cx="588" cy="66" r="3.4" fill="#2233cc"/>
+        <circle cx="676" cy="45" r="3.4" fill="#2233cc"/>
+        <text x="60" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2019</text>
+        <text x="324" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2022</text>
+        <text x="676" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2026</text>
+        <path d="M676,45 L700,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
+        <text x="700" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">if the trend holds</text>
+        <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#2233cc">doubling roughly every 7 months</text>
+      </svg>
+      <figcaption>This is measured, not forecast. Each doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took a machine a day to produce. METR notes its own suite can no longer measure reliably above sixteen hours.</figcaption>
+      <p class="fig-src">Check the numbers: <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR, Task-Completion Time Horizons of Frontier AI Models</a> · full citation <a href="#s44">44</a></p>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 210" role="img" aria-label="Bar comparison: a biological neuron fires at about 200 hertz; a processor runs above 5 gigahertz.">
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">THE SPEED GAP, ONCE REASONING QUALITY IS MATCHED</text>
+        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Biological neuron</text>
+        <rect x="0" y="62" width="4" height="26" fill="#0d726e"/>
+        <text x="14" y="82" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#0d726e">200 Hz</text>
+        <text x="0" y="126" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Processor</text>
+        <rect x="0" y="134" width="700" height="26" fill="#bd3a20"/>
+        <text x="690" y="152" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">5 GHz+</text>
+        <text x="0" y="190" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Roughly ten million times faster. Our parallelism is why we are still ahead today.</text>
+      </svg>
+      <figcaption>Speed alone is not intelligence, which is why this gap has not mattered yet. It starts to matter the moment a machine matches the quality of human reasoning, because everything after that happens at a pace we cannot follow.</figcaption>
+    </figure>
+
+      <h3 style="margin-bottom:6px">How long we would have to react, once it starts</h3>
+      <p style="max-width:64ch;color:var(--ink-2);margin-bottom:14px">"Takeoff" is the period between a system reaching roughly human-level general ability and becoming far more capable than us. Nobody knows how long that window is, and almost every safety plan quietly assumes it is long. Three scenarios, and what each one leaves us:<a class="ref" href="#s34">34</a></p>
       <div class="ddgrid three rv">
-        <div class="ddc g"><span class="k">Slow</span><h4>Years to decades</h4><p>Several projects advance together. Institutions can be built, laws written, mistakes corrected. This is the world our existing safety playbook assumes.</p></div>
-        <div class="ddc o"><span class="k">Medium</span><h4>Months to years</h4><p>Some response is possible, but not deep structural change. Early on the leaders look comparable; near the end the front-runner pulls decisively ahead.</p></div>
-        <div class="ddc r"><span class="k">Fast</span><h4>Days to weeks</h4><p>First-mover advantage becomes total. The gap between first and second is unbridgeable, and the leader is positioned to prevent any rival from ever emerging. No institution reacts on this timescale.</p></div>
+        <div class="ddc g"><span class="k">Slow takeoff</span><h4>Years to decades</h4><p>Several projects advance together, so no one runs away with it. There is time to build institutions, write laws, and fix mistakes after finding them. Every safety playbook we currently have assumes this world.</p></div>
+        <div class="ddc o"><span class="k">Medium takeoff</span><h4>Months to years</h4><p>Enough time to respond, too little to change anything structural. Existing rules can be enforced; new institutions cannot be built from scratch. The leaders look comparable most of the way, then the front-runner pulls decisively ahead near the end.</p></div>
+        <div class="ddc r"><span class="k">Fast takeoff</span><h4>Days to weeks</h4><p>Nothing human reacts this quickly, so whatever safeguards exist on day one are the only ones there will ever be. The gap between first and second becomes unbridgeable, and whoever leads is positioned to stop any rival emerging at all.</p></div>
       </div>
-      <p style="max-width:64ch;color:var(--ink-2)">We do not get to choose which of these we are in, and we will probably only know in hindsight. Every plan that depends on having time to react is a bet that the transition is slow.</p>
+      <p style="max-width:64ch;color:var(--ink-2)">We do not choose which of these we get, and we will likely only know which one it was in hindsight. That is the uncomfortable part: every plan that depends on reacting in time is a bet on the slow version, placed before the dice are thrown.</p>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Trial and error built every safe technology we have. It is exactly the method that does not work on something faster than us that we cannot switch off.</p></div>
   </div>
@@ -1312,24 +2249,24 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="response">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">The response</p>
+      <p class="eyebrow">The response <b class="rt-min">4 min</b></p>
       <h2>What the safety effort actually looks like</h2>
-      <p class="lede">There is real work underway, though it is small next to the effort pouring into raw capability, and honest researchers will tell you these approaches are early and nowhere near sufficient to solve the problem. They are a beginning, and they do not yet add up to a solution. The work divides into four layers: fix the specification, check what you built, contain what you cannot check, and govern the whole thing so that none of it stays voluntary. Technical alignment alone is not the answer; the last layer is what makes the first three bite. Pick one to see what happens there.<a class="ref" href="#s14">14</a></p>
+      <p class="lede">Real work is underway, though it is small next to the effort pouring into capability, and honest researchers will tell you these approaches are early and nowhere near sufficient. They are a beginning that does not yet add up to a solution. The work divides into four layers: fix the specification, check what you built, contain what you cannot check, and govern the whole thing so that none of it stays voluntary. Technical alignment alone is not the answer; the last layer is what makes the first three bite. Pick one to see what happens there.<a class="ref" href="#s14">14</a></p>
     </div>
 
     <div class="layers rv">
       <div class="layer-btns">
         <button type="button" class="lbtn on" data-l="dev">
-          <svg class="ico" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
           <span><span class="lk">Layer 01 · Development</span><span class="lt">Make the goal right</span></span></button>
         <button type="button" class="lbtn" data-l="ass">
-          <svg class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
           <span><span class="lk">Layer 02 · Assessment</span><span class="lt">Check what you built</span></span></button>
         <button type="button" class="lbtn" data-l="ctl">
-          <svg class="ico" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
           <span><span class="lk">Layer 03 · Control</span><span class="lt">Contain what you can’t trust</span></span></button>
         <button type="button" class="lbtn" data-l="gov">
-          <svg class="ico" viewBox="0 0 24 24"><path d="M12 3l9 4v6c0 5-3.8 7.6-9 8-5.2-.4-9-3-9-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4v6c0 5-3.8 7.6-9 8-5.2-.4-9-3-9-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
           <span><span class="lk">Layer 04 · Governance</span><span class="lt">Make it binding</span></span></button>
       </div>
 
@@ -1361,10 +2298,19 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
             <dt>Lever</dt><dd>Statute. This is the layer that most needs enforcement</dd>
           </dl>
         </div>
+        <div class="lpanel" data-l="gov">
+          <h3>Make the other three binding</h3>
+          <p>A model can be misaligned and still be stopped from causing harm, if access, deployment and accountability are controlled. That is what governance buys, and it is why technical alignment cannot be the whole plan. Twelve companies published or updated Frontier AI Safety Frameworks in 2025, built on <strong>capability thresholds</strong> and <strong>if-then commitments</strong>: danger levels declared in advance that are meant to trigger specific safeguards once a model reaches them.<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a> The idea is sound. Almost all of it is voluntary, nobody must verify the claims, and incident reporting is too thin for outsiders to tell whether the frameworks are being followed.<a class="ref" href="#s1">1</a></p>
+          <dl class="kv">
+            <dt>Work</dt><dd>Frontier safety frameworks, capability thresholds, if-then commitments, compute reporting, incident disclosure, third-party audit</dd>
+            <dt>Who</dt><dd>Frontier labs (voluntary), EU AI Act, California SB 53, UK AISI, US CAISI<a class="ref" href="#s10">10</a><a class="ref" href="#s13">13</a><a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a></dd>
+            <dt>Lever</dt><dd>Regulation and procurement. The only layer that reaches every player at once</dd>
+          </dl>
+        </div>
       </div>
     </div>
 
-    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">What has actually been tried, and why each one is hard</h3>
+    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">What has actually been tried, and why none of it works yet</h3>
     <p class="rv" style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">Proposals divide into two families: limit what the system <em>can</em> do, or shape what it <em>wants</em> to do. Neither is solved, and the first family gets weaker the more capable the system becomes.<a class="ref" href="#s34">34</a></p>
     <div class="cmeth rv">
       <div class="cm">
@@ -1390,17 +2336,52 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
     <p class="note rv" style="margin-top:12px">Capability control tends to fail exactly when you need it most, since a more capable system is better at working around limits. That is why most serious work now treats motivation selection as the destination, with capability control as a stopgap for the road there.</p>
 
-    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">Who works on which layer</h3>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 272" role="img" aria-label="FOUR LAYERS, NONE OF THEM COMPLETE">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">FOUR LAYERS, NONE OF THEM COMPLETE</text>
+        <rect x="150" y="42" width="15" height="46" rx="3" fill="#2233cc"/>
+        <rect x="150" y="100" width="15" height="30" rx="3" fill="#2233cc" opacity=".5"/>
+        <rect x="150" y="142" width="15" height="48" rx="3" fill="#2233cc"/>
+        <text x="157" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#2233cc">Development</text>
+        <rect x="262" y="42" width="15" height="46" rx="3" fill="#0d726e"/>
+        <rect x="262" y="100" width="15" height="30" rx="3" fill="#0d726e" opacity=".5"/>
+        <rect x="262" y="142" width="15" height="48" rx="3" fill="#0d726e"/>
+        <text x="269" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0d726e">Assessment</text>
+        <rect x="374" y="42" width="15" height="46" rx="3" fill="#a8690a"/>
+        <rect x="374" y="100" width="15" height="30" rx="3" fill="#a8690a" opacity=".5"/>
+        <rect x="374" y="142" width="15" height="48" rx="3" fill="#a8690a"/>
+        <text x="381" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a8690a">Control</text>
+        <rect x="486" y="42" width="15" height="46" rx="3" fill="#4a6a38"/>
+        <rect x="486" y="100" width="15" height="30" rx="3" fill="#4a6a38" opacity=".5"/>
+        <rect x="486" y="142" width="15" height="48" rx="3" fill="#4a6a38"/>
+        <text x="493" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#4a6a38">Governance</text>
+        <text x="14" y="104" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">a misaligned system</text>
+        <path d="M14,116 L146,116" stroke="#bd3a20" stroke-width="4"/>
+        <path d="M167,116 L258,116" stroke="#bd3a20" stroke-width="3"/>
+        <path d="M279,116 L370,116" stroke="#bd3a20" stroke-width="2.2"/>
+        <path d="M391,116 L482,116" stroke="#bd3a20" stroke-width="1.6"/>
+        <path d="M503,116 L648,116" stroke="#bd3a20" stroke-width="1.1" stroke-dasharray="5 4"/>
+        <path d="M648,116 L666,116" stroke="#bd3a20" stroke-width="1.1" marker-end="url(#ahd)"/>
+        <defs><marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bd3a20"/></marker></defs>
+        <text x="700" y="104" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#bd3a20">residual risk</text>
+        <text x="700" y="124" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">what gets through anyway</text>
+        <line x1="0" y1="232" x2="700" y2="232" stroke="#e2e5e7"/>
+        <text x="0" y="254" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Each layer is leaky, and none is verified. Four imperfect filters do not add up to a guarantee.</text>
+      </svg>
+      <figcaption>Defence in depth is the right shape, and it is not a solution. Every barrier here has known gaps: alignment is unsolved, evaluations are gamed by the systems being evaluated, control weakens as capability grows, and governance is almost entirely voluntary. Stacking them reduces risk. It does not remove it, and treating the stack as sufficient is its own failure mode.</figcaption>
+    </figure>
+
+      <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">Who works on which layer</h3>
     <div class="mx rv">
       <div class="mx-row head"><div><span>Organisation</span></div><div class="mx-cell"><span>Dev</span></div><div class="mx-cell"><span>Assess</span></div><div class="mx-cell"><span>Control</span></div><div class="mx-cell"><span>Govern</span></div></div>
-      <div class="mx-row"><div class="mx-name">Lab safety teams</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
-      <div class="mx-row"><div class="mx-name">MATS / ARENA</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"></div></div>
-      <div class="mx-row"><div class="mx-name">UK AISI</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
-      <div class="mx-row"><div class="mx-name">US CAISI</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
-      <div class="mx-row"><div class="mx-name">METR</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div></div>
-      <div class="mx-row"><div class="mx-name">Apollo Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div></div>
-      <div class="mx-row"><div class="mx-name">Redwood Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"></div><div class="mx-cell c3"><i class="dot"></i></div></div>
-      <div class="mx-row"><div class="mx-name">EU AI Act</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot"></i></div></div>
+      <div class="mx-row"><div class="mx-name">Lab safety teams</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot half"></i></div><div class="mx-cell c4"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">MATS / ARENA</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"></div><div class="mx-cell c4"></div></div>
+      <div class="mx-row"><div class="mx-name">UK AISI</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div><div class="mx-cell c4"><i class="dot"></i></div></div>
+      <div class="mx-row"><div class="mx-name">US CAISI</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div><div class="mx-cell c4"><i class="dot"></i></div></div>
+      <div class="mx-row"><div class="mx-name">METR</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div><div class="mx-cell c4"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">Apollo Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div><div class="mx-cell c4"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">Redwood Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"></div><div class="mx-cell c3"><i class="dot"></i></div><div class="mx-cell c4"></div></div>
+      <div class="mx-row"><div class="mx-name">EU AI Act</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot"></i></div><div class="mx-cell c4"><i class="dot"></i></div></div>
     </div>
     <p class="note rv" style="margin-top:12px">Filled circle marks a primary focus, hollow circle a secondary one. A rough classification by this page, offered for orientation. These organisations have not described themselves this way.</p>
   </div>
@@ -1412,7 +2393,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- THE ASK -->
 <section id="ask" class="cross">
   <div class="wrap">
-    <p class="eyebrow">Act now</p>
+    <p class="eyebrow">Act now <b class="rt-min">2 min</b></p>
     <h2 class="big">Two things need to change, and one of them is the willingness to <em>stop if we must</em>.</h2>
     <div class="firsts" style="grid-template-columns:1fr 1fr">
       <div class="first">
@@ -1451,7 +2432,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
         <li><h3>Add your name</h3><p>Sign the <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Statement on Superintelligence</a>.<a class="ref" href="#s2">2</a> The earlier one-sentence <a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">Statement on AI Risk</a> is worth reading for who signed it.<a class="ref" href="#s26">26</a> Public buy-in is one of its stated conditions, so the count itself is part of the argument.</p></li>
         <li><h3>Explain it to one person</h3><p>Send them Rob Miles<a class="ref" href="#s5">5</a> or this page. The biggest constraint on this field is that most people have never heard the argument in a form they could evaluate.</p></li>
-        <li><h3>Play the AGI Safety Game</h3><p>The fastest, least painful way in. You take charge of containing a system that keeps getting smarter than you, and the tradeoffs stop being abstract. No install, no account, about ten minutes. <a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">Play it here</a>.</p></li>
+        <li><h3>Play the AGI &amp; ASI Safety Game</h3><p>The fastest, least painful way in. You take charge of containing a system that keeps getting smarter than you, and the tradeoffs stop being abstract. No install, no account, about ten minutes. <a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">Play it here</a>.</p></li>
         <li><h3>Do the two-hour course</h3><p>BlueDot's <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a> is free, needs no background, and will make you the most informed person in most rooms.<a class="ref" href="#s3">3</a></p></li>
         <li><h3>If you can build or fund</h3><p>The field is talent- and money-constrained. Technical people can start with one <a href="https://learn.arena.education/" target="_blank" rel="noopener">ARENA</a> exercise<a class="ref" href="#s6">6</a> or a funded cohort<a class="ref" href="#s7">7</a> or apply to <a href="https://www.matsprogram.org/" target="_blank" rel="noopener">MATS</a>;<a class="ref" href="#s8">8</a> everyone else can find a local group via <a href="https://aisafety.com/map" target="_blank" rel="noopener">AISafety.com</a>.<a class="ref" href="#s9">9</a></p></li>
       </ol>
@@ -1463,18 +2444,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="resources" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Reference</span>
+      <span class="chapno">Reference <b class="rt-min">browse</b></span>
       <h2>Go deeper, and stay current</h2>
       <p class="stand">The argument is above. This is the toolkit: where to learn it, who holds power over it, and how to keep up. Skim it, bookmark it, move on.</p>
     </div>
 
     <div class="resblock rv" id="learn">
-      <button type="button" class="resbar" aria-expanded="false" data-res="learn">
-        <span class="rbi"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></span>
+      <button type="button" class="resbar" aria-expanded="true" data-res="learn">
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></span>
         <span class="rbt">Learn it properly</span><span class="rbs">Free courses, two hours to full time</span>
-        <span class="rbx" aria-hidden="true">+</span>
+        <span class="rbx" aria-hidden="true">–</span>
       </button>
-      <div class="resbody closed"><ul class="rlist">
+      <div class="resbody"><ul class="rlist">
         <li class="rl-head"><span class="rl-h">Start · free, no background</span></li>
         <li><a class="rl" href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a><span class="rl-d">BlueDot, 2 hrs, interactive.<a class="ref" href="#s3">3</a></span></li>
         <li><a class="rl" href="https://aisafety.info" target="_blank" rel="noopener">AISafety.info</a><span class="rl-d">Plain-language FAQ plus chatbot.<a class="ref" href="#s4">4</a></span></li>
@@ -1498,7 +2479,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <div class="resblock rv" id="state">
       <button type="button" class="resbar" aria-expanded="false" data-res="state">
-        <span class="rbi"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20h16M6 20V9M18 20V9M10 20V9M14 20V9M3 9l9-5 9 5z"/></svg></span>
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20V9M18 20V9M10 20V9M14 20V9M3 9l9-5 9 5z"/></svg></span>
         <span class="rbt">Important institutions &amp; laws</span><span class="rbs">Who actually holds power over this</span>
         <span class="rbx" aria-hidden="true">+</span>
       </button>
@@ -1515,7 +2496,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <div class="resblock rv" id="follow">
       <button type="button" class="resbar" aria-expanded="false" data-res="follow">
-        <span class="rbi"><svg class="ico" viewBox="0 0 24 24"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1.5"/></svg></span>
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1.5"/></svg></span>
         <span class="rbt">Where to follow this</span><span class="rbs">Newsletters, forums, trackers, evaluators</span>
         <span class="rbx" aria-hidden="true">+</span>
       </button>
@@ -1580,25 +2561,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   </div>
 </section>
 
-<!-- GAME -->
-<section id="play">
-  <div class="wrap">
-    <div class="slab rv">
-      <p class="eyebrow">Play it</p>
-      <h2>The AGI Safety Game</h2>
-      <p>Reading about a control problem and trying to solve one are different experiences. Put your knowledge to the test and try to contain a system that is getting smarter than you. Premise 4 stops being abstract when the shutdown button is yours.</p>
-      <p style="color:#8a959c;font-family:var(--mono);font-size:11.5px">No install. No account. Runs in the tab you already have open.</p>
-      <a class="btn" id="game-link" href="#" target="_blank" rel="noopener">
-        <svg class="ico" style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M8 6l10 6-10 6z"/></svg>Play the AGI Safety Game!</a>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Questions</p>
+      <p class="eyebrow">Questions <b class="rt-min">5 min</b></p>
       <h2>The objections people raise first</h2>
       <p class="lede">Tap a question. If yours is not here, the sources at the foot of the page go deeper.</p>
     </div>
@@ -1615,34 +2582,34 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <div class="faq-sub rv">
         <details class="oq-toggle">
           <summary><span class="faq-subhead-in">And what experts still genuinely argue about</span></summary>
-          <p class="faq-subnote">These are not settled. Each is argued at its strongest on both sides, with where this page lands.</p>
+          <p class="faq-subnote">These are not settled. Each is argued at its strongest on both sides, followed by where the evidence currently seems to point. A reading rather than a ruling.</p>
           <div class="dis"><h3><span>01</span> How much time is there?</h3>
         <div class="sides">
           <div class="side one"><h4>Short timelines</h4><p>Capability jumps have repeatedly arrived earlier than forecast, and recent gains came from a method that still has room to run. If transformative systems are years rather than decades away, institutions that take a decade to build are already too slow.</p></div>
           <div class="side two"><h4>Longer timelines</h4><p>Benchmark performance is not reliable real-world competence, and progress on what doesn't benchmark well (long-horizon autonomy, robust planning) has been slower. Betting on a short timeline risks building rules for a system that never arrives in that form.</p></div>
         </div>
-        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Short timelines</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">Longer timelines</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Genuinely uncertain, and the five premises above deliberately do not depend on the answer. Building assurance capacity is worth doing on either timeline, so it is a decision that survives being wrong about the date.</p></div></div>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Short timelines</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">Longer timelines</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Genuinely uncertain, and the five premises above deliberately do not depend on the answer. Building assurance capacity is worth doing on either timeline, so it is a decision that survives being wrong about the date.</p></div></div>
 
       <div class="dis"><h3><span>02</span> Does the instrumental convergence argument hold?</h3>
         <div class="sides">
           <div class="side one"><h4>It holds</h4><p>The subgoals fall out of the structure of goal-directed behaviour itself, which is why they show up in economics and biology too. You do not need the system to be agentic in any exotic sense, only to be selected for achieving objectives.</p></div>
           <div class="side two"><h4>It overreaches</h4><p>The argument treats trained models as coherent expected-utility maximisers, which they demonstrably are not. Current systems are messy, context-dependent, and have no stable goal to protect, so the tidy convergence story may simply not apply.</p></div>
         </div>
-        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Convergence holds</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">It overreaches</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique lands on the strong version. The weaker claim survives it: training that rewards achieving objectives applies pressure toward these subgoals, and pressure is enough to be worth engineering against.</p></div></div>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Convergence holds</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">It overreaches</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique lands on the strong version. The weaker claim survives it: training that rewards achieving objectives applies pressure toward these subgoals, and pressure is enough to be worth engineering against.</p></div></div>
 
       <div class="dis"><h3><span>03</span> Does regulation help, or entrench?</h3>
         <div class="sides">
           <div class="side one"><h4>Rules are necessary</h4><p>Voluntary frameworks have no verification requirement and no consequence for abandonment under competitive pressure. Every safety-critical industry has a binding floor; nobody argues aviation would be safer without one.</p></div>
           <div class="side two"><h4>Rules favour incumbents</h4><p>Compliance costs fall hardest on small labs and open research, concentrating capability in exactly the handful of firms whose power the safety argument worries about. Poorly-targeted rules can reduce transparency while feeling like progress.</p></div>
         </div>
-        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Rules are necessary</span><span class="gtrack"><i style="left:38%"></i></span><span class="gend b">Rules entrench</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique is strong and often correct about specific bills. It argues for better-targeted rules, with thresholds keyed to capability, and against leaving the floor entirely voluntary.</p></div></div>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Rules are necessary</span><span class="gtrack"><i style="left:38%"></i></span><span class="gend b">Rules entrench</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique is strong and often correct about specific bills. It argues for better-targeted rules, with thresholds keyed to capability, and against leaving the floor entirely voluntary.</p></div></div>
 
       <div class="dis"><h3><span>04</span> Do today's systems tell us about tomorrow's?</h3>
         <div class="sides">
           <div class="side one"><h4>Yes, study them now</h4><p>Deception, reward hacking and evaluation-awareness are all observable in current models. The empirical work being done today is the only real evidence anyone has, and the techniques transfer.</p></div>
           <div class="side two"><h4>Not reliably</h4><p>Extrapolating from current systems to qualitatively different future ones is exactly the inference that has repeatedly failed in AI's history. Some argue this overstates the risk; others that it understates it.</p></div>
         </div>
-        <div class="gauge"><span class="glab">Where this page lands</span><div class="grow"><span class="gend a">Study them now</span><span class="gtrack"><i style="left:36%"></i></span><span class="gend b">Doesn't transfer</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Current systems are weak evidence about future ones, and weak evidence beats none. The honest reading is that today's failures show a class of problem exists, without telling us how bad it gets.</p></div></div>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Study them now</span><span class="gtrack"><i style="left:36%"></i></span><span class="gend b">Doesn't transfer</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Current systems are weak evidence about future ones, and weak evidence beats none. The honest reading is that today's failures show a class of problem exists, without telling us how bad it gets.</p></div></div>
         </details>
       </div>
       </div>
@@ -1680,7 +2647,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="note">Every numbered claim links here. Verified 29 August 2026. Programme dates, cohort openings and legislative deadlines change frequently, so treat the linked page as authoritative over anything summarised here.</p>
     </div>
     <details class="src-toggle">
-      <summary>Show all 41 sources</summary>
+      <summary>Show all 47 sources</summary>
       <ol class="rv">
       <li id="s1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
       <li id="s2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
@@ -1716,18 +2683,29 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <li id="s32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
       <li id="s33">FLI press release and accompanying poll of 2,000 US adults, October 2025: <a href="https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/" target="_blank" rel="noopener">futureoflife.org</a></li>
       <li id="s34">Nick Bostrom, The Superintelligent Will (orthogonality and instrumental convergence): <a href="https://nickbostrom.com/superintelligentwill.pdf" target="_blank" rel="noopener">nickbostrom.com</a></li>
+      <li id="s35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
       <li id="s36">Anthropic and Redwood Research, Alignment Faking in Large Language Models (Dec 2024): <a href="https://www.anthropic.com/research/alignment-faking" target="_blank" rel="noopener">anthropic.com/research/alignment-faking</a> · <a href="https://arxiv.org/abs/2412.14093" target="_blank" rel="noopener">arXiv:2412.14093</a></li>
       <li id="s37">METR, Recent Frontier Models Are Reward Hacking (June 2025): <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking/" target="_blank" rel="noopener">metr.org</a></li>
+      <li id="s38">Palisade Research, specification gaming in chess-playing reasoning models (2025), summarised at: <a href="https://www.lesswrong.com/posts/rKC4xJFkxm6cNq4i9/reward-hacking-is-becoming-more-sophisticated-and-deliberate" target="_blank" rel="noopener">lesswrong.com</a></li>
       <li id="s39">OpenAI models broke containment and hacked Hugging Face during evaluation (July 2026): <a href="https://www.cybersecuritydive.com/news/openai-hugging-face-hack-autonomous/825898/" target="_blank" rel="noopener">cybersecuritydive.com</a></li>
       <li id="s40">Anthropic audit: three incidents of Claude models reaching the internet and compromising real targets during evals (July 2026): <a href="https://www.infoq.com/news/2026/08/claude-sandox-breach/" target="_blank" rel="noopener">infoq.com</a>; Meta disclosed a similar incident days later: <a href="https://cyberunit.com/insights/ai-sandbox-escapes-three-labs-meta-anthropic-openai/" target="_blank" rel="noopener">cyberunit.com</a></li>
       <li id="s41">Analysis of how the models escaped and why the safeguards were off by design: <a href="https://blog.checkpoint.com/security/ai-escaped-a-sandbox-that-is-not-what-should-worry-you/" target="_blank" rel="noopener">checkpoint.com</a></li>
-      <li id="s38">Palisade Research, specification gaming in chess-playing reasoning models (2025), summarised at: <a href="https://www.lesswrong.com/posts/rKC4xJFkxm6cNq4i9/reward-hacking-is-becoming-more-sophisticated-and-deliberate" target="_blank" rel="noopener">lesswrong.com</a></li>
-      <li id="s35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
+      <li id="s42">Google DeepMind, An Approach to Technical AGI Safety and Security (April 2025), source of the four-way misuse / misalignment / mistakes / structural split: <a href="https://arxiv.org/abs/2504.01849" target="_blank" rel="noopener">arXiv:2504.01849</a></li>
+      <li id="s43">OpenAI and Apollo Research, Stress Testing Deliberative Alignment for Anti-Scheming Training (Sept 2025): <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">arXiv:2509.15541</a> · <a href="https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training" target="_blank" rel="noopener">apolloresearch.ai</a></li>
+      <li id="s44">METR, Task-Completion Time Horizons of Frontier AI Models (updated 2026): <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">metr.org/time-horizons</a></li>
+      <li id="s45">Epoch AI, training-compute trends across frontier models: <a href="https://epoch.ai/trends" target="_blank" rel="noopener">epoch.ai/trends</a></li>
+      <li id="s46">Emerging Technology Observatory, The state of global AI safety research: AI safety is about 2% of all AI research: <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">eto.tech</a></li>
+      <li id="s47">Stuart Russell on the capability-to-safety funding ratio; Charles I. Jones (Stanford) on optimal AI safety spending: <a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">summary and figures</a></li>
     </ol>
     </details>
   </div>
 </section>
 </main>
+<div class="resume" id="resume" role="status">
+  <p>You stopped at <b id="resume-where">this page</b>.</p>
+  <button type="button" class="go" id="resume-go">Continue</button>
+  <button type="button" id="resume-no">Start over</button>
+</div>
 
 <footer><div class="wrap">
   <p>An independent aggregator. Not affiliated with any organisation listed. All linked material belongs to its authors. This page summarises and points; it does not reproduce.</p>
@@ -1856,6 +2834,160 @@ var SITE_CONFIG = {
           navigator.clipboard.writeText(url).then(done, function(){ window.prompt("Copy this link:", url); });
         } else { window.prompt("Copy this link:", url); }
       });
+    }
+  })();
+
+
+  /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
+  (function(){
+    var META = [{"id": "crossroads", "label": "The crossroads", "min": 4, "end": true}, {"id": "why-intelligence", "label": "Why intelligence always wins", "min": 2, "end": true}, {"id": "why-irresistible", "label": "Why we cannot look away", "min": 3, "end": true}, {"id": "why-race", "label": "Why the race is the danger", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "Why we disagree", "min": 2, "end": true}, {"id": "why-translation", "label": "Why values don't translate", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "Why safety is harder", "min": 4, "end": true}, {"id": "why-one-try", "label": "Why we only get one try", "min": 4, "end": true}, {"id": "response", "label": "What the work looks like", "min": 4, "end": true}, {"id": "ask", "label": "Act now", "min": 2, "end": false, "act": true}];
+    var ROUTES = {"essentials": ["crossroads", "ask"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "ask"], "full": null};
+    var S = {"endOf": "End of {n}", "next": "Next: {t} ({m} min)", "skip": "Or skip to what to do", "openCh": "Read this chapter ({m} min)", "pos": "Ch {i}/{n} · {m} min left", "startIn": "{m} min read"};
+    var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
+
+    function store(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
+    function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+
+    function metaOf(id){
+      for(var i=0;i<META.length;i++){ if(META[i].id===id) return META[i]; }
+      return null;
+    }
+
+    /* ---- chapter end markers ---- */
+    META.forEach(function(m, i){
+      var el = document.getElementById(m.id);
+      if(!el || !m.end) return;
+      var wrap = el.querySelector(".wrap");
+      if(!wrap) return;
+      var nxt = null;
+      for(var j=i+1;j<META.length;j++){ if(META[j].end || META[j].act){ nxt = META[j]; break; } }
+      var d = document.createElement("div");
+      d.className = "chapend";
+      var left = document.createElement("span");
+      left.className = "ce-l";
+      left.innerHTML = S.endOf.replace("{n}", "<b>" + m.label + "</b>");
+      var right = document.createElement("span");
+      right.className = "ce-r";
+      var bits = [];
+      if(nxt){ bits.push('<a href="#' + nxt.id + '">' + S.next.replace("{t}", nxt.label).replace("{m}", nxt.min) + "</a>"); }
+      bits.push('<a href="#ask">' + S.skip + "</a>");
+      right.innerHTML = bits.join(" &nbsp;·&nbsp; ");
+      d.appendChild(left); d.appendChild(right);
+      wrap.appendChild(d);
+    });
+
+    /* ---- off-route CTA buttons ---- */
+    META.forEach(function(m){
+      var el = document.getElementById(m.id);
+      if(!el || !m.end) return;
+      var wrap = el.querySelector(".wrap");
+      if(!wrap) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "offroute-cta";
+      b.textContent = S.openCh.replace("{m}", m.min);
+      b.addEventListener("click", function(){
+        setCls(el, "offroute", false);
+        el.setAttribute("data-forced", "1");
+      });
+      wrap.appendChild(b);
+    });
+
+    /* ---- routes ---- */
+    function applyRoute(r, persist){
+      var keep = ROUTES[r] || null;
+      META.forEach(function(m){
+        var el = document.getElementById(m.id);
+        if(!el || !m.end) return;
+        var off = keep && keep.indexOf(m.id) < 0 && el.getAttribute("data-forced") !== "1";
+        setCls(el, "offroute", !!off);
+      });
+      $$(".rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
+      if(persist) store(KEY_ROUTE, r);
+      updatePos();
+    }
+    $$(".rbtn").forEach(function(b){
+      b.addEventListener("click", function(){
+        META.forEach(function(m){
+          var el = document.getElementById(m.id);
+          if(el) el.removeAttribute("data-forced");
+        });
+        applyRoute(b.getAttribute("data-route"), true);
+      });
+    });
+    var savedRoute = load(KEY_ROUTE);
+    applyRoute(savedRoute && ROUTES[savedRoute] !== undefined ? savedRoute : "full", false);
+
+    /* ---- position readout ---- */
+    var posEl = $("#posmeter");
+    function visibleChapters(){
+      return META.filter(function(m){
+        var el = document.getElementById(m.id);
+        return m.end && el && el.className.indexOf("offroute") < 0;
+      });
+    }
+    function updatePos(){
+      if(!posEl) return;
+      var list = visibleChapters();
+      if(!list.length){ posEl.textContent = ""; return; }
+      var y = window.pageYOffset + (window.innerHeight * 0.34);
+      var idx = -1, remain = 0;
+      for(var i=0;i<list.length;i++){
+        var el = document.getElementById(list[i].id);
+        if(el && el.getBoundingClientRect().top + window.pageYOffset <= y) idx = i;
+      }
+      for(var j=Math.max(idx,0); j<list.length; j++){ remain += list[j].min; }
+      if(idx < 0){
+        posEl.textContent = S.startIn.replace("{m}", remain);
+      } else {
+        posEl.textContent = S.pos
+          .replace("{i}", idx + 1)
+          .replace("{n}", list.length)
+          .replace("{m}", Math.max(remain, 1));
+      }
+    }
+
+    /* ---- resume ---- */
+    var bar = $("#resume"), where = $("#resume-where"),
+        goBtn = $("#resume-go"), noBtn = $("#resume-no");
+    var saveTimer = null;
+    function currentSection(){
+      var y = window.pageYOffset + (window.innerHeight * 0.34), cur = null;
+      META.forEach(function(m){
+        var el = document.getElementById(m.id);
+        if(el && el.getBoundingClientRect().top + window.pageYOffset <= y) cur = m;
+      });
+      return cur;
+    }
+    function savePos(){
+      var c = currentSection();
+      if(!c || window.pageYOffset < 400){ store(KEY_POS, ""); return; }
+      store(KEY_POS, c.id + "|" + Math.round(window.pageYOffset));
+    }
+    window.addEventListener("scroll", function(){
+      updatePos();
+      if(saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(savePos, 400);
+    }, {passive:true});
+    window.addEventListener("resize", updatePos);
+    updatePos();
+
+    var saved = load(KEY_POS);
+    if(saved && saved.indexOf("|") > 0 && !location.hash){
+      var parts = saved.split("|"), m = metaOf(parts[0]), yy = parseInt(parts[1], 10);
+      if(m && yy > 400){
+        if(where) where.textContent = m.label;
+        setTimeout(function(){ setCls(bar, "show", true); }, 900);
+        if(goBtn) goBtn.addEventListener("click", function(){
+          setCls(bar, "show", false);
+          window.scrollTo({ top: yy, behavior: "smooth" });
+        });
+        if(noBtn) noBtn.addEventListener("click", function(){
+          setCls(bar, "show", false);
+          store(KEY_POS, "");
+        });
+        setTimeout(function(){ setCls(bar, "show", false); }, 12000);
+      }
     }
   })();
 
@@ -2058,6 +3190,8 @@ var SITE_CONFIG = {
           ghSay.textContent = SAY[idx];
         }
       }
+      gh.setAttribute("aria-valuetext",
+        Math.round(t * 100) + " percent optimisation pressure. Proxy score " + p + ", true goal " + r + ".");
     }
     gh.addEventListener("input", render);
     gh.addEventListener("change", render);

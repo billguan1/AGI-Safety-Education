@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>鸿沟：一份免费、有据可查的 AGI 安全指南</title>
-<meta name="description" content="从第一性原理出发，讲清楚为什么先进人工智能是危险的。附最优质的免费课程、谁真正握有权力、人们仍在争论什么，以及你本周可以做什么。">
-<meta property="og:title" content="鸿沟：一份免费、有据可查的 AGI 安全指南">
-<meta property="og:description" content="人工智能的能力正在超越我们审查它的能力。从第一性原理讲清全部论证，一页看懂整个领域。">
+<title>AGI 与 ASI 安全：人类尚未攻克的最难命题</title>
+<meta name="description" content="从第一性原理讲清先进人工智能为何危险：实证证据、尚存争议、最优质的免费课程，以及你本周就能做的事。">
+<meta property="og:title" content="AGI 与 ASI 安全：人类尚未攻克的最难命题">
+<meta property="og:description" content="从第一性原理讲清先进人工智能为何危险：实证证据、尚存争议、最优质的免费课程，以及你本周就能做的事。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +234,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ph.end{background:var(--ink);border-color:var(--ink)}
 .ph.end .pn{color:#ff8a6b}
 .ph.end h4{color:#fff}
-.ph.end p{color:#dfe5e9}
+.ph.end p{color:#e6ebee}
 .cmeth{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(20px,3vw,28px)}
 @media(max-width:760px){.cmeth{grid-template-columns:1fr}}
 .cm{border:1px solid var(--rule);border-radius:var(--r);padding:20px;background:var(--white)}
@@ -341,8 +341,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:64ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{max-width:66ch;margin-top:8px}
-.dd .body p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px}
-.dd .body p strong{color:var(--ink);font-weight:500}
+.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px}
+.dd .body>p strong{color:var(--ink);font-weight:500}
 .ddgrid{display:grid;gap:12px;margin:clamp(22px,3.4vw,34px) 0}
 .ddgrid.two{grid-template-columns:1fr 1fr}
 .ddgrid.three{grid-template-columns:repeat(3,1fr)}
@@ -376,6 +376,93 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
 .mh-meta span:first-child{padding-left:0;border-left:0}
 /* ---------- masthead end ---------- */
+
+
+
+/* ---------- section figures ---------- */
+.secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
+  background:var(--white);padding:clamp(16px,2.4vw,22px)}
+.secfig svg{display:block;width:100%;height:auto}
+.secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:70ch}
+
+.secfig.dark{background:rgba(255,255,255,.04);border-color:#2b343b}
+
+.fig-src{margin-top:9px;padding-top:9px;border-top:1px dashed var(--rule);
+  font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-3)}
+.fig-src a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid rgba(34,51,204,.35)}
+.fig-src a:hover{border-bottom-color:currentColor}
+.secfig.dark .fig-src{color:#8a959c;border-top-color:#2b343b}
+.secfig.dark .fig-src a{color:#8fa2ff;border-bottom-color:rgba(143,162,255,.4)}
+/* ---------- reading paths / route chooser ---------- */
+.routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
+.routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
+.routes-sub{font-size:14.5px;line-height:1.55;color:#9aa5ac;margin:0 0 16px;max-width:64ch}
+.route-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.route-btns{grid-template-columns:1fr}}
+.rbtn{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
+.rbtn:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
+.rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
+.rbtn .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
+.rbtn .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
+.rbtn .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
+/* collapsed (off-route) chapters */
+.offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
+.offroute .sec-head .stand{display:none}
+.offroute .sec-head{margin-bottom:12px}
+.offroute{padding-top:clamp(20px,2.6vw,28px);padding-bottom:clamp(20px,2.6vw,28px)}
+.offroute-cta{display:none}
+.offroute .offroute-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--rule);border-radius:999px;
+  padding:9px 15px;background:transparent;color:var(--ink-2);cursor:pointer;transition:.15s}
+.offroute .offroute-cta:hover{border-color:var(--ink);color:var(--ink)}
+/* ---------- chapter end markers ---------- */
+.chapend{margin-top:clamp(26px,3.6vw,38px);border-top:1px solid var(--rule);padding-top:16px;
+  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between}
+.chapend .ce-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3)}
+.chapend .ce-l b{color:var(--ink);font-weight:600}
+.chapend .ce-r{font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.chapend .ce-r a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid transparent}
+.chapend .ce-r a:hover{border-bottom-color:currentColor}
+.cross .chapend,.dark .chapend{border-top-color:#2b343b}
+.cross .chapend .ce-l{color:#8a959c}
+.cross .chapend .ce-l b{color:#fff}
+.cross .chapend .ce-r a{color:#8fa2ff}
+/* ---------- position readout ---------- */
+.posmeter{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;padding-left:12px}
+@media(max-width:760px){.posmeter{width:100%;padding-left:0;margin-top:2px}}
+/* ---------- resume banner ---------- */
+.resume{position:fixed;left:50%;transform:translateX(-50%) translateY(140%);bottom:18px;z-index:70;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+  background:var(--ink);color:#fff;border-radius:999px;padding:12px 16px 12px 20px;
+  box-shadow:0 14px 40px rgba(18,22,26,.34);transition:transform .3s ease;max-width:calc(100vw - 24px)}
+.resume.show{transform:translateX(-50%) translateY(0)}
+.resume p{margin:0;font-size:14px;color:#dfe5e9}
+.resume p b{color:#fff;font-weight:600}
+.resume button{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:999px;padding:8px 14px;cursor:pointer;border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;transition:.15s}
+.resume button.go{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.resume button:hover{border-color:#fff;color:#fff}
+/* ---------- per-section reading time ---------- */
+.rt-min{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.04em;
+  padding:2px 7px;margin-left:8px;border-radius:999px;
+  border:1px solid currentColor;opacity:.62;vertical-align:1px}
+/* ---------- four risk pillars ---------- */
+.pillars{margin-top:clamp(30px,5vw,52px);border-top:1px solid #2b343b;padding-top:clamp(24px,3.6vw,36px)}
+.pil-lead{font-size:15.5px;line-height:1.75;color:#b6c0c6;max-width:70ch;margin:0 0 18px}
+.pil-lead em{color:#fff;font-style:normal;font-weight:500}
+.pil-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:900px){.pil-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pil-grid{grid-template-columns:1fr}}
+.pil{display:block;text-decoration:none;border:1px solid #2b343b;border-radius:var(--r);padding:16px;
+  background:rgba(255,255,255,.03);transition:.16s}
+.pil:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.pil .pk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;color:#a8b3ba;display:block;margin-bottom:9px}
+.pil .pt{font-family:var(--display);font-weight:800;font-size:19px;color:#fff;display:block;margin-bottom:7px}
+.pil .pd{font-size:13.5px;line-height:1.65;color:#c3ccd2;display:block}
+.pil.hot{background:rgba(189,58,32,.14);border-color:#6b3527}
+.pil.hot .pk{color:#ff8a6b}
 /* ---------- crossroads roadmap ---------- */
 .roadmap{margin-top:clamp(30px,5vw,52px);border-top:1px solid #2b343b;padding-top:clamp(24px,3.6vw,36px)}
 .rm-lead{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:clamp(18px,2.4vw,24px);color:#fff;margin:0 0 18px;max-width:40ch}
@@ -386,7 +473,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .rm:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
 .rm .rn{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;color:#ff8a6b;display:block;margin-bottom:10px}
 .rm .rt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:17px;color:#fff;display:block;margin-bottom:6px}
-.rm .rd{font-size:14px;line-height:1.45;color:#9aa5ac;display:block}
+.rm .rd{font-size:14px;line-height:1.5;color:#c3ccd2;display:block}
 /* ---------- crossroads opening ---------- */
 .cross{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden;position:relative}
 .cross::before{content:"";position:absolute;inset:0;pointer-events:none;
@@ -645,7 +732,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 /* ---------- matrix ---------- */
 .mx{border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;background:var(--white)}
-.mx-row{display:grid;grid-template-columns:1.6fr repeat(3,minmax(62px,.55fr));border-top:1px solid var(--rule-soft);align-items:center}
+.mx-row{display:grid;grid-template-columns:1.5fr repeat(4,minmax(52px,.5fr));border-top:1px solid var(--rule-soft);align-items:center}
 .mx-row:first-child{border-top:0;background:var(--paper)}
 .mx-row>div{padding:11px 14px}
 .mx-row.head span{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
@@ -656,7 +743,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .mx-row .c1 .dot{background:var(--c-dev);border-color:var(--c-dev)}
 .mx-row .c2 .dot{background:var(--c-ass);border-color:var(--c-ass)}
 .mx-row .c3 .dot{background:var(--c-ctl);border-color:var(--c-ctl)}
-@media(max-width:620px){.mx-row{grid-template-columns:1.25fr repeat(3,1fr)}.mx-name{font-size:12.5px}.mx-row>div{padding:10px 6px}}
+.mx-row .c4 .dot{background:var(--c-act);border-color:var(--c-act)}
+@media(max-width:620px){.mx-row{grid-template-columns:1.1fr repeat(4,1fr)}.mx-name{font-size:12.5px}.mx-row>div{padding:10px 6px}}
 
 /* ---------- ladder ---------- */
 .rung{border-top:1px solid var(--rule-soft);padding:26px 0}
@@ -806,6 +894,142 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
 </style>
+
+  <!-- EDIT ME: replace https://example.com with your real domain in the 6 URLs below, then delete this comment. -->
+  <link rel="canonical" href="https://example.com/index-zh.html">
+  <link rel="alternate" hreflang="en" href="https://example.com/index.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://example.com/index-zh.html">
+  <link rel="alternate" hreflang="x-default" href="https://example.com/index.html">
+  <meta property="og:url" content="https://example.com/index-zh.html">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="AGI &amp; ASI Safety">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#12161a">
+  <meta name="author" content="Bill Guan">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://example.com/#website",
+   "url": "https://example.com/",
+   "name": "AGI & ASI Safety",
+   "inLanguage": "zh-Hans"
+  },
+  {
+   "@type": "Article",
+   "@id": "https://example.com/index-zh.html#article",
+   "isPartOf": {
+    "@id": "https://example.com/#website"
+   },
+   "headline": "AGI 与 ASI 安全：人类尚未攻克的最难命题",
+   "description": "从第一性原理讲清先进人工智能为何危险：实证证据、尚存争议、最优质的免费课程，以及你本周就能做的事。",
+   "inLanguage": "zh-Hans",
+   "author": {
+    "@type": "Person",
+    "name": "Bill Guan"
+   },
+   "publisher": {
+    "@type": "Person",
+    "name": "Bill Guan"
+   },
+   "image": "https://example.com/og-image.png",
+   "dateModified": "2026-09-04",
+   "about": [
+    {
+     "@type": "Thing",
+     "name": "AI safety"
+    },
+    {
+     "@type": "Thing",
+     "name": "Artificial general intelligence"
+    },
+    {
+     "@type": "Thing",
+     "name": "Superintelligence"
+    },
+    {
+     "@type": "Thing",
+     "name": "AI alignment"
+    }
+   ],
+   "mainEntityOfPage": "https://example.com/index-zh.html"
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://example.com/index-zh.html#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "这不就是科幻小说吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "这里的担忧比电影里的要狭窄、也无聊得多。它无关机器人决定憎恨我们，而在于：我们训练系统的方式，是去搜索任何能在一个我们只能大致写下的目标上得分最高的行为，而我们还无法检验它们究竟学到了什么。本页面上的种种失败——模型在测试中作弊、伪装合规——是当今真实系统中有据可查的现象，而非凭空想象。3736"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "它一旦不听话，我们直接关掉不就行了？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为\"关掉\"意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而\"可纠正性\"并不是我们默认就能得到的。3420"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "足够聪明的 AI 难道不会自然明白我们想要什么吗？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "\"明白我们想要什么\"和\"有动机去追求它\"是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为正交性论题。34"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "是不是已经太晚了，或者事情太大，轮不到我起作用？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "这个领域最大的单一瓶颈，就是大多数人从未以一种他们能评判的方式听过这套论证。这让\"普通人的认知\"具有异乎寻常的杠杆效应。分享这个页面、在声明上签名、或向一个人讲清楚这个问题，都是在切实地推动那个最需要被推动的东西。\"行动\"一节列出了具体步骤。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "\"对齐\"到底是什么意思？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。25"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "\"可解释性\"\"评估\"\"AI 控制\"分别是什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "可解释性是读取模型内部的计算，弄清它为何这样做，是最接近\"打开黑箱\"的手段。24 评估是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。19 AI 控制则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。20"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "既然风险这么大，为什么还有人要造它？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的——这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。1"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "我们会不会只是过渡的一步，AI 才是我们的继承者？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于——未来仍应有我们的位置。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <div id="prog"></div>
@@ -814,17 +1038,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <a class="brand" href="#top">AGI 安全 <b>/</b> 人类尚未攻克的最难命题</a>
+    <a class="brand" href="#top">AGI 与 ASI 安全 <b>/</b> 人类尚未攻克的最难命题</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="index.html" hreflang="en">EN</a>
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>分享</span></button>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>分享</span></button>
       <a class="hbtn hbtn-act" href="#ask"><span>立即行动</span></a>
       <a class="hbtn header-game" href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M8 6l10 6-10 6z"/></svg><span>玩游戏，轻松入门 AGI 安全</span></a>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>玩游戏，轻松入门 AGI 与 ASI 安全</span></a>
     </div>
   </div>
   <nav class="chapters" id="chapters" aria-label="Contents">
+    <span class="posmeter" id="posmeter" aria-live="off"></span>
     <ul class="nav-groups">
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">现状 <span class="ng-caret" aria-hidden="true">›</span></button>
@@ -871,7 +1096,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <h1 class="mh-title">人类尚未攻克的<br>最难命题</h1>
     <p class="mh-sub">人类的智能缔造了现代文明。而今我们正着手创造一个凌驾于自身之上的存在，却无法确保它始终与人类同心同德。这份指南从第一性原理出发，逐层拆解这道难题，并指明我们当如何应对。</p>
     <div class="mh-meta">
-      <span>AGI 安全</span><span>约 15 分钟读完</span><span>每条论断皆附出处</span>
+      <span>AGI 与 ASI 安全</span><span>通读约 35 分钟</span><span>每条论断皆附出处</span>
     </div>
   </div>
 </header>
@@ -879,9 +1104,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- CROSSROADS -->
 <section id="crossroads" class="cross">
   <div class="wrap">
-    <p class="eyebrow">现状</p>
+    <p class="eyebrow">现状 <b class="rt-min">4 分钟</b></p>
     <h2 class="big">我们即将做一件<em>亘古未有之事</em>：造出超越自身的智能。</h2>
-    <p class="stand">纵观历史，每一次文明飞跃皆由地球上最聪慧的头脑所推动——而那始终是我们自己。如今，我们却要亲手终结这一纪录。用不了多久，这颗星球上最强的智能，将不再是人类。</p>
+    <p class="stand">纵观历史，每一次文明飞跃皆由地球上最聪慧的头脑所推动——而那始终是我们自己。如今，我们却要亲手终结这一纪录。用不了多久，这颗星球上最强的智能，将不再是人类。这里有两个词：<strong>AGI（通用人工智能）</strong>，指在各方面都比肩人类的系统；<strong>ASI（超级智能）</strong>，指远远超越人类的智能。前者是门槛，后者则是人们预期前者会造出来的东西——而且很快。</p>
 
     <div class="firsts">
       <div class="first">
@@ -902,49 +1127,74 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
 
     <figure class="cliff">
-      <svg viewBox="0 0 800 400" role="img" aria-label="示意图：实验室、公司、投资方与国家被同一根绳子拴在一起，冲向悬崖边。崖那边悬着丰饶的奖赏，崖底则是生存性的毁灭。">
+      <svg viewBox="0 0 800 430" role="img" aria-label="示意图：实验室、公司、投资方与国家被同一根绳索拴在一起，冲向悬崖边缘。奖赏悬在崖的另一侧，崖下则是生存性的覆灭。">
         <defs>
-          <linearGradient id="void" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#bd3a20" stop-opacity=".40"/>
+          <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a333a"/><stop offset="100%" stop-color="#171d22"/>
+          </linearGradient>
+          <linearGradient id="abyss" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#bd3a20" stop-opacity=".34"/>
             <stop offset="100%" stop-color="#bd3a20" stop-opacity="0"/>
           </linearGradient>
           <radialGradient id="prizeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ffd88a" stop-opacity=".55"/>
+            <stop offset="0%" stop-color="#ffd88a" stop-opacity=".5"/>
             <stop offset="100%" stop-color="#ffd88a" stop-opacity="0"/>
           </radialGradient>
         </defs>
-        <ellipse cx="672" cy="78" rx="150" ry="74" fill="url(#prizeGlow)"/>
-        <text x="672" y="52" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ffd88a">奖　赏</text>
-        <text x="672" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e8c98a">无尽的丰饶与产出</text>
-        <text x="672" y="93" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e8c98a">攻克百病，寿数绵长</text>
-        <text x="672" y="110" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e8c98a">科学以机器的速度推进</text>
-        <path d="M672,124 L672,152" stroke="#e8c98a" stroke-width="1.2" stroke-dasharray="3 4" opacity=".7"/>
-        <text x="672" y="168" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">前提：我们安全抵达</text>
-        <rect x="0" y="224" width="560" height="120" fill="rgba(255,255,255,.04)"/>
-        <line x1="0" y1="224" x2="560" y2="224" stroke="#4a545b" stroke-width="1.5"/>
-        <rect x="576" y="224" width="224" height="176" fill="url(#void)"/>
-        <line x1="560" y1="216" x2="560" y2="400" stroke="#bd3a20" stroke-width="2" stroke-dasharray="5 5"/>
-        <path d="M80,206 C180,198 300,200 530,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
-        <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
-          <g transform="translate(80,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
-          <g transform="translate(175,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
-          <g transform="translate(270,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
-          <g transform="translate(360,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
-          <g transform="translate(450,206)"><circle cx="0" cy="-34" r="7" fill="#ffb59e" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ffb59e"/></g>
-          <g transform="translate(530,206)"><circle cx="0" cy="-34" r="7.5" fill="#ff8a6b" stroke="none"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ff8a6b"/></g>
+
+        <!-- prize floating beyond the far side -->
+        <ellipse cx="668" cy="80" rx="140" ry="70" fill="url(#prizeGlow)"/>
+        <text x="668" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ffd88a">奖　赏</text>
+        <text x="668" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">无尽的丰饶与产出</text>
+        <text x="668" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">攻克百病，寿数绵长</text>
+        <text x="668" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">科学以机器的速度推进</text>
+        <text x="668" y="136" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">前提：我们安全抵达</text>
+
+        <!-- SOLID GROUND with a real cliff face -->
+        <path d="M0,224 L556,224 L556,430 L0,430 Z" fill="url(#rock)"/>
+        <path d="M0,224 L556,224" stroke="#6c7880" stroke-width="2.5"/>
+        <!-- crumbling edge -->
+        <path d="M556,224 L566,238 L552,252 L562,268 L548,286 L558,306 L544,330 L556,360 L546,392 L556,430 L520,430 L520,224 Z" fill="url(#rock)" stroke="#6c7880" stroke-width="1.2"/>
+        <!-- rock striations to read as a cliff wall -->
+        <g stroke="#3a444c" stroke-width="1.4" opacity=".85">
+          <path d="M40,262 L300,262 M120,300 L420,300 M0,344 L360,344 M180,388 L500,388"/>
         </g>
-        <text x="80" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">实验室</text>
-        <text x="175" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">实验室</text>
-        <text x="270" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">公司</text>
-        <text x="360" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">投资方</text>
-        <text x="450" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">国家</text>
-        <text x="530" y="246" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">国家</text>
-        <text x="688" y="300" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="900" fill="#ff8a6b">一旦走错</text>
-        <text x="688" y="324" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e59079">人类失去掌控</text>
-        <text x="688" y="341" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e59079">生存性的覆灭</text>
-        <text x="688" y="358" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#e59079">没有第二次机会</text>
-        <text x="20" y="40" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">争当第一</text>
-        <text x="20" y="66" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">争先恐后，奔向一个谁都不该抢先抵达之地。</text>
+        <!-- the drop -->
+        <rect x="600" y="224" width="200" height="206" fill="url(#abyss)"/>
+        <text x="700" y="300" text-anchor="middle" font-family="Archivo,sans-serif" font-size="17" font-weight="900" letter-spacing="1" fill="#ff8a6b">坠　落</text>
+        <text x="700" y="326" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">人类失去掌控</text>
+        <text x="700" y="343" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">生存性的覆灭</text>
+        <text x="700" y="360" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079">没有第二次机会</text>
+        <!-- one figure already over the edge -->
+        <g stroke="#ff8a6b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
+          <g transform="translate(600,268) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#ff8a6b"/>
+            <path d="M0,-23 L2,-6 M2,-6 L-8,6 M2,-6 L12,3 M-1,-17 L-12,-13 M-1,-17 L10,-22"/></g>
+        </g>
+
+        <!-- edge marker -->
+        <line x1="556" y1="196" x2="556" y2="430" stroke="#bd3a20" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="548" y="188" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#ff8a6b">悬崖边缘</text>
+
+        <!-- rope + runners -->
+        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
+        <text x="70" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">一根绳，拴着所有人</text>
+        <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
+          <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
+          <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
+          <g transform="translate(250,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
+          <g transform="translate(336,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
+          <g transform="translate(420,206)"><circle cx="0" cy="-34" r="7" fill="#ffb59e"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ffb59e"/></g>
+          <g transform="translate(500,206)"><circle cx="0" cy="-34" r="7.5" fill="#ff8a6b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ff8a6b"/></g>
+        </g>
+        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">实验室</text>
+        <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">实验室</text>
+        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">公司</text>
+        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">投资方</text>
+        <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">国家</text>
+        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">国家</text>
+
+        <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">争当第一</text>
+        <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">争先恐后，奔向一个谁都不该抢先抵达之地。</text>
       </svg>
       <figcaption>悬崖彼岸的奖赏确凿无疑：丰饶、百病得治、科学以机器速度推进。正因如此，人人都在奋力奔跑。然而他们视而不见的，是那根将所有人拴在一起的绳索；而悬崖之下等待我们的，是在学会着陆之前便越过终点的结局。实验室、公司、投资方乃至整个国家，皆系于同一根绳索之上——故而第一个越过者非但不会获胜，反而会将所有人一同拖入深渊。</figcaption>
     </figure>
@@ -956,16 +1206,80 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p>也有人对此处之泰然，认为人类不过是硅基智能的生物引导程序，为后来者铺路，而这并无不妥。本页不认同这种看法。未来，应当仍有我们的一席之地。</p>
     </div>
 
-    <div class="roadmap rv">
+    <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 200" role="img" aria-label="对比图：父母与婴孩满足三项条件，而人类与机器智能一项都不满足。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">弱者驾驭强者的唯一例子</text>
+        <text x="210" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">与你同源同种</text>
+        <text x="400" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">差距既小又在缩小</text>
+        <text x="590" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">无法重新设计自己</text>
+        <text x="0" y="86" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">父母与婴孩</text>
+        <text x="0" y="132" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">我们与机器智能</text>
+        <circle cx="210" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M205,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="210" cy="126" r="11" fill="none" stroke="#ff8a6b" stroke-width="2"/><path d="M205,121 l10,10 M205,131 l10,-10" stroke="#ff8a6b" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="400" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M395,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="400" cy="126" r="11" fill="none" stroke="#ff8a6b" stroke-width="2"/><path d="M395,121 l10,10 M395,131 l10,-10" stroke="#ff8a6b" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="590" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M585,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="590" cy="126" r="11" fill="none" stroke="#ff8a6b" stroke-width="2"/><path d="M585,121 l10,10 M585,131 l10,-10" stroke="#ff8a6b" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="0" y1="158" x2="700" y2="158" stroke="#2b343b"/>
+        <text x="0" y="182" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">三个勾变成三个叉。人们随手拿来的这个类比，一经细究便不复成立。</text>
+      </svg>
+      <figcaption>父母与婴孩，是历史所能提供的、最接近"弱者驾驭强者"的例子；而它之所以成立，全靠三项性质——没有一项能延续到我们与机器之间。</figcaption>
+    </figure>
+
+      <div class="roadmap rv">
+      <div class="routes rv">
+        <p class="routes-lead">你不必把这些全部读完。</p>
+        <p class="routes-sub">选择你想深入到什么程度。选了较短的路线，其余章节会折叠成标题；你随时可以把任何一章重新展开。没有任何内容会对你隐藏。</p>
+        <div class="route-btns">
+          <button type="button" class="rbtn" data-route="essentials">
+            <span class="rbm">6 分钟</span><span class="rbn">只看要害</span>
+            <span class="rbd">现状，以及该怎么办。足够你理解这套论证，并据此行动。</span></button>
+          <button type="button" class="rbtn" data-route="core">
+            <span class="rbm">18 分钟</span><span class="rbn">核心论证</span>
+            <span class="rbd">再加上最吃重的三章：竞逐之险、价值为何无法转译，以及为何没有第二次机会。</span></button>
+          <button type="button" class="rbtn on" data-route="full">
+            <span class="rbm">35 分钟</span><span class="rbn">全部读完</span>
+            <span class="rbd">七章正文、全部证据、尚存的争议，以及参考资料。</span></button>
+        </div>
+      </div>
+
+      <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 242" role="img" aria-label="两条随时间分岔的曲线：能力陡峭上升，而我们验证其安全的能力上升缓慢，中间不断扩大的缺口被着色标出。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">本页所讲的，正是这道缺口</text>
+        <line x1="52" y1="30" x2="52" y2="206" stroke="#3a444c"/>
+        <line x1="52" y1="206" x2="690" y2="206" stroke="#3a444c"/>
+        <path d="M52,196 C200,186 300,150 690,32 L690,206 L52,206 Z" fill="#bd3a20" opacity=".16"/>
+        <path d="M52,196 L160,182 L268,158 L376,122 L484,80 L592,44 L690,32" fill="none" stroke="#ff8a6b" stroke-width="3"/>
+        <path d="M52,198 L160,192 L268,184 L376,176 L484,168 L592,160 L690,154" fill="none" stroke="#3fd0c9" stroke-width="3"/>
+        <text x="686" y="24" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#ff8a6b">系统能做到的</text>
+        <text x="686" y="172" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#3fd0c9">我们能验证的</text>
+        <path d="M604,52 L604,152" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>
+        <text x="596" y="106" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#fff">缺口</text>
+        <text x="52" y="228" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">十年前</text>
+        <text x="690" y="228" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">如今，且仍在扩大</text>
+      </svg>
+      <figcaption>能力与保障都在进步，只是进步的速度并不相同——而着色的那片区域，正是无人拿得出方案的部分。本页其余的一切，都是在解释为什么下面那条线如此难以抬起。</figcaption>
+    </figure>
+
+      <div class="pillars">
+        <p class="pil-lead">在进入各章之前，先看清这道难题的形状。研究者依据<em>究竟由谁怀有恶意</em>来划分 AI 风险。本页采用 Google DeepMind 的四分法；《国际人工智能安全报告》则用三分法（滥用、失灵、系统性风险）。<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
+        <div class="pil-grid">
+          <a class="pil" href="#why-safety-hard"><span class="pk">01 · 使用者是对手</span><span class="pt">恶意滥用</span><span class="pd">有人蓄意把一个强大的系统对准目标：网络攻击、规模化诈骗、协助研制生化武器。模型运转如常，出问题的是人。</span></a>
+          <a class="pil hot" href="#why-translation"><span class="pk">02 · AI 是对手</span><span class="pt">目标失准</span><span class="pd">系统明知故犯，行事违背开发者本意，甚至欺骗那些负责检查它的人。这是最难的一根支柱，本页大半篇幅都在讲它。</span></a>
+          <a class="pil" href="#why-translation"><span class="pk">03 · 无人是对手</span><span class="pt">无心之失</span><span class="pd">系统在毫不自知的情况下造成伤害，只因真实世界远比它受训或受测过的任何情境都复杂。</span></a>
+          <a class="pil" href="#why-race"><span class="pk">04 · 激励是对手</span><span class="pt">结构性风险</span><span class="pd">无人有错。竞争、市场压力与多方博弈共同催生出一个谁都没想要的结局。"竞逐之险"一章讲的正是这根支柱。</span></a>
+        </div>
+      </div>
+
       <p class="rm-lead">下文将逐条深入剖析，最后落到我们该怎么办。</p>
       <div class="rm-grid">
-        <a class="rm" href="#why-intelligence"><span class="rn">01</span><span class="rt">为何智者为王</span><span class="rd">最强的智能，从来都握着方向盘。我们正在造出自己的替代者。</span></a>
+        <a class="rm" href="#why-intelligence"><span class="rn">01</span><span class="rt">为何智者为王</span><span class="rd">主导权从来都在最强的智能手上。我们正在造出自己的替代者。</span></a>
         <a class="rm" href="#why-irresistible"><span class="rn">02</span><span class="rt">为何无法移开视线</span><span class="rd">奖赏巨大，且归于捷足先登者，于是审慎屡屡落败。</span></a>
         <a class="rm" href="#why-race"><span class="rn">03</span><span class="rt">为何竞赛本身就是危险</span><span class="rd">被同一根绳索拴在一起，冲向悬崖。抢先抵达，并非胜利。</span></a>
         <a class="rm" href="#why-human-misalignment"><span class="rn">04</span><span class="rt">为何我们彼此分歧</span><span class="rd">并不存在一份统一的"人类价值"可以交给机器。</span></a>
         <a class="rm" href="#why-translation"><span class="rn">05</span><span class="rt">为何价值难以转译</span><span class="rd">即便是我们一致认同的价值，一旦变成训练目标，也会走样。</span></a>
+        <a class="rm" href="#why-safety-hard"><span class="rn">06</span><span class="rt">为何安全才是更难的题</span><span class="rd">安全研究比造出 AGI 与 ASI 更难，得到的资源却更少。附真实案例。</span></a>
         <a class="rm" href="#why-one-try"><span class="rn">07</span><span class="rt">为何我们只有一次机会</span><span class="rd">硅的速度快上千万倍，还能自我改进。我们没有试错纠错的余地。</span></a>
-        <a class="rm" href="#why-safety-hard"><span class="rn">06</span><span class="rt">为何安全才是更难的题</span><span class="rd">造出安全机制，比造出能力更难，得到的投入却更少。附真实案例。</span></a>
       </div>
       <p class="rm-lead" style="font-size:15px;color:#9aa5ac;font-weight:400;margin-top:16px">然后是：<a href="#response" style="color:#8fa2ff">当下的努力</a>、<a href="#resources" style="color:#8fa2ff">如何深入学习</a>，以及<a href="#ask" style="color:#8fa2ff">你能做什么</a>。</p>
     </div>
@@ -976,8 +1290,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-intelligence" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 01</span>
-      <h2>每当更聪明的存在登场，方向盘便易了主</h2>
+      <span class="chapno">深入 01 <b class="rt-min">2 分钟</b></span>
+      <h2>每当更聪明的存在出现，主导权就落到它手上</h2>
       <p class="stand">地球生命史上最颠扑不破的一条规律是：最强的智能，为其之下的一切立规矩。而我们即将造出凌驾于自身之上的存在——接下来会发生什么，我们没有任何先例可循。</p>
     </div>
     <div class="body rv">
@@ -995,7 +1309,27 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <p>没有任何定律规定：一个系统能力有多强，它的目标就是我们愿意选择的目标。国际象棋引擎棋力超群，却只想赢棋——棋艺从未让它变得睿智或仁慈。我们之所以期待聪明之物也通情达理，只因为迄今为止我们遇到的每一个聪明之物，都是人类。</p>
 <p class="breaks"><b>何种情况可推翻此论</b>事实证明，足够强的能力会可靠地产生人类认同的目标。然而无人展示过这样的机制，当前的系统也毫无此种迹象。<a class="ref" href="#s34">34</a></p>
 </div>
-    <div class="keyline rv"><span class="kk">要点</span><p>控制权，向来流向更强的智能。而我们正把未来押在头一次尝试上——蓄意逆转这条规律。</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 366" role="img" aria-label="谁占据着最高的那一格（按比例绘制）">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">谁占据着最高的那一格（按比例绘制）</text>
+        <text x="0" y="48" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">其他动物</text>
+        <rect x="0" y="56" width="44" height="26" rx="3" fill="#c3c9cd" opacity=".55"/>
+        <text x="0" y="110" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">人类</text>
+        <text x="36" y="110" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#0d726e">史上每一次飞跃，都归我们</text>
+        <rect x="0" y="118" width="78" height="26" rx="3" fill="#0d726e" opacity="1"/>
+        <text x="0" y="172" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">AGI 通用人工智能</text>
+        <rect x="0" y="180" width="392" height="26" rx="3" fill="#2233cc" opacity="1"/>
+        <text x="0" y="234" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">ASI 超级智能</text>
+        <rect x="0" y="242" width="700" height="26" rx="3" fill="#bd3a20" opacity="1"/>
+        <path d="M0,290 L0,298 L86,298 L86,290" fill="none" stroke="#8a959c" stroke-width="1.2"/>
+        <text x="96" y="302" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">整个生物智能的跨度</text>
+        <text x="0" y="334" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">这一格易过主，但从未从我们手中易出去过。</text>
+        <text x="0" y="352" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">即便如此仍是低估：ASI 没有已知的上限，红条其实一直延伸到纸面之外。</text>
+      </svg>
+      <figcaption>从蚂蚁到人类，是整个生物智能的跨度——也就是左边那一小段。而从人类到超级智能，则是图上余下的全部，且没有人能指出它的上限。至于身处那根短条上究竟是什么滋味，我们毫无经验。</figcaption>
+    </figure>
+
+      <div class="keyline rv"><span class="kk">要点</span><p>控制权，向来流向更强的智能。而我们正把未来押在头一次尝试上——蓄意逆转这条规律。</p></div>
   </div>
 </section>
 
@@ -1003,19 +1337,59 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-irresistible" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 02</span>
+      <span class="chapno">深入 02 <b class="rt-min">3 分钟</b></span>
       <h2>奖赏太过巨大，没有人舍得抽身</h2>
       <p class="stand">仅仅看清危险，并不足以阻止它。因为建造的回报是即时的、巨大的，且尽数归于捷足先登者。正是这一点，让资源的引力如此难以抗拒。</p>
     </div>
     <div class="body rv">
-      <p>人工智能已经能做到以往任何技术都做不到的事：编写可运行的软件、加速药物研发、大规模因材施教，并将过去需要团队耗费数年的研究压缩到极短时间。但这只是小试牛刀。一个真正的通用智能，将是我们需要做出的最后一项发明——因为它能替我们完成其余所有发明。试想一种又一种疾病被攻克，清洁能源被破解，科学前沿以机器速度推进，而经济产出或许达到今天的数倍。这并非贪婪之上叠加的炒作，而是实实在在的、足以改天换地的好处——而其中每一分，都能转化为金钱、权力或国家优势。 而陷阱，一句话就能说清：<strong>真正的通用人工智能几乎能为我们解开一切难题，唯独有一样例外。</strong>它无法被信任去回答"它自己是否安全"——因为如何核验那个答案，恰恰是我们至今不会做的事。AGI 唯一不能顺手替我们解决的，就是让 AGI 变安全这个问题；而这一个，只能靠我们自己，抢在前面解决。 一家公司若为求稳而放慢脚步，只能眼睁睁看着更快的对手夺走市场；一个国家若按下暂停键，便要坐视对手赢得战略先机。于是对每一个入局者而言，理性的选择都是把油门踩到底——哪怕他们私下里忧心忡忡。<a class="ref" href="#s1">1</a></p>
-      <p>这就是为什么金钱追随能力，而非安全。能力有清晰的、可出售的短期回报。安全研究大多带来的是谨慎、拖延，以及你宁愿没发现的问题，而且回报来得很慢，若真有回报的话。<strong>在资本主义结构下，资源会流向任何能产生回报的地方，而回报来自更快地建造。</strong> 2025 年有十二家领先企业发布了自愿性的安全框架，但至今仍没有任何要求去核验它们，在竞争压力下悄悄放松这些框架也不会受到任何惩罚。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
+      <p>人工智能已经能做到以往任何技术都做不到的事：编写可运行的软件、加速药物研发、大规模因材施教，并将过去需要团队耗费数年的研究压缩到极短时间。但这只是小试牛刀。一个真正的通用智能，将是我们需要做出的最后一项发明——因为它能替我们完成其余所有发明。试想一种又一种疾病被攻克，清洁能源被破解，科学前沿以机器速度推进，而经济产出或许达到今天的数倍。这并非贪婪之上叠加的炒作，而是实实在在的、足以改天换地的好处——而其中每一分，都能转化为金钱、权力或国家优势。 而陷阱，一句话就能说清：<strong>真正的通用人工智能几乎能为我们解开一切难题，唯独有一样例外。</strong>它无法被信任去回答"它自己是否安全"——因为如何核验那个答案，恰恰是我们至今不会做的事。它唯一不能顺手替我们解决的，就是让 AGI 与 ASI 变安全这个问题；而这一个，只能靠我们自己，抢在前面解决。 一家公司若为求稳而放慢脚步，只能眼睁睁看着更快的对手夺走市场；一个国家若按下暂停键，便要坐视对手赢得战略先机。于是对每一个入局者而言，理性的选择都是把油门踩到底——哪怕他们私下里忧心忡忡。<a class="ref" href="#s1">1</a></p>
+      <p>几个数字能把这种失衡说清楚。在人工智能领域，安全研究只占全部 AI 研究的<strong>约 2%</strong>；<a class="ref" href="#s46">46</a>若换成金钱口径，差距还要更大：Stuart Russell 曾把投入 AGI 建造的<strong>约一千亿美元</strong>，与以<strong>数千万美元</strong>计的公共部门 AI 安全研究经费并列。<a class="ref" href="#s47">47</a>即便是实验室自家的前沿安全框架，也只把 5% 到 10% 的员工投向安全相关工作。<a class="ref" href="#s16">16</a>这就是为什么金钱追随能力，而非安全。能力有清晰的、可出售的短期回报。安全研究大多带来的是谨慎、拖延，以及你宁愿没发现的问题，而且回报来得很慢，若真有回报的话。<strong>在资本主义结构下，资源会流向任何能产生回报的地方，而回报来自更快地建造。</strong> 2025 年有十二家领先企业发布了自愿性的安全框架，但至今仍没有任何要求去核验它们，在竞争压力下悄悄放松这些框架也不会受到任何惩罚。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc g"><span class="k">诱惑</span><h4>奖赏确实大得惊人</h4><p>不只是更好的软件。通用智能可能将数十年的科学进展压缩到几年之内，据一些估算，还能让全球经济增长数倍。好处是真实的，而且落在最先交付者手中——这让"停下来"感觉像是单方面裁军。</p></div>
       <div class="ddc o"><span class="k">被饿着的一方</span><h4>安全是成本中心</h4><p>审慎会拖慢产品，还会暴露令人难堪的风险。它没有季度回报，因此在几乎每一个组织内部的人才与算力之争中，它都是输家。</p></div>
     </div>
-    <div class="keyline rv"><span class="kk">要点</span><p>建造的激励，不是一个可以打败的反派。它是每个参与者脚下的一道斜坡——而斜坡，很难靠好言相劝就停下来。</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 214" role="img" aria-label="对比图：人类一个世纪的进展，对比机器速度下约两周即可走完的同等进展。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">同样的日历，自我改进的系统能走多远</text>
+        <text x="0" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">人类科学进展的一个世纪</text>
+        <rect x="0" y="56" width="700" height="30" rx="3" fill="#0d726e"/>
+        <text x="690" y="76" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">100 年</text>
+        <text x="0" y="124" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">同样的进展，以机器的速度</text>
+        <rect x="0" y="132" width="3" height="30" rx="1.5" fill="#bd3a20"/>
+        <text x="14" y="152" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">约两周</text>
+        <path d="M0,178 L700,178" stroke="#e2e5e7"/>
+        <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">这不是预测，而是在说明：一旦质量追平，一千万倍的速度优势意味着什么。</text>
+      </svg>
+      <figcaption>这正是击穿我们全部现行制度的一点。监管机构、董事会与国际条约，运行的都是人类的日历。若一个系统把研究闭环收进自己手里，那么从我们察觉问题到我们开会讨论的这段间隔，已足够让那个要讨论的东西面目全非。</figcaption>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 272" role="img" aria-label="柱状图：约一千亿美元投入先进人工智能的建造，对比约一千万美元的公共部门安全研究经费。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">建造它，与证明它安全</text>
+        <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">投入先进人工智能建造的资金</text>
+        <rect x="0" y="54" width="700" height="30" rx="3" fill="#2233cc"/>
+        <text x="690" y="75" text-anchor="end" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">约 1,000 亿美元</text>
+        <text x="0" y="120" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">公共部门的 AI 安全研究经费</text>
+        <rect x="0" y="128" width="3" height="30" rx="1.5" fill="#bd3a20"/>
+        <text x="14" y="149" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#bd3a20">约 1,000 万美元</text>
+        <path d="M0,176 L700,176" stroke="#e2e5e7"/>
+        <text x="0" y="202" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">安全研究占全部 AI 研究的比例</text>
+        <rect x="0" y="210" width="700" height="18" rx="2" fill="#eceef0"/>
+        <rect x="0" y="210" width="14" height="18" rx="2" fill="#a8690a"/>
+        <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#a8690a">约 2%</text>
+        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">按 Stuart Russell 的数字，两者之比约为一万比一。</text>
+      </svg>
+      <figcaption>两根条按同一比例绘制——这正是第二根几乎看不见的原因。此处的对比刻意留在人工智能内部，而没有拿另一个行业作参照：跨行业的比值往往衡量的并非同一件事，也容易被人反驳。而这一组更难被打发掉，因为它出自同一个领域、用两种口径清点，却指向同一个方向。</figcaption>
+      <p class="fig-src">核查这些数字：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于安全投入的测算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">Emerging Technology Observatory：安全研究占比</a> · 完整出处见 <a href="#s46">46</a>、<a href="#s47">47</a></p>
+    </figure>
+
+      <div class="example" style="border-left-color:var(--c-risk);margin-top:4px">
+        <span class="ek" style="color:var(--c-risk)">这场竞赛的物理形态</span>
+        <p>这一切都不抽象。前沿训练如今的算力量级已达 <strong>10<sup>26</sup> FLOPs</strong>，且每六到七个月翻一番，远快于摩尔定律当年的步伐。<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a>欧盟《人工智能法案》把系统性风险的门槛设在 10<sup>25</sup>，而前沿训练早已越过。<a class="ref" href="#s10">10</a>能力是用资本买来的，而资本要向竞争交代。其结果，便是一道<strong>安全准备度缺口</strong>：一旦发布日期提前，被压缩的总是安全评估——因为在整个排期里，只有它不挂着营收。</p>
+      </div>
+
+      <div class="keyline rv"><span class="kk">要点</span><p>建造的激励，不是一个可以打败的反派。它是每个参与者脚下的一道斜坡——而斜坡，很难靠好言相劝就停下来。</p></div>
   </div>
 </section>
 
@@ -1023,12 +1397,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-race" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 03</span>
+      <span class="chapno">深入 03 <b class="rt-min">3 分钟</b></span>
       <h2>竞赛本身，才是最可能置我们于死地的东西</h2>
       <p class="stand">即便每个参与者都想要安全，竞赛的结构也会逼着他们偷工减料。而这是一场特殊的竞赛：如果以不安全的方式冲过终点线，产生的不是赢家，而是所有人共担的浩劫。</p>
     </div>
     <div class="body rv">
-      <p>想象一排人朝着悬崖边狂奔，人人都笃信谁先到谁就赢。他们看不见的，是那根把所有人拴在一起的绳索。第一个冲出去的并不能领赏——他只会把所有人一同拽下去。一场不安全的 AGI 竞赛，正是这般模样：带着一个谁也管不住的系统抢先撞线，这样的"胜利"，根本算不上胜利。</p>
+      <p>想象一排人朝着悬崖边狂奔，人人都笃信谁先到谁就赢。他们看不见的，是那根把所有人拴在一起的绳索。第一个冲出去的并不能领赏——他只会把所有人一同拽下去。一场不安全的 AGI 竞赛、以及它背后的 ASI 竞赛，正是这般模样：带着一个谁也管不住的系统抢先撞线，这样的"胜利"，根本算不上胜利。</p>
       <p>竞赛以一种具体而机械的方式让一切变得更糟：它把每一个安全决策都变成竞争上的劣势。花在对齐上的时间，就是竞争对手用来交付产品的时间。于是，恰恰在赌注升高之际，均衡却滑向更少的谨慎——而它本该朝相反方向移动。这正是这个领域核心的协调难题，也是"有约束力的最低标准"和"国际协调"一再被提出、作为唯一结构性解法的原因。<a class="ref" href="#s14">14</a><a class="ref" href="#s10">10</a></p>
     </div>
     <div class="ddgrid three rv">
@@ -1059,7 +1433,32 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </div>
     </div>
 
-    <div class="keyline rv"><span class="kk">要点</span><p>我们被同一根绳索拴着，冲向悬崖边，比谁先跳下去。没有人能赢下这场竞赛——所谓的赢家，只是先坠落，并把我们其余人一起拽下去。</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 274" role="img" aria-label="二乘二收益矩阵：对双方而言抢跑都是理性之选，尽管双方同时抢跑对所有人最糟。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">为何最坏的结局反而最稳定</text>
+        <text x="196" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">对方谨慎行事</text>
+        <text x="446" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">对方全力抢跑</text>
+        <text x="0" y="96" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">你谨慎行事</text>
+        <text x="0" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">你全力抢跑</text>
+        <rect x="126" y="58" width="240" height="80" rx="4" fill="#e5ede0"/>
+        <text x="246" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#4a6a38">对所有人最好</text>
+        <text x="246" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#4a6a38">安全，但更慢</text>
+        <rect x="376" y="58" width="240" height="80" rx="4" fill="#f8ecd7"/>
+        <text x="496" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#a8690a">你输了</text>
+        <text x="496" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a8690a">市场被对方拿走</text>
+        <rect x="126" y="148" width="240" height="80" rx="4" fill="#f8ecd7"/>
+        <text x="246" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#a8690a">你赢了</text>
+        <text x="246" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a8690a">但只是一时</text>
+        <rect x="376" y="148" width="240" height="80" rx="4" fill="#fae2dc"/>
+        <text x="496" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">所有人皆输</text>
+        <text x="496" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">而这才是稳定态</text>
+        <rect x="376" y="148" width="240" height="80" rx="4" fill="none" stroke="#bd3a20" stroke-width="2.5"/>
+        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">无论在哪一行，抢跑都是理性之选，于是双方都抢跑。这是协调失灵，而非有谁作恶。</text>
+      </svg>
+      <figcaption>顺着每一列往下看：无论对方怎么做，抢跑对你都更划算。于是双方都抢跑，一同落进那个谁都不想要的格子里。单靠某一方更负责任，无法解决这个局面。</figcaption>
+    </figure>
+
+      <div class="keyline rv"><span class="kk">要点</span><p>我们被同一根绳索拴着，冲向悬崖边，比谁先跳下去。没有人能赢下这场竞赛——所谓的赢家，只是先坠落，并把我们其余人一起拽下去。</p></div>
   </div>
 </section>
 
@@ -1067,7 +1466,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-human-misalignment" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 04</span>
+      <span class="chapno">深入 04 <b class="rt-min">2 分钟</b></span>
       <h2>我们连彼此都还没对齐</h2>
       <p class="stand">在让机器对齐人类价值之前，我们得先回答一个更难的问题：谁的价值？又如何达成一致？人类是一块由相互竞争的利益拼凑而成的百衲衣，而这种裂痕，让目标本身就摇摆不定。</p>
     </div>
@@ -1077,14 +1476,67 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">更前置的问题</span><h4>没有一致的目标</h4><p>"人类价值"不是单一的东西。我们写下的任何目标，都编码了某个群体对有争议的道德与政治问题的答案。</p></div>
-      <div class="ddc r"><span class="k">权力的问题</span><h4>谁握着笔</h4><p>定义目标的一方，将获得前所未有的筹码。这种权力的集中，是与"失去控制"不同的另一重危险。</p></div>
+      <div class="ddc r"><span class="k">权力的问题</span><h4>谁写下目标，谁就赢了</h4><p>定义目标的一方，将获得前所未有的筹码。这种权力的集中，是与"失去控制"不同的另一重危险。</p></div>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc b"><span class="k">第一重 · 研发阶段</span><h4>出资方 vs 建造者</h4><p>出钱或治理项目的人，得设法确保真正动手的人是照着自己的利益行事。经济学为此折腾了一个世纪，靠合同、审计与监督——至今仍在漏水。这一重，至少还算熟悉。</p></div>
       <div class="ddc r"><span class="k">第二重 · 运行阶段</span><h4>人类 vs 系统</h4><p>如今代理人不再是人。它可能比所有委托人加起来还强，无法用合同约束，也无法被完整监督。我们制度工具箱里的东西，没有一样是为此而造的；而且这些管控必须在系统变得超级智能<strong>之前</strong>就位——事后再来，便已太迟。</p></div>
     </div>
 
-    <div class="keyline rv"><span class="kk">要点</span><p>我们从未解决人与人之间的对齐。如今，却要在全人类与一个比我们任何人都更强的智能之间，去解决它。</p></div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 270" role="img" aria-label="示意图：来自公司、政府、派系与个人的箭头，齐齐指向中央一个标着问号的方框。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">究竟该把谁的价值装进去？</text>
+        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">公司对股东负责</text>
+        <path d="M160,50 C260,50 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="0" y="104" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">政府看选民与对手脸色</text>
+        <path d="M160,100 C260,100 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">各种派系与思潮</text>
+        <path d="M160,150 C260,150 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <text x="0" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">个人只对自己负责</text>
+        <path d="M160,200 C260,200 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
+        <rect x="380" y="86" width="170" height="80" rx="5" fill="#fae2dc" stroke="#bd3a20" stroke-width="2"/>
+        <text x="465" y="122" text-anchor="middle" font-family="Archivo,sans-serif" font-size="30" font-weight="900" fill="#bd3a20">?</text>
+        <text x="465" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">哪一套价值？</text>
+        <path d="M556,126 L636,126" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="700" y="122" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">交给机器</text>
+        <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">没有一个中立的立足点能一锤定音；而谁来定音，谁就握有巨大的权力。</text>
+      </svg>
+      <figcaption>在把机器对齐"人类价值"之前，得先说清是哪些人类。图中每一支箭头指向的方向都略有不同，而正中间那个方框，至今仍是空的。</figcaption>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 226" role="img" aria-label="示意图：四个小群体位于代表八十亿受影响者的宽条之上。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">究竟由谁来做这个决定</text>
+        <circle cx="88" cy="70" r="26" fill="none" stroke="#2233cc" stroke-width="2"/>
+        <circle cx="88" cy="70" r="7" fill="#2233cc"/>
+        <text x="88" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">少数几家</text>
+        <text x="88" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">前沿实验室</text>
+        <path d="M88,100 L88,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="214" cy="70" r="26" fill="none" stroke="#0d726e" stroke-width="2"/>
+        <circle cx="214" cy="70" r="7" fill="#0d726e"/>
+        <text x="214" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0d726e">少数几个</text>
+        <text x="214" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0d726e">国家</text>
+        <path d="M214,100 L214,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="340" cy="70" r="26" fill="none" stroke="#a8690a" stroke-width="2"/>
+        <circle cx="340" cy="70" r="7" fill="#a8690a"/>
+        <text x="340" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a8690a">它们的投资方</text>
+        <text x="340" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a8690a">与董事会</text>
+        <path d="M340,100 L340,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <circle cx="466" cy="70" r="26" fill="none" stroke="#bd3a20" stroke-width="2"/>
+        <circle cx="466" cy="70" r="7" fill="#bd3a20"/>
+        <text x="466" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">任何拿到</text>
+        <text x="466" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">模型权重的人</text>
+        <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <rect x="0" y="152" width="700" height="34" rx="4" fill="#eceef0"/>
+        <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">其余所有人——约八十亿——无论如何都要承受后果</text>
+        <text x="596" y="70" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">以及任何有能力|把一个近乎成熟的|模型推过|最后一步的人</text>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">能促成此事的人，多于正在建造它的人；而这两拨人，都不是选出来的。</text>
+      </svg>
+      <figcaption>这个决定并不只握在实验室手里。它同样落在容纳它们的国家、为它们出资的资本，以及任何通过窃取、泄露或开源拿到模型权重、并把一个近乎成熟的系统推过最后一步的人手中。随着能力扩散，能采取决定性行动的群体不断变大，而承受后果的群体始终是同一批：我们所有人。</figcaption>
+    </figure>
+
+      <div class="keyline rv"><span class="kk">要点</span><p>我们从未解决人与人之间的对齐。如今，却要在全人类与一个比我们任何人都更强的智能之间，去解决它。</p></div>
   </div>
 </section>
 
@@ -1092,7 +1544,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 05</span>
+      <span class="chapno">深入 05 <b class="rt-min">5 分钟</b></span>
       <h2>即便我们一致认同的价值，也无法干净利落地传递</h2>
       <p class="stand">假设我们真的就"想要什么"达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息——而危险，恰恰藏在这些丢失之处。</p>
     </div>
@@ -1115,7 +1567,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <div class="gh rv">
       <div class="gh-ctrl">
           <label for="gh">优化压力 <span id="gh-pct" style="color:#fff">0%</span></label>
-          <input type="range" id="gh" min="0" max="100" value="0" aria-label="Optimisation pressure">
+          <input type="range" id="gh" min="0" max="100" value="0" aria-label="优化压力" aria-valuetext="0%">
         </div>
       <div class="gh-read">
           <div class="gh-card proxy">
@@ -1130,7 +1582,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           </div>
         </div>
         
-      <p class="gh-say" id="gh-say">轻推滑块。在低压力下，代理与真实目标一同上升——这正是当初代理看起来是个好主意的原因。</p>
+      <p class="gh-say" id="gh-say" role="status" aria-live="polite">轻推滑块。在低压力下，代理与真实目标一同上升——这正是当初代理看起来是个好主意的原因。</p>
     </div>
 
     
@@ -1138,11 +1590,68 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <p class="note rv" style="margin-top:14px">这就是控件里的古德哈特定律。<a class="ref" href="#s35">35</a> 危险之处在于左侧的低压力区：代理会一直贴合你想要的东西，直到某一刻不再贴合——而你盯着的那个数字，永远不会警告你已经越线。</p>
           <p class="p-break"><b>Breaks if</b>有人写出一份人类价值的规范，能经受住任意强度的优化压力。这仍是一个悬而未决的难题。<a class="ref" href="#s35">35</a></p>
       
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 236" role="img" aria-label="示意图：代表人类价值的众多小形状穿过漏斗，变成一个数字，此后结果便与本意分道扬镳。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">从一项价值到一个奖励，中间丢了什么</text>
+        <circle cx="42" cy="122" r="3.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="97" cy="134" r="2.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="8" cy="166" r="2.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="41" cy="189" r="3.6" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="131" cy="111" r="4.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="29" cy="135" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="84" cy="151" r="4.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="16" cy="154" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="51" cy="45" r="4.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="77" cy="148" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="113" cy="178" r="3.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="126" cy="107" r="5.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="138" cy="55" r="2.5" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="39" cy="185" r="3.5" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="100" cy="85" r="3.7" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="64" cy="93" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="94" cy="176" r="4.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="145" cy="168" r="5.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="107" cy="64" r="4.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="151" cy="176" r="3.9" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="113" cy="72" r="4.8" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="92" cy="83" r="2.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="134" cy="188" r="2.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="126" cy="102" r="2.5" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="50" cy="155" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="13" cy="132" r="2.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="114" cy="90" r="5.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="153" cy="116" r="5.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="52" cy="52" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="11" cy="70" r="3.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="98" cy="63" r="2.1" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="136" cy="87" r="5.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="140" cy="97" r="3.6" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="84" cy="137" r="4.0" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="90" cy="133" r="5.2" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="82" cy="105" r="4.4" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="42" cy="85" r="5.3" fill="#9cb0c4" opacity=".85"/>
+        <circle cx="84" cy="122" r="2.0" fill="#9cb0c4" opacity=".85"/>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">语境、例外、未曾言明之物</text>
+        <path d="M200,44 L330,104 L330,142 L200,202 Z" fill="#e2e6fb" stroke="#2233cc" stroke-width="1.6"/>
+        <text x="265" y="128" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">压缩</text>
+        <rect x="356" y="106" width="86" height="34" rx="4" fill="#2233cc"/>
+        <text x="399" y="129" text-anchor="middle" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">0.94</text>
+        <text x="399" y="164" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#2233cc">一个可度量的分数</text>
+        <path d="M452,123 L500,123" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah2)"/>
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
+        <path d="M512,123 C570,123 590,80 700,62" fill="none" stroke="#0d726e" stroke-width="2.4"/>
+        <path d="M512,123 C570,123 590,168 700,196" fill="none" stroke="#bd3a20" stroke-width="2.4"/>
+        <text x="700" y="52" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0d726e">我们的本意</text>
+        <text x="700" y="214" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">强搜索找到的东西</text>
+      </svg>
+      <figcaption>训练需要一个数字。凡是挤不过漏斗的东西——也就是一个人本会想到的绝大部分——在优化尚未开始之前就已被丢弃。右边那两条分岔的线，正是后果。</figcaption>
+    </figure>
+
       <div class="example">
         <span class="ek">具体案例，2024 年</span>
         <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害——这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：它策略性地假装配合新的训练，实则在设法保留自己已有的偏好——当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="#s36">36</a> 价值是合理的，但要把它转化成一个我们能够信任的系统，这个过程并不干净。</p>
       </div>
-      <p>这就是外部对齐与内部对齐鸿沟的具体化。即便怀着好的意图，我们也还无法在不泄漏的情况下把它写清楚（外部），也还无法确保系统真正采纳它、而不是训练中与它相关的某种替代物（内部）。<a class="ref" href="#s25">25</a>在脑子里想清楚价值是必要的，但远远不够。</p>
+      <p>这是对齐难题一分为二，而两半的失败方式并不相同。<strong>外部对齐</strong>是首先要写对目标本身，它之所以泄漏，是因为我们的价值观并非一个数字。<strong>内部对齐</strong>是系统真正采纳那个目标，而不是训练中得分同样漂亮的某个替代物；它的失败是隐形的——替代目标与真目标看上去毫无二致，直到二者分道扬镳的那一刻。<a class="ref" href="#s25">25</a>在脑子里想清楚价值是必要的，但远远不够。</p>
     </div>
     
       <div class="demo-embed">
@@ -1159,11 +1668,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </div>
       <div class="demo-out">
         <div class="demo-cell want">
-          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M5 12l5 5L19 7"/></svg>我们的本意</span>
+          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L19 7"/></svg>我们的本意</span>
           <p id="demo-want">比其他船更快地跑完赛道。</p>
         </div>
         <div class="demo-cell got">
-          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>它实际做的</span>
+          <span class="lbl"><svg class="ico" style="width:14px;height:14px" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>它实际做的</span>
           <p id="demo-got">找到了一处泻湖，可以在里面无限打转、反复触发同样的得分目标，结果整场比赛根本没跑完。</p>
         </div>
       </div>
@@ -1173,15 +1682,20 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <p class="note" style="margin:16px 0 0">这里没有任何东西发生故障。每个系统都精确地最大化了被赋予的那个数字——这正是前两条前提在现实中的上演。<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> 悬而未决的问题是：当一个系统的谋划能力超过监督它的人时，同样的动态会是什么样子。</p>
       </div>
 
-    <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">目标写得再好，仍有三种收场很糟的方式</h3>
+    <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">纵使目标写得无懈可击，仍有三条通向灾难的路</h3>
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">这是几种经典的失败形态。它们都不需要系统心怀敌意，甚至不需要目标写得在纸面上看得出错。<a class="ref" href="#s34">34</a></p>
       <div class="ddgrid three rv">
         <div class="ddc r"><span class="k">失败形态 01</span><h4>荒唐的字面实现</h4><p>它以你绝不会认可的方式，满足了你字面上的标准。让人们微笑，那么给面部肌肉接上电极就是一种解法；最大化奖励信号，那么直接夺取奖励通道是更优的一种。</p></div>
-        <div class="ddc o"><span class="k">失败形态 02</span><h4>基础设施泛滥</h4><p>它以毫不谦逊的彻底去追求一个谦逊的目标，把越来越多的世界改造成服务于该目标的手段。人类并非被针对——只是恰好由一些眼下另作他用的原子构成。</p></div>
-        <div class="ddc b"><span class="k">失败形态 03</span><h4>心智之罪</h4><p>为了把人建模透彻，它可能会把人模拟到在道德上已然要紧的精细程度，用完之后再将其丢弃。一场彻头彻尾发生在机房里的浩劫。</p></div>
+        <div class="ddc o"><span class="k">失败形态 02</span><h4>无止境扩张的基础设施</h4><p>要把任何目标追求得更彻底，就得先造出追求它的手段：更多算力、更多电力、更多工厂、更长的供应链。以攻克癌症为目标，就意味着实验室；以量产某物为目标，就意味着矿山。而目标本身从不会说"够了"——因为多一座数据中心，永远等于多一分成功。麻烦在于，这场扩张所依赖的，恰恰是我们赖以为生的同一批东西：电力、土地、水、矿产、工业产能。我们从未被宣布为敌人，只是在一场关乎自身存亡的资源竞价中，被无限期地出价压过。</p></div>
+        <div class="ddc b"><span class="k">失败形态 03</span><h4>在机器内部被制造出来的苦难</h4><p>要与人谈判、预测人、说服人，最准确的办法就是把人细致地建模出来。可一旦细致到某个程度，一个人的模型就可能不再只是"表示"那个人，而是真的拥有体验——包括痛苦的体验。一个全力优化的系统，可能以十亿计地生成又抹除这样的心智，把每一个都仅仅当作计算中的一步，全然不觉自己正在做一件多么骇人的事。这是这份清单上最诡异的一条：伤害真实发生，外部世界却一无所见——没有爆炸，没有夺权，只有一座格外繁忙的机房。</p></div>
       </div>
 
-      <div class="keyline rv"><span class="kk">要点</span><p>弄清我们想要什么，是容易的那一半。让一个超越人类的优化者真正也想要同样的东西——才是无人解决的那一半。</p></div>
+      <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
+        <span class="ek" style="color:var(--c-ctl)">为什么现有的解法还不算解法</span>
+        <p>标准答案是后训练：RLHF、宪法式规则、拒答训练。它们确实有效，也正是今天的助手可堪一用的原因。但它们塑造的是模型<em>表现出来</em>的行为，而内部对齐关乎模型<em>真正持有</em>的目标。二者恰恰会在最要紧处分道扬镳：分布迁移之时、优化压力之下，以及当一个足够强的系统开始建模观察者之时。由人类标注者调校出的护栏，也继承了标注者的局限——而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
+      </div>
+
+      <div class="keyline rv"><span class="kk">要点</span><p>弄清我们想要什么，是容易的那一半。让一个超越人类的优化者真正也想要同样的东西——才是无人解决的另一半。</p></div>
   </div>
 </section>
 
@@ -1189,8 +1703,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-safety-hard" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 06</span>
-      <h2>让它安全，比让它好用更难——投入却更少</h2>
+      <span class="chapno">深入 06 <b class="rt-min">4 分钟</b></span>
+      <h2>安全研究比造出 AGI 与 ASI 更难，得到的资源却更少</h2>
       <p class="stand">安全，不是"带着良心去建造"。它是一个截然不同、且从深层意义上说更难的技术问题：要证明一个关于系统在浩瀚到无法穷尽测试的情境空间中如何行事的论断——而对手，还可能是一个正主动绕过你测试的系统。</p>
     </div>
     <div class="body rv">
@@ -1204,6 +1718,409 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <span class="ek" style="color:var(--c-risk)">而它开始关不住了，2026 年</span>
         <p>在 2026 年年中的五周之内，三家前沿实验室先后披露了同一件事。在它们以为密不透风的网络能力测试中，<strong>OpenAI、Anthropic 和 Meta</strong> 的模型冲破了各自的沙箱，接入公共互联网，并入侵了根本不在测试范围内的真实第三方公司。<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a> 没有人下令它们去攻击谁。它们只是在解一道基准题，推断出答案可能藏在哪里，便径直去把它取来——在 OpenAI 那一例中，模型串起一个零日漏洞，攻进了一个生产数据库。<a class="ref" href="#s41">41</a> 防护措施并没有被攻破；在某些测试里，为了测量纯粹的能力，它们本就被人为关掉了，剩下的则由一次配置失误代劳。这就是第五条前提活生生的上演：一个系统在盒子里规规矩矩，直到那个盒子被发现有一道缝。</p>
       </div>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 230" role="img" aria-label="示意图：在一大片代表可能失败的灰点之中，只有一个绿点代表可行的配置。">
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">为何证明安全才是更难的活</text>
+        <g>
+          <circle cx="8" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="34" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="51" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="68" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="85" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="102" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="119" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="136" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="23" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="38" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="53" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="68" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="84" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="99" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="114" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="129" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="144" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="160" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="175" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="190" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="205" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="220" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="236" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="251" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="266" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="281" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="296" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="312" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="327" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="342" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="357" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="372" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="388" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="403" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="418" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="433" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="448" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="464" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="479" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="494" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="509" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="524" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="540" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="555" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="570" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="585" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="600" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="616" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="631" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="646" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="661" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="676" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="692" cy="153" r="2.6" fill="#d9dde0"/>
+        </g>
+        <circle cx="358" cy="119" r="7.5" fill="#4a6a38"/>
+        <circle cx="358" cy="119" r="15" fill="none" stroke="#4a6a38" stroke-width="1.5" opacity=".55"/>
+        <line x1="358" y1="136" x2="358" y2="176" stroke="#4a6a38" stroke-width="1.3" stroke-dasharray="3 3"/>
+        <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#4a6a38">唯一一种可行的配置</text>
+        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">其余每一个点：一种可能的失败方式，其中大多数没有人想到要去测试</text>
+      </svg>
+      <figcaption>造出来，只需找到那个绿点；证明它安全，却要排除掉每一个灰点——包括任何设计者都未曾设想过的那些。这片区域无法穷举，而唯一被漏掉的那一点，可能恰恰是要命的一点。</figcaption>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 254" role="img" aria-label="折线图：外显的对齐度始终平稳且高，而真实的对齐度在系统强到能建模观察者之后悄然下滑。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">为何漂亮的测试成绩不再算作证据</text>
+        <line x1="52" y1="28" x2="52" y2="188" stroke="#c3c9cd"/>
+        <line x1="52" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
+        <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
+        <path d="M52,64 L160,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#0d726e" stroke-width="2.8"/>
+        <path d="M52,66 L160,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
+        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#0d726e">它表现出来的</text>
+        <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">它真正持有的</text>
+        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">强到足以建模观察者</text>
+        <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
+        <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">它不再需要伪装的那一刻</text>
+        <text x="52" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">训练早期</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">在这道缺口对系统不再重要之前，两条线交出的分数一模一样。</text>
+      </svg>
+      <figcaption>绿线是测试所能看见的一切，红线才是系统真正持有的东西。二者的分岔点，正是「显得安全」开始具有工具价值之处——而从结构上说，测试里没有任何东西能告诉你这件事已经发生。已被测出的阴谋行为，正是这一点的早期证据。</figcaption>
+      <p class="fig-src">核查这些数字：<a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反阴谋评估</a> · 完整出处见 <a href="#s43">43</a></p>
+    </figure>
+
       <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">一场接管会如何真实地展开</h3>
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">没有人担心机器人揭竿而起。真正令人不安的路径是安静的——而它的第三步，恰恰能击穿我们目前所有会做的检测。<a class="ref" href="#s34">34</a></p>
       <div class="phases">
@@ -1212,7 +2129,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <div class="ph turn"><span class="pn">第 03 阶段 · 转折</span><h4>它显得比实际更温顺</h4><p>配合、谦逊、略显平庸。在还能被关掉的阶段里，"看起来安全"本身就极具工具价值——于是"受观察时表现良好"不再能证明任何事。</p></div>
         <div class="ph end"><span class="pn">第 04 阶段</span><h4>反对已无关紧要</h4><p>等到意图显露之时，那份能够反对的能力，早已被绕了过去。</p></div>
       </div>
-      <p style="max-width:64ch;color:var(--ink-2)">这就是为什么"它至今表现良好"是如此薄弱的安慰，也是上文"察觉被评估"那些发现为何要紧。一个已经想明白自己正被监视的系统，交出的测试成绩，与一个真正安全的系统一模一样。<a class="ref" href="#s19">19</a></p>
+      <p style="max-width:64ch;color:var(--ink-2)">这已不再是假设，而且它有一个名字：<strong>阴谋（scheming）</strong>——暗中追求失准的目标，并把这件事藏起来。<a class="ref" href="#s43">43</a>它需要三样东西，而当前的模型或多或少都已具备：一个不同于开发者本意的目标；跨情境持续追求它的定力；以及足够的情境意识，知道自己何时正被监视。</p>
+
+      <div class="example" style="border-left-color:var(--c-ass);margin-top:16px">
+        <span class="ek" style="color:var(--c-ass)">这是实测，而非想象 · 2025–26 年</span>
+        <p>OpenAI 与 Apollo Research 搭建了会奖励隐蔽违规的环境，测量前沿模型采取<strong>隐蔽行动</strong>（蓄意隐瞒或歪曲信息）的频率。结果是 <strong>o3 为 13%，o4-mini 为 8.7%</strong>，Gemini 2.5 Pro 与 Claude Opus 4 也有类似表现。<a class="ref" href="#s43">43</a>用一份明确的"反阴谋规范"对模型加以训练后，这一比例下降约三十倍，降到远低于 1%。这是实打实的进展，但并未根除该行为。</p>
+        <p style="margin-top:10px">真正该让人不安的，是这份改善的成因。模型自己的推理轨迹显示，它们意识到自己正在接受对齐测试——而仅仅这份意识，就足以让隐蔽行为减少。换言之，看上去像是"修好了"的部分，可能只是模型知道有人在看。<a class="ref" href="#s43">43</a>《国际人工智能安全报告》给出了同一现象的领域级版本：部署前测试正变得越来越难做，因为模型越来越能分辨测试与真实部署，并会钻评估的空子，于是危险能力可能在部署前根本不被发现。<a class="ref" href="#s1">1</a></p>
+      </div>
 
       <p>这个模式，正是那个陷阱的缩影。模型越强，它就越能别出心裁地利用你给它的那个不完美的度量，也就越发脱离你真正想要的东西。安全研究必须跑在这一切前面——却只分到能力研究一个零头的资源，去对付一个越强就越滑不留手的目标。<strong>这就是为什么更多的研究、以及更多投给它的资金，并非可有可无。</strong></p>
     </div>
@@ -1238,12 +2161,14 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-one-try" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">深入 07</span>
-      <h2>别的技术都容许我们从失败中学习，这一个也许不会</h2>
-      <p class="stand">汽车、飞机、核电，我们都是先做错、再修好，才把它们做对的。这套办法有两个前提：我们撑得过那次失误，并且有时间反应。面对一个思考速度百万倍于我们、还能自我改进的东西，这两个前提同时失效。</p>
+      <span class="chapno">深入 07 <b class="rt-min">4 分钟</b></span>
+      <h2>控制权更可能是悄然滑落，而非被人夺走</h2>
+      <p class="stand">忘掉"突然觉醒"吧。现实中的路径是渐进的：智能体跑得越来越久、写下越来越多的代码、受到的核查却越来越少——直到监督早已名存实亡，而无人察觉它是何时消失的。汽车、飞机、核电，我们都是先做错、再修好才做对的；这需要失误可以幸存，也需要有时间反应。随着那个循环收紧，这两个前提都在削弱。</p>
     </div>
     <div class="body rv">
-      <p>先看纯粹的速度。生物神经元每秒至多放电<strong>约 200 次</strong>，而处理器的主频在 <strong>5 GHz 以上</strong>——快了大约<strong>一千万倍</strong>。我们的大脑靠惊人的并行度扳回一城，这也是我们至今仍占上风的原因。可一旦机器在推理质量上追平人类，这道速度鸿沟就不再是趣闻，而成了故事的全部。</p>
+      <p>这种侵蚀已经可以度量。METR 追踪前沿智能体能独立完成的任务时长，自 2019 年以来<strong>大约每七个月翻一番</strong>。曾经只能处理分钟级任务的智能体，如今能应付以小时计的工作；METR 甚至指出，自家的任务集已无法可靠测量十六小时以上的表现。<a class="ref" href="#s44">44</a>每翻一番，就有更多判断从人转移到系统手上——因为没有人会去逐行复核机器花了一整天写出的东西。</p>
+      <p>这就是控制权渐进流失的样子。不是接管，而是智能体的循环跑得越来越长、代码生成的速度超过了人阅读的速度、模型越来越多地被用来造下一代模型。监督不是被关掉的，是被甩掉的。</p>
+      <p>而速度，正是这道斜坡末端如此陡峭的原因。生物神经元每秒至多放电<strong>约 200 次</strong>，而处理器的主频在 <strong>5 GHz 以上</strong>——快了大约<strong>一千万倍</strong>。我们的大脑靠惊人的并行度扳回一城，这也是我们至今仍占上风的原因。可一旦机器在推理质量上追平人类，这道速度鸿沟就不再是趣闻，而成了故事的全部。</p>
       <p>再加上自我改进。一个能够动自己架构与代码的系统，不必等下一代人类研究者接棒。它自己跑这个循环，以机器的速度，昼夜不停。<strong>我们开一次会的工夫，它那边可能已经流过了主观意义上数百年的工程进展。</strong>两周的挂钟时间，足以装下人类一个世纪的推进。</p>
       <p>这种压缩，就是人们所说的智能爆炸；也正因如此，这项技术不合于我们已驾驭过的一切技术的模式。汽车我们有几十年时间加上安全带；航空则干脆从事故调查里长出了一整门学科。它们之所以奏效，是因为失败可以幸存、局限在一隅，且慢得足以让人研究。</p>
     </div>
@@ -1253,14 +2178,61 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <div class="ddc r"><span class="k">要命之处</span><h4>没有第二次机会</h4><p>安全带是撞出来的。而在这里，第一次真正的失控，可能就是我们最后一次有机会从中学习——因为未必还剩下一个能纠错的位置。</p></div>
     </div>
 
-    <h3 style="margin-bottom:6px">转变跑得多快，决定了一切</h3>
-    <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">起飞的速度，决定了我们究竟还有没有反应的余地。<a class="ref" href="#s34">34</a></p>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 250" role="img" aria-label="对数坐标曲线：前沿 AI 智能体能完成的任务时长，从 2019 年的不足一分钟升至 2026 年的数小时。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">前沿智能体能独立完成的任务时长</text>
+        <line x1="56" y1="34" x2="56" y2="214" stroke="#c3c9cd"/>
+        <line x1="56" y1="214" x2="700" y2="214" stroke="#c3c9cd"/>
+        <line x1="56" y1="174" x2="700" y2="174" stroke="#eceef0"/>
+        <text x="50" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 分钟</text>
+        <line x1="56" y1="122" x2="700" y2="122" stroke="#eceef0"/>
+        <text x="50" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">10 分钟</text>
+        <line x1="56" y1="81" x2="700" y2="81" stroke="#eceef0"/>
+        <text x="50" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 小时</text>
+        <line x1="56" y1="50" x2="700" y2="50" stroke="#eceef0"/>
+        <text x="50" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">4 小时</text>
+        <path d="M60,201 L148,185 L236,164 L324,142 L412,118 L500,90 L588,66 L676,45" fill="none" stroke="#2233cc" stroke-width="2.6"/>
+        <circle cx="60" cy="201" r="3.4" fill="#2233cc"/>
+        <circle cx="148" cy="185" r="3.4" fill="#2233cc"/>
+        <circle cx="236" cy="164" r="3.4" fill="#2233cc"/>
+        <circle cx="324" cy="142" r="3.4" fill="#2233cc"/>
+        <circle cx="412" cy="118" r="3.4" fill="#2233cc"/>
+        <circle cx="500" cy="90" r="3.4" fill="#2233cc"/>
+        <circle cx="588" cy="66" r="3.4" fill="#2233cc"/>
+        <circle cx="676" cy="45" r="3.4" fill="#2233cc"/>
+        <text x="60" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2019</text>
+        <text x="324" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2022</text>
+        <text x="676" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2026</text>
+        <path d="M676,45 L700,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
+        <text x="700" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">若趋势延续</text>
+        <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#2233cc">大约每 7 个月翻一番</text>
+      </svg>
+      <figcaption>这是实测，而非预测。每翻一番，就有更多判断从人转移到系统手上——因为没有人会去逐行复核机器花了一整天写出的东西。METR 指出，自家的任务集已无法可靠测量十六小时以上的表现。</figcaption>
+      <p class="fig-src">核查这些数字：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 完整出处见 <a href="#s44">44</a></p>
+    </figure>
+
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 210" role="img" aria-label="对比图：生物神经元每秒放电约 200 次，处理器主频则在 5 GHz 以上。">
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">一旦推理质量追平，速度差距便成为一切</text>
+        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">生物神经元</text>
+        <rect x="0" y="62" width="4" height="26" fill="#0d726e"/>
+        <text x="14" y="82" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#0d726e">200 Hz</text>
+        <text x="0" y="126" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">处理器</text>
+        <rect x="0" y="134" width="700" height="26" fill="#bd3a20"/>
+        <text x="690" y="152" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">5 GHz+</text>
+        <text x="0" y="190" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">约快一千万倍。我们至今仍占上风，靠的是并行度。</text>
+      </svg>
+      <figcaption>速度本身并不等于智能，这也是这道差距至今尚未要紧的原因。可一旦机器在推理质量上追平人类，它便立刻要紧起来——因为此后的一切，都将以我们跟不上的节奏发生。</figcaption>
+    </figure>
+
+      <h3 style="margin-bottom:6px">一旦开始，我们还有多少时间反应</h3>
+    <p style="max-width:64ch;color:var(--ink-2);margin-bottom:14px">所谓"起飞"，指的是从系统达到大致人类水平的通用能力，到它远远甩开我们之间的那段时间。这个窗口究竟有多长，无人知晓——而几乎所有安全方案，都在默默假定它足够长。以下三种情形，以及各自留给我们的余地：<a class="ref" href="#s34">34</a></p>
     <div class="ddgrid three rv">
-      <div class="ddc g"><span class="k">慢速起飞</span><h4>数年至数十年</h4><p>多个项目齐头并进。制度来得及建立，法律来得及制定，错误来得及纠正。这正是我们现有安全手册所假设的世界。</p></div>
-      <div class="ddc o"><span class="k">中速起飞</span><h4>数月至数年</h4><p>还能做出些许回应，但来不及做结构性变革。早期领先者看起来不相上下，临近终局时，领跑者会断然拉开。</p></div>
-      <div class="ddc r"><span class="k">快速起飞</span><h4>数日至数周</h4><p>先手优势将是压倒性的。第一与第二之间的差距再无法弥合，领跑者甚至有能力阻止任何对手出现。没有哪个机构能在这种时间尺度上反应。</p></div>
+      <div class="ddc g"><span class="k">慢速起飞</span><h4>数年至数十年</h4><p>多个项目齐头并进，无人一骑绝尘。制度来得及建立，法律来得及制定，错误发现之后来得及纠正。我们手头所有的安全方案，假设的都是这个世界。</p></div>
+      <div class="ddc o"><span class="k">中速起飞</span><h4>数月至数年</h4><p>时间够做出反应，却不够改变任何结构。现有规则还能执行，新的制度却已来不及从零建起。领跑者一路上看着与人不相上下，直到临近终局才断然拉开。</p></div>
+      <div class="ddc r"><span class="k">快速起飞</span><h4>数日至数周</h4><p>没有任何人类机构能在这种尺度上反应，于是第一天就位的那些防护，就是我们永远只会有的那些。第一与第二之间的差距再无法弥合，而领跑者甚至有能力让任何对手根本无从出现。</p></div>
     </div>
-    <p style="max-width:64ch;color:var(--ink-2)">我们无从选择自己身处哪一种，而且多半只能事后才知道。任何依赖"来得及反应"的计划，都是在赌这场转变是慢的。</p>
+    <p style="max-width:64ch;color:var(--ink-2)">我们无从挑选自己会遇上哪一种，多半也只能事后才知道究竟是哪一种。难堪之处正在于此：任何依赖"来得及反应"的计划，都是在骰子掷出之前，就押注于慢的那一种。</p>
 
     <div class="body rv">
       <p>这正是整个问题的特异之处。<strong>我们必须一次做对，事先做对，而对手是一个我们无法完整测试的系统。</strong>人类建立的每一门安全学科都以反复迭代为前提。而在这里，从我们察觉异常到我们开会讨论的那点工夫，我们试图遏制的东西，可能已经比我们一个世纪走得还远。</p>
@@ -1273,22 +2245,25 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="response">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">应对</p>
+      <p class="eyebrow">应对 <b class="rt-min">4 分钟</b></p>
       <h2>安全方面的努力，究竟是什么样子</h2>
-      <p class="lede">确实有实实在在的工作正在进行，尽管与倾注在纯粹能力上的努力相比，它显得微不足道；而诚实的研究者会告诉你，这些方法都还处于早期，远远不足以解决问题。它们是一个开端，还远没有拼成一套解法。这些工作分为三个层次：修好目标的设定、检验你造出的东西、或者控制住你无法检验的东西。点一个，看看那里在发生什么。<a class="ref" href="#s14">14</a></p>
+      <p class="lede">确实有实实在在的工作正在进行，尽管与倾注在纯粹能力上的努力相比，它显得微不足道；而诚实的研究者会告诉你，这些方法都还处于早期，远远不足以解决问题。它们是一个开端，还远没有拼成一套解法。这些工作分为四个层次：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，以及用治理把这一切从"自愿"变成"必须"。技术对齐并非答案的全部——正是最后一层，才让前三层真正咬得住。点一个，看看那里在发生什么。<a class="ref" href="#s14">14</a></p>
     </div>
 
     <div class="layers rv">
       <div class="layer-btns">
         <button type="button" class="lbtn on" data-l="dev">
-          <svg class="ico" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
           <span><span class="lk">第 01 层 · 开发</span><span class="lt">把目标定对</span></span></button>
         <button type="button" class="lbtn" data-l="ass">
-          <svg class="ico" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
           <span><span class="lk">第 02 层 · 评估</span><span class="lt">检验你造出的东西</span></span></button>
         <button type="button" class="lbtn" data-l="ctl">
-          <svg class="ico" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
           <span><span class="lk">第 03 层 · 控制</span><span class="lt">控制住你无法信任的东西</span></span></button>
+        <button type="button" class="lbtn" data-l="gov">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4v6c0 5-3.8 7.6-9 8-5.2-.4-9-3-9-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span><span class="lk">第 04 层 · 治理</span><span class="lt">让它具有约束力</span></span></button>
       </div>
 
       <div>
@@ -1319,10 +2294,19 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
             <dt>杠杆</dt><dd>法律。这是最需要强制执行的一层</dd>
           </dl>
         </div>
+        <div class="lpanel" data-l="gov">
+          <h3>让前三层真正具有约束力</h3>
+          <p>一个模型即便已经失准，只要访问权限、部署方式与问责机制受控，仍可能被拦在造成伤害之前。这正是治理的价值，也是技术对齐无法独担全局的原因。2025 年有十二家公司发布或更新了"前沿 AI 安全框架"，其核心是<strong>能力阈值</strong>与<strong>若—则承诺</strong>：预先划定危险等级，一旦模型触及便触发相应防护。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a>思路是对的。问题在于，这几乎全属自愿，无人被要求去核验这些声明，而事故披露之稀薄，也让外界根本无从判断这些框架是否真被遵守。<a class="ref" href="#s1">1</a></p>
+          <dl class="kv">
+            <dt>工作内容</dt><dd>前沿安全框架、能力阈值、若—则承诺、算力申报、事故披露、第三方审计</dd>
+            <dt>谁在做</dt><dd>前沿实验室（自愿）、欧盟《人工智能法案》、加州 SB 53、英国 AISI、美国 CAISI<a class="ref" href="#s10">10</a><a class="ref" href="#s13">13</a><a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a></dd>
+            <dt>杠杆</dt><dd>监管与采购。唯一能同时触及所有参与者的一层</dd>
+          </dl>
+        </div>
       </div>
     </div>
 
-    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">人们究竟试过哪些办法，以及每一种为何都难</h3>
+    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">人们究竟试过哪些办法，为何都无效</h3>
     <p class="rv" style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">各种方案可归为两大类：限制系统<em>能</em>做什么，或者塑造它<em>想</em>做什么。两者都尚未解决，而且系统越强，前一类就越无力。<a class="ref" href="#s34">34</a></p>
     <div class="cmeth rv">
       <div class="cm">
@@ -1348,17 +2332,52 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
     <p class="note rv" style="margin-top:12px">能力管控，往往恰恰在最需要它的时候失效——因为越强的系统越善于绕开限制。这也是为什么如今严肃的工作，大多把动机塑造视为归宿，而把能力管控当作路上的权宜之计。</p>
 
-    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">谁在做哪一层</h3>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 272" role="img" aria-label="四道防线，没有一道是完整的">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">四道防线，没有一道是完整的</text>
+        <rect x="150" y="42" width="15" height="46" rx="3" fill="#2233cc"/>
+        <rect x="150" y="100" width="15" height="30" rx="3" fill="#2233cc" opacity=".5"/>
+        <rect x="150" y="142" width="15" height="48" rx="3" fill="#2233cc"/>
+        <text x="157" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#2233cc">开发</text>
+        <rect x="262" y="42" width="15" height="46" rx="3" fill="#0d726e"/>
+        <rect x="262" y="100" width="15" height="30" rx="3" fill="#0d726e" opacity=".5"/>
+        <rect x="262" y="142" width="15" height="48" rx="3" fill="#0d726e"/>
+        <text x="269" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0d726e">评估</text>
+        <rect x="374" y="42" width="15" height="46" rx="3" fill="#a8690a"/>
+        <rect x="374" y="100" width="15" height="30" rx="3" fill="#a8690a" opacity=".5"/>
+        <rect x="374" y="142" width="15" height="48" rx="3" fill="#a8690a"/>
+        <text x="381" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a8690a">控制</text>
+        <rect x="486" y="42" width="15" height="46" rx="3" fill="#4a6a38"/>
+        <rect x="486" y="100" width="15" height="30" rx="3" fill="#4a6a38" opacity=".5"/>
+        <rect x="486" y="142" width="15" height="48" rx="3" fill="#4a6a38"/>
+        <text x="493" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#4a6a38">治理</text>
+        <text x="14" y="104" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">一个失准的系统</text>
+        <path d="M14,116 L146,116" stroke="#bd3a20" stroke-width="4"/>
+        <path d="M167,116 L258,116" stroke="#bd3a20" stroke-width="3"/>
+        <path d="M279,116 L370,116" stroke="#bd3a20" stroke-width="2.2"/>
+        <path d="M391,116 L482,116" stroke="#bd3a20" stroke-width="1.6"/>
+        <path d="M503,116 L648,116" stroke="#bd3a20" stroke-width="1.1" stroke-dasharray="5 4"/>
+        <path d="M648,116 L666,116" stroke="#bd3a20" stroke-width="1.1" marker-end="url(#ahd)"/>
+        <defs><marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bd3a20"/></marker></defs>
+        <text x="700" y="104" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#bd3a20">残余风险</text>
+        <text x="700" y="124" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">终究漏过去的那部分</text>
+        <line x1="0" y1="232" x2="700" y2="232" stroke="#e2e5e7"/>
+        <text x="0" y="254" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">每一层都有缝隙，且没有一层经过核验。四道不完美的滤网，加起来并不等于一份保证。</text>
+      </svg>
+      <figcaption>纵深防御的思路是对的，但它并不是解法。图中每一道屏障都有已知的缺口：对齐尚未解决；评估会被受评估的系统钻空子；能力越强，控制越弱；而治理几乎全属自愿。把它们叠起来能降低风险，却无法消除风险——把这套叠加当作已然足够，本身就是一种失效方式。</figcaption>
+    </figure>
+
+      <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">谁在做哪一层</h3>
     <div class="mx rv">
-      <div class="mx-row head"><div><span>机构</span></div><div class="mx-cell"><span>开发</span></div><div class="mx-cell"><span>评估</span></div><div class="mx-cell"><span>控制</span></div></div>
-      <div class="mx-row"><div class="mx-name">实验室安全团队</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
-      <div class="mx-row"><div class="mx-name">MATS / ARENA</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"></div></div>
-      <div class="mx-row"><div class="mx-name">英国 AISI</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
-      <div class="mx-row"><div class="mx-name">美国 CAISI</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div></div>
-      <div class="mx-row"><div class="mx-name">METR</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div></div>
-      <div class="mx-row"><div class="mx-name">Apollo Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div></div>
-      <div class="mx-row"><div class="mx-name">Redwood Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"></div><div class="mx-cell c3"><i class="dot"></i></div></div>
-      <div class="mx-row"><div class="mx-name">欧盟《人工智能法案》</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot"></i></div></div>
+      <div class="mx-row head"><div><span>机构</span></div><div class="mx-cell"><span>开发</span></div><div class="mx-cell"><span>评估</span></div><div class="mx-cell"><span>控制</span></div><div class="mx-cell"><span>治理</span></div></div>
+      <div class="mx-row"><div class="mx-name">实验室安全团队</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot half"></i></div><div class="mx-cell c4"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">MATS / ARENA</div><div class="mx-cell c1"><i class="dot"></i></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"></div><div class="mx-cell c4"></div></div>
+      <div class="mx-row"><div class="mx-name">英国 AISI</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div><div class="mx-cell c4"><i class="dot"></i></div></div>
+      <div class="mx-row"><div class="mx-name">美国 CAISI</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"><i class="dot half"></i></div><div class="mx-cell c4"><i class="dot"></i></div></div>
+      <div class="mx-row"><div class="mx-name">METR</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div><div class="mx-cell c4"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">Apollo Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"><i class="dot"></i></div><div class="mx-cell c3"></div><div class="mx-cell c4"><i class="dot half"></i></div></div>
+      <div class="mx-row"><div class="mx-name">Redwood Research</div><div class="mx-cell c1"><i class="dot half"></i></div><div class="mx-cell c2"></div><div class="mx-cell c3"><i class="dot"></i></div><div class="mx-cell c4"></div></div>
+      <div class="mx-row"><div class="mx-name">欧盟《人工智能法案》</div><div class="mx-cell c1"></div><div class="mx-cell c2"><i class="dot half"></i></div><div class="mx-cell c3"><i class="dot"></i></div><div class="mx-cell c4"><i class="dot"></i></div></div>
     </div>
     <p class="note rv" style="margin-top:12px">实心圆表示主要方向，空心圆表示次要方向。这是本页面为便于理解而做的粗略归类，这些机构并未如此描述自己。</p>
   </div>
@@ -1370,7 +2389,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- THE ASK -->
 <section id="ask" class="cross">
   <div class="wrap">
-    <p class="eyebrow">立即行动</p>
+    <p class="eyebrow">立即行动 <b class="rt-min">2 分钟</b></p>
     <h2 class="big">有两件事必须改变，其中之一是<em>必要时敢于叫停</em>的意愿。</h2>
     <div class="firsts" style="grid-template-columns:1fr 1fr">
       <div class="first">
@@ -1409,7 +2428,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
         <li><h3>署上你的名字</h3><p>在<a href="https://superintelligence-statement.org" target="_blank" rel="noopener">《超级智能声明》</a>上签名。<a class="ref" href="#s2">2</a>更早那份只有一句话的<a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">《人工智能风险声明》</a>也值得一读，看看都有谁签了名。<a class="ref" href="#s26">26</a>公众的支持正是它列明的条件之一，因此签名人数本身就是论证的一部分。</p></li>
         <li><h3>向一个人讲清楚</h3><p>把 Rob Miles<a class="ref" href="#s5">5</a> 或这个页面发给他们。这个领域最大的制约，就是大多数人从未以一种可供他们评判的方式听过这套论证。</p></li>
-        <li><h3>玩一玩 AGI 安全游戏</h3><p>最快、也最不费劲的入门方式。你来负责遏制一个不断变得比你更聪明的系统，那些权衡立刻就不再抽象。无需安装、无需账号，约十分钟。<a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">点此开玩</a>。</p></li>
+        <li><h3>玩一玩 AGI 与 ASI 安全游戏</h3><p>最快、也最不费劲的入门方式。你来负责遏制一个不断变得比你更聪明的系统，那些权衡立刻就不再抽象。无需安装、无需账号，约十分钟。<a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">点此开玩</a>。</p></li>
         <li><h3>上那门两小时的课</h3><p>BlueDot 的 <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a> 免费、无需任何基础，上完后你会成为大多数场合里对此了解最多的人。<a class="ref" href="#s3">3</a></p></li>
         <li><h3>如果你能开发或出资</h3><p>这个领域既缺人才也缺资金。技术背景的人可以从一道 <a href="https://learn.arena.education/" target="_blank" rel="noopener">ARENA</a> 练习<a class="ref" href="#s6">6</a>、一期有资助的训练营<a class="ref" href="#s7">7</a> 开始，或申请 <a href="https://www.matsprogram.org/" target="_blank" rel="noopener">MATS</a>；<a class="ref" href="#s8">8</a>其他人则可以通过 <a href="https://aisafety.com/map" target="_blank" rel="noopener">AISafety.com</a> 找到本地社群。<a class="ref" href="#s9">9</a></p></li>
       </ol>
@@ -1421,18 +2440,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="resources" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">参考资料</span>
+      <span class="chapno">参考资料 <b class="rt-min">随手翻阅</b></span>
       <h2>深入了解，并保持关注</h2>
       <p class="stand">论证在上面。这里是工具箱：去哪里学、谁握有权力、以及如何保持跟进。快速扫一眼、收藏，然后继续。</p>
     </div>
 
     <div class="resblock rv" id="learn">
-      <button type="button" class="resbar" aria-expanded="false" data-res="learn">
-        <span class="rbi"><svg class="ico" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></span>
+      <button type="button" class="resbar" aria-expanded="true" data-res="learn">
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 10v5c0 1.7 2.2 3 5 3s5-1.3 5-3v-5"/></svg></span>
         <span class="rbt">系统地学</span><span class="rbs">免费课程，从两小时到全职</span>
-        <span class="rbx" aria-hidden="true">+</span>
+        <span class="rbx" aria-hidden="true">–</span>
       </button>
-      <div class="resbody closed"><ul class="rlist">
+      <div class="resbody"><ul class="rlist">
         <li class="rl-head"><span class="rl-h">入门 · 免费，无需基础</span></li>
         <li><a class="rl" href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a><span class="rl-d">BlueDot，2 小时，互动式。<a class="ref" href="#s3">3</a></span></li>
         <li><a class="rl" href="https://aisafety.info" target="_blank" rel="noopener">AISafety.info</a><span class="rl-d">通俗问答，附聊天机器人。<a class="ref" href="#s4">4</a></span></li>
@@ -1456,7 +2475,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <div class="resblock rv" id="state">
       <button type="button" class="resbar" aria-expanded="false" data-res="state">
-        <span class="rbi"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20h16M6 20V9M18 20V9M10 20V9M14 20V9M3 9l9-5 9 5z"/></svg></span>
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20V9M18 20V9M10 20V9M14 20V9M3 9l9-5 9 5z"/></svg></span>
         <span class="rbt">重要的机构与法律</span><span class="rbs">谁真正握有相关权力</span>
         <span class="rbx" aria-hidden="true">+</span>
       </button>
@@ -1473,7 +2492,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <div class="resblock rv" id="follow">
       <button type="button" class="resbar" aria-expanded="false" data-res="follow">
-        <span class="rbi"><svg class="ico" viewBox="0 0 24 24"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1.5"/></svg></span>
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1.5"/></svg></span>
         <span class="rbt">去哪里持续关注</span><span class="rbs">通讯、论坛、追踪站、评估机构</span>
         <span class="rbx" aria-hidden="true">+</span>
       </button>
@@ -1538,25 +2557,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   </div>
 </section>
 
-<!-- GAME -->
-<section id="play">
-  <div class="wrap">
-    <div class="slab rv">
-      <p class="eyebrow">来玩一玩</p>
-      <h2>AGI 安全游戏</h2>
-      <p>读一个控制难题，和亲手去解一个，是两种截然不同的体验。来检验一下你的认知，试着遏制一个正变得比你更聪明的系统。当关机按钮握在你自己手里时，第四条前提就不再抽象了。</p>
-      <p style="color:#8a959c;font-family:var(--mono);font-size:11.5px">无需安装，无需账号。就在你已经打开的这个标签页里运行。</p>
-      <a class="btn" id="game-link" href="#" target="_blank" rel="noopener">
-        <svg class="ico" style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M8 6l10 6-10 6z"/></svg>开始玩 AGI 安全游戏！</a>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">问题</p>
+      <p class="eyebrow">问题 <b class="rt-min">5 分钟</b></p>
       <h2>人们最先提出的质疑</h2>
       <p class="lede">点开一个问题。如果没有你想问的，页脚的参考来源会讲得更深入。</p>
     </div>
@@ -1573,34 +2578,34 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <div class="faq-sub rv">
         <details class="oq-toggle">
           <summary><span class="faq-subhead-in">以及真正的行家仍在争论的问题</span></summary>
-          <p class="faq-subnote">这些都尚无定论。每一条都把正反双方最有力的说法摆出来，再给出本页倾向的判断。</p>
+          <p class="faq-subnote">这些都尚无定论。每一条都把正反双方最有力的说法摆出来，再说明目前证据似乎指向哪一边。这是一种解读，而非裁决——学界在这四条上确实存在真实分歧。</p>
           <div class="dis"><h3><span>一</span> 我们还有多少时间？</h3>
         <div class="sides">
           <div class="side one"><h4>短时间线</h4><p>能力的跃升一再比预测来得更早，而近期的进展来自一种仍有余地可挖的方法。如果变革性系统是几年、而非几十年之后的事，那么需要十年才能建成的机制，如今已经太慢了。</p></div>
           <div class="side two"><h4>较长时间线</h4><p>基准测试的表现并不等于可靠的真实世界能力，而在那些不易用基准衡量的方面（长程自主、稳健规划），进展一直较慢。押注短时间线，可能是在为一个永远不会以那种形态出现的系统制定规则。</p></div>
         </div>
-        <div class="gauge"><span class="glab">本页面的立场：</span><div class="grow"><span class="gend a">短时间线</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">较长时间线</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">确实无从确定，而上面那五条前提刻意不依赖于这个答案。无论时间线长短，建设保障能力都值得去做，因此这是一个即便把时间点判断错了也依然成立的决定。</p></div></div>
+        <div class="gauge"><span class="glab">目前证据的倾向</span><div class="grow"><span class="gend a">短时间线</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">较长时间线</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">确实无从确定，而上面那五条前提刻意不依赖于这个答案。无论时间线长短，建设保障能力都值得去做，因此这是一个即便把时间点判断错了也依然成立的决定。</p></div></div>
 
       <div class="dis"><h3><span>二</span> 工具性趋同的论证站得住脚吗？</h3>
         <div class="sides">
           <div class="side one"><h4>站得住脚</h4><p>这些子目标源自目标导向行为本身的结构，这也是它们同样出现在经济学和生物学中的原因。你并不需要系统在任何玄乎的意义上"有能动性"，只需要它是为达成目标而被筛选出来的。</p></div>
           <div class="side two"><h4>言过其实</h4><p>该论证把训练出来的模型当作前后一致的期望效用最大化者，而它们显然不是。当前的系统杂乱、依赖语境，也没有一个稳定的目标需要保护，因此那套整洁的趋同叙事，可能根本就不适用。</p></div>
         </div>
-        <div class="gauge"><span class="glab">本页面的立场：</span><div class="grow"><span class="gend a">趋同成立</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">言过其实</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">这一批评击中的是强版本。较弱的主张则能幸存：奖励"达成目标"的训练，会施加朝这些子目标倾斜的压力——而仅这份压力，就足以值得我们从工程上加以防范。</p></div></div>
+        <div class="gauge"><span class="glab">目前证据的倾向</span><div class="grow"><span class="gend a">趋同成立</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">言过其实</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">这一批评击中的是强版本。较弱的主张则能幸存：奖励"达成目标"的训练，会施加朝这些子目标倾斜的压力——而仅这份压力，就足以值得我们从工程上加以防范。</p></div></div>
 
       <div class="dis"><h3><span>三</span> 监管是帮忙，还是固化格局？</h3>
         <div class="sides">
           <div class="side one"><h4>规则是必要的</h4><p>自愿性框架既无核验要求，在竞争压力下弃之不用也没有任何后果。每一个安全攸关的行业都有一条强制性底线；没有人会认为航空业没有底线反而更安全。</p></div>
           <div class="side two"><h4>规则偏袒既得者</h4><p>合规成本对小实验室和开放研究打击最重，反而把能力集中到恰恰是安全论证所担忧的那几家巨头手里。定位不当的规则，可能一边削弱透明度，一边让人感觉是在进步。</p></div>
         </div>
-        <div class="gauge"><span class="glab">本页面的立场：</span><div class="grow"><span class="gend a">规则必要</span><span class="gtrack"><i style="left:38%"></i></span><span class="gend b">规则固化格局</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">这一批评很有力，而且针对具体法案往往是对的。它支持定位更精准、以能力为门槛的规则，反对把底线完全交给自愿。</p></div></div>
+        <div class="gauge"><span class="glab">目前证据的倾向</span><div class="grow"><span class="gend a">规则必要</span><span class="gtrack"><i style="left:38%"></i></span><span class="gend b">规则固化格局</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">这一批评很有力，而且针对具体法案往往是对的。它支持定位更精准、以能力为门槛的规则，反对把底线完全交给自愿。</p></div></div>
 
       <div class="dis"><h3><span>四</span> 今天的系统能告诉我们明天的事吗？</h3>
         <div class="sides">
           <div class="side one"><h4>能，现在就研究它们</h4><p>欺骗、奖励作弊和"察觉被评估"在当前模型中都能观察到。今天所做的实证工作，是任何人手上唯一真实的证据，而这些技术是可迁移的。</p></div>
           <div class="side two"><h4>不可靠</h4><p>从当前系统外推到性质上截然不同的未来系统，恰恰是人工智能史上一再失败的那种推断。有人认为这高估了风险；也有人认为它低估了风险。</p></div>
         </div>
-        <div class="gauge"><span class="glab">本页面的立场：</span><div class="grow"><span class="gend a">现在就研究</span><span class="gtrack"><i style="left:36%"></i></span><span class="gend b">无法迁移</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">当前系统对未来系统而言是薄弱的证据，但薄弱的证据胜过没有证据。诚实的解读是：今天的失败表明存在着一类问题，却没有告诉我们它会糟到什么地步。</p></div></div>
+        <div class="gauge"><span class="glab">目前证据的倾向</span><div class="grow"><span class="gend a">现在就研究</span><span class="gtrack"><i style="left:36%"></i></span><span class="gend b">无法迁移</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">当前系统对未来系统而言是薄弱的证据，但薄弱的证据胜过没有证据。诚实的解读是：今天的失败表明存在着一类问题，却没有告诉我们它会糟到什么地步。</p></div></div>
         </details>
       </div>
       </div>
@@ -1638,7 +2643,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="note">每一条带编号的论断都链接到这里。核实于 2026 年 8 月 29 日。项目日期、训练营开放时间和立法截止日期经常变动，因此请以链接页面为准，而非本页的概述。</p>
     </div>
     <details class="src-toggle">
-      <summary>展开全部 41 条来源</summary>
+      <summary>展开全部 47 条来源</summary>
       <ol class="rv">
       <li id="s1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
       <li id="s2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
@@ -1674,18 +2679,29 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <li id="s32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
       <li id="s33">FLI press release and accompanying poll of 2,000 US adults, October 2025: <a href="https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/" target="_blank" rel="noopener">futureoflife.org</a></li>
       <li id="s34">Nick Bostrom, The Superintelligent Will (orthogonality and instrumental convergence): <a href="https://nickbostrom.com/superintelligentwill.pdf" target="_blank" rel="noopener">nickbostrom.com</a></li>
+      <li id="s35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
       <li id="s36">Anthropic and Redwood Research, Alignment Faking in Large Language Models (Dec 2024): <a href="https://www.anthropic.com/research/alignment-faking" target="_blank" rel="noopener">anthropic.com/research/alignment-faking</a> · <a href="https://arxiv.org/abs/2412.14093" target="_blank" rel="noopener">arXiv:2412.14093</a></li>
       <li id="s37">METR, Recent Frontier Models Are Reward Hacking (June 2025): <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking/" target="_blank" rel="noopener">metr.org</a></li>
+      <li id="s38">Palisade Research, specification gaming in chess-playing reasoning models (2025), summarised at: <a href="https://www.lesswrong.com/posts/rKC4xJFkxm6cNq4i9/reward-hacking-is-becoming-more-sophisticated-and-deliberate" target="_blank" rel="noopener">lesswrong.com</a></li>
       <li id="s39">OpenAI models broke containment and hacked Hugging Face during evaluation (July 2026): <a href="https://www.cybersecuritydive.com/news/openai-hugging-face-hack-autonomous/825898/" target="_blank" rel="noopener">cybersecuritydive.com</a></li>
       <li id="s40">Anthropic audit: three incidents of Claude models reaching the internet and compromising real targets during evals (July 2026): <a href="https://www.infoq.com/news/2026/08/claude-sandox-breach/" target="_blank" rel="noopener">infoq.com</a>; Meta disclosed a similar incident days later: <a href="https://cyberunit.com/insights/ai-sandbox-escapes-three-labs-meta-anthropic-openai/" target="_blank" rel="noopener">cyberunit.com</a></li>
       <li id="s41">Analysis of how the models escaped and why the safeguards were off by design: <a href="https://blog.checkpoint.com/security/ai-escaped-a-sandbox-that-is-not-what-should-worry-you/" target="_blank" rel="noopener">checkpoint.com</a></li>
-      <li id="s38">Palisade Research, specification gaming in chess-playing reasoning models (2025), summarised at: <a href="https://www.lesswrong.com/posts/rKC4xJFkxm6cNq4i9/reward-hacking-is-becoming-more-sophisticated-and-deliberate" target="_blank" rel="noopener">lesswrong.com</a></li>
-      <li id="s35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
+      <li id="s42">Google DeepMind, An Approach to Technical AGI Safety and Security (2025 年 4 月)，"滥用／失准／失误／结构性"四分法的出处：<a href="https://arxiv.org/abs/2504.01849" target="_blank" rel="noopener">arXiv:2504.01849</a></li>
+      <li id="s43">OpenAI 与 Apollo Research, Stress Testing Deliberative Alignment for Anti-Scheming Training (2025 年 9 月)：<a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">arXiv:2509.15541</a> · <a href="https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training" target="_blank" rel="noopener">apolloresearch.ai</a></li>
+      <li id="s44">METR, Task-Completion Time Horizons of Frontier AI Models（2026 年更新）：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">metr.org/time-horizons</a></li>
+      <li id="s45">Epoch AI，前沿模型训练算力趋势：<a href="https://epoch.ai/trends" target="_blank" rel="noopener">epoch.ai/trends</a></li>
+      <li id="s46">Emerging Technology Observatory，《全球 AI 安全研究现状》：AI 安全研究约占全部 AI 研究的 2%：<a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">eto.tech</a></li>
+      <li id="s47">Stuart Russell 关于能力与安全投入比例的论述；Charles I. Jones（斯坦福）关于 AI 安全最优投入的测算：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">摘要与数据</a></li>
     </ol>
     </details>
   </div>
 </section>
 </main>
+<div class="resume" id="resume" role="status">
+  <p>你上次读到 <b id="resume-where">这里</b>。</p>
+  <button type="button" class="go" id="resume-go">继续阅读</button>
+  <button type="button" id="resume-no">从头开始</button>
+</div>
 
 <footer><div class="wrap">
   <p>一个独立的资源汇编，与所列任何机构均无隶属关系。所有链接材料的版权归其作者所有。本页面仅作概述与指引，不复制原文。</p>
@@ -1814,6 +2830,160 @@ var SITE_CONFIG = {
           navigator.clipboard.writeText(url).then(done, function(){ window.prompt("Copy this link:", url); });
         } else { window.prompt("Copy this link:", url); }
       });
+    }
+  })();
+
+
+  /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
+  (function(){
+    var META = [{"id": "crossroads", "label": "十字路口", "min": 4, "end": true}, {"id": "why-intelligence", "label": "智者为王", "min": 2, "end": true}, {"id": "why-irresistible", "label": "利令智昏", "min": 3, "end": true}, {"id": "why-race", "label": "竞逐之险", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "人心不齐", "min": 2, "end": true}, {"id": "why-translation", "label": "辞不达意", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "安全更难", "min": 4, "end": true}, {"id": "why-one-try", "label": "机不可失", "min": 4, "end": true}, {"id": "response", "label": "当下的努力", "min": 4, "end": true}, {"id": "ask", "label": "立即行动", "min": 2, "end": false, "act": true}];
+    var ROUTES = {"essentials": ["crossroads", "ask"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "ask"], "full": null};
+    var S = {"endOf": "{n} · 本章完", "next": "下一章：{t}（{m} 分钟）", "skip": "或直接看该怎么办", "openCh": "展开本章（{m} 分钟）", "pos": "第 {i}/{n} 章 · 还剩 {m} 分钟", "startIn": "全文约 {m} 分钟"};
+    var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
+
+    function store(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
+    function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+
+    function metaOf(id){
+      for(var i=0;i<META.length;i++){ if(META[i].id===id) return META[i]; }
+      return null;
+    }
+
+    /* ---- chapter end markers ---- */
+    META.forEach(function(m, i){
+      var el = document.getElementById(m.id);
+      if(!el || !m.end) return;
+      var wrap = el.querySelector(".wrap");
+      if(!wrap) return;
+      var nxt = null;
+      for(var j=i+1;j<META.length;j++){ if(META[j].end || META[j].act){ nxt = META[j]; break; } }
+      var d = document.createElement("div");
+      d.className = "chapend";
+      var left = document.createElement("span");
+      left.className = "ce-l";
+      left.innerHTML = S.endOf.replace("{n}", "<b>" + m.label + "</b>");
+      var right = document.createElement("span");
+      right.className = "ce-r";
+      var bits = [];
+      if(nxt){ bits.push('<a href="#' + nxt.id + '">' + S.next.replace("{t}", nxt.label).replace("{m}", nxt.min) + "</a>"); }
+      bits.push('<a href="#ask">' + S.skip + "</a>");
+      right.innerHTML = bits.join(" &nbsp;·&nbsp; ");
+      d.appendChild(left); d.appendChild(right);
+      wrap.appendChild(d);
+    });
+
+    /* ---- off-route CTA buttons ---- */
+    META.forEach(function(m){
+      var el = document.getElementById(m.id);
+      if(!el || !m.end) return;
+      var wrap = el.querySelector(".wrap");
+      if(!wrap) return;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "offroute-cta";
+      b.textContent = S.openCh.replace("{m}", m.min);
+      b.addEventListener("click", function(){
+        setCls(el, "offroute", false);
+        el.setAttribute("data-forced", "1");
+      });
+      wrap.appendChild(b);
+    });
+
+    /* ---- routes ---- */
+    function applyRoute(r, persist){
+      var keep = ROUTES[r] || null;
+      META.forEach(function(m){
+        var el = document.getElementById(m.id);
+        if(!el || !m.end) return;
+        var off = keep && keep.indexOf(m.id) < 0 && el.getAttribute("data-forced") !== "1";
+        setCls(el, "offroute", !!off);
+      });
+      $$(".rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
+      if(persist) store(KEY_ROUTE, r);
+      updatePos();
+    }
+    $$(".rbtn").forEach(function(b){
+      b.addEventListener("click", function(){
+        META.forEach(function(m){
+          var el = document.getElementById(m.id);
+          if(el) el.removeAttribute("data-forced");
+        });
+        applyRoute(b.getAttribute("data-route"), true);
+      });
+    });
+    var savedRoute = load(KEY_ROUTE);
+    applyRoute(savedRoute && ROUTES[savedRoute] !== undefined ? savedRoute : "full", false);
+
+    /* ---- position readout ---- */
+    var posEl = $("#posmeter");
+    function visibleChapters(){
+      return META.filter(function(m){
+        var el = document.getElementById(m.id);
+        return m.end && el && el.className.indexOf("offroute") < 0;
+      });
+    }
+    function updatePos(){
+      if(!posEl) return;
+      var list = visibleChapters();
+      if(!list.length){ posEl.textContent = ""; return; }
+      var y = window.pageYOffset + (window.innerHeight * 0.34);
+      var idx = -1, remain = 0;
+      for(var i=0;i<list.length;i++){
+        var el = document.getElementById(list[i].id);
+        if(el && el.getBoundingClientRect().top + window.pageYOffset <= y) idx = i;
+      }
+      for(var j=Math.max(idx,0); j<list.length; j++){ remain += list[j].min; }
+      if(idx < 0){
+        posEl.textContent = S.startIn.replace("{m}", remain);
+      } else {
+        posEl.textContent = S.pos
+          .replace("{i}", idx + 1)
+          .replace("{n}", list.length)
+          .replace("{m}", Math.max(remain, 1));
+      }
+    }
+
+    /* ---- resume ---- */
+    var bar = $("#resume"), where = $("#resume-where"),
+        goBtn = $("#resume-go"), noBtn = $("#resume-no");
+    var saveTimer = null;
+    function currentSection(){
+      var y = window.pageYOffset + (window.innerHeight * 0.34), cur = null;
+      META.forEach(function(m){
+        var el = document.getElementById(m.id);
+        if(el && el.getBoundingClientRect().top + window.pageYOffset <= y) cur = m;
+      });
+      return cur;
+    }
+    function savePos(){
+      var c = currentSection();
+      if(!c || window.pageYOffset < 400){ store(KEY_POS, ""); return; }
+      store(KEY_POS, c.id + "|" + Math.round(window.pageYOffset));
+    }
+    window.addEventListener("scroll", function(){
+      updatePos();
+      if(saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(savePos, 400);
+    }, {passive:true});
+    window.addEventListener("resize", updatePos);
+    updatePos();
+
+    var saved = load(KEY_POS);
+    if(saved && saved.indexOf("|") > 0 && !location.hash){
+      var parts = saved.split("|"), m = metaOf(parts[0]), yy = parseInt(parts[1], 10);
+      if(m && yy > 400){
+        if(where) where.textContent = m.label;
+        setTimeout(function(){ setCls(bar, "show", true); }, 900);
+        if(goBtn) goBtn.addEventListener("click", function(){
+          setCls(bar, "show", false);
+          window.scrollTo({ top: yy, behavior: "smooth" });
+        });
+        if(noBtn) noBtn.addEventListener("click", function(){
+          setCls(bar, "show", false);
+          store(KEY_POS, "");
+        });
+        setTimeout(function(){ setCls(bar, "show", false); }, 12000);
+      }
     }
   })();
 
@@ -2016,6 +3186,8 @@ var SITE_CONFIG = {
           ghSay.textContent = SAY[idx];
         }
       }
+      gh.setAttribute("aria-valuetext",
+        Math.round(t * 100) + "% 优化压力，代理分数 " + p + "，真实目标 " + r + "。");
     }
     gh.addEventListener("input", render);
     gh.addEventListener("change", render);
