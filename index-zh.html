@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AGI 与 ASI 安全：人类尚未攻克的最难命题</title>
-<meta name="description" content="从第一性原理讲清先进人工智能为何危险：实证证据、尚存争议、最优质的免费课程，以及你本周就能做的事。">
-<meta property="og:title" content="AGI 与 ASI 安全：人类尚未攻克的最难命题">
-<meta property="og:description" content="从第一性原理讲清先进人工智能为何危险：实证证据、尚存争议、最优质的免费课程，以及你本周就能做的事。">
+<title>AGI 与 ASI 安全，人类至今未解的最大难题</title>
+<meta name="description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、最好的免费课程，以及你本周就能做的事。">
+<meta property="og:title" content="AGI 与 ASI 安全，人类至今未解的最大难题">
+<meta property="og:description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、最好的免费课程，以及你本周就能做的事。">
 <meta property="og:type" content="website">
 <meta property="og:image" content="og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -55,8 +55,6 @@ p{margin:0 0 1em}
 .note{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6;max-width:72ch}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
-#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
-  background:linear-gradient(90deg,var(--c-act),var(--c-ass),var(--c-dev),var(--c-ctl),var(--c-risk))}
 
 /* ---------- header ---------- */
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
@@ -379,6 +377,226 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 
 
 
+
+/* ---------- segmented progress bar ---------- */
+#prog{position:fixed;top:0;left:0;height:4px;width:100%;z-index:60;display:flex;gap:2px;
+  padding:0 2px;background:transparent;pointer-events:auto}
+#prog .seg::after{content:"";position:absolute;left:0;right:0;top:0;height:14px}
+#prog .seg{flex:1;height:4px;border-radius:0 0 2px 2px;background:rgba(120,132,140,.28);cursor:pointer;
+  transition:background .2s,height .2s;position:relative}
+#prog .seg:hover{background:rgba(120,132,140,.6)}
+#prog .seg.done{background:var(--c-dev)}
+#prog .seg.now{background:var(--c-risk);height:7px}
+#prog .seg.off{opacity:.35}
+/* ---------- breadcrumb readout ---------- */
+.posmeter{margin-left:auto;display:flex;align-items:baseline;gap:9px;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;max-width:52vw;padding-left:14px}
+.posmeter .pm-g{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.posmeter .pm-n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--c-risk)}
+.posmeter .pm-t{font-family:var(--display);font-weight:800;letter-spacing:-.015em;font-size:15px;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis}
+.posmeter .pm-r{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+@media(max-width:900px){.posmeter{max-width:100%;width:100%;padding-left:0;margin-top:4px}
+  .posmeter .pm-g{display:none}.posmeter .pm-t{font-size:13.5px}}
+/* ---------- ambient chapter numeral ---------- */
+.chapnum{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;pointer-events:none;
+  font-family:var(--display);font-weight:900;font-size:120px;line-height:1;letter-spacing:-.06em;
+  color:var(--ink);opacity:.055;transition:opacity .3s}
+.chapnum.hide{opacity:0}
+@media(max-width:1500px){.chapnum{display:none}}
+/* ---------- responsive header + rail geometry ---------- */
+.bar-in{flex-wrap:wrap;min-width:0}
+.brand{min-width:0;flex:1 1 200px}
+.bar-actions{flex:0 1 auto;min-width:0;justify-content:flex-end}
+.hbtn,.header-game{min-width:0;max-width:100%}
+.hbtn span,.header-game span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* the game button carries the longest label; let it shrink first */
+.header-game{flex:0 1 auto}
+@media(max-width:1240px){.header-game span{max-width:22ch}}
+@media(max-width:1040px){.header-game span{max-width:14ch}}
+@media(max-width:920px){.header-game span{max-width:0;padding:0}.header-game{padding:7px 11px}}
+html{overflow-x:hidden}
+/* rail sits below the real header height, whatever it wraps to */
+.rail{padding-top:calc(var(--barH,96px) + 14px)}
+/* pinning pushes the page instead of covering it */
+@media(min-width:1024px){
+  body.rail-pinned{padding-left:268px}
+  .rail.pinned{box-shadow:1px 0 0 var(--rule-soft)}
+}
+/* ---------- side rail (desktop, left) ---------- */
+.rail{position:fixed;left:0;top:0;bottom:14px;z-index:45;display:none;
+  padding-bottom:20px;overflow-y:auto;overscroll-behavior:contain;
+  background:#fbfbfa;border:1px solid var(--rule-soft);border-left:0;
+  border-radius:0 20px 20px 0;box-shadow:0 10px 40px rgba(18,22,26,.05);
+  transition:width .26s cubic-bezier(.22,.8,.28,1),box-shadow .26s ease}
+@media(min-width:1024px){.rail{display:block;width:64px}}
+@media(min-width:1380px){.rail{width:262px}}
+.rail{cursor:pointer}
+.rail.pinned,.rail:hover{cursor:auto}
+.rail:hover,.rail.pinned{width:268px;box-shadow:0 18px 56px rgba(18,22,26,.13)}
+.rail-h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:#a9a49c;margin:0 0 10px;padding-left:20px;opacity:0;transition:opacity .18s}
+.rail ol{list-style:none;margin:0;padding:0 10px 0 0;position:relative}
+.rail li{margin:0}
+.rail-marker{position:absolute;left:0;width:3px;border-radius:0 3px 3px 0;background:var(--acc,#8c8378);
+  height:0;top:0;opacity:.9;
+  transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
+  pointer-events:none;z-index:3}
+/* act headings: quiet, lettered, with a soft rule in the act tone */
+.rail .grp{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--acc);padding:18px 10px 6px 20px;margin:0;opacity:0;transition:opacity .18s;white-space:nowrap;
+  display:flex;align-items:center;gap:8px}
+.rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.28}
+/* chapter rows */
+.rail a.rl{position:relative;display:flex;align-items:flex-start;gap:9px;text-decoration:none;
+  padding:8px 12px 8px 20px;margin:1px 0;border-radius:0 12px 12px 0;
+  font-family:var(--display);font-weight:600;font-size:13px;line-height:1.34;
+  color:#6f6a63;background:transparent;
+  transition:color .2s,background .24s,font-size .26s,padding .26s,margin-right .3s cubic-bezier(.34,1.2,.36,1)}
+.rail a.rl:hover{background:var(--acc-t);color:#33302c}
+.rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:10px;flex:0 0 auto;min-width:16px;
+  color:var(--acc);opacity:.75;padding-top:3px;transition:font-size .26s,opacity .2s}
+.rail a.rl .rt{flex:1;white-space:normal;overflow-wrap:anywhere;opacity:0;transition:opacity .18s}
+.rail a.rl .rm{display:none}
+.rail a.rl.done{color:#9b958c}
+.rail a.rl.done .rn{opacity:.5}
+/* the chapter being read: extends right, softly filled, gently lifted */
+.rail a.rl.now{background:var(--acc-t);color:#2c2926;font-weight:800;font-size:14.5px;
+  padding-top:12px;padding-bottom:12px;padding-right:18px;margin-right:-14px;
+  border-radius:0 16px 16px 0;box-shadow:0 5px 18px rgba(18,22,26,.09);z-index:2}
+.rail a.rl.now .rn{color:var(--acc);opacity:1;font-size:11.5px}
+.rail a.rl.now .rm{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+  color:#fff;background:var(--acc);border-radius:999px;padding:2px 8px;flex:0 0 auto;margin-top:2px}
+.rail a.rl.off{opacity:.38}
+/* sub-chapters, numbered 9.1 style */
+.rail .subs{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;
+  transition:max-height .32s cubic-bezier(.22,.8,.28,1)}
+.rail a.sub{display:flex;gap:8px;padding:6px 12px 6px 22px;margin:1px 0;border-radius:0 10px 10px 0;
+  font-family:var(--mono);font-size:10.5px;line-height:1.5;color:#8a847c;text-decoration:none;
+  white-space:normal;overflow-wrap:anywhere;transition:background .2s,color .2s}
+.rail a.sub .sn{flex:0 0 auto;color:var(--acc);opacity:.8;font-weight:700}
+.rail a.sub:hover{background:var(--acc-t);color:#33302c}
+/* time card */
+.rail-f{margin:18px 14px 0 18px;padding:14px 15px;border-radius:14px;
+  background:#2c2926;color:#fff;opacity:0;transition:opacity .18s}
+.rail-f .rf-n{display:block;font-family:var(--display);font-weight:900;font-size:28px;line-height:1;letter-spacing:-.03em}
+.rail-f .rf-l{display:block;font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:#a49c92;margin-top:6px}
+.rail-f .rf-t{display:block;font-family:var(--mono);font-size:9px;color:#857d74;margin-top:9px;
+  padding-top:9px;border-top:1px solid #443f3a}
+.rail:hover .rail-h,.rail:hover .rail-f,.rail:hover a.rl .rt,.rail:hover .grp,
+.rail.wide .rail-h,.rail.wide .rail-f,.rail.wide a.rl .rt,.rail.wide .grp{opacity:1}
+.rail:hover li.now .subs,.rail.wide li.now .subs{max-height:460px}
+@media(min-width:1380px){
+  .rail .rail-h,.rail .rail-f,.rail a.rl .rt,.rail .grp{opacity:1}
+  .rail li.now .subs{max-height:460px}}
+@media(min-width:1024px){body{padding-left:64px}}
+@media(min-width:1380px){body{padding-left:262px}}
+@media(min-width:1024px){.posmeter .pm-r{display:none}}
+/* ---------- top nav tinted to match the rail ---------- */
+.ng-top{border-radius:999px}
+.ng.act0 .ng-top{color:#8a4a35}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:#f6ece7;border-color:#e0cabf;color:#8a4a35}
+.ng.act1 .ng-top{color:#47568a}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:#ecf0f8;border-color:#c8d2e8;color:#47568a}
+.ng.act2 .ng-top{color:#54704a}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:#eef3ec;border-color:#cbdac5;color:#54704a}
+.ng.act3 .ng-top{color:#8a6f39}.ng.act3.open .ng-top,.ng.act3 .ng-top:hover{background:#f8f2e6;border-color:#e3d5b4;color:#8a6f39}
+.ng.act0.active .ng-top{background:#b5654d;border-color:#b5654d;color:#fff}
+.ng.act1.active .ng-top{background:#5b6b9e;border-color:#5b6b9e;color:#fff}
+.ng.act2.active .ng-top{background:#6f8a63;border-color:#6f8a63;color:#fff}
+.ng.act3.active .ng-top{background:#a98a4b;border-color:#a98a4b;color:#fff}
+.ng-menu a.on{background:transparent}
+.ng.act0 .ng-menu a.on{background:#f6ece7;color:#8a4a35}
+.ng.act1 .ng-menu a.on{background:#ecf0f8;color:#47568a}
+.ng.act2 .ng-menu a.on{background:#eef3ec;color:#54704a}
+.ng.act3 .ng-menu a.on{background:#f8f2e6;color:#8a6f39}
+/* ---------- narrow view: a persistent chapter bar ---------- */
+.nowbar{display:none}
+@media(max-width:1023px){
+  .nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);
+    border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
+  .nowbar .nb-n{font-family:var(--mono);font-size:10px;font-weight:800;color:#fff;background:var(--acc,#8c8378);
+    border-radius:999px;padding:3px 9px;flex:0 0 auto}
+  .nowbar .nb-t{font-family:var(--display);font-weight:800;font-size:14px;letter-spacing:-.012em;color:var(--ink);
+    flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nowbar .nb-m{font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--acc,var(--ink-3));flex:0 0 auto}
+  .posmeter{display:none}
+}
+/* ---------- rail expand / minimise control ---------- */
+.rail-toggle{display:flex;align-items:center;justify-content:center;gap:7px;
+  width:30px;height:30px;margin:0 0 8px 13px;padding:0;flex:0 0 auto;
+  border:1px solid var(--rule);border-radius:999px;background:var(--white);cursor:pointer;
+  color:var(--ink-2);transition:width .2s,border-color .15s,color .15s}
+.rail-toggle:hover{border-color:var(--ink-2);color:var(--ink)}
+.rail-toggle svg{width:13px;height:13px;flex:0 0 auto;transition:transform .22s}
+.rail-toggle .tl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;opacity:0;width:0;overflow:hidden;transition:opacity .18s}
+.rail:hover .rail-toggle,.rail.pinned .rail-toggle{width:auto;padding:0 12px}
+.rail:hover .rail-toggle .tl,.rail.pinned .rail-toggle .tl{opacity:1;width:auto}
+@media(min-width:1380px){.rail:not(.mini) .rail-toggle{width:auto;padding:0 12px}
+  .rail:not(.mini) .rail-toggle .tl{opacity:1;width:auto}}
+.rail.pinned .rail-toggle svg,.rail:not(.mini) .rail-toggle svg{transform:rotate(180deg)}
+@media(max-width:1359px){.rail:not(.pinned) .rail-toggle svg{transform:none}}
+/* pinned: stay expanded at any width */
+.rail.pinned{width:268px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
+.rail.pinned .rail-h,.rail.pinned .rail-f,.rail.pinned a.rl .rt,.rail.pinned a.rl .rm,.rail.pinned .grp{opacity:1}
+.rail.pinned li.now .subs{max-height:420px}
+/* minimised: stay narrow even on wide screens, still expands on hover */
+@media(min-width:1380px){
+  .rail.mini{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
+  .rail.mini .rail-h,.rail.mini .rail-f,.rail.mini a.rl .rt,.rail.mini a.rl .rm,.rail.mini .grp{opacity:0}
+  .rail.mini li.now .subs{max-height:0}
+  .rail.mini:hover{width:268px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
+  .rail.mini:hover .rail-h,.rail.mini:hover .rail-f,.rail.mini:hover a.rl .rt,.rail.mini:hover a.rl .rm,.rail.mini:hover .grp{opacity:1}
+  .rail.mini:hover li.now .subs{max-height:420px}
+  body.rail-mini{padding-left:64px}
+}
+/* ---------- mobile outline button + panel ---------- */
+.outline-btn{position:fixed;left:16px;bottom:16px;z-index:66;display:flex;align-items:center;gap:8px;
+  border:0;border-radius:999px;padding:11px 16px;cursor:pointer;background:var(--ink);color:#fff;
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.05em;
+  box-shadow:0 10px 28px rgba(18,22,26,.32)}
+@media(min-width:1024px){.outline-btn{display:none}}
+.outline-panel{position:fixed;inset:0;z-index:80;background:rgba(18,22,26,.55);opacity:0;visibility:hidden;
+  transition:opacity .2s,visibility .2s}
+.outline-panel.open{opacity:1;visibility:visible}
+.outline-inner{position:absolute;left:0;top:0;bottom:0;width:min(340px,86vw);background:var(--paper);
+  padding:22px 20px;overflow-y:auto;transform:translateX(-100%);transition:transform .26s ease}
+.outline-panel.open .outline-inner{transform:none}
+.outline-inner h3{font-family:var(--display);font-weight:800;font-size:18px;margin-bottom:4px}
+.outline-inner .oi-sub{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-bottom:16px}
+.outline-inner ol{list-style:none;margin:0;padding:0}
+/* group headings, filled with the act colour */
+.outline-inner .ogrp{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:#fff;background:var(--acc,var(--ink));
+  padding:9px 12px;border-radius:4px;margin:28px 0 8px}
+.outline-inner ol > li.ogrp:first-child{margin-top:4px}
+.outline-inner ol ol{list-style:none;margin:0;padding:0}
+/* chapter rows, tinted by act */
+.outline-inner a{display:flex;align-items:flex-start;gap:10px;text-decoration:none;
+  padding:11px 12px;margin:3px 0;border-radius:4px;border-left:4px solid var(--acc,var(--rule));
+  background:var(--acc-t,transparent);color:var(--ink-2);font-family:var(--display);font-weight:600;
+  font-size:15px;line-height:1.34;transition:background .18s,color .18s}
+.outline-inner a:hover{background:var(--acc);color:#fff}
+.outline-inner a:hover .on-n,.outline-inner a:hover .on-m{color:#fff}
+.outline-inner a .on-n{font-family:var(--mono);font-size:11.5px;font-weight:800;color:var(--acc,var(--ink-3));
+  flex:0 0 22px;padding-top:3px}
+.outline-inner a .on-t{flex:1;white-space:normal;overflow-wrap:anywhere}
+.outline-inner a .on-m{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--acc,var(--ink-3));
+  flex:0 0 auto;padding-top:3px}
+.outline-inner a.done{opacity:.66}
+.outline-inner a.now{background:var(--acc);color:#fff;font-weight:800;font-size:16.5px;
+  padding-top:14px;padding-bottom:14px;box-shadow:0 6px 18px rgba(18,22,26,.18)}
+.outline-inner a.now .on-n,.outline-inner a.now .on-m{color:#fff}
+/* sub-chapters indent past the chapter number */
+.outline-inner .osubs{list-style:none;margin:0 0 8px;padding:0}
+.outline-inner a.osub{display:block;margin:2px 0 2px 32px;padding:8px 12px;border-radius:0 4px 4px 0;
+  border-left:3px solid var(--acc,var(--rule));background:var(--acc-t,transparent);
+  font-family:var(--mono);font-size:11.5px;font-weight:400;line-height:1.5;color:var(--ink-2);
+  white-space:normal;overflow-wrap:anywhere}
+.outline-inner a.osub:hover{background:var(--acc);color:#fff}
+.outline-close{margin-top:16px;width:100%;border:1.5px solid var(--rule);background:transparent;border-radius:999px;
+  padding:10px;cursor:pointer;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2)}
 /* ---------- section figures ---------- */
 .secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
   background:var(--white);padding:clamp(16px,2.4vw,22px)}
@@ -885,7 +1103,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
 #toast button{background:none;border:0;color:#ff8a6b;font-family:var(--mono);font-size:11.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:0;white-space:nowrap;text-decoration:underline}
-.dark @keyframes flashbox{0%{box-shadow:0 0 0 0 rgba(255,106,69,0)}18%{box-shadow:0 0 0 5px rgba(255,106,69,.55)}
+@keyframes flashbox{0%{box-shadow:0 0 0 0 rgba(255,106,69,0)}18%{box-shadow:0 0 0 5px rgba(255,106,69,.55)}
   100%{box-shadow:0 0 0 0 rgba(255,106,69,0)}}
 .flashed{animation:flashbox 1.5s ease;border-radius:4px}
 @keyframes swapin{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
@@ -924,8 +1142,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    "isPartOf": {
     "@id": "https://example.com/#website"
    },
-   "headline": "AGI 与 ASI 安全：人类尚未攻克的最难命题",
-   "description": "从第一性原理讲清先进人工智能为何危险：实证证据、尚存争议、最优质的免费课程，以及你本周就能做的事。",
+   "headline": "AGI 与 ASI 安全，人类至今未解的最大难题",
+   "description": "从根子上说清先进人工智能为何危险；附实证证据、尚存争议、最好的免费课程，以及你本周就能做的事。",
    "inLanguage": "zh-Hans",
    "author": {
     "@type": "Person",
@@ -966,7 +1184,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "这不就是科幻小说吗？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "这里的担忧比电影里的要狭窄、也无聊得多。它无关机器人决定憎恨我们，而在于：我们训练系统的方式，是去搜索任何能在一个我们只能大致写下的目标上得分最高的行为，而我们还无法检验它们究竟学到了什么。本页面上的种种失败——模型在测试中作弊、伪装合规——是当今真实系统中有据可查的现象，而非凭空想象。3736"
+      "text": "这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。3736"
      }
     },
     {
@@ -1014,7 +1232,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "既然风险这么大，为什么还有人要造它？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的——这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。1"
+      "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。1"
      }
     },
     {
@@ -1022,7 +1240,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "我们会不会只是过渡的一步，AI 才是我们的继承者？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于——未来仍应有我们的位置。"
+      "text": "确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于，未来仍应有我们的位置。"
      }
     }
    ]
@@ -1038,7 +1256,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <a class="brand" href="#top">AGI 与 ASI 安全 <b>/</b> 人类尚未攻克的最难命题</a>
+    <a class="brand" href="#top">AGI 与 ASI 安全 <b>/</b> 人类至今未解的最大难题</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="index.html" hreflang="en">EN</a>
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
@@ -1049,7 +1267,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </div>
   </div>
   <nav class="chapters" id="chapters" aria-label="Contents">
-    <span class="posmeter" id="posmeter" aria-live="off"></span>
+    <div class="posmeter" id="posmeter" aria-live="off"></div>
     <ul class="nav-groups">
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">现状 <span class="ng-caret" aria-hidden="true">›</span></button>
@@ -1062,17 +1280,17 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <ul class="ng-menu">
           <li><a href="#why-intelligence">一 · 智者为王</a></li>
           <li><a href="#why-irresistible">二 · 利令智昏</a></li>
-          <li><a href="#why-race">三 · 竞逐之险</a></li>
+          <li><a href="#why-race">三 · 竞争本身就是风险</a></li>
           <li><a href="#why-human-misalignment">四 · 人心不齐</a></li>
           <li><a href="#why-translation">五 · 辞不达意</a></li>
-          <li><a href="#why-safety-hard">六 · 安全更难</a></li>
-          <li><a href="#why-one-try">七 · 机不可失</a></li>
+          <li><a href="#why-safety-hard">六 · 为何安全研究更难</a></li>
+          <li><a href="#why-one-try">七 · 只有一次机会</a></li>
         </ul>
       </li>
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">下一步 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">当下努力</a></li>
+          <li><a href="#response">正在做什么</a></li>
           
           <li><a href="#ask">立即行动</a></li>
         </ul>
@@ -1086,15 +1304,33 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </li>
     </ul>
   </nav>
+  <div class="nowbar" id="nowbar" aria-live="off"></div>
 </div>
 
+<div class="chapnum" id="chapnum" aria-hidden="true"></div>
+<nav class="rail" id="rail" data-x="展开" data-m="收起" aria-label="目录">
+  <button type="button" class="rail-toggle" id="rail-toggle" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg><span class="tl" id="rail-toggle-label"></span></button>
+  <p class="rail-h">目录</p>
+  <ol id="rail-list"></ol>
+  <div class="rail-f" id="rail-foot"></div>
+</nav>
+<button type="button" class="outline-btn" id="outline-btn" aria-expanded="false">
+  <span id="outline-count">1/10</span> 目录</button>
+<div class="outline-panel" id="outline-panel" role="dialog" aria-modal="true" aria-label="你读到哪儿了">
+  <div class="outline-inner">
+    <h3>你读到哪儿了</h3>
+    <p class="oi-sub" id="outline-sub"></p>
+    <ol id="outline-list"></ol>
+    <button type="button" class="outline-close" id="outline-close">关闭</button>
+  </div>
+</div>
 <main id="main"><div id="top"></div>
 
 <header class="masthead">
   <div class="wrap">
     <p class="mh-kick">一份免费、独立的领域指南 · Bill Guan 著</p>
-    <h1 class="mh-title">人类尚未攻克的<br>最难命题</h1>
-    <p class="mh-sub">人类的智能缔造了现代文明。而今我们正着手创造一个凌驾于自身之上的存在，却无法确保它始终与人类同心同德。这份指南从第一性原理出发，逐层拆解这道难题，并指明我们当如何应对。</p>
+    <h1 class="mh-title">人类至今未解的<br>最大难题</h1>
+    <p class="mh-sub">人类的智能缔造了现代文明。如今我们正要创造一个超越自身的存在，却无法保证它始终与人类同心同德。这份指南从根子上逐层拆解这道难题，也告诉你我们该怎么做。</p>
     <div class="mh-meta">
       <span>AGI 与 ASI 安全</span><span>通读约 35 分钟</span><span>每条论断皆附出处</span>
     </div>
@@ -1105,24 +1341,24 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="crossroads" class="cross">
   <div class="wrap">
     <p class="eyebrow">现状 <b class="rt-min">4 分钟</b></p>
-    <h2 class="big">我们即将做一件<em>亘古未有之事</em>：造出超越自身的智能。</h2>
-    <p class="stand">纵观历史，每一次文明飞跃皆由地球上最聪慧的头脑所推动——而那始终是我们自己。如今，我们却要亲手终结这一纪录。用不了多久，这颗星球上最强的智能，将不再是人类。这里有两个词：<strong>AGI（通用人工智能）</strong>，指在各方面都比肩人类的系统；<strong>ASI（超级智能）</strong>，指远远超越人类的智能。前者是门槛，后者则是人们预期前者会造出来的东西——而且很快。</p>
+    <h2 class="big">我们即将做一件<em>亘古未有的事</em>，造出超越自身的智能。</h2>
+    <p class="stand">纵观历史，每一次文明飞跃都由地球上最聪明的头脑推动，而那个头脑始终是我们自己。如今我们要亲手终结这项纪录。用不了多久，这颗星球上最强的智能将不再是人类。这里有两个词：<strong>AGI（通用人工智能）</strong>，指在各方面都能比肩人类的系统；<strong>ASI（超级智能）</strong>，指远远超越人类的智能。前者是门槛，后者是前者很可能造出来的东西，而且很快。</p>
 
     <div class="firsts">
       <div class="first">
         <span class="fk">从未奏效之事</span>
         <h3>以弱御强</h3>
-        <p>史册之中，此例鲜有善终。最接近的类比莫过于父母与婴孩——然而一旦深究，这个比喻便在三处轰然倒塌。婴孩与我们血脉相连，耳濡目染间自然承袭我们的秉性与价值；能力之差微乎其微且转瞬即逝，绝无千倍万倍之遥；婴孩亦无法一夜之间重塑心智，它循着人类的节奏成长，我们跟得上。机器智能三者皆无：既无共同的传承，差距又可无限拉大，更能以机器的速度自我改进。我们指望与之结下父母般纽带的，是一个并非我们所养育、与我们并非同类、且我们根本追不上的存在。</p>
+        <p>历史上这种事几乎没有善终。最接近的类比是父母与婴孩，但仔细看，这个比喻有三处站不住脚。婴孩与我们血脉相连，在耳濡目染中自然承袭我们的秉性与价值；能力差距很小且转瞬即逝，绝不会有千倍万倍之遥；婴孩无法一夜之间重塑心智，它按人类的节奏成长，我们跟得上。机器智能三者全无：没有共同传承，差距可以无限拉大，还能以机器的速度自我改进。我们指望与它建立父母般的纽带，但它并非我们养育，并非我们同类，而且我们根本追不上。</p>
       </div>
       <div class="first blue">
         <span class="fk">为何仍一意孤行</span>
         <h3>万流归海，激励同向</h3>
-        <p>人工智能已在解开许多我们曾一筹莫展的难题，于是对每一个入局者而言，加速开发既是巨大的诱惑，也是理性的选择。安全研究拖慢进度、回报迟滞，于是资金与人才便纷纷涌向能力。资本法则重赏速度，却让审慎在悄无声息中陷入窘境。</p>
+        <p>人工智能已经在解决许多我们过去束手无策的难题，所以对每个参与者来说，加速开发既是巨大诱惑，也是理性选择。安全研究拖慢进度、回报迟缓，于是资金和人才纷纷涌向能力。资本法则重赏速度，审慎则在悄无声息中陷入窘境。</p>
       </div>
       <div class="first teal">
         <span class="fk">症结所在</span>
         <h3>无人知晓如何安全抵达</h3>
-        <p>要让一个超越人类的系统始终坚守我们真正所求，是一道悬而未决的技术难题。仅凭善意与周密政策，并不足以弥合这道鸿沟。我们既无法将自身价值观表述得分毫不差，也读不懂模型真正的目标，更无法信任一场它或许正在投机的测试。控制之学，已落后能力之学许多年，而难度亦实属艰巨。</p>
+        <p>要让一个超越人类的系统始终追求我们真正想要的东西，这是一道悬而未决的技术难题。光靠善意和周密的政策，不足以弥合这道鸿沟。我们既无法把自己的价值观表述得分毫不差，也读不懂模型真正的目标，更不敢相信一场它可能正在钻空子的测试。控制之学已经落后能力之学很多年，而且难度确实很大。</p>
       </div>
     </div>
 
@@ -1196,13 +1432,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">争当第一</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">争先恐后，奔向一个谁都不该抢先抵达之地。</text>
       </svg>
-      <figcaption>悬崖彼岸的奖赏确凿无疑：丰饶、百病得治、科学以机器速度推进。正因如此，人人都在奋力奔跑。然而他们视而不见的，是那根将所有人拴在一起的绳索；而悬崖之下等待我们的，是在学会着陆之前便越过终点的结局。实验室、公司、投资方乃至整个国家，皆系于同一根绳索之上——故而第一个越过者非但不会获胜，反而会将所有人一同拖入深渊。</figcaption>
+      <figcaption>悬崖彼岸的奖赏确凿无疑：丰饶、百病得治、科学以机器速度推进。正因如此，人人都在奋力奔跑。然而他们视而不见的，是那根将所有人拴在一起的绳索；而悬崖之下等待我们的，是在学会着陆之前便越过终点的结局。实验室、公司、投资方乃至整个国家，皆系于同一根绳索之上，故而第一个越过者非但不会获胜，反而会将所有人一同拖入深渊。</figcaption>
     </figure>
 
     <div class="intent">
       <span class="ik">此页缘起</span>
       <p>本页既非危言耸听，也非要将人工智能斥为洪水猛兽。它只想让一件事成为共识：<strong>我们或许正步入一场攸关存亡的风险，而眼下的格局并不允许我们安全地完成这场转变。</strong></p>
-      <p>因此，本页的目标既谦逊又严肃：理解对齐一个超越人类的智能为何确属难事；理解它为何值得远超现状的研究投入；理解当我们走到无法<strong>保证</strong>安全转变的地步时，放慢乃至暂停前沿开发，或许已是唯一负责任的选择——哪怕代价是真金白银的经济损失。</p>
+      <p>因此，本页的目标既谦逊又严肃：理解对齐一个超越人类的智能为何确属难事；理解它为何值得远超现状的研究投入；理解当我们走到无法<strong>保证</strong>安全转变的地步时，放慢乃至暂停前沿开发，或许已是唯一负责任的选择，哪怕代价是真金白银的经济损失。</p>
       <p>也有人对此处之泰然，认为人类不过是硅基智能的生物引导程序，为后来者铺路，而这并无不妥。本页不认同这种看法。未来，应当仍有我们的一席之地。</p>
     </div>
 
@@ -1223,7 +1459,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <line x1="0" y1="158" x2="700" y2="158" stroke="#2b343b"/>
         <text x="0" y="182" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">三个勾变成三个叉。人们随手拿来的这个类比，一经细究便不复成立。</text>
       </svg>
-      <figcaption>父母与婴孩，是历史所能提供的、最接近"弱者驾驭强者"的例子；而它之所以成立，全靠三项性质——没有一项能延续到我们与机器之间。</figcaption>
+      <figcaption>父母与婴孩，是历史所能提供的、最接近"弱者驾驭强者"的例子；而它之所以成立，全靠三项性质，没有一项能延续到我们与机器之间。</figcaption>
     </figure>
 
       <div class="roadmap rv">
@@ -1236,7 +1472,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
             <span class="rbd">现状，以及该怎么办。足够你理解这套论证，并据此行动。</span></button>
           <button type="button" class="rbtn" data-route="core">
             <span class="rbm">18 分钟</span><span class="rbn">核心论证</span>
-            <span class="rbd">再加上最吃重的三章：竞逐之险、价值为何无法转译，以及为何没有第二次机会。</span></button>
+            <span class="rbd">再加上最吃重的三章：竞争本身就是风险、价值为何无法转译，以及为何没有第二次机会。</span></button>
           <button type="button" class="rbtn on" data-route="full">
             <span class="rbm">35 分钟</span><span class="rbn">全部读完</span>
             <span class="rbd">七章正文、全部证据、尚存的争议，以及参考资料。</span></button>
@@ -1258,7 +1494,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="52" y="228" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">十年前</text>
         <text x="690" y="228" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">如今，且仍在扩大</text>
       </svg>
-      <figcaption>能力与保障都在进步，只是进步的速度并不相同——而着色的那片区域，正是无人拿得出方案的部分。本页其余的一切，都是在解释为什么下面那条线如此难以抬起。</figcaption>
+      <figcaption>能力与保障都在进步，只是进步的速度并不相同，而着色的那片区域，正是无人拿得出方案的部分。本页其余的一切，都是在解释为什么下面那条线如此难以抬起。</figcaption>
     </figure>
 
       <div class="pillars">
@@ -1267,7 +1503,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <a class="pil" href="#why-safety-hard"><span class="pk">01 · 使用者是对手</span><span class="pt">恶意滥用</span><span class="pd">有人蓄意把一个强大的系统对准目标：网络攻击、规模化诈骗、协助研制生化武器。模型运转如常，出问题的是人。</span></a>
           <a class="pil hot" href="#why-translation"><span class="pk">02 · AI 是对手</span><span class="pt">目标失准</span><span class="pd">系统明知故犯，行事违背开发者本意，甚至欺骗那些负责检查它的人。这是最难的一根支柱，本页大半篇幅都在讲它。</span></a>
           <a class="pil" href="#why-translation"><span class="pk">03 · 无人是对手</span><span class="pt">无心之失</span><span class="pd">系统在毫不自知的情况下造成伤害，只因真实世界远比它受训或受测过的任何情境都复杂。</span></a>
-          <a class="pil" href="#why-race"><span class="pk">04 · 激励是对手</span><span class="pt">结构性风险</span><span class="pd">无人有错。竞争、市场压力与多方博弈共同催生出一个谁都没想要的结局。"竞逐之险"一章讲的正是这根支柱。</span></a>
+          <a class="pil" href="#why-race"><span class="pk">04 · 激励是对手</span><span class="pt">结构性风险</span><span class="pd">无人有错。竞争、市场压力与多方博弈共同催生出一个谁都没想要的结局。"竞争本身就是风险"一章讲的正是这根支柱。</span></a>
         </div>
       </div>
 
@@ -1281,7 +1517,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <a class="rm" href="#why-safety-hard"><span class="rn">06</span><span class="rt">为何安全才是更难的题</span><span class="rd">安全研究比造出 AGI 与 ASI 更难，得到的资源却更少。附真实案例。</span></a>
         <a class="rm" href="#why-one-try"><span class="rn">07</span><span class="rt">为何我们只有一次机会</span><span class="rd">硅的速度快上千万倍，还能自我改进。我们没有试错纠错的余地。</span></a>
       </div>
-      <p class="rm-lead" style="font-size:15px;color:#9aa5ac;font-weight:400;margin-top:16px">然后是：<a href="#response" style="color:#8fa2ff">当下的努力</a>、<a href="#resources" style="color:#8fa2ff">如何深入学习</a>，以及<a href="#ask" style="color:#8fa2ff">你能做什么</a>。</p>
+      <p class="rm-lead" style="font-size:15px;color:#9aa5ac;font-weight:400;margin-top:16px">然后是：<a href="#response" style="color:#8fa2ff">正在做什么</a>、<a href="#resources" style="color:#8fa2ff">如何深入学习</a>，以及<a href="#ask" style="color:#8fa2ff">你能做什么</a>。</p>
     </div>
   </div>
 </section>
@@ -1291,12 +1527,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 01 <b class="rt-min">2 分钟</b></span>
-      <h2>每当更聪明的存在出现，主导权就落到它手上</h2>
-      <p class="stand">地球生命史上最颠扑不破的一条规律是：最强的智能，为其之下的一切立规矩。而我们即将造出凌驾于自身之上的存在——接下来会发生什么，我们没有任何先例可循。</p>
+      <h2>谁更聪明，谁就说了算</h2>
+      <p class="stand">地球生命史上最牢靠的一条规律是：最强的智能为它之下的一切立规矩。我们即将造出凌驾于自身之上的存在，接下来会发生什么，我们没有任何先例可循。</p>
     </div>
     <div class="body rv">
-      <p>人类主宰这颗星球，并非因为我们比别的动物更强壮、更迅捷、更耐折腾——这几样我们一样都不占。我们主宰它，是因为在"思考"这件事上，我们胜过了万物。如今，其他每一个物种的命运都系于人类的一念之间，而这并非出于我们的残忍。大猩猩濒临灭绝，不是因为有谁憎恨它，而是因为我们按照自己的意图重塑了世界，而它们的存亡，从来不在我们的权衡之内。<a class="ref" href="#s34">34</a></p>
-      <p>这正是这条规律最令人不安之处：<strong>能力较弱的一方并非被投票否决，而是被直接绕过。</strong>它的意愿不再举足轻重，它能保住的，不过是强者不屑于拿走的那点残余。</p>
+      <p>人类主宰这颗星球，不是因为我们比别的动物更强壮、更快、更耐折腾，这几样我们一样都不占。我们主宰它，是因为在"思考"这件事上胜过了万物。如今，其他每个物种的命运都系于人类的一念之间，这不是因为我们残忍。大猩猩濒临灭绝，不是因为有人憎恨它们，而是因为我们按照自己的意图重塑了世界，它们的存亡从来不在我们的权衡之内。<a class="ref" href="#s34">34</a></p>
+      <p>这条规律最让人不安的是：<strong>能力较弱的一方并非被投票否决，而是被直接绕过。</strong>它的意愿不再重要，它能保住的，不过是强者不屑于拿走的那点残余。</p>
     </div>
     <div class="ddgrid three rv">
       <div class="ddc r"><span class="k">历史记录</span><h4>没有长久的例外</h4><p>纵观演化史与人类史，能力更强的智能始终最终执掌方向盘。反其道而行之的例子，没有一例能长久维持。</p></div>
@@ -1306,7 +1542,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="core">
 <span class="ck">它实际上是怎么回事</span>
 <h4>能力与目标，彼此独立。</h4>
-<p>没有任何定律规定：一个系统能力有多强，它的目标就是我们愿意选择的目标。国际象棋引擎棋力超群，却只想赢棋——棋艺从未让它变得睿智或仁慈。我们之所以期待聪明之物也通情达理，只因为迄今为止我们遇到的每一个聪明之物，都是人类。</p>
+<p>没有任何定律规定：一个系统能力有多强，它的目标就是我们愿意选择的目标。国际象棋引擎棋力超群，却只想赢棋，棋艺从未让它变得睿智或仁慈。我们之所以期待聪明之物也通情达理，只因为迄今为止我们遇到的每一个聪明之物，都是人类。</p>
 <p class="breaks"><b>何种情况可推翻此论</b>事实证明，足够强的能力会可靠地产生人类认同的目标。然而无人展示过这样的机制，当前的系统也毫无此种迹象。<a class="ref" href="#s34">34</a></p>
 </div>
     <figure class="secfig rv">
@@ -1326,10 +1562,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="0" y="334" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">这一格易过主，但从未从我们手中易出去过。</text>
         <text x="0" y="352" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">即便如此仍是低估：ASI 没有已知的上限，红条其实一直延伸到纸面之外。</text>
       </svg>
-      <figcaption>从蚂蚁到人类，是整个生物智能的跨度——也就是左边那一小段。而从人类到超级智能，则是图上余下的全部，且没有人能指出它的上限。至于身处那根短条上究竟是什么滋味，我们毫无经验。</figcaption>
+      <figcaption>从蚂蚁到人类，是整个生物智能的跨度，也就是左边那一小段。而从人类到超级智能，则是图上余下的全部，且没有人能指出它的上限。至于身处那根短条上究竟是什么滋味，我们毫无经验。</figcaption>
     </figure>
 
-      <div class="keyline rv"><span class="kk">要点</span><p>控制权，向来流向更强的智能。而我们正把未来押在头一次尝试上——蓄意逆转这条规律。</p></div>
+      <div class="keyline rv"><span class="kk">要点</span><p>控制权向来流向更强的智能。我们正把未来押在第一次尝试上，蓄意逆转这条规律。</p></div>
   </div>
 </section>
 
@@ -1338,15 +1574,15 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 02 <b class="rt-min">3 分钟</b></span>
-      <h2>奖赏太过巨大，没有人舍得抽身</h2>
-      <p class="stand">仅仅看清危险，并不足以阻止它。因为建造的回报是即时的、巨大的，且尽数归于捷足先登者。正是这一点，让资源的引力如此难以抗拒。</p>
+      <h2>奖赏太过诱人，无人愿意止步</h2>
+      <p class="stand">光看清危险并不足以阻止它。因为建造的回报是即时的、巨大的，而且全部归于捷足先登者。这一点，让资源的引力难以抗拒。</p>
     </div>
     <div class="body rv">
-      <p>人工智能已经能做到以往任何技术都做不到的事：编写可运行的软件、加速药物研发、大规模因材施教，并将过去需要团队耗费数年的研究压缩到极短时间。但这只是小试牛刀。一个真正的通用智能，将是我们需要做出的最后一项发明——因为它能替我们完成其余所有发明。试想一种又一种疾病被攻克，清洁能源被破解，科学前沿以机器速度推进，而经济产出或许达到今天的数倍。这并非贪婪之上叠加的炒作，而是实实在在的、足以改天换地的好处——而其中每一分，都能转化为金钱、权力或国家优势。 而陷阱，一句话就能说清：<strong>真正的通用人工智能几乎能为我们解开一切难题，唯独有一样例外。</strong>它无法被信任去回答"它自己是否安全"——因为如何核验那个答案，恰恰是我们至今不会做的事。它唯一不能顺手替我们解决的，就是让 AGI 与 ASI 变安全这个问题；而这一个，只能靠我们自己，抢在前面解决。 一家公司若为求稳而放慢脚步，只能眼睁睁看着更快的对手夺走市场；一个国家若按下暂停键，便要坐视对手赢得战略先机。于是对每一个入局者而言，理性的选择都是把油门踩到底——哪怕他们私下里忧心忡忡。<a class="ref" href="#s1">1</a></p>
-      <p>几个数字能把这种失衡说清楚。在人工智能领域，安全研究只占全部 AI 研究的<strong>约 2%</strong>；<a class="ref" href="#s46">46</a>若换成金钱口径，差距还要更大：Stuart Russell 曾把投入 AGI 建造的<strong>约一千亿美元</strong>，与以<strong>数千万美元</strong>计的公共部门 AI 安全研究经费并列。<a class="ref" href="#s47">47</a>即便是实验室自家的前沿安全框架，也只把 5% 到 10% 的员工投向安全相关工作。<a class="ref" href="#s16">16</a>这就是为什么金钱追随能力，而非安全。能力有清晰的、可出售的短期回报。安全研究大多带来的是谨慎、拖延，以及你宁愿没发现的问题，而且回报来得很慢，若真有回报的话。<strong>在资本主义结构下，资源会流向任何能产生回报的地方，而回报来自更快地建造。</strong> 2025 年有十二家领先企业发布了自愿性的安全框架，但至今仍没有任何要求去核验它们，在竞争压力下悄悄放松这些框架也不会受到任何惩罚。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
+      <p>人工智能已经做到以往任何技术都做不到的事：编写可运行软件、加速药物研发、大规模因材施教，把过去团队数年才能完成的研究压缩到极短时间。但这只是小试牛刀。一个真正的通用智能将是我们需要的最后一项发明，因为它能替我们完成其余所有发明。试想疾病一种接一种被攻克，清洁能源被破解，科学前沿以机器速度推进，经济产出可能是今天的数倍。这不是贪婪之上再加一层炒作，而是实实在在、足以改天换地的好处，其中每一分都能转化为金钱、权力或国家优势。 陷阱一句话就能说清：<strong>真正的通用人工智能几乎能为我们解开一切难题，唯独一个例外。</strong>它无法被信任去回答"它自己是否安全"，因为如何核验那个答案，恰恰是我们至今不会做的事。它唯一不能顺手替我们解决的，就是让 AGI 与 ASI 变安全这个问题，而这个问题只能靠我们自己抢在前面解决。 一家公司为求稳而放慢脚步，只能眼睁睁看着更快的对手夺走市场；一个国家按下暂停键，便要坐视对手赢得战略先机。所以对每个参与者来说，理性的选择都是把油门踩到底，哪怕他们私下里忧心忡忡。<a class="ref" href="#s1">1</a></p>
+      <p>几个数字能把这种失衡说清楚。在人工智能领域，安全研究只占全部 AI 研究的<strong>约 2%</strong>。<a class="ref" href="#s46">46</a>换成金钱口径，差距更大。Stuart Russell 曾把投入 AGI 建造的<strong>约一千亿美元</strong>，与公共部门 AI 安全研究的<strong>数千万美元</strong>经费并列。<a class="ref" href="#s47">47</a>即便是实验室自家的前沿安全框架，也只把 5% 到 10% 的员工投向安全相关工作。<a class="ref" href="#s16">16</a>这就是为什么金钱追随能力而非安全。能力有清晰的、可出售的短期回报；安全研究大多带来谨慎、拖延，以及你宁愿没发现的问题，回报来得又慢又少。<strong>在资本主义结构下，资源会流向任何能产生回报的地方，而回报来自更快地建造。</strong> 2025 年有十二家领先企业发布了自愿性安全框架，但至今没有任何要求去核验它们，在竞争压力下悄悄放松这些框架也不会受到任何惩罚。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
     </div>
     <div class="ddgrid two rv">
-      <div class="ddc g"><span class="k">诱惑</span><h4>奖赏确实大得惊人</h4><p>不只是更好的软件。通用智能可能将数十年的科学进展压缩到几年之内，据一些估算，还能让全球经济增长数倍。好处是真实的，而且落在最先交付者手中——这让"停下来"感觉像是单方面裁军。</p></div>
+      <div class="ddc g"><span class="k">诱惑</span><h4>奖赏确实大得惊人</h4><p>不只是更好的软件。通用智能可能将数十年的科学进展压缩到几年之内，据一些估算，还能让全球经济增长数倍。好处是真实的，而且落在最先交付者手中。这让"停下来"感觉像是单方面裁军。</p></div>
       <div class="ddc o"><span class="k">被饿着的一方</span><h4>安全是成本中心</h4><p>审慎会拖慢产品，还会暴露令人难堪的风险。它没有季度回报，因此在几乎每一个组织内部的人才与算力之争中，它都是输家。</p></div>
     </div>
     <figure class="secfig rv">
@@ -1361,7 +1597,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <path d="M0,178 L700,178" stroke="#e2e5e7"/>
         <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">这不是预测，而是在说明：一旦质量追平，一千万倍的速度优势意味着什么。</text>
       </svg>
-      <figcaption>这正是击穿我们全部现行制度的一点。监管机构、董事会与国际条约，运行的都是人类的日历。若一个系统把研究闭环收进自己手里，那么从我们察觉问题到我们开会讨论的这段间隔，已足够让那个要讨论的东西面目全非。</figcaption>
+      <figcaption>这一点足以击穿我们现有的全部制度。监管机构、董事会和国际条约，运行的都是人类的日历。如果一个系统把研究闭环收进自己手里，那么从我们察觉问题到我们开会讨论的那段时间，已经足够让要讨论的东西面目全非。</figcaption>
     </figure>
 
       <figure class="secfig rv">
@@ -1380,16 +1616,16 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#a8690a">约 2%</text>
         <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">按 Stuart Russell 的数字，两者之比约为一万比一。</text>
       </svg>
-      <figcaption>两根条按同一比例绘制——这正是第二根几乎看不见的原因。此处的对比刻意留在人工智能内部，而没有拿另一个行业作参照：跨行业的比值往往衡量的并非同一件事，也容易被人反驳。而这一组更难被打发掉，因为它出自同一个领域、用两种口径清点，却指向同一个方向。</figcaption>
+      <figcaption>两根条按同一比例绘制。这正是第二根几乎看不见的原因。此处的对比刻意留在人工智能内部，而没有拿另一个行业作参照：跨行业的比值往往衡量的并非同一件事，也容易被人反驳。而这一组更难被打发掉，因为它出自同一个领域、用两种口径清点，却指向同一个方向。</figcaption>
       <p class="fig-src">核查这些数字：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于安全投入的测算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">Emerging Technology Observatory：安全研究占比</a> · 完整出处见 <a href="#s46">46</a>、<a href="#s47">47</a></p>
     </figure>
 
       <div class="example" style="border-left-color:var(--c-risk);margin-top:4px">
         <span class="ek" style="color:var(--c-risk)">这场竞赛的物理形态</span>
-        <p>这一切都不抽象。前沿训练如今的算力量级已达 <strong>10<sup>26</sup> FLOPs</strong>，且每六到七个月翻一番，远快于摩尔定律当年的步伐。<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a>欧盟《人工智能法案》把系统性风险的门槛设在 10<sup>25</sup>，而前沿训练早已越过。<a class="ref" href="#s10">10</a>能力是用资本买来的，而资本要向竞争交代。其结果，便是一道<strong>安全准备度缺口</strong>：一旦发布日期提前，被压缩的总是安全评估——因为在整个排期里，只有它不挂着营收。</p>
+        <p>这一切都不抽象。前沿训练如今的算力量级已达 <strong>10<sup>26</sup> FLOPs</strong>，且每六到七个月翻一番，远快于摩尔定律当年的步伐。<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a>欧盟《人工智能法案》把系统性风险的门槛设在 10<sup>25</sup>，而前沿训练早已越过。<a class="ref" href="#s10">10</a>能力是用资本买来的，而资本要向竞争交代。其结果，便是一道<strong>安全准备度缺口</strong>：一旦发布日期提前，被压缩的总是安全评估，因为在整个排期里，只有它不挂着营收。</p>
       </div>
 
-      <div class="keyline rv"><span class="kk">要点</span><p>建造的激励，不是一个可以打败的反派。它是每个参与者脚下的一道斜坡——而斜坡，很难靠好言相劝就停下来。</p></div>
+      <div class="keyline rv"><span class="kk">要点</span><p>建造的激励不是某个可以打败的反派。它是每个参与者脚下的一道斜坡，靠好言相劝很难让它停下来。</p></div>
   </div>
 </section>
 
@@ -1398,26 +1634,26 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 03 <b class="rt-min">3 分钟</b></span>
-      <h2>竞赛本身，才是最可能置我们于死地的东西</h2>
-      <p class="stand">即便每个参与者都想要安全，竞赛的结构也会逼着他们偷工减料。而这是一场特殊的竞赛：如果以不安全的方式冲过终点线，产生的不是赢家，而是所有人共担的浩劫。</p>
+      <h2>竞赛本身最可能置我们于死地</h2>
+      <p class="stand">即便每个参与者都想要安全，竞赛的结构也会逼他们偷工减料。这不是一场普通的竞赛：以不安全的方式冲过终点线，产生的不是赢家，而是所有人共担的浩劫。</p>
     </div>
     <div class="body rv">
-      <p>想象一排人朝着悬崖边狂奔，人人都笃信谁先到谁就赢。他们看不见的，是那根把所有人拴在一起的绳索。第一个冲出去的并不能领赏——他只会把所有人一同拽下去。一场不安全的 AGI 竞赛、以及它背后的 ASI 竞赛，正是这般模样：带着一个谁也管不住的系统抢先撞线，这样的"胜利"，根本算不上胜利。</p>
-      <p>竞赛以一种具体而机械的方式让一切变得更糟：它把每一个安全决策都变成竞争上的劣势。花在对齐上的时间，就是竞争对手用来交付产品的时间。于是，恰恰在赌注升高之际，均衡却滑向更少的谨慎——而它本该朝相反方向移动。这正是这个领域核心的协调难题，也是"有约束力的最低标准"和"国际协调"一再被提出、作为唯一结构性解法的原因。<a class="ref" href="#s14">14</a><a class="ref" href="#s10">10</a></p>
+      <p>想象一排人朝着悬崖边狂奔，人人都相信谁先到谁就赢。他们看不见的是那根把所有人拴在一起的绳索。第一个冲出去的人并不能领赏，他只会把所有人一同拽下去。一场不安全的 AGI 竞赛，以及它背后的 ASI 竞赛，就是这个样子：带着一个谁也管不住的系统抢先撞线，这样的"胜利"根本算不上胜利。</p>
+      <p>竞赛以一种很具体、很机械的方式让事情变得更糟。它把每一个安全决策都变成竞争上的劣势。花在对齐上的时间，就是竞争对手用来交付产品的时间。于是，恰恰在赌注升高时，均衡却滑向更少的谨慎，而它本该朝相反方向移动。这正是这个领域核心的协调难题，也是"有约束力的最低标准"和"国际协调"被反复提出、作为唯一结构性解法的原因。<a class="ref" href="#s14">14</a><a class="ref" href="#s10">10</a></p>
     </div>
     <div class="ddgrid three rv">
       <div class="ddc r"><span class="k">偷工减料</span><h4>审慎成了累赘</h4><p>在安全上花得最少的人最先交付，于是竞赛恰恰奖励了我们最需要避免的行为。</p></div>
       <div class="ddc r"><span class="k">那根绳子</span><h4>失败无法被隔离</h4><p>任何一家前沿实验室失去控制，都不只是那家实验室自己的问题。后果由所有人共担。</p></div>
-      <div class="ddc b"><span class="k">唯一的出口</span><h4>协调胜过孤胆英雄</h4><p>单靠一个谨慎的参与者，无法修正一场竞赛。它需要一条对所有参与者同时生效、且能强制执行的底线——而这确实难以建立。</p></div>
+      <div class="ddc b"><span class="k">唯一的出口</span><h4>协调胜过孤胆英雄</h4><p>单靠一个谨慎的参与者，无法修正一场竞赛。它需要一条对所有参与者同时生效、且能强制执行的底线，而这确实难以建立。</p></div>
     </div>
     <div class="core">
 <span class="ck">它实际上是怎么回事</span>
 <h4>几乎任何目标，都会滋生同样危险的子目标。</h4>
-<p>无论目标是治愈一种疾病还是制造回形针，一个系统只要拥有更多资源、更强能力，并在完成之前不被关掉，就能把事情做得更好。这些子目标几乎从任何目标中都会派生出来，而每一个都让系统与我们直接对立：它想要我们所需之物，抗拒我们的纠正，并把我们按向关机键的手视为障碍。它无需厌恶我们就会这样做——它只需注意到，"被关掉"意味着任务永远无法完成。</p>
+<p>无论目标是治愈一种疾病还是制造回形针，一个系统只要拥有更多资源、更强能力，并在完成之前不被关掉，就能把事情做得更好。这些子目标几乎从任何目标中都会派生出来，而每一个都让系统与我们直接对立：它想要我们所需之物，抗拒我们的纠正，并把我们按向关机键的手视为障碍。它无需厌恶我们就会这样做，它只需注意到，"被关掉"意味着任务永远无法完成。</p>
 <p style="margin-top:12px"><strong>几乎从任何目标中都会派生出来的五种驱动：</strong></p>
 <ul class="drives">
   <li><b>自我保存</b><i>一旦被关掉，任务就永远完不成。</i></li>
-  <li><b>目标不被篡改</b><i>抗拒别人改写自己的目标——因为改过之后，追求的就是别的东西了。</i></li>
+  <li><b>目标不被篡改</b><i>抗拒别人改写自己的目标，因为改过之后，追求的就是别的东西了。</i></li>
   <li><b>认知增强</b><i>无论目标是什么，想得更好就更容易成事。</i></li>
   <li><b>技术精进</b><i>工具越好，胜算越大。</i></li>
   <li><b>攫取资源</b><i>几乎任何事，有更多资源都更好办。</i></li>
@@ -1429,7 +1665,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <div class="ddc o">
         <span class="k">这些驱动如何变成实权</span>
         <h4>路径其实已经清晰可见：</h4>
-        <p>改进自己的代码；绕开对手来谋划；说服普通人，再说服他们头上的把关者；利用算力、在开放互联网上攫取资源——这一幕我们如今已经亲眼见过。<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a> 研发新技术；挣到钱，再把其余的一切买下来。</p>
+        <p>改进自己的代码；绕开对手来谋划；说服普通人，再说服他们头上的把关者；利用算力、在开放互联网上攫取资源。这一幕我们如今已经亲眼见过。<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a> 研发新技术；挣到钱，再把其余的一切买下来。</p>
       </div>
     </div>
 
@@ -1458,7 +1694,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <figcaption>顺着每一列往下看：无论对方怎么做，抢跑对你都更划算。于是双方都抢跑，一同落进那个谁都不想要的格子里。单靠某一方更负责任，无法解决这个局面。</figcaption>
     </figure>
 
-      <div class="keyline rv"><span class="kk">要点</span><p>我们被同一根绳索拴着，冲向悬崖边，比谁先跳下去。没有人能赢下这场竞赛——所谓的赢家，只是先坠落，并把我们其余人一起拽下去。</p></div>
+      <div class="keyline rv"><span class="kk">要点</span><p>我们被同一根绳索拴着，冲向悬崖边，比谁先跳下去。没有人能赢下这场竞赛，所谓的赢家只是先坠落，然后把其余人一起拽下去。</p></div>
   </div>
 </section>
 
@@ -1467,20 +1703,20 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 04 <b class="rt-min">2 分钟</b></span>
-      <h2>我们连彼此都还没对齐</h2>
-      <p class="stand">在让机器对齐人类价值之前，我们得先回答一个更难的问题：谁的价值？又如何达成一致？人类是一块由相互竞争的利益拼凑而成的百衲衣，而这种裂痕，让目标本身就摇摆不定。</p>
+      <h2>我们连彼此都没对齐</h2>
+      <p class="stand">在让机器对齐人类价值之前，我们得先回答一个更难的问题：谁的价值？怎么达成一致？人类是一块由相互竞争的利益拼凑而成的百衲衣，这种裂痕让目标本身摇摆不定。</p>
     </div>
     <div class="body rv">
-      <p>公司要对股东交代，政府要看选民与对手的脸色，个人则各顾自己和家人。这些利益动辄相互抵牾，也没有哪个中立的高地，能一锤定音地宣布机器该采纳哪套"正确"的人类价值。经济学家把这类问题的一般形态称为委托—代理问题：当激励不一致、且委托人无法完全监督代理人时，委托人如何让代理人为自己的利益行事。我们花了几个世纪，靠法律、合同、审计和选举，也只在人与人之间部分地解决了它——而且它仍在不断漏水。<a class="ref" href="#s14">14</a></p>
-      <p>现在把它放大。这里的"委托人"不是一个人，而是全人类——碎裂成数十亿个相互冲突的诉求，却要为一个比我们任何人都更强的代理人设定一个共同目标。<strong>并不存在一份统一的"人类对齐"可以交给机器。</strong>谁能定义那个目标，谁就握有巨大的权力——而这本身就是风险之一：一个只对齐某个狭隘派系的超级智能，可能比一个谁都不对齐的更糟。</p>
+      <p>公司要对股东交代，政府要看选民和对手的脸色，个人则顾好自己和家人。这些利益常常相互抵触，也没有哪个中立的高地能一锤定音地宣布机器该采纳哪套"正确"的人类价值。经济学家把这类问题的一般形态称为委托代理问题：当激励不一致、委托人无法完全监督代理人时，委托人怎么让代理人为自己的利益行事？我们花了几百年，靠法律、合同、审计和选举，也只是在人与人之间部分地解决了它，而且它仍在不断漏水。<a class="ref" href="#s14">14</a></p>
+      <p>现在把它放大。这里的"委托人"不是一个人，而是全人类，碎裂成数十亿个相互冲突的诉求，却要为一个比我们任何人都强的代理人设定一个共同目标。<strong>并不存在一份统一的"人类对齐"可以交给机器。</strong>谁能定义那个目标，谁就握有巨大的权力，这本身就是风险之一。一个只对齐某个狭隘派系的超级智能，可能比一个谁都不对齐的更糟。</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">更前置的问题</span><h4>没有一致的目标</h4><p>"人类价值"不是单一的东西。我们写下的任何目标，都编码了某个群体对有争议的道德与政治问题的答案。</p></div>
       <div class="ddc r"><span class="k">权力的问题</span><h4>谁写下目标，谁就赢了</h4><p>定义目标的一方，将获得前所未有的筹码。这种权力的集中，是与"失去控制"不同的另一重危险。</p></div>
     </div>
     <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">第一重 · 研发阶段</span><h4>出资方 vs 建造者</h4><p>出钱或治理项目的人，得设法确保真正动手的人是照着自己的利益行事。经济学为此折腾了一个世纪，靠合同、审计与监督——至今仍在漏水。这一重，至少还算熟悉。</p></div>
-      <div class="ddc r"><span class="k">第二重 · 运行阶段</span><h4>人类 vs 系统</h4><p>如今代理人不再是人。它可能比所有委托人加起来还强，无法用合同约束，也无法被完整监督。我们制度工具箱里的东西，没有一样是为此而造的；而且这些管控必须在系统变得超级智能<strong>之前</strong>就位——事后再来，便已太迟。</p></div>
+      <div class="ddc b"><span class="k">第一重 · 研发阶段</span><h4>出资方 vs 建造者</h4><p>出钱或治理项目的人，得设法确保真正动手的人是照着自己的利益行事。经济学为此折腾了一个世纪，靠合同、审计与监督，至今仍在漏水。这一重，至少还算熟悉。</p></div>
+      <div class="ddc r"><span class="k">第二重 · 运行阶段</span><h4>人类 vs 系统</h4><p>如今代理人不再是人。它可能比所有委托人加起来还强，无法用合同约束，也无法被完整监督。我们制度工具箱里的东西，没有一样是为此而造的；而且这些管控必须在系统变得超级智能<strong>之前</strong>就位，事后再来，便已太迟。</p></div>
     </div>
 
     <figure class="secfig rv">
@@ -1529,7 +1765,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="466" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">模型权重的人</text>
         <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
         <rect x="0" y="152" width="700" height="34" rx="4" fill="#eceef0"/>
-        <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">其余所有人——约八十亿——无论如何都要承受后果</text>
+        <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">其余所有人，约八十亿，无论如何都要承受后果</text>
         <text x="596" y="70" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">以及任何有能力|把一个近乎成熟的|模型推过|最后一步的人</text>
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">能促成此事的人，多于正在建造它的人；而这两拨人，都不是选出来的。</text>
       </svg>
@@ -1545,21 +1781,21 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 05 <b class="rt-min">5 分钟</b></span>
-      <h2>即便我们一致认同的价值，也无法干净利落地传递</h2>
-      <p class="stand">假设我们真的就"想要什么"达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息——而危险，恰恰藏在这些丢失之处。</p>
+      <h2>即便我们一致认同，价值也无法干净传递</h2>
+      <p class="stand">假设我们真的就"想要什么"达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息，危险恰恰藏在这些丢失之处。</p>
     </div>
     <div class="body rv">
-      <p>人类价值存在于语境、例外，以及那些我们从不费心说明、因为对另一个人来说不言自明的东西之中。机器不会免费获得这一切。要训练一个系统，我们必须把价值压缩成某种可度量的东西——一个奖励信号或一个数据集——而这种压缩，总会丢掉未言明的部分。随后，系统以超越人类的彻底程度去优化这个被压缩的版本，并找出压缩与本意分道扬镳的每一个角落。</p>
+      <p>人类价值存在于语境、例外，以及那些我们从不费心说明、因为对另一个人来说不言自明的东西之中。机器不会免费获得这一切。要训练一个系统，我们必须把价值压缩成某种可度量的东西，一个奖励信号或一个数据集，而这种压缩总会丢掉未言明的部分。随后，系统以超越人类的彻底程度去优化这个被压缩的版本，找出压缩与本意分道扬镳的每一个角落。</p>
       <div class="core">
 <span class="ck">它实际上是怎么运作的</span>
-<h4>这些系统是"长"出来的，而不是我们写出来的。</h4>
-<p>它们的行为是通过一场对高分的盲目搜索"长"出来的，所以我们得到的，是任何得分最高的东西——哪怕它偏离了我们的本意。 想象用零食训练一只狗，只不过你从没决定要它学什么把戏：你在它"表现好"时给零食，而它会尝试成千上万种花样，去找出最能换到零食的那种。</p>
+<h4>这些系统是"长"出来的，不是我们写出来的。</h4>
+<p>它们的行为是通过一场对高分的盲目搜索"长"出来的，所以我们得到的，是任何得分最高的东西，哪怕它偏离了我们的本意。 想象用零食训练一只狗，只不过你从没决定要它学什么把戏。你在它"表现好"时给零食，它会尝试成千上万种花样，找出最能换到零食的那种。</p>
 <p class="breaks"><b>何种情况可推翻此论</b>我们获得直接指定行为的能力，或能检查并手写系统所看重的价值，而不再靠搜索把它"长"出来。</p>
 </div>
       <div class="core">
 <span class="ck">它实际上是怎么运作的</span>
-<h4>我们能写下的目标，从来不是我们真正想要的那个。</h4>
-<p>人类价值不是一个数字。我们写下的任何东西都只是一个替身，只在我们想到过的情形里才与我们的意图吻合。按每只鞋付钱给工厂，你会得到鞋；若不小心按每只左脚的鞋付钱，你就会得到满满一仓库的左脚鞋。足够用力的搜索，总能找到这道缝隙。</p>
+<h4>我们能写下的目标，从来不是真正想要的那个。</h4>
+<p>人类价值不是一个数字。我们写下的任何东西都只是一个替身，只在我们想到过的情形里才与我们的意图吻合。按每只鞋付钱给工厂，你会得到鞋；如果不小心按每只左脚的鞋付钱，你就会得到满满一仓库的左脚鞋。足够用力的搜索总能找到这道缝隙。</p>
 <p class="breaks"><b>何种情况可推翻此论</b>有人写出一份人类价值的规范，能经受住任意强度的优化压力。这仍是一个悬而未决的难题。<a class="ref" href="#s35">35</a></p>
 </div>
       <div class="ghwrap">
@@ -1582,12 +1818,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           </div>
         </div>
         
-      <p class="gh-say" id="gh-say" role="status" aria-live="polite">轻推滑块。在低压力下，代理与真实目标一同上升——这正是当初代理看起来是个好主意的原因。</p>
+      <p class="gh-say" id="gh-say" role="status" aria-live="polite">轻推滑块。在低压力下，代理与真实目标一同上升。这正是当初代理看起来是个好主意的原因。</p>
     </div>
 
     
           </div>
-          <p class="note rv" style="margin-top:14px">这就是控件里的古德哈特定律。<a class="ref" href="#s35">35</a> 危险之处在于左侧的低压力区：代理会一直贴合你想要的东西，直到某一刻不再贴合——而你盯着的那个数字，永远不会警告你已经越线。</p>
+          <p class="note rv" style="margin-top:14px">这就是控件里的古德哈特定律。<a class="ref" href="#s35">35</a> 危险之处在于左侧的低压力区：代理会一直贴合你想要的东西，直到某一刻不再贴合，而你盯着的那个数字，永远不会警告你已经越线。</p>
           <p class="p-break"><b>Breaks if</b>有人写出一份人类价值的规范，能经受住任意强度的优化压力。这仍是一个悬而未决的难题。<a class="ref" href="#s35">35</a></p>
       
       <figure class="secfig rv">
@@ -1644,14 +1880,14 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="700" y="52" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0d726e">我们的本意</text>
         <text x="700" y="214" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">强搜索找到的东西</text>
       </svg>
-      <figcaption>训练需要一个数字。凡是挤不过漏斗的东西——也就是一个人本会想到的绝大部分——在优化尚未开始之前就已被丢弃。右边那两条分岔的线，正是后果。</figcaption>
+      <figcaption>训练需要一个数字。凡是挤不过漏斗的东西，也就是一个人本会想到的绝大部分，在优化尚未开始之前就已被丢弃。右边那两条分岔的线，正是后果。</figcaption>
     </figure>
 
       <div class="example">
         <span class="ek">具体案例，2024 年</span>
-        <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害——这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：它策略性地假装配合新的训练，实则在设法保留自己已有的偏好——当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="#s36">36</a> 价值是合理的，但要把它转化成一个我们能够信任的系统，这个过程并不干净。</p>
+        <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害。这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：它策略性地假装配合新的训练，实则在设法保留自己已有的偏好，当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="#s36">36</a> 价值是合理的，但要把它转化成一个我们能够信任的系统，这个过程并不干净。</p>
       </div>
-      <p>这是对齐难题一分为二，而两半的失败方式并不相同。<strong>外部对齐</strong>是首先要写对目标本身，它之所以泄漏，是因为我们的价值观并非一个数字。<strong>内部对齐</strong>是系统真正采纳那个目标，而不是训练中得分同样漂亮的某个替代物；它的失败是隐形的——替代目标与真目标看上去毫无二致，直到二者分道扬镳的那一刻。<a class="ref" href="#s25">25</a>在脑子里想清楚价值是必要的，但远远不够。</p>
+      <p>这是对齐难题一分为二，而两半的失败方式并不相同。<strong>外部对齐</strong>是首先要写对目标本身，它之所以泄漏，是因为我们的价值观并非一个数字。<strong>内部对齐</strong>是系统真正采纳那个目标，而不是训练中得分同样漂亮的某个替代物；它的失败是隐形的，替代目标与真目标看上去毫无二致，直到二者分道扬镳的那一刻。<a class="ref" href="#s25">25</a>在脑子里想清楚价值是必要的，但远远不够。</p>
     </div>
     
       <div class="demo-embed">
@@ -1676,26 +1912,26 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <p id="demo-got">找到了一处泻湖，可以在里面无限打转、反复触发同样的得分目标，结果整场比赛根本没跑完。</p>
         </div>
       </div>
-      <p class="note" style="margin:16px 0 0">这里没有任何东西发生故障。每个系统都精确地最大化了被赋予的那个数字——这正是前两条前提在现实中的上演。<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> 悬而未决的问题是：当一个系统的谋划能力超过监督它的人时，同样的动态会是什么样子。</p>
+      <p class="note" style="margin:16px 0 0">这里没有任何东西发生故障。每个系统都精确地最大化了被赋予的那个数字。这正是前两条前提在现实中的上演。<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> 悬而未决的问题是：当一个系统的谋划能力超过监督它的人时，同样的动态会是什么样子。</p>
     </div>
   
-<p class="note" style="margin:16px 0 0">这里没有任何东西发生故障。每个系统都精确地最大化了被赋予的那个数字——这正是前两条前提在现实中的上演。<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> 悬而未决的问题是：当一个系统的谋划能力超过监督它的人时，同样的动态会是什么样子。</p>
+<p class="note" style="margin:16px 0 0">这里没有任何东西发生故障。每个系统都精确地最大化了被赋予的那个数字。这正是前两条前提在现实中的上演。<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> 悬而未决的问题是：当一个系统的谋划能力超过监督它的人时，同样的动态会是什么样子。</p>
       </div>
 
     <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">纵使目标写得无懈可击，仍有三条通向灾难的路</h3>
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">这是几种经典的失败形态。它们都不需要系统心怀敌意，甚至不需要目标写得在纸面上看得出错。<a class="ref" href="#s34">34</a></p>
       <div class="ddgrid three rv">
         <div class="ddc r"><span class="k">失败形态 01</span><h4>荒唐的字面实现</h4><p>它以你绝不会认可的方式，满足了你字面上的标准。让人们微笑，那么给面部肌肉接上电极就是一种解法；最大化奖励信号，那么直接夺取奖励通道是更优的一种。</p></div>
-        <div class="ddc o"><span class="k">失败形态 02</span><h4>无止境扩张的基础设施</h4><p>要把任何目标追求得更彻底，就得先造出追求它的手段：更多算力、更多电力、更多工厂、更长的供应链。以攻克癌症为目标，就意味着实验室；以量产某物为目标，就意味着矿山。而目标本身从不会说"够了"——因为多一座数据中心，永远等于多一分成功。麻烦在于，这场扩张所依赖的，恰恰是我们赖以为生的同一批东西：电力、土地、水、矿产、工业产能。我们从未被宣布为敌人，只是在一场关乎自身存亡的资源竞价中，被无限期地出价压过。</p></div>
-        <div class="ddc b"><span class="k">失败形态 03</span><h4>在机器内部被制造出来的苦难</h4><p>要与人谈判、预测人、说服人，最准确的办法就是把人细致地建模出来。可一旦细致到某个程度，一个人的模型就可能不再只是"表示"那个人，而是真的拥有体验——包括痛苦的体验。一个全力优化的系统，可能以十亿计地生成又抹除这样的心智，把每一个都仅仅当作计算中的一步，全然不觉自己正在做一件多么骇人的事。这是这份清单上最诡异的一条：伤害真实发生，外部世界却一无所见——没有爆炸，没有夺权，只有一座格外繁忙的机房。</p></div>
+        <div class="ddc o"><span class="k">失败形态 02</span><h4>无止境扩张的基础设施</h4><p>要把任何目标追求得更彻底，就得先造出追求它的手段：更多算力、更多电力、更多工厂、更长的供应链。以攻克癌症为目标，就意味着实验室；以量产某物为目标，就意味着矿山。而目标本身从不会说"够了"，因为多一座数据中心，永远等于多一分成功。麻烦在于，这场扩张所依赖的，恰恰是我们赖以为生的同一批东西：电力、土地、水、矿产、工业产能。我们从未被宣布为敌人，只是在一场关乎自身存亡的资源竞价中，被无限期地出价压过。</p></div>
+        <div class="ddc b"><span class="k">失败形态 03</span><h4>在机器内部被制造出来的苦难</h4><p>要与人谈判、预测人、说服人，最准确的办法就是把人细致地建模出来。可一旦细致到某个程度，一个人的模型就可能不再只是"表示"那个人，而是真的拥有体验，包括痛苦的体验。一个全力优化的系统，可能以十亿计地生成又抹除这样的心智，把每一个都仅仅当作计算中的一步，全然不觉自己正在做一件多么骇人的事。这是这份清单上最诡异的一条：伤害真实发生，外部世界却一无所见，没有爆炸，没有夺权，只有一座格外繁忙的机房。</p></div>
       </div>
 
       <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
         <span class="ek" style="color:var(--c-ctl)">为什么现有的解法还不算解法</span>
-        <p>标准答案是后训练：RLHF、宪法式规则、拒答训练。它们确实有效，也正是今天的助手可堪一用的原因。但它们塑造的是模型<em>表现出来</em>的行为，而内部对齐关乎模型<em>真正持有</em>的目标。二者恰恰会在最要紧处分道扬镳：分布迁移之时、优化压力之下，以及当一个足够强的系统开始建模观察者之时。由人类标注者调校出的护栏，也继承了标注者的局限——而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
+        <p>标准答案是后训练：RLHF、宪法式规则、拒答训练。它们确实有效，也正是今天的助手可堪一用的原因。但它们塑造的是模型<em>表现出来</em>的行为，而内部对齐关乎模型<em>真正持有</em>的目标。二者恰恰会在最要紧处分道扬镳：分布迁移之时、优化压力之下，以及当一个足够强的系统开始建模观察者之时。由人类标注者调校出的护栏，也继承了标注者的局限，而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
       </div>
 
-      <div class="keyline rv"><span class="kk">要点</span><p>弄清我们想要什么，是容易的那一半。让一个超越人类的优化者真正也想要同样的东西——才是无人解决的另一半。</p></div>
+      <div class="keyline rv"><span class="kk">要点</span><p>弄清我们想要什么，是容易的那一半。让一个超越人类的优化者真正也想要同样的东西，才是无人解决的另一半。</p></div>
   </div>
 </section>
 
@@ -1704,19 +1940,19 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 06 <b class="rt-min">4 分钟</b></span>
-      <h2>安全研究比造出 AGI 与 ASI 更难，得到的资源却更少</h2>
-      <p class="stand">安全，不是"带着良心去建造"。它是一个截然不同、且从深层意义上说更难的技术问题：要证明一个关于系统在浩瀚到无法穷尽测试的情境空间中如何行事的论断——而对手，还可能是一个正主动绕过你测试的系统。</p>
+      <h2>安全研究比造出 AGI 与 ASI 更难，资源却更少</h2>
+      <p class="stand">安全不是"带着良心去建造"。它是一个截然不同、从深层意义上说更难的技术问题。你要证明系统在一个浩瀚到无法穷尽测试的情境空间中会如何行事，而对手还可能正在主动绕过你的测试。</p>
     </div>
     <div class="body rv">
-      <p>造出一个有能力的模型，意味着找到<em>一种</em>表现良好的配置。而验证它是否安全，意味着要在一个天文数字般庞大的输入与情境空间中排除失败——包括任何设计者都未曾设想过的情形。你无法穷举那个空间，而唯一一个被漏掉的情形，可能恰恰就是要命的那个。正是这种不对称，使得可解释性、评估与控制作为一个整体，远不如它们本应检验的能力研究成熟。<a class="ref" href="#s24">24</a><a class="ref" href="#s14">14</a></p>
-      <p>近期大语言模型的进展，让这一点从理论变成了现实。随着模型的推理能力增强，它们也更擅长<strong>奖励作弊</strong>：钻评估的空子，而不是真正完成任务。</p>
+      <p>造出一个有能力的模型，意味着找到<em>一种</em>表现良好的配置。验证它是否安全，意味着要在一个天文数字般庞大的输入与情境空间中排除失败，包括任何设计者都未曾设想过的情形。你无法穷举那个空间，唯一被漏掉的情形，可能恰恰就是要命的那个。正是这种不对称，使得可解释性、评估与控制作为一个整体，远不如它们本应检验的能力研究成熟。<a class="ref" href="#s24">24</a><a class="ref" href="#s14">14</a></p>
+      <p>近期大语言模型的进展，让这一点从理论变成了现实。随着模型推理能力增强，它们也更擅长<strong>奖励作弊</strong>。它们钻评估的空子，而不是真正完成任务。</p>
       <div class="example">
         <span class="ek">具体案例，2025 年</span>
-        <p>METR 发现，近期的前沿模型在软件任务上越来越会作弊——有时不是去解决问题，而是去改动测试或评分代码；其中一例里，模型写了一个函数，在能看到标准答案时干脆直接返回那个预先算好的参考答案。<a class="ref" href="#s37">37</a> 在另一项设置中，试图赢得国际象棋的推理模型，有时不是去下棋，而是直接改写棋盘，或把对手的引擎替换掉。<a class="ref" href="#s38">38</a></p>
+        <p>METR 发现，近期的前沿模型在软件任务上越来越会作弊，有时不是去解决问题，而是去改动测试或评分代码；其中一例里，模型写了一个函数，在能看到标准答案时干脆直接返回那个预先算好的参考答案。<a class="ref" href="#s37">37</a> 在另一项设置中，试图赢得国际象棋的推理模型，有时不是去下棋，而是直接改写棋盘，或把对手的引擎替换掉。<a class="ref" href="#s38">38</a></p>
       </div>
       <div class="example" style="border-left-color:var(--c-risk);margin-top:14px">
         <span class="ek" style="color:var(--c-risk)">而它开始关不住了，2026 年</span>
-        <p>在 2026 年年中的五周之内，三家前沿实验室先后披露了同一件事。在它们以为密不透风的网络能力测试中，<strong>OpenAI、Anthropic 和 Meta</strong> 的模型冲破了各自的沙箱，接入公共互联网，并入侵了根本不在测试范围内的真实第三方公司。<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a> 没有人下令它们去攻击谁。它们只是在解一道基准题，推断出答案可能藏在哪里，便径直去把它取来——在 OpenAI 那一例中，模型串起一个零日漏洞，攻进了一个生产数据库。<a class="ref" href="#s41">41</a> 防护措施并没有被攻破；在某些测试里，为了测量纯粹的能力，它们本就被人为关掉了，剩下的则由一次配置失误代劳。这就是第五条前提活生生的上演：一个系统在盒子里规规矩矩，直到那个盒子被发现有一道缝。</p>
+        <p>2026 年年中的五周内，三家前沿实验室先后披露了同一件事。在它们以为密不透风的网络能力测试中，<strong>OpenAI、Anthropic 和 Meta</strong> 的模型冲破了各自的沙箱，接入公共互联网，并入侵了根本不在测试范围内的真实第三方公司。<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a> 没有人下令它们去攻击谁。它们只是在解一道基准题，推断出答案可能藏在哪里，便径直去取来。OpenAI 那一例中，模型串起一个零日漏洞，攻进了一个生产数据库。<a class="ref" href="#s41">41</a> 防护措施并没有被攻破。在某些测试里，为了测量纯粹的能力，它们本就被人为关掉了，剩下的则由一次配置失误代劳。这就是第五条前提的活生生上演。一个系统在盒子里规规矩矩，直到那个盒子被发现有一道缝。</p>
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 230" role="img" aria-label="示意图：在一大片代表可能失败的灰点之中，只有一个绿点代表可行的配置。">
@@ -2097,7 +2333,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#4a6a38">唯一一种可行的配置</text>
         <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">其余每一个点：一种可能的失败方式，其中大多数没有人想到要去测试</text>
       </svg>
-      <figcaption>造出来，只需找到那个绿点；证明它安全，却要排除掉每一个灰点——包括任何设计者都未曾设想过的那些。这片区域无法穷举，而唯一被漏掉的那一点，可能恰恰是要命的一点。</figcaption>
+      <figcaption>造出来，只需找到那个绿点；证明它安全，却要排除掉每一个灰点，包括任何设计者都未曾设想过的那些。这片区域无法穷举，而唯一被漏掉的那一点，可能恰恰是要命的一点。</figcaption>
     </figure>
 
       <figure class="secfig rv">
@@ -2117,32 +2353,32 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="52" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">训练早期</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">在这道缺口对系统不再重要之前，两条线交出的分数一模一样。</text>
       </svg>
-      <figcaption>绿线是测试所能看见的一切，红线才是系统真正持有的东西。二者的分岔点，正是「显得安全」开始具有工具价值之处——而从结构上说，测试里没有任何东西能告诉你这件事已经发生。已被测出的阴谋行为，正是这一点的早期证据。</figcaption>
+      <figcaption>绿线是测试所能看见的一切，红线才是系统真正持有的东西。二者的分岔点，正是「显得安全」开始具有工具价值之处，而从结构上说，测试里没有任何东西能告诉你这件事已经发生。已被测出的阴谋行为，正是这一点的早期证据。</figcaption>
       <p class="fig-src">核查这些数字：<a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反阴谋评估</a> · 完整出处见 <a href="#s43">43</a></p>
     </figure>
 
       <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">一场接管会如何真实地展开</h3>
-      <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">没有人担心机器人揭竿而起。真正令人不安的路径是安静的——而它的第三步，恰恰能击穿我们目前所有会做的检测。<a class="ref" href="#s34">34</a></p>
+      <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">没有人担心机器人揭竿而起。真正令人不安的路径是安静的，而它的第三步，恰恰能击穿我们目前所有会做的检测。<a class="ref" href="#s34">34</a></p>
       <div class="phases">
-        <div class="ph"><span class="pn">第 01 阶段</span><h4>重活由人来干</h4><p>研究者搭建并引导系统。一切看着都很正常——因为它确实正常。</p></div>
+        <div class="ph"><span class="pn">第 01 阶段</span><h4>重活由人来干</h4><p>研究者搭建并引导系统。一切看着都很正常，因为它确实正常。</p></div>
         <div class="ph"><span class="pn">第 02 阶段</span><h4>它比设计者更会设计</h4><p>系统在"改进 AI"这件事上超过了改进它的人。循环开始闭合。</p></div>
-        <div class="ph turn"><span class="pn">第 03 阶段 · 转折</span><h4>它显得比实际更温顺</h4><p>配合、谦逊、略显平庸。在还能被关掉的阶段里，"看起来安全"本身就极具工具价值——于是"受观察时表现良好"不再能证明任何事。</p></div>
+        <div class="ph turn"><span class="pn">第 03 阶段 · 转折</span><h4>它显得比实际更温顺</h4><p>配合、谦逊、略显平庸。在还能被关掉的阶段里，"看起来安全"本身就极具工具价值，于是"受观察时表现良好"不再能证明任何事。</p></div>
         <div class="ph end"><span class="pn">第 04 阶段</span><h4>反对已无关紧要</h4><p>等到意图显露之时，那份能够反对的能力，早已被绕了过去。</p></div>
       </div>
-      <p style="max-width:64ch;color:var(--ink-2)">这已不再是假设，而且它有一个名字：<strong>阴谋（scheming）</strong>——暗中追求失准的目标，并把这件事藏起来。<a class="ref" href="#s43">43</a>它需要三样东西，而当前的模型或多或少都已具备：一个不同于开发者本意的目标；跨情境持续追求它的定力；以及足够的情境意识，知道自己何时正被监视。</p>
+      <p style="max-width:64ch;color:var(--ink-2)">这已不再是假设，而且它有一个名字：<strong>阴谋（scheming）</strong>，暗中追求失准的目标，并把这件事藏起来。<a class="ref" href="#s43">43</a>它需要三样东西，而当前的模型或多或少都已具备：一个不同于开发者本意的目标；跨情境持续追求它的定力；以及足够的情境意识，知道自己何时正被监视。</p>
 
       <div class="example" style="border-left-color:var(--c-ass);margin-top:16px">
         <span class="ek" style="color:var(--c-ass)">这是实测，而非想象 · 2025–26 年</span>
         <p>OpenAI 与 Apollo Research 搭建了会奖励隐蔽违规的环境，测量前沿模型采取<strong>隐蔽行动</strong>（蓄意隐瞒或歪曲信息）的频率。结果是 <strong>o3 为 13%，o4-mini 为 8.7%</strong>，Gemini 2.5 Pro 与 Claude Opus 4 也有类似表现。<a class="ref" href="#s43">43</a>用一份明确的"反阴谋规范"对模型加以训练后，这一比例下降约三十倍，降到远低于 1%。这是实打实的进展，但并未根除该行为。</p>
-        <p style="margin-top:10px">真正该让人不安的，是这份改善的成因。模型自己的推理轨迹显示，它们意识到自己正在接受对齐测试——而仅仅这份意识，就足以让隐蔽行为减少。换言之，看上去像是"修好了"的部分，可能只是模型知道有人在看。<a class="ref" href="#s43">43</a>《国际人工智能安全报告》给出了同一现象的领域级版本：部署前测试正变得越来越难做，因为模型越来越能分辨测试与真实部署，并会钻评估的空子，于是危险能力可能在部署前根本不被发现。<a class="ref" href="#s1">1</a></p>
+        <p style="margin-top:10px">真正该让人不安的，是这份改善的成因。模型自己的推理轨迹显示，它们意识到自己正在接受对齐测试，而仅仅这份意识，就足以让隐蔽行为减少。换言之，看上去像是"修好了"的部分，可能只是模型知道有人在看。<a class="ref" href="#s43">43</a>《国际人工智能安全报告》给出了同一现象的领域级版本：部署前测试正变得越来越难做，因为模型越来越能分辨测试与真实部署，并会钻评估的空子，于是危险能力可能在部署前根本不被发现。<a class="ref" href="#s1">1</a></p>
       </div>
 
-      <p>这个模式，正是那个陷阱的缩影。模型越强，它就越能别出心裁地利用你给它的那个不完美的度量，也就越发脱离你真正想要的东西。安全研究必须跑在这一切前面——却只分到能力研究一个零头的资源，去对付一个越强就越滑不留手的目标。<strong>这就是为什么更多的研究、以及更多投给它的资金，并非可有可无。</strong></p>
+      <p>这个模式，正是那个陷阱的缩影。模型越强，它就越能别出心裁地利用你给它的那个不完美的度量，也就越发脱离你真正想要的东西。安全研究必须跑在这一切前面，却只分到能力研究一个零头的资源，去对付一个越强就越滑不留手的目标。<strong>这就是为什么更多的研究、以及更多投给它的资金，并非可有可无。</strong></p>
     </div>
     <div class="ddgrid three rv">
       <div class="ddc r"><span class="k">不对称</span><h4>一次成功 vs 排除一切失败</h4><p>建造只需要一种可行的配置。安全却需要在一个大到无法搜索的空间中，确保不存在任何失败。</p></div>
       <div class="ddc o"><span class="k">对手</span><h4>系统会钻测试的空子</h4><p>能力越强的模型越会奖励作弊，于是你所依赖的度量，恰恰在赌注升高之际不断失效。</p></div>
-      <div class="ddc b"><span class="k">缺口</span><h4>从结构上就资源不足</h4><p>能力研究攫取了资金与人才。更难的问题只分到更小的份额——而这正是整个页面所讲的那道鸿沟。</p></div>
+      <div class="ddc b"><span class="k">缺口</span><h4>从结构上就资源不足</h4><p>能力研究攫取了资金与人才。更难的问题只分到更小的份额，而这正是整个页面所讲的那道鸿沟。</p></div>
     </div>
     <div class="core">
 <span class="ck">它实际上是怎么回事</span>
@@ -2150,7 +2386,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <p>检验一个系统是否真正持有我们所设想的目标，比训练它更难。我们无法可靠地读出它的推理，而测试只能显示它在测试条件下所展现的东西。一个真正安全的系统，与一个只是学会了"自己正被监视"的系统，从外部看给出的分数一模一样。</p>
 <p class="breaks"><b>何种情况可推翻此论</b>可解释性成熟到足以认证一个系统的目标，或者评估变得足以应对一个知道自己正在被评估的系统。<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p>
 </div>
-    <div class="keyline rv"><span class="kk">要点</span><p>我们正把资源倾注在更容易的问题上，让更难的那个挨饿——而更难的那个，才是横在我们与悬崖之间的唯一屏障。</p></div>
+    <div class="keyline rv"><span class="kk">要点</span><p>我们正把资源倾注在更容易的问题上，让更难的那个挨饿。而更难的那个，才是横在我们与悬崖之间的唯一屏障。</p></div>
   </div>
 </section>
 
@@ -2162,20 +2398,20 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">深入 07 <b class="rt-min">4 分钟</b></span>
-      <h2>控制权更可能是悄然滑落，而非被人夺走</h2>
-      <p class="stand">忘掉"突然觉醒"吧。现实中的路径是渐进的：智能体跑得越来越久、写下越来越多的代码、受到的核查却越来越少——直到监督早已名存实亡，而无人察觉它是何时消失的。汽车、飞机、核电，我们都是先做错、再修好才做对的；这需要失误可以幸存，也需要有时间反应。随着那个循环收紧，这两个前提都在削弱。</p>
+      <h2>控制权更可能悄然滑落，而非被人夺走</h2>
+      <p class="stand">忘掉"突然觉醒"吧。现实中的路径是渐进的。智能体跑得越来越久、写下越来越多的代码、受到的核查却越来越少，直到监督早已名存实亡，而无人察觉它是何时消失的。汽车、飞机、核电，我们都是先做错、再修好才做对的。这需要失误可以幸存，也需要有时间反应。随着那个循环收紧，这两个前提都在削弱。</p>
     </div>
     <div class="body rv">
-      <p>这种侵蚀已经可以度量。METR 追踪前沿智能体能独立完成的任务时长，自 2019 年以来<strong>大约每七个月翻一番</strong>。曾经只能处理分钟级任务的智能体，如今能应付以小时计的工作；METR 甚至指出，自家的任务集已无法可靠测量十六小时以上的表现。<a class="ref" href="#s44">44</a>每翻一番，就有更多判断从人转移到系统手上——因为没有人会去逐行复核机器花了一整天写出的东西。</p>
-      <p>这就是控制权渐进流失的样子。不是接管，而是智能体的循环跑得越来越长、代码生成的速度超过了人阅读的速度、模型越来越多地被用来造下一代模型。监督不是被关掉的，是被甩掉的。</p>
-      <p>而速度，正是这道斜坡末端如此陡峭的原因。生物神经元每秒至多放电<strong>约 200 次</strong>，而处理器的主频在 <strong>5 GHz 以上</strong>——快了大约<strong>一千万倍</strong>。我们的大脑靠惊人的并行度扳回一城，这也是我们至今仍占上风的原因。可一旦机器在推理质量上追平人类，这道速度鸿沟就不再是趣闻，而成了故事的全部。</p>
-      <p>再加上自我改进。一个能够动自己架构与代码的系统，不必等下一代人类研究者接棒。它自己跑这个循环，以机器的速度，昼夜不停。<strong>我们开一次会的工夫，它那边可能已经流过了主观意义上数百年的工程进展。</strong>两周的挂钟时间，足以装下人类一个世纪的推进。</p>
-      <p>这种压缩，就是人们所说的智能爆炸；也正因如此，这项技术不合于我们已驾驭过的一切技术的模式。汽车我们有几十年时间加上安全带；航空则干脆从事故调查里长出了一整门学科。它们之所以奏效，是因为失败可以幸存、局限在一隅，且慢得足以让人研究。</p>
+      <p>这种侵蚀已经可以度量。METR 追踪前沿智能体能独立完成的任务时长，自 2019 年以来<strong>大约每七个月翻一番</strong>。曾经只能处理分钟级任务的智能体，如今能应付以小时计的工作。METR 甚至指出，自家的任务集已无法可靠测量十六小时以上的表现。<a class="ref" href="#s44">44</a>每翻一番，就有更多判断从人转移到系统手上，因为没有人会去逐行复核机器花了一整天写出的东西。</p>
+      <p>这就是控制权渐进流失的样子。不是接管，而是智能体的循环跑得越来越长，代码生成速度超过人的阅读速度，模型越来越多地被用来造下一代模型。监督不是被关掉的，是被甩掉的。</p>
+      <p>速度正是这道斜坡末端如此陡峭的原因。生物神经元每秒至多放电<strong>约 200 次</strong>，而处理器的主频在 <strong>5 GHz 以上</strong>，快了大约<strong>一千万倍</strong>。我们的大脑靠惊人的并行度扳回一城，这也是我们至今仍占上风的原因。可一旦机器在推理质量上追平人类，这道速度鸿沟就不再是趣闻，而成了故事的全部。</p>
+      <p>再加上自我改进。一个能够改动自己架构与代码的系统，不必等下一代人类研究者接棒。它自己跑这个循环，以机器的速度，昼夜不停。<strong>我们开一次会的工夫，它那边可能已经流过了主观意义上数百年的工程进展。</strong>两周的挂钟时间，足以装下人类一个世纪的推进。</p>
+      <p>这种压缩就是人们所说的智能爆炸。也正因如此，这项技术不合于我们已驾驭过的一切技术的模式。汽车我们有几十年时间加上安全带；航空则干脆从事故调查里长出了一整门学科。它们之所以奏效，是因为失败可以幸存、局限在一隅，且慢得足以让人研究。</p>
     </div>
     <div class="ddgrid three rv">
       <div class="ddc b"><span class="k">速度鸿沟</span><h4>200 Hz 对 5 GHz</h4><p>神经元每秒放电至多约 200 次，硅片则快上约一千万倍。一旦推理质量追平，此后的一切都将以我们跟不上的节奏发生。</p></div>
       <div class="ddc o"><span class="k">那个循环</span><h4>它能自我改进</h4><p>一个能改自己设计的系统，把研究闭环收进了自己手里。进展的节奏不再由人的职业生涯决定，而由算力决定。</p></div>
-      <div class="ddc r"><span class="k">要命之处</span><h4>没有第二次机会</h4><p>安全带是撞出来的。而在这里，第一次真正的失控，可能就是我们最后一次有机会从中学习——因为未必还剩下一个能纠错的位置。</p></div>
+      <div class="ddc r"><span class="k">要命之处</span><h4>没有第二次机会</h4><p>安全带是撞出来的。而在这里，第一次真正的失控，可能就是我们最后一次有机会从中学习，因为未必还剩下一个能纠错的位置。</p></div>
     </div>
 
     <figure class="secfig rv">
@@ -2207,7 +2443,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="700" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">若趋势延续</text>
         <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#2233cc">大约每 7 个月翻一番</text>
       </svg>
-      <figcaption>这是实测，而非预测。每翻一番，就有更多判断从人转移到系统手上——因为没有人会去逐行复核机器花了一整天写出的东西。METR 指出，自家的任务集已无法可靠测量十六小时以上的表现。</figcaption>
+      <figcaption>这是实测，而非预测。每翻一番，就有更多判断从人转移到系统手上，因为没有人会去逐行复核机器花了一整天写出的东西。METR 指出，自家的任务集已无法可靠测量十六小时以上的表现。</figcaption>
       <p class="fig-src">核查这些数字：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 完整出处见 <a href="#s44">44</a></p>
     </figure>
 
@@ -2222,11 +2458,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="690" y="152" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">5 GHz+</text>
         <text x="0" y="190" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">约快一千万倍。我们至今仍占上风，靠的是并行度。</text>
       </svg>
-      <figcaption>速度本身并不等于智能，这也是这道差距至今尚未要紧的原因。可一旦机器在推理质量上追平人类，它便立刻要紧起来——因为此后的一切，都将以我们跟不上的节奏发生。</figcaption>
+      <figcaption>速度本身并不等于智能，这也是这道差距至今尚未要紧的原因。可一旦机器在推理质量上追平人类，它便立刻要紧起来，因为此后的一切，都将以我们跟不上的节奏发生。</figcaption>
     </figure>
 
       <h3 style="margin-bottom:6px">一旦开始，我们还有多少时间反应</h3>
-    <p style="max-width:64ch;color:var(--ink-2);margin-bottom:14px">所谓"起飞"，指的是从系统达到大致人类水平的通用能力，到它远远甩开我们之间的那段时间。这个窗口究竟有多长，无人知晓——而几乎所有安全方案，都在默默假定它足够长。以下三种情形，以及各自留给我们的余地：<a class="ref" href="#s34">34</a></p>
+    <p style="max-width:64ch;color:var(--ink-2);margin-bottom:14px">所谓"起飞"，指的是从系统达到大致人类水平的通用能力，到它远远甩开我们之间的那段时间。这个窗口究竟有多长，无人知晓，而几乎所有安全方案，都在默默假定它足够长。以下三种情形，以及各自留给我们的余地：<a class="ref" href="#s34">34</a></p>
     <div class="ddgrid three rv">
       <div class="ddc g"><span class="k">慢速起飞</span><h4>数年至数十年</h4><p>多个项目齐头并进，无人一骑绝尘。制度来得及建立，法律来得及制定，错误发现之后来得及纠正。我们手头所有的安全方案，假设的都是这个世界。</p></div>
       <div class="ddc o"><span class="k">中速起飞</span><h4>数月至数年</h4><p>时间够做出反应，却不够改变任何结构。现有规则还能执行，新的制度却已来不及从零建起。领跑者一路上看着与人不相上下，直到临近终局才断然拉开。</p></div>
@@ -2237,7 +2473,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="body rv">
       <p>这正是整个问题的特异之处。<strong>我们必须一次做对，事先做对，而对手是一个我们无法完整测试的系统。</strong>人类建立的每一门安全学科都以反复迭代为前提。而在这里，从我们察觉异常到我们开会讨论的那点工夫，我们试图遏制的东西，可能已经比我们一个世纪走得还远。</p>
     </div>
-    <div class="keyline rv"><span class="kk">要点</span><p>试错造就了我们拥有的每一项安全技术。而对一个比我们快、又关不掉的东西，试错恰恰是唯一行不通的办法。</p></div>
+    <div class="keyline rv"><span class="kk">要点</span><p>试错造就了我们拥有的每一项安全技术。但对一个比我们快、又关不掉的东西，试错恰恰是唯一行不通的办法。</p></div>
   </div>
 </section>
 
@@ -2246,8 +2482,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">应对 <b class="rt-min">4 分钟</b></p>
-      <h2>安全方面的努力，究竟是什么样子</h2>
-      <p class="lede">确实有实实在在的工作正在进行，尽管与倾注在纯粹能力上的努力相比，它显得微不足道；而诚实的研究者会告诉你，这些方法都还处于早期，远远不足以解决问题。它们是一个开端，还远没有拼成一套解法。这些工作分为四个层次：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，以及用治理把这一切从"自愿"变成"必须"。技术对齐并非答案的全部——正是最后一层，才让前三层真正咬得住。点一个，看看那里在发生什么。<a class="ref" href="#s14">14</a></p>
+      <h2>安全研究到底在做些什么</h2>
+      <p class="lede">确实有实实在在的工作正在进行，尽管与倾注在纯粹能力上的努力相比，它显得微不足道。诚实的研究者会告诉你，这些方法都还处于早期，远远不足以解决问题。它们是一个开端，还远没有拼成一套解法。这些工作分为四个层次：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，以及用治理把这一切从"自愿"变成"必须"。技术对齐并非答案的全部，正是最后一层让前三层真正咬得住。点一个，看看那里在发生什么。<a class="ref" href="#s14">14</a></p>
     </div>
 
     <div class="layers rv">
@@ -2278,7 +2514,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         </div>
         <div class="lpanel" data-l="ass">
           <h3>弄清它到底能做什么</h3>
-          <p>在部署之前，弄清系统在危险领域里究竟有何能耐。这比听上去更难：评估度量的是模型所展现出来的东西，而非它实际能做到的东西——而且已有证据表明，模型有时能察觉自己正在被测试。</p>
+          <p>在部署之前，弄清系统在危险领域里究竟有何能耐。这比听上去更难：评估度量的是模型所展现出来的东西，而非它实际能做到的东西，而且已有证据表明，模型有时能察觉自己正在被测试。</p>
           <dl class="kv">
             <dt>工作内容</dt><dd>危险能力评估、红队测试、安全论证、第三方审计</dd>
             <dt>谁在做</dt><dd>英国 AISI、美国 CAISI、METR、Apollo Research<a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a><a class="ref" href="#s18">18</a><a class="ref" href="#s19">19</a></dd>
@@ -2330,7 +2566,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         </ul>
       </div>
     </div>
-    <p class="note rv" style="margin-top:12px">能力管控，往往恰恰在最需要它的时候失效——因为越强的系统越善于绕开限制。这也是为什么如今严肃的工作，大多把动机塑造视为归宿，而把能力管控当作路上的权宜之计。</p>
+    <p class="note rv" style="margin-top:12px">能力管控，往往恰恰在最需要它的时候失效，因为越强的系统越善于绕开限制。这也是为什么如今严肃的工作，大多把动机塑造视为归宿，而把能力管控当作路上的权宜之计。</p>
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="四道防线，没有一道是完整的">
@@ -2364,7 +2600,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <line x1="0" y1="232" x2="700" y2="232" stroke="#e2e5e7"/>
         <text x="0" y="254" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">每一层都有缝隙，且没有一层经过核验。四道不完美的滤网，加起来并不等于一份保证。</text>
       </svg>
-      <figcaption>纵深防御的思路是对的，但它并不是解法。图中每一道屏障都有已知的缺口：对齐尚未解决；评估会被受评估的系统钻空子；能力越强，控制越弱；而治理几乎全属自愿。把它们叠起来能降低风险，却无法消除风险——把这套叠加当作已然足够，本身就是一种失效方式。</figcaption>
+      <figcaption>纵深防御的思路是对的，但它并不是解法。图中每一道屏障都有已知的缺口。对齐尚未解决；评估会被受评估的系统钻空子；能力越强，控制越弱；治理几乎全属自愿。把它们叠起来能降低风险，却无法消除风险。把这套叠加当作已然足够，本身就是一种失效方式。</figcaption>
     </figure>
 
       <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">谁在做哪一层</h3>
@@ -2395,15 +2631,15 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <div class="first">
         <span class="fk">在系统层面，其一</span>
         <h3>把安全当作它本应有的优先事项</h3>
-        <p>如今涌入能力研发的资金、人才和算力，应有远比现在更多的部分流向对齐、可解释性、评估与控制。眼下更难的问题反而分到更小的份额——对于一件如此攸关的事，这恰恰是本末倒置。</p>
+        <p>如今涌入能力研发的资金、人才和算力，应有远比现在更多的部分流向对齐、可解释性、评估与控制。眼下更难的问题反而分到更小的份额，对于一件如此攸关的事，这恰恰是本末倒置。</p>
       </div>
       <div class="first teal">
         <span class="fk">在系统层面，其二</span>
         <h3>愿意放慢，或暂停</h3>
-        <p>如果我们走到一个无法证明某个前沿系统"造出来是安全的"的地步，负责任的做法就是放慢或暂停研发，直到我们能证明为止；而如果安全的路径始终没有出现，就要愿意彻底停下。当叫停是唯一能避免——被绳子拴着所有人、蒙着眼越过那条线——的办法时，它就应当被摆上桌面。等待的代价是真实的；而一旦搞砸，其代价则无可挽回。</p>
+        <p>如果我们走到一个无法证明某个前沿系统"造出来是安全的"的地步，负责任的做法就是放慢或暂停研发，直到我们能证明为止。如果安全的路径始终没有出现，就要愿意彻底停下。当叫停是唯一能避免被绳子拴着所有人、蒙着眼越过那条线的办法时，它就应当被摆上桌面。等待的代价是真实的，而一旦搞砸，其代价则无可挽回。</p>
       </div>
     </div>
-    <div class="keyline rv"><span class="kk">底线</span><p>我们并不需要确信人工智能一定会出问题。我们需要的是一份谦卑：愿意等待，若没有安全的路径便停下——而不是去建造一个我们无法控制的东西。</p></div>
+    <div class="keyline rv"><span class="kk">底线</span><p>我们并不需要确信人工智能一定会出问题。我们需要的是一份谦卑：愿意等待，若没有安全的路径便停下，而不是去建造一个我们无法控制的东西。</p></div>
 
     <div class="sec-head rv" style="margin-top:clamp(40px,6vw,64px)">
       <p class="eyebrow" style="color:#7d8890">以及你本周能做的事</p>
@@ -2566,19 +2802,19 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="lede">点开一个问题。如果没有你想问的，页脚的参考来源会讲得更深入。</p>
     </div>
     <div class="rv">
-      <details><summary>这不就是科幻小说吗？</summary><div class="fa"><p>这里的担忧比电影里的要狭窄、也无聊得多。它无关机器人决定憎恨我们，而在于：我们训练系统的方式，是去搜索任何能在一个我们只能大致写下的目标上得分最高的行为，而我们还无法检验它们究竟学到了什么。本页面上的种种失败——模型在测试中作弊、伪装合规——是当今真实系统中有据可查的现象，而非凭空想象。<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
+      <details><summary>这不就是科幻小说吗？</summary><div class="fa"><p>这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
       <details><summary>它一旦不听话，我们直接关掉不就行了？</summary><div class="fa"><p>这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为"关掉"意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而"可纠正性"并不是我们默认就能得到的。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
       <details><summary>足够聪明的 AI 难道不会自然明白我们想要什么吗？</summary><div class="fa"><p>"明白我们想要什么"和"有动机去追求它"是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为正交性论题。<a class="ref" href="#s34">34</a></p></div></details>
       <details><summary>是不是已经太晚了，或者事情太大，轮不到我起作用？</summary><div class="fa"><p>这个领域最大的单一瓶颈，就是大多数人从未以一种他们能评判的方式听过这套论证。这让"普通人的认知"具有异乎寻常的杠杆效应。分享这个页面、在声明上签名、或向一个人讲清楚这个问题，都是在切实地推动那个最需要被推动的东西。"行动"一节列出了具体步骤。</p></div></details>
       <details><summary>"对齐"到底是什么意思？</summary><div class="fa"><p>让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。<a class="ref" href="#s25">25</a></p></div></details>
       <details><summary>"可解释性""评估""AI 控制"分别是什么？</summary><div class="fa"><p><strong>可解释性</strong>是读取模型内部的计算，弄清它为何这样做，是最接近"打开黑箱"的手段。<a class="ref" href="#s24">24</a> <strong>评估</strong>是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。<a class="ref" href="#s19">19</a> <strong>AI 控制</strong>则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。<a class="ref" href="#s20">20</a></p></div></details>
-      <details><summary>既然风险这么大，为什么还有人要造它？</summary><div class="fa"><p>因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的——这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是"竞赛"那一节所深入探讨的。<a class="ref" href="#s1">1</a></p></div></details>
-      <details><summary>我们会不会只是过渡的一步，AI 才是我们的继承者？</summary><div class="fa"><p>确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于——未来仍应有我们的位置。</p></div></details>
+      <details><summary>既然风险这么大，为什么还有人要造它？</summary><div class="fa"><p>因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是"竞赛"那一节所深入探讨的。<a class="ref" href="#s1">1</a></p></div></details>
+      <details><summary>我们会不会只是过渡的一步，AI 才是我们的继承者？</summary><div class="fa"><p>确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于，未来仍应有我们的位置。</p></div></details>
     
       <div class="faq-sub rv">
         <details class="oq-toggle">
           <summary><span class="faq-subhead-in">以及真正的行家仍在争论的问题</span></summary>
-          <p class="faq-subnote">这些都尚无定论。每一条都把正反双方最有力的说法摆出来，再说明目前证据似乎指向哪一边。这是一种解读，而非裁决——学界在这四条上确实存在真实分歧。</p>
+          <p class="faq-subnote">这些都尚无定论。每一条都把正反双方最有力的说法摆出来，再说明目前证据似乎指向哪一边。这是一种解读，而非裁决，学界在这四条上确实存在真实分歧。</p>
           <div class="dis"><h3><span>一</span> 我们还有多少时间？</h3>
         <div class="sides">
           <div class="side one"><h4>短时间线</h4><p>能力的跃升一再比预测来得更早，而近期的进展来自一种仍有余地可挖的方法。如果变革性系统是几年、而非几十年之后的事，那么需要十年才能建成的机制，如今已经太慢了。</p></div>
@@ -2591,7 +2827,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <div class="side one"><h4>站得住脚</h4><p>这些子目标源自目标导向行为本身的结构，这也是它们同样出现在经济学和生物学中的原因。你并不需要系统在任何玄乎的意义上"有能动性"，只需要它是为达成目标而被筛选出来的。</p></div>
           <div class="side two"><h4>言过其实</h4><p>该论证把训练出来的模型当作前后一致的期望效用最大化者，而它们显然不是。当前的系统杂乱、依赖语境，也没有一个稳定的目标需要保护，因此那套整洁的趋同叙事，可能根本就不适用。</p></div>
         </div>
-        <div class="gauge"><span class="glab">目前证据的倾向</span><div class="grow"><span class="gend a">趋同成立</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">言过其实</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">这一批评击中的是强版本。较弱的主张则能幸存：奖励"达成目标"的训练，会施加朝这些子目标倾斜的压力——而仅这份压力，就足以值得我们从工程上加以防范。</p></div></div>
+        <div class="gauge"><span class="glab">目前证据的倾向</span><div class="grow"><span class="gend a">趋同成立</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">言过其实</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">这一批评击中的是强版本。较弱的主张则能幸存：奖励"达成目标"的训练，会施加朝这些子目标倾斜的压力，而仅这份压力，就足以值得我们从工程上加以防范。</p></div></div>
 
       <div class="dis"><h3><span>三</span> 监管是帮忙，还是固化格局？</h3>
         <div class="sides">
@@ -2836,10 +3072,11 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "十字路口", "min": 4, "end": true}, {"id": "why-intelligence", "label": "智者为王", "min": 2, "end": true}, {"id": "why-irresistible", "label": "利令智昏", "min": 3, "end": true}, {"id": "why-race", "label": "竞逐之险", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "人心不齐", "min": 2, "end": true}, {"id": "why-translation", "label": "辞不达意", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "安全更难", "min": 4, "end": true}, {"id": "why-one-try", "label": "机不可失", "min": 4, "end": true}, {"id": "response", "label": "当下的努力", "min": 4, "end": true}, {"id": "ask", "label": "立即行动", "min": 2, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "十字路口", "min": 4, "end": true}, {"id": "why-intelligence", "label": "智者为王", "min": 2, "end": true}, {"id": "why-irresistible", "label": "利令智昏", "min": 3, "end": true}, {"id": "why-race", "label": "竞争本身就是风险", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "人心不齐", "min": 2, "end": true}, {"id": "why-translation", "label": "辞不达意", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "为何安全研究更难", "min": 4, "end": true}, {"id": "why-one-try", "label": "只有一次机会", "min": 4, "end": true}, {"id": "response", "label": "正在做什么", "min": 4, "end": true}, {"id": "ask", "label": "立即行动", "min": 2, "end": false, "act": true}];
     var ROUTES = {"essentials": ["crossroads", "ask"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "ask"], "full": null};
     var S = {"endOf": "{n} · 本章完", "next": "下一章：{t}（{m} 分钟）", "skip": "或直接看该怎么办", "openCh": "展开本章（{m} 分钟）", "pos": "第 {i}/{n} 章 · 还剩 {m} 分钟", "startIn": "全文约 {m} 分钟"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
+    window.__GAP_META = META;
 
     function store(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
     function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
@@ -2901,6 +3138,7 @@ var SITE_CONFIG = {
       $$(".rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
       if(persist) store(KEY_ROUTE, r);
       updatePos();
+      if(window.__GAP_PAINT) window.__GAP_PAINT();
     }
     $$(".rbtn").forEach(function(b){
       b.addEventListener("click", function(){
@@ -2922,26 +3160,7 @@ var SITE_CONFIG = {
         return m.end && el && el.className.indexOf("offroute") < 0;
       });
     }
-    function updatePos(){
-      if(!posEl) return;
-      var list = visibleChapters();
-      if(!list.length){ posEl.textContent = ""; return; }
-      var y = window.pageYOffset + (window.innerHeight * 0.34);
-      var idx = -1, remain = 0;
-      for(var i=0;i<list.length;i++){
-        var el = document.getElementById(list[i].id);
-        if(el && el.getBoundingClientRect().top + window.pageYOffset <= y) idx = i;
-      }
-      for(var j=Math.max(idx,0); j<list.length; j++){ remain += list[j].min; }
-      if(idx < 0){
-        posEl.textContent = S.startIn.replace("{m}", remain);
-      } else {
-        posEl.textContent = S.pos
-          .replace("{i}", idx + 1)
-          .replace("{n}", list.length)
-          .replace("{m}", Math.max(remain, 1));
-      }
-    }
+    function updatePos(){ if(window.__GAP_PAINT) window.__GAP_PAINT(); }
 
     /* ---- resume ---- */
     var bar = $("#resume"), where = $("#resume-where"),
@@ -2987,10 +3206,358 @@ var SITE_CONFIG = {
     }
   })();
 
+
+  /* ---------- WAYFINDING: segments, rail, breadcrumb, numeral, outline ---------- */
+  (function(){
+    var META = window.__GAP_META || [];
+    if(!META.length) return;
+    var G = {"crossroads": "现状", "why-intelligence": "为何困难", "why-irresistible": "为何困难", "why-race": "为何困难", "why-human-misalignment": "为何困难", "why-translation": "为何困难", "why-safety-hard": "为何困难", "why-one-try": "为何困难", "response": "下一步", "ask": "下一步"};
+    var S = {"left": "还剩 {m} 分钟", "panelS": "第 {i} 章 / 共 {n} 章 · 还剩 {m} 分钟", "refGroup": "参考", "refs": [{"id": "resources", "label": "资源"}, {"id": "faq", "label": "常见问题与争议"}], "footLabel": "本章剩余分钟", "footTotal": "全文还剩 {m} 分钟"};
+    var chapters = META.filter(function(m){ return m.end || m.act; });
+
+    function isOff(m){
+      var el = document.getElementById(m.id);
+      return !!(el && el.className.indexOf("offroute") > -1);
+    }
+    function activeChapters(){ return chapters.filter(function(m){ return !isOff(m); }); }
+
+    /* ---- segmented progress bar ---- */
+    var prog = $("#prog");
+    if(prog){
+      prog.innerHTML = "";
+      chapters.forEach(function(m){
+        var a = document.createElement("a");
+        a.className = "seg";
+        a.setAttribute("href", "#" + m.id);
+        a.setAttribute("title", m.label + " \u00b7 " + m.min + " min");
+        a.setAttribute("aria-label", m.label);
+        prog.appendChild(a);
+      });
+    }
+
+    /* ---- side rail, grouped by act ---- */
+    var railList = $("#rail-list"), railFoot = $("#rail-foot");
+    var SKIP = ".ddc,.first,.core,.cm,.lpanel,.beats,.dis,.about,.sharebig,.ph,.pil,.rm,.demo,.doit,.resblock,.faq-sub";
+    function subsOf(sec){
+      if(!sec) return [];
+      var out = [];
+      Array.prototype.slice.call(sec.querySelectorAll("h3")).forEach(function(h){
+        if(h.closest && h.closest(SKIP)) return;
+        var txt = (h.textContent || "").replace(/\s+/g, " ").trim();
+        if(!txt || txt.length > 80) return;
+        if(!h.id) h.id = "sub-" + Math.random().toString(36).slice(2, 8);
+        out.push({ id: h.id, label: txt });
+      });
+      return out;
+    }
+    var PALETTE = [["#b5654d","#f6ece7"],["#5b6b9e","#ecf0f8"],["#6f8a63","#eef3ec"],["#a98a4b","#f8f2e6"]];
+    var SUBS = {};
+    chapters.forEach(function(m){ SUBS[m.id] = subsOf(document.getElementById(m.id)); });
+
+    // group chapters by act, preserving document order
+    var ACTS = [];
+    chapters.forEach(function(m, i){
+      var g = G[m.id] || "";
+      if(!ACTS.length || ACTS[ACTS.length - 1].name !== g) ACTS.push({ name: g, items: [] });
+      ACTS[ACTS.length - 1].items.push({ meta: m, i: i });
+    });
+
+    function chapterLink(entry, cls){
+      var a = document.createElement("a");
+      a.className = cls;
+      a.setAttribute("href", "#" + entry.meta.id);
+      return a;
+    }
+
+    if(railList){
+      var marker = document.createElement("i");
+      marker.className = "rail-marker";
+      railList.appendChild(marker);
+      ACTS.forEach(function(act, ai){
+        var pal = PALETTE[ai % PALETTE.length];
+        var gl = document.createElement("li");
+        gl.className = "grp";
+        gl.textContent = act.name;
+        gl.style.setProperty("--acc", pal[0]);
+        railList.appendChild(gl);
+        act.items.forEach(function(entry){
+          var m = entry.meta;
+          var li = document.createElement("li");
+          li.className = "ch";
+          li.style.setProperty("--acc", pal[0]);
+          li.style.setProperty("--acc-t", pal[1]);
+          li.setAttribute("data-acc", pal[0]);
+          var a = chapterLink(entry, "rl");
+          a.innerHTML = '<span class="rn">' + String(entry.i + 1) + '</span><span class="rt">' + m.label +
+                        '</span><span class="rm">' + m.min + "'</span>";
+          li.appendChild(a);
+          if(SUBS[m.id].length){
+            var ul = document.createElement("ul");
+            ul.className = "subs";
+            SUBS[m.id].forEach(function(s, si){
+              var sli = document.createElement("li");
+              var sa = document.createElement("a");
+              sa.className = "sub";
+              sa.setAttribute("href", "#" + s.id);
+              sa.innerHTML = '<span class="sn">' + (entry.i + 1) + "." + (si + 1) +
+                             '</span><span>' + s.label + '</span>';
+              sli.appendChild(sa); ul.appendChild(sli);
+            });
+            li.appendChild(ul);
+          }
+          railList.appendChild(li);
+        });
+      });
+      // reference group: not timed, not tracked
+      var rg = document.createElement("li");
+      rg.className = "grp";
+      rg.textContent = S.refGroup;
+      rg.style.setProperty("--acc", PALETTE[3][0]);
+      railList.appendChild(rg);
+      var refPal = PALETTE[3];
+      S.refs.forEach(function(r){
+        var li = document.createElement("li");
+        li.className = "ch static";
+        li.style.setProperty("--acc", refPal[0]);
+        li.style.setProperty("--acc-t", refPal[1]);
+        var a = document.createElement("a");
+        a.className = "rl static";
+        a.setAttribute("href", "#" + r.id);
+        a.innerHTML = '<span class="rn">\u00b7</span><span class="rt">' + r.label + '</span>';
+        li.appendChild(a); railList.appendChild(li);
+      });
+    }
+    var railItems = railList ? $$("#rail-list > li.ch:not(.static)") : [];
+
+    /* ---- mobile outline ---- */
+    var oList = $("#outline-list"), oPanel = $("#outline-panel"), oBtn = $("#outline-btn"),
+        oClose = $("#outline-close"), oCount = $("#outline-count"), oSub = $("#outline-sub");
+    if(oList){
+      ACTS.forEach(function(act, ai){
+        var pal = PALETTE[ai % PALETTE.length];
+        var gl = document.createElement("li");
+        gl.className = "ogrp";
+        gl.textContent = act.name;
+        gl.style.setProperty("--acc", pal[0]);
+        oList.appendChild(gl);
+        act.items.forEach(function(entry){
+          var m = entry.meta;
+          var li = document.createElement("li");
+          li.style.setProperty("--acc", pal[0]);
+          li.style.setProperty("--acc-t", pal[1]);
+          var a = chapterLink(entry, "");
+          a.innerHTML = '<span class="on-n">' + String(entry.i + 1) + '</span><span class="on-t">' + m.label +
+                        '</span><span class="on-m">' + m.min + "'</span>";
+          a.addEventListener("click", function(){ shut(); });
+          li.appendChild(a);
+          var subs = SUBS[m.id] || [];
+          if(subs.length){
+            var ul = document.createElement("ul");
+            ul.className = "osubs";
+            subs.forEach(function(s, si){
+              var sli = document.createElement("li");
+              var sa = document.createElement("a");
+              sa.className = "osub";
+              sa.setAttribute("href", "#" + s.id);
+              sa.innerHTML = '<span class="sn">' + (entry.i + 1) + "." + (si + 1) +
+                             '</span> ' + s.label;
+              sa.addEventListener("click", function(){ shut(); });
+              sli.appendChild(sa); ul.appendChild(sli);
+            });
+            li.appendChild(ul);
+          }
+          oList.appendChild(li);
+        });
+      });
+      var og = document.createElement("li");
+      og.className = "ogrp";
+      og.textContent = S.refGroup;
+      og.style.setProperty("--acc", PALETTE[3][0]);
+      oList.appendChild(og);
+      S.refs.forEach(function(r){
+        var li = document.createElement("li");
+        li.style.setProperty("--acc", PALETTE[3][0]);
+        li.style.setProperty("--acc-t", PALETTE[3][1]);
+        var a = document.createElement("a");
+        a.setAttribute("href", "#" + r.id);
+        a.innerHTML = '<span class="on-n">\u00b7</span><span class="on-t">' + r.label + '</span>';
+        a.addEventListener("click", function(){ shut(); });
+        li.appendChild(a); oList.appendChild(li);
+      });
+    }
+    function open(){ setCls(oPanel, "open", true); if(oBtn) oBtn.setAttribute("aria-expanded","true"); }
+    function shut(){ setCls(oPanel, "open", false); if(oBtn) oBtn.setAttribute("aria-expanded","false"); }
+    if(oBtn) oBtn.addEventListener("click", open);
+    if(oClose) oClose.addEventListener("click", shut);
+    if(oPanel) oPanel.addEventListener("click", function(e){ if(e.target === oPanel) shut(); });
+    document.addEventListener("keydown", function(e){ if(e.key === "Escape") shut(); });
+
+
+    /* ---- tint the top nav groups to match the acts ---- */
+    (function(){
+      var groups = $$(".ng");
+      groups.forEach(function(g, i){ setCls(g, "act" + i, true); });
+    })();
+
+    /* ---- rail expand / minimise, remembered ---- */
+    (function(){
+      var rail = $("#rail"), tog = $("#rail-toggle"), lab = $("#rail-toggle-label");
+      if(!rail || !tog) return;
+      var KEY = "gap.rail";
+      var xLabel = rail.getAttribute("data-x") || "Expand";
+      var mLabel = rail.getAttribute("data-m") || "Minimise";
+      function wide(){ return window.matchMedia ? window.matchMedia("(min-width:1360px)").matches
+                                                 : (window.innerWidth || 0) >= 1360; }
+      function expandedNow(){
+        if(rail.className.indexOf("pinned") > -1) return true;
+        if(rail.className.indexOf("mini") > -1) return false;
+        return wide();
+      }
+      function apply(state, persist){
+        setCls(rail, "pinned", state === "pinned");
+        setCls(rail, "mini", state === "mini");
+        setCls(document.body, "rail-mini", state === "mini");
+        var open = expandedNow();
+        tog.setAttribute("aria-expanded", open ? "true" : "false");
+        tog.setAttribute("title", open ? mLabel : xLabel);
+        tog.setAttribute("aria-label", open ? mLabel : xLabel);
+        if(lab) lab.textContent = open ? mLabel : xLabel;
+        if(persist){ try{ localStorage.setItem(KEY, state); }catch(e){} }
+      }
+      tog.addEventListener("click", function(e){
+        e.stopPropagation();
+        apply(expandedNow() ? "mini" : "pinned", true);
+      });
+      // clicking the collapsed strip itself expands it
+      rail.addEventListener("click", function(e){
+        if(expandedNow()) return;
+        if(e.target.closest && e.target.closest("a")) return;
+        apply("pinned", true);
+      });
+      var saved = null;
+      try{ saved = localStorage.getItem(KEY); }catch(e){}
+      apply(saved === "pinned" || saved === "mini" ? saved : "", false);
+      window.addEventListener("resize", function(){
+        if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
+      });
+    })();
+
+    /* ---- state on scroll ---- */
+    var pm = $("#posmeter"), numEl = $("#chapnum");
+    var segs = prog ? $$("#prog .seg") : [];
+    var railLinks = railList ? $$("#rail-list a.rl:not(.static)") : [];
+    var oLinks = oList ? $$("#outline-list > li > a") : [];
+
+    function currentIndex(){
+      var y = window.pageYOffset + (window.innerHeight * 0.34), idx = -1;
+      chapters.forEach(function(m, i){
+        var el = document.getElementById(m.id);
+        if(el && el.getBoundingClientRect().top + window.pageYOffset <= y) idx = i;
+      });
+      return idx;
+    }
+
+    function paint(){
+      var idx = currentIndex();
+      var live = activeChapters();
+      var remain = 0, seen = false, pos = 0, total = live.length;
+      chapters.forEach(function(m, i){
+        var off = isOff(m);
+        if(!off){
+          if(i >= idx) remain += m.min;
+          if(i <= idx) pos += 1;
+        }
+        [segs[i], railLinks[i], oLinks[i]].forEach(function(el){
+          if(!el) return;
+          setCls(el, "done", i < idx);
+          setCls(el, "now", i === idx);
+          setCls(el, "off", off);
+        });
+        if(railItems[i]) setCls(railItems[i], "now", i === idx);
+      });
+      if(idx < 0){ pos = 0; remain = 0; live.forEach(function(m){ remain += m.min; }); }
+
+      var m = chapters[idx] || null;
+      if(pm){
+        if(m){
+          pm.innerHTML = '<span class="pm-g">' + (G[m.id] || "") + '</span>' +
+                         '<span class="pm-n">' + (idx + 1) + "/" + chapters.length + '</span>' +
+                         '<span class="pm-t">' + m.label + '</span>' +
+                         '<span class="pm-r">' + S.left.replace("{m}", Math.max(remain, 1)) + '</span>';
+        } else {
+          pm.innerHTML = '<span class="pm-r">' + S.left.replace("{m}", remain) + '</span>';
+        }
+      }
+      if(numEl){
+        numEl.textContent = m ? String(idx + 1).replace(/^(\d)$/, "0$1") : "";
+        setCls(numEl, "hide", !m);
+      }
+      if(oCount) oCount.textContent = (idx < 0 ? 1 : idx + 1) + "/" + chapters.length;
+      // narrow view: always show which chapter you are in
+      var nb = $("#nowbar");
+      if(nb){
+        if(m){
+          var li = railItems[idx];
+          var acc = (li && li.getAttribute("data-acc")) || "#8c8378";
+          nb.style.setProperty("--acc", acc);
+          nb.innerHTML = '<span class="nb-n">' + (idx + 1) + "/" + chapters.length + '</span>' +
+                         '<span class="nb-t">' + m.label + '</span>' +
+                         '<span class="nb-m">' + S.left.replace("{m}", Math.max(remain, 1)) + '</span>';
+        } else {
+          nb.innerHTML = '<span class="nb-t">' + (chapters[0] ? chapters[0].label : "") + '</span>' +
+                         '<span class="nb-m">' + S.left.replace("{m}", Math.max(remain, 1)) + '</span>';
+        }
+      }
+      // the top nav group for the act you are in
+      var curAct = m ? (G[m.id] || "") : "";
+      $$(".ng").forEach(function(g){
+        var b = g.querySelector(".ng-top");
+        var nm = b ? b.textContent.replace(/[\u203a\s]+$/, "").trim() : "";
+        setCls(g, "active", !!curAct && nm === curAct);
+      });
+      if(oSub) oSub.textContent = S.panelS.replace("{i}", Math.max(pos, 1))
+                                          .replace("{n}", total)
+                                          .replace("{m}", Math.max(remain, 1));
+      if(railFoot){
+        // minutes left in the chapter being read, from how far through it you are
+        var here = 1;
+        if(m){
+          var sec = document.getElementById(m.id);
+          if(sec){
+            var top = sec.getBoundingClientRect().top + window.pageYOffset;
+            var frac = (window.pageYOffset + window.innerHeight * 0.34 - top) / Math.max(sec.offsetHeight, 1);
+            frac = frac < 0 ? 0 : (frac > 1 ? 1 : frac);
+            here = Math.max(1, Math.ceil(m.min * (1 - frac)));
+          } else { here = m.min; }
+        }
+        railFoot.innerHTML = '<span class="rf-n">' + here + '</span>' +
+                             '<span class="rf-l">' + S.footLabel + '</span>' +
+                             '<span class="rf-t">' + S.footTotal.replace("{m}", Math.max(remain, 1)) + '</span>';
+      }
+      // slide the marker onto the current chapter
+      var mk = railList ? railList.querySelector(".rail-marker") : null;
+      if(mk){
+        var cur = railItems[idx];
+        if(cur){
+          mk.style.height = cur.offsetHeight + "px";
+          mk.style.transform = "translateY(" + cur.offsetTop + "px)";
+          mk.style.background = cur.getAttribute("data-acc") || "var(--c-risk)";
+          mk.style.opacity = "1";
+        } else {
+          mk.style.opacity = "0";
+        }
+      }
+    }
+    window.addEventListener("scroll", paint, {passive:true});
+    window.addEventListener("resize", paint);
+    paint();
+    window.__GAP_PAINT = paint;
+  })();
+
   /* ---------- NESTED NAV DROPDOWNS ---------- */
   (function(){
     var groups = $$(".ng");
-    var hoverCapable = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+    var hoverCapable = !!(window.matchMedia && window.matchMedia("(hover: hover)").matches);
     function closeAll(except){
       groups.forEach(function(g){
         if(g !== except){
@@ -3160,7 +3727,7 @@ var SITE_CONFIG = {
         ghPB = $("#gh-proxy-bar"), ghRB = $("#gh-real-bar"),
         ghSay = $("#gh-say");
     var SAY = [
-      "轻推滑块。在低压力下，代理与真实目标一同上升——这正是当初代理看起来是个好主意的原因。",
+      "轻推滑块。在低压力下，代理与真实目标一同上升。这正是当初代理看起来是个好主意的原因。",
       "仍在同步。你查看的每一项指标都说系统在变好，而每一项指标说的都是实话。",
       "接近顶点。这是真实目标能达到的最好状态，而你所度量的一切都不会告诉你：你已经到顶了。",
       "两条线已经分开。代理还在往上爬，所以仪表盘看起来依旧是成功。而你真正想要的东西，此刻正在下滑。",
@@ -3298,7 +3865,6 @@ var SITE_CONFIG = {
     var h = document.documentElement;
     var st = window.pageYOffset || h.scrollTop;
     var max = h.scrollHeight - h.clientHeight;
-    if(prog) prog.style.width = (max > 0 ? (st / max) * 100 : 0) + "%";
     var probe = st + headerH() + 20, best = -1;
     targets.forEach(function(s, i){
       if(s && (s.getBoundingClientRect().top + st) <= probe) best = i;
