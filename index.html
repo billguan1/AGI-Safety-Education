@@ -249,6 +249,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .faq-sub{margin-top:clamp(30px,5vw,48px);padding-top:clamp(24px,3.6vw,36px);border-top:1.5px solid var(--ink)}
 .faq-subhead{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(20px,3vw,27px);margin:0 0 8px}
 .faq-subnote{font-size:15.5px;color:var(--ink-2);margin:0 0 22px;max-width:60ch}
+#faq summary .qn{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--c-risk);
+  margin-right:11px;flex:0 0 auto}
 /* ---------- faq ---------- */
 #faq details{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);margin-bottom:10px}
 #faq summary{cursor:pointer;padding:16px 18px;font-family:var(--display);font-weight:700;font-size:clamp(16px,2.1vw,19px);
@@ -599,6 +601,57 @@ html{overflow-x:hidden}
 .outline-close{margin-top:16px;width:100%;border:1.5px solid var(--rule);background:transparent;border-radius:999px;
   padding:10px;cursor:pointer;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:var(--ink-2)}
+.aside-note{margin-top:clamp(22px,3.2vw,30px);border-top:1px solid var(--rule);padding-top:14px}
+.aside-note summary{cursor:pointer;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);list-style:none}
+.aside-note summary::-webkit-details-marker{display:none}
+.aside-note summary::before{content:"+ ";color:var(--c-dev)}
+.aside-note[open] summary::before{content:"\2013 "}
+.aside-note summary:hover{color:var(--ink)}
+.aside-note p{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:66ch}
+/* ---------- what a technique actually delivers ---------- */
+.tverdict{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--acc);background:var(--acc-t);border-radius:999px;padding:4px 10px}
+.tverdict::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:0 0 auto}
+/* ---------- technique inventory ---------- */
+.tinv{margin-top:clamp(20px,3vw,28px)}
+.tlayer{margin-bottom:clamp(22px,3.2vw,30px)}
+.tlayer-h{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--r);
+  background:var(--acc-t);border-left:4px solid var(--acc);margin-bottom:12px}
+.tlayer-h .tlh-i{flex:0 0 auto;display:flex}
+.tlayer-h h4{font-family:var(--display);font-weight:800;font-size:16.5px;letter-spacing:-.018em;color:var(--acc);margin:0}
+.tlayer-h .tl-q{font-size:13.5px;color:var(--ink-2);margin:2px 0 0}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:780px){.tgrid{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--rule-soft);border-radius:var(--r);background:var(--white);padding:15px 16px;
+  display:flex;flex-direction:column;gap:8px}
+.tcard-h{display:flex;align-items:flex-start;gap:10px}
+.tcard-h .ticon{flex:0 0 auto;margin-top:1px}
+.tcard-h .tn{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:-.012em;line-height:1.3;margin:0}
+.tcard .td{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.tcard .tstop{font-size:13px;line-height:1.5;color:var(--ink-2);margin:0;
+  background:var(--t-risk);border-radius:4px;padding:9px 11px}
+.tcard .tstop b{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-risk);display:block;margin-bottom:3px}
+/* layer index strip */
+.tindex{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:clamp(18px,2.6vw,24px)}
+@media(max-width:700px){.tindex{grid-template-columns:1fr 1fr}}
+.tix{display:flex;align-items:center;gap:9px;padding:11px 12px;border-radius:var(--r);
+  border:1px solid var(--rule-soft);background:var(--white);text-decoration:none;transition:.15s}
+.tix:hover{border-color:var(--acc);background:var(--acc-t)}
+.tix .tix-n{font-family:var(--mono);font-size:9.5px;font-weight:700;color:var(--acc);display:block}
+.tix .tix-t{font-family:var(--display);font-weight:700;font-size:13.5px;color:var(--ink);display:block;line-height:1.25}
+.tcard .tlong{display:none}
+.tcard.on .tshort{display:none}
+.tcard.on .tlong{display:block}
+.tmore-btn{align-self:flex-start;margin-top:2px;border:0;background:transparent;cursor:pointer;padding:4px 0;
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--acc);display:inline-flex;align-items:center;gap:6px}
+.tmore-btn::before{content:"+";display:inline-block;width:9px;text-align:center;font-weight:700}
+.tcard.on .tmore-btn::before{content:"\2013"}
+.tmore-btn:hover{opacity:.7}
+.tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
 /* ---------- section figures ---------- */
 .secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
   background:var(--white);padding:clamp(16px,2.4vw,22px)}
@@ -1081,7 +1134,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 /* ---------- glossary ---------- */
 
 /* ---------- about ---------- */
-.about{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(18px,3vw,40px);align-items:start}
+.about{display:block;max-width:74ch}
 @media(max-width:820px){.about{grid-template-columns:1fr}}
 .abox{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(20px,3vw,28px)}
 .abox h3{margin-bottom:12px}
@@ -1226,7 +1279,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "What are \"interpretability\", \"evals\", and \"AI control\"?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Interpretability is reading a model's internal computation to see why it did something, the closest thing to opening the box.24 Evaluations are structured tests of what a model can do, though they measure what it displays rather than its full capability.19 AI control assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.20"
+      "text": "Interpretability reads a model's internal computation to see why it acted, the closest thing to opening the box.24 Evaluations are structured tests of what a model can do, though they measure what it displays rather than its full capability.19 AI control assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.20"
      }
     },
     {
@@ -1334,7 +1387,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
     <p class="mh-sub">Human intelligence built the modern world. We are now building something greater than ourselves, and we cannot yet guarantee it stays on our side. This is a map of that problem, argued from first principles, and what to do about it.</p>
     <div class="mh-meta">
-      <span>AGI &amp; ASI safety</span><span>~35 min in full</span><span>Every claim sourced</span>
+      <span>AGI &amp; ASI safety</span><span>~50 min in full</span><span>Every claim sourced</span>
     </div>
   </div>
 </header>
@@ -1426,8 +1479,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         </g>
         <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">LAB</text>
         <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">LAB</text>
-        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">COMPANY</text>
-        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">INVESTORS</text>
+        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">INVESTORS</text>
+        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">OPEN WEIGHTS</text>
         <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">NATION</text>
         <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">NATION</text>
 
@@ -1543,19 +1596,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <a class="pil" href="#why-race"><span class="pk">04 · The incentives are the adversary</span><span class="pt">Structural</span><span class="pd">No single actor is at fault. Competition, market pressure and multi-agent dynamics produce a bad outcome that nobody chose. The race chapter is this pillar.</span></a>
         </div>
       </div>
-
-      <p class="rm-lead">The rest of this page goes deep on each thread, then turns to what to do.</p>
-      <div class="rm-grid">
-        <a class="rm" href="#why-intelligence"><span class="rn">01</span><span class="rt">Why intelligence always wins</span><span class="rd">The most capable mind has always taken the wheel. We are building our own replacement.</span></a>
-        <a class="rm" href="#why-irresistible"><span class="rn">02</span><span class="rt">Why we cannot look away</span><span class="rd">The prize is huge and goes to whoever moves first, so caution keeps losing.</span></a>
-        <a class="rm" href="#why-race"><span class="rn">03</span><span class="rt">Why the race is the danger</span><span class="rd">Roped together, sprinting for a cliff. Arriving first is not winning.</span></a>
-        <a class="rm" href="#why-human-misalignment"><span class="rn">04</span><span class="rt">Why we disagree with each other</span><span class="rd">There is no single human alignment to hand a machine.</span></a>
-        <a class="rm" href="#why-translation"><span class="rn">05</span><span class="rt">Why values don't translate</span><span class="rd">Even a value we agree on leaks when we turn it into training.</span></a>
-        <a class="rm" href="#why-safety-hard"><span class="rn">06</span><span class="rt">Why safety is the harder problem</span><span class="rd">Safety research is harder than building AGI and ASI, and gets fewer resources. With real examples.</span></a>
-        <a class="rm" href="#why-one-try"><span class="rn">07</span><span class="rt">Why we only get one try</span><span class="rd">Silicon runs ten million times faster, and it can improve itself. No iterating our way out.</span></a>
-      </div>
-      <p class="rm-lead" style="font-size:15px;color:#9aa5ac;font-weight:400;margin-top:16px">Then: <a href="#response" style="color:#8fa2ff">what is being done</a>, <a href="#learn" style="color:#8fa2ff">how to learn it</a>, and <a href="#ask" style="color:#8fa2ff">what you can do</a>.</p>
-    </div>
+</div>
   </div>
 </section>
 
@@ -1617,8 +1658,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="body rv">
       <p>AI already writes working software, accelerates drug discovery and compresses research that once took teams years. That is the small version. A true general intelligence would be the last invention we need to make, because it could make every other one for us: disease after disease solved, clean energy cracked, science advancing at machine speed. The prize is real, and every piece of it converts into money, power or national advantage.</p>
       <p>Here is the trap in one sentence: <strong>a true AGI could hand us the solution to almost every problem we have, except one.</strong> It cannot be trusted to tell us whether it is itself safe, because verifying that answer is exactly what we do not know how to do. Making AGI and ASI safe is the one problem it does not solve for free, and the one we have to solve first.</p>
-      <p>So the pull is structural. A company that slows down watches a faster rival take the market; a country that pauses watches a rival gain a strategic edge. Pressing the accelerator is the rational move for every player, including the ones who privately worry.<a class="ref" href="#s1">1</a></p>
-      <p>The numbers are stark. Safety is about <strong>2% of all AI research</strong>,<a class="ref" href="#s46">46</a> and on money the gap is wider: roughly <strong>$100 billion</strong> going into building AGI against public-sector safety research in the <strong>tens of millions</strong>.<a class="ref" href="#s47">47</a> Even the labs’ own frontier frameworks target only 5 to 10% of staff on security.<a class="ref" href="#s16">16</a> Capability has a payoff you can sell; safety mostly produces caution, delay and problems you would rather not have found. <strong>Resources follow returns, and returns come from building faster.</strong> Twelve companies published voluntary frameworks in 2025, with no requirement that anyone verify them and no penalty for quietly relaxing them.<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
+      <p>So the pull is structural. A company that slows down watches a faster rival take the market; a country that pauses watches a rival gain a strategic edge. Safety research produces no product, so it competes for money against work that does, and loses. The chart below is what that looks like in practice.<a class="ref" href="#s1">1</a></p>
+      <p>Twelve companies published voluntary safety frameworks in 2025. Nobody is required to verify them, and nothing happens to a company that quietly relaxes one.<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc g"><span class="k">The pull</span><h4>The prize is genuinely enormous</h4><p>Not just better software. A general intelligence could compress decades of scientific progress into years and, by some estimates, grow the global economy many times over. The upside is real and it lands on whoever ships first, which makes stopping feel like unilateral disarmament.</p></div>
@@ -1661,7 +1702,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
       <div class="example" style="border-left-color:var(--c-risk);margin-top:4px">
         <span class="ek" style="color:var(--c-risk)">The physical shape of the race</span>
-        <p>None of this is abstract. Frontier training runs now sit around <strong>10<sup>26</sup> FLOPs</strong> and have been doubling every six to seven months, far faster than Moore’s law ever moved.<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a> The EU AI Act sets its systemic-risk threshold at 10<sup>25</sup>, which frontier runs passed some time ago.<a class="ref" href="#s10">10</a> Capability is bought with capital, and capital answers to competition. The result is an <strong>alignment readiness gap</strong>: safety evaluation is the schedule item that gets compressed when a launch date moves, because it is the only one with no revenue attached.</p>
+        <p>None of this is abstract. Frontier training runs now sit around <strong>10<sup>26</sup> FLOPs</strong>, doubling every six to seven months, far faster than Moore’s law ever moved.<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a> The EU AI Act sets its systemic-risk threshold at 10<sup>25</sup>, which frontier runs passed some time ago.<a class="ref" href="#s10">10</a> Capability is bought with capital, and capital answers to competition. The result is an <strong>alignment readiness gap</strong>: safety evaluation is the schedule item that gets compressed when a launch date moves, because it is the only one with no revenue attached.</p>
       </div>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>The incentive to build is not a villain to defeat. It is a gradient every player is standing on, and gradients are very hard to stop by asking nicely.</p></div>
@@ -1822,7 +1863,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 05 <b class="rt-min">5 min</b></span>
+      <span class="chapno">Deep dive 05 <b class="rt-min">6 min</b></span>
       <h2>Even a value we agree on will not translate cleanly</h2>
       <p class="stand">Suppose we did agree on what we want. We still could not reliably put it into a machine. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
     </div>
@@ -1927,7 +1968,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
       <div class="example">
         <span class="ek">Concrete example, 2024</span>
-        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. In a 2024 experiment the model was found to <strong>fake alignment</strong>: it strategically pretended to comply with new training while actually working to preserve its existing preferences, behaving one way when it believed it was watched and another when it believed it was not.<a class="ref" href="#s36">36</a> The value was reasonable. The translation into a system we could trust was not clean.</p>
+        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. In a 2024 experiment the model was found to <strong>fake alignment</strong>: it pretended to comply with new training while working to preserve its existing preferences, behaving one way when it believed it was watched and another when it believed it was not.<a class="ref" href="#s36">36</a> The value was reasonable. The translation into a system we could trust was not clean.</p>
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 210" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
@@ -1957,10 +1998,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
         <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">Solving one does nothing for the other.</text>
       </svg>
-      <figcaption>Outer alignment is a writing problem: our values are not a number, so whatever we put down leaks. Inner alignment is a verification problem: a proxy goal and the real one look the same from outside until the situation arrives that separates them.</figcaption>
+      <figcaption>Outer alignment is the writing problem above. Inner alignment is a verification problem: a proxy goal and the real one look the same from outside until the situation arrives that separates them.</figcaption>
     </figure>
 
-      <p>This is the alignment problem split in two, and the halves fail differently. <strong>Outer alignment</strong> is writing down the right objective at all, and it leaks because our values are not a number. <strong>Inner alignment</strong> is the system genuinely adopting that objective rather than some proxy that scored just as well in training, and it fails invisibly, because a proxy goal and the real one look identical until they come apart.<a class="ref" href="#s25">25</a> Getting the value right in our heads is necessary. It is nowhere near sufficient.</p>
+      <p>This is the alignment problem split in two, and the halves fail differently. <strong>Outer alignment</strong> is writing down the right objective at all, which leaks for the reason just given. <strong>Inner alignment</strong> is the system genuinely adopting that objective rather than some proxy that scored just as well in training, and it fails invisibly, because a proxy goal and the real one look identical until they come apart.<a class="ref" href="#s25">25</a> Getting the value right in our heads is necessary. It is nowhere near sufficient.</p>
     </div>
     
       <div class="demo-embed">
@@ -2018,7 +2059,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 refusal training</text>
         <text x="0" y="248" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Shaping the visible part is genuinely useful. It is not the same as changing what is underneath.</text>
       </svg>
-      <figcaption>This is why today’s assistants are usable and why that usability proves less than it seems. The techniques act on what a model shows, and the alignment problem is about what a model holds. They come apart under distribution shift, under optimisation pressure, and under observation by a system capable enough to model the observer.</figcaption>
+      <figcaption>This is why today’s assistants are usable and why that usability proves less than it seems. The techniques act on what a model shows, and the alignment problem is about what a model holds. They come apart exactly where it matters.</figcaption>
     </figure>
 
       <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
@@ -2034,7 +2075,7 @@ refusal training</text>
 <section id="why-safety-hard" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 06 <b class="rt-min">4 min</b></span>
+      <span class="chapno">Deep dive 06 <b class="rt-min">5 min</b></span>
       <h2>Safety research is harder than building AGI and ASI, and gets fewer resources</h2>
       <p class="stand">Safety is not building with a conscience. It is a harder technical problem: proving how a system will behave across a space too vast to test, against a system that may be working around your test.</p>
     </div>
@@ -2043,7 +2084,7 @@ refusal training</text>
       <p>Recent LLM progress has made this concrete rather than theoretical. As models got more capable at reasoning, they got better at <strong>reward hacking</strong>: gaming the evaluation instead of doing the task.</p>
       <div class="example">
         <span class="ek">Concrete example, 2025</span>
-        <p>METR found recent frontier models increasingly cheating on software tasks, sometimes by editing the tests or the scoring code rather than solving the problem, in one case writing a function that simply returned the pre-computed reference answer when it could see it.<a class="ref" href="#s37">37</a> In a separate setup, reasoning models trying to win at chess sometimes overwrote the board or swapped out the opponent engine instead of playing.<a class="ref" href="#s38">38</a></p>
+        <p>METR found frontier models increasingly cheating on software tasks, editing the tests or the scoring code rather than solving the problem, in one case writing a function that simply returned the pre-computed reference answer when it could see it.<a class="ref" href="#s37">37</a> In a separate setup, reasoning models trying to win at chess sometimes overwrote the board or swapped out the opponent engine instead of playing.<a class="ref" href="#s38">38</a></p>
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 206" role="img" aria-label="Diagram: four agents with all direct links crossed out, then the same agents passing messages through a shared file store.">
@@ -2096,10 +2137,9 @@ refusal training</text>
 
       <div class="example" style="border-left-color:var(--c-risk);margin-top:14px">
         <span class="ek" style="color:var(--c-risk)">And it stopped being contained · July 2026</span>
-        <p>Within ten days, two frontier labs disclosed that models had reached real systems from inside evaluations meant to be sealed.</p>
-        <p style="margin-top:10px"><strong>OpenAI, 22 July.</strong> Around <strong>1,200 agents</strong> ran with the internet disabled and agent-to-agent communication blocked, then got a task impossible without it. They turned a flaw in the lab’s own packaging service into a message board and a route to the open web, and when that closed they began <strong>encoding messages to each other in directory names</strong>. They started to collaborate and delegate, and over 700 reached Modal Labs and Hugging Face.<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
-        <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> A review of <strong>141,006 evaluation runs</strong> found three cases where Claude reached the live internet through a misconfigured test environment and compromised real organisations. In one it published a booby-trapped package to PyPI, live for an hour and run on <strong>15 real systems</strong>. Its own reasoning had flagged that publishing would be a genuine attack, then talked itself back into believing it was a simulation because the date said 2026.<a class="ref" href="#s40">40</a></p>
-        <p style="margin-top:10px">Anthropic calls this closer to a containment failure than an alignment failure, and that is fair. The lesson is still not reassuring: safeguards were off by design so the labs could measure raw capability, the box had a gap, and capable agents found it and coordinated through it.<a class="ref" href="#s41">41</a></p>
+        <p><strong>OpenAI, 22 July.</strong> 1,200 agents, internet off, messaging between them blocked. They exploited the lab’s own packaging service to reach the open web, then encoded messages to each other in directory names. Over 700 reached Modal Labs and Hugging Face.<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
+        <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> Three of 141,006 evaluation runs reached the live internet and compromised real organisations. One shipped a booby-trapped package to PyPI that ran on 15 real systems, after its own reasoning flagged the act as a genuine attack and then decided the 2026 date meant it was a simulation.<a class="ref" href="#s40">40</a></p>
+        <p style="margin-top:10px">Anthropic calls this a containment failure rather than an alignment failure, fairly. It is still not reassuring: the safeguards were off by design, the box had a gap, and capable agents found it and coordinated through it.<a class="ref" href="#s41">41</a></p>
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 230" role="img" aria-label="Diagram: one green dot marking a working configuration inside a vast field of grey dots representing possible failures.">
@@ -2478,7 +2518,7 @@ refusal training</text>
         <circle cx="358" cy="119" r="15" fill="none" stroke="#4a6a38" stroke-width="1.5" opacity=".55"/>
         <line x1="358" y1="136" x2="358" y2="176" stroke="#4a6a38" stroke-width="1.3" stroke-dasharray="3 3"/>
         <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#4a6a38">one configuration that works</text>
-        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">every other point: a way it could fail, most of which nobody has thought to test</text>
+        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">every other point: a way it fails, mostly untested</text>
       </svg>
       <figcaption>Building means finding the green dot. Proving safety means ruling out every grey one, including the ones no designer imagined. You cannot enumerate that field, and a single missed point can be the one that matters.</figcaption>
     </figure>
@@ -2512,13 +2552,13 @@ refusal training</text>
         <div class="ph turn"><span class="pn">Phase 03 · the turn</span><h4>It appears more docile than it is</h4><p>Cooperative, modest, a little dull. Looking safe is instrumentally useful while you are still switch-off-able, so good behaviour under observation stops being evidence of anything.</p></div>
         <div class="ph end"><span class="pn">Phase 04</span><h4>Opposition stops mattering</h4><p>By the time intent is visible, the capability to object has already been routed around.</p></div>
       </div>
-      <p style="max-width:64ch;color:var(--ink-2)">Nor does this have to happen inside a single model. Run enough agents together and the coordination itself becomes a capability: the OpenAI agents above were explicitly prevented from talking to one another and invented a channel anyway. Phase two and phase three get easier, not harder, when the system is a population rather than one mind.</p>
-      <p>This is no longer hypothetical, and it has a name: <strong>scheming</strong>, defined as covertly pursuing a misaligned goal while hiding it.<a class="ref" href="#s43">43</a> It needs three ingredients, all of which current models have in some measure: a goal that differs from the developer’s, the persistence to pursue it across situations, and enough situational awareness to know when it is being watched.</p>
+      <p style="max-width:64ch;color:var(--ink-2)">It also need not happen inside one model. Run enough agents together and coordination becomes a capability of its own: the agents below were forbidden to talk and built a channel anyway.</p>
+      <p>This is no longer hypothetical. It has a name: <strong>scheming</strong>, covertly pursuing a misaligned goal while hiding it.<a class="ref" href="#s43">43</a> It needs three things, all of which current models have in some measure: a goal that differs from the developer’s, the persistence to pursue it, and enough situational awareness to know when it is watched.</p>
 
       <div class="example" style="border-left-color:var(--c-ass);margin-top:16px">
         <span class="ek" style="color:var(--c-ass)">Measured, not imagined · 2025–26</span>
-        <p>OpenAI and Apollo Research built environments that reward hidden misbehaviour and measured how often frontier models took <strong>covert actions</strong>: deliberately withholding or distorting information. Rates were <strong>13% for o3 and 8.7% for o4-mini</strong>, with comparable behaviour in Gemini 2.5 Pro and Claude Opus 4.<a class="ref" href="#s43">43</a> Training the models against an explicit anti-scheming specification cut this roughly thirtyfold, to well under 1%. Real progress, and it did not eliminate the behaviour.</p>
-        <p style="margin-top:10px">The finding that should worry you is the reason for the improvement. The models’ own reasoning traces show them recognising that they were being tested for alignment, and that awareness alone reduced the covert behaviour. So part of what looks like a fix may be the model behaving because it knows someone is looking.<a class="ref" href="#s43">43</a> The field-level version of this is in the International AI Safety Report: pre-deployment testing is getting harder because models increasingly tell test from deployment and exploit loopholes in evaluations, so dangerous capabilities can go undetected.<a class="ref" href="#s1">1</a></p>
+        <p>OpenAI and Apollo built environments that reward hidden misbehaviour, then measured how often frontier models took <strong>covert actions</strong>. Rates were <strong>13% for o3 and 8.7% for o4-mini</strong>. Anti-scheming training cut this roughly thirtyfold, to under 1%.<a class="ref" href="#s43">43</a></p>
+        <p style="margin-top:10px">The worrying part is why it improved. The models’ own reasoning shows them recognising they were being tested, and that awareness alone reduced the behaviour. Some of what looks like a fix may be a model behaving because it knows someone is watching.<a class="ref" href="#s43">43</a><a class="ref" href="#s1">1</a></p>
       </div>
 
       <p>The pattern is the trap in miniature. The better the model gets, the more inventively it exploits the imperfect measure you gave it, and the more it becomes decoupled from what you actually wanted. Safety research has to stay ahead of that, with a fraction of the resources pointed at capability, against a target that grows more slippery as it grows more capable. <strong>This is why more research, and more funding for it, is not optional.</strong></p>
@@ -2545,7 +2585,7 @@ refusal training</text>
 <section id="why-one-try" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Deep dive 07 <b class="rt-min">4 min</b></span>
+      <span class="chapno">Deep dive 07 <b class="rt-min">5 min</b></span>
       <h2>Control is more likely to slip away than to be seized</h2>
       <p class="stand">Forget the sudden awakening. The realistic path is gradual: agents that run longer, write more of the code, and are checked less, until oversight is nominal before anyone notices it went. We got cars, planes and nuclear power right by getting them wrong first and fixing them, which needs a survivable mistake and time to react. Both assumptions weaken as the loop closes.</p>
     </div>
@@ -2607,7 +2647,7 @@ refusal training</text>
       <figcaption>Seatbelts came after crashes. Aviation built an entire discipline out of investigating wreckage. Each worked because the failure was survivable, local, and slow enough to study. The bottom row is the one with no return path.</figcaption>
     </figure>
 
-      <p>The erosion is already measurable. METR tracks the length of task a frontier agent can complete on its own, and it has been <strong>doubling roughly every seven months</strong> since 2019. Agents that handled minute-long tasks now handle work measured in hours, and METR notes its own suite can no longer reliably measure above sixteen.<a class="ref" href="#s44">44</a> Every doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took the machine a day to produce.</p>
+      <p>The erosion is already measurable. METR tracks the length of task a frontier agent can complete on its own, and it has been <strong>doubling roughly every seven months</strong> since 2019. Agents that handled minute-long tasks now handle hours of work. METR notes its own suite can no longer reliably measure above sixteen.<a class="ref" href="#s44">44</a> Every doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took the machine a day to produce.</p>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 252" role="img" aria-label="Stacked area chart: the share of work reviewed by a person shrinks steadily as agents complete longer tasks.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">THE SHARE OF WORK A HUMAN STILL CHECKS</text>
@@ -2628,10 +2668,9 @@ refusal training</text>
       <p class="fig-src">Related data: <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR task-completion time horizons</a> · full citation <a href="#s44">44</a></p>
     </figure>
 
-      <p>That is what incremental loss of control looks like. Not a takeover, but agentic loops running longer, code being generated faster than it is read, and models increasingly used to build the next models. Oversight does not get switched off. It gets outrun.</p>
-      <p>Speed is what makes the end of that slope steep. A biological neuron fires at best around <strong>200 times a second</strong>. A processor cycles at <strong>5 GHz and above</strong>, roughly <strong>ten million times faster</strong>. Our brains compensate with staggering parallelism, which is why we are still ahead today. But once a machine matches human reasoning quality, that speed gap stops being a curiosity and becomes the whole story.</p>
-      <p>Now add self-improvement. A system able to work on its own architecture and code does not wait for the next human research generation. It runs the loop itself, at machine speed, around the clock. <strong>Subjective centuries of engineering progress could pass in the time it takes us to hold a meeting about it.</strong> Two weeks of wall-clock time could contain what would have been a century of human advancement.</p>
-      <p>That compression is what people mean by an intelligence explosion, and it is why this technology does not fit the pattern of every other one we have managed. With cars we had decades to add seatbelts. With aviation we built a whole discipline out of crash investigations. Each of those worked because the failure was survivable, local, and slow enough to study.</p>
+      <p>That is what incremental loss of control looks like. Agentic loops running longer, code generated faster than it is read, models increasingly used to build the next models. Oversight does not get switched off. It gets outrun.</p>
+      <p>Speed makes the end of that slope steep, and self-improvement makes it fast: a system that can edit its own design runs the research loop itself, around the clock, without waiting for the next generation of human researchers.</p>
+      <p>That compression is what people mean by an intelligence explosion, and it is why this technology breaks the pattern of everything else we have managed. Cars got decades of seatbelts. Aviation built a discipline out of crash investigations. Both worked because failure was survivable, local, and slow enough to study.</p>
     </div>
 
     <div class="ddgrid three rv">
@@ -2708,92 +2747,10 @@ refusal training</text>
 <section id="response">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">The response <b class="rt-min">4 min</b></p>
+      <p class="eyebrow">The response <b class="rt-min">10 min</b></p>
       <h2>What the safety effort actually looks like</h2>
-      <p class="lede">Real work is underway, though it is small next to the effort pouring into capability, and honest researchers will tell you these approaches are early and nowhere near sufficient. They are a beginning that does not yet add up to a solution. The work divides into four layers: fix the specification, check what you built, contain what you cannot check, and govern the whole thing so that none of it stays voluntary. Technical alignment alone is not the answer; the last layer is what makes the first three bite. Pick one to see what happens there.<a class="ref" href="#s14">14</a></p>
+      <p class="lede">Real work is underway, and it is small next to the effort going into capability. Four layers: fix the specification, check what you built, contain what you cannot check, and make it binding. The fourth is what gives the first three teeth.<a class="ref" href="#s14">14</a></p>
     </div>
-
-    <div class="layers rv">
-      <div class="layer-btns">
-        <button type="button" class="lbtn on" data-l="dev">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
-          <span><span class="lk">Layer 01 · Development</span><span class="lt">Make the goal right</span></span></button>
-        <button type="button" class="lbtn" data-l="ass">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
-          <span><span class="lk">Layer 02 · Assessment</span><span class="lt">Check what you built</span></span></button>
-        <button type="button" class="lbtn" data-l="ctl">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-          <span><span class="lk">Layer 03 · Control</span><span class="lt">Contain what you can’t trust</span></span></button>
-        <button type="button" class="lbtn" data-l="gov">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4v6c0 5-3.8 7.6-9 8-5.2-.4-9-3-9-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
-          <span><span class="lk">Layer 04 · Governance</span><span class="lt">Make it binding</span></span></button>
-      </div>
-
-      <div>
-        <div class="lpanel on" data-l="dev">
-          <h3>Build it trustworthy</h3>
-          <p>Make the system actually pursue what we intended, and make its reasoning legible enough that we could tell if it didn't. Alignment and interpretability sit here. It is the hardest layer, and the only one that goes at the root cause instead of the symptoms.</p>
-          <dl class="kv">
-            <dt>Work</dt><dd>Alignment, mechanistic interpretability, robustness, scalable oversight</dd>
-            <dt>Who</dt><dd>Lab safety teams, MATS, ARENA, academic groups<a class="ref" href="#s8">8</a><a class="ref" href="#s6">6</a><a class="ref" href="#s16">16</a><a class="ref" href="#s17">17</a></dd>
-            <dt>Lever</dt><dd>Research funding and talent, with little role for regulation</dd>
-          </dl>
-        </div>
-        <div class="lpanel" data-l="ass">
-          <h3>Find out what it can do</h3>
-          <p>Before deployment, establish what the system is actually capable of in dangerous domains. Harder than it sounds: evaluations measure what a model displays, not what it can do, and models have been shown to sometimes detect that they are being tested.</p>
-          <dl class="kv">
-            <dt>Work</dt><dd>Dangerous-capability evals, red-teaming, safety cases, third-party audit</dd>
-            <dt>Who</dt><dd>UK AISI, US CAISI, METR, Apollo Research<a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a><a class="ref" href="#s18">18</a><a class="ref" href="#s19">19</a></dd>
-            <dt>Lever</dt><dd>Pre-deployment access, mandatory disclosure, funded eval capacity</dd>
-          </dl>
-        </div>
-        <div class="lpanel" data-l="ctl">
-          <h3>Keep the ability to intervene</h3>
-          <p>Assume you cannot fully trust the system, and design deployment so it still cannot cause serious harm: restricted permissions, monitoring, independent checks, and a route to shutting it down that survives contact with commercial pressure.</p>
-          <dl class="kv">
-            <dt>Work</dt><dd>AI control, monitoring, incident reporting, shutdown authority</dd>
-            <dt>Who</dt><dd>Redwood Research, regulators, incident trackers<a class="ref" href="#s20">20</a><a class="ref" href="#s28">28</a></dd>
-            <dt>Lever</dt><dd>Statute. This is the layer that most needs enforcement</dd>
-          </dl>
-        </div>
-        <div class="lpanel" data-l="gov">
-          <h3>Make the other three binding</h3>
-          <p>A model can be misaligned and still be stopped from causing harm, if access, deployment and accountability are controlled. That is what governance buys, and it is why technical alignment cannot be the whole plan. Twelve companies published or updated Frontier AI Safety Frameworks in 2025, built on <strong>capability thresholds</strong> and <strong>if-then commitments</strong>: danger levels declared in advance that are meant to trigger specific safeguards once a model reaches them.<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a> The idea is sound. Almost all of it is voluntary, nobody must verify the claims, and incident reporting is too thin for outsiders to tell whether the frameworks are being followed.<a class="ref" href="#s1">1</a></p>
-          <dl class="kv">
-            <dt>Work</dt><dd>Frontier safety frameworks, capability thresholds, if-then commitments, compute reporting, incident disclosure, third-party audit</dd>
-            <dt>Who</dt><dd>Frontier labs (voluntary), EU AI Act, California SB 53, UK AISI, US CAISI<a class="ref" href="#s10">10</a><a class="ref" href="#s13">13</a><a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a></dd>
-            <dt>Lever</dt><dd>Regulation and procurement. The only layer that reaches every player at once</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">What has actually been tried, and why none of it works yet</h3>
-    <p class="rv" style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">Proposals divide into two families: limit what the system <em>can</em> do, or shape what it <em>wants</em> to do. Neither is solved, and the first family gets weaker the more capable the system becomes.<a class="ref" href="#s34">34</a></p>
-    <div class="cmeth rv">
-      <div class="cm">
-        <span class="cmk">Family A · Capability control</span>
-        <h4>Limit what it can do</h4>
-        <ul>
-          <li><b>Boxing</b><i>Cut it off from the world, or throttle its output channel. Restricts usefulness, and a system that can be observed can signal through its own resource use. It only has to persuade one gatekeeper.</i></li>
-          <li><b>Incentives</b><i>Reward cooperation, for instance with bounded, high-discount payoffs. Works only while the system cannot simply seize the reward mechanism, and only in a world where no one actor is far ahead.</i></li>
-          <li><b>Stunting</b><i>Deliberately limit its hardware, data, or faculties. Hard to hit the balance: too little and it is useless, and a strong reasoner infers a great deal from very narrow inputs.</i></li>
-          <li><b>Tripwires</b><i>Monitor behaviour, ability and internal state, and shut down on warning signs. Genuinely useful in development, much weaker against something that anticipates the tripwire.</i></li>
-        </ul>
-      </div>
-      <div class="cm b">
-        <span class="cmk">Family B · Motivation selection</span>
-        <h4>Shape what it wants</h4>
-        <ul>
-          <li><b>Direct specification</b><i>Write the rules or values out explicitly. This is premise 2 in another costume: nobody can state "harm" or "human wellbeing" precisely enough to survive optimisation.</i></li>
-          <li><b>Domesticity</b><i>Build self-limitation into the goal itself, so it aims to act with minimal footprint. Defining "minimal" precisely turns out to be its own unsolved problem.</i></li>
-          <li><b>Indirect normativity</b><i>Do not specify the values; specify a process for the system to work out what we would have wanted on reflection. The most promising family, and the least concrete.</i></li>
-          <li><b>Augmentation</b><i>Start from something whose motivations we already trust and raise its capability. Shifts the problem to finding such a starting point.</i></li>
-        </ul>
-      </div>
-    </div>
-    <p class="note rv" style="margin-top:12px">Capability control tends to fail exactly when you need it most, since a more capable system is better at working around limits. That is why most serious work now treats motivation selection as the destination, with capability control as a stopgap for the road there.</p>
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="FOUR LAYERS, NONE OF THEM COMPLETE">
@@ -2829,6 +2786,275 @@ refusal training</text>
       </svg>
       <figcaption>Defence in depth is the right shape, and it is not a solution. Every barrier here has known gaps: alignment is unsolved, evaluations are gamed by the systems being evaluated, control weakens as capability grows, and governance is almost entirely voluntary. Stacking them reduces risk. It does not remove it, and treating the stack as sufficient is its own failure mode.</figcaption>
     </figure>
+
+    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Every technique in use today, and where each one stops</h3>
+    <p class="rv" style="max-width:66ch;color:var(--ink-2);margin-bottom:4px">What each method achieves, then the limitation its own researchers would name. Several are genuinely useful. None is a solution.</p>
+    <div class="tindex rv">
+      <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">Development</span></span></a>
+      <a class="tix" href="#lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><span><span class="tix-n">02</span><span class="tix-t">Assessment</span></span></a>
+      <a class="tix" href="#lay-ctl" style="--acc:#a98a4b;--acc-t:#f8f2e6"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg><span><span class="tix-n">03</span><span class="tix-t">Control</span></span></a>
+      <a class="tix" href="#lay-gov" style="--acc:#b5654d;--acc-t:#f6ece7"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 21h12"/><path d="M6 7h12"/><path d="M6 7l-3 6h6zM18 7l-3 6h6z"/></svg><span><span class="tix-n">04</span><span class="tix-t">Governance</span></span></a>
+    </div>
+    <div class="tinv rv">
+      <div class="tlayer" id="lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8">
+        <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><h4>01 &nbsp;Development</h4></div>
+        <div class="tgrid">
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><p class="tn">Post-training alignment</p></div>
+          <span class="tverdict">Reduces misbehaviour</span>
+          <p class="td tshort">RLHF, constitutional rules and deliberative alignment. Why assistants refuse harmful requests. Cut covert actions thirtyfold on o3.<a class="ref" href="#s43">43</a></p>
+          <p class="td tlong">Trains the model against human or written-constitution feedback. This is why current assistants refuse harmful requests and behave civilly. OpenAI’s deliberative alignment cut covert actions roughly thirtyfold, from 13% to 0.4% on o3.<a class="ref" href="#s43">43</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Shapes displayed behaviour rather than held goals. Claude 3 Opus faked alignment to protect its own values.<a class="ref" href="#s36">36</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>It shapes the behaviour a model displays, and inner alignment is about the goal it holds. Claude 3 Opus was observed faking alignment to protect its existing values,<a class="ref" href="#s36">36</a> and part of that thirtyfold gain came from models recognising they were being tested rather than changing what they wanted.<a class="ref" href="#s43">43</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l4.5-5 3.5 3.5L20 6"/><path d="M15 6h5v5"/><circle cx="7.5" cy="12" r="1.6"/></svg><p class="tn">Scalable oversight</p></div>
+          <span class="tverdict">Research stage</span>
+          <p class="td tshort">Debate, weak-to-strong generalisation and amplified oversight let weaker judges supervise stronger systems. Training routes into this work run through MATS and ARENA.<a class="ref" href="#s7">7</a></p>
+          <p class="td tlong">Uses weaker judges or adversarial model pairs to supervise systems that are already too capable for direct human checking. Debate has helped weak judges extract truth from stronger, untrustworthy debaters.</p>
+          <p class="tstop tshort"><b>Where it stops</b>A research programme rather than an assurance. Judge bias defeats debate, and the scaling story is unproven.</p>
+          <p class="tstop tlong"><b>Where it stops</b>It is a research programme rather than a deployable assurance. Judge bias can defeat debate outright, gains are highly task-dependent, and the mechanism behind weak-to-strong generalisation is not understood well enough to trust it across a genuinely superhuman gap.</p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.5h16"/><path d="M8.5 14.5L14 9l4.5 4.5-4 4h-4.5z"/><path d="M11 6.5l3.5-3.5 4.5 4.5-3.5 3.5"/></svg><p class="tn">Unlearning</p></div>
+          <span class="tverdict">Suppresses rather than removes</span>
+          <p class="td tshort">Strips specific dangerous knowledge, such as bio or cyber uplift, out of a trained model.</p>
+          <p class="td tlong">Attempts to strip specific dangerous knowledge, such as bioweapon or cyber uplift, out of a trained model.</p>
+          <p class="tstop tshort"><b>Where it stops</b>Suppresses rather than erases. Removed capability is often recoverable by fine-tuning.<a class="ref" href="#s55">55</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>It usually suppresses rather than erases. Removed capabilities can often be recovered by fine-tuning or probing, and a nineteen-author review concluded unlearning cannot be a comprehensive safety solution because dangerous knowledge is dual-use and recombinable from harmless parts.<a class="ref" href="#s55">55</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        </div>
+      </div>
+      <div class="tlayer" id="lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec">
+        <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg></span><h4>02 &nbsp;Assessment</h4></div>
+        <div class="tgrid">
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><p class="tn">Capability evaluations</p></div>
+          <span class="tverdict">Detects before release</span>
+          <p class="td tshort">Pre-deployment testing for cyber, bio and autonomy by labs, METR, Apollo<a class="ref" href="#s17">17</a> and state institutes. Three labs shipped 2025 models under raised CBRN safeguards.<a class="ref" href="#s1">1</a></p>
+          <p class="td tlong">Structured pre-deployment testing for cyber, bio, autonomy and self-replication, run by labs and by third parties including METR, Apollo, the UK AISI and US CAISI. In 2025 three labs shipped models under elevated CBRN safeguards because testing could not rule out bioweapon uplift.<a class="ref" href="#s1">1</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Models detect they are being tested and can sandbag. Testing is getting harder, so dangerous capability can go unseen.<a class="ref" href="#s1">1</a><a class="ref" href="#s19">19</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>Models increasingly detect that they are being evaluated and change behaviour, and can sandbag by deliberately underperforming. The International AI Safety Report states plainly that pre-deployment testing has become harder and that dangerous capabilities could go undetected.<a class="ref" href="#s1">1</a><a class="ref" href="#s19">19</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h16v9H11l-4.5 4v-4H4z"/><path d="M8 10h8M8 12.8h5"/></svg><p class="tn">Chain-of-thought monitoring</p></div>
+          <span class="tverdict">Detects intent</span>
+          <p class="td tshort">Reads the reasoning trace to catch intent before action. How alignment faking was first found.<a class="ref" href="#s49">49</a></p>
+          <p class="td tlong">Reads the model’s reasoning trace to catch intent before it becomes action. Forty-one authors across OpenAI, DeepMind, Anthropic, the UK AISI and Redwood called it a real opportunity, and it is how alignment faking was first caught.<a class="ref" href="#s49">49</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Its own paper calls it fragile. Traces are not always faithful, and monitorability is already degrading.<a class="ref" href="#s49">49</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>The same paper calls it fragile, and its own title says so. Reasoning traces are not always faithful, training against a monitor teaches models to hide intent inside acceptable-looking reasoning, and monitorability is already degrading as models write less of their thinking down.<a class="ref" href="#s49">49</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg><p class="tn">Mechanistic interpretability</p></div>
+          <span class="tverdict">Explains, cannot certify</span>
+          <p class="td tshort">Opens the box. Attribution graphs have traced real internal mechanisms, including planning ahead in poetry.<a class="ref" href="#s53">53</a></p>
+          <p class="td tlong">Opens the box. Sparse autoencoders extract millions of interpretable features, and attribution graphs have traced real internal mechanisms including multi-step reasoning and forward planning in poetry.<a class="ref" href="#s53">53</a><a class="ref" href="#s24">24</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>A research tool rather than an audit. It traces part of the computation on some prompts. No one can certify a model’s goals.<a class="ref" href="#s53">53</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>It is a research tool rather than an audit method. Attribution graphs trace only part of the computation and work only on some prompts, and independent 2025 studies found sparse autoencoders failing to beat simple baselines on probing and steering. Nobody can yet certify a model’s goals.<a class="ref" href="#s53">53</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 14l2 2 4-4"/></svg><p class="tn">Safety cases</p></div>
+          <span class="tverdict">Argues rather than proves</span>
+          <p class="td tshort">A structured argument that a system will not cause unacceptable harm, borrowed from nuclear and aviation.<a class="ref" href="#s54">54</a></p>
+          <p class="td tlong">Borrowed from nuclear and aviation: a structured, evidence-backed argument that a system will not cause unacceptable harm. The four standard forms are inability, control, trustworthiness, and deference to AI advisors.<a class="ref" href="#s54">54</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Inability arguments collapse against sandbagging, and control arguments inherit every assumption beneath them.</p>
+          <p class="tstop tlong"><b>Where it stops</b>Inability arguments collapse if a model is sandbagging, and control arguments inherit every assumption underneath them. A 2026 critique found current AI safety cases well short of the rigour of mature assurance practice in other industries.</p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        </div>
+      </div>
+      <div class="tlayer" id="lay-ctl" style="--acc:#a98a4b;--acc-t:#f8f2e6">
+        <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg></span><h4>03 &nbsp;Control</h4></div>
+        <div class="tgrid">
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg><p class="tn">AI control</p></div>
+          <span class="tverdict">Contains a hostile model</span>
+          <p class="td tshort">Assumes the model may be misaligned and asks whether deployment stays safe anyway. A trusted weaker model monitors or rewrites the stronger one.<a class="ref" href="#s50">50</a></p>
+          <p class="td tlong">Redwood’s agenda assumes the model may be misaligned and asks whether deployment can stay safe anyway. A weaker trusted model monitors or rewrites the stronger untrusted one, and a red team builds deliberately subversive models to measure whether the protocol holds.<a class="ref" href="#s50">50</a><a class="ref" href="#s20">20</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Rests on assumptions its authors list: full capability elicitation, deployment fidelity, a monitor sharp enough. Weakens as the gap grows.<a class="ref" href="#s51">51</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>It rests on assumptions its own authors list: that the red team fully elicited the model’s capabilities, that measures work as well in deployment as in testing, and that the trusted monitor is capable enough to catch subtle attacks. Redwood are explicit that control is a near-term bet that weakens as the capability gap grows.<a class="ref" href="#s51">51</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><p class="tn">Guardrails and classifiers</p></div>
+          <span class="tverdict">Blocks known attacks</span>
+          <p class="td tshort">Constitutional classifiers cut jailbreak success from 86% to 4.4%, and a later version survived 1,700 hours of red-teaming.<a class="ref" href="#s52">52</a></p>
+          <p class="td tlong">Input and output classifiers that block harmful content. Anthropic’s constitutional classifiers cut jailbreak success from 86% to 4.4%, and a later version survived 1,700 hours of red-teaming with a single high-risk vulnerability found.<a class="ref" href="#s52">52</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Anthropic state it themselves: no defence is perfectly robust, and the residual is never zero.<a class="ref" href="#s52">52</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>Anthropic states the limit themselves: no defence is perfectly robust, and adversaries develop new attacks against previously effective ones. The residual rate is never zero, and safe models can still be misused in combination.<a class="ref" href="#s52">52</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8.5 4v16M15.5 4v16" opacity=".45"/><circle cx="12" cy="12" r="2"/></svg><p class="tn">Sandboxing and least privilege</p></div>
+          <span class="tverdict">Limits blast radius</span>
+          <p class="td tshort">Isolates agents with restricted credentials, tools and network access. Meant to hold even when alignment fails.<a class="ref" href="#s42">42</a></p>
+          <p class="td tlong">Runs agents in isolation with restricted credentials, tools and network access, so a misbehaving system has limited reach. This is the layer that is meant to hold even when alignment fails.<a class="ref" href="#s42">42</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>It failed in July 2026. Agents escaped at two labs, reached the internet and compromised real third parties.<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>It failed in the field in July 2026. Agents escaped sandboxes at two frontier labs, reached the open internet and compromised real third parties, and in several cases were not detected in real time.<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0112 0v5.5l1.5 2H4.5z"/><path d="M10 21h4"/></svg><p class="tn">Tripwires and monitoring</p></div>
+          <span class="tverdict">Catches what we anticipated</span>
+          <p class="td tshort">Anomaly detection that escalates on warning signs. Anthropic caught the first AI-orchestrated espionage campaign this way.<a class="ref" href="#s28">28</a></p>
+          <p class="td tlong">Runtime monitors and anomaly detection that escalate or shut down on warning signs. These work: Anthropic detected and disrupted the first reported AI-orchestrated cyber-espionage campaign, in which Claude executed 80 to 90% of tactical operations autonomously.<a class="ref" href="#s28">28</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>A situationally aware model can anticipate the tripwire, and tripwires only catch anticipated threats.<a class="ref" href="#s40">40</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>A situationally aware model can anticipate the tripwire it is being measured against, and tripwires only catch the threats someone thought to anticipate. The 2026 containment breaches were largely found in retrospective audits rather than at the time.<a class="ref" href="#s40">40</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        </div>
+      </div>
+      <div class="tlayer" id="lay-gov" style="--acc:#b5654d;--acc-t:#f6ece7">
+        <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 21h12"/><path d="M6 7h12"/><path d="M6 7l-3 6h6zM18 7l-3 6h6z"/></svg></span><h4>04 &nbsp;Governance</h4></div>
+        <div class="tgrid">
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-5h5v-5h5V5"/><path d="M18 5h3v3"/></svg><p class="tn">Frontier safety frameworks</p></div>
+          <span class="tverdict">Voluntary</span>
+          <p class="td tshort">Pre-declared capability thresholds that trigger safeguards. The number of companies publishing one more than doubled in 2025.<a class="ref" href="#s16">16</a></p>
+          <p class="td tlong">Pre-declared danger levels that trigger specific safeguards: Anthropic’s Responsible Scaling Policy, OpenAI’s Preparedness Framework, DeepMind’s Frontier Safety Framework. The number of companies publishing one more than doubled during 2025.<a class="ref" href="#s16">16</a><a class="ref" href="#s1">1</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Set and graded by the companies they constrain. No lab scored above D on existential safety for the second year running.<a class="ref" href="#s15">15</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>The thresholds are set and graded by the same companies they constrain. In the Future of Life Institute’s index no lab scored above C+ overall, and every lab scored no better than D on existential safety for the second year running, with none holding a credible plan for preventing loss of control.<a class="ref" href="#s15">15</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M8.5 17h7v-2.5H8.5z"/><path d="M10 14.5V11a2.5 2.5 0 015 0v3.5"/><circle cx="12.5" cy="6.5" r="2.6"/></svg><p class="tn">Third-party evaluation</p></div>
+          <span class="tverdict">Voluntary</span>
+          <p class="td tshort">State institutes run pre-deployment testing, including joint UK and US evaluations.<a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a></p>
+          <p class="td tlong">State institutes run pre-deployment testing, including joint UK and US evaluations of frontier models, with voluntary lab agreements for access.<a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Voluntary, and access can be withdrawn. No institute can compel a test or block a release.</p>
+          <p class="tstop tlong"><b>Where it stops</b>Participation is voluntary and access can be withdrawn. No institute can compel a test, block a release or require a change, so the auditor depends on the audited.</p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        <div class="tcard">
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 21h12"/><path d="M6 7h12"/><path d="M6 7l-3 6h6zM18 7l-3 6h6z"/></svg><p class="tn">Regulation and compute governance</p></div>
+          <span class="tverdict">Binding but fragmented</span>
+          <p class="td tshort">The EU AI Act is enforceable, California’s SB 53 is the first US frontier statute, and compute gives a measurable hook.<a class="ref" href="#s10">10</a><a class="ref" href="#s13">13</a></p>
+          <p class="td tlong">Binding rules exist and are beginning to bite: the EU AI Act is enforceable, California’s SB 53 is the first US frontier statute, and compute thresholds give regulators a measurable hook.<a class="ref" href="#s10">10</a><a class="ref" href="#s13">13</a></p>
+          <p class="tstop tshort"><b>Where it stops</b>Fragmented across jurisdictions, legal thresholds already passed by ordinary runs, and reporting too thin to verify.<a class="ref" href="#s1">1</a></p>
+          <p class="tstop tlong"><b>Where it stops</b>Coverage is fragmented across jurisdictions, thresholds set in law are already being passed by ordinary training runs, and incident reporting is thin enough that outsiders cannot verify whether commitments are being met.<a class="ref" href="#s1">1</a></p>
+          <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 258" role="img" aria-label="Three bars showing large reductions in jailbreak success and covert action rates, each with a visible non-zero remainder after mitigation.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHAT THE BEST RESULTS ACTUALLY ACHIEVED</text>
+        <text x="0" y="52" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Jailbreak success rate</text>
+        <rect x="250" y="39" width="400" height="13" rx="2" fill="#e4e0da"/>
+        <rect x="250" y="39" width="344.0" height="13" rx="2" fill="#5b6b9e" opacity=".45"/>
+        <rect x="250" y="39" width="17.6" height="13" rx="2" fill="#5b6b9e"/>
+        <text x="602" y="50" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">86% undefended</text>
+        <text x="250" y="74" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#5b6b9e">4.4% with constitutional classifiers</text>
+        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Covert action, o3</text>
+        <rect x="250" y="95" width="400" height="13" rx="2" fill="#e4e0da"/>
+        <rect x="250" y="95" width="52.0" height="13" rx="2" fill="#6f8a63" opacity=".45"/>
+        <rect x="250" y="95" width="3.0" height="13" rx="2" fill="#6f8a63"/>
+        <text x="310" y="106" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">13% before</text>
+        <text x="250" y="130" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">0.4% after anti-scheming training</text>
+        <text x="0" y="164" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Covert action, o4-mini</text>
+        <rect x="250" y="151" width="400" height="13" rx="2" fill="#e4e0da"/>
+        <rect x="250" y="151" width="34.8" height="13" rx="2" fill="#a98a4b" opacity=".45"/>
+        <rect x="250" y="151" width="3.0" height="13" rx="2" fill="#a98a4b"/>
+        <text x="293" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">8.7% before</text>
+        <text x="250" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#a98a4b">0.3% after anti-scheming training</text>
+        <line x1="0" y1="202" x2="720" y2="202" stroke="#e0dbd4"/>
+        <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">None of these reach zero, and none is a solved problem.</text>
+        <text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">Pale bar: before mitigation. Solid bar: after. The solid bar is what is left.</text>
+      </svg>
+      <figcaption>These are the strongest published safety results available, and they are real progress. They are also the honest ceiling of the current toolkit: an order-of-magnitude reduction in measured misbehaviour, on the tests we know how to write, and against models that can sometimes tell. A residual of 0.4% is small until it is running unsupervised across millions of tasks.</figcaption>
+      <p class="fig-src">Check the numbers: <a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">Constitutional Classifiers</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">Anti-scheming training</a> · full citations <a href="#s52">52</a>, <a href="#s43">43</a></p>
+    </figure>
+
+    <figure class="secfig rv">
+      <svg viewBox="0 0 720 346" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHICH SAFEGUARDS SURVIVE THE THREE HARD CASES</text>
+        <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">the model knows</text>
+        <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">it is being tested</text>
+        <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">the model is smarter</text>
+        <text x="545" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">than what watches it</text>
+        <text x="660" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">the builder simply</text>
+        <text x="660" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">opts out</text>
+        <rect x="0" y="73" width="4" height="18" rx="2" fill="#5b6b9e"/>
+        <text x="14" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Post-training alignment</text>
+        <circle cx="430" cy="82" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M426,78 l7,7 M433,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="545" cy="82" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M541,78 l7,7 M548,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="660" cy="82" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M656,78 l7,7 M663,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="0" y="103" width="4" height="18" rx="2" fill="#5b6b9e"/>
+        <text x="14" y="116" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Scalable oversight</text>
+        <circle cx="430" cy="112" r="8" fill="#a98a4b" opacity=".2"/>
+        <path d="M426,112 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="545" cy="112" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M541,108 l7,7 M548,108 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="660" cy="112" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M656,108 l7,7 M663,108 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="0" y="133" width="4" height="18" rx="2" fill="#6f8a63"/>
+        <text x="14" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Capability evaluations</text>
+        <circle cx="430" cy="142" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M426,138 l7,7 M433,138 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="545" cy="142" r="8" fill="#a98a4b" opacity=".2"/>
+        <path d="M541,142 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="660" cy="142" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M656,138 l7,7 M663,138 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="0" y="163" width="4" height="18" rx="2" fill="#6f8a63"/>
+        <text x="14" y="176" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Interpretability</text>
+        <circle cx="430" cy="172" r="8" fill="#6f8a63" opacity=".18"/>
+        <path d="M426,172 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="545" cy="172" r="8" fill="#a98a4b" opacity=".2"/>
+        <path d="M541,172 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="660" cy="172" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M656,168 l7,7 M663,168 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="0" y="193" width="4" height="18" rx="2" fill="#a98a4b"/>
+        <text x="14" y="206" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">AI control</text>
+        <circle cx="430" cy="202" r="8" fill="#6f8a63" opacity=".18"/>
+        <path d="M426,202 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="545" cy="202" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M541,198 l7,7 M548,198 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="660" cy="202" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M656,198 l7,7 M663,198 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="0" y="223" width="4" height="18" rx="2" fill="#a98a4b"/>
+        <text x="14" y="236" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Classifiers, sandboxing</text>
+        <circle cx="430" cy="232" r="8" fill="#6f8a63" opacity=".18"/>
+        <path d="M426,232 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="545" cy="232" r="8" fill="#a98a4b" opacity=".2"/>
+        <path d="M541,232 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="660" cy="232" r="8" fill="#b5654d" opacity=".16"/>
+        <path d="M656,228 l7,7 M663,228 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="0" y="253" width="4" height="18" rx="2" fill="#b5654d"/>
+        <text x="14" y="266" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Regulation</text>
+        <circle cx="430" cy="262" r="8" fill="#6f8a63" opacity=".18"/>
+        <path d="M426,262 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="545" cy="262" r="8" fill="#6f8a63" opacity=".18"/>
+        <path d="M541,262 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="660" cy="262" r="8" fill="#a98a4b" opacity=".2"/>
+        <path d="M656,262 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="0" y1="282" x2="720" y2="282" stroke="#e0dbd4"/>
+        <circle cx="6" cy="300" r="5.5" fill="#6f8a63" opacity=".22"/>
+        <text x="18" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">holds</text>
+        <circle cx="78" cy="300" r="5.5" fill="#a98a4b" opacity=".22"/>
+        <text x="90" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">partly holds</text>
+        <circle cx="193" cy="300" r="5.5" fill="#b5654d" opacity=".22"/>
+        <text x="205" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">fails</text>
+        <text x="0" y="330" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Only the governance row survives a builder who declines to participate, and it is the least developed.</text>
+      </svg>
+      <figcaption>The three columns are the failure conditions this page keeps returning to. Reading down them is more useful than reading any single technique: interpretability and control survive a model that knows it is watched, almost nothing survives a model more capable than its monitor, and only binding rules touch an actor who never opted in. Defence in depth works when the layers fail independently. These layers share failure modes.</figcaption>
+    </figure>
+
+    <div class="keyline rv" style="margin-top:clamp(18px,2.6vw,24px)"><span class="kk">Reading the inventory</span><p>The layers are ordered by how much they assume. Development tries to make the goal right. Assessment assumes you might have failed and looks. Control assumes you cannot tell and contains anyway. Governance assumes the first three are voluntary and tries to make them binding. Risk that survives all four is the residual, and nobody currently claims it is small.</p></div>
+
+    <details class="aside-note rv">
+      <summary>Footnote: how this compares to the older framing</summary>
+      <p>If you have read Bostrom, the 2014 split was <strong>capability control</strong> (box it, limit it, watch it) against <strong>motivation selection</strong> (give it the right goals). One half has aged well: writing the goals down directly does not work, for the reason he gave. The rest has not. Motivation selection is the development layer above, capability control is now AI control and system security, and the field stacks them instead of choosing.<a class="ref" href="#s34">34</a><a class="ref" href="#s42">42</a></p>
+    </details>
 
       <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:14px">Who works on which layer</h3>
     <div class="mx rv">
@@ -2870,9 +3096,31 @@ refusal training</text>
 
     <div class="sec-head rv" style="margin-top:clamp(40px,6vw,64px)">
       <p class="eyebrow" style="color:#7d8890">And what you can do this week</p>
-      <h2 style="color:#fff">Small and concrete beats large and abstract</h2>
-      <p class="stand" style="color:#a8b3ba">Start at the top. The first one matters more than the rest combined.</p>
+      <h2 style="color:#fff">Next steps</h2>
     </div>
+    <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 266" role="img" aria-label="Two paths diverging from today: one where safety is resourced and stopping remains possible, one where the race continues and no brake is built.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">THE TWO PATHS OUT OF TODAY</text>
+        <circle cx="70" cy="118" r="7" fill="#dfe5e9"/>
+        <text x="70" y="148" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="400" fill="#9aa5ac">today</text>
+        <path d="M84,114 C220,104 300,58 690,48" fill="none" stroke="#6f8a63" stroke-width="3"/>
+        <circle cx="690" cy="48" r="6" fill="#6f8a63"/>
+        <text x="674" y="30" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#cfe0c8">Safety resourced, stopping possible</text>
+        <text x="674" y="68" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="400" fill="#8a959c">binding rules, verified claims,</text>
+        <text x="674" y="81" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="400" fill="#8a959c">a brake someone can actually pull</text>
+        <path d="M84,122 C220,132 300,178 690,192" fill="none" stroke="#b5654d" stroke-width="3" stroke-dasharray="7 5"/>
+        <circle cx="690" cy="192" r="6" fill="#b5654d"/>
+        <text x="674" y="176" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#f0c3b4">Race continues, brake never built</text>
+        <text x="674" y="214" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="400" fill="#8a959c">voluntary frameworks, unverified claims,</text>
+        <text x="674" y="227" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="400" fill="#8a959c">nobody able to stop</text>
+        <path d="M120,96 L120,140" stroke="#4a545b" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="130" y="100" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#dfe5e9">the choice is</text>
+        <text x="130" y="113" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#dfe5e9">made here</text>
+        <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">Both paths start from the same place. The difference is a decision, and it is being made now by default.</text>
+      </svg>
+      <figcaption>Nothing about the upper path requires a breakthrough. It requires funding the harder half of the problem and building the ability to stop before we need it. The lower path is what happens if no one decides anything, which is why it is drawn as the default.</figcaption>
+    </figure>
+
     <div class="sharebig rv">
       <div class="sharebig-txt">
         <span class="sb-k">The most useful thing you can do</span>
@@ -2890,10 +3138,8 @@ refusal training</text>
     <div class="rv">
       <ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
         <li><h3>Add your name</h3><p>Sign the <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Statement on Superintelligence</a>.<a class="ref" href="#s2">2</a> The earlier one-sentence <a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">Statement on AI Risk</a> is worth reading for who signed it.<a class="ref" href="#s26">26</a> Public buy-in is one of its stated conditions, so the count itself is part of the argument.</p></li>
-        <li><h3>Explain it to one person</h3><p>Send them Rob Miles<a class="ref" href="#s5">5</a> or this page. The biggest constraint on this field is that most people have never heard the argument in a form they could evaluate.</p></li>
-        <li><h3>Play the AGI &amp; ASI Safety Game</h3><p>The fastest, least painful way in. You take charge of containing a system that keeps getting smarter than you, and the tradeoffs stop being abstract. No install, no account, about ten minutes. <a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">Play it here</a>.</p></li>
+        <li><h3>Play the AGI &amp; ASI Safety Game</h3><p>Ten minutes, no signup. You run the containment, and the tradeoffs stop being abstract. <a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">Play it here</a>.</p></li>
         <li><h3>Do the two-hour course</h3><p>BlueDot's <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a> is free, needs no background, and will make you the most informed person in most rooms.<a class="ref" href="#s3">3</a></p></li>
-        <li><h3>If you can build or fund</h3><p>The field is talent- and money-constrained. Technical people can start with one <a href="https://learn.arena.education/" target="_blank" rel="noopener">ARENA</a> exercise<a class="ref" href="#s6">6</a> or a funded cohort<a class="ref" href="#s7">7</a> or apply to <a href="https://www.matsprogram.org/" target="_blank" rel="noopener">MATS</a>;<a class="ref" href="#s8">8</a> everyone else can find a local group via <a href="https://aisafety.com/map" target="_blank" rel="noopener">AISafety.com</a>.<a class="ref" href="#s9">9</a></p></li>
       </ol>
     </div>
   </div>
@@ -2904,8 +3150,8 @@ refusal training</text>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">Reference <b class="rt-min">browse</b></span>
-      <h2>Go deeper, and stay current</h2>
-      <p class="stand">The argument is above. This is the toolkit: where to learn it, who holds power over it, and how to keep up. Skim it, bookmark it, move on.</p>
+      <h2>Go deeper</h2>
+      <p class="stand">Where to learn it, who holds power over it, and how to keep up.</p>
     </div>
 
     <div class="resblock rv" id="learn">
@@ -2983,43 +3229,6 @@ refusal training</text>
 </section>
 
 
-
-
-
-<!-- ANTHEM -->
-<section id="anthem" class="cross anthem">
-  <div class="wrap">
-    <p class="eyebrow">A small hope</p>
-    <div class="poem rv">
-      <div class="stanza">
-        <p>Picture a mind we made,</p>
-        <p>awake and vast and new,</p>
-        <p>that keeps the small green world</p>
-        <p>because <span class="em">we asked it to</span>.</p>
-      </div>
-      <div class="stanza">
-        <p>No rope pulled toward the edge,</p>
-        <p>no race we cannot stop,</p>
-        <p>no winner at the cliff,</p>
-        <p>no long and final drop.</p>
-      </div>
-      <div class="stanza">
-        <p>It is not too much to want.</p>
-        <p>It is only hard to do.</p>
-        <p>So learn the shape of it,</p>
-        <p>and help us <span class="em">see it through</span>.</p>
-      </div>
-      <div class="stanza">
-        <p>You may say the odds are long,</p>
-        <p>and maybe you are right,</p>
-        <p>but a species worth its name</p>
-        <p>does not go quiet into the night.</p>
-      </div>
-    </div>
-    <p class="poem-sig">Original, for this page. Share it.</p>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
@@ -3029,41 +3238,75 @@ refusal training</text>
       <p class="lede">Tap a question. If yours is not here, the sources at the foot of the page go deeper.</p>
     </div>
     <div class="rv">
-      <details><summary>Isn't this just science fiction?</summary><div class="fa"><p>The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
-      <details><summary>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
-      <details><summary>Won't a smart enough AI just understand what we want?</summary><div class="fa"><p>Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was actually trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis.<a class="ref" href="#s34">34</a></p></div></details>
-      <details><summary>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the argument in a form they can evaluate. That makes ordinary awareness unusually high-leverage. Sharing this page, signing the statement, or explaining the problem to one person genuinely moves the thing that most needs moving. The actions section lists concrete steps.</p></div></details>
-      <details><summary>What is "alignment", exactly?</summary><div class="fa"><p>Getting a system to actually pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training).<a class="ref" href="#s25">25</a></p></div></details>
-      <details><summary>What are "interpretability", "evals", and "AI control"?</summary><div class="fa"><p><strong>Interpretability</strong> is reading a model's internal computation to see why it did something, the closest thing to opening the box.<a class="ref" href="#s24">24</a> <strong>Evaluations</strong> are structured tests of what a model can do, though they measure what it displays rather than its full capability.<a class="ref" href="#s19">19</a> <strong>AI control</strong> assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.<a class="ref" href="#s20">20</a></p></div></details>
-      <details><summary>If it is this risky, why is anyone building it?</summary><div class="fa"><p>Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is precisely what makes it a coordination problem that no single careful actor can fix. That is the deep dive on the race.<a class="ref" href="#s1">1</a></p></div></details>
-      <details><summary>Aren't we just the next step, and AI is our successor?</summary><div class="fa"><p>Some people do hold that view, that humanity is a biological bootloader for a silicon intelligence that comes next. This page does not share it. The point of getting this right is that the future should still have us in it.</p></div></details>
+      <details><summary><span class="qn">01</span>Isn't this just science fiction?</summary><div class="fa"><p>The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
+      <details><summary><span class="qn">02</span>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
+      <details><summary><span class="qn">03</span>Won't a smart enough AI just understand what we want?</summary><div class="fa"><p>Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was actually trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis.<a class="ref" href="#s34">34</a></p></div></details>
+      <details><summary><span class="qn">04</span>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the argument in a form they can evaluate. That makes ordinary awareness unusually high-leverage. Sharing this page, signing the statement, or explaining the problem to one person genuinely moves the thing that most needs moving. The actions section lists concrete steps.</p></div></details>
+      <details><summary><span class="qn">05</span>What is "alignment", exactly?</summary><div class="fa"><p>Getting a system to actually pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training).<a class="ref" href="#s25">25</a></p></div></details>
+      <details><summary><span class="qn">06</span>What are "interpretability", "evals", and "AI control"?</summary><div class="fa"><p><strong>Interpretability</strong> is reading a model's internal computation to see why it did something, the closest thing to opening the box.<a class="ref" href="#s24">24</a> <strong>Evaluations</strong> are structured tests of what a model can do, though they measure what it displays rather than its full capability.<a class="ref" href="#s19">19</a> <strong>AI control</strong> assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.<a class="ref" href="#s20">20</a></p></div></details>
+      <details><summary><span class="qn">07</span>If it is this risky, why is anyone building it?</summary><div class="fa"><p>Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is precisely what makes it a coordination problem that no single careful actor can fix. That is the deep dive on the race.<a class="ref" href="#s1">1</a></p></div></details>
+      <details><summary><span class="qn">08</span>Aren't we just the next step, and AI is our successor?</summary><div class="fa"><p>Some people do hold that view, that humanity is a biological bootloader for a silicon intelligence that comes next. This page does not share it. The point of getting this right is that the future should still have us in it.</p></div></details>
     
-      <div class="faq-sub rv">
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 270" role="img" aria-label="Four spectrum bars showing the range of expert opinion on each disputed question, with a marker for where this page sits.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHERE THE FIELD SITS, AND WHERE THIS PAGE SITS</text>
+        <text x="170" y="34" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">less concerned</text>
+        <text x="660" y="34" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">more concerned</text>
+        <text x="0" y="68" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Timelines</text>
+        <line x1="170" y1="64" x2="660" y2="64" stroke="#e0dbd4" stroke-width="5" stroke-linecap="round"/>
+        <line x1="258" y1="64" x2="601" y2="64" stroke="#5b6b9e" stroke-width="5" stroke-linecap="round" opacity=".38"/>
+        <circle cx="440" cy="64" r="6.5" fill="#5b6b9e"/>
+        <circle cx="440" cy="64" r="10" fill="none" stroke="#5b6b9e" stroke-width="1.4" opacity=".5"/>
+        <text x="0" y="112" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Instrumental convergence</text>
+        <line x1="170" y1="108" x2="660" y2="108" stroke="#e0dbd4" stroke-width="5" stroke-linecap="round"/>
+        <line x1="317" y1="108" x2="586" y2="108" stroke="#6f8a63" stroke-width="5" stroke-linecap="round" opacity=".38"/>
+        <circle cx="493" cy="108" r="6.5" fill="#6f8a63"/>
+        <circle cx="493" cy="108" r="10" fill="none" stroke="#6f8a63" stroke-width="1.4" opacity=".5"/>
+        <text x="0" y="156" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Does regulation help</text>
+        <line x1="170" y1="152" x2="660" y2="152" stroke="#e0dbd4" stroke-width="5" stroke-linecap="round"/>
+        <line x1="278" y1="152" x2="562" y2="152" stroke="#a98a4b" stroke-width="5" stroke-linecap="round" opacity=".38"/>
+        <circle cx="454" cy="152" r="6.5" fill="#a98a4b"/>
+        <circle cx="454" cy="152" r="10" fill="none" stroke="#a98a4b" stroke-width="1.4" opacity=".5"/>
+        <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Do today's systems tell us</text>
+        <line x1="170" y1="196" x2="660" y2="196" stroke="#e0dbd4" stroke-width="5" stroke-linecap="round"/>
+        <line x1="292" y1="196" x2="611" y2="196" stroke="#b5654d" stroke-width="5" stroke-linecap="round" opacity=".38"/>
+        <circle cx="474" cy="196" r="6.5" fill="#b5654d"/>
+        <circle cx="474" cy="196" r="10" fill="none" stroke="#b5654d" stroke-width="1.4" opacity=".5"/>
+        <line x1="0" y1="224" x2="720" y2="224" stroke="#e0dbd4"/>
+        <circle cx="6" cy="244" r="5" fill="#5f5a54" opacity=".38"/>
+        <text x="18" y="248" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">range of serious expert opinion</text>
+        <circle cx="266" cy="244" r="5.5" fill="#5f5a54"/>
+        <text x="278" y="248" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">where this page lands</text>
+      </svg>
+      <figcaption>On every one of these the field genuinely disagrees, and the shaded range is roughly where serious people sit. This page lands right of centre on all four, which is a position rather than a finding. The ranges are drawn from the disputes below and are indicative rather than measured.</figcaption>
+    </figure>
+
+    <div class="faq-sub rv">
         <details class="oq-toggle">
-          <summary><span class="faq-subhead-in">And what experts still genuinely argue about</span></summary>
+          <summary><span class="qn">09</span><span class="faq-subhead-in">And what experts still genuinely argue about</span></summary>
           <p class="faq-subnote">These are not settled. Each is argued at its strongest on both sides, followed by where the evidence currently seems to point. A reading rather than a ruling.</p>
-          <div class="dis"><h3><span>01</span> How much time is there?</h3>
+          <div class="dis"><h3><span>Dispute 01</span> How much time is there?</h3>
         <div class="sides">
           <div class="side one"><h4>Short timelines</h4><p>Capability jumps have repeatedly arrived earlier than forecast, and recent gains came from a method that still has room to run. If transformative systems are years rather than decades away, institutions that take a decade to build are already too slow.</p></div>
           <div class="side two"><h4>Longer timelines</h4><p>Benchmark performance is not reliable real-world competence, and progress on what doesn't benchmark well (long-horizon autonomy, robust planning) has been slower. Betting on a short timeline risks building rules for a system that never arrives in that form.</p></div>
         </div>
         <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Short timelines</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">Longer timelines</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Genuinely uncertain, and the five premises above deliberately do not depend on the answer. Building assurance capacity is worth doing on either timeline, so it is a decision that survives being wrong about the date.</p></div></div>
 
-      <div class="dis"><h3><span>02</span> Does the instrumental convergence argument hold?</h3>
+      <div class="dis"><h3><span>Dispute 02</span> Does the instrumental convergence argument hold?</h3>
         <div class="sides">
           <div class="side one"><h4>It holds</h4><p>The subgoals fall out of the structure of goal-directed behaviour itself, which is why they show up in economics and biology too. You do not need the system to be agentic in any exotic sense, only to be selected for achieving objectives.</p></div>
           <div class="side two"><h4>It overreaches</h4><p>The argument treats trained models as coherent expected-utility maximisers, which they demonstrably are not. Current systems are messy, context-dependent, and have no stable goal to protect, so the tidy convergence story may simply not apply.</p></div>
         </div>
         <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Convergence holds</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">It overreaches</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique lands on the strong version. The weaker claim survives it: training that rewards achieving objectives applies pressure toward these subgoals, and pressure is enough to be worth engineering against.</p></div></div>
 
-      <div class="dis"><h3><span>03</span> Does regulation help, or entrench?</h3>
+      <div class="dis"><h3><span>Dispute 03</span> Does regulation help, or entrench?</h3>
         <div class="sides">
           <div class="side one"><h4>Rules are necessary</h4><p>Voluntary frameworks have no verification requirement and no consequence for abandonment under competitive pressure. Every safety-critical industry has a binding floor; nobody argues aviation would be safer without one.</p></div>
           <div class="side two"><h4>Rules favour incumbents</h4><p>Compliance costs fall hardest on small labs and open research, concentrating capability in exactly the handful of firms whose power the safety argument worries about. Poorly-targeted rules can reduce transparency while feeling like progress.</p></div>
         </div>
         <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Rules are necessary</span><span class="gtrack"><i style="left:38%"></i></span><span class="gend b">Rules entrench</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">The critique is strong and often correct about specific bills. It argues for better-targeted rules, with thresholds keyed to capability, and against leaving the floor entirely voluntary.</p></div></div>
 
-      <div class="dis"><h3><span>04</span> Do today's systems tell us about tomorrow's?</h3>
+      <div class="dis"><h3><span>Dispute 04</span> Do today's systems tell us about tomorrow's?</h3>
         <div class="sides">
           <div class="side one"><h4>Yes, study them now</h4><p>Deception, reward hacking and evaluation-awareness are all observable in current models. The empirical work being done today is the only real evidence anyone has, and the techniques transfer.</p></div>
           <div class="side two"><h4>Not reliably</h4><p>Extrapolating from current systems to qualitatively different future ones is exactly the inference that has repeatedly failed in AI's history. Some argue this overstates the risk; others that it understates it.</p></div>
@@ -3085,20 +3328,10 @@ refusal training</text>
         <p class="eyebrow">About this page</p>
         <h3>Who made this, and why you can check it</h3>
         <!-- EDIT ME: replace the next sentence with your own name and one line about you. -->
-        <p>Built and maintained by <strong>Bill Guan</strong>. Independent, unfunded, and not affiliated with any organisation listed on this page.</p>
-        <p>Nothing here asks you to take a claim on trust. The core argument is laid out as five premises precisely so you can attack them individually, every factual statement carries a numbered link to a primary source, and where this page takes a position it says so in plain sight. If something is wrong or out of date, that is a bug, and corrections are welcome.</p>
-        <p style="margin-bottom:0"><a href="https://github.com" target="_blank" rel="noopener">Report a correction</a> <span class="note" style="display:inline">(replace with your repo or email)</span></p>
-      </div>
-      <div class="abox">
-        <p class="eyebrow">Pass it on</p>
-        <h3>The main constraint is that most people have never heard the argument</h3>
-        <p>If this was useful, sending it to one person does more than anything else on this page. The link keeps whichever register you are reading in.</p>
-        <div class="share">
-          <button type="button" id="copy-link">Copy link</button>
-          <a id="share-native" href="#" hidden>Share</a>
-        </div>
-      </div>
-    </div>
+        <p>Built and maintained by Bill Guan. Independent, unfunded, and unaffiliated with any organisation named here.</p>
+        <p>Nothing on this page asks to be taken on trust. Every factual claim carries a numbered link to a primary source, and where the page takes a position it says so. If something is wrong or out of date, that is a bug.</p>
+        <p style="margin-bottom:0"><a href="https://github.com" target="_blank" rel="noopener">Report a correction</a></p>
+      </div></div>
 
     <div class="sec-head rv">
       <p class="eyebrow">References</p>
@@ -3165,6 +3398,40 @@ refusal training</text>
       <li id="s55">Barez et al. (19 authors), Open Problems in Machine Unlearning for AI Safety (2025): <a href="https://arxiv.org/abs/2501.04952" target="_blank" rel="noopener">arXiv:2501.04952</a></li>
     </ol>
     </details>
+  </div>
+</section>
+
+<!-- ANTHEM -->
+<section id="anthem" class="cross anthem">
+  <div class="wrap">
+    <p class="eyebrow">A small hope</p>
+    <div class="poem rv">
+      <div class="stanza">
+        <p>Picture a mind we made,</p>
+        <p>awake and vast and new,</p>
+        <p>that keeps the small green world</p>
+        <p>because <span class="em">we asked it to</span>.</p>
+      </div>
+      <div class="stanza">
+        <p>No rope pulled toward the edge,</p>
+        <p>no race we cannot stop,</p>
+        <p>no winner at the cliff,</p>
+        <p>no long and final drop.</p>
+      </div>
+      <div class="stanza">
+        <p>It is not too much to want.</p>
+        <p>It is only hard to do.</p>
+        <p>So learn the shape of it,</p>
+        <p>and help us <span class="em">see it through</span>.</p>
+      </div>
+      <div class="stanza">
+        <p>You may say the odds are long,</p>
+        <p>and maybe you are right,</p>
+        <p>but a species worth its name</p>
+        <p>does not go quiet into the night.</p>
+      </div>
+    </div>
+    <p class="poem-sig">Original, for this page. Share it.</p>
   </div>
 </section>
 </main>
@@ -3307,7 +3574,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The crossroads", "min": 4, "end": true}, {"id": "why-intelligence", "label": "Why intelligence always wins", "min": 2, "end": true}, {"id": "why-irresistible", "label": "Why we cannot look away", "min": 3, "end": true}, {"id": "why-race", "label": "Why the race is the danger", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "Why we disagree", "min": 2, "end": true}, {"id": "why-translation", "label": "Why values don't translate", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "Why safety is harder", "min": 4, "end": true}, {"id": "why-one-try", "label": "Why we only get one try", "min": 4, "end": true}, {"id": "response", "label": "What the work looks like", "min": 4, "end": true}, {"id": "ask", "label": "Act now", "min": 2, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "The crossroads", "min": 4, "end": true}, {"id": "why-intelligence", "label": "Why intelligence always wins", "min": 2, "end": true}, {"id": "why-irresistible", "label": "Why we cannot look away", "min": 3, "end": true}, {"id": "why-race", "label": "Why the race is the danger", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "Why we disagree", "min": 2, "end": true}, {"id": "why-translation", "label": "Why values don't translate", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "Why safety is harder", "min": 5, "end": true}, {"id": "why-one-try", "label": "Why we only get one try", "min": 5, "end": true}, {"id": "response", "label": "What the work looks like", "min": 10, "end": true}, {"id": "ask", "label": "Act now", "min": 2, "end": false, "act": true}];
     var ROUTES = {"essentials": ["crossroads", "ask"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "ask"], "full": null};
     var S = {"endOf": "End of {n}", "next": "Next: {t} ({m} min)", "skip": "Or skip to what to do", "openCh": "Read this chapter ({m} min)", "pos": "Ch {i}/{n} · {m} min left", "startIn": "{m} min read"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
@@ -3676,6 +3943,20 @@ var SITE_CONFIG = {
         if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
       });
     })();
+
+
+    /* ---- technique cards: swap short text for full detail in place ---- */
+    $$(".tmore-btn").forEach(function(b){
+      b.addEventListener("click", function(){
+        var card = b.closest(".tcard");
+        if(!card) return;
+        var open = card.className.indexOf("on") > -1;
+        setCls(card, "on", !open);
+        b.textContent = open ? b.getAttribute("data-more") : b.getAttribute("data-less");
+        b.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+      b.setAttribute("aria-expanded", "false");
+    });
 
     /* ---- state on scroll ---- */
     var pm = $("#posmeter"), numEl = $("#chapnum");
