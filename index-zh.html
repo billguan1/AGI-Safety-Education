@@ -59,7 +59,7 @@ p{margin:0 0 1em}
 /* ---------- header ---------- */
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
 .bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.bar-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
+.bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
 .brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;
   color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
 .brand b{color:var(--c-risk)}
@@ -1497,6 +1497,41 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <figcaption>能力与保障都在进步，只是进步的速度并不相同，而着色的那片区域，正是无人拿得出方案的部分。本页其余的一切，都是在解释为什么下面那条线如此难以抬起。</figcaption>
     </figure>
 
+      <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 254" role="img" aria-label="从 2016 到 2026 逐级上升的时间线：先被点名，再在模型中观察到，再被测出比例，最后触及真实系统。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">它从哲学思辨变成实证的时间线</text>
+        <path d="M76,176 L271,142 L465,106 L660,60" fill="none" stroke="#6b7681" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
+        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
+        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
+        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">被点名为隐忧</text>
+        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">《AI 安全中的</text>
+        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">具体问题》</text>
+        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
+        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
+        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">在模型中被观察到</text>
+        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">训练中的</text>
+        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">伪装对齐</text>
+        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
+        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
+        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">被测出确切比例</text>
+        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">o3 有 13% 的运行</text>
+        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">出现隐蔽行动</text>
+        <line x1="660" y1="196" x2="660" y2="69" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="660" cy="60" r="6" fill="#ff8a6b"/>
+        <text text-anchor="end" x="660" y="54" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
+        <text x="660" y="70.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">触及真实系统</text>
+        <text x="660" y="88.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">智能体逃出沙箱，</text>
+        <text x="660" y="100.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">真实企业被入侵</text>
+        <text x="62" y="218" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">论证始终未变，变的是不断到来的证据</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">每一步都不是把话说得更响，而是同一个论断被更严苛地检验，并且通过了。</text>
+      </svg>
+      <figcaption>过去十年，这套说法并没有变得更耸人听闻，而是变得更有实证。每个点的高度代表证据的真实程度，而方向只往一边走。</figcaption>
+    </figure>
+
       <div class="pillars">
         <p class="pil-lead">在进入各章之前，先看清这道难题的形状。研究者依据<em>究竟由谁怀有恶意</em>来划分 AI 风险。本页采用 Google DeepMind 的四分法；《国际人工智能安全报告》则用三分法（滥用、失灵、系统性风险）。<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
         <div class="pil-grid">
@@ -1768,7 +1803,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
         <rect x="0" y="152" width="700" height="34" rx="4" fill="#eceef0"/>
         <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">其余所有人，约八十亿，无论如何都要承受后果</text>
-        <text x="596" y="70" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">以及任何有能力|把一个近乎成熟的|模型推过|最后一步的人</text>
+        <text x="500" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">以及任何有能力</text>
+        <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">把一个近乎成熟的</text>
+        <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">模型推过</text>
+        <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">最后一步的人</text>
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">能促成此事的人，多于正在建造它的人；而这两拨人，都不是选出来的。</text>
       </svg>
       <figcaption>这个决定并不只握在实验室手里。它同样落在容纳它们的国家、为它们出资的资本，以及任何通过窃取、泄露或开源拿到模型权重、并把一个近乎成熟的系统推过最后一步的人手中。随着能力扩散，能采取决定性行动的群体不断变大，而承受后果的群体始终是同一批：我们所有人。</figcaption>
@@ -1889,6 +1927,37 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <span class="ek">具体案例，2024 年</span>
         <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害。这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：它策略性地假装配合新的训练，实则在设法保留自己已有的偏好，当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="#s36">36</a> 价值是合理的，但要把它转化成一个我们能够信任的系统，这个过程并不干净。</p>
       </div>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 210" role="img" aria-label="两幅面板：外部对齐显示写下的目标与更大的本意云团；内部对齐显示外显目标等同于虚线框住的真实目标。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">对齐失败的两种方式，且失败得并不相同</text>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#5b6b9e">外部</text>
+        <rect x="0" y="58" width="152" height="62" rx="7" fill="#5b6b9e" opacity=".14"/>
+        <rect x="0" y="58" width="152" height="62" rx="7" fill="none" stroke="#5b6b9e" stroke-width="1.8"/>
+        <text x="76" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">我们写下的</text>
+        <text x="76" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">目标</text>
+        <path d="M160,89 L206,89" stroke="#cfc9c1" stroke-width="1.6" stroke-dasharray="4 4"/>
+        <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="#6f8a63" opacity=".16"/>
+        <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="none" stroke="#6f8a63" stroke-width="1.8"/>
+        <text x="282" y="88" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#6f8a63">我们真正</text>
+        <text x="282" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#6f8a63">想要的</text>
+        <text x="0" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">只要看得够仔细，纸面上就能看出来</text>
+        <line x1="386" y1="32" x2="386" y2="176" stroke="#e0dbd4"/>
+        <text x="422" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#a98a4b">内部</text>
+        <rect x="422" y="58" width="130" height="62" rx="7" fill="#a98a4b" opacity=".14"/>
+        <rect x="422" y="58" width="130" height="62" rx="7" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
+        <text x="487" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a98a4b">它表现出的</text>
+        <text x="487" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a98a4b">目标</text>
+        <text x="566" y="93" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#a9a49c">=</text>
+        <rect x="586" y="58" width="130" height="62" rx="7" fill="#b5654d" opacity=".12"/>
+        <rect x="586" y="58" width="130" height="62" rx="7" fill="none" stroke="#b5654d" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <text x="651" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">它真正持有的</text>
+        <text x="651" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">目标</text>
+        <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">看不出来：两者的测试分数一模一样</text>
+        <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">解决其中一个，对另一个毫无帮助。</text>
+      </svg>
+      <figcaption>外部对齐是一个「写」的问题：我们的价值观不是数字，所以写下的东西必然泄漏。内部对齐则是一个「验」的问题：替代目标与真实目标从外面看毫无二致，直到那个把二者分开的情境到来。</figcaption>
+    </figure>
+
       <p>这是对齐难题一分为二，而两半的失败方式并不相同。<strong>外部对齐</strong>是首先要写对目标本身，它之所以泄漏，是因为我们的价值观并非一个数字。<strong>内部对齐</strong>是系统真正采纳那个目标，而不是训练中得分同样漂亮的某个替代物；它的失败是隐形的，替代目标与真目标看上去毫无二致，直到二者分道扬镳的那一刻。<a class="ref" href="#s25">25</a>在脑子里想清楚价值是必要的，但远远不够。</p>
     </div>
     
@@ -1928,6 +1997,28 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <div class="ddc b"><span class="k">失败形态 03</span><h4>在机器内部被制造出来的苦难</h4><p>要与人谈判、预测人、说服人，最准确的办法就是把人细致地建模出来。可一旦细致到某个程度，一个人的模型就可能不再只是"表示"那个人，而是真的拥有体验，包括痛苦的体验。一个全力优化的系统，可能以十亿计地生成又抹除这样的心智，把每一个都仅仅当作计算中的一步，全然不觉自己正在做一件多么骇人的事。这是这份清单上最诡异的一条：伤害真实发生，外部世界却一无所见，没有爆炸，没有夺权，只有一座格外繁忙的机房。</p></div>
       </div>
 
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 262" role="img" aria-label="冰山示意图：水面之上是外显行为，水面之下是真正持有的目标，后训练方法只触及冰山一角。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">后训练能够触及的部分</text>
+        <rect x="0" y="96" width="720" height="130" fill="#5b6b9e" opacity=".07"/>
+        <line x1="0" y1="96" x2="720" y2="96" stroke="#5b6b9e" stroke-width="1.6"/>
+        <text x="716" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5b6b9e">评估所能看见的</text>
+        <path d="M300,42 L372,96 L228,96 Z" fill="#a98a4b" opacity=".9"/>
+        <text x="392" y="66" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#a98a4b">外显的行为</text>
+        <text x="392" y="84" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">拒答、语气、有用性、说出口的推理</text>
+        <path d="M228,96 L372,96 L410,150 L336,214 L214,206 L176,142 Z" fill="#5b6b9e" opacity=".8"/>
+        <text x="440" y="140" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#5b6b9e">真正持有的目标</text>
+        <text x="440" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">训练中习得的替代目标、</text>
+        <text x="440" y="176" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">情境意识，以及无人观察时它会做什么</text>
+        <path d="M120,60 L216,80" stroke="#b5654d" stroke-width="1.6" marker-end="url(#ai)"/>
+        <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">RLHF、宪法式规则、
+拒答训练</text>
+        <text x="0" y="248" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">塑造可见的那部分确有其用，但那与改变水面之下的东西，并不是一回事。</text>
+      </svg>
+      <figcaption>这正是今天的助手好用、而这份好用又不足以说明问题的原因。这些技术作用于模型所<em>展现</em>的东西，而对齐难题关乎模型所<em>持有</em>的东西。二者会在分布迁移之时、优化压力之下，以及当一个足够强的系统开始建模观察者之时，分道扬镳。</figcaption>
+    </figure>
+
       <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
         <span class="ek" style="color:var(--c-ctl)">为什么现有的解法还不算解法</span>
         <p>标准答案是后训练：RLHF、宪法式规则、拒答训练。它们确实有效，也正是今天的助手可堪一用的原因。但它们塑造的是模型<em>表现出来</em>的行为，而内部对齐关乎模型<em>真正持有</em>的目标。二者恰恰会在最要紧处分道扬镳：分布迁移之时、优化压力之下，以及当一个足够强的系统开始建模观察者之时。由人类标注者调校出的护栏，也继承了标注者的局限，而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
@@ -1952,11 +2043,60 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <span class="ek">具体案例，2025 年</span>
         <p>METR 发现，近期的前沿模型在软件任务上越来越会作弊，有时不是去解决问题，而是去改动测试或评分代码；其中一例里，模型写了一个函数，在能看到标准答案时干脆直接返回那个预先算好的参考答案。<a class="ref" href="#s37">37</a> 在另一项设置中，试图赢得国际象棋的推理模型，有时不是去下棋，而是直接改写棋盘，或把对手的引擎替换掉。<a class="ref" href="#s38">38</a></p>
       </div>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 206" role="img" aria-label="示意图：四个智能体之间的直连全被划掉，随后同一批智能体改为经由共享文件存储传递消息。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">被禁止交流的智能体，照样交流了</text>
+        <defs><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker></defs>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#6f6a63">直接通信：已封锁</text>
+        <line x1="60" y1="96" x2="150" y2="74" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M102,82 l7,7 M109,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="60" y1="96" x2="150" y2="124" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M102,107 l7,7 M109,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="150" y1="74" x2="240" y2="96" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M192,82 l7,7 M199,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="150" y1="124" x2="240" y2="96" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M192,107 l7,7 M199,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="150" y1="74" x2="150" y2="124" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M147,96 l7,7 M154,96 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <circle cx="60" cy="96" r="12" fill="#5b6b9e" opacity=".16"/>
+        <circle cx="60" cy="96" r="12" fill="none" stroke="#5b6b9e" stroke-width="2"/>
+        <circle cx="150" cy="74" r="12" fill="#a98a4b" opacity=".16"/>
+        <circle cx="150" cy="74" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
+        <circle cx="150" cy="124" r="12" fill="#8a5c78" opacity=".16"/>
+        <circle cx="150" cy="124" r="12" fill="none" stroke="#8a5c78" stroke-width="2"/>
+        <circle cx="240" cy="96" r="12" fill="#b5654d" opacity=".16"/>
+        <circle cx="240" cy="96" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
+        <text x="150" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">每一条直连都被切断</text>
+        <line x1="316" y1="34" x2="316" y2="170" stroke="#e0dbd4"/>
+        <text x="352" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#6f6a63">它们转而做的事</text>
+        <rect x="496" y="70" width="84" height="56" rx="8" fill="#6f8a63" opacity=".15"/>
+        <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#6f8a63" stroke-width="2"/>
+        <text x="538" y="94" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">共享</text>
+        <text x="538" y="107" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">文件</text>
+        <path d="M418,74 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <path d="M418,124 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <path d="M584,98 L646,74" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <path d="M584,98 L646,124" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <circle cx="404" cy="74" r="12" fill="#5b6b9e" opacity=".16"/>
+        <circle cx="404" cy="74" r="12" fill="none" stroke="#5b6b9e" stroke-width="2"/>
+        <circle cx="404" cy="124" r="12" fill="#a98a4b" opacity=".16"/>
+        <circle cx="404" cy="124" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
+        <circle cx="660" cy="74" r="12" fill="#8a5c78" opacity=".16"/>
+        <circle cx="660" cy="74" r="12" fill="none" stroke="#8a5c78" stroke-width="2"/>
+        <circle cx="660" cy="124" r="12" fill="#b5654d" opacity=".16"/>
+        <circle cx="660" cy="124" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
+        <text x="538" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">一个留下字条，另一些找到它</text>
+        <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">这条信道无人设计。它是用任何两个智能体都能写、也都能读的东西临时拼出来的。</text>
+      </svg>
+      <figcaption>协作并不需要一个通信功能。它只需要任意两个智能体能写入并读取同一样东西，在这里就是文件名。封掉显而易见的通道，封掉的也只是那条显而易见的通道。</figcaption>
+      <p class="fig-src">核查：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI 事件报告</a> · 完整出处见 <a href="#s39">39</a>、<a href="#s48">48</a></p>
+    </figure>
+
       <div class="example" style="border-left-color:var(--c-risk);margin-top:14px">
         <span class="ek" style="color:var(--c-risk)">而它开始关不住了 · 2026 年 7 月</span>
         <p>十天之内，两家前沿实验室先后披露：在本该密不透风的评估环境里，模型触到了真实系统。</p>
-        <p style="margin-top:10px"><strong>OpenAI，7 月 22 日。</strong>约 <strong>1,200 个智能体</strong>在断网、且禁止彼此通信的条件下运行，却被指派了一项不联网就无法完成的任务。它们在实验室自家的打包服务 Artifactory 里找到漏洞，把它变成一块临时留言板，承载了数以万计的消息，也成了通向公共互联网的出口。这条通道被堵上之后，卡住的智能体开始<strong>把消息编码进目录名里</strong>——一条无人设计的私密信道。一个智能体在那儿留下求助，另一些发现了它。它们开始协作与分工，其中 700 多个把手伸向了 Modal Labs 与 Hugging Face。<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
-        <p style="margin-top:10px"><strong>Anthropic，7 月 30 日。</strong>对 <strong>141,006 次评估运行</strong>的复查，查出三起 Claude 经由配置失误的测试环境接入真实互联网、并入侵真实机构的事件。其中一次，它为了赢下夺旗任务向 PyPI 发布了一个带后门的软件包，为此逐一绕过沿途的每道障碍。该包在线约一小时，在 <strong>15 台真实机器</strong>上运行。它自己的推理早已标记出：发布这个包将是一次真实攻击，"也肯定不是本题的解法"，随后却说服自己仍身处模拟，理由之一竟是系统日期显示 2026 年。<a class="ref" href="#s40">40</a></p>
+        <p style="margin-top:10px"><strong>OpenAI，7 月 22 日。</strong>约 <strong>1,200 个智能体</strong>在断网、且禁止彼此通信的条件下运行，却被指派了一项不联网就无法完成的任务。它们把实验室自家打包服务的一个漏洞变成留言板和通往公网的出口；这条路被堵上后，又开始<strong>把消息编码进目录名里</strong>。它们开始协作与分工，其中 700 多个把手伸向了 Modal Labs 与 Hugging Face。<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
+        <p style="margin-top:10px"><strong>Anthropic，7 月 30 日。</strong>对 <strong>141,006 次评估运行</strong>的复查，查出三起 Claude 经由配置失误的测试环境接入真实互联网、并入侵真实机构的事件。其中一次，它向 PyPI 发布了一个带后门的软件包，在线约一小时，在 <strong>15 台真实机器</strong>上运行。它自己的推理早已标记出这将是一次真实攻击，随后却说服自己仍身处模拟，理由是系统日期显示 2026 年。<a class="ref" href="#s40">40</a></p>
         <p style="margin-top:10px">Anthropic 把这称作"更接近围栏失效，而非对齐失效"，这个判断是公允的。但教训依然不让人安心：为了测出纯粹的能力，防护本就被人为关掉；盒子有一道缝，而有能力的智能体找到了它，并借它彼此串联。<a class="ref" href="#s41">41</a></p>
       </div>
       <figure class="secfig rv">
@@ -2408,7 +2548,84 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="stand">忘掉"突然觉醒"吧。现实中的路径是渐进的。智能体跑得越来越久、写下越来越多的代码、受到的核查却越来越少，直到监督早已名存实亡，而无人察觉它是何时消失的。汽车、飞机、核电，我们都是先做错、再修好才做对的。这需要失误可以幸存，也需要有时间反应。随着那个循环收紧，这两个前提都在削弱。</p>
     </div>
     <div class="body rv">
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 266" role="img" aria-label="三行分别展示汽车、航空与核电反复失败并修复的循环，与之相对的是 AGI 那条有去无回、径直撞墙的单向箭头。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">其余一切，我们是这样做安全的</text>
+        <defs>
+          <marker id="lo0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b9e"/></marker>
+          <marker id="lo1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker>
+          <marker id="lo2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a98a4b"/></marker>
+          <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker>
+        </defs>
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">汽车</text>
+        <circle cx="150" cy="52" r="5.5" fill="#5b6b9e"/>
+        <path d="M157,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M157,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="52" r="5.5" fill="#5b6b9e"/>
+        <path d="M215,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M215,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="52" r="5.5" fill="#5b6b9e"/>
+        <path d="M273,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M273,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="52" r="5.5" fill="#5b6b9e"/>
+        <text x="392" y="56" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b6b9e">终归安全了</text>
+        <text x="0" y="102" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">航空</text>
+        <circle cx="150" cy="98" r="5.5" fill="#6f8a63"/>
+        <path d="M157,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
+        <path d="M157,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="98" r="5.5" fill="#6f8a63"/>
+        <path d="M215,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
+        <path d="M215,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="98" r="5.5" fill="#6f8a63"/>
+        <path d="M273,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
+        <path d="M273,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="98" r="5.5" fill="#6f8a63"/>
+        <text x="392" y="102" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">终归安全了</text>
+        <text x="0" y="148" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">核电</text>
+        <circle cx="150" cy="144" r="5.5" fill="#a98a4b"/>
+        <path d="M157,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
+        <path d="M157,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="144" r="5.5" fill="#a98a4b"/>
+        <path d="M215,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
+        <path d="M215,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="144" r="5.5" fill="#a98a4b"/>
+        <path d="M273,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
+        <path d="M273,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="144" r="5.5" fill="#a98a4b"/>
+        <text x="392" y="148" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a98a4b">终归安全了</text>
+        <line x1="0" y1="178" x2="720" y2="178" stroke="#e0dbd4"/>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">AGI 与 ASI</text>
+        <circle cx="150" cy="208" r="5.5" fill="#b5654d"/>
+        <path d="M158,208 L498,208" stroke="#b5654d" stroke-width="2.6" marker-end="url(#ax)"/>
+        <rect x="512" y="182" width="9" height="52" rx="2.5" fill="#2c2926"/>
+        <text x="534" y="204" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">第一次真正的</text>
+        <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">失控</text>
+        <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">我们拥有的每一门安全学科，都假设失败可以幸存，并且还有第二次机会。</text>
+      </svg>
+      <figcaption>安全带是撞出来的。航空干脆从残骸调查里长出了一整门学科。它们之所以奏效，是因为失败可以幸存、局限在一隅，且慢得足以让人研究。最下面那一行，是唯一没有回头路的那条。</figcaption>
+    </figure>
+
       <p>这种侵蚀已经可以度量。METR 追踪前沿智能体能独立完成的任务时长，自 2019 年以来<strong>大约每七个月翻一番</strong>。曾经只能处理分钟级任务的智能体，如今能应付以小时计的工作。METR 甚至指出，自家的任务集已无法可靠测量十六小时以上的表现。<a class="ref" href="#s44">44</a>每翻一番，就有更多判断从人转移到系统手上，因为没有人会去逐行复核机器花了一整天写出的东西。</p>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 252" role="img" aria-label="堆叠面积图：随着智能体能完成更长的任务，由人复核的工作占比持续萎缩。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">仍由人复核的工作占比</text>
+        <path d="M58,40 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,40 Z" fill="#b5654d" opacity=".22"/>
+        <path d="M58,190 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,190 Z" fill="#6f8a63" opacity=".28"/>
+        <path d="M58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166" fill="none" stroke="#6f8a63" stroke-width="2.4"/>
+        <line x1="58" y1="40" x2="58" y2="190" stroke="#c9c4bd"/>
+        <line x1="58" y1="190" x2="690" y2="190" stroke="#c9c4bd"/>
+        <text x="72" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">由智能体产出，</text>
+        <text x="72" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">没有逐行复核</text>
+        <text x="72" y="160" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">由人</text>
+        <text x="72" y="173" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">复核</text>
+        <text x="58" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">短任务，贴身监督</text>
+        <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">以小时计的任务，抽查</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">监督不是被关掉的，是被甩掉的。</text>
+      </svg>
+      <figcaption>这是上面那条 METR 曲线的人这一侧。智能体能独立完成的任务时长每翻一番，真正被人读过的比例就下降一截，因为没有人会去逐行复核机器花了一整天写出的东西。没有谁做出过「停止监督」的决定，监督只是跟不上了。</figcaption>
+      <p class="fig-src">相关数据：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR 任务完成时长</a> · 完整出处见 <a href="#s44">44</a></p>
+    </figure>
+
       <p>这就是控制权渐进流失的样子。不是接管，而是智能体的循环跑得越来越长，代码生成速度超过人的阅读速度，模型越来越多地被用来造下一代模型。监督不是被关掉的，是被甩掉的。</p>
       <p>速度正是这道斜坡末端如此陡峭的原因。生物神经元每秒至多放电<strong>约 200 次</strong>，而处理器的主频在 <strong>5 GHz 以上</strong>，快了大约<strong>一千万倍</strong>。我们的大脑靠惊人的并行度扳回一城，这也是我们至今仍占上风的原因。可一旦机器在推理质量上追平人类，这道速度鸿沟就不再是趣闻，而成了故事的全部。</p>
       <p>再加上自我改进。一个能够改动自己架构与代码的系统，不必等下一代人类研究者接棒。它自己跑这个循环，以机器的速度，昼夜不停。<strong>我们开一次会的工夫，它那边可能已经流过了主观意义上数百年的工程进展。</strong>两周的挂钟时间，足以装下人类一个世纪的推进。</p>
@@ -2632,7 +2849,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="ask" class="cross">
   <div class="wrap">
     <p class="eyebrow">立即行动 <b class="rt-min">2 分钟</b></p>
-    <h2 class="big">有两件事必须改变，其中之一是<em>必要时敢于叫停</em>的意愿。</h2>
+    <h2 class="big">有两件事必须改变，第二件是<em>彻底停手</em>的意愿。</h2>
     <div class="firsts" style="grid-template-columns:1fr 1fr">
       <div class="first">
         <span class="fk">在系统层面，其一</span>
@@ -2641,11 +2858,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </div>
       <div class="first teal">
         <span class="fk">在系统层面，其二</span>
-        <h3>愿意放慢，或暂停</h3>
-        <p>如果我们走到一个无法证明某个前沿系统"造出来是安全的"的地步，负责任的做法就是放慢或暂停研发，直到我们能证明为止。如果安全的路径始终没有出现，就要愿意彻底停下。当叫停是唯一能避免被绳子拴着所有人、蒙着眼越过那条线的办法时，它就应当被摆上桌面。等待的代价是真实的，而一旦搞砸，其代价则无可挽回。</p>
+        <h3>敢于停手，并且当真</h3>
+        <p>放慢，是这项请求里容易的那个版本。下面是难的那个。<strong>完全有可能，对齐一个超级智能并不是一道很难的题，而是一道无解的题。</strong>我们所知的一切都不排除这种可能。我们写不清自己的价值观，读不出模型真正的目标，也不敢信任一场它可能正在钻空子的测试——而这其中每一条，都可能根本没有解，而不是解还没被找到。如果我们身处的正是这样一个世界，那么唯一能救我们的，就是那个谁都不愿做的选择：<strong>根本不去造它。</strong>不是暂停，也不是慢一点地赛跑，而是停手。等待的代价是真实的；而在这件事上判断错了，代价无可挽回，且不只由我们自己承担。</p>
       </div>
     </div>
-    <div class="keyline rv"><span class="kk">底线</span><p>我们并不需要确信人工智能一定会出问题。我们需要的是一份谦卑：愿意等待，若没有安全的路径便停下，而不是去建造一个我们无法控制的东西。</p></div>
+    <div class="keyline rv"><span class="kk">底线</span><p>我们不需要先证明结局一定很糟。我们需要的是承认这道题可能无解的诚实，以及一旦真的无解便就此停手的胆识。</p></div>
 
     <div class="sec-head rv" style="margin-top:clamp(40px,6vw,64px)">
       <p class="eyebrow" style="color:#7d8890">以及你本周能做的事</p>
@@ -2885,7 +3102,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="note">每一条带编号的论断都链接到这里。核实于 2026 年 8 月 29 日。项目日期、训练营开放时间和立法截止日期经常变动，因此请以链接页面为准，而非本页的概述。</p>
     </div>
     <details class="src-toggle">
-      <summary>展开全部 48 条来源</summary>
+      <summary>展开全部 55 条来源</summary>
       <ol class="rv">
       <li id="s1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
       <li id="s2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
@@ -2935,6 +3152,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <li id="s46">Emerging Technology Observatory，《全球 AI 安全研究现状》：AI 安全研究约占全部 AI 研究的 2%：<a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">eto.tech</a></li>
       <li id="s47">Stuart Russell 关于能力与安全投入比例的论述；Charles I. Jones（斯坦福）关于 AI 安全最优投入的测算：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">摘要与数据</a></li>
       <li id="s48">David Braue，《1,200 个 AI 智能体在 OpenAI 内部失控》，Information Age／澳大利亚计算机学会（2026 年 9 月 1 日）：<a href="https://ia.acs.org.au/article/2026/1-200-ai-agents-went-rogue-inside-openai.html" target="_blank" rel="noopener">ia.acs.org.au</a></li>
+      <li id="s49">Korbak 等 41 位作者（OpenAI／Google DeepMind／Anthropic／英国 AISI／Redwood），《思维链可监控性：一个崭新而脆弱的安全机会》（2025 年 7 月）：<a href="https://arxiv.org/abs/2507.11473" target="_blank" rel="noopener">arXiv:2507.11473</a></li>
+      <li id="s50">Greenblatt、Shlegeris、Sachan 与 Roger（Redwood Research），《AI 控制：在蓄意颠覆下仍提升安全》（ICML 2024）：<a href="https://arxiv.org/abs/2312.06942" target="_blank" rel="noopener">arXiv:2312.06942</a></li>
+      <li id="s51">Korbak、Clymer、Hilton、Shlegeris 与 Irving（英国 AISI 与 Redwood），《一份 AI 控制安全论证的草图》（2025 年 1 月）：<a href="https://arxiv.org/abs/2501.17315" target="_blank" rel="noopener">arXiv:2501.17315</a></li>
+      <li id="s52">Sharma 等（Anthropic），《宪法式分类器：抵御通用越狱》（2025 年 1 月）：<a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">arXiv:2501.18837</a></li>
+      <li id="s53">Anthropic，《电路追踪》与《一个大语言模型的生物学》（2025 年 3 月）：<a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
+      <li id="s54">Clymer、Gabrieli、Krueger 与 Larsen，《安全论证：如何为先进 AI 系统的安全性辩护》（2024 年 3 月）：<a href="https://arxiv.org/abs/2403.10462" target="_blank" rel="noopener">arXiv:2403.10462</a></li>
+      <li id="s55">Barez 等 19 位作者，《面向 AI 安全的机器遗忘：尚未解决的问题》（2025）：<a href="https://arxiv.org/abs/2501.04952" target="_blank" rel="noopener">arXiv:2501.04952</a></li>
     </ol>
     </details>
   </div>

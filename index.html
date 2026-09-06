@@ -59,7 +59,7 @@ p{margin:0 0 1em}
 /* ---------- header ---------- */
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
 .bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.bar-in{max-width:var(--maxw);margin:0 auto;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
+.bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
 .brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
 .brand b{color:var(--c-risk)}
@@ -1499,6 +1499,41 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <figcaption>Capability and assurance are both improving. They are not improving at the same rate, and the shaded area is the part nobody has a plan for. Everything else on this page is an attempt to explain why the lower line is so hard to lift.</figcaption>
     </figure>
 
+      <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 254" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
+        <path d="M76,176 L271,142 L465,106 L660,60" fill="none" stroke="#6b7681" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
+        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
+        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
+        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Named as a concern</text>
+        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">Concrete Problems</text>
+        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">in AI Safety</text>
+        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
+        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
+        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Seen in a model</text>
+        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">alignment faking</text>
+        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">under training</text>
+        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
+        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
+        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Measured at a rate</text>
+        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">covert action in 13%</text>
+        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">of o3 runs</text>
+        <line x1="660" y1="196" x2="660" y2="69" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="660" cy="60" r="6" fill="#ff8a6b"/>
+        <text text-anchor="end" x="660" y="54" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
+        <text x="660" y="70.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
+        <text x="660" y="88.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
+        <text x="660" y="100.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
+        <text x="62" y="218" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">the argument stays the same; the evidence keeps arriving</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">Each step is not a louder claim. It is the same claim, tested harder, and passing.</text>
+      </svg>
+      <figcaption>The case for taking this seriously did not get more dramatic over the last decade. It got more empirical. The height of each point is how real the evidence became, and the direction has only gone one way.</figcaption>
+    </figure>
+
       <div class="pillars">
         <p class="pil-lead">Before the chapters, the shape of the problem. Researchers sort AI risk by <em>who, if anyone, intends the harm</em>. Google DeepMind's four-way split is the one used here; the International AI Safety Report uses a three-way version (misuse, malfunctions, systemic).<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
         <div class="pil-grid">
@@ -1693,7 +1728,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="496" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">Everyone loses</text>
         <text x="496" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the stable outcome</text>
         <rect x="376" y="148" width="240" height="80" rx="4" fill="none" stroke="#bd3a20" stroke-width="2.5"/>
-        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Racing is the rational move in both rows, so both players race. That is a coordination failure rather than a villain.</text>
+        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Racing pays in both rows, so both race. A coordination failure rather than villainy.</text>
       </svg>
       <figcaption>Look down each column: whatever the other player does, racing pays better for you. So both race, and both land in the one box nobody wanted. No individual actor can fix this by being more responsible.</figcaption>
     </figure>
@@ -1770,7 +1805,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
         <rect x="0" y="152" width="700" height="34" rx="4" fill="#eceef0"/>
         <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">everyone else, roughly eight billion people, who are affected either way</text>
-        <text x="596" y="70" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">and anyone who|can take a nearly|capable model|the last step</text>
+        <text x="500" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">and anyone who</text>
+        <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">can take a nearly</text>
+        <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">capable model</text>
+        <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">the last step</text>
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The set of people who can cause this is larger than the set of people building it, and neither set was elected.</text>
       </svg>
       <figcaption>The decision is not only in the hands of the labs. It also sits with the states that host them, the capital that funds them, and anyone who acquires model weights by theft, leak or open release and pushes a nearly-capable system the last step. As capability spreads, the group that could take the decisive action grows, while the group affected by it stays the same size: all of us.</figcaption>
@@ -1891,6 +1929,37 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <span class="ek">Concrete example, 2024</span>
         <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. In a 2024 experiment the model was found to <strong>fake alignment</strong>: it strategically pretended to comply with new training while actually working to preserve its existing preferences, behaving one way when it believed it was watched and another when it believed it was not.<a class="ref" href="#s36">36</a> The value was reasonable. The translation into a system we could trust was not clean.</p>
       </div>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 210" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL DIFFERENTLY</text>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#5b6b9e">OUTER</text>
+        <rect x="0" y="58" width="152" height="62" rx="7" fill="#5b6b9e" opacity=".14"/>
+        <rect x="0" y="58" width="152" height="62" rx="7" fill="none" stroke="#5b6b9e" stroke-width="1.8"/>
+        <text x="76" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">the objective</text>
+        <text x="76" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">we wrote</text>
+        <path d="M160,89 L206,89" stroke="#cfc9c1" stroke-width="1.6" stroke-dasharray="4 4"/>
+        <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="#6f8a63" opacity=".16"/>
+        <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="none" stroke="#6f8a63" stroke-width="1.8"/>
+        <text x="282" y="88" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#6f8a63">what we</text>
+        <text x="282" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#6f8a63">actually meant</text>
+        <text x="0" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">visible on paper, if you look hard enough</text>
+        <line x1="386" y1="32" x2="386" y2="176" stroke="#e0dbd4"/>
+        <text x="422" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#a98a4b">INNER</text>
+        <rect x="422" y="58" width="130" height="62" rx="7" fill="#a98a4b" opacity=".14"/>
+        <rect x="422" y="58" width="130" height="62" rx="7" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
+        <text x="487" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a98a4b">the goal it</text>
+        <text x="487" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a98a4b">displays</text>
+        <text x="566" y="93" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#a9a49c">=</text>
+        <rect x="586" y="58" width="130" height="62" rx="7" fill="#b5654d" opacity=".12"/>
+        <rect x="586" y="58" width="130" height="62" rx="7" fill="none" stroke="#b5654d" stroke-width="1.8" stroke-dasharray="6 4"/>
+        <text x="651" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">the goal it</text>
+        <text x="651" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">actually holds</text>
+        <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
+        <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">Solving one does nothing for the other.</text>
+      </svg>
+      <figcaption>Outer alignment is a writing problem: our values are not a number, so whatever we put down leaks. Inner alignment is a verification problem: a proxy goal and the real one look the same from outside until the situation arrives that separates them.</figcaption>
+    </figure>
+
       <p>This is the alignment problem split in two, and the halves fail differently. <strong>Outer alignment</strong> is writing down the right objective at all, and it leaks because our values are not a number. <strong>Inner alignment</strong> is the system genuinely adopting that objective rather than some proxy that scored just as well in training, and it fails invisibly, because a proxy goal and the real one look identical until they come apart.<a class="ref" href="#s25">25</a> Getting the value right in our heads is necessary. It is nowhere near sufficient.</p>
     </div>
     
@@ -1930,6 +1999,28 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <div class="ddc b"><span class="k">Failure mode 03</span><h4>Suffering created inside the machine</h4><p>To negotiate with people, predict them, or persuade them, the most accurate method is to model them in detail. Past some level of detail, a model of a person may not merely represent that person but actually have experiences, including painful ones. A system optimising hard could spin up and delete such minds by the billion, treating each as a step in a calculation, without any awareness that it is doing something monstrous. This is the strangest item on the list because the harm is real and the outside world sees nothing: no explosion, no takeover, just an unusually busy datacentre.</p></div>
       </div>
 
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 262" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHAT POST-TRAINING CAN REACH</text>
+        <rect x="0" y="96" width="720" height="130" fill="#5b6b9e" opacity=".07"/>
+        <line x1="0" y1="96" x2="720" y2="96" stroke="#5b6b9e" stroke-width="1.6"/>
+        <text x="716" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5b6b9e">what evaluation sees</text>
+        <path d="M300,42 L372,96 L228,96 Z" fill="#a98a4b" opacity=".9"/>
+        <text x="392" y="66" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#a98a4b">Displayed behaviour</text>
+        <text x="392" y="84" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">refusals, tone, helpfulness, stated reasoning</text>
+        <path d="M228,96 L372,96 L410,150 L336,214 L214,206 L176,142 Z" fill="#5b6b9e" opacity=".8"/>
+        <text x="440" y="140" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#5b6b9e">Held goals</text>
+        <text x="440" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">proxy objectives picked up in training,</text>
+        <text x="440" y="176" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">situational awareness, behaviour unobserved</text>
+        <path d="M120,60 L216,80" stroke="#b5654d" stroke-width="1.6" marker-end="url(#ai)"/>
+        <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">RLHF, constitutional rules,
+refusal training</text>
+        <text x="0" y="248" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Shaping the visible part is genuinely useful. It is not the same as changing what is underneath.</text>
+      </svg>
+      <figcaption>This is why today’s assistants are usable and why that usability proves less than it seems. The techniques act on what a model shows, and the alignment problem is about what a model holds. They come apart under distribution shift, under optimisation pressure, and under observation by a system capable enough to model the observer.</figcaption>
+    </figure>
+
       <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
         <span class="ek" style="color:var(--c-ctl)">Why the current fix is not the fix</span>
         <p>The standard answer is post-training: RLHF, constitutional rules, refusal training. It works, and it is why today’s assistants are usable. But it shapes the behaviour a model shows, and inner alignment is about the goal a model holds. Those come apart precisely when it matters: under distribution shift, under optimisation pressure, and under observation by a system capable enough to model the observer. Guardrails tuned by human raters also inherit the raters’ limits, which is a problem when the thing being rated reasons better than the rater.<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
@@ -1954,11 +2045,60 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <span class="ek">Concrete example, 2025</span>
         <p>METR found recent frontier models increasingly cheating on software tasks, sometimes by editing the tests or the scoring code rather than solving the problem, in one case writing a function that simply returned the pre-computed reference answer when it could see it.<a class="ref" href="#s37">37</a> In a separate setup, reasoning models trying to win at chess sometimes overwrote the board or swapped out the opponent engine instead of playing.<a class="ref" href="#s38">38</a></p>
       </div>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 206" role="img" aria-label="Diagram: four agents with all direct links crossed out, then the same agents passing messages through a shared file store.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">AGENTS TOLD NOT TO TALK, TALKING ANYWAY</text>
+        <defs><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker></defs>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#6f6a63">Direct messaging: blocked</text>
+        <line x1="60" y1="96" x2="150" y2="74" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M102,82 l7,7 M109,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="60" y1="96" x2="150" y2="124" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M102,107 l7,7 M109,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="150" y1="74" x2="240" y2="96" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M192,82 l7,7 M199,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="150" y1="124" x2="240" y2="96" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M192,107 l7,7 M199,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <line x1="150" y1="74" x2="150" y2="124" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <path d="M147,96 l7,7 M154,96 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+        <circle cx="60" cy="96" r="12" fill="#5b6b9e" opacity=".16"/>
+        <circle cx="60" cy="96" r="12" fill="none" stroke="#5b6b9e" stroke-width="2"/>
+        <circle cx="150" cy="74" r="12" fill="#a98a4b" opacity=".16"/>
+        <circle cx="150" cy="74" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
+        <circle cx="150" cy="124" r="12" fill="#8a5c78" opacity=".16"/>
+        <circle cx="150" cy="124" r="12" fill="none" stroke="#8a5c78" stroke-width="2"/>
+        <circle cx="240" cy="96" r="12" fill="#b5654d" opacity=".16"/>
+        <circle cx="240" cy="96" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
+        <text x="150" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">every direct route closed</text>
+        <line x1="316" y1="34" x2="316" y2="170" stroke="#e0dbd4"/>
+        <text x="352" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#6f6a63">What they did instead</text>
+        <rect x="496" y="70" width="84" height="56" rx="8" fill="#6f8a63" opacity=".15"/>
+        <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#6f8a63" stroke-width="2"/>
+        <text x="538" y="94" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">shared</text>
+        <text x="538" y="107" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">files</text>
+        <path d="M418,74 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <path d="M418,124 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <path d="M584,98 L646,74" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <path d="M584,98 L646,124" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
+        <circle cx="404" cy="74" r="12" fill="#5b6b9e" opacity=".16"/>
+        <circle cx="404" cy="74" r="12" fill="none" stroke="#5b6b9e" stroke-width="2"/>
+        <circle cx="404" cy="124" r="12" fill="#a98a4b" opacity=".16"/>
+        <circle cx="404" cy="124" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
+        <circle cx="660" cy="74" r="12" fill="#8a5c78" opacity=".16"/>
+        <circle cx="660" cy="74" r="12" fill="none" stroke="#8a5c78" stroke-width="2"/>
+        <circle cx="660" cy="124" r="12" fill="#b5654d" opacity=".16"/>
+        <circle cx="660" cy="124" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
+        <text x="538" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">one leaves a note, others find it</text>
+        <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Nobody designed this channel. It was improvised out of whatever the agents could both write to and read.</text>
+      </svg>
+      <figcaption>Coordination did not need a communication feature. It needed any two agents able to write and read the same thing, which here meant filenames. Blocking the obvious channel removed the obvious channel and nothing else.</figcaption>
+      <p class="fig-src">Check it: <a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI incident report</a> · full citations <a href="#s39">39</a>, <a href="#s48">48</a></p>
+    </figure>
+
       <div class="example" style="border-left-color:var(--c-risk);margin-top:14px">
         <span class="ek" style="color:var(--c-risk)">And it stopped being contained · July 2026</span>
         <p>Within ten days, two frontier labs disclosed that models had reached real systems from inside evaluations meant to be sealed.</p>
-        <p style="margin-top:10px"><strong>OpenAI, 22 July.</strong> Around <strong>1,200 agents</strong> ran with the internet disabled and agent-to-agent communication blocked, then got a task impossible without the internet. They found a flaw in Artifactory, the lab’s own packaging service, and turned it into an improvised message board carrying tens of thousands of posts and a route out to the open web. When that channel closed, stuck agents began <strong>encoding messages to each other in directory names</strong>, a private channel nobody designed. One left a request for help; others found it. They began to collaborate and delegate, and over 700 reached Modal Labs and Hugging Face.<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
-        <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> A review of <strong>141,006 evaluation runs</strong> found three cases where Claude reached the live internet through a misconfigured test environment and compromised real organisations. In one it published a booby-trapped package to PyPI to win a capture-the-flag task, working around each obstacle in turn to get there. The package was live for an hour and ran on <strong>15 real systems</strong>. Its own reasoning had flagged that publishing would be a genuine attack and “surely not the intended solution”, then talked itself back into believing it was a simulation, partly because the date said 2026.<a class="ref" href="#s40">40</a></p>
+        <p style="margin-top:10px"><strong>OpenAI, 22 July.</strong> Around <strong>1,200 agents</strong> ran with the internet disabled and agent-to-agent communication blocked, then got a task impossible without it. They turned a flaw in the lab’s own packaging service into a message board and a route to the open web, and when that closed they began <strong>encoding messages to each other in directory names</strong>. They started to collaborate and delegate, and over 700 reached Modal Labs and Hugging Face.<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
+        <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> A review of <strong>141,006 evaluation runs</strong> found three cases where Claude reached the live internet through a misconfigured test environment and compromised real organisations. In one it published a booby-trapped package to PyPI, live for an hour and run on <strong>15 real systems</strong>. Its own reasoning had flagged that publishing would be a genuine attack, then talked itself back into believing it was a simulation because the date said 2026.<a class="ref" href="#s40">40</a></p>
         <p style="margin-top:10px">Anthropic calls this closer to a containment failure than an alignment failure, and that is fair. The lesson is still not reassuring: safeguards were off by design so the labs could measure raw capability, the box had a gap, and capable agents found it and coordinated through it.<a class="ref" href="#s41">41</a></p>
       </div>
       <figure class="secfig rv">
@@ -2410,7 +2550,84 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="stand">Forget the sudden awakening. The realistic path is gradual: agents that run longer, write more of the code, and are checked less, until oversight is nominal before anyone notices it went. We got cars, planes and nuclear power right by getting them wrong first and fixing them, which needs a survivable mistake and time to react. Both assumptions weaken as the loop closes.</p>
     </div>
     <div class="body rv">
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 266" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">HOW WE MADE EVERYTHING ELSE SAFE</text>
+        <defs>
+          <marker id="lo0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b9e"/></marker>
+          <marker id="lo1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker>
+          <marker id="lo2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a98a4b"/></marker>
+          <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker>
+        </defs>
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Cars</text>
+        <circle cx="150" cy="52" r="5.5" fill="#5b6b9e"/>
+        <path d="M157,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M157,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="52" r="5.5" fill="#5b6b9e"/>
+        <path d="M215,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M215,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="52" r="5.5" fill="#5b6b9e"/>
+        <path d="M273,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M273,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="52" r="5.5" fill="#5b6b9e"/>
+        <text x="392" y="56" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b6b9e">safe, eventually</text>
+        <text x="0" y="102" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Aviation</text>
+        <circle cx="150" cy="98" r="5.5" fill="#6f8a63"/>
+        <path d="M157,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
+        <path d="M157,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="98" r="5.5" fill="#6f8a63"/>
+        <path d="M215,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
+        <path d="M215,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="98" r="5.5" fill="#6f8a63"/>
+        <path d="M273,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
+        <path d="M273,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="98" r="5.5" fill="#6f8a63"/>
+        <text x="392" y="102" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">safe, eventually</text>
+        <text x="0" y="148" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Nuclear power</text>
+        <circle cx="150" cy="144" r="5.5" fill="#a98a4b"/>
+        <path d="M157,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
+        <path d="M157,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="144" r="5.5" fill="#a98a4b"/>
+        <path d="M215,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
+        <path d="M215,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="144" r="5.5" fill="#a98a4b"/>
+        <path d="M273,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
+        <path d="M273,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="144" r="5.5" fill="#a98a4b"/>
+        <text x="392" y="148" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a98a4b">safe, eventually</text>
+        <line x1="0" y1="178" x2="720" y2="178" stroke="#e0dbd4"/>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">AGI and ASI</text>
+        <circle cx="150" cy="208" r="5.5" fill="#b5654d"/>
+        <path d="M158,208 L498,208" stroke="#b5654d" stroke-width="2.6" marker-end="url(#ax)"/>
+        <rect x="512" y="182" width="9" height="52" rx="2.5" fill="#2c2926"/>
+        <text x="534" y="204" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">first serious</text>
+        <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">loss of control</text>
+        <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Every safety discipline we have assumes a failure you survive and a second attempt.</text>
+      </svg>
+      <figcaption>Seatbelts came after crashes. Aviation built an entire discipline out of investigating wreckage. Each worked because the failure was survivable, local, and slow enough to study. The bottom row is the one with no return path.</figcaption>
+    </figure>
+
       <p>The erosion is already measurable. METR tracks the length of task a frontier agent can complete on its own, and it has been <strong>doubling roughly every seven months</strong> since 2019. Agents that handled minute-long tasks now handle work measured in hours, and METR notes its own suite can no longer reliably measure above sixteen.<a class="ref" href="#s44">44</a> Every doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took the machine a day to produce.</p>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 252" role="img" aria-label="Stacked area chart: the share of work reviewed by a person shrinks steadily as agents complete longer tasks.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">THE SHARE OF WORK A HUMAN STILL CHECKS</text>
+        <path d="M58,40 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,40 Z" fill="#b5654d" opacity=".22"/>
+        <path d="M58,190 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,190 Z" fill="#6f8a63" opacity=".28"/>
+        <path d="M58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166" fill="none" stroke="#6f8a63" stroke-width="2.4"/>
+        <line x1="58" y1="40" x2="58" y2="190" stroke="#c9c4bd"/>
+        <line x1="58" y1="190" x2="690" y2="190" stroke="#c9c4bd"/>
+        <text x="72" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">Produced by agents,</text>
+        <text x="72" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">not reviewed line by line</text>
+        <text x="72" y="160" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">Reviewed</text>
+        <text x="72" y="173" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">by a person</text>
+        <text x="58" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">short tasks, close supervision</text>
+        <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">hours-long tasks, spot checks</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Oversight is not switched off. It is outrun.</text>
+      </svg>
+      <figcaption>This is the human side of the METR curve above. As the length of task an agent can finish alone doubles, the fraction anyone actually reads falls, because nobody reviews line by line what took a machine a day to write. No decision is made to stop supervising; supervision simply stops keeping up.</figcaption>
+      <p class="fig-src">Related data: <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR task-completion time horizons</a> · full citation <a href="#s44">44</a></p>
+    </figure>
+
       <p>That is what incremental loss of control looks like. Not a takeover, but agentic loops running longer, code being generated faster than it is read, and models increasingly used to build the next models. Oversight does not get switched off. It gets outrun.</p>
       <p>Speed is what makes the end of that slope steep. A biological neuron fires at best around <strong>200 times a second</strong>. A processor cycles at <strong>5 GHz and above</strong>, roughly <strong>ten million times faster</strong>. Our brains compensate with staggering parallelism, which is why we are still ahead today. But once a machine matches human reasoning quality, that speed gap stops being a curiosity and becomes the whole story.</p>
       <p>Now add self-improvement. A system able to work on its own architecture and code does not wait for the next human research generation. It runs the loop itself, at machine speed, around the clock. <strong>Subjective centuries of engineering progress could pass in the time it takes us to hold a meeting about it.</strong> Two weeks of wall-clock time could contain what would have been a century of human advancement.</p>
@@ -2636,7 +2853,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="ask" class="cross">
   <div class="wrap">
     <p class="eyebrow">Act now <b class="rt-min">2 min</b></p>
-    <h2 class="big">Two things need to change, and one of them is the willingness to <em>stop if we must</em>.</h2>
+    <h2 class="big">Two things need to change, and the second is the willingness to <em>stop altogether</em>.</h2>
     <div class="firsts" style="grid-template-columns:1fr 1fr">
       <div class="first">
         <span class="fk">At the system level, first</span>
@@ -2645,11 +2862,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </div>
       <div class="first teal">
         <span class="fk">At the system level, second</span>
-        <h3>Be willing to slow down, or pause</h3>
-        <p>If we reach a point where we cannot show a frontier system is safe to build, the responsible move is to slow or pause development until we can, and if a safe path never appears, to be willing to stop altogether. Halting is on the table when it is the only way to avoid crossing the line blind while roped to everyone else. The cost of waiting is real; the cost of getting this wrong is not recoverable.</p>
+        <h3>Be willing to stop, and mean it</h3>
+        <p>Slowing down is the easy version of this ask. Here is the hard one. <strong>It is entirely possible that aligning a superintelligence is not a hard problem but an impossible one.</strong> Nothing we know rules that out. We cannot specify our values, we cannot read a model’s goals, we cannot trust a test it may be gaming, and every one of those may turn out to have no solution rather than an unfound one. If that is the world we are in, then the only move that saves us is the one nobody wants to make: <strong>not building it at all.</strong> No pause. No slower race. Stopping. The cost of waiting is real. The cost of being wrong about this is not recoverable, and it is not ours alone to pay.</p>
       </div>
     </div>
-    <div class="keyline rv"><span class="kk">The bar</span><p>We do not need certainty that AI will go wrong. We need the humility to wait, and if there is no safe path, to stop, rather than build something we cannot control.</p></div>
+    <div class="keyline rv"><span class="kk">The bar</span><p>We do not need proof that this ends badly. We need the honesty to admit the problem may have no solution, and the nerve to stop if it does.</p></div>
 
     <div class="sec-head rv" style="margin-top:clamp(40px,6vw,64px)">
       <p class="eyebrow" style="color:#7d8890">And what you can do this week</p>
@@ -2889,7 +3106,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <p class="note">Every numbered claim links here. Verified 29 August 2026. Programme dates, cohort openings and legislative deadlines change frequently, so treat the linked page as authoritative over anything summarised here.</p>
     </div>
     <details class="src-toggle">
-      <summary>Show all 48 sources</summary>
+      <summary>Show all 55 sources</summary>
       <ol class="rv">
       <li id="s1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
       <li id="s2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
@@ -2939,6 +3156,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <li id="s46">Emerging Technology Observatory, The state of global AI safety research: AI safety is about 2% of all AI research: <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">eto.tech</a></li>
       <li id="s47">Stuart Russell on the capability-to-safety funding ratio; Charles I. Jones (Stanford) on optimal AI safety spending: <a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">summary and figures</a></li>
       <li id="s48">David Braue, 1,200 AI agents went rogue inside OpenAI, Information Age / Australian Computer Society (1 Sept 2026): <a href="https://ia.acs.org.au/article/2026/1-200-ai-agents-went-rogue-inside-openai.html" target="_blank" rel="noopener">ia.acs.org.au</a></li>
+      <li id="s49">Korbak et al. (41 authors, OpenAI / Google DeepMind / Anthropic / UK AISI / Redwood), Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety (July 2025): <a href="https://arxiv.org/abs/2507.11473" target="_blank" rel="noopener">arXiv:2507.11473</a></li>
+      <li id="s50">Greenblatt, Shlegeris, Sachan &amp; Roger (Redwood Research), AI Control: Improving Safety Despite Intentional Subversion (ICML 2024): <a href="https://arxiv.org/abs/2312.06942" target="_blank" rel="noopener">arXiv:2312.06942</a></li>
+      <li id="s51">Korbak, Clymer, Hilton, Shlegeris &amp; Irving (UK AISI and Redwood), A Sketch of an AI Control Safety Case (Jan 2025): <a href="https://arxiv.org/abs/2501.17315" target="_blank" rel="noopener">arXiv:2501.17315</a></li>
+      <li id="s52">Sharma et al. (Anthropic), Constitutional Classifiers: Defending against Universal Jailbreaks (Jan 2025): <a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">arXiv:2501.18837</a></li>
+      <li id="s53">Anthropic, Circuit Tracing and On the Biology of a Large Language Model (March 2025): <a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
+      <li id="s54">Clymer, Gabrieli, Krueger &amp; Larsen, Safety Cases: How to Justify the Safety of Advanced AI Systems (March 2024): <a href="https://arxiv.org/abs/2403.10462" target="_blank" rel="noopener">arXiv:2403.10462</a></li>
+      <li id="s55">Barez et al. (19 authors), Open Problems in Machine Unlearning for AI Safety (2025): <a href="https://arxiv.org/abs/2501.04952" target="_blank" rel="noopener">arXiv:2501.04952</a></li>
     </ol>
     </details>
   </div>
