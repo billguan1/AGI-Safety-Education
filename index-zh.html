@@ -175,6 +175,31 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .gh-ctrl label{color:#8a959c}
 .gh-say{margin-top:16px;font-family:var(--body);font-weight:300;font-size:clamp(15px,1.9vw,17px);line-height:1.55;
   color:#c3ccd2;min-height:3em;border-left:3px solid var(--glow-r);padding-left:16px}
+/* ---------- join the community ---------- */
+.joinbig{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(24px,3.6vw,36px);
+  margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
+.joinbig::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,106,56,.5),rgba(74,106,56,0) 68%)}
+.joinbig>*{position:relative;z-index:1}
+.joinbig .sb-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:#9cc48a;display:block;margin-bottom:10px}
+.joinbig h3{color:#fff;font-size:clamp(23px,3.4vw,32px);margin-bottom:10px}
+.joinbig p{color:#b6c0c6;font-size:15.5px;margin:0 0 20px;max-width:56ch}
+.jform{display:flex;flex-wrap:wrap;gap:9px;align-items:stretch;max-width:560px}
+.jform input[type=email]{flex:1 1 240px;min-width:0;font-family:var(--body);font-size:16px;color:var(--ink);
+  background:var(--white);border:1.5px solid var(--white);border-radius:2px;padding:13px 15px}
+.jform input[type=email]::placeholder{color:#8a959c}
+.jform input[type=email]:focus{outline:2.5px solid #9cc48a;outline-offset:2px}
+.jform button{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:13px 20px;border-radius:2px;cursor:pointer;border:1.5px solid var(--c-act);background:var(--c-act);color:#fff;
+  transition:transform .15s,background .15s}
+.jform button:hover{transform:translateY(-2px);background:#3c5a2d}
+.jnote{font-family:var(--mono);font-size:10.5px;color:#8a959c;margin:12px 0 0}
+.jnote a{color:#8fa2ff}
+.jmsg{font-family:var(--mono);font-size:12px;color:#9cc48a;margin:12px 0 0;min-height:1.2em}
+.jsecond{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid #2b343b}
+.jsecond .js-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:#8a959c;width:100%;margin-bottom:2px}
 /* ---------- big share block ---------- */
 .sharebig{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
   background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(22px,3.4vw,32px);margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
@@ -375,6 +400,18 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
 .mh-meta span:first-child{padding-left:0;border-left:0}
+.mh-def{font-family:var(--mono);font-size:clamp(12px,1.25vw,13.5px);line-height:1.6;color:#dfe5e9;
+  max-width:70ch;margin:0 0 24px;padding:12px 0 12px 16px;border-left:3px solid var(--glow-r)}
+.mh-routes{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 26px}
+.mh-routes .mr-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:#8a959c;margin-right:4px}
+.mh-rbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;border-radius:999px;padding:8px 14px;
+  cursor:pointer;transition:.15s;display:inline-flex;align-items:baseline;gap:7px}
+.mh-rbtn b{font-weight:700;color:#9cc48a}
+.mh-rbtn:hover{border-color:#dfe5e9}
+.mh-rbtn.on{background:#9cc48a;border-color:#9cc48a;color:#12161a}
+.mh-rbtn.on b{color:#12161a}
 /* ---------- masthead end ---------- */
 
 
@@ -1165,13 +1202,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
 </style>
-
-  <!-- EDIT ME: replace https://example.com with your real domain in the 6 URLs below, then delete this comment. -->
-  <link rel="canonical" href="https://example.com/index-zh.html">
-  <link rel="alternate" hreflang="en" href="https://example.com/index.html">
-  <link rel="alternate" hreflang="zh-Hans" href="https://example.com/index-zh.html">
-  <link rel="alternate" hreflang="x-default" href="https://example.com/index.html">
-  <meta property="og:url" content="https://example.com/index-zh.html">
+  <link rel="canonical" href="https://safeagi.ca/index-zh.html">
+  <link rel="alternate" hreflang="en" href="https://safeagi.ca/index.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://safeagi.ca/index-zh.html">
+  <link rel="alternate" hreflang="x-default" href="https://safeagi.ca/index.html">
+  <meta property="og:url" content="https://safeagi.ca/index-zh.html">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="AGI &amp; ASI Safety">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
@@ -1184,16 +1219,16 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
  "@graph": [
   {
    "@type": "WebSite",
-   "@id": "https://example.com/#website",
-   "url": "https://example.com/",
+   "@id": "https://safeagi.ca/#website",
+   "url": "https://safeagi.ca/",
    "name": "AGI & ASI Safety",
    "inLanguage": "zh-Hans"
   },
   {
    "@type": "Article",
-   "@id": "https://example.com/index-zh.html#article",
+   "@id": "https://safeagi.ca/index-zh.html#article",
    "isPartOf": {
-    "@id": "https://example.com/#website"
+    "@id": "https://safeagi.ca/#website"
    },
    "headline": "AGI 与 ASI 安全，人类至今未解的最大难题",
    "description": "从根子上说清先进人工智能为何危险；附实证证据、尚存争议、最好的免费课程，以及你本周就能做的事。",
@@ -1206,7 +1241,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     "@type": "Person",
     "name": "Bill Guan"
    },
-   "image": "https://example.com/og-image.png",
+   "image": "https://safeagi.ca/og-image.png",
    "dateModified": "2026-09-04",
    "about": [
     {
@@ -1226,11 +1261,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "AI alignment"
     }
    ],
-   "mainEntityOfPage": "https://example.com/index-zh.html"
+   "mainEntityOfPage": "https://safeagi.ca/index-zh.html"
   },
   {
    "@type": "FAQPage",
-   "@id": "https://example.com/index-zh.html#faq",
+   "@id": "https://safeagi.ca/index-zh.html#faq",
    "mainEntity": [
     {
      "@type": "Question",
@@ -1384,6 +1419,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <p class="mh-kick">一份免费、独立的领域指南 · Bill Guan 著</p>
     <h1 class="mh-title">人类至今未解的<br>最大难题</h1>
     <p class="mh-sub">人类的智能缔造了现代文明。如今我们正要创造一个超越自身的存在，却无法保证它始终与人类同心同德。这份指南从根子上逐层拆解这道难题，也告诉你我们该怎么做。</p>
+      <p class="mh-def">一份从根子上讲起的指南：让超越人类的人工智能与人类的存续保持一致，为何至今仍是一道技术与协调层面都未解的难题，以及我们该为此做什么。</p>
+      <div class="mh-routes">
+        <span class="mr-k">阅读</span>
+        <button type="button" class="mh-rbtn" data-route="essentials"><b>6 分钟</b> 只看要害</button>
+        <button type="button" class="mh-rbtn" data-route="core"><b>18 分钟</b> 核心论证</button>
+        <button type="button" class="mh-rbtn on" data-route="full"><b>50 分钟</b> 全部读完</button>
+      </div>
     <div class="mh-meta">
       <span>AGI 与 ASI 安全</span><span>通读约 50 分钟</span><span>每条论断皆附出处</span>
     </div>
@@ -1437,7 +1479,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="668" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">无尽的丰饶与产出</text>
         <text x="668" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">攻克百病，寿数绵长</text>
         <text x="668" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a">科学以机器的速度推进</text>
-        <text x="668" y="136" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">前提：我们安全抵达</text>
+        <text x="668" y="136" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">前提：我们安全抵达</text>
 
         <!-- SOLID GROUND with a real cliff face -->
         <path d="M0,224 L556,224 L556,430 L0,430 Z" fill="url(#rock)"/>
@@ -1466,7 +1508,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
         <!-- rope + runners -->
         <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
-        <text x="70" y="180" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">一根绳，拴着所有人</text>
+        <text x="70" y="180" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">一根绳，拴着所有人</text>
         <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
           <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
           <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
@@ -1475,12 +1517,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
           <g transform="translate(420,206)"><circle cx="0" cy="-34" r="7" fill="#ffb59e"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ffb59e"/></g>
           <g transform="translate(500,206)"><circle cx="0" cy="-34" r="7.5" fill="#ff8a6b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ff8a6b"/></g>
         </g>
-        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">实验室</text>
-        <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">实验室</text>
-        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">投资方</text>
-        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">开源权重</text>
-        <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">国家</text>
-        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">国家</text>
+        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">实验室</text>
+        <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">实验室</text>
+        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">投资方</text>
+        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">开源权重</text>
+        <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">国家</text>
+        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">国家</text>
 
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">争当第一</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">争先恐后，奔向一个谁都不该抢先抵达之地。</text>
@@ -1551,9 +1593,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </figure>
 
       <figure class="secfig dark rv">
-      <svg viewBox="0 0 720 254" role="img" aria-label="从 2016 到 2026 逐级上升的时间线：先被点名，再在模型中观察到，再被测出比例，最后触及真实系统。">
+      <svg viewBox="0 0 720 272" role="img" aria-label="从 2016 到 2026 逐级上升的时间线：先被点名，再在模型中观察到，再被测出比例，最后触及真实系统。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">它从哲学思辨变成实证的时间线</text>
-        <path d="M76,176 L271,142 L465,106 L660,60" fill="none" stroke="#6b7681" stroke-width="1.6" stroke-dasharray="5 4"/>
         <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
         <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
         <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
@@ -1579,10 +1620,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="660" y="70.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">触及真实系统</text>
         <text x="660" y="88.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">智能体逃出沙箱，</text>
         <text x="660" y="100.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">真实企业被入侵</text>
-        <text x="62" y="218" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">论证始终未变，变的是不断到来的证据</text>
-        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">每一步都不是把话说得更响，而是同一个论断被更严苛地检验，并且通过了。</text>
+        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">论证始终未变，变的是不断到来的证据</text>
+        <text x="0" y="258" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">每一步都不是把话说得更响，而是同一个论断被更严苛地检验，并且通过了。</text>
       </svg>
-      <figcaption>过去十年，这套说法并没有变得更耸人听闻，而是变得更有实证。每个点的高度代表证据的真实程度，而方向只往一边走。</figcaption>
+      <figcaption>过去十年，这套说法没有变得更耸人听闻，而是变得更有实证，且方向始终只有一个。</figcaption>
     </figure>
 
       <div class="pillars">
@@ -1694,7 +1735,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#a8690a">约 2%</text>
         <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">按 Stuart Russell 的数字，两者之比约为一万比一。</text>
       </svg>
-      <figcaption>两根条按同一比例绘制。这正是第二根几乎看不见的原因。此处的对比刻意留在人工智能内部，而没有拿另一个行业作参照：跨行业的比值往往衡量的并非同一件事，也容易被人反驳。而这一组更难被打发掉，因为它出自同一个领域、用两种口径清点，却指向同一个方向。</figcaption>
+      <figcaption>两根条按同一比例绘制，这正是第二根几乎看不见的原因。对比刻意留在人工智能内部，因为跨行业的比值往往衡量的并非同一件事。</figcaption>
       <p class="fig-src">核查这些数字：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于安全投入的测算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">Emerging Technology Observatory：安全研究占比</a> · 完整出处见 <a href="#s46">46</a>、<a href="#s47">47</a></p>
     </figure>
 
@@ -2043,7 +2084,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">后训练能够触及的部分</text>
         <rect x="0" y="96" width="720" height="130" fill="#5b6b9e" opacity=".07"/>
         <line x1="0" y1="96" x2="720" y2="96" stroke="#5b6b9e" stroke-width="1.6"/>
-        <text x="716" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5b6b9e">评估所能看见的</text>
+        <text x="716" y="114" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5b6b9e">评估所能看见的</text>
         <path d="M300,42 L372,96 L228,96 Z" fill="#a98a4b" opacity=".9"/>
         <text x="392" y="66" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#a98a4b">外显的行为</text>
         <text x="392" y="84" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">拒答、语气、有用性、说出口的推理</text>
@@ -2057,7 +2098,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 拒答训练</text>
         <text x="0" y="248" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">塑造可见的那部分确有其用，但那与改变水面之下的东西，并不是一回事。</text>
       </svg>
-      <figcaption>这正是今天的助手好用、而这份好用又不足以说明问题的原因。这些技术作用于模型所<em>展现</em>的东西，而对齐难题关乎模型所<em>持有</em>的东西。二者恰恰会在最要紧的地方分道扬镳。</figcaption>
+      <figcaption>这正是今天的助手好用、而这份好用说明不了多少问题的原因。这些技术作用于模型所<em>展现</em>的东西，而对齐关乎它所<em>持有</em>的东西。</figcaption>
     </figure>
 
       <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
@@ -2129,7 +2170,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="538" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">一个留下字条，另一些找到它</text>
         <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">这条信道无人设计。它是用任何两个智能体都能写、也都能读的东西临时拼出来的。</text>
       </svg>
-      <figcaption>协作并不需要一个通信功能。它只需要任意两个智能体能写入并读取同一样东西，在这里就是文件名。封掉显而易见的通道，封掉的也只是那条显而易见的通道。</figcaption>
+      <figcaption>协作不需要通信功能，只需要两个智能体能写入并读取同一样东西。在这里，那就是文件名。</figcaption>
       <p class="fig-src">核查：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI 事件报告</a> · 完整出处见 <a href="#s39">39</a>、<a href="#s48">48</a></p>
     </figure>
 
@@ -2518,7 +2559,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#4a6a38">唯一一种可行的配置</text>
         <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">其余每个点：一种失败方式，大多未经测试</text>
       </svg>
-      <figcaption>造出来，只需找到那个绿点；证明它安全，却要排除掉每一个灰点，包括任何设计者都未曾设想过的那些。这片区域无法穷举，而唯一被漏掉的那一点，可能恰恰是要命的一点。</figcaption>
+      <figcaption>造出来只需找到那个绿点；证明它安全，却要排除每一个灰点，包括无人设想过的那些。唯一被漏掉的那一点，可能恰恰要命。</figcaption>
     </figure>
 
       <figure class="secfig rv">
@@ -2662,7 +2703,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">以小时计的任务，抽查</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">监督不是被关掉的，是被甩掉的。</text>
       </svg>
-      <figcaption>这是上面那条 METR 曲线的人这一侧。智能体能独立完成的任务时长每翻一番，真正被人读过的比例就下降一截，因为没有人会去逐行复核机器花了一整天写出的东西。没有谁做出过「停止监督」的决定，监督只是跟不上了。</figcaption>
+      <figcaption>上面那条 METR 曲线的人这一侧。智能体能独立完成的任务越长，真正被人读过的比例就越低。没有谁决定停止监督，是监督跟不上了。</figcaption>
       <p class="fig-src">相关数据：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR 任务完成时长</a> · 完整出处见 <a href="#s44">44</a></p>
     </figure>
 
@@ -2682,13 +2723,13 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <line x1="56" y1="34" x2="56" y2="214" stroke="#c3c9cd"/>
         <line x1="56" y1="214" x2="700" y2="214" stroke="#c3c9cd"/>
         <line x1="56" y1="174" x2="700" y2="174" stroke="#eceef0"/>
-        <text x="50" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 分钟</text>
+        <text x="50" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 分钟</text>
         <line x1="56" y1="122" x2="700" y2="122" stroke="#eceef0"/>
-        <text x="50" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">10 分钟</text>
+        <text x="50" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">10 分钟</text>
         <line x1="56" y1="81" x2="700" y2="81" stroke="#eceef0"/>
-        <text x="50" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 小时</text>
+        <text x="50" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 小时</text>
         <line x1="56" y1="50" x2="700" y2="50" stroke="#eceef0"/>
-        <text x="50" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">4 小时</text>
+        <text x="50" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">4 小时</text>
         <path d="M60,201 L148,185 L236,164 L324,142 L412,118 L500,90 L588,66 L676,45" fill="none" stroke="#2233cc" stroke-width="2.6"/>
         <circle cx="60" cy="201" r="3.4" fill="#2233cc"/>
         <circle cx="148" cy="185" r="3.4" fill="#2233cc"/>
@@ -2698,9 +2739,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <circle cx="500" cy="90" r="3.4" fill="#2233cc"/>
         <circle cx="588" cy="66" r="3.4" fill="#2233cc"/>
         <circle cx="676" cy="45" r="3.4" fill="#2233cc"/>
-        <text x="60" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2019</text>
-        <text x="324" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2022</text>
-        <text x="676" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">2026</text>
+        <text x="60" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2019</text>
+        <text x="324" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2022</text>
+        <text x="676" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2026</text>
         <path d="M676,45 L700,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
         <text x="700" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">若趋势延续</text>
         <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#2233cc">大约每 7 个月翻一番</text>
@@ -2785,6 +2826,49 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">今天在用的每一项技术，以及它各自止步于何处</h3>
     <p class="rv" style="max-width:66ch;color:var(--ink-2);margin-bottom:4px">每一项先说它做到了什么，再说那种连它自己的研究者都会承认的局限。其中好几项确有其用，但没有一项是解法。</p>
+<figure class="secfig rv">
+      <svg viewBox="0 0 720 342" role="img" aria-label="矩阵图：四类风险支柱各自对应的工程抓手与政策抓手，其中结构性风险一行没有工程解法。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">按风险支柱划分的技术与政策抓手</text>
+        <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#5b6b9e">工程抓手</text>
+        <text x="480" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">政策抓手</text>
+        <line x1="0" y1="50" x2="720" y2="50" stroke="#d9d4cd"/>
+        <rect x="0" y="64" width="4" height="46" rx="2" fill="#5b6b9e"/>
+        <text x="14" y="76" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">恶意滥用</text>
+        <text x="14" y="92" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">使用者怀有恶意</text>
+        <text x="228" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">分类器、遗忘、</text>
+        <text x="228" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">能力评估</text>
+        <text x="480" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">访问控制、身份核验、</text>
+        <text x="480" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">出口与算力规则</text>
+        <line x1="0" y1="118" x2="720" y2="118" stroke="#eae6e0"/>
+        <rect x="0" y="126" width="4" height="46" rx="2" fill="#b5654d"/>
+        <text x="14" y="138" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">目标失准</text>
+        <text x="14" y="154" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">AI 怀有恶意</text>
+        <text x="228" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">可解释性、思维链监控、</text>
+        <text x="228" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">可扩展监督、AI 控制</text>
+        <text x="480" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">能力阈值、第三方审计、</text>
+        <text x="480" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">信息披露</text>
+        <line x1="0" y1="180" x2="720" y2="180" stroke="#eae6e0"/>
+        <rect x="0" y="188" width="4" height="46" rx="2" fill="#6f8a63"/>
+        <text x="14" y="200" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">无心之失</text>
+        <text x="14" y="216" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">无人怀有恶意</text>
+        <text x="228" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">红队测试、沙箱、</text>
+        <text x="228" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">分阶段部署</text>
+        <text x="480" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">事故报告、责任认定、</text>
+        <text x="480" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">安全论证</text>
+        <line x1="0" y1="242" x2="720" y2="242" stroke="#eae6e0"/>
+        <rect x="0" y="250" width="4" height="46" rx="2" fill="#a98a4b"/>
+        <text x="14" y="262" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">结构性风险</text>
+        <text x="14" y="278" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">恶意来自激励本身</text>
+        <text x="228" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">几乎没有。这一支柱</text>
+        <text x="228" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">没有工程解法</text>
+        <text x="480" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">有约束力的最低标准、</text>
+        <text x="480" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">国际协调</text>
+        <line x1="0" y1="304" x2="720" y2="304" stroke="#eae6e0"/>
+        <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">最下面这一行，正是技术对齐无法独自收尾的原因。</text>
+      </svg>
+      <figcaption>横着读一行，分工便一目了然。恶意滥用与无心之失，有真实的工程答案，并有政策在后面兜底。目标失准有正在推进的工程工作，而对应的治理大多尚不具约束力。至于结构性风险，则根本没有技术解法，因为没有哪个单一行动者，能靠工程手段把自己从一场竞争动态里摘出去。这种不对称，正是第四层存在的理由。</figcaption>
+    </figure>
+
     <div class="tindex rv">
       <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">开发</span></span></a>
       <a class="tix" href="#lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><span><span class="tix-n">02</span><span class="tix-t">评估</span></span></a>
@@ -2971,12 +3055,12 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <figure class="secfig rv">
       <svg viewBox="0 0 720 346" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、建造者干脆不参与。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">哪些防护扛得住这三种最难的情形</text>
-        <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">模型知道</text>
-        <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">自己正被测试</text>
-        <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">模型比监视它的</text>
-        <text x="545" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">那一方更聪明</text>
-        <text x="660" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">建造者</text>
-        <text x="660" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#6f6a63">干脆不参与</text>
+        <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">模型知道</text>
+        <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">自己正被测试</text>
+        <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">模型比监视它的</text>
+        <text x="545" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">那一方更聪明</text>
+        <text x="660" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">建造者</text>
+        <text x="660" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">干脆不参与</text>
         <rect x="0" y="73" width="4" height="18" rx="2" fill="#5b6b9e"/>
         <text x="14" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">后训练对齐</text>
         <circle cx="430" cy="82" r="8" fill="#b5654d" opacity=".16"/>
@@ -3114,29 +3198,34 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="130" y="113" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#dfe5e9">就在这里做出</text>
         <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">两条路都从同一个地方出发。区别只在于一个决定，而它此刻正以默认的方式被做出。</text>
       </svg>
-      <figcaption>上面那条路不需要任何技术突破。它需要的，是给这道题更难的那一半拨钱，并在真正需要之前就把叫停的能力建起来。而下面那条路，是没有人做任何决定时会发生的事，这也正是它被画成默认路径的原因。</figcaption>
+      <figcaption>上面那条路不需要技术突破，只需要给更难的那一半拨钱，并在真正需要之前把刹车造出来。下面那条，是没有人做任何决定时会发生的事。</figcaption>
     </figure>
 
-    <div class="sharebig rv">
-      <div class="sharebig-txt">
-        <span class="sb-k">你能做的最有用的事</span>
-        <h3>分享这个页面</h3>
-        <p>认知就是瓶颈。每多一个理解这套论证的人，其价值几乎超过这份清单上的任何其他事项。</p>
-      </div>
-      <div class="sharebig-btns">
+    <div class="joinbig rv">
+      <span class="sb-k">你能做的最有用的一件事</span>
+      <h3>加入这个社区</h3>
+      <p>一份免费的通讯，写给愿意认真跟进这件事的人：新证据出现时第一时间送到，论证有何变化，以及这个领域究竟往哪儿动了。不炒作，每条论断都有出处，一键退订。</p>
+      <form class="jform" id="join-form" data-bad="这看起来不像一个邮箱地址。" data-sending="发送中…" data-ok="已加入。请查收邮箱完成确认。" data-err="没有成功，请稍后再试。" action="https://safeagi.ca/subscribe" method="post" novalidate>
+        <label class="skip" for="join-email">电子邮箱</label>
+        <input type="email" id="join-email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit">加入</button>
+      </form>
+      <p class="jmsg" id="join-msg" role="status" aria-live="polite"></p>
+      <p class="jnote">大约每月一封。你的邮箱只用于这份通讯，不作他用。</p>
+      <div class="jsecond">
+        <span class="js-k">或者，把它转出去</span>
         <a class="sbtn x" id="sh-x" href="#" target="_blank" rel="noopener">发到 X</a>
-        <a class="sbtn" id="sh-fb" href="#" target="_blank" rel="noopener">脸书</a>
-        <a class="sbtn" id="sh-li" href="#" target="_blank" rel="noopener">领英</a>
+        <a class="sbtn" id="sh-li" href="#" target="_blank" rel="noopener">LinkedIn</a>
         <a class="sbtn" id="sh-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
         <button class="sbtn" type="button" id="sh-copy">复制链接</button>
       </div>
     </div>
     <div class="rv">
       <ol class="beats" style="counter-reset:b;list-style:none;padding:0;margin:0">
-        <li><h3>署上你的名字</h3><p>在<a href="https://superintelligence-statement.org" target="_blank" rel="noopener">《超级智能声明》</a>上签名。<a class="ref" href="#s2">2</a>更早那份只有一句话的<a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">《人工智能风险声明》</a>也值得一读，看看都有谁签了名。<a class="ref" href="#s26">26</a>公众的支持正是它列明的条件之一，因此签名人数本身就是论证的一部分。</p></li>
         <li><h3>玩一玩 AGI 与 ASI 安全游戏</h3><p>十分钟，无需注册。遏制系统的活交给你来干，那些权衡立刻就不再抽象。<a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">点此开玩</a>。</p></li>
         <li><h3>上那门两小时的课</h3><p>BlueDot 的 <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a> 免费、无需任何基础，上完后你会成为大多数场合里对此了解最多的人。<a class="ref" href="#s3">3</a></p></li>
-      </ol>
+      
+        <li><h3>署上你的名字</h3><p>在<a href="https://superintelligence-statement.org" target="_blank" rel="noopener">《超级智能声明》</a>上签名。<a class="ref" href="#s2">2</a>更早那份只有一句话的<a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">《人工智能风险声明》</a>也值得一读，看看都有谁签了名。<a class="ref" href="#s26">26</a>公众的支持正是它列明的条件之一，因此签名人数本身就是论证的一部分。</p></li></ol>
     </div>
   </div>
 </section>
@@ -3324,7 +3413,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <p class="eyebrow">关于本页</p>
         <h3>这是谁做的，以及你为何可以核查它</h3>
         <p>由 Bill Guan 制作与维护。独立、无资助，与本页所列任何机构均无隶属关系。</p>
-        <p>本页没有任何一条论断要你凭信任接受。每一句事实陈述都带有指向第一手来源的编号链接；凡是本页表明立场之处，都写在明面上。若有出错或过时，那就是一个 bug。</p>
+        <p>每一句事实陈述都带有指向第一手来源的编号链接。凡是本页表明立场之处，都写在明面上。若有出错，那就是一个 bug。</p>
         <p style="margin-bottom:0"><a href="https://github.com" target="_blank" rel="noopener">提交更正</a></p>
       </div></div>
 
@@ -3437,9 +3526,8 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 </div>
 
 <footer><div class="wrap">
-  <p>一个独立的资源汇编，与所列任何机构均无隶属关系。所有链接材料的版权归其作者所有。本页面仅作概述与指引，不复制原文。</p>
-  <p>欢迎指正与补充。最后核实于 2026 年 8 月 29 日。</p>
-</div></footer>
+  <p>一份独立的资源汇编，与所列任何机构均无隶属关系；欢迎指正。</p>
+  </div></footer>
 
 <script>
 var SITE_CONFIG = {
@@ -3633,10 +3721,20 @@ var SITE_CONFIG = {
         setCls(el, "offroute", !!off);
       });
       $$(".rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
+      $$(".mh-rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
       if(persist) store(KEY_ROUTE, r);
       updatePos();
       if(window.__GAP_PAINT) window.__GAP_PAINT();
     }
+    $$(".mh-rbtn").forEach(function(b){
+      b.addEventListener("click", function(){
+        META.forEach(function(m){
+          var el = document.getElementById(m.id);
+          if(el) el.removeAttribute("data-forced");
+        });
+        applyRoute(b.getAttribute("data-route"), true);
+      });
+    });
     $$(".rbtn").forEach(function(b){
       b.addEventListener("click", function(){
         META.forEach(function(m){
@@ -4083,13 +4181,16 @@ var SITE_CONFIG = {
       var place = function(){
         if(!menu) return;
         var r = btn.getBoundingClientRect();
-        menu.style.top = (r.bottom + 6) + "px";
-        // keep the menu on-screen: prefer left-aligned, flip if it would overflow right
         var mw = menu.offsetWidth || 210;
-        var left = r.left;
+        var left = r.left, top = r.bottom + 6;
         if(left + mw > window.innerWidth - 8){ left = window.innerWidth - 8 - mw; }
         if(left < 8){ left = 8; }
-        menu.style.left = left + "px";
+        // an ancestor with backdrop-filter or transform becomes the containing block for
+        // position:fixed, so measure the origin instead of assuming it is the viewport
+        menu.style.left = "0px"; menu.style.top = "0px";
+        var o = menu.getBoundingClientRect();
+        menu.style.left = (left - o.left) + "px";
+        menu.style.top  = (top  - o.top)  + "px";
       };
       var open = function(){ setCls(menu, "fixed", true); setCls(g, "open", true); btn.setAttribute("aria-expanded","true"); place(); };
       var shut = function(){ setCls(g, "open", false); btn.setAttribute("aria-expanded","false"); setCls(menu, "fixed", false); };
@@ -4327,6 +4428,35 @@ var SITE_CONFIG = {
       });
     });
   });
+
+
+  /* ---------- newsletter signup ---------- */
+  (function(){
+    var f = $("#join-form"), msg = $("#join-msg");
+    if(!f) return;
+    var input = f.querySelector("input[type=email]");
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var v = (input.value || "").trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+        msg.textContent = f.getAttribute("data-bad") || "That does not look like an email address.";
+        input.focus(); return;
+      }
+      msg.textContent = f.getAttribute("data-sending") || "Sending\u2026";
+      fetch(f.getAttribute("action"), {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ email: v })
+      }).then(function(r){
+        msg.textContent = r && r.ok
+          ? (f.getAttribute("data-ok") || "You are on the list. Check your inbox to confirm.")
+          : (f.getAttribute("data-err") || "That did not go through. Try again shortly.");
+        if(r && r.ok) input.value = "";
+      }).catch(function(){
+        msg.textContent = f.getAttribute("data-err") || "That did not go through. Try again shortly.";
+      });
+    });
+  })();
 
   /* ---------- SHARE ---------- */
   var copyBtn = $("#copy-link"), nativeBtn = $("#share-native");
