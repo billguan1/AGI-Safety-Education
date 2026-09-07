@@ -438,6 +438,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;border-radius:999px;padding:8px 14px;
   cursor:pointer;transition:.15s;display:inline-flex;align-items:baseline;gap:7px}
 .mh-rbtn b{font-weight:700;color:#9cc48a}
+.mh-rlink{text-decoration:none;border-style:dashed}
+.mh-rlink:hover{border-color:#dfe5e9}
 .mh-rbtn:hover{border-color:#dfe5e9}
 .mh-rbtn.on{background:#9cc48a;border-color:#9cc48a;color:#12161a}
 .mh-rbtn.on b{color:#12161a}
@@ -1343,7 +1345,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    },
    "image": "https://safeagi.ca/og-image.png",
    "datePublished": "2026-09-01",
-   "dateModified": "2026-09-04",
+   "dateModified": "2026-09-07",
    "about": [
     {
      "@type": "Thing",
@@ -1373,7 +1375,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "这不就是科幻小说吗？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。3736"
+      "text": "这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。"
      }
     },
     {
@@ -1381,7 +1383,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "它一旦不听话，我们直接关掉不就行了？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为\"关掉\"意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而\"可纠正性\"并不是我们默认就能得到的。3420"
+      "text": "这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为\"关掉\"意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而\"可纠正性\"并不是我们默认就能得到的。"
      }
     },
     {
@@ -1389,7 +1391,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "足够聪明的 AI 难道不会自然明白我们想要什么吗？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "\"明白我们想要什么\"和\"有动机去追求它\"是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为正交性论题。34"
+      "text": "\"明白我们想要什么\"和\"有动机去追求它\"是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为正交性论题。"
      }
     },
     {
@@ -1405,7 +1407,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "\"对齐\"到底是什么意思？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。25"
+      "text": "让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。"
      }
     },
     {
@@ -1413,7 +1415,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "\"可解释性\"\"评估\"\"AI 控制\"分别是什么？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "可解释性是读取模型内部的计算，弄清它为何这样做，是最接近\"打开黑箱\"的手段。24 评估是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。19 AI 控制则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。20"
+      "text": "可解释性是读取模型内部的计算，弄清它为何这样做，是最接近\"打开黑箱\"的手段。 评估是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。 AI 控制则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。"
      }
     },
     {
@@ -1421,7 +1423,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "既然风险这么大，为什么还有人要造它？",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。1"
+      "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。"
      }
     },
     {
@@ -1497,7 +1499,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <button type="button" class="ng-top" aria-expanded="false">来源 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#resources">课程与目录</a></li>
-          <li><a href="#sources">全部六十份来源</a></li>
+          <li><a href="#sources">全部来源</a></li>
         </ul>
       </li>
     </ul>
@@ -1531,6 +1533,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <p class="mh-sub">人类的智能缔造了现代文明。如今，我们正要创造一个超越自身的存在，却无法保证它始终与人类同心同德。这份指南从第一原理出发，逐层剖析这道难题，并指出我们该何去何从。</p>
       <div class="mh-routes">
         <span class="mr-k">阅读</span>
+        <a class="mh-rbtn mh-rlink" href="#brief"><b>90 秒</b> 论证提要</a>
         <button type="button" class="mh-rbtn" data-route="essentials"><b>11 分钟</b> 只看要害</button>
         <button type="button" class="mh-rbtn" data-route="core"><b>27 分钟</b> 核心论证</button>
         <button type="button" class="mh-rbtn on" data-route="full"><b>49 分钟</b> 全部读完</button>
@@ -1709,7 +1712,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
             <span class="rbd">全部七章、证据、尚未平息的争议，以及参考书架。</span></button>
           <a class="rtier" href="#sources">
             <span class="rbm">2 小时以上</span><span class="rbn">原始来源</span>
-            <span class="rbd">本页每一条论断背后的六十份来源，按类别分组。</span></a>
+            <span class="rbd">本页每一条论断背后的全部来源，按类别分组。</span></a>
         </div>
 
     <div class="core rv" id="brief" style="margin-top:clamp(24px,3.6vw,36px)">
@@ -3424,7 +3427,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <div class="first teal">
         <span class="fk">在系统层面，其二</span>
         <h3>敢于停手，并且当真</h3>
-        <p>放慢脚步，是这份呼吁里容易的那个版本。下面是难的那个。<strong>完全有可能，对齐一个超级智能并不是一道很难的题，而是一道无解的题。</strong>我们所知的一切都不排除这种可能。我们写不清自己的价值观，读不出模型真正的目标，也不敢信任一场它可能正在钻空子的测试，而这其中每一条，都可能根本没有解，而不是解还没被找到。如果我们身处的正是这样一个世界，那么唯一能救我们的，就是那个谁都不愿做的选择：<strong>根本不去造它。</strong>不是暂停，也不是慢一点地赛跑，而是停手。等待的代价是真实的；而在这件事上判断错了，代价无可挽回，且不只由我们自己承担。</p>
+        <p>放慢脚步，是这份呼吁里容易的那个版本。下面是难的那个。<strong>完全有可能，对齐一个超级智能并不是一道很难的题，而是一道无解的题。</strong>我们所知的一切都不排除这种可能。我们写不清自己的价值观，读不出模型真正的目标，也不敢信任一场它可能正在钻空子的测试，而这其中每一条，都可能根本没有解，而不是解还没被找到。如果我们身处的正是这样一个世界，那么唯一能救我们的，就是那个谁都不愿做的选择：<strong>根本不去造它。</strong>不是暂停，也不是慢一点地赛跑，而是停手。等待的代价是真实的；而在这件事上判断错了，代价无可挽回，且不只由我们自己承担。</p><p style="margin-top:12px">第三章已经说明，只要竞争对手还在继续，就没有哪一家实验室停得下来。这正是问题的核心，而不是对它的反驳。协调问题只能靠协调来回答，因此这份诉求要的是同时约束所有人的规则，而可核查的协议与真正被执行的红线，存在的意义正在于此。</p>
       </div>
     </div>
     <div class="keyline rv"><span class="kk">底线</span><p>我们不需要先证明结局一定很糟。我们需要的是承认这道题可能无解的诚实，以及一旦真的无解便就此停手的胆识。</p></div>
@@ -3477,30 +3480,30 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">第 01 组</span><h3>政府应该做什么</h3><span class="ch-w">选择一个辖区</span></div>
-      <div class="filters" id="do-jur">
-          <button type="button" class="pbtn on" data-j="ca">加拿大</button>
-          <button type="button" class="pbtn" data-j="us">美国</button>
-          <button type="button" class="pbtn" data-j="uk">英国</button>
-          <button type="button" class="pbtn" data-j="eu">欧盟</button>
-          <button type="button" class="pbtn" data-j="intl">国际</button>
+      <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
+          <button type="button" class="pbtn on" data-j="ca" role="tab" id="jtab-ca" aria-selected="true" aria-controls="jpanel-ca" tabindex="0">加拿大</button>
+          <button type="button" class="pbtn" data-j="us" role="tab" id="jtab-us" aria-selected="false" aria-controls="jpanel-us" tabindex="-1">美国</button>
+          <button type="button" class="pbtn" data-j="uk" role="tab" id="jtab-uk" aria-selected="false" aria-controls="jpanel-uk" tabindex="-1">英国</button>
+          <button type="button" class="pbtn" data-j="eu" role="tab" id="jtab-eu" aria-selected="false" aria-controls="jpanel-eu" tabindex="-1">欧盟</button>
+          <button type="button" class="pbtn" data-j="intl" role="tab" id="jtab-intl" aria-selected="false" aria-controls="jpanel-intl" tabindex="-1">国际</button>
       </div>
-        <div class="jur on" data-j="ca">
+        <div class="jur on" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca">
           <div class="jur-status"><span class="k">目前的状况</span><p>加拿大没有任何人工智能方面的法律。《人工智能与数据法案》（AIDA）已于 2025 年 1 月随会期结束而失效，此后没有任何替代法案被提出。<a class="ref" href="#s57">57</a>这里的前沿开发依靠的是一份自愿性行为准则，而 2024 年 11 月成立的加拿大人工智能安全研究所，做的是评估工作，没有任何强制执行的权力。<a class="ref" href="#s57">57</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>对前沿开发者设定具有约束力的义务，并赋予这家安全研究所法定授权与部署前的访问权。自愿准则约束的是那些自愿接受约束的人，而当我们担心的恰恰是在竞争压力下跑得最快的那一批时，这就找错了对象。</p></div>
         </div>
-        <div class="jur" data-j="us">
+        <div class="jur" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>美国没有联邦层面的人工智能法律，各州则各自立法。2025 年 12 月签署的第 14365 号行政命令，指示司法部在联邦法院挑战各州的人工智能法律，2026 年 3 月的《国家人工智能政策框架》则支持广泛的联邦优先适用。<a class="ref" href="#s58">58</a>国会至今没有通过相关立法。2026 年 6 月的第 14409 号行政命令确实要求对前沿模型做保密的基准测试，但其范围限定在网络能力与国家安全。<a class="ref" href="#s59">59</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>优先适用会拆掉一层地板。如果联邦规则要取代各州规则，它就必须比被取代的那些更严格。而一套只盯着网络滥用的评估机制，完全没有触及本页所讨论的那种失败模式，所以一份认真的联邦标准，必须正面处理失控问题本身。</p></div>
         </div>
-        <div class="jur" data-j="uk">
+        <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>英国人工智能安全研究所在 2025 年 2 月由 Safety 更名为 Security，它运行着所有政府之中最实质的前沿评估项目，而这套项目依赖实验室自愿配合。<a class="ref" href="#s11">11</a>一部会赋予该研究所法定地位、并让它有权强制要求部署前测试的《前沿人工智能法案》，已被承诺在 2026 年提出，至今尚未提交。<a class="ref" href="#s11">11</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>把法案提出来。一个只能测试别人允许它测试的那部分的评估者，量出来的是实验室愿意被测量的程度，而这和系统究竟有多安全是两回事。</p></div>
         </div>
-        <div class="jur" data-j="eu">
+        <div class="jur" data-j="eu" role="tabpanel" id="jpanel-eu" aria-labelledby="jtab-eu" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>《人工智能法案》是目前唯一生效的、具有约束力的前沿监管制度。针对通用人工智能模型的义务已于 2025 年 8 月生效，欧盟委员会的执法权连同第 50 条透明度义务，自 2026 年 8 月 2 日起适用。<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a>2026 年 5 月的数字综合法案协议推迟并简化了该法案的部分内容，但保留了上述通用模型义务与执法权。<a class="ref" href="#s60">60</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>把权力用起来。这部法案接下来的价值，取决于人工智能办公室是否愿意在执法真正要付出代价的那一次，对一家大型开发者动手。真正的未知数在这里，而不在法条本身。</p></div>
         </div>
-        <div class="jur" data-j="intl">
+        <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>《全球人工智能红线倡议》于 2025 年 9 月在联合国发起，已有 300 多位公众人物（其中包括多位诺贝尔奖得主）以及 90 多家机构签署，呼吁各国在 2026 年底之前，就风险最高的人工智能能力达成具有约束力的限制。<a class="ref" href="#s56">56</a>推进路径依次经过印度的人工智能影响力峰会、日内瓦的联合国全球对话，然后是联合国大会与二十国集团。<a class="ref" href="#s56">56</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>这是本页唯一一个已经在倒计时的期限。它指向的日期是 2026 年底，它所说的那份协议目前还不存在，而第三章里的协调问题，正是它试图解决的东西。</p></div>
         </div>
@@ -4801,8 +4804,13 @@ var SITE_CONFIG = {
     btns.forEach(function(b){
       b.addEventListener("click", function(){
         var k = b.getAttribute("data-j");
-        btns.forEach(function(x){ setCls(x, "on", x === b); });
-        panels.forEach(function(pnl){ setCls(pnl, "on", pnl.getAttribute("data-j") === k); });
+        btns.forEach(function(x){ var sel = x === b;
+          setCls(x, "on", sel);
+          x.setAttribute("aria-selected", sel ? "true" : "false");
+          x.setAttribute("tabindex", sel ? "0" : "-1"); });
+        panels.forEach(function(pnl){ var sel = pnl.getAttribute("data-j") === k;
+          setCls(pnl, "on", sel);
+          if(sel){ pnl.removeAttribute("aria-hidden"); } else { pnl.setAttribute("aria-hidden", "true"); } });
       });
     });
   })();

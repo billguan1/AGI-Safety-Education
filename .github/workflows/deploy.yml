@@ -9,6 +9,24 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v4
+
+      # Stamp freshness dates at deploy time so they can never go stale.
+      # Only the deployed artifact is changed; nothing is committed back.
+      - name: Stamp dateModified and sitemap lastmod
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          echo "Stamping $TODAY"
+          for f in index.html index-zh.html; do
+            [ -f "$f" ] || continue
+            sed -i -E "s/\"dateModified\": \"[0-9]{4}-[0-9]{2}-[0-9]{2}\"/\"dateModified\": \"$TODAY\"/g" "$f"
+          done
+          if [ -f sitemap.xml ]; then
+            sed -i -E "s#<lastmod>[0-9]{4}-[0-9]{2}-[0-9]{2}</lastmod>#<lastmod>$TODAY</lastmod>#g" sitemap.xml
+          fi
+          echo "--- result ---"
+          grep -o '"dateModified": "[^"]*"' index.html index-zh.html || true
+          grep -o '<lastmod>[^<]*</lastmod>' sitemap.xml | sort -u || true
+
       - name: Deploy
         uses: cloudflare/wrangler-action@v4
         with:

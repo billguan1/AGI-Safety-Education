@@ -438,6 +438,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;border-radius:999px;padding:8px 14px;
   cursor:pointer;transition:.15s;display:inline-flex;align-items:baseline;gap:7px}
 .mh-rbtn b{font-weight:700;color:#9cc48a}
+.mh-rlink{text-decoration:none;border-style:dashed}
+.mh-rlink:hover{border-color:#dfe5e9}
 .mh-rbtn:hover{border-color:#dfe5e9}
 .mh-rbtn.on{background:#9cc48a;border-color:#9cc48a;color:#12161a}
 .mh-rbtn.on b{color:#12161a}
@@ -1343,7 +1345,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    },
    "image": "https://safeagi.ca/og-image.png",
    "datePublished": "2026-09-01",
-   "dateModified": "2026-09-04",
+   "dateModified": "2026-09-07",
    "about": [
     {
      "@type": "Thing",
@@ -1373,7 +1375,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "Isn't this just science fiction?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.3736"
+      "text": "The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined."
      }
     },
     {
@@ -1381,7 +1383,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "Can't we just switch it off if it misbehaves?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.3420"
+      "text": "That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default."
      }
     },
     {
@@ -1497,7 +1499,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <button type="button" class="ng-top" aria-expanded="false">Sources <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#resources">Courses and directories</a></li>
-          <li><a href="#sources">All sixty sources</a></li>
+          <li><a href="#sources">All sources</a></li>
         </ul>
       </li>
     </ul>
@@ -1531,6 +1533,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <p class="mh-sub">Human intelligence built the modern world. We are now building something greater than ourselves, and we cannot yet guarantee it stays on our side. This is a map of that problem, argued from first principles, and what to do about it.</p>
       <div class="mh-routes">
         <span class="mr-k">Read</span>
+        <a class="mh-rbtn mh-rlink" href="#brief"><b>90 sec</b> the argument</a>
         <button type="button" class="mh-rbtn" data-route="essentials"><b>11 min</b> essentials</button>
         <button type="button" class="mh-rbtn" data-route="core"><b>27 min</b> core argument</button>
         <button type="button" class="mh-rbtn on" data-route="full"><b>49 min</b> everything</button>
@@ -1715,7 +1718,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
             <span class="rbd">All seven chapters, the evidence, the open disputes, and the reference shelf.</span></button>
           <a class="rtier" href="#sources">
             <span class="rbm">2+ hours</span><span class="rbn">Primary sources</span>
-            <span class="rbd">The sixty sources underneath every claim on this page, grouped by kind.</span></a>
+            <span class="rbd">Every source underneath every claim on this page, grouped by kind.</span></a>
         </div>
       </div>
 
@@ -3466,7 +3469,7 @@ refusal training</text>
       <div class="first teal">
         <span class="fk">At the system level, second</span>
         <h3>Be willing to stop, and mean it</h3>
-        <p>Slowing down is the easy version of this ask. Here is the hard one. <strong>It is entirely possible that aligning a superintelligence is not a hard problem but an impossible one.</strong> Nothing we know rules that out. We cannot specify our values, we cannot read a model’s goals, we cannot trust a test it may be gaming, and every one of those may turn out to have no solution rather than an unfound one. If that is the world we are in, then the only move that saves us is the one nobody wants to make: <strong>not building it at all.</strong> No pause. No slower race. Stopping. The cost of waiting is real. The cost of being wrong about this is not recoverable, and it is not ours alone to pay.</p>
+        <p>Slowing down is the easy version of this ask. Here is the hard one. <strong>It is entirely possible that aligning a superintelligence is not a hard problem but an impossible one.</strong> Nothing we know rules that out. We cannot specify our values, we cannot read a model’s goals, we cannot trust a test it may be gaming, and every one of those may turn out to have no solution rather than an unfound one. If that is the world we are in, then the only move that saves us is the one nobody wants to make: <strong>not building it at all.</strong> No pause. No slower race. Stopping. The cost of waiting is real. The cost of being wrong about this is not recoverable, and it is not ours alone to pay.</p><p style="margin-top:12px">Chapter 3 already showed that no lab can afford to stop while its rivals continue, and that is the point rather than an objection to it. A coordination problem is answered by coordination, so the ask is for rules that bind everyone at the same moment, which is what verifiable agreements and enforced red lines exist to do.</p>
       </div>
     </div>
 
@@ -3486,30 +3489,30 @@ refusal training</text>
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">Group 01</span><h3>What governments should do</h3><span class="ch-w">Pick a jurisdiction</span></div>
-      <div class="filters" id="do-jur">
-          <button type="button" class="pbtn on" data-j="ca">Canada</button>
-          <button type="button" class="pbtn" data-j="us">United States</button>
-          <button type="button" class="pbtn" data-j="uk">United Kingdom</button>
-          <button type="button" class="pbtn" data-j="eu">European Union</button>
-          <button type="button" class="pbtn" data-j="intl">International</button>
+      <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
+          <button type="button" class="pbtn on" data-j="ca" role="tab" id="jtab-ca" aria-selected="true" aria-controls="jpanel-ca" tabindex="0">Canada</button>
+          <button type="button" class="pbtn" data-j="us" role="tab" id="jtab-us" aria-selected="false" aria-controls="jpanel-us" tabindex="-1">United States</button>
+          <button type="button" class="pbtn" data-j="uk" role="tab" id="jtab-uk" aria-selected="false" aria-controls="jpanel-uk" tabindex="-1">United Kingdom</button>
+          <button type="button" class="pbtn" data-j="eu" role="tab" id="jtab-eu" aria-selected="false" aria-controls="jpanel-eu" tabindex="-1">European Union</button>
+          <button type="button" class="pbtn" data-j="intl" role="tab" id="jtab-intl" aria-selected="false" aria-controls="jpanel-intl" tabindex="-1">International</button>
       </div>
-        <div class="jur on" data-j="ca">
+        <div class="jur on" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca">
           <div class="jur-status"><span class="k">Where it stands</span><p>Canada has no AI statute. The Artificial Intelligence and Data Act died on the order paper in January 2025, and no successor bill has been introduced since.<a class="ref" href="#s57">57</a> Frontier development here runs on a voluntary code of conduct, and the Canadian AI Safety Institute, created in November 2024, does evaluation work without statutory power to compel anything.<a class="ref" href="#s57">57</a></p></div>
           <div class="jur-ask"><span class="k">The ask</span><p>Put binding obligations on frontier developers, and give the safety institute a legal mandate with pre-deployment access. A voluntary code binds the developers who volunteer, which is the wrong set of people when the concern is whoever moves fastest under competitive pressure.</p></div>
         </div>
-        <div class="jur" data-j="us">
+        <div class="jur" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>There is no federal AI statute, and individual states have passed their own. Executive Order 14365, signed in December 2025, directs the Justice Department to challenge state AI laws in federal court, and the March 2026 National Policy Framework backs broad federal preemption.<a class="ref" href="#s58">58</a> Congress has not passed preemption legislation. Executive Order 14409, from June 2026, does order classified benchmarking of frontier models, though it scopes that to cyber capability and national security.<a class="ref" href="#s59">59</a></p></div>
           <div class="jur-ask"><span class="k">The ask</span><p>Preemption removes a floor. If federal rules displace state ones, they have to be stronger than what they replace. An evaluation regime aimed only at cyber misuse also leaves the failure mode this site is about completely unaddressed, so a serious federal standard has to cover loss of control on its own terms.</p></div>
         </div>
-        <div class="jur" data-j="uk">
+        <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>The AI Security Institute, renamed from Safety to Security in February 2025, runs the most substantial public frontier evaluation programme any government has, and it depends on labs choosing to cooperate.<a class="ref" href="#s11">11</a> A Frontier AI Bill that would put the institute on statutory footing and let it compel pre-deployment testing has been promised for 2026 and has not been introduced.<a class="ref" href="#s11">11</a></p></div>
           <div class="jur-ask"><span class="k">The ask</span><p>Introduce the bill. An evaluator that can test only what it is granted access to is measuring how willing the labs are to be measured, and that is a different quantity from how safe the systems are.</p></div>
         </div>
-        <div class="jur" data-j="eu">
+        <div class="jur" data-j="eu" role="tabpanel" id="jpanel-eu" aria-labelledby="jtab-eu" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>The AI Act is the only binding frontier regime currently in force. Obligations on general-purpose AI models took effect in August 2025, and the Commission's enforcement powers together with the Article 50 transparency duties began on 2 August 2026.<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a> A May 2026 Digital Omnibus agreement delayed and simplified parts of the Act while leaving those general-purpose duties and enforcement powers intact.<a class="ref" href="#s60">60</a></p></div>
           <div class="jur-ask"><span class="k">The ask</span><p>Use the powers. The Act's value from here depends on whether the AI Office is willing to enforce against a major developer on an occasion when enforcing carries a real cost, and that is the open question rather than the text of the law.</p></div>
         </div>
-        <div class="jur" data-j="intl">
+        <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>The Global Call for AI Red Lines, launched at the United Nations in September 2025 and signed by more than 300 public figures including Nobel laureates, along with over 90 organisations, asks states to agree binding limits on the highest-risk AI capabilities by the end of 2026.<a class="ref" href="#s56">56</a> The route runs through the AI Impact Summit in India, the UN Global Dialogue in Geneva, and then the General Assembly and the G20.<a class="ref" href="#s56">56</a></p></div>
           <div class="jur-ask"><span class="k">The ask</span><p>This is the one deadline on this page that is already running. The date it names is the end of 2026, the agreement it refers to does not yet exist, and the coordination problem in chapter 3 is exactly what it is trying to solve.</p></div>
         </div>
@@ -4851,8 +4854,13 @@ var SITE_CONFIG = {
     btns.forEach(function(b){
       b.addEventListener("click", function(){
         var k = b.getAttribute("data-j");
-        btns.forEach(function(x){ setCls(x, "on", x === b); });
-        panels.forEach(function(pnl){ setCls(pnl, "on", pnl.getAttribute("data-j") === k); });
+        btns.forEach(function(x){ var sel = x === b;
+          setCls(x, "on", sel);
+          x.setAttribute("aria-selected", sel ? "true" : "false");
+          x.setAttribute("tabindex", sel ? "0" : "-1"); });
+        panels.forEach(function(pnl){ var sel = pnl.getAttribute("data-j") === k;
+          setCls(pnl, "on", sel);
+          if(sel){ pnl.removeAttribute("aria-hidden"); } else { pnl.setAttribute("aria-hidden", "true"); } });
       });
     });
   })();
