@@ -830,6 +830,8 @@ html{overflow-x:hidden}
 .cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(30px,6.4vw,60px);max-width:18ch;margin:0 0 22px}
 .cross .big em{font-style:normal;color:#ff8a6b}
+.cross-brain{position:absolute;top:-10px;right:3%;width:min(30vw,340px);opacity:.55;pointer-events:none;z-index:0}
+@media(max-width:900px){.cross-brain{display:none}}
 .cross .stand{font-size:clamp(18px,1.1rem+.4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
 .cross .stand strong{color:#fff;font-weight:500}
 
@@ -1490,6 +1492,27 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
 <!-- CROSSROADS -->
 <section id="crossroads" class="cross">
+  <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
+    <path d="M120,24 C140,20 158,24 172,36 C185,47 193,62 196,80 C199,98 195,115 184,129 C174,142 159,152 141,155 C131,157 123,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
+    <path d="M120,24 C100,20 82,24 68,36 C55,47 47,62 44,80 C41,98 45,115 56,129 C66,142 81,152 99,155 C109,157 117,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
+    <line x1="120" y1="24" x2="120" y2="152" stroke="#ff6a45" stroke-width="1.4" opacity=".5"/>
+    <path d="M111,152 L129,152 L123,178 L117,178 Z" fill="none" stroke="#ff6a45" stroke-width="2" opacity=".8"/>
+    <g stroke="#6d84ff" stroke-width="1.2" opacity=".85">
+      <line x1="120" y1="90" x2="95" y2="60"/>
+      <line x1="120" y1="90" x2="150" y2="60"/>
+      <line x1="120" y1="90" x2="75" y2="102"/>
+      <line x1="120" y1="90" x2="165" y2="102"/>
+      <line x1="95" y1="60" x2="75" y2="102"/>
+      <line x1="150" y1="60" x2="165" y2="102"/>
+    </g>
+    <g fill="#6d84ff">
+      <circle cx="120" cy="90" r="3.6"/>
+      <circle cx="95" cy="60" r="3"/>
+      <circle cx="150" cy="60" r="3"/>
+      <circle cx="75" cy="102" r="3"/>
+      <circle cx="165" cy="102" r="3"/>
+    </g>
+  </svg>
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">Part 1</span><span class="pd-t">The situation</span></div>
     <p class="eyebrow">Where we are <b class="rt-min">4 min</b></p>
