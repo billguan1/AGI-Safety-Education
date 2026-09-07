@@ -742,15 +742,20 @@ html{overflow-x:hidden}
 .routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
 .routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
 .routes-sub{font-size:14.5px;line-height:1.55;color:#9aa5ac;margin:0 0 16px;max-width:64ch}
-.route-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.route-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:1000px){.route-btns{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.route-btns{grid-template-columns:1fr}}
+.rtier{text-decoration:none;border-style:dashed}
+.rtier .rbn{color:#dfe5e9}
+.rtier:hover{border-color:#9cc48a;background:rgba(255,255,255,.07)}
 @media(max-width:640px){.route-btns{grid-template-columns:1fr}}
-.rbtn{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
+.rbtn,.rtier{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
   padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
-.rbtn:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
+.rbtn,.rtier:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
 .rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
-.rbtn .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
-.rbtn .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
-.rbtn .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
+.rbtn .rbn,.rtier .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
+.rbtn .rbm,.rtier .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
+.rbtn .rbd,.rtier .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
 /* collapsed (off-route) chapters */
 .offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
 .offroute .sec-head .stand{display:none}
@@ -1442,36 +1447,45 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="posmeter" id="posmeter" aria-live="off"></div>
     <ul class="nav-groups">
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">The situation <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">Learn <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">The crossroads</a></li>
+          <li><a href="#brief">The argument in brief</a></li>
+          <li><a href="#why-intelligence">Why intelligence always wins</a></li>
+          <li><a href="#why-irresistible">Why we cannot look away</a></li>
+          <li><a href="#why-race">Why the race is the danger</a></li>
+          <li><a href="#why-human-misalignment">Why we disagree about values</a></li>
+          <li><a href="#why-translation">Why our values do not transfer</a></li>
+          <li><a href="#why-safety-hard">Why safety is harder than capability</a></li>
+          <li><a href="#why-one-try">Why there is no second attempt</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">Why it's hard <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">Evidence <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#why-intelligence">1 · Intelligence wins</a></li>
-          <li><a href="#why-irresistible">2 · The prize</a></li>
-          <li><a href="#why-race">3 · The race</a></li>
-          <li><a href="#why-human-misalignment">4 · We disagree</a></li>
-          <li><a href="#why-translation">5 · Translation</a></li>
-          <li><a href="#why-safety-hard">6 · Safety is hard</a></li>
-          <li><a href="#why-one-try">7 · Only one try</a></li>
+          <li><a href="#response">What the work looks like</a></li>
+          <li><a href="#change-my-mind">What would change this argument</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">What now <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">What can be done <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">The work so far</a></li>
-          <li><a href="#change-my-mind">What would change this</a></li>
-          <li><a href="#ask">Act now</a></li>
+          <li><a href="#ask">The ask</a></li>
+          <li><a href="#do">Governments, labs, researchers, you</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">Reference <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">Questions <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#faq">FAQ &amp; open questions</a></li>
+          <li><a href="#faq">FAQ and open disputes</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+        </ul>
+      </li>
+      <li class="ng">
+        <button type="button" class="ng-top" aria-expanded="false">Sources <span class="ng-caret" aria-hidden="true">›</span></button>
+        <ul class="ng-menu">
+          <li><a href="#resources">Courses and directories</a></li>
+          <li><a href="#sources">All sixty sources</a></li>
         </ul>
       </li>
     </ul>
@@ -1675,15 +1689,21 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <p class="routes-lead">You do not have to read all of this.</p>
         <p class="routes-sub">Pick how deep you want to go. Choosing a shorter route folds the other chapters down to their headline, and you can open any of them at any time. Nothing is hidden from you.</p>
         <div class="route-btns">
+          <a class="rtier" href="#brief">
+            <span class="rbm">90 seconds</span><span class="rbn">Why this matters</span>
+            <span class="rbd">The whole argument compressed to six lines, with nothing to read after it.</span></a>
           <button type="button" class="rbtn" data-route="essentials">
-            <span class="rbm">11 min</span><span class="rbn">The essentials</span>
-            <span class="rbd">The situation, and what to do about it. Enough to understand the argument and act on it.</span></button>
+            <span class="rbm">11 min</span><span class="rbn">The essential argument</span>
+            <span class="rbd">The situation and what to do about it. Enough to understand the case and act on it.</span></button>
           <button type="button" class="rbtn" data-route="core">
-            <span class="rbm">27 min</span><span class="rbn">The core argument</span>
-            <span class="rbd">Adds the three chapters that carry the weight: the race, why values do not transfer, and why there is no second attempt.</span></button>
+            <span class="rbm">27 min</span><span class="rbn">The strongest case</span>
+            <span class="rbd">Adds the three chapters carrying the weight: the race, why values do not transfer, and why there is no second attempt.</span></button>
           <button type="button" class="rbtn on" data-route="full">
-            <span class="rbm">49 min</span><span class="rbn">Everything</span>
+            <span class="rbm">49 min</span><span class="rbn">Evidence and objections</span>
             <span class="rbd">All seven chapters, the evidence, the open disputes, and the reference shelf.</span></button>
+          <a class="rtier" href="#sources">
+            <span class="rbm">2+ hours</span><span class="rbn">Primary sources</span>
+            <span class="rbd">The sixty sources underneath every claim on this page, grouped by kind.</span></a>
         </div>
       </div>
 
@@ -1749,7 +1769,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         </div>
       </div>
 
-    <div class="core rv" style="margin-top:clamp(24px,3.6vw,36px)">
+    <div class="core rv" id="brief" style="margin-top:clamp(24px,3.6vw,36px)">
       <span class="ck">Before the seven chapters</span>
       <h4>The argument in brief</h4>
       <p>Each chapter ahead supplies evidence for one link below. None of them proves the next one alone. Together, they are why the field takes this seriously rather than treating it as settled.</p>
@@ -4472,13 +4492,7 @@ var SITE_CONFIG = {
                          '<span class="nb-m">' + S.left.replace("{m}", Math.max(remain, 1)) + '</span>';
         }
       }
-      // the top nav group for the act you are in
-      var curAct = m ? (G[m.id] || "") : "";
-      $$(".ng").forEach(function(g){
-        var b = g.querySelector(".ng-top");
-        var nm = b ? b.textContent.replace(/[\u203a\s]+$/, "").trim() : "";
-        setCls(g, "active", !!curAct && nm === curAct);
-      });
+      // nav group active state is set structurally in update(), see closestGroup()
       if(oSub) oSub.textContent = S.panelS.replace("{i}", Math.max(pos, 1))
                                           .replace("{n}", total)
                                           .replace("{m}", Math.max(remain, 1));
