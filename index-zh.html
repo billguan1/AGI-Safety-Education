@@ -1148,6 +1148,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .verdict b{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:5px}
 
 /* ---------- filters ---------- */
+.aboutnote{border:1px solid var(--rule-soft);border-left:3px solid var(--c-dev);border-radius:var(--r);padding:20px 22px;margin:clamp(26px,4vw,40px) 0;background:var(--paper-2)}
+.aboutnote .an-k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:9px}
+.aboutnote p{margin:0;font-size:14.5px;line-height:1.65;max-width:74ch}
+.aboutnote a{color:inherit}
 .filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
 .fbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
   border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
@@ -1214,8 +1218,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <meta name="theme-color" content="#12161a">
   <meta name="author" content="Bill Guan">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
  "@context": "https://schema.org",
  "@graph": [
   {
@@ -1227,7 +1230,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   },
   {
    "@type": "Article",
-   "@id": "https://safeagi.ca/index-zh.html#article",
+   "@id": "https://safeagi.ca/index-zh#article",
    "isPartOf": {
     "@id": "https://safeagi.ca/#website"
    },
@@ -1236,11 +1239,21 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    "inLanguage": "zh-Hans",
    "author": {
     "@type": "Person",
-    "name": "Bill Guan"
+    "name": "Bill Guan",
+    "url": "https://www.linkedin.com/in/billguan",
+    "sameAs": [
+     "https://www.linkedin.com/in/billguan",
+     "https://github.com/billguan1/AGI-Safety-Education"
+    ]
    },
    "publisher": {
     "@type": "Person",
-    "name": "Bill Guan"
+    "name": "Bill Guan",
+    "url": "https://www.linkedin.com/in/billguan",
+    "sameAs": [
+     "https://www.linkedin.com/in/billguan",
+     "https://github.com/billguan1/AGI-Safety-Education"
+    ]
    },
    "image": "https://safeagi.ca/og-image.png",
    "datePublished": "2026-09-01",
@@ -1263,11 +1276,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "AI alignment"
     }
    ],
-   "mainEntityOfPage": "https://safeagi.ca/index-zh.html"
+   "mainEntityOfPage": "https://safeagi.ca/index-zh"
   },
   {
    "@type": "FAQPage",
-   "@id": "https://safeagi.ca/index-zh.html#faq",
+   "@id": "https://safeagi.ca/index-zh#faq",
    "mainEntity": [
     {
      "@type": "Question",
@@ -1336,8 +1349,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    ]
   }
  ]
-}
-</script>
+}</script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -3528,8 +3540,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <button type="button" id="resume-no">从头开始</button>
 </div>
 
+<!-- ABOUT / EPISTEMIC STATUS -->
+<section class="dd" id="about" aria-label="关于本页">
+  <div class="wrap">
+    <div class="aboutnote">
+      <span class="an-k">关于本页</span>
+      <p>我是 <a href="https://www.linkedin.com/in/billguan" target="_blank" rel="noopener me">Bill Guan</a>，一名产品负责人，希望推动人工智能朝安全的方向发展。我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，而“什么会推翻这个论点”一节的存在，就是为了让这套论证可以被检验。本页独立运作，没有任何资助，与页面上提到的任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
+    </div>
+  </div>
+</section>
+
 <footer><div class="wrap">
-  <p>一份独立的资源汇编，与所列任何机构均无隶属关系；欢迎指正。</p>
+  <p>由 Bill Guan 独立撰写与维护，没有任何资助，与此处提到的任何机构均无隶属关系。每一项论断都附有来源。<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">报告错误</a>。</p>
   </div></footer>
 
 <script>
