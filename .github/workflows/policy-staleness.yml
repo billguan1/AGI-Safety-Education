@@ -1,0 +1,89 @@
+name: Policy staleness check
+
+# The "What can be done" section makes dated, jurisdiction-specific claims that
+# rot on political news cycles. This reads the machine-readable data-asof stamp
+# on the .asof line in index.html and opens (or updates) a single tracking issue
+# once that stamp passes the threshold, so a stale "where it stands" cannot sit
+# under an instruction telling people what to ask their representative.
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'   # 09:00 UTC on the 1st of each month
+  workflow_dispatch:       # and on demand
+
+permissions:
+  issues: write
+  contents: read
+
+env:
+  STALE_AFTER_DAYS: 60
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the as-of stamp and decide
+        id: check
+        run: |
+          set -euo pipefail
+          ASOF=$(grep -o 'data-asof="[0-9]\{4\}-[0-9]\{2\}"' index.html | head -1 | cut -d'"' -f2)
+          if [ -z "$ASOF" ]; then
+            echo "::error::No data-asof stamp found in index.html. The policy section may have been restructured."
+            exit 1
+          fi
+          ASOF_EPOCH=$(date -u -d "${ASOF}-01" +%s)
+          NOW_EPOCH=$(date -u +%s)
+          AGE=$(( (NOW_EPOCH - ASOF_EPOCH) / 86400 ))
+          echo "asof=$ASOF"  >> "$GITHUB_OUTPUT"
+          echo "age=$AGE"    >> "$GITHUB_OUTPUT"
+          if [ "$AGE" -ge "${STALE_AFTER_DAYS}" ]; then
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Stamp $ASOF is $AGE days old (threshold ${STALE_AFTER_DAYS})."
+
+      - name: Open or update the tracking issue
+        if: steps.check.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ASOF: ${{ steps.check.outputs.asof }}
+          AGE: ${{ steps.check.outputs.age }}
+        run: |
+          set -euo pipefail
+          TITLE="Re-verify the jurisdiction claims in What can be done"
+          BODY=$(cat <<EOF
+          The \`data-asof\` stamp in \`index.html\` reads **$ASOF**, which is **$AGE days** old.
+
+          The six jurisdiction panels state where each government currently stands. Those
+          claims are the most perishable content on the site, and they sit directly above
+          instructions telling readers what to ask their representative, so a wrong one
+          costs more than it would elsewhere.
+
+          Re-check each against its primary source, then update the panel text, bump
+          \`data-asof\` in **both** \`index.html\` and \`index-zh.html\`, and close this issue.
+
+          - [ ] **United States** — status of federal preemption legislation; EO 14365 and EO 14409 still current? (s58, s59)
+          - [ ] **China** — AI Safety Governance Framework 2.0 superseded? any comprehensive AI law introduced? (s61, s62, s63)
+          - [ ] **Canada** — still no successor to AIDA? (s57)
+          - [ ] **European Union** — AI Act enforcement actions; further Digital Omnibus changes? (s10, s60)
+          - [ ] **United Kingdom** — has the Frontier AI Bill been introduced? (s11)
+          - [ ] **International** — the Global Call for AI Red Lines named an end-of-2026 deadline. Did it land? If that date has passed, this panel needs rewriting rather than refreshing. (s56)
+
+          Both language files carry the same claims and must be updated together.
+          EOF
+          )
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "Still stale: stamp \`$ASOF\` is now $AGE days old."
+            echo "Commented on existing issue #$EXISTING"
+          else
+            gh issue create --title "$TITLE" --body "$BODY"
+            echo "Opened a new tracking issue"
+          fi
+
+      - name: Report when fresh
+        if: steps.check.outputs.stale == 'false'
+        run: echo "Stamp ${{ steps.check.outputs.asof }} is ${{ steps.check.outputs.age }} days old. Nothing to do."

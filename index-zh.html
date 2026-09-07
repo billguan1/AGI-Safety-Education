@@ -1227,10 +1227,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   text-transform:uppercase;background:var(--paper);color:var(--ink);padding:13px 22px;border-radius:2px;text-decoration:none;margin-top:8px;transition:.16s}
 .btn:hover{transform:translateY(-2px);color:var(--ink)}
 
-.aboutnote{border:1px solid var(--rule-soft);border-left:3px solid var(--c-dev);border-radius:var(--r);padding:20px 22px;margin:clamp(26px,4vw,40px) 0;background:var(--paper-2)}
-.aboutnote .an-k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:9px}
-.aboutnote p{margin:0;font-size:14.5px;line-height:1.65;max-width:74ch}
-.aboutnote a{color:inherit}
 /* ---------- what can be done ---------- */
 .cando-lead{max-width:70ch;margin-bottom:clamp(20px,3vw,28px)}
 .cando-block{margin:clamp(28px,4vw,44px) 0 0}
@@ -1276,7 +1272,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .startlist li b{font-family:var(--mono);font-weight:600;color:var(--ink)}
 #sources li{margin-bottom:10px;break-inside:avoid;color:var(--ink-2)}
 #sources li a{word-break:break-word}
-footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.75}
+footer p{max-width:82ch;margin:0}
 
 #toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
   background:var(--ink);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
@@ -3481,33 +3478,38 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">第 01 组</span><h3>政府应该做什么</h3><span class="ch-w">选择一个辖区</span></div>
       <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
-          <button type="button" class="pbtn on" data-j="ca" role="tab" id="jtab-ca" aria-selected="true" aria-controls="jpanel-ca" tabindex="0">加拿大</button>
-          <button type="button" class="pbtn" data-j="us" role="tab" id="jtab-us" aria-selected="false" aria-controls="jpanel-us" tabindex="-1">美国</button>
-          <button type="button" class="pbtn" data-j="uk" role="tab" id="jtab-uk" aria-selected="false" aria-controls="jpanel-uk" tabindex="-1">英国</button>
+          <button type="button" class="pbtn on" data-j="us" role="tab" id="jtab-us" aria-selected="true" aria-controls="jpanel-us" tabindex="0">美国</button>
+          <button type="button" class="pbtn" data-j="cn" role="tab" id="jtab-cn" aria-selected="false" aria-controls="jpanel-cn" tabindex="-1">中国</button>
+          <button type="button" class="pbtn" data-j="ca" role="tab" id="jtab-ca" aria-selected="false" aria-controls="jpanel-ca" tabindex="-1">加拿大</button>
           <button type="button" class="pbtn" data-j="eu" role="tab" id="jtab-eu" aria-selected="false" aria-controls="jpanel-eu" tabindex="-1">欧盟</button>
+          <button type="button" class="pbtn" data-j="uk" role="tab" id="jtab-uk" aria-selected="false" aria-controls="jpanel-uk" tabindex="-1">英国</button>
           <button type="button" class="pbtn" data-j="intl" role="tab" id="jtab-intl" aria-selected="false" aria-controls="jpanel-intl" tabindex="-1">国际</button>
       </div>
-        <div class="jur on" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca">
-          <div class="jur-status"><span class="k">目前的状况</span><p>加拿大没有任何人工智能方面的法律。《人工智能与数据法案》（AIDA）已于 2025 年 1 月随会期结束而失效，此后没有任何替代法案被提出。<a class="ref" href="#s57">57</a>这里的前沿开发依靠的是一份自愿性行为准则，而 2024 年 11 月成立的加拿大人工智能安全研究所，做的是评估工作，没有任何强制执行的权力。<a class="ref" href="#s57">57</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>对前沿开发者设定具有约束力的义务，并赋予这家安全研究所法定授权与部署前的访问权。自愿准则约束的是那些自愿接受约束的人，而当我们担心的恰恰是在竞争压力下跑得最快的那一批时，这就找错了对象。</p></div>
-        </div>
-        <div class="jur" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us" aria-hidden="true">
+        <div class="jur on" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us">
           <div class="jur-status"><span class="k">目前的状况</span><p>美国没有联邦层面的人工智能法律，各州则各自立法。2025 年 12 月签署的第 14365 号行政命令，指示司法部在联邦法院挑战各州的人工智能法律，2026 年 3 月的《国家人工智能政策框架》则支持广泛的联邦优先适用。<a class="ref" href="#s58">58</a>国会至今没有通过相关立法。2026 年 6 月的第 14409 号行政命令确实要求对前沿模型做保密的基准测试，但其范围限定在网络能力与国家安全。<a class="ref" href="#s59">59</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>优先适用会拆掉一层地板。如果联邦规则要取代各州规则，它就必须比被取代的那些更严格。而一套只盯着网络滥用的评估机制，完全没有触及本页所讨论的那种失败模式，所以一份认真的联邦标准，必须正面处理失控问题本身。</p></div>
         </div>
-        <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
-          <div class="jur-status"><span class="k">目前的状况</span><p>英国人工智能安全研究所在 2025 年 2 月由 Safety 更名为 Security，它运行着所有政府之中最实质的前沿评估项目，而这套项目依赖实验室自愿配合。<a class="ref" href="#s11">11</a>一部会赋予该研究所法定地位、并让它有权强制要求部署前测试的《前沿人工智能法案》，已被承诺在 2026 年提出，至今尚未提交。<a class="ref" href="#s11">11</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>把法案提出来。一个只能测试别人允许它测试的那部分的评估者，量出来的是实验室愿意被测量的程度，而这和系统究竟有多安全是两回事。</p></div>
+        <div class="jur" data-j="cn" role="tabpanel" id="jpanel-cn" aria-labelledby="jtab-cn" aria-hidden="true">
+          <div class="jur-status"><span class="k">目前的状况</span><p>中国同样没有一部统一的人工智能法，而是通过分层规则来监管：《互联网信息服务算法推荐管理规定》《互联网信息服务深度合成管理规定》，以及自 2023 年 8 月起施行的《生成式人工智能服务管理暂行办法》，2025 年 9 月又增加了内容标识相关要求。<a class="ref" href="#s62">62</a>由全国网络安全标准化技术委员会于 2025 年 9 月发布的《人工智能安全治理框架》2.0 版，直接点名了失控风险，以及化学、生物、放射与核领域的滥用，这一点比目前美国联邦层面的表述走得更远。<a class="ref" href="#s61">61</a><a class="ref" href="#s63">63</a>不过该框架属于指导性文件，它通向的是具有约束力的技术标准，其本身并不是法律。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>把框架里关于失控的表述，落成具有约束力的部署前要求，并把它带到国际谈判桌上。任何一条华盛顿与北京没有共同接受的红线，都算不上真正的红线；因此这两方之间能否达成一致，正是本页所有国际方案里最吃重的那一环。</p></div>
+        </div>
+        <div class="jur" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca" aria-hidden="true">
+          <div class="jur-status"><span class="k">目前的状况</span><p>加拿大没有任何人工智能方面的法律。《人工智能与数据法案》（AIDA）已于 2025 年 1 月随会期结束而失效，此后没有任何替代法案被提出。<a class="ref" href="#s57">57</a>这里的前沿开发依靠的是一份自愿性行为准则，而 2024 年 11 月成立的加拿大人工智能安全研究所，做的是评估工作，没有任何强制执行的权力。<a class="ref" href="#s57">57</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>对前沿开发者设定具有约束力的义务，并赋予这家安全研究所法定授权与部署前的访问权。自愿准则约束的是那些自愿接受约束的人，而当我们担心的恰恰是在竞争压力下跑得最快的那一批时，这就找错了对象。</p></div>
         </div>
         <div class="jur" data-j="eu" role="tabpanel" id="jpanel-eu" aria-labelledby="jtab-eu" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>《人工智能法案》是目前唯一生效的、具有约束力的前沿监管制度。针对通用人工智能模型的义务已于 2025 年 8 月生效，欧盟委员会的执法权连同第 50 条透明度义务，自 2026 年 8 月 2 日起适用。<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a>2026 年 5 月的数字综合法案协议推迟并简化了该法案的部分内容，但保留了上述通用模型义务与执法权。<a class="ref" href="#s60">60</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>把权力用起来。这部法案接下来的价值，取决于人工智能办公室是否愿意在执法真正要付出代价的那一次，对一家大型开发者动手。真正的未知数在这里，而不在法条本身。</p></div>
         </div>
+        <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
+          <div class="jur-status"><span class="k">目前的状况</span><p>英国人工智能安全研究所在 2025 年 2 月由 Safety 更名为 Security，它运行着所有政府之中最实质的前沿评估项目，而这套项目依赖实验室自愿配合。<a class="ref" href="#s11">11</a>一部会赋予该研究所法定地位、并让它有权强制要求部署前测试的《前沿人工智能法案》，已被承诺在 2026 年提出，至今尚未提交。<a class="ref" href="#s11">11</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>把法案提出来。一个只能测试别人允许它测试的那部分的评估者，量出来的是实验室愿意被测量的程度，而这和系统究竟有多安全是两回事。</p></div>
+        </div>
         <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>《全球人工智能红线倡议》于 2025 年 9 月在联合国发起，已有 300 多位公众人物（其中包括多位诺贝尔奖得主）以及 90 多家机构签署，呼吁各国在 2026 年底之前，就风险最高的人工智能能力达成具有约束力的限制。<a class="ref" href="#s56">56</a>推进路径依次经过印度的人工智能影响力峰会、日内瓦的联合国全球对话，然后是联合国大会与二十国集团。<a class="ref" href="#s56">56</a></p></div>
           <div class="jur-ask"><span class="k">我们的诉求</span><p>这是本页唯一一个已经在倒计时的期限。它指向的日期是 2026 年底，它所说的那份协议目前还不存在，而第三章里的协调问题，正是它试图解决的东西。</p></div>
         </div>
-      <p class="asof">状态更新于 2026 年 9 月。上面每一条论断都链接到它的来源。</p>
+      <p class="asof" data-asof="2026-09">状态更新于 2026 年 9 月。上面每一条论断都链接到它的来源。</p>
     </div>
 
     <div class="cando-block">
@@ -3536,16 +3538,6 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
     <div class="keyline rv"><span class="kk">要点</span><p>这里没有一条要求你相信最坏的情况一定会发生。它们只要求你承认那是可能的，而这恰恰是正在建造这些系统的人已经在公开场合持有的立场。</p></div>
 
-  </div>
-</section>
-
-<!-- ABOUT / EPISTEMIC STATUS -->
-<section class="dd" id="about" aria-label="关于本页">
-  <div class="wrap">
-    <div class="aboutnote">
-      <span class="an-k">关于本页</span>
-      <p>我是 <a href="https://www.linkedin.com/in/billguan" target="_blank" rel="noopener me">Bill Guan</a>，一名产品负责人，希望推动人工智能朝安全的方向发展。我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，而“什么会推翻这个论点”一节的存在，就是为了让这套论证可以被检验。本页独立运作，没有任何资助，与页面上提到的任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
-    </div>
   </div>
 </section>
 
@@ -3770,6 +3762,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <li id="s58" value="58">第 14365 号行政命令《确保人工智能的国家政策框架》，2025 年 12 月 11 日签署：<a href="https://www.federalregister.gov/documents/2025/12/16/2025-23092/ensuring-a-national-policy-framework-for-artificial-intelligence" target="_blank" rel="noopener">federalregister.gov</a></li>
         <li id="s59" value="59">第 14409 号行政命令《促进先进人工智能的创新与安全》，2026 年 6 月 2 日签署：<a href="https://www.federalregister.gov/documents/2026/06/05/2026-11415/promoting-advanced-artificial-intelligence-innovation-and-security" target="_blank" rel="noopener">federalregister.gov</a></li>
         <li id="s60" value="60">欧盟《人工智能法案》实施时间表，含 2026 年 8 月 2 日的全面适用日期：<a href="https://artificialintelligenceact.eu/implementation-timeline/" target="_blank" rel="noopener">artificialintelligenceact.eu</a></li>
+        <li id="s61" value="61">《人工智能安全治理框架》2.0 版，全国网络安全标准化技术委员会（TC260），2025 年 9 月，直接点名失控与化生放核滥用风险：<a href="https://www.tc260.org.cn/" target="_blank" rel="noopener">tc260.org.cn</a></li>
+        <li id="s62" value="62">《生成式人工智能服务管理暂行办法》，国家互联网信息办公室，2023 年 8 月起施行：<a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" target="_blank" rel="noopener">cac.gov.cn</a></li>
+        <li id="s63" value="63">State of AI Safety in China，Concordia AI 出品的英文追踪报告，持续记录中国人工智能治理进展：<a href="https://aisafetychina.com/" target="_blank" rel="noopener">aisafetychina.com</a></li>
       </ol>
 
       <p class="src-cat">政策与倡导</p>
@@ -3849,7 +3844,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 </div>
 
 <footer><div class="wrap">
-  <p>由 Bill Guan 制作与维护。</p>
+  <p>我是 Bill Guan，一名产品负责人，希望推动人工智能朝安全的方向发展。我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，本页独立运作，与任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
   </div></footer>
 
 <script>
