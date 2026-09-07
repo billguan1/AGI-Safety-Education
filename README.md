@@ -1,58 +1,98 @@
 # AGI & ASI Safety
 
-A free, independently maintained field guide to AI safety, argued from first principles and sourced throughout. Available in English and Simplified Chinese.
+A free, independently maintained field guide to why aligning advanced AI is an
+unsolved technical and coordination problem, and what to do about it. Argued from
+first principles, sourced throughout, in English and Simplified Chinese.
 
-Built and maintained by Bill Guan.
+Live at **[safeagi.ca](https://safeagi.ca)**. Built and maintained by Bill Guan.
 
 ## What's here
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | English site. Self-contained: HTML, CSS, JS, and all SVG figures in one file. |
+| `index.html` | English site. Self-contained: HTML, CSS, JS and all SVG in one file. |
 | `index-zh.html` | Simplified Chinese site. Same structure and figures. |
-| `og-image.png` | Social share image (1200×630). |
+| `functions/subscribe.js` | Pages Function. Validates an email, stores it as pending, sends a confirmation. |
+| `functions/confirm.js` | `GET /confirm?t=TOKEN`. Completes double opt-in. |
+| `functions/unsubscribe.js` | `GET /unsubscribe?t=TOKEN`. |
+| `schema.sql` | D1 table for the mailing list. |
+| `og-image.png` | Social share image, 1200×630. |
 | `robots.txt` | Crawl directives and sitemap pointer. |
-| `sitemap.xml` | Both language versions with reciprocal `hreflang`. |
+| `sitemap.xml` | Both languages with reciprocal `hreflang`. |
+| `CONTEXT.md` | Handoff notes: architecture, conventions, fixed bugs, open work. |
 
-No build step, no dependencies, no framework. Edit the HTML and it ships.
+Roughly 11,600 words across 14 sections, 25 figures and 55 numbered sources.
+No build step, no dependencies, no framework.
 
-## Deploying to Cloudflare Pages
+## Deploying
 
-1. Push this repo to GitHub.
-2. In Cloudflare Pages, create a project from the repo.
-3. Leave the build command empty and set the output directory to `/`.
+Push to GitHub, then create a Cloudflare Pages project from the repo. Leave the
+build command empty and set the output directory to `/`. Pages picks up
+`functions/` automatically.
 
-Both pages go live immediately. The language toggle links `index.html` and `index-zh.html` relatively, so it works as long as they sit in the same directory.
+## Mailing list setup
 
-## Before you go live
+The signup form posts to `/subscribe` on your own origin. To make it work:
 
-Search every file for `example.com` and replace it with your real domain: 13 occurrences in each HTML file (head tags plus the JSON-LD block), 2 in `robots.txt`, 9 in `sitemap.xml`. The head of each page carries an `EDIT ME` comment marking the spot. Until this is done, the canonical and `hreflang` tags point at the wrong place, which is worse for search engines than having none at all.
+1. **D1** → create a database named `safeagi`, open the console, run `schema.sql`.
+2. **Bindings** → add the D1 database with variable name `DB`, for Production and
+   Preview.
+3. **Resend** → add `safeagi.ca` as a domain, add the SPF, DKIM and return-path
+   records to Cloudflare DNS with the proxy off, then create an API key.
+4. **Secrets** → add `RESEND_API_KEY` as an encrypted variable.
+5. **Turnstile** (optional) → add `TURNSTILE_SECRET`. Without it the code skips
+   the check and relies on the honeypot field.
 
-Also worth updating:
+Free tiers cover this comfortably: D1 gives 5GB, Pages Functions 100,000 requests
+a day, Resend 3,000 emails a month.
 
-- The author line in the About section of each page (marked `EDIT ME`).
-- `dateModified` in the JSON-LD block when you make substantive changes.
-- The game URL, currently `https://ai-safety-game.billguan1-c4f.workers.dev/`.
+Sending broadcasts is not built. Export confirmed subscribers from D1 and send
+through Resend, or add a `functions/send.js` behind a secret header.
+
+**Note:** Listmonk cannot run on Cloudflare. It needs a persistent process and
+PostgreSQL, and Workers provide neither. The setup above replaces it.
+
+If you email from Canada, CASL requires a physical mailing address in every
+message. Double opt-in and unsubscribe are already handled.
 
 ## Editing notes
 
-**Sources.** Citations live in one `<ol>` at the foot of each page. The list is auto-numbered by the browser, so entries must stay in ascending `id` order (`s1`, `s2`, …) or the rendered numbers stop matching the `<a href="#s12">12</a>` references in the body. If you add a source, append it and use the next number.
+**Sources.** Citations live in one `<ol>` per page, auto-numbered by the browser.
+Entries must stay in ascending `id` order or the rendered numbers stop matching
+the `<a href="#s12">12</a>` references in the body. Append new sources and use the
+next number.
 
-**Figures.** All 14 are inline SVG with an `aria-label` and a caption. Charts making quantitative claims also carry a `.fig-src` line linking to the primary source. Keep that pattern: the page's credibility rests on every number being checkable in one click.
+**Figures.** All 25 are inline SVG with an `aria-label` and a caption. Charts
+making quantitative claims also carry a `.fig-src` line linking to the primary
+source. Keep that pattern: the page's credibility rests on every number being
+checkable in one click.
 
-**Reading routes.** The route chooser near the top collapses off-route chapters via a class toggle. Nothing is removed from the DOM, so all content stays crawlable and reachable regardless of the selected route.
+**Technique cards.** Each shows a short summary with a toggle that swaps in the
+full version in place. Beginners get the overview, experts get the depth.
 
-**Translations.** The two files are structurally identical. When you change one, change the other, or the language toggle will drop readers somewhere that no longer matches.
+**Reading routes.** The selector folds off-route chapters with a class toggle.
+Nothing is removed from the DOM, so all content stays crawlable.
+
+**Translations.** The two files are structurally identical. Change one, change the
+other, or the language toggle will strand readers.
 
 ## Style conventions
 
-- No em dashes in English copy.
-- Avoid "X, not Y" constructions.
-- Claims that could be checked should carry a numbered source.
-- Positions are framed as where the evidence points, never as settled verdicts.
+- No em dashes, in either language. Chinese uses `，` `；` `。` rather than `——`.
+- Avoid "X, not Y" constructions. Use "X rather than Y".
+- Claims that can be checked carry a numbered source.
+- Positions are framed as where the evidence points, never as verdicts.
+- Prose measure 74ch, section heads 72ch, figures capped at 1040px.
+
+## Before you change anything
+
+Read `CONTEXT.md`. It lists seven bugs already found and fixed, with causes, and
+the validation checks to run after any edit. Several were invisible to static
+checks and only appeared when the page was executed in a real DOM.
 
 ## License
 
-Site copy and figures © Bill Guan. Linked material belongs to its respective authors; this page summarises and points rather than reproducing.
+Site copy and figures © Bill Guan. Linked material belongs to its authors; this
+page summarises and points rather than reproducing.
 
-Corrections and additions are welcome via issue or pull request.
+Corrections and additions welcome via issue or pull request.

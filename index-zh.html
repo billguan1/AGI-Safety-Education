@@ -120,7 +120,7 @@ p{margin:0 0 1em}
 @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.55}}
 
 section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);position:relative}
-.sec-head{max-width:64ch;margin-bottom:clamp(22px,3.4vw,38px)}
+.sec-head{max-width:72ch;margin-bottom:clamp(22px,3.4vw,38px)}
 .sec-head h2{margin-bottom:14px}
 
 /* ---------- dark sections ---------- */
@@ -175,6 +175,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .gh-ctrl label{color:#8a959c}
 .gh-say{margin-top:16px;font-family:var(--body);font-weight:300;font-size:clamp(15px,1.9vw,17px);line-height:1.55;
   color:#c3ccd2;min-height:3em;border-left:3px solid var(--glow-r);padding-left:16px}
+.cf-turnstile{margin-top:12px}
 /* ---------- join the community ---------- */
 .joinbig{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(24px,3.6vw,36px);
   margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
@@ -366,7 +367,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:64ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{margin-top:8px}
-.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:66ch}
+.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:74ch}
 .dd .body>p strong{color:var(--ink);font-weight:500}
 .ddgrid{display:grid;gap:12px;margin:clamp(22px,3.4vw,34px) 0}
 .ddgrid.two{grid-template-columns:1fr 1fr}
@@ -643,7 +644,7 @@ html{overflow-x:hidden}
 .aside-note summary::before{content:"+ ";color:var(--c-dev)}
 .aside-note[open] summary::before{content:"\2013 "}
 .aside-note summary:hover{color:var(--ink)}
-.aside-note p{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:66ch}
+.aside-note p{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:74ch}
 /* ---------- what a technique actually delivers ---------- */
 .tverdict{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
   font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -688,10 +689,10 @@ html{overflow-x:hidden}
 .tmore-btn:hover{opacity:.7}
 .tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
 /* ---------- section figures ---------- */
-.secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
+.secfig{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px;border:1px solid var(--rule-soft);border-radius:var(--r);
   background:var(--white);padding:clamp(16px,2.4vw,22px)}
 .secfig svg{display:block;width:100%;height:auto}
-.secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:70ch}
+.secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:76ch}
 
 .secfig.dark{background:rgba(255,255,255,.04);border-color:#2b343b}
 
@@ -811,7 +812,7 @@ html{overflow-x:hidden}
 .cliff svg{width:100%;height:auto;display:block;border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.02)}
 .cliff figcaption{font-family:var(--mono);font-size:11px;line-height:1.6;color:#8a959c;margin-top:12px;max-width:64ch}
 
-.intent{border-left:3px solid #ff6a45;padding:4px 0 4px 20px;margin:clamp(26px,4vw,40px) 0 0;max-width:66ch}
+.intent{border-left:3px solid #ff6a45;padding:4px 0 4px 20px;margin:clamp(26px,4vw,40px) 0 0;max-width:74ch}
 .intent .ik{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
   color:#ff8a6b;display:block;margin-bottom:12px}
 .intent p{color:#c3ccd2;font-size:16.5px;line-height:1.56;margin:0 0 12px}
@@ -1336,6 +1337,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
  ]
 }
 </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div id="prog"></div>
@@ -3205,9 +3207,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <span class="sb-k">你能做的最有用的一件事</span>
       <h3>加入这个社区</h3>
       <p>一份免费的通讯，写给愿意认真跟进这件事的人：新证据出现时第一时间送到，论证有何变化，以及这个领域究竟往哪儿动了。不炒作，每条论断都有出处，一键退订。</p>
-      <form class="jform" id="join-form" data-bad="这看起来不像一个邮箱地址。" data-sending="发送中…" data-ok="已加入。请查收邮箱完成确认。" data-err="没有成功，请稍后再试。" action="https://safeagi.ca/subscribe" method="post" novalidate>
+      <form class="jform" id="join-form" data-bad="这看起来不像一个邮箱地址。" data-sending="发送中…" data-ok="已加入。请查收邮箱完成确认。" data-err="没有成功，请稍后再试。" action="/subscribe" method="post" novalidate>
         <label class="skip" for="join-email">电子邮箱</label>
         <input type="email" id="join-email" name="email" placeholder="you@example.com" required autocomplete="email">
+        <input type="text" name="company" class="skip" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAEqvuqlQqKjyA-Da" data-size="flexible"></div>
         <button type="submit">加入</button>
       </form>
       <p class="jmsg" id="join-msg" role="status" aria-live="polite"></p>
@@ -4446,7 +4450,7 @@ var SITE_CONFIG = {
       fetch(f.getAttribute("action"), {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ email: v })
+        body: JSON.stringify({ email: v, lang: "zh", company: (f.querySelector("[name=company]")||{}).value || "", token: (f.querySelector("[name=cf-turnstile-response]")||{}).value || "" })
       }).then(function(r){
         msg.textContent = r && r.ok
           ? (f.getAttribute("data-ok") || "You are on the list. Check your inbox to confirm.")

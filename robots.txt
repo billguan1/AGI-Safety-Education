@@ -1,5 +1,4 @@
-# EDIT ME: replace example.com with your real domain
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://safeagi.ca/sitemap.xml
