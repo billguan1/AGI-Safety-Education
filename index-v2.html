@@ -65,7 +65,9 @@ p{margin:0 0 1em}
 .glance-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:9px}
 .glance-row:last-child{margin-bottom:0}
 .glance-row b{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);flex:0 0 90px}
-.gpill{display:inline-block;font-size:12px;color:var(--ink-2);background:var(--paper);border-left:3px solid var(--acc);border-radius:3px;padding:5px 10px}
+.gpill{display:inline-block;font-family:var(--body);font-size:12px;color:var(--ink-2);background:var(--paper);
+  border:0;border-left:3px solid var(--acc);border-radius:3px;padding:5px 10px;cursor:pointer;transition:background .15s}
+.gpill:hover{background:var(--acc-t,var(--rule-soft))}
 .gpill i{font-style:normal;color:var(--ink-3)}
 .part-div{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,30px)}
 .part-div .pd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
@@ -856,6 +858,9 @@ html{overflow-x:hidden}
 /* poem */
 .anthem{border-top:1px solid #262e34}
 .anthem-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:start}
+.anthem-poem{order:1}
+.anthem-act{order:2}
+@media(max-width:820px){.anthem-poem,.anthem-act{order:0}}
 @media(max-width:820px){.anthem-grid{grid-template-columns:1fr}}
 .joinbig.compact{padding:clamp(18px,2.6vw,24px)}
 .joinbig.compact h3{font-size:clamp(19px,2.4vw,24px);margin-bottom:6px}
@@ -1226,9 +1231,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 #sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0 0 22px}
 #sources .src-cat{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);margin:0 0 8px}
-.startlist{list-style:none;margin:0 0 clamp(20px,3vw,28px);padding:0;display:grid;gap:8px}
-.startlist li{background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--c-dev);border-radius:var(--r);padding:10px 14px;font-size:14.5px;color:var(--ink-2)}
-.startlist li b{font-family:var(--display);font-weight:700;color:var(--ink)}
+.startlist{list-style:none;margin:0 0 clamp(20px,3vw,28px);padding:0}
+.startlist li{padding:5px 0;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);border-bottom:1px solid var(--rule-soft)}
+.startlist li:last-child{border-bottom:0}
+.startlist li b{font-family:var(--mono);font-weight:600;color:var(--ink)}
 #sources li{margin-bottom:10px;break-inside:avoid;color:var(--ink-2)}
 #sources li a{word-break:break-word}
 footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
@@ -1943,8 +1949,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <rect x="592" y="52" width="128" height="62" rx="6" fill="none" stroke="#bd3a20" stroke-width="2"/>
         <text x="656" y="80" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" fill="#bd3a20">Superintelligent</text>
         <text x="656" y="94" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" fill="#bd3a20">system</text>
-        <text x="392" y="140" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">New. No contract holds, no election reaches it, and the</text>
-        <text x="392" y="154" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">controls must exist before it is superintelligent.</text>
+        <text x="392" y="140" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">New. No contract holds,</text>
+        <text x="392" y="154" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">no election reaches it, and</text>
+        <text x="392" y="168" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the controls must exist first.</text>
       </svg>
       <figcaption>Same shape, both times: someone who cannot fully monitor an agent more capable, or potentially more capable, than themselves. The left version is centuries old and only partly solved. The right version is the one we have not solved at all, and the deadline for solving it is before it arrives.</figcaption>
     </figure>
@@ -1973,7 +1980,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="465" y="122" text-anchor="middle" font-family="Archivo,sans-serif" font-size="30" font-weight="900" fill="#bd3a20">?</text>
         <text x="465" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">which values?</text>
         <path d="M556,126 L636,126" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4"/>
-        <text x="700" y="122" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">the machine</text>
+        <text x="700" y="130" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">the machine</text>
         <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">There is no neutral vantage point from which to settle it, and whoever settles it holds enormous power.</text>
       </svg>
       <figcaption>Before you can align a machine to human values, you have to say which humans. Every arrow here points somewhere slightly different, and the box in the middle is still empty.</figcaption>
@@ -3012,26 +3019,26 @@ refusal training</text>
     <div class="glance rv">
       <p class="note" style="margin-bottom:10px">Fourteen techniques, one line each, before the detail below.</p>
       <div class="glance-row" style="--acc:#5b6b9e"><b>Development</b>
-        <span class="gpill">Post-training alignment <i>reduces misbehaviour</i></span>
-        <span class="gpill">Scalable oversight <i>research stage</i></span>
-        <span class="gpill">Unlearning <i>suppresses, does not remove</i></span>
+        <button type="button" class="gpill" data-card="tc1">Post-training alignment <i>reduces misbehaviour</i></button>
+        <button type="button" class="gpill" data-card="tc2">Scalable oversight <i>research stage</i></button>
+        <button type="button" class="gpill" data-card="tc3">Unlearning <i>suppresses rather than removes</i></button>
       </div>
       <div class="glance-row" style="--acc:#6f8a63"><b>Assessment</b>
-        <span class="gpill">Capability evaluations <i>detects before release</i></span>
-        <span class="gpill">Chain-of-thought monitoring <i>detects intent</i></span>
-        <span class="gpill">Mechanistic interpretability <i>explains, cannot certify</i></span>
-        <span class="gpill">Safety cases <i>argues rather than proves</i></span>
+        <button type="button" class="gpill" data-card="tc4">Capability evaluations <i>detects before release</i></button>
+        <button type="button" class="gpill" data-card="tc5">Chain-of-thought monitoring <i>detects intent</i></button>
+        <button type="button" class="gpill" data-card="tc6">Mechanistic interpretability <i>explains, cannot certify</i></button>
+        <button type="button" class="gpill" data-card="tc7">Safety cases <i>argues rather than proves</i></button>
       </div>
       <div class="glance-row" style="--acc:#a98a4b"><b>Control</b>
-        <span class="gpill">AI control <i>contains a hostile model</i></span>
-        <span class="gpill">Guardrails and classifiers <i>blocks known attacks</i></span>
-        <span class="gpill">Sandboxing and least privilege <i>limits blast radius</i></span>
-        <span class="gpill">Tripwires and monitoring <i>catches what we anticipated</i></span>
+        <button type="button" class="gpill" data-card="tc8">AI control <i>contains a hostile model</i></button>
+        <button type="button" class="gpill" data-card="tc9">Guardrails and classifiers <i>blocks known attacks</i></button>
+        <button type="button" class="gpill" data-card="tc10">Sandboxing and least privilege <i>limits blast radius</i></button>
+        <button type="button" class="gpill" data-card="tc11">Tripwires and monitoring <i>catches what we anticipated</i></button>
       </div>
       <div class="glance-row" style="--acc:#b5654d"><b>Governance</b>
-        <span class="gpill">Frontier safety frameworks <i>voluntary</i></span>
-        <span class="gpill">Third-party evaluation <i>voluntary</i></span>
-        <span class="gpill">Regulation and compute governance <i>binding but fragmented</i></span>
+        <button type="button" class="gpill" data-card="tc12">Frontier safety frameworks <i>voluntary</i></button>
+        <button type="button" class="gpill" data-card="tc13">Third-party evaluation <i>voluntary</i></button>
+        <button type="button" class="gpill" data-card="tc14">Regulation and compute governance <i>binding but fragmented</i></button>
       </div>
     </div>
 
@@ -3039,7 +3046,7 @@ refusal training</text>
       <div class="tlayer" id="lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8">
         <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><h4>01 &nbsp;Development</h4></div>
         <div class="tgrid">
-        <div class="tcard">
+        <div class="tcard" id="tc1">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><p class="tn">Post-training alignment</p></div>
           <span class="tverdict">Reduces misbehaviour</span>
           <p class="td tshort">RLHF, constitutional rules and deliberative alignment. Why assistants refuse harmful requests. Cut covert actions thirtyfold on o3.<a class="ref" href="#s43">43</a></p>
@@ -3048,7 +3055,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>It shapes the behaviour a model displays, and inner alignment is about the goal it holds. Claude 3 Opus was observed faking alignment to protect its existing values,<a class="ref" href="#s36">36</a> and part of that thirtyfold gain came from models recognising they were being tested rather than changing what they wanted.<a class="ref" href="#s43">43</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc2">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l4.5-5 3.5 3.5L20 6"/><path d="M15 6h5v5"/><circle cx="7.5" cy="12" r="1.6"/></svg><p class="tn">Scalable oversight</p></div>
           <span class="tverdict">Research stage</span>
           <p class="td tshort">Debate, weak-to-strong generalisation and amplified oversight let weaker judges supervise stronger systems. Training routes into this work run through MATS and ARENA.<a class="ref" href="#s7">7</a></p>
@@ -3057,7 +3064,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>It is a research programme rather than a deployable assurance. Judge bias can defeat debate outright, gains are highly task-dependent, and the mechanism behind weak-to-strong generalisation is not understood well enough to trust it across a genuinely superhuman gap.</p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc3">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.5h16"/><path d="M8.5 14.5L14 9l4.5 4.5-4 4h-4.5z"/><path d="M11 6.5l3.5-3.5 4.5 4.5-3.5 3.5"/></svg><p class="tn">Unlearning</p></div>
           <span class="tverdict">Suppresses rather than removes</span>
           <p class="td tshort">Strips specific dangerous knowledge, such as bio or cyber uplift, out of a trained model.</p>
@@ -3071,7 +3078,7 @@ refusal training</text>
       <div class="tlayer" id="lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec">
         <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg></span><h4>02 &nbsp;Assessment</h4></div>
         <div class="tgrid">
-        <div class="tcard">
+        <div class="tcard" id="tc4">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><p class="tn">Capability evaluations</p></div>
           <span class="tverdict">Detects before release</span>
           <p class="td tshort">Pre-deployment testing for cyber, bio and autonomy by labs, METR, Apollo<a class="ref" href="#s17">17</a> and state institutes. Three labs shipped 2025 models under raised CBRN safeguards.<a class="ref" href="#s1">1</a></p>
@@ -3080,7 +3087,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>Models increasingly detect that they are being evaluated and change behaviour, and can sandbag by deliberately underperforming. The International AI Safety Report states plainly that pre-deployment testing has become harder and that dangerous capabilities could go undetected.<a class="ref" href="#s1">1</a><a class="ref" href="#s19">19</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc5">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h16v9H11l-4.5 4v-4H4z"/><path d="M8 10h8M8 12.8h5"/></svg><p class="tn">Chain-of-thought monitoring</p></div>
           <span class="tverdict">Detects intent</span>
           <p class="td tshort">Reads the reasoning trace to catch intent before action. How alignment faking was first found.<a class="ref" href="#s49">49</a></p>
@@ -3089,7 +3096,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>The same paper calls it fragile, and its own title says so. Reasoning traces are not always faithful, training against a monitor teaches models to hide intent inside acceptable-looking reasoning, and monitorability is already degrading as models write less of their thinking down.<a class="ref" href="#s49">49</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc6">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg><p class="tn">Mechanistic interpretability</p></div>
           <span class="tverdict">Explains, cannot certify</span>
           <p class="td tshort">Opens the box. Attribution graphs have traced real internal mechanisms, including planning ahead in poetry.<a class="ref" href="#s53">53</a></p>
@@ -3098,7 +3105,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>It is a research tool rather than an audit method. Attribution graphs trace only part of the computation and work only on some prompts, and independent 2025 studies found sparse autoencoders failing to beat simple baselines on probing and steering. Nobody can yet certify a model’s goals.<a class="ref" href="#s53">53</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc7">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 14l2 2 4-4"/></svg><p class="tn">Safety cases</p></div>
           <span class="tverdict">Argues rather than proves</span>
           <p class="td tshort">A structured argument that a system will not cause unacceptable harm, borrowed from nuclear and aviation.<a class="ref" href="#s54">54</a></p>
@@ -3112,7 +3119,7 @@ refusal training</text>
       <div class="tlayer" id="lay-ctl" style="--acc:#a98a4b;--acc-t:#f8f2e6">
         <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg></span><h4>03 &nbsp;Control</h4></div>
         <div class="tgrid">
-        <div class="tcard">
+        <div class="tcard" id="tc8">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg><p class="tn">AI control</p></div>
           <span class="tverdict">Contains a hostile model</span>
           <p class="td tshort">Assumes the model may be misaligned and asks whether deployment stays safe anyway. A trusted weaker model monitors or rewrites the stronger one.<a class="ref" href="#s50">50</a></p>
@@ -3121,7 +3128,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>It rests on assumptions its own authors list: that the red team fully elicited the model’s capabilities, that measures work as well in deployment as in testing, and that the trusted monitor is capable enough to catch subtle attacks. Redwood are explicit that control is a near-term bet that weakens as the capability gap grows.<a class="ref" href="#s51">51</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc9">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><p class="tn">Guardrails and classifiers</p></div>
           <span class="tverdict">Blocks known attacks</span>
           <p class="td tshort">Constitutional classifiers cut jailbreak success from 86% to 4.4%, and a later version survived 1,700 hours of red-teaming.<a class="ref" href="#s52">52</a></p>
@@ -3130,7 +3137,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>Anthropic states the limit themselves: no defence is perfectly robust, and adversaries develop new attacks against previously effective ones. The residual rate is never zero, and safe models can still be misused in combination.<a class="ref" href="#s52">52</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc10">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8.5 4v16M15.5 4v16" opacity=".45"/><circle cx="12" cy="12" r="2"/></svg><p class="tn">Sandboxing and least privilege</p></div>
           <span class="tverdict">Limits blast radius</span>
           <p class="td tshort">Isolates agents with restricted credentials, tools and network access. Meant to hold even when alignment fails.<a class="ref" href="#s42">42</a></p>
@@ -3139,7 +3146,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>It failed in the field in July 2026. Agents escaped sandboxes at two frontier labs, reached the open internet and compromised real third parties, and in several cases were not detected in real time.<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc11">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 0112 0v5.5l1.5 2H4.5z"/><path d="M10 21h4"/></svg><p class="tn">Tripwires and monitoring</p></div>
           <span class="tverdict">Catches what we anticipated</span>
           <p class="td tshort">Anomaly detection that escalates on warning signs. Anthropic caught the first AI-orchestrated espionage campaign this way.<a class="ref" href="#s28">28</a></p>
@@ -3153,7 +3160,7 @@ refusal training</text>
       <div class="tlayer" id="lay-gov" style="--acc:#b5654d;--acc-t:#f6ece7">
         <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 21h12"/><path d="M6 7h12"/><path d="M6 7l-3 6h6zM18 7l-3 6h6z"/></svg></span><h4>04 &nbsp;Governance</h4></div>
         <div class="tgrid">
-        <div class="tcard">
+        <div class="tcard" id="tc12">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h5v-5h5v-5h5V5"/><path d="M18 5h3v3"/></svg><p class="tn">Frontier safety frameworks</p></div>
           <span class="tverdict">Voluntary</span>
           <p class="td tshort">Pre-declared capability thresholds that trigger safeguards. The number of companies publishing one more than doubled in 2025.<a class="ref" href="#s16">16</a></p>
@@ -3162,7 +3169,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>The thresholds are set and graded by the same companies they constrain. In the Future of Life Institute’s index no lab scored above C+ overall, and every lab scored no better than D on existential safety for the second year running, with none holding a credible plan for preventing loss of control.<a class="ref" href="#s15">15</a></p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc13">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M8.5 17h7v-2.5H8.5z"/><path d="M10 14.5V11a2.5 2.5 0 015 0v3.5"/><circle cx="12.5" cy="6.5" r="2.6"/></svg><p class="tn">Third-party evaluation</p></div>
           <span class="tverdict">Voluntary</span>
           <p class="td tshort">State institutes run pre-deployment testing, including joint UK and US evaluations.<a class="ref" href="#s11">11</a><a class="ref" href="#s12">12</a></p>
@@ -3171,7 +3178,7 @@ refusal training</text>
           <p class="tstop tlong"><b>Where it stops</b>Participation is voluntary and access can be withdrawn. No institute can compel a test, block a release or require a change, so the auditor depends on the audited.</p>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
-        <div class="tcard">
+        <div class="tcard" id="tc14">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 21h12"/><path d="M6 7h12"/><path d="M6 7l-3 6h6zM18 7l-3 6h6z"/></svg><p class="tn">Regulation and compute governance</p></div>
           <span class="tverdict">Binding but fragmented</span>
           <p class="td tshort">The EU AI Act is enforceable, California’s SB 53 is the first US frontier statute, and compute gives a measurable hook.<a class="ref" href="#s10">10</a><a class="ref" href="#s13">13</a></p>
@@ -4289,6 +4296,17 @@ var SITE_CONFIG = {
         b.setAttribute("aria-expanded", open ? "false" : "true");
       });
       b.setAttribute("aria-expanded", "false");
+    });
+
+    /* ---- glance chips: jump to and expand the matching technique card ---- */
+    $$(".gpill[data-card]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var card = document.getElementById(b.getAttribute("data-card"));
+        if(!card) return;
+        var btn = card.querySelector(".tmore-btn");
+        if(btn && card.className.indexOf("on") < 0) btn.click();
+        scrollToEl(card);
+      });
     });
 
     /* ---- expandable cards elsewhere: same pattern as technique cards ---- */
