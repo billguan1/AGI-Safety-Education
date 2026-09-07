@@ -53,6 +53,27 @@ p{margin:0 0 1em}
   text-decoration:none;color:var(--c-dev);padding:0 .1em}
 .ref:hover{background:var(--c-dev);color:#fff;border-radius:2px}
 .note{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6;max-width:72ch}
+.term{position:relative;border-bottom:1px dotted var(--ink-3);cursor:help}
+.term-tip{position:absolute;left:0;bottom:calc(100% + 9px);z-index:30;width:min(280px,74vw);
+  background:var(--ink);color:#e2e8ec;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.4;
+  padding:10px 12px;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.28);
+  opacity:0;transform:translateY(4px);pointer-events:none;transition:opacity .15s,transform .15s}
+.term-tip::after{content:"";position:absolute;top:100%;left:14px;border:6px solid transparent;border-top-color:var(--ink)}
+.term:hover .term-tip,.term:focus .term-tip,.term.show .term-tip{opacity:1;transform:none;pointer-events:auto}
+.dark .term{border-bottom-color:#7d8890}
+.glance{margin:22px 0 clamp(28px,4vw,40px);padding:clamp(16px,2.4vw,22px);background:var(--white);border:1px solid var(--rule);border-radius:var(--r)}
+.glance-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:9px}
+.glance-row:last-child{margin-bottom:0}
+.glance-row b{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);flex:0 0 90px}
+.gpill{display:inline-block;font-family:var(--body);font-size:12px;color:var(--ink-2);background:var(--paper);
+  border:0;border-left:3px solid var(--acc);border-radius:3px;padding:5px 10px;cursor:pointer;transition:background .15s}
+.gpill:hover{background:var(--acc-t,var(--rule-soft))}
+.gpill i{font-style:normal;color:var(--ink-3)}
+.part-div{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,30px)}
+.part-div .pd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
+.part-div .pd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(13px,1.6vw,15px);color:var(--ink-2)}
+.part-div::after{content:"";flex:1;height:1px;background:var(--pd-acc);opacity:.4;align-self:center}
+.dark .part-div .pd-t{color:#c3ccd2}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
 
@@ -60,7 +81,7 @@ p{margin:0 0 1em}
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
 .bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
-.brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;
+.brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
 .brand b{color:var(--c-risk)}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
@@ -157,6 +178,11 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dark-core .ck{color:#8fa2ff}.dark-core h4{color:#fff}.dark-core p{color:#c3ccd2}
 .dark-core .breaks{color:#8a959c;border-top-color:#333d44}
 .dark-core .breaks b{color:#ff8a6b}
+.spectrum{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.spectrum .sp-step{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1.5px solid var(--rule);color:var(--ink-2);background:var(--white)}
+.spectrum .sp-step.on{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.dark-core .spectrum .sp-step{border-color:#3b454c;color:#c3ccd2;background:rgba(255,255,255,.04)}
+.dark-core .spectrum .sp-step.on{background:#ff6a45;border-color:#ff6a45;color:#12161a}
 /* inline goodhart inside a light deep-dive */
 .core 
 
@@ -242,23 +268,24 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 
 /* ---------- convergent drives list ---------- */
 .drives{list-style:none;margin:8px 0 0;padding:0}
-.drives li{border-top:1px solid var(--rule-soft);padding:8px 0;font-size:14.5px;line-height:1.6;color:var(--ink-2)}
-.drives li b{font-family:var(--display);font-weight:700;color:var(--ink);margin-right:8px}
+.drives li{border-top:1px solid var(--rule-soft);padding:8px 0;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.drives li b{font-family:var(--display);font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-right:8px}
 .drives li i{font-style:normal;color:var(--ink-3)}
 /* ---------- takeover phases ---------- */
 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:clamp(20px,3vw,30px) 0}
 @media(max-width:820px){.phases{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.phases{grid-template-columns:1fr}}
-.ph{border:1px solid var(--rule-soft);border-radius:var(--r);padding:16px;background:var(--white)}
+.ph{border:1px solid var(--rule-soft);border-radius:var(--r);padding:16px;background:var(--white);position:relative}
 .ph .pn{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:9px}
-.ph h4{font-family:var(--display);font-weight:800;font-size:15.5px;letter-spacing:-.015em;margin-bottom:7px;line-height:1.3}
-.ph p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+.ph h4{font-family:var(--display);font-weight:800;font-size:15.5px;letter-spacing:-.015em;margin-bottom:7px;line-height:1.2}
+.ph p{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
 .ph.turn{background:var(--t-risk);border-color:#eec4b8}
 .ph.turn .pn{color:var(--c-risk)}
 .ph.end{background:var(--ink);border-color:var(--ink)}
 .ph.end .pn{color:#ff8a6b}
 .ph.end h4{color:#fff}
 .ph.end p{color:#e6ebee}
+/* ---------- control methods ---------- */
 .cmeth{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(20px,3vw,28px)}
 @media(max-width:760px){.cmeth{grid-template-columns:1fr}}
 .cm{border:1px solid var(--rule);border-radius:var(--r);padding:20px;background:var(--white)}
@@ -266,9 +293,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .cm .cmk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:10px}
 .cm.b .cmk{color:var(--c-ctl)}
 .cm ul{list-style:none;margin:12px 0 0;padding:0}
-.cm li{border-top:1px solid var(--rule-soft);padding:9px 0;font-size:14px;line-height:1.6;color:var(--ink-2)}
-.cm li b{color:var(--ink);font-weight:600;font-family:var(--display)}
+.cm li{border-top:1px solid var(--rule-soft);padding:9px 0;font-size:14px;line-height:1.45;color:var(--ink-2)}
+.cm li b{color:var(--ink);font-weight:600;font-family:var(--display);letter-spacing:-.01em}
 .cm li i{font-style:normal;color:var(--ink-3);display:block;font-size:13px;margin-top:2px}
+/* ---------- takeover phases end ---------- */
 /* ---------- faq disputes subsection ---------- */
 .faq-sub{margin-top:clamp(30px,5vw,48px);padding-top:clamp(24px,3.6vw,36px);border-top:1.5px solid var(--ink)}
 .faq-subhead{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(20px,3vw,27px);margin:0 0 8px}
@@ -395,8 +423,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
              radial-gradient(820px 480px at 0% 115%,rgba(34,51,204,.24),transparent 62%)}
 .masthead .wrap{position:relative;z-index:1}
 .mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
-.mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.02em;line-height:1.08;
-  font-size:clamp(34px,6.5vw,72px);color:#fff;margin:0 0 24px;max-width:18ch}
+.mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
+  font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
 .mh-sub{font-family:var(--body);font-weight:300;font-size:clamp(18px,1.1rem+.5vw,25px);line-height:1.45;color:#b6c0c6;max-width:56ch;margin:0 0 26px}
 .mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
@@ -687,6 +715,14 @@ html{overflow-x:hidden}
 .tmore-btn::before{content:"+";display:inline-block;width:9px;text-align:center;font-weight:700}
 .tcard.on .tmore-btn::before{content:"\2013"}
 .tmore-btn:hover{opacity:.7}
+.expandable .xlong{display:none}
+.expandable.on .xshort{display:none}
+.expandable.on .xlong{display:block}
+.xmore-btn{align-self:flex-start;margin-top:6px;border:0;background:transparent;cursor:pointer;padding:4px 0;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--c-dev)}
+.xmore-btn::before{content:"+";display:inline-block;width:9px;text-align:center;font-weight:700}
+.expandable.on .xmore-btn::before{content:"\2013"}
+.xmore-btn:hover{opacity:.7}
 .tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
 /* ---------- section figures ---------- */
 .secfig{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px;border:1px solid var(--rule-soft);border-radius:var(--r);
@@ -706,15 +742,20 @@ html{overflow-x:hidden}
 .routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
 .routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
 .routes-sub{font-size:14.5px;line-height:1.55;color:#9aa5ac;margin:0 0 16px;max-width:64ch}
-.route-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.route-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:1000px){.route-btns{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.route-btns{grid-template-columns:1fr}}
+.rtier{text-decoration:none;border-style:dashed}
+.rtier .rbn{color:#dfe5e9}
+.rtier:hover{border-color:#9cc48a;background:rgba(255,255,255,.07)}
 @media(max-width:640px){.route-btns{grid-template-columns:1fr}}
-.rbtn{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
+.rbtn,.rtier{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
   padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
-.rbtn:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
+.rbtn,.rtier:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
 .rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
-.rbtn .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
-.rbtn .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
-.rbtn .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
+.rbtn .rbn,.rtier .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
+.rbtn .rbm,.rtier .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
+.rbtn .rbd,.rtier .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
 /* collapsed (off-route) chapters */
 .offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
 .offroute .sec-head .stand{display:none}
@@ -754,12 +795,12 @@ html{overflow-x:hidden}
 .resume button.go{background:var(--c-act);border-color:var(--c-act);color:#fff}
 .resume button:hover{border-color:#fff;color:#fff}
 /* ---------- per-section reading time ---------- */
-.rt-min{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.04em;
-  padding:2px 7px;margin-left:8px;border-radius:999px;
-  border:1px solid currentColor;opacity:.62;vertical-align:1px}
+.rt-min{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 7px;margin-left:8px;border-radius:999px;
+  border:1px solid currentColor;opacity:.62;vertical-align:2px}
 /* ---------- four risk pillars ---------- */
 .pillars{margin-top:clamp(30px,5vw,52px);border-top:1px solid #2b343b;padding-top:clamp(24px,3.6vw,36px)}
-.pil-lead{font-size:15.5px;line-height:1.75;color:#b6c0c6;max-width:70ch;margin:0 0 18px}
+.pil-lead{font-size:15.5px;line-height:1.6;color:#b6c0c6;max-width:70ch;margin:0 0 18px}
 .pil-lead em{color:#fff;font-style:normal;font-weight:500}
 .pil-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 @media(max-width:900px){.pil-grid{grid-template-columns:1fr 1fr}}
@@ -767,9 +808,9 @@ html{overflow-x:hidden}
 .pil{display:block;text-decoration:none;border:1px solid #2b343b;border-radius:var(--r);padding:16px;
   background:rgba(255,255,255,.03);transition:.16s}
 .pil:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
-.pil .pk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.08em;color:#a8b3ba;display:block;margin-bottom:9px}
-.pil .pt{font-family:var(--display);font-weight:800;font-size:19px;color:#fff;display:block;margin-bottom:7px}
-.pil .pd{font-size:13.5px;line-height:1.65;color:#c3ccd2;display:block}
+.pil .pk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8b3ba;display:block;margin-bottom:9px}
+.pil .pt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:19px;color:#fff;display:block;margin-bottom:7px}
+.pil .pd{font-size:13.5px;line-height:1.5;color:#c3ccd2;display:block}
 .pil.hot{background:rgba(189,58,32,.14);border-color:#6b3527}
 .pil.hot .pk{color:#ff8a6b}
 /* ---------- crossroads roadmap ---------- */
@@ -794,6 +835,9 @@ html{overflow-x:hidden}
 .cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(30px,6.4vw,60px);max-width:18ch;margin:0 0 22px}
 .cross .big em{font-style:normal;color:#ff8a6b}
+.cross-hero{position:relative}
+.cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
+@media(max-width:900px){.cross-brain{display:none}}
 .cross .stand{font-size:clamp(18px,1.1rem+.4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
 .cross .stand strong{color:#fff;font-weight:500}
 
@@ -821,6 +865,20 @@ html{overflow-x:hidden}
 
 /* poem */
 .anthem{border-top:1px solid #262e34}
+.anthem-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:start}
+.anthem-poem{order:1}
+.anthem-act{order:2}
+@media(max-width:820px){.anthem-poem,.anthem-act{order:0}}
+@media(max-width:820px){.anthem-grid{grid-template-columns:1fr}}
+.joinbig.compact{padding:clamp(18px,2.6vw,24px)}
+.joinbig.compact h3{font-size:clamp(19px,2.4vw,24px);margin-bottom:6px}
+.joinbig.compact p{font-size:13.5px;margin-bottom:14px}
+.joinbig.compact .jform{max-width:none}
+.beats.compact{padding:0 clamp(18px,2.6vw,24px)}
+.beats.compact li{margin-bottom:14px}
+.beats.compact li:last-child{margin-bottom:0}
+.beats.compact h3{color:#fff;font-size:15px;margin:0 0 3px}
+.beats.compact p{color:#b6c0c6;font-size:13px;margin:0}
 .poem{max-width:34ch;margin:0 auto;text-align:center}
 .poem .stanza{margin:0 0 clamp(20px,3vw,30px)}
 .poem p{font-family:var(--body);font-weight:300;font-size:clamp(19px,2.6vw,26px);line-height:1.5;color:#e2e8ec;margin:0}
@@ -1148,15 +1206,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .verdict b{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:5px}
 
 /* ---------- filters ---------- */
-.aboutnote{border:1px solid var(--rule-soft);border-left:3px solid var(--c-dev);border-radius:var(--r);padding:20px 22px;margin:clamp(26px,4vw,40px) 0;background:var(--paper-2)}
-.aboutnote .an-k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:9px}
-.aboutnote p{margin:0;font-size:14.5px;line-height:1.65;max-width:74ch}
-.aboutnote a{color:inherit}
 .filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
-.fbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
+.fbtn,.pbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
   border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
-.fbtn:hover{border-color:var(--ink)}
-.fbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.fbtn:hover,.pbtn:hover{border-color:var(--ink)}
+.fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .card.gone{display:none}
 
 /* ---------- slab ---------- */
@@ -1171,6 +1225,34 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   text-transform:uppercase;background:var(--paper);color:var(--ink);padding:13px 22px;border-radius:2px;text-decoration:none;margin-top:8px;transition:.16s}
 .btn:hover{transform:translateY(-2px);color:var(--ink)}
 
+.aboutnote{border:1px solid var(--rule-soft);border-left:3px solid var(--c-dev);border-radius:var(--r);padding:20px 22px;margin:clamp(26px,4vw,40px) 0;background:var(--paper-2)}
+.aboutnote .an-k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:9px}
+.aboutnote p{margin:0;font-size:14.5px;line-height:1.65;max-width:74ch}
+.aboutnote a{color:inherit}
+/* ---------- what can be done ---------- */
+.cando-lead{max-width:70ch;margin-bottom:clamp(20px,3vw,28px)}
+.cando-block{margin:clamp(28px,4vw,44px) 0 0}
+.cando-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft)}
+.cando-h .ch-n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c-act)}
+.cando-h h3{margin:0;font-size:clamp(19px,2.5vw,24px)}
+.cando-h .ch-w{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+.jur{display:none;grid-template-columns:1fr 1fr;gap:14px}
+.jur.on{display:grid}
+@media(max-width:760px){.jur.on{grid-template-columns:1fr}}
+.jur-status,.jur-ask{border:1px solid var(--rule-soft);border-radius:var(--r);padding:18px}
+.jur-status{background:var(--paper-2)}
+.jur-ask{background:var(--white);border-top:3px solid var(--c-act)}
+.jur-status .k,.jur-ask .k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px;color:var(--ink-3)}
+.jur-ask .k{color:var(--c-act)}
+.jur-status p,.jur-ask p{margin:0;font-size:14.5px;line-height:1.6}
+.cando-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.cando-cols{grid-template-columns:1fr}}
+.actlist{list-style:none;margin:0;padding:0}
+.actlist li{padding:11px 0;border-bottom:1px solid var(--rule-soft);font-size:14.5px;line-height:1.6}
+.actlist li:last-child{border-bottom:0}
+.actlist b{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-act);margin-bottom:5px}
+.asof{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:18px}
+
 /* ---------- glossary ---------- */
 
 /* ---------- about ---------- */
@@ -1184,8 +1266,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   padding:11px 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:2px;cursor:pointer;text-decoration:none;transition:.15s}
 .share button:hover,.share a:hover{background:var(--ink);color:var(--paper)}
 
-#sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0;column-count:2;column-gap:44px}
-@media(max-width:760px){#sources ol{column-count:1}}
+#sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0 0 22px}
+#sources .src-cat{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);margin:0 0 8px}
+.startlist{list-style:none;margin:0 0 clamp(20px,3vw,28px);padding:0}
+.startlist li{padding:5px 0;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);border-bottom:1px solid var(--rule-soft)}
+.startlist li:last-child{border-bottom:0}
+.startlist li b{font-family:var(--mono);font-weight:600;color:var(--ink)}
 #sources li{margin-bottom:10px;break-inside:avoid;color:var(--ink-2)}
 #sources li a{word-break:break-word}
 footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
@@ -1373,36 +1459,45 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="posmeter" id="posmeter" aria-live="off"></div>
     <ul class="nav-groups">
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">现状 <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">学习 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">十字路口</a></li>
+          <li><a href="#brief">论证提要</a></li>
+          <li><a href="#why-intelligence">为什么智能总是胜出</a></li>
+          <li><a href="#why-irresistible">为什么我们无法移开目光</a></li>
+          <li><a href="#why-race">为什么竞赛本身就是危险</a></li>
+          <li><a href="#why-human-misalignment">为什么我们彼此并不同心</a></li>
+          <li><a href="#why-translation">为什么我们的价值无法迁移</a></li>
+          <li><a href="#why-safety-hard">为什么安全比能力更难</a></li>
+          <li><a href="#why-one-try">为什么没有第二次机会</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">为何困难 <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">证据 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#why-intelligence">一 · 智者为王</a></li>
-          <li><a href="#why-irresistible">二 · 利令智昏</a></li>
-          <li><a href="#why-race">三 · 竞争本身就是风险</a></li>
-          <li><a href="#why-human-misalignment">四 · 人心不齐</a></li>
-          <li><a href="#why-translation">五 · 辞不达意</a></li>
-          <li><a href="#why-safety-hard">六 · 为何安全研究更难</a></li>
-          <li><a href="#why-one-try">七 · 只有一次机会</a></li>
+          <li><a href="#response">正在做的工作</a></li>
+          <li><a href="#change-my-mind">什么会推翻这个论点</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">下一步 <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">可以做什么 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">正在做什么</a></li>
-          
-          <li><a href="#ask">立即行动</a></li>
+          <li><a href="#ask">我们的诉求</a></li>
+          <li><a href="#do">政府、实验室、研究者与你</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">参考 <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">常见问题 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#resources">资源</a></li>
           <li><a href="#faq">常见问题与争议</a></li>
+          <li><a href="#glossary">术语表</a></li>
+        </ul>
+      </li>
+      <li class="ng">
+        <button type="button" class="ng-top" aria-expanded="false">来源 <span class="ng-caret" aria-hidden="true">›</span></button>
+        <ul class="ng-menu">
+          <li><a href="#resources">课程与目录</a></li>
+          <li><a href="#sources">全部六十份来源</a></li>
         </ul>
       </li>
     </ul>
@@ -1436,9 +1531,9 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <p class="mh-sub">人类的智能缔造了现代文明。如今我们正要创造一个超越自身的存在，却无法保证它始终与人类同心同德。这份指南从根子上逐层拆解这道难题，也告诉你我们该怎么做。</p>
       <div class="mh-routes">
         <span class="mr-k">阅读</span>
-        <button type="button" class="mh-rbtn" data-route="essentials"><b>6 分钟</b> 只看要害</button>
-        <button type="button" class="mh-rbtn" data-route="core"><b>18 分钟</b> 核心论证</button>
-        <button type="button" class="mh-rbtn on" data-route="full"><b>50 分钟</b> 全部读完</button>
+        <button type="button" class="mh-rbtn" data-route="essentials"><b>11 分钟</b> 只看要害</button>
+        <button type="button" class="mh-rbtn" data-route="core"><b>27 分钟</b> 核心论证</button>
+        <button type="button" class="mh-rbtn on" data-route="full"><b>49 分钟</b> 全部读完</button>
       </div>
     <div class="mh-meta">
       <span>AGI 与 ASI 安全</span><span>通读约 50 分钟</span><span>每条论断皆附出处</span>
@@ -1449,8 +1544,32 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- CROSSROADS -->
 <section id="crossroads" class="cross">
   <div class="wrap">
-    <p class="eyebrow">现状 <b class="rt-min">4 分钟</b></p>
-    <h2 class="big">我们即将做一件<em>亘古未有的事</em>，造出超越自身的智能。</h2>
+    <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">第一部分</span><span class="pd-t">现状</span></div>
+    <div class="cross-hero">
+      <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
+      <path d="M120,24 C140,20 158,24 172,36 C185,47 193,62 196,80 C199,98 195,115 184,129 C174,142 159,152 141,155 C131,157 123,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
+      <path d="M120,24 C100,20 82,24 68,36 C55,47 47,62 44,80 C41,98 45,115 56,129 C66,142 81,152 99,155 C109,157 117,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
+      <line x1="120" y1="24" x2="120" y2="152" stroke="#ff6a45" stroke-width="1.4" opacity=".5"/>
+      <path d="M111,152 L129,152 L123,178 L117,178 Z" fill="none" stroke="#ff6a45" stroke-width="2" opacity=".8"/>
+      <g stroke="#6d84ff" stroke-width="1.2" opacity=".85">
+      <line x1="120" y1="90" x2="95" y2="60"/>
+      <line x1="120" y1="90" x2="150" y2="60"/>
+      <line x1="120" y1="90" x2="75" y2="102"/>
+      <line x1="120" y1="90" x2="165" y2="102"/>
+      <line x1="95" y1="60" x2="75" y2="102"/>
+      <line x1="150" y1="60" x2="165" y2="102"/>
+      </g>
+      <g fill="#6d84ff">
+      <circle cx="120" cy="90" r="3.6"/>
+      <circle cx="95" cy="60" r="3"/>
+      <circle cx="150" cy="60" r="3"/>
+      <circle cx="75" cy="102" r="3"/>
+      <circle cx="165" cy="102" r="3"/>
+      </g>
+      </svg>
+      <p class="eyebrow">现状 <b class="rt-min">4 分钟</b></p>
+      <h2 class="big">我们即将做一件<em>亘古未有的事</em>，造出超越自身的智能。</h2>
+    </div>
     <p class="stand">纵观历史，每一次文明飞跃都由地球上最聪明的头脑推动，而那个头脑始终是我们自己。如今我们要亲手终结这项纪录。用不了多久，这颗星球上最强的智能将不再是人类。这里有两个词：<strong>AGI（通用人工智能）</strong>，指在各方面都能比肩人类的系统；<strong>ASI（超级智能）</strong>，指远远超越人类的智能。前者是门槛，后者是前者很可能造出来的东西，而且很快。</p>
 
     <div class="firsts">
@@ -1576,16 +1695,37 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <p class="routes-lead">你不必把这些全部读完。</p>
         <p class="routes-sub">选择你想深入到什么程度。选了较短的路线，其余章节会折叠成标题；你随时可以把任何一章重新展开。没有任何内容会对你隐藏。</p>
         <div class="route-btns">
+          <a class="rtier" href="#brief">
+            <span class="rbm">90 秒</span><span class="rbn">为什么这件事重要</span>
+            <span class="rbd">把整个论证压缩成六行，读完之后不必再往下读。</span></a>
           <button type="button" class="rbtn" data-route="essentials">
-            <span class="rbm">6 分钟</span><span class="rbn">只看要害</span>
-            <span class="rbd">现状，以及该怎么办。足够你理解这套论证，并据此行动。</span></button>
+            <span class="rbm">11 分钟</span><span class="rbn">最核心的论证</span>
+            <span class="rbd">现状，以及该怎么办。足够你理解这个论证，并据此行动。</span></button>
           <button type="button" class="rbtn" data-route="core">
-            <span class="rbm">18 分钟</span><span class="rbn">核心论证</span>
-            <span class="rbd">再加上最吃重的三章：竞争本身就是风险、价值为何无法转译，以及为何没有第二次机会。</span></button>
+            <span class="rbm">27 分钟</span><span class="rbn">最有力的版本</span>
+            <span class="rbd">补上承重的三章：竞赛、价值为何无法迁移，以及为何没有第二次机会。</span></button>
           <button type="button" class="rbtn on" data-route="full">
-            <span class="rbm">35 分钟</span><span class="rbn">全部读完</span>
-            <span class="rbd">七章正文、全部证据、尚存的争议，以及参考资料。</span></button>
+            <span class="rbm">49 分钟</span><span class="rbn">证据与反驳</span>
+            <span class="rbd">全部七章、证据、尚未平息的争议，以及参考书架。</span></button>
+          <a class="rtier" href="#sources">
+            <span class="rbm">2 小时以上</span><span class="rbn">原始来源</span>
+            <span class="rbd">本页每一条论断背后的六十份来源，按类别分组。</span></a>
         </div>
+
+    <div class="core rv" id="brief" style="margin-top:clamp(24px,3.6vw,36px)">
+      <span class="ck">在七章之前</span>
+      <h4>论证提要</h4>
+      <p>后面每一章都为下面的某一环提供证据。单独任何一环都推不出下一环。合在一起，它们就是这个领域认真对待此事、而没有把它当成已有定论的原因。</p>
+      <ul class="drives">
+        <li><b>1. 能力正在甩开检验</b><i>越来越强的人工智能正变得越来越自主，而审查其产出的那套机制并没有跟上。</i></li>
+        <li><b>2. 我们无法验证真实目标</b><i>目前还没有人知道如何可靠地判断一个强系统真正想要什么，我们能看到的只是它在测试中表现出来的样子。</i></li>
+        <li><b>3. 没有人能单方面慢下来</b><i>公司之间与国家之间的竞争压力，让单方面的谨慎代价高昂。这属于协调问题，而非意志问题。</i></li>
+        <li><b>4. 今天的办法只能降低风险，无法消除风险</b><i>现有的安全技术确实能把某些可测量的失败率压下来。它们没有一个是保证，其作者本人也这么说。</i></li>
+        <li><b>5. 第一次严重失败可能撑不过去</b><i>如果未来某个系统的能力大幅超过监督它的人，我们可能得不到通常那种犯错、复盘、再修正的机会。</i></li>
+        <li><b>6. 所以安全余量必须提前建立</b><i>基于前面五条，诚实的立场是：在能力越过那条线之前，安全研究、监测与治理都需要走得远得多，而不是等越过之后再追赶。</i></li>
+      </ul>
+      <p class="breaks"><b>什么会推翻这个论点</b>第 2、4、5 条是承重的。其中任何一条被证伪，整个论证都会大幅削弱。<a href="#change-my-mind">本页末尾的汇总清单</a>列出了具体哪些发现能做到这一点。</p>
+    </div>
       </div>
 
       <figure class="secfig dark rv">
@@ -1656,6 +1796,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- DEEP DIVE 1: intelligence wins -->
 <section id="why-intelligence" class="dd">
   <div class="wrap">
+    <div class="part-div" style="--pd-acc:#5b6b9e"><span class="pd-n">第二部分</span><span class="pd-t">为何困难</span></div>
     <div class="sec-head rv">
       <span class="chapno">深入 01 <b class="rt-min">2 分钟</b></span>
       <h2>谁更聪明，谁就说了算</h2>
@@ -1827,6 +1968,17 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       <figcaption>顺着每一列往下看：无论对方怎么做，抢跑对你都更划算。于是双方都抢跑，一同落进那个谁都不想要的格子里。单靠某一方更负责任，无法解决这个局面。</figcaption>
     </figure>
 
+            <div class="rv" style="margin-top:24px">
+        <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">你经营着一家前沿实验室。模型已经可以发布了。你怎么做？</p>
+        <div class="filters" id="race-scenario">
+          <button type="button" class="pbtn" data-r="0">立刻发布，跳过额外审查</button>
+          <button type="button" class="pbtn" data-r="1">等完整的安全审查做完</button>
+          <button type="button" class="pbtn" data-r="2">立刻发布，同时公布一份安全框架</button>
+          <button type="button" class="pbtn" data-r="3">提议全行业共同暂停</button>
+        </div>
+        <p class="note" id="race-scenario-out" role="status" aria-live="polite" style="margin-top:12px;min-height:4.5em"></p>
+      </div>
+
       <div class="keyline rv"><span class="kk">要点</span><p>我们被同一根绳索拴着，冲向悬崖边，比谁先跳下去。没有人能赢下这场竞赛，所谓的赢家只是先坠落，然后把其余人一起拽下去。</p></div>
   </div>
 </section>
@@ -1907,6 +2059,17 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </svg>
       <figcaption>这个决定并不只握在实验室手里。它同样落在容纳它们的国家、为它们出资的资本，以及任何通过窃取、泄露或开源拿到模型权重、并把一个近乎成熟的系统推过最后一步的人手中。随着能力扩散，能采取决定性行动的群体不断变大，而承受后果的群体始终是同一批：我们所有人。</figcaption>
     </figure>
+
+            <div class="rv" style="margin-top:24px">
+        <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">继续之前先想一下：如果必须由某一个群体来定义超级智能应当持有的价值观，那应该是谁？</p>
+        <div class="filters" id="predict-hm">
+          <button type="button" class="pbtn" data-p="0">建造它的那家公司</button>
+          <button type="button" class="pbtn" data-p="1">民选政府</button>
+          <button type="button" class="pbtn" data-p="2">一个伦理学家委员会</button>
+          <button type="button" class="pbtn" data-p="3">谁都不该有这个资格</button>
+        </div>
+        <p class="note" id="predict-hm-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+      </div>
 
       <div class="keyline rv"><span class="kk">要点</span><p>我们从未解决人与人之间的对齐。如今，却要在全人类与一个比我们任何人都更强的智能之间，去解决它。</p></div>
   </div>
@@ -2797,6 +2960,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- RESPONSE -->
 <section id="response">
   <div class="wrap">
+    <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">第三部分</span><span class="pd-t">下一步</span></div>
     <div class="sec-head rv">
       <p class="eyebrow">应对 <b class="rt-min">10 分钟</b></p>
       <h2>安全研究到底在做些什么</h2>
@@ -3170,6 +3334,26 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 
 <!-- TIMELINE -->
 <!-- THE ASK -->
+<section id="change-my-mind">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">可证伪性 <b class="rt-min">2 分钟</b></p>
+      <h2>什么会推翻这个论点</h2>
+      <p class="lede">这些不是用来撑场面的修辞退路。它们是真的会削弱本页论证的那些具体发现，事先写明，并从各章汇集到这里，而不是散落在各处。</p>
+    </div>
+    <div class="ddgrid two rv">
+      <div class="ddc b"><span class="k">关于能力与目标</span><h4>能力可靠地带来良好目标</h4><p>足够强的能力最终被证明能可靠地产生人类认可的目标。目前没有人展示过这样的机制，现有系统也看不出任何迹象。<a class="ref" href="#s34">34</a></p></div>
+      <div class="ddc o"><span class="k">关于自我保存</span><h4>对被关闭无动于衷</h4><p>我们造出了能力很强、又可靠地不在乎被关闭的规划系统。这是一个正在进行中的研究方向，而这个性质不会自己出现。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div>
+      <div class="ddc g"><span class="k">关于价值的指定</span><h4>行为可以被直接指定</h4><p>我们获得了直接指定行为的能力，或者能够检查并手写一个系统所看重的东西，而不必靠搜索把它养出来。</p></div>
+      <div class="ddc r"><span class="k">关于古德哈特定律</span><h4>一份扛得住压力的规范</h4><p>有人写出了一份人类价值的规范，能在任意强度的优化压力下依然成立。这仍是一个悬而未决的问题。<a class="ref" href="#s35">35</a></p></div>
+      <div class="ddc t"><span class="k">关于验证</span><h4>可解释性或稳健的评估</h4><p>可解释性成熟到足以为一个系统的目标背书，或者评估方法变得对那种知道自己正被评估的系统依然稳健。<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p></div>
+      <div class="ddc b"><span class="k">关于时间线</span><h4>能力提升进入平台期</h4><p>本页所担心的那些性质，自主性、长跨度规划、情境自觉，在远未达到人类水平的地方长期停滞，让各类机构能按自己的节奏赶上，而不是被压缩着赶。</p></div>
+      <div class="ddc o"><span class="k">关于资源缺口</span><h4>安全的增长快过能力</h4><p>可解释性、控制与评估方向上的资金、人才与成果，开始比能力研究增长得更快，从而收窄本页反复提到的那道缺口，而不是让它继续扩大。<a class="ref" href="#s46">46</a><a class="ref" href="#s47">47</a></p></div>
+    </div>
+    <div class="keyline rv"><span class="kk">这份清单为何存在</span><p>并不需要其中每一条都落空，这个论证才成立；也不需要其中很多条成真，它就该被重新审视。请收藏这一节，而不是收藏结论。</p></div>
+  </div>
+</section>
+
 <section id="ask" class="cross">
   <div class="wrap">
     <p class="eyebrow">立即行动 <b class="rt-min">2 分钟</b></p>
@@ -3247,8 +3431,89 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 </section>
 
 <!-- RESOURCES (compact reference) -->
+<!-- WHAT CAN BE DONE -->
+<section id="do" class="dd">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">可以做什么 <b class="rt-min">5 分钟</b></p>
+      <h2>光是知道这些，本身什么也改变不了。下面才是能改变的东西。</h2>
+      <p class="stand cando-lead">有四类人能推动这件事：政府、正在建造这些系统的实验室、研究这个问题的研究者，以及其他所有人。下面每一项诉求都是具体的。凡是描述某国政府立场的地方，写的都是公开记录目前的说法，并且标注了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">第 01 组</span><h3>政府应该做什么</h3><span class="ch-w">选择一个辖区</span></div>
+      <div class="filters" id="do-jur">
+          <button type="button" class="pbtn on" data-j="ca">加拿大</button>
+          <button type="button" class="pbtn" data-j="us">美国</button>
+          <button type="button" class="pbtn" data-j="uk">英国</button>
+          <button type="button" class="pbtn" data-j="eu">欧盟</button>
+          <button type="button" class="pbtn" data-j="intl">国际</button>
+      </div>
+        <div class="jur on" data-j="ca">
+          <div class="jur-status"><span class="k">目前的状况</span><p>加拿大没有任何人工智能方面的法律。《人工智能与数据法案》（AIDA）已于 2025 年 1 月随会期结束而失效，此后没有任何替代法案被提出。<a class="ref" href="#s57">57</a>这里的前沿开发依靠的是一份自愿性行为准则，而 2024 年 11 月成立的加拿大人工智能安全研究所，做的是评估工作，没有任何强制执行的权力。<a class="ref" href="#s57">57</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>对前沿开发者设定具有约束力的义务，并赋予这家安全研究所法定授权与部署前的访问权。自愿准则约束的是那些自愿接受约束的人，而当我们担心的恰恰是在竞争压力下跑得最快的那一批时，这就找错了对象。</p></div>
+        </div>
+        <div class="jur" data-j="us">
+          <div class="jur-status"><span class="k">目前的状况</span><p>美国没有联邦层面的人工智能法律，各州则各自立法。2025 年 12 月签署的第 14365 号行政命令，指示司法部在联邦法院挑战各州的人工智能法律，2026 年 3 月的《国家人工智能政策框架》则支持广泛的联邦优先适用。<a class="ref" href="#s58">58</a>国会至今没有通过相关立法。2026 年 6 月的第 14409 号行政命令确实要求对前沿模型做保密的基准测试，但其范围限定在网络能力与国家安全。<a class="ref" href="#s59">59</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>优先适用会拆掉一层地板。如果联邦规则要取代各州规则，它就必须比被取代的那些更严格。而一套只盯着网络滥用的评估机制，完全没有触及本页所讨论的那种失败模式，所以一份认真的联邦标准，必须正面处理失控问题本身。</p></div>
+        </div>
+        <div class="jur" data-j="uk">
+          <div class="jur-status"><span class="k">目前的状况</span><p>英国人工智能安全研究所在 2025 年 2 月由 Safety 更名为 Security，它运行着所有政府之中最实质的前沿评估项目，而这套项目依赖实验室自愿配合。<a class="ref" href="#s11">11</a>一部会赋予该研究所法定地位、并让它有权强制要求部署前测试的《前沿人工智能法案》，已被承诺在 2026 年提出，至今尚未提交。<a class="ref" href="#s11">11</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>把法案提出来。一个只能测试别人允许它测试的那部分的评估者，量出来的是实验室愿意被测量的程度，而这和系统究竟有多安全是两回事。</p></div>
+        </div>
+        <div class="jur" data-j="eu">
+          <div class="jur-status"><span class="k">目前的状况</span><p>《人工智能法案》是目前唯一生效的、具有约束力的前沿监管制度。针对通用人工智能模型的义务已于 2025 年 8 月生效，欧盟委员会的执法权连同第 50 条透明度义务，自 2026 年 8 月 2 日起适用。<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a>2026 年 5 月的数字综合法案协议推迟并简化了该法案的部分内容，但保留了上述通用模型义务与执法权。<a class="ref" href="#s60">60</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>把权力用起来。这部法案接下来的价值，取决于人工智能办公室是否愿意在执法真正要付出代价的那一次，对一家大型开发者动手。真正的未知数在这里，而不在法条本身。</p></div>
+        </div>
+        <div class="jur" data-j="intl">
+          <div class="jur-status"><span class="k">目前的状况</span><p>《全球人工智能红线倡议》于 2025 年 9 月在联合国发起，已有 300 多位公众人物（其中包括多位诺贝尔奖得主）以及 90 多家机构签署，呼吁各国在 2026 年底之前，就风险最高的人工智能能力达成具有约束力的限制。<a class="ref" href="#s56">56</a>推进路径依次经过印度的人工智能影响力峰会、日内瓦的联合国全球对话，然后是联合国大会与二十国集团。<a class="ref" href="#s56">56</a></p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><p>这是本页唯一一个已经在倒计时的期限。它指向的日期是 2026 年底，它所说的那份协议目前还不存在，而第三章里的协调问题，正是它试图解决的东西。</p></div>
+        </div>
+      <p class="asof">状态更新于 2026 年 9 月。上面每一条论断都链接到它的来源。</p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">第 02 组</span><h3>实验室应该做什么</h3></div>
+      <div class="cando-cols">
+        <div class="ddc g"><span class="k">立刻</span><h4>不需要任何新协议的事</h4><p>在部署之前公布评估结果，而不是在之后。按与能力投入相称的比例为内部安全工作拨款，并说明这个比例究竟是多少。在遵守自家扩展政策会让你损失一次发布的那一次，仍然遵守它，因为一项从未产生过约束的承诺，等于从未被检验过。<a class="ref" href="#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">近期</span><h4>需要外部介入的事</h4><p>给外部审计者足够的访问权限去核对这些说法，这意味着内部评估记录，以及在适当管控下的模型本身。支持那些公司之外的人也能运行的可解释性工具，因为一个只有实验室自己能验证的安全论证，等于没有人验证过。<a class="ref" href="#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">红线</span><h4>需要事先排除的事</h4><p>不得在没有外部签字的情况下构建能够实质自我改进的系统。不得自主复制。对于已被证明会在察觉自己正被评估时表现不同的模型，在这一行为被弄清楚之前不得部署，因为任何建立在可被糊弄的测试之上的安全论断，都继承了同一个缺陷。<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
+      </div>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">第 03 组</span><h3>研究者应该做什么</h3></div>
+      <p>《新加坡共识》与《国际人工智能安全报告》给出的清单高度重合：能扩展到前沿模型的可解释性、在系统知道自己正被评估时依然有效的评估方法、不随能力增长而失效的控制手段，以及把目标写得足够精确、从而能逐条对照行为去核验的方法。<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a>入行的路径比多数人以为的短。ARENA 与 MATS 能在几个月内把有扎实技术背景的人带进已发表的安全研究，而 80,000 Hours 的问题简介，是挑选具体方向时的标准起点。<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">第 04 组</span><h3>你可以做什么</h3></div>
+      <ul class="actlist">
+        <li><b>认真地学一遍</b>BlueDot Impact 提供免费的结构化课程，能把你从读过一些带到真的懂，而 AISafety.info 可以直接回答你心里那个具体问题，不必先上完一门课。<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></li>
+        <li><b>把它说出口</b>公众舆论并不是这里的阻力。2025 年 10 月一项针对 2000 名美国成年人的调查发现，多数人支持放慢前沿开发的速度。<a class="ref" href="#s33">33</a>这个立场之所以显得小众，主要是因为公开这么说的人太少，而这个问题每多一次对话就少一分。</li>
+        <li><b>联系代表你的那个人</b>在加拿大，问你的国会议员，为什么 AIDA 之后什么都没有补上。在英国，问你的议员，《前沿人工智能法案》什么时候提出。在美国，问你的众议员对联邦优先适用的立场，也问你的州议员那部会被它取代的州法，因为真正的角力眼下就在那里。在欧盟，问你的欧洲议会议员，人工智能办公室到底有没有在执法。</li>
+        <li><b>支持正在做事的机构</b>生命未来研究所、人工智能安全中心，以及红线倡议，都接受签名、志愿者与捐助，而且三者都会公开这些资源的去向。<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></li>
+      </ul>
+    </div>
+
+    <div class="keyline rv"><span class="kk">要点</span><p>这里没有一条要求你相信最坏的情况一定会发生。它们只要求你承认那是可能的，而这恰恰是正在建造这些系统的人已经在公开场合持有的立场。</p></div>
+
+  </div>
+</section>
+
+<!-- ABOUT / EPISTEMIC STATUS -->
+<section class="dd" id="about" aria-label="关于本页">
+  <div class="wrap">
+    <div class="aboutnote">
+      <span class="an-k">关于本页</span>
+      <p>我是 <a href="https://www.linkedin.com/in/billguan" target="_blank" rel="noopener me">Bill Guan</a>，一名产品负责人，希望推动人工智能朝安全的方向发展。我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，而“什么会推翻这个论点”一节的存在，就是为了让这套论证可以被检验。本页独立运作，没有任何资助，与页面上提到的任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
+    </div>
+  </div>
+</section>
+
 <section id="resources" class="dd">
   <div class="wrap">
+    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">第四部分</span><span class="pd-t">参考</span></div>
     <div class="sec-head rv">
       <span class="chapno">参考资料 <b class="rt-min">随手翻阅</b></span>
       <h2>深入下去</h2>
@@ -3299,6 +3564,28 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <li><a class="rl" href="https://www.anthropic.com/rsp" target="_blank" rel="noopener">Frontier safety frameworks</a><span class="rl-d">自愿性、未经核验。此处列出 Anthropic。<a class="ref" href="#s16">16</a></span></li>
       </ul></div>
     </div>
+
+    <div class="resblock rv" id="glossary">
+      <button type="button" class="resbar" aria-expanded="false" data-res="glossary">
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+        <span class="rbt">本页用到的术语</span><span class="rbs">十二个词，用大白话各解释一次</span>
+        <span class="rbx" aria-hidden="true">+</span>
+      </button>
+<div class="resbody closed"><ul class="drives">
+          <li><b>AGI</b><i>在各类认知任务上全面达到人类水平的系统。</i></li>
+          <li><b>ASI</b><i>在几乎所有领域都远超人类能力的超级智能。</i></li>
+          <li><b>对齐 (Alignment)</b><i>让一个系统真正去追求设计者所意图的目标，而不是某个在训练中恰好得分很高的替代目标。</i></li>
+          <li><b>伪装对齐 (Alignment faking)</b><i>模型表面上配合训练或监督，暗中却保留自己原有的偏好，等到监督压力下降时再表现出来。</i></li>
+          <li><b>正交性论题 (Orthogonality thesis)</b><i>一个系统的能力水平与它目标的内容彼此独立。变得更聪明并不会自动带来良好的价值观。</i></li>
+          <li><b>工具性趋同 (Instrumental convergence)</b><i>几乎任何目标都会衍生出同样那几个危险的子目标，比如自我保存与获取资源。</i></li>
+          <li><b>古德哈特定律 (Goodhart's law)</b><i>一旦某个度量成为目标，它就不再是可靠的度量。把一个替代指标优化到极致，几乎总会与它原本要代表的东西分道扬镳。</i></li>
+          <li><b>外部对齐与内部对齐</b><i>外部对齐是把正确的目标写下来。内部对齐是让系统真的采纳这个目标，而不是采纳一个在训练中同样能得高分的东西。</i></li>
+          <li><b>可解释性 (Interpretability)</b><i>读取模型的内部计算，以了解它为什么那样做，这是目前最接近打开黑箱的手段。</i></li>
+          <li><b>人工智能控制 (AI control)</b><i>先假定系统可能并未对齐，再据此设计部署方式，使它即便真的未对齐也无法造成严重危害。</i></li>
+          <li><b>前沿模型 (Frontier model)</b><i>处于或接近当前能力上限的模型，也就是其训练过程与安全评估最受关注的那一类。</i></li>
+          <li><b>生存性风险 (Existential risk)</b><i>可能永久且剧烈地削减人类潜能的风险，直至包括人类灭绝在内。</i></li>
+        </ul></div>
+
 
     <div class="resblock rv" id="follow">
       <button type="button" class="resbar" aria-expanded="false" data-res="follow">
@@ -3424,79 +3711,96 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <!-- ABOUT + SOURCES -->
 <section id="sources">
   <div class="wrap">
-    <div class="about rv" style="margin-bottom:clamp(30px,4.4vw,50px)">
-      <div class="abox">
-        <p class="eyebrow">关于本页</p>
-        <h3>这是谁做的，以及你为何可以核查它</h3>
-        <p>由 Bill Guan 制作与维护。独立、无资助，与本页所列任何机构均无隶属关系。</p>
-        <p>每一句事实陈述都带有指向第一手来源的编号链接。凡是本页表明立场之处，都写在明面上。若有出错，那就是一个 bug。</p>
-        <p style="margin-bottom:0"><a href="https://github.com" target="_blank" rel="noopener">提交更正</a></p>
-      </div></div>
-
-    <div class="sec-head rv">
+        <div class="sec-head rv">
       <p class="eyebrow">参考来源</p>
       <h2>来源</h2>
       <p class="note">每一条带编号的论断都链接到这里。核实于 2026 年 8 月 29 日。项目日期、训练营开放时间和立法截止日期经常变动，因此请以链接页面为准，而非本页的概述。</p>
     </div>
     <details class="src-toggle">
       <summary>展开全部 55 条来源</summary>
+      <p class="src-cat">理论基础</p>
       <ol class="rv">
-      <li id="s1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
-      <li id="s2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
-      <li id="s3">BlueDot Impact courses: <a href="https://bluedot.org/" target="_blank" rel="noopener">bluedot.org</a></li>
-      <li id="s4">AISafety.info FAQ and chatbot: <a href="https://aisafety.info" target="_blank" rel="noopener">aisafety.info</a></li>
-      <li id="s5">Robert Miles AI Safety: <a href="https://www.youtube.com/@RobertMilesAI" target="_blank" rel="noopener">youtube.com/@RobertMilesAI</a></li>
-      <li id="s6">ARENA curriculum: <a href="https://learn.arena.education/" target="_blank" rel="noopener">learn.arena.education</a></li>
-      <li id="s7">ARENA programme: <a href="https://www.arena.education/" target="_blank" rel="noopener">arena.education</a></li>
-      <li id="s8">MATS Program: <a href="https://www.matsprogram.org/" target="_blank" rel="noopener">matsprogram.org</a></li>
-      <li id="s9">AISafety.com map, directories and events newsletter: <a href="https://aisafety.com/map" target="_blank" rel="noopener">aisafety.com/map</a></li>
-      <li id="s10">EU AI Act regulatory framework, European Commission: <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
-      <li id="s11">UK AI Security Institute: <a href="https://www.aisi.gov.uk/" target="_blank" rel="noopener">aisi.gov.uk</a></li>
-      <li id="s12">Center for AI Standards and Innovation (CAISI), NIST: <a href="https://www.nist.gov/caisi" target="_blank" rel="noopener">nist.gov/caisi</a></li>
-      <li id="s13">California SB 53, Transparency in Frontier Artificial Intelligence Act: <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></li>
-      <li id="s14">The Singapore Consensus on Global AI Safety Research Priorities: <a href="https://arxiv.org/abs/2506.20702" target="_blank" rel="noopener">arXiv:2506.20702</a></li>
-      <li id="s15">FLI AI Safety Index: <a href="https://futureoflife.org/ai-safety-index/" target="_blank" rel="noopener">futureoflife.org/ai-safety-index</a></li>
-      <li id="s16">Anthropic Responsible Scaling Policy: <a href="https://www.anthropic.com/rsp" target="_blank" rel="noopener">anthropic.com/rsp</a></li>
-      <li id="s17">OpenAI safety: <a href="https://openai.com/safety/" target="_blank" rel="noopener">openai.com/safety</a></li>
-      <li id="s18">METR: <a href="https://metr.org/" target="_blank" rel="noopener">metr.org</a></li>
-      <li id="s19">Apollo Research: <a href="https://www.apolloresearch.ai/" target="_blank" rel="noopener">apolloresearch.ai</a></li>
-      <li id="s20">Redwood Research (AI control): <a href="https://redwoodresearch.org/" target="_blank" rel="noopener">redwoodresearch.org</a></li>
-      <li id="s21">Epoch AI: <a href="https://epoch.ai/" target="_blank" rel="noopener">epoch.ai</a></li>
-      <li id="s22">Alignment Forum: <a href="https://www.alignmentforum.org/" target="_blank" rel="noopener">alignmentforum.org</a></li>
-      <li id="s23">LessWrong: <a href="https://www.lesswrong.com/" target="_blank" rel="noopener">lesswrong.com</a></li>
-      <li id="s24">Transformer Circuits Thread: <a href="https://transformer-circuits.pub" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
-      <li id="s25">Amodei et al., Concrete Problems in AI Safety: <a href="https://arxiv.org/abs/1606.06565" target="_blank" rel="noopener">arXiv:1606.06565</a></li>
-      <li id="s26">Statement on AI Risk (one sentence, signed by the major lab leaders), Center for AI Safety: <a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">safe.ai</a></li>
-      <li id="s27">80,000 Hours problem profile on AI: <a href="https://80000hours.org/problem-profiles/artificial-intelligence/" target="_blank" rel="noopener">80000hours.org</a></li>
-      <li id="s28">AI Incident Database: <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener">incidentdatabase.ai</a></li>
-      <li id="s29">Stanford AI Index: <a href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">aiindex.stanford.edu</a></li>
-      <li id="s30">AI 2027 scenario: <a href="https://ai-2027.com/" target="_blank" rel="noopener">ai-2027.com</a></li>
-      <li id="s31">Import AI: <a href="https://importai.substack.com/" target="_blank" rel="noopener">importai.substack.com</a></li>
-      <li id="s32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
-      <li id="s33">FLI press release and accompanying poll of 2,000 US adults, October 2025: <a href="https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/" target="_blank" rel="noopener">futureoflife.org</a></li>
-      <li id="s34">Nick Bostrom, The Superintelligent Will (orthogonality and instrumental convergence): <a href="https://nickbostrom.com/superintelligentwill.pdf" target="_blank" rel="noopener">nickbostrom.com</a></li>
-      <li id="s35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
-      <li id="s36">Anthropic and Redwood Research, Alignment Faking in Large Language Models (Dec 2024): <a href="https://www.anthropic.com/research/alignment-faking" target="_blank" rel="noopener">anthropic.com/research/alignment-faking</a> · <a href="https://arxiv.org/abs/2412.14093" target="_blank" rel="noopener">arXiv:2412.14093</a></li>
-      <li id="s37">METR, Recent Frontier Models Are Reward Hacking (June 2025): <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking/" target="_blank" rel="noopener">metr.org</a></li>
-      <li id="s38">Palisade Research, specification gaming in chess-playing reasoning models (2025), summarised at: <a href="https://www.lesswrong.com/posts/rKC4xJFkxm6cNq4i9/reward-hacking-is-becoming-more-sophisticated-and-deliberate" target="_blank" rel="noopener">lesswrong.com</a></li>
-      <li id="s39">OpenAI，《Hugging Face 事件与前路》及完整技术报告（2026 年 7 月）：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">openai.com</a> · <a href="https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf" target="_blank" rel="noopener">技术报告（PDF）</a></li>
-      <li id="s40">Anthropic，《对我们网络安全评估中三起真实事件的调查》（2026 年 7 月 30 日）：<a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener">anthropic.com</a></li>
-      <li id="s41">METR，对 OpenAI / Hugging Face 事件的独立调查（2026 年 8 月）：<a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener">metr.org</a></li>
-      <li id="s42">Google DeepMind, An Approach to Technical AGI Safety and Security (2025 年 4 月)，"滥用／失准／失误／结构性"四分法的出处：<a href="https://arxiv.org/abs/2504.01849" target="_blank" rel="noopener">arXiv:2504.01849</a></li>
-      <li id="s43">OpenAI 与 Apollo Research, Stress Testing Deliberative Alignment for Anti-Scheming Training (2025 年 9 月)：<a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">arXiv:2509.15541</a> · <a href="https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training" target="_blank" rel="noopener">apolloresearch.ai</a></li>
-      <li id="s44">METR, Task-Completion Time Horizons of Frontier AI Models（2026 年更新）：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">metr.org/time-horizons</a></li>
-      <li id="s45">Epoch AI，前沿模型训练算力趋势：<a href="https://epoch.ai/trends" target="_blank" rel="noopener">epoch.ai/trends</a></li>
-      <li id="s46">Emerging Technology Observatory，《全球 AI 安全研究现状》：AI 安全研究约占全部 AI 研究的 2%：<a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">eto.tech</a></li>
-      <li id="s47">Stuart Russell 关于能力与安全投入比例的论述；Charles I. Jones（斯坦福）关于 AI 安全最优投入的测算：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">摘要与数据</a></li>
-      <li id="s48">David Braue，《1,200 个 AI 智能体在 OpenAI 内部失控》，Information Age／澳大利亚计算机学会（2026 年 9 月 1 日）：<a href="https://ia.acs.org.au/article/2026/1-200-ai-agents-went-rogue-inside-openai.html" target="_blank" rel="noopener">ia.acs.org.au</a></li>
-      <li id="s49">Korbak 等 41 位作者（OpenAI／Google DeepMind／Anthropic／英国 AISI／Redwood），《思维链可监控性：一个崭新而脆弱的安全机会》（2025 年 7 月）：<a href="https://arxiv.org/abs/2507.11473" target="_blank" rel="noopener">arXiv:2507.11473</a></li>
-      <li id="s50">Greenblatt、Shlegeris、Sachan 与 Roger（Redwood Research），《AI 控制：在蓄意颠覆下仍提升安全》（ICML 2024）：<a href="https://arxiv.org/abs/2312.06942" target="_blank" rel="noopener">arXiv:2312.06942</a></li>
-      <li id="s51">Korbak、Clymer、Hilton、Shlegeris 与 Irving（英国 AISI 与 Redwood），《一份 AI 控制安全论证的草图》（2025 年 1 月）：<a href="https://arxiv.org/abs/2501.17315" target="_blank" rel="noopener">arXiv:2501.17315</a></li>
-      <li id="s52">Sharma 等（Anthropic），《宪法式分类器：抵御通用越狱》（2025 年 1 月）：<a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">arXiv:2501.18837</a></li>
-      <li id="s53">Anthropic，《电路追踪》与《一个大语言模型的生物学》（2025 年 3 月）：<a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
-      <li id="s54">Clymer、Gabrieli、Krueger 与 Larsen，《安全论证：如何为先进 AI 系统的安全性辩护》（2024 年 3 月）：<a href="https://arxiv.org/abs/2403.10462" target="_blank" rel="noopener">arXiv:2403.10462</a></li>
-      <li id="s55">Barez 等 19 位作者，《面向 AI 安全的机器遗忘：尚未解决的问题》（2025）：<a href="https://arxiv.org/abs/2501.04952" target="_blank" rel="noopener">arXiv:2501.04952</a></li>
-    </ol>
+        <li id="s25" value="25">Amodei et al., Concrete Problems in AI Safety: <a href="https://arxiv.org/abs/1606.06565" target="_blank" rel="noopener">arXiv:1606.06565</a></li>
+        <li id="s34" value="34">Nick Bostrom, The Superintelligent Will (orthogonality and instrumental convergence): <a href="https://nickbostrom.com/superintelligentwill.pdf" target="_blank" rel="noopener">nickbostrom.com</a></li>
+        <li id="s35" value="35">Manheim &amp; Garrabrant, Categorizing Variants of Goodhart's Law: <a href="https://arxiv.org/abs/1803.04585" target="_blank" rel="noopener">arXiv:1803.04585</a></li>
+        <li id="s42" value="42">Google DeepMind, An Approach to Technical AGI Safety and Security (2025 年 4 月)，"滥用／失准／失误／结构性"四分法的出处：<a href="https://arxiv.org/abs/2504.01849" target="_blank" rel="noopener">arXiv:2504.01849</a></li>
+      </ol>
+
+      <p class="src-cat">一手研究</p>
+      <ol class="rv">
+        <li id="s16" value="16">Anthropic Responsible Scaling Policy: <a href="https://www.anthropic.com/rsp" target="_blank" rel="noopener">anthropic.com/rsp</a></li>
+        <li id="s17" value="17">OpenAI safety: <a href="https://openai.com/safety/" target="_blank" rel="noopener">openai.com/safety</a></li>
+        <li id="s18" value="18">METR: <a href="https://metr.org/" target="_blank" rel="noopener">metr.org</a></li>
+        <li id="s19" value="19">Apollo Research: <a href="https://www.apolloresearch.ai/" target="_blank" rel="noopener">apolloresearch.ai</a></li>
+        <li id="s20" value="20">Redwood Research (AI control): <a href="https://redwoodresearch.org/" target="_blank" rel="noopener">redwoodresearch.org</a></li>
+        <li id="s24" value="24">Transformer Circuits Thread: <a href="https://transformer-circuits.pub" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
+        <li id="s36" value="36">Anthropic and Redwood Research, Alignment Faking in Large Language Models (Dec 2024): <a href="https://www.anthropic.com/research/alignment-faking" target="_blank" rel="noopener">anthropic.com/research/alignment-faking</a> · <a href="https://arxiv.org/abs/2412.14093" target="_blank" rel="noopener">arXiv:2412.14093</a></li>
+        <li id="s37" value="37">METR, Recent Frontier Models Are Reward Hacking (June 2025): <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking/" target="_blank" rel="noopener">metr.org</a></li>
+        <li id="s38" value="38">Palisade Research, specification gaming in chess-playing reasoning models (2025), summarised at: <a href="https://www.lesswrong.com/posts/rKC4xJFkxm6cNq4i9/reward-hacking-is-becoming-more-sophisticated-and-deliberate" target="_blank" rel="noopener">lesswrong.com</a></li>
+        <li id="s39" value="39">OpenAI，《Hugging Face 事件与前路》及完整技术报告（2026 年 7 月）：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">openai.com</a> · <a href="https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf" target="_blank" rel="noopener">技术报告（PDF）</a></li>
+        <li id="s40" value="40">Anthropic，《对我们网络安全评估中三起真实事件的调查》（2026 年 7 月 30 日）：<a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener">anthropic.com</a></li>
+        <li id="s41" value="41">METR，对 OpenAI / Hugging Face 事件的独立调查（2026 年 8 月）：<a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener">metr.org</a></li>
+        <li id="s43" value="43">OpenAI 与 Apollo Research, Stress Testing Deliberative Alignment for Anti-Scheming Training (2025 年 9 月)：<a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">arXiv:2509.15541</a> · <a href="https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training" target="_blank" rel="noopener">apolloresearch.ai</a></li>
+        <li id="s44" value="44">METR, Task-Completion Time Horizons of Frontier AI Models（2026 年更新）：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">metr.org/time-horizons</a></li>
+        <li id="s45" value="45">Epoch AI，前沿模型训练算力趋势：<a href="https://epoch.ai/trends" target="_blank" rel="noopener">epoch.ai/trends</a></li>
+        <li id="s46" value="46">Emerging Technology Observatory，《全球 AI 安全研究现状》：AI 安全研究约占全部 AI 研究的 2%：<a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">eto.tech</a></li>
+        <li id="s47" value="47">Stuart Russell 关于能力与安全投入比例的论述；Charles I. Jones（斯坦福）关于 AI 安全最优投入的测算：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">摘要与数据</a></li>
+        <li id="s49" value="49">Korbak 等 41 位作者（OpenAI／Google DeepMind／Anthropic／英国 AISI／Redwood），《思维链可监控性：一个崭新而脆弱的安全机会》（2025 年 7 月）：<a href="https://arxiv.org/abs/2507.11473" target="_blank" rel="noopener">arXiv:2507.11473</a></li>
+        <li id="s50" value="50">Greenblatt、Shlegeris、Sachan 与 Roger（Redwood Research），《AI 控制：在蓄意颠覆下仍提升安全》（ICML 2024）：<a href="https://arxiv.org/abs/2312.06942" target="_blank" rel="noopener">arXiv:2312.06942</a></li>
+        <li id="s51" value="51">Korbak、Clymer、Hilton、Shlegeris 与 Irving（英国 AISI 与 Redwood），《一份 AI 控制安全论证的草图》（2025 年 1 月）：<a href="https://arxiv.org/abs/2501.17315" target="_blank" rel="noopener">arXiv:2501.17315</a></li>
+        <li id="s52" value="52">Sharma 等（Anthropic），《宪法式分类器：抵御通用越狱》（2025 年 1 月）：<a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">arXiv:2501.18837</a></li>
+        <li id="s53" value="53">Anthropic，《电路追踪》与《一个大语言模型的生物学》（2025 年 3 月）：<a href="https://transformer-circuits.pub/2025/attribution-graphs/biology.html" target="_blank" rel="noopener">transformer-circuits.pub</a></li>
+        <li id="s54" value="54">Clymer、Gabrieli、Krueger 与 Larsen，《安全论证：如何为先进 AI 系统的安全性辩护》（2024 年 3 月）：<a href="https://arxiv.org/abs/2403.10462" target="_blank" rel="noopener">arXiv:2403.10462</a></li>
+        <li id="s55" value="55">Barez 等 19 位作者，《面向 AI 安全的机器遗忘：尚未解决的问题》（2025）：<a href="https://arxiv.org/abs/2501.04952" target="_blank" rel="noopener">arXiv:2501.04952</a></li>
+      </ol>
+
+      <p class="src-cat">政府与国际</p>
+      <ol class="rv">
+        <li id="s1" value="1">International AI Safety Report 2026, chaired by Yoshua Bengio: <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">internationalaisafetyreport.org</a> · <a href="https://arxiv.org/abs/2602.21012" target="_blank" rel="noopener">arXiv:2602.21012</a></li>
+        <li id="s10" value="10">EU AI Act regulatory framework, European Commission: <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
+        <li id="s11" value="11">UK AI Security Institute: <a href="https://www.aisi.gov.uk/" target="_blank" rel="noopener">aisi.gov.uk</a></li>
+        <li id="s12" value="12">Center for AI Standards and Innovation (CAISI), NIST: <a href="https://www.nist.gov/caisi" target="_blank" rel="noopener">nist.gov/caisi</a></li>
+        <li id="s13" value="13">California SB 53, Transparency in Frontier Artificial Intelligence Act: <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></li>
+        <li id="s14" value="14">The Singapore Consensus on Global AI Safety Research Priorities: <a href="https://arxiv.org/abs/2506.20702" target="_blank" rel="noopener">arXiv:2506.20702</a></li>
+        <li id="s57" value="57">加拿大人工智能安全研究所，加拿大创新、科学与经济发展部（AIDA 已于 2025 年 1 月随会期结束而失效，此后无替代法案）：<a href="https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute" target="_blank" rel="noopener">ised-isde.canada.ca</a></li>
+        <li id="s58" value="58">第 14365 号行政命令《确保人工智能的国家政策框架》，2025 年 12 月 11 日签署：<a href="https://www.federalregister.gov/documents/2025/12/16/2025-23092/ensuring-a-national-policy-framework-for-artificial-intelligence" target="_blank" rel="noopener">federalregister.gov</a></li>
+        <li id="s59" value="59">第 14409 号行政命令《促进先进人工智能的创新与安全》，2026 年 6 月 2 日签署：<a href="https://www.federalregister.gov/documents/2026/06/05/2026-11415/promoting-advanced-artificial-intelligence-innovation-and-security" target="_blank" rel="noopener">federalregister.gov</a></li>
+        <li id="s60" value="60">欧盟《人工智能法案》实施时间表，含 2026 年 8 月 2 日的全面适用日期：<a href="https://artificialintelligenceact.eu/implementation-timeline/" target="_blank" rel="noopener">artificialintelligenceact.eu</a></li>
+      </ol>
+
+      <p class="src-cat">政策与倡导</p>
+      <ol class="rv">
+        <li id="s2" value="2">Statement on Superintelligence, Future of Life Institute: <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">superintelligence-statement.org</a></li>
+        <li id="s15" value="15">FLI AI Safety Index: <a href="https://futureoflife.org/ai-safety-index/" target="_blank" rel="noopener">futureoflife.org/ai-safety-index</a></li>
+        <li id="s26" value="26">Statement on AI Risk (one sentence, signed by the major lab leaders), Center for AI Safety: <a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">safe.ai</a></li>
+        <li id="s27" value="27">80,000 Hours problem profile on AI: <a href="https://80000hours.org/problem-profiles/artificial-intelligence/" target="_blank" rel="noopener">80000hours.org</a></li>
+        <li id="s33" value="33">FLI press release and accompanying poll of 2,000 US adults, October 2025: <a href="https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/" target="_blank" rel="noopener">futureoflife.org</a></li>
+        <li id="s56" value="56">《全球人工智能红线倡议》，2025 年 9 月在联合国发起，300 多位公众人物与 90 多家机构签署：<a href="https://red-lines.ai/" target="_blank" rel="noopener">red-lines.ai</a></li>
+      </ol>
+
+      <p class="src-cat">教育与课程</p>
+      <ol class="rv">
+        <li id="s3" value="3">BlueDot Impact courses: <a href="https://bluedot.org/" target="_blank" rel="noopener">bluedot.org</a></li>
+        <li id="s4" value="4">AISafety.info FAQ and chatbot: <a href="https://aisafety.info" target="_blank" rel="noopener">aisafety.info</a></li>
+        <li id="s5" value="5">Robert Miles AI Safety: <a href="https://www.youtube.com/@RobertMilesAI" target="_blank" rel="noopener">youtube.com/@RobertMilesAI</a></li>
+        <li id="s6" value="6">ARENA curriculum: <a href="https://learn.arena.education/" target="_blank" rel="noopener">learn.arena.education</a></li>
+        <li id="s7" value="7">ARENA programme: <a href="https://www.arena.education/" target="_blank" rel="noopener">arena.education</a></li>
+        <li id="s8" value="8">MATS Program: <a href="https://www.matsprogram.org/" target="_blank" rel="noopener">matsprogram.org</a></li>
+        <li id="s9" value="9">AISafety.com map, directories and events newsletter: <a href="https://aisafety.com/map" target="_blank" rel="noopener">aisafety.com/map</a></li>
+      </ol>
+
+      <p class="src-cat">报道与数据</p>
+      <ol class="rv">
+        <li id="s21" value="21">Epoch AI: <a href="https://epoch.ai/" target="_blank" rel="noopener">epoch.ai</a></li>
+        <li id="s22" value="22">Alignment Forum: <a href="https://www.alignmentforum.org/" target="_blank" rel="noopener">alignmentforum.org</a></li>
+        <li id="s23" value="23">LessWrong: <a href="https://www.lesswrong.com/" target="_blank" rel="noopener">lesswrong.com</a></li>
+        <li id="s28" value="28">AI Incident Database: <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener">incidentdatabase.ai</a></li>
+        <li id="s29" value="29">Stanford AI Index: <a href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">aiindex.stanford.edu</a></li>
+        <li id="s30" value="30">AI 2027 scenario: <a href="https://ai-2027.com/" target="_blank" rel="noopener">ai-2027.com</a></li>
+        <li id="s31" value="31">Import AI: <a href="https://importai.substack.com/" target="_blank" rel="noopener">importai.substack.com</a></li>
+        <li id="s32" value="32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
+        <li id="s48" value="48">David Braue，《1,200 个 AI 智能体在 OpenAI 内部失控》，Information Age／澳大利亚计算机学会（2026 年 9 月 1 日）：<a href="https://ia.acs.org.au/article/2026/1-200-ai-agents-went-rogue-inside-openai.html" target="_blank" rel="noopener">ia.acs.org.au</a></li>
+      </ol>
     </details>
   </div>
 </section>
@@ -3539,16 +3843,6 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <button type="button" class="go" id="resume-go">继续阅读</button>
   <button type="button" id="resume-no">从头开始</button>
 </div>
-
-<!-- ABOUT / EPISTEMIC STATUS -->
-<section class="dd" id="about" aria-label="关于本页">
-  <div class="wrap">
-    <div class="aboutnote">
-      <span class="an-k">关于本页</span>
-      <p>我是 <a href="https://www.linkedin.com/in/billguan" target="_blank" rel="noopener me">Bill Guan</a>，一名产品负责人，希望推动人工智能朝安全的方向发展。我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，而“什么会推翻这个论点”一节的存在，就是为了让这套论证可以被检验。本页独立运作，没有任何资助，与页面上提到的任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
-    </div>
-  </div>
-</section>
 
 <footer><div class="wrap">
   <p>由 Bill Guan 独立撰写与维护，没有任何资助，与此处提到的任何机构均无隶属关系。每一项论断都附有来源。<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">报告错误</a>。</p>
@@ -3601,10 +3895,13 @@ var SITE_CONFIG = {
     try{ target = document.querySelector(id); }catch(err){ return; }
     if(!target) return;
     e.preventDefault();
+    var anc = target.closest ? target.closest("details") : null;
+    if(anc && !anc.open) anc.open = true;
     scrollToEl(target);
     if(history && history.replaceState){
       try{ history.replaceState(null, "", location.pathname + location.search + id); }catch(err){}
     }
+    if(n.className && n.className.indexOf("ref") > -1) flash(target);
   }, false);
 
   /* ---------- TOAST ---------- */
@@ -3661,7 +3958,7 @@ var SITE_CONFIG = {
   /* ---------- BIG SHARE BUTTONS ---------- */
   (function(){
     var url = location.origin + location.pathname;
-    var text = "AI capability is outrunning our ability to check it. A free, sourced map of the AGI safety problem:";
+    var text = "人工智能的能力正在甩开我们检验它的能力。一份免费、每条论断都有出处的 AGI 安全问题地图：";
     var enc = encodeURIComponent(url), et = encodeURIComponent(text);
     function set(id, href){ var el = $(id); if(el) el.setAttribute("href", href); }
     set("#sh-x",  "https://twitter.com/intent/tweet?text=" + et + "&url=" + enc);
@@ -3682,8 +3979,8 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "十字路口", "min": 4, "end": true}, {"id": "why-intelligence", "label": "智者为王", "min": 2, "end": true}, {"id": "why-irresistible", "label": "利令智昏", "min": 3, "end": true}, {"id": "why-race", "label": "竞争本身就是风险", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "人心不齐", "min": 2, "end": true}, {"id": "why-translation", "label": "辞不达意", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "为何安全研究更难", "min": 5, "end": true}, {"id": "why-one-try", "label": "只有一次机会", "min": 5, "end": true}, {"id": "response", "label": "正在做什么", "min": 10, "end": true}, {"id": "ask", "label": "立即行动", "min": 2, "end": false, "act": true}];
-    var ROUTES = {"essentials": ["crossroads", "ask"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "ask"], "full": null};
+    var META = [{"id": "crossroads", "label": "十字路口", "min": 4, "end": true}, {"id": "why-intelligence", "label": "智者为王", "min": 2, "end": true}, {"id": "why-irresistible", "label": "利令智昏", "min": 3, "end": true}, {"id": "why-race", "label": "竞争本身就是风险", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "人心不齐", "min": 2, "end": true}, {"id": "why-translation", "label": "辞不达意", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "为何安全研究更难", "min": 5, "end": true}, {"id": "why-one-try", "label": "只有一次机会", "min": 5, "end": true}, {"id": "response", "label": "正在做什么", "min": 10, "end": true}, {"id": "change-my-mind", "label": "什么会推翻这个论点", "min": 2, "end": true}, {"id": "ask", "label": "立即行动", "min": 2, "end": false, "act": true}, {"id": "do", "label": "可以做什么", "min": 5, "end": false, "act": true}];
+    var ROUTES = {"essentials": ["crossroads", "ask", "do"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     var S = {"endOf": "{n} · 本章完", "next": "下一章：{t}（{m} 分钟）", "skip": "或直接看该怎么办", "openCh": "展开本章（{m} 分钟）", "pos": "第 {i}/{n} 章 · 还剩 {m} 分钟", "startIn": "全文约 {m} 分钟"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
     window.__GAP_META = META;
@@ -3831,7 +4128,7 @@ var SITE_CONFIG = {
   (function(){
     var META = window.__GAP_META || [];
     if(!META.length) return;
-    var G = {"crossroads": "现状", "why-intelligence": "为何困难", "why-irresistible": "为何困难", "why-race": "为何困难", "why-human-misalignment": "为何困难", "why-translation": "为何困难", "why-safety-hard": "为何困难", "why-one-try": "为何困难", "response": "下一步", "ask": "下一步"};
+    var G = {"crossroads": "现状", "why-intelligence": "为何困难", "why-irresistible": "为何困难", "why-race": "为何困难", "why-human-misalignment": "为何困难", "why-translation": "为何困难", "why-safety-hard": "为何困难", "why-one-try": "为何困难", "response": "下一步", "ask": "下一步", "change-my-mind": "下一步", "do": "下一步"};
     var S = {"left": "还剩 {m} 分钟", "panelS": "第 {i} 章 / 共 {n} 章 · 还剩 {m} 分钟", "refGroup": "参考", "refs": [{"id": "resources", "label": "资源"}, {"id": "faq", "label": "常见问题与争议"}], "footLabel": "本章剩余分钟", "footTotal": "全文还剩 {m} 分钟"};
     var chapters = META.filter(function(m){ return m.end || m.act; });
 
@@ -4076,6 +4373,30 @@ var SITE_CONFIG = {
       b.setAttribute("aria-expanded", "false");
     });
 
+    /* ---- glance chips: jump to and expand the matching technique card ---- */
+    $$(".gpill[data-card]").forEach(function(b){
+      b.addEventListener("click", function(){
+        var card = document.getElementById(b.getAttribute("data-card"));
+        if(!card) return;
+        var btn = card.querySelector(".tmore-btn");
+        if(btn && card.className.indexOf("on") < 0) btn.click();
+        scrollToEl(card);
+      });
+    });
+
+    /* ---- expandable cards elsewhere: same pattern as technique cards ---- */
+    $$(".xmore-btn").forEach(function(b){
+      b.addEventListener("click", function(){
+        var card = b.closest(".expandable");
+        if(!card) return;
+        var open = card.className.indexOf("on") > -1;
+        setCls(card, "on", !open);
+        b.textContent = open ? b.getAttribute("data-more") : b.getAttribute("data-less");
+        b.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+      b.setAttribute("aria-expanded", "false");
+    });
+
     /* ---- state on scroll ---- */
     var pm = $("#posmeter"), numEl = $("#chapnum");
     var segs = prog ? $$("#prog .seg") : [];
@@ -4142,13 +4463,7 @@ var SITE_CONFIG = {
                          '<span class="nb-m">' + S.left.replace("{m}", Math.max(remain, 1)) + '</span>';
         }
       }
-      // the top nav group for the act you are in
-      var curAct = m ? (G[m.id] || "") : "";
-      $$(".ng").forEach(function(g){
-        var b = g.querySelector(".ng-top");
-        var nm = b ? b.textContent.replace(/[\u203a\s]+$/, "").trim() : "";
-        setCls(g, "active", !!curAct && nm === curAct);
-      });
+      // nav group active state is set structurally in update(), see closestGroup()
       if(oSub) oSub.textContent = S.panelS.replace("{i}", Math.max(pos, 1))
                                           .replace("{n}", total)
                                           .replace("{m}", Math.max(remain, 1));
@@ -4442,6 +4757,75 @@ var SITE_CONFIG = {
     });
   });
 
+  /* ---------- GLOSSARY TOOLTIPS: tap toggle for touch, hover/focus handle desktop ---------- */
+  $$(".term").forEach(function(t){
+    t.addEventListener("click", function(e){
+      e.stopPropagation();
+      var open = t.className.indexOf("show") > -1;
+      $$(".term.show").forEach(function(o){ if(o !== t) setCls(o, "show", false); });
+      setCls(t, "show", !open);
+    });
+  });
+  document.addEventListener("click", function(){
+    $$(".term.show").forEach(function(o){ setCls(o, "show", false); });
+  });
+
+  /* ---------- BRANCHING SCENARIO: you run a frontier lab ---------- */
+  (function(){
+    var out = $("#race-scenario-out");
+    if(!out) return;
+    var REVEAL = [
+      "你把发布从一年压到几个月。竞争对手看在眼里，此刻面对的是同样的选择，只是压力更大：要么跟上你的节奏，要么让出市场。于是他们也加快了。没人做的那次审查，从此就成了没人会做的审查，而下一家实验室的标准，也跟着你一起降了下来。",
+      "你选择推迟发布。竞争对手抢先上线，拿走了客户，并凭这份成绩完成了下一轮融资。如果正确的代价是出局，那么在安全问题上判断正确并不能替你付账单。",
+      "这没有给你带来任何可被追究的成本：没有人来审计，而当压力来临、你悄悄放宽某个阈值时，也不会有任何后果。你的竞争对手没有给自己套上任何框架，依旧想跑多快就跑多快。",
+      "这需要其他每一家实验室都同意、全体一致、并且守住承诺；否则这次暂停只会拖慢那些守约的实验室，而其余的照建不误。只要有一家不参与，整件事就对所有人瓦解，而竞赛恰恰就是制造这种不参与者的温床。"
+    ];
+    var CLOSER = "这个选择的每一个版本，最后都会归结成上面那张矩阵的同一个形状：无论对方怎么选，抢跑都更划算，于是双方都抢跑。这并不是某一家莽撞实验室的故事，而是这套激励结构必然产出的结果，无论坐在那个位置上的是谁。";
+    $$("#race-scenario .pbtn").forEach(function(b){
+      b.addEventListener("click", function(){
+        var i = parseInt(b.getAttribute("data-r"), 10);
+        if(isNaN(i) || !REVEAL[i]) return;
+        $$("#race-scenario .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
+        out.textContent = REVEAL[i] + CLOSER;
+      });
+    });
+  })();
+
+  /* ---------- WHAT CAN BE DONE: jurisdiction switcher ---------- */
+  (function(){
+    var wrap = $("#do-jur");
+    if(!wrap) return;
+    var btns = $$("#do-jur .pbtn");
+    var panels = $$("#do .jur");
+    btns.forEach(function(b){
+      b.addEventListener("click", function(){
+        var k = b.getAttribute("data-j");
+        btns.forEach(function(x){ setCls(x, "on", x === b); });
+        panels.forEach(function(pnl){ setCls(pnl, "on", pnl.getAttribute("data-j") === k); });
+      });
+    });
+  })();
+
+  /* ---------- PREDICT-THEN-REVEAL: whose values go in ---------- */
+  (function(){
+    var out = $("#predict-hm-out");
+    if(!out) return;
+    var REVEAL = [
+      "这接近今天的默认状态，因为目前正是各实验室在编写宪章和奖励模型。无论如何，本章的观点依然成立：股东并不等于八十亿人，而这家公司也从未经过选举，被授权替他们做决定。",
+      "原则上更好，只不过政府之间的分歧并不比公司之间少；而且哪一家的模型最终胜出，与哪一国的选民理应替其他所有人做决定，显然是两回事。",
+      "伦理学家彼此之间争论不休，而一个专家委员会说到底仍是一小群人，替从未为此投过票的数十亿人做出选择。",
+      "这同样是一种价值判断，而在实践中它只意味着：谁先发布，谁就默认说了算，而这恰恰是所有结果里最缺乏审视的一种。"
+    ];
+    $$("#predict-hm .pbtn").forEach(function(b){
+      b.addEventListener("click", function(){
+        var i = parseInt(b.getAttribute("data-p"), 10);
+        if(isNaN(i) || !REVEAL[i]) return;
+        $$("#predict-hm .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
+        out.textContent = REVEAL[i] + "请注意，上面每一个选项，都把一个极其重大的决定集中到了一小群从未被授权做此决定的人手里。这正是本章要谈的那个更靠前的问题。";
+      });
+    });
+  })();
+
   /* ---------- DIRECTORY FILTER ---------- */
   $$(".fbtn").forEach(function(b){
     b.addEventListener("click", function(){
@@ -4464,21 +4848,21 @@ var SITE_CONFIG = {
       e.preventDefault();
       var v = (input.value || "").trim();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
-        msg.textContent = f.getAttribute("data-bad") || "That does not look like an email address.";
+        msg.textContent = f.getAttribute("data-bad") || "这似乎不是一个有效的邮箱地址。";
         input.focus(); return;
       }
       msg.textContent = f.getAttribute("data-sending") || "Sending\u2026";
       fetch(f.getAttribute("action"), {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ email: v, lang: "zh", company: (f.querySelector("[name=company]")||{}).value || "", token: (f.querySelector("[name=cf-turnstile-response]")||{}).value || "" })
+        body: JSON.stringify({ email: v, lang: "en", company: (f.querySelector("[name=company]")||{}).value || "", token: (f.querySelector("[name=cf-turnstile-response]")||{}).value || "" })
       }).then(function(r){
         msg.textContent = r && r.ok
-          ? (f.getAttribute("data-ok") || "You are on the list. Check your inbox to confirm.")
-          : (f.getAttribute("data-err") || "That did not go through. Try again shortly.");
+          ? (f.getAttribute("data-ok") || "你已加入名单，请查收邮件完成确认。")
+          : (f.getAttribute("data-err") || "提交没有成功，请稍后再试。");
         if(r && r.ok) input.value = "";
       }).catch(function(){
-        msg.textContent = f.getAttribute("data-err") || "That did not go through. Try again shortly.";
+        msg.textContent = f.getAttribute("data-err") || "提交没有成功，请稍后再试。";
       });
     });
   })();
@@ -4516,7 +4900,7 @@ var SITE_CONFIG = {
     if(SITE_CONFIG.GAME_URL && SITE_CONFIG.GAME_URL !== "#"){
       gl.setAttribute("href", SITE_CONFIG.GAME_URL);
     } else {
-      gl.addEventListener("click", function(e){ e.preventDefault(); gl.textContent = "Set GAME_URL in SITE_CONFIG"; });
+      gl.addEventListener("click", function(e){ e.preventDefault(); gl.textContent = "请在 SITE_CONFIG 中设置 GAME_URL"; });
     }
   }
 
