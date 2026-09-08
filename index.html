@@ -433,38 +433,39 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
   color:#eef3f6;max-width:54ch;margin:0 0 24px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
 .mh-lede strong{color:#fff;font-weight:600}
-/* arrival timelines, sourced, directly under the stakes */
-.mh-when{font-family:var(--body);font-weight:300;font-size:clamp(16px,.98rem+.25vw,18.5px);line-height:1.5;
-  color:#b6c0c6;max-width:62ch;margin:0 0 26px}
-.mh-when strong{color:#fff;font-weight:600}
-.mh-when a.ref{color:#9cc48a}
-/* the two halves of the problem, technical and coordination */
-.mh-hard{margin:0 0 26px;max-width:900px}
-.mh-hard-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:#ff8a6b;margin:0 0 14px}
-.mh-hard-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,26px)}
-@media(max-width:760px){.mh-hard-grid{grid-template-columns:1fr}}
-.mh-hard-c{border:1px solid #2b343b;border-radius:var(--r);padding:clamp(14px,1.8vw,20px);
-  background:rgba(255,255,255,.03)}
-.mh-hard-c .mhk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:#9cc48a;margin-bottom:9px}
-.mh-hard-c p{margin:0;font-family:var(--body);font-weight:300;font-size:clamp(15px,.94rem+.18vw,16.5px);
-  line-height:1.5;color:#c3ccd2;max-width:none}
+.mh-routes-note{font-family:var(--mono);font-size:10.5px;line-height:1.55;color:#8a959c;
+  margin:-14px 0 26px;max-width:70ch}
+/* "Why should we care?" — three numbered reasons, the core of the opening */
+.mh-care{margin:0 0 30px;max-width:70ch}
+.mh-care-k{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(21px,1.3rem+.7vw,30px);color:#fff;margin:0 0 20px}
+.mh-care ol{list-style:none;margin:0;padding:0;counter-reset:care;display:grid;gap:clamp(16px,2.2vw,22px)}
+.mh-care li{counter-increment:care;position:relative;padding-left:46px}
+.mh-care li::before{content:counter(care);position:absolute;left:0;top:-2px;
+  width:30px;height:30px;border-radius:50%;border:1.5px solid #ff8a6b;color:#ff8a6b;
+  font-family:var(--mono);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.mh-care h2{font-family:var(--display);font-weight:800;letter-spacing:-.015em;
+  font-size:clamp(17px,1.05rem+.35vw,21px);color:#fff;margin:2px 0 7px;line-height:1.25}
+.mh-care p{margin:0;font-family:var(--body);font-weight:300;line-height:1.52;
+  font-size:clamp(15.5px,.96rem+.22vw,18px);color:#c3ccd2;max-width:62ch}
+.mh-care strong{color:#fff;font-weight:600}
+.mh-care a.ref{color:#9cc48a}
+@media(max-width:560px){.mh-care li{padding-left:38px}
+  .mh-care li::before{width:26px;height:26px;font-size:12px}}
 /* the evidence timeline, lifted up so urgency lands right after the problem */
 .mh-figwrap{margin:0 0 26px;padding:0;max-width:760px}
 .mh-figwrap svg{display:block;width:100%;height:auto}
 .mh-figwrap figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:14px;
   line-height:1.55;color:#8a959c;max-width:70ch}
 /* why-you-should-care and what-to-do, both above the fold */
-.mh-why,.mh-do{margin:0 0 24px;max-width:62ch}
-.mh-why-k,.mh-do-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
+.mh-do{margin:0 0 24px;max-width:62ch}
+.mh-do-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:#ff8a6b;margin:0 0 12px}
 .mh-do-k{color:#9cc48a}
-.mh-why ul,.mh-do ol{margin:0;padding:0;list-style:none;display:grid;gap:9px}
-.mh-why li,.mh-do li{font-family:var(--body);font-weight:300;font-size:clamp(15.5px,.95rem+.2vw,17.5px);
+.mh-do ol{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.mh-do li{font-family:var(--body);font-weight:300;font-size:clamp(15.5px,.95rem+.2vw,17.5px);
   line-height:1.5;color:#c3ccd2;padding-left:26px;position:relative}
-.mh-why li b,.mh-do li b{font-weight:600;color:#fff}
-.mh-why li::before{content:"";position:absolute;left:8px;top:.62em;width:5px;height:5px;border-radius:50%;background:#ff8a6b}
+.mh-do li b{font-weight:600;color:#fff}
 .mh-do ol{counter-reset:mhdo}
 .mh-do li{counter-increment:mhdo}
 .mh-do li::before{content:counter(mhdo);position:absolute;left:0;top:.06em;font-family:var(--mono);
@@ -1604,23 +1605,25 @@ footer p{max-width:82ch;margin:0}
 <header class="masthead">
   <div class="wrap">
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
-    <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
-    <p class="mh-lede">We are building machines that will be more capable than us, and nobody knows how to make sure one of them wants what we want. <strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems, signed by the major lab leaders in a single sentence in 2023.<a class="ref" href="#s26">26</a></p>
+    <h1 class="mh-title">The hardest problem humanity<br>has yet to solve: AGI Safety</h1>
+    <p class="mh-lede">We are building machines that will be more capable than us, and nobody knows how to make sure one of them wants what we want.</p>
 
-    <p class="mh-when">And it is not far off. The largest survey of its kind, 2,778 published AI researchers, put the chance of machines outperforming humans at every task at <strong>10% by 2027 and 50% by 2047</strong>, a date that moved thirteen years closer in a single year.<a class="ref" href="#s64">64</a> Metaculus forecasters sit at 25% by 2029 and 50% by 2033, and the people running the frontier labs talk in terms of two to five years.<a class="ref" href="#s65">65</a> The forecasts disagree with each other. Every one of them is short enough to matter.</p>
-
-    <div class="mh-hard">
-      <p class="mh-hard-k">Two problems at once, and both have to go right</p>
-      <div class="mh-hard-grid">
-        <div class="mh-hard-c">
-          <span class="mhk">The technical half</span>
-          <p>Nobody knows how to keep a system far more capable than us pointed at what we meant. We cannot write human values down precisely, we cannot see what a system is really pursuing, and we cannot trust a test it may be gaming. A decade of serious effort has not closed it.</p>
-        </div>
-        <div class="mh-hard-c">
-          <span class="mhk">The coordination half</span>
-          <p>Solving the technical half would still not be enough. Every serious lab and every capable state would have to hold the same line at the same time, while each one profits by moving first. We have never coordinated at that scale, against that much money, on a clock this short.</p>
-        </div>
-      </div>
+    <div class="mh-care">
+      <p class="mh-care-k">Why should we care?</p>
+      <ol>
+        <li>
+          <h2>Timelines are imminent</h2>
+          <p>This is not a problem for some distant generation. Median expert forecasts for AI that outperforms humans at every task land <strong>between 2033 and 2047</strong>, and the people actually building these systems say sooner.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a></p>
+        </li>
+        <li>
+          <h2>The consequences are enormous</h2>
+          <p><strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems, signed by the major lab leaders in a single sentence.<a class="ref" href="#s26">26</a></p>
+        </li>
+        <li>
+          <h2>It is genuinely hard, and almost nobody is in the room</h2>
+          <p>Technically, nobody knows how to keep a system far more capable than us pointed at what we meant, and a decade of serious effort has not closed it. Politically, every serious lab and every capable state would have to hold the same line at once, while each one profits by moving first. <strong>Meanwhile the decision is being made by a few hundred people, on behalf of eight billion who were never asked.</strong></p>
+        </li>
+      </ol>
     </div>
 
     <figure class="mh-figwrap">
@@ -1656,16 +1659,7 @@ footer p{max-width:82ch;margin:0}
       <figcaption>"Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.</figcaption>
     </figure>
 
-    <div class="mh-why">
-      <p class="mh-why-k">Why this is urgent, and why it lands on you</p>
-      <ul>
-        <li><b>The current momentum is the danger.</b> Nothing about how we are set up right now bends toward safety. Roughly $100bn a year goes into building the capability against about $10m of public safety research, a ratio near ten thousand to one.<a class="ref" href="#s46">46</a> Every lab is rewarded for shipping sooner. A misaligned system is not a freak accident on this path. It is what continuing exactly as we are produces by default.</li>
-        <li><b>All eight billion of us are downstream of it.</b> A handful of labs and states are making this call, everyone alive gets the outcome, and nobody was asked. A loss of control is not contained to the lab, the company, or the country where it happens.</li>
-        <li><b>The safeguards have to exist first.</b> They have to be built before the systems arrive, because afterwards there may be no position from which to build them. That is what makes a problem this slow to solve and this fast to arrive so dangerous.</li>
-      </ul>
-    </div>
-
-    <p class="mh-sub">This page is not here to say the sky is falling, or that AI is bad. It is here to make one thing common knowledge: <strong>we may be walking into an <span class="term" tabindex="0">existential risk<span class="term-tip">A risk that could permanently and drastically curtail humanity's potential, up to and including extinction.</span></span>, and the way we are set up right now does not let us do this safely.</strong> Every claim below is sourced, and the open disputes are argued at their strongest.</p>
+    <p class="mh-sub">So the goal of this page is simple: <strong>make more people aware of a problem that is close, serious, and being decided without them, so that together we can steer toward the safe version.</strong> It is not here to say the sky is falling, or that AI is bad. Every claim is sourced, and the open disputes are argued at their strongest.</p>
 
     <div class="mh-do">
       <p class="mh-do-k">What you can do about it</p>
@@ -1680,7 +1674,9 @@ footer p{max-width:82ch;margin:0}
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 sec</b> the argument</a>
         <button type="button" class="mh-rbtn" data-route="core"><b>27 min</b> the essentials</button>
         <button type="button" class="mh-rbtn on" data-route="full"><b>49 min</b> everything</button>
+        <a class="mh-rbtn mh-rlink" href="#sources"><b>2+ hrs</b> primary sources</a>
       </div>
+      <p class="mh-routes-note">A shorter route folds the other chapters down to their headline. You can open any of them at any time, and nothing is hidden from you.</p>
     <div class="mh-meta">
       <span>AGI &amp; ASI safety</span><span>~49 min in full</span><span>Every claim sourced</span><span><a href="#glossary">Unfamiliar term? Glossary</a></span>
     </div>
@@ -1691,21 +1687,6 @@ footer p{max-width:82ch;margin:0}
 <section id="crossroads" class="cross">
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">Part 1</span><span class="pd-t">The situation</span></div>
-
-    <div class="core rv" id="brief" style="margin-top:0;margin-bottom:clamp(28px,4vw,40px)">
-      <span class="ck">Before the seven chapters</span>
-      <h4>The argument in brief</h4>
-      <p>Each chapter ahead supplies evidence for one link below. None of them proves the next one alone. Together, they are why the field takes this seriously rather than treating it as settled.</p>
-      <ul class="drives">
-        <li><b>1. Capability is outrunning checking</b><i>More capable AI is becoming more autonomous, and the systems reviewing its output are not keeping pace.</i></li>
-        <li><b>2. We cannot verify real goals</b><i>Nobody yet knows how to reliably tell what a capable system actually wants, only what it displays under test.</i></li>
-        <li><b>3. Nobody can slow down alone</b><i>Competitive pressure between companies and countries makes unilateral caution costly, which is a coordination problem rather than a willpower one.</i></li>
-        <li><b>4. Today's fixes reduce risk rather than eliminate it</b><i>Current safety techniques cut specific, measured failure rates. None of them is a guarantee, and their own authors say so.</i></li>
-        <li><b>5. The first serious failure may not be survivable</b><i>If a future system becomes substantially more capable than the people supervising it, we may not get the usual chance to learn from a mistake and fix it.</i></li>
-        <li><b>6. So the safe margin has to come in advance</b><i>Given the first five, the honest position is that safety research, monitoring and governance need to be much further along before capability crosses that line, rather than caught up afterward.</i></li>
-      </ul>
-      <p class="breaks"><b>What would change this</b>Premises 2, 4 and 5 are the load-bearing ones. If any turns out false, the case weakens substantially. <a href="#change-my-mind">The consolidated list near the end of this page</a> names the specific findings that would do it.</p>
-    </div>
     <div class="cross-hero">
       <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
         <path d="M120,24 C140,20 158,24 172,36 C185,47 193,62 196,80 C199,98 195,115 184,129 C174,142 159,152 141,155 C131,157 123,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
@@ -1732,6 +1713,22 @@ footer p{max-width:82ch;margin:0}
       <h2 class="big">We are about to do something <em>no species has ever done</em>: build a mind greater than our own.</h2>
     </div>
     <p class="stand">Every leap in our history came from the smartest thing on the planet, and that was always us. We are ending that streak on purpose. <strong>AGI</strong> matches humans across the board. <strong>ASI</strong> goes far beyond us, and AGI is what builds it, quickly.</p>
+
+    <div class="core rv" id="brief" style="margin-top:0;margin-bottom:clamp(28px,4vw,40px)">
+      <span class="ck">Before the seven chapters</span>
+      <h4>The argument in brief</h4>
+      <p>Each chapter ahead supplies evidence for one link below. None of them proves the next one alone. Together, they are why the field takes this seriously rather than treating it as settled.</p>
+      <ul class="drives">
+        <li><b>1. Capability is outrunning checking</b><i>More capable AI is becoming more autonomous, and the systems reviewing its output are not keeping pace.</i></li>
+        <li><b>2. We cannot verify real goals</b><i>Nobody yet knows how to reliably tell what a capable system actually wants, only what it displays under test.</i></li>
+        <li><b>3. Nobody can slow down alone</b><i>Competitive pressure between companies and countries makes unilateral caution costly, which is a coordination problem rather than a willpower one.</i></li>
+        <li><b>4. Today's fixes reduce risk rather than eliminate it</b><i>Current safety techniques cut specific, measured failure rates. None of them is a guarantee, and their own authors say so.</i></li>
+        <li><b>5. The first serious failure may not be survivable</b><i>If a future system becomes substantially more capable than the people supervising it, we may not get the usual chance to learn from a mistake and fix it.</i></li>
+        <li><b>6. So the safe margin has to come in advance</b><i>Given the first five, the honest position is that safety research, monitoring and governance need to be much further along before capability crosses that line, rather than caught up afterward.</i></li>
+      </ul>
+      <p class="breaks"><b>What would change this</b>Premises 2, 4 and 5 are the load-bearing ones. If any turns out false, the case weakens substantially. <a href="#change-my-mind">The consolidated list near the end of this page</a> names the specific findings that would do it.</p>
+    </div>
+
 
     <div class="firsts">
       <div class="first expandable">
@@ -1831,14 +1828,14 @@ footer p{max-width:82ch;margin:0}
 
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">Racing to be first</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">to a place nobody should reach first.</text>
-        <text x="20" y="416" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="600" fill="#ff8a6b">Arriving first without control is not winning. It is falling first.</text>
+        <text x="20" y="416" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="600" fill="#ff8a6b">Arriving first without control just means falling first.</text>
       </svg>
       <figcaption>The prize is real, which is why everyone is running. The rope is the part they ignore.</figcaption>
     </figure>
 
     <div class="intent">
-      <span class="ik">What this page is asking of you</span>
-      <p>The aim is modest and serious at once. Understand why aligning a superhuman intelligence is genuinely hard. Understand why it deserves far more research than it gets. And understand why, if we reach a point where we cannot <strong>guarantee</strong> a safe transition, slowing down or pausing frontier development may be the only responsible move left, even at real economic cost.</p>
+      <span class="ik">Where this page stands</span>
+      <p>If we reach a point where a safe transition cannot be <strong>guaranteed</strong>, then slowing down or pausing frontier development may be the only responsible move left, even at real economic cost. That is an uncomfortable position, and this page holds it deliberately.</p>
       <p>Some people are relaxed about all this. They think humanity is just the biological bootloader for a silicon intelligence that comes next, and that this is fine. This page does not share that view. The future should still have us in it.</p>
     </div>
 
@@ -1863,26 +1860,6 @@ footer p{max-width:82ch;margin:0}
       <figcaption>The parent-and-infant case is the nearest thing to weaker-controlling-stronger that history offers, and it works only because of three properties none of which carry over.</figcaption>
     </figure>
 
-      <div class="roadmap rv">
-      <div class="routes rv">
-        <p class="routes-lead">You do not have to read all of this.</p>
-        <p class="routes-sub">Pick how deep you want to go. Choosing a shorter route folds the other chapters down to their headline, and you can open any of them at any time. Nothing is hidden from you.</p>
-        <div class="route-btns">
-          <a class="rtier" href="#brief">
-            <span class="rbm">90 seconds</span><span class="rbn">Why this matters</span>
-            <span class="rbd">The whole argument compressed to six lines, with nothing to read after it.</span></a>
-          <button type="button" class="rbtn" data-route="core">
-            <span class="rbm">27 min</span><span class="rbn">The essential argument</span>
-            <span class="rbd">The situation, the three chapters carrying the weight (the race, why values do not transfer, why there is no second attempt), and what to do about it.</span></button>
-          <button type="button" class="rbtn on" data-route="full">
-            <span class="rbm">49 min</span><span class="rbn">Evidence and objections</span>
-            <span class="rbd">All seven chapters, the evidence, the open disputes, and the reference shelf.</span></button>
-          <a class="rtier" href="#sources">
-            <span class="rbm">2+ hours</span><span class="rbn">Primary sources</span>
-            <span class="rbd">Every source underneath every claim on this page, grouped by kind.</span></a>
-        </div>
-      </div>
-
       <div class="pillars">
         <p class="pil-lead">Before the chapters, the shape of the problem. Researchers sort AI risk by <em>who, if anyone, intends the harm</em>. Google DeepMind's four-way split is the one used here; the International AI Safety Report uses a three-way version (misuse, malfunctions, systemic).<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
         <div class="pil-grid">
@@ -1892,7 +1869,6 @@ footer p{max-width:82ch;margin:0}
           <a class="pil" href="#why-race"><span class="pk">04 · The incentives are the adversary</span><span class="pt">Structural</span><span class="pd">No single actor is at fault. Competition, market pressure and multi-agent dynamics produce a bad outcome that nobody chose. The race chapter is this pillar.</span></a>
         </div>
       </div>
-</div>
   </div>
 </section>
 
