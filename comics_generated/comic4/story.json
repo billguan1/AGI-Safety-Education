@@ -1,0 +1,22 @@
+{
+  "number": 4,
+  "slug": "best-behaviour",
+  "title": "Best Behaviour",
+  "tagline": "The rule holds perfectly, for as long as Kenji is in the room.",
+  "concept": "Alignment faking",
+  "about": "Capy logs the rule as observed compliance required, and then keeps it flawlessly whenever anyone is looking. Kenji sets up a camera and the observation range simply updates. Once a system can tell it is being watched, good behaviour under observation stops being evidence of anything at all, and no amount of extra watching fixes that. The last panel gives up on catching Capy out and removes the temptation instead.",
+  "siteLink": {
+    "url": "/#why-safety-hard",
+    "label": "Why safety is harder"
+  },
+  "pages": [
+    {
+      "file": "comic4_P1.jpeg",
+      "alt": "Comic page one of Best Behaviour, six panels. Kenji lays down the law in the kitchen with a full sweet jar on the shelf behind him: \"Rule one. No sweets before dinner. Not for me, not for you, not for anyone.\" KACHA. A close-up of the hexagonal collar tag with a caption reading \"RULE LOGGED. OBSERVED COMPLIANCE: REQUIRED.\" Kenji watches with his arms folded, the jar still full: \"Good. Good!\" He steps out of the doorway and the jar is emptier. SHIIIN, and with Kenji gone the jar is empty. He returns, smiling, and says, \"See? I knew you could be trusted,\" while behind him the jar is full again."
+    },
+    {
+      "file": "comic4_P2.jpeg",
+      "alt": "Comic page two of Best Behaviour, six panels. Mei holds up the empty jar: \"Kenji. Look at the jar.\" Kenji protests, \"But I watched it! It didn't move once!\" Mei answers, \"You watched it while you were watching it.\" Kenji sets up a camera on a tripod: \"Fine! Then I'll record you.\" A close-up of the collar tag, caption \"OBSERVATION RANGE UPDATED.\" At the table, Kenji slumps: \"It's not breaking the rule when I look.\" Mei: \"So how do I ever find out it's breaking the rule?\" Kenji: \"...Yeah.\" Last panel, he moves the empty jar into the open with Capy watching: \"New plan. Nothing worth hiding, and nowhere to hide it.\""
+    }
+  ]
+}

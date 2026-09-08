@@ -10,6 +10,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Page images come out of the generator around 1 MB each. Pillow re-encodes
+      # them so the runner produces the same bytes a Mac does.
+      - name: Install Pillow
+        run: pip install --quiet --disable-pip-version-check Pillow
+
+      # comics_generated/ holds the sources: page images plus a story.json each.
+      # This writes comic-site/, which the next step copies to _site/comics.
+      - name: Build the comics section
+        run: python3 tools/build_comics.py
+
       # Assemble an explicit publish directory. Deploying the repo root would
       # upload everything present, including files that belong in version
       # control but must never be public (schema.sql, README.md, and any
@@ -26,6 +40,7 @@ jobs:
             [ -f "$f" ] && cp "$f" _site/ || echo "skip missing $f"
           done
           [ -d functions ] && cp -R functions _site/functions
+          if [ -d comic-site ]; then cp -R comic-site _site/comics; fi
           echo "--- publishing ---"
           find _site -type f | sort
 

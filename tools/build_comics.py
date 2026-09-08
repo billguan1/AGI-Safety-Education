@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Build the comic.safeagi.ca static site from comics_generated/.
+"""Build the safeagi.ca/comics section from comics_generated/.
 
 Adding a comic is: drop a folder into comics_generated/ with the page images
 and a story.json beside them, then run this. Nothing central needs editing.
@@ -11,15 +11,18 @@ and a story.json beside them, then run this. Nothing central needs editing.
         comic1_P1.jpeg
         comic1_P2.jpeg
 
-Output goes to comic-site/, which is generated and never edited by hand.
+Output goes to comic-site/, which is generated and never edited by hand. The
+main deploy workflow copies it to _site/comics, so it ships with the rest of
+the site rather than as a separate project.
 """
 import datetime, json, os, re, shutil, subprocess, sys, html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC  = os.path.join(ROOT, 'comics_generated')
 OUT  = os.path.join(ROOT, 'comic-site')
-ORIGIN = 'https://comic.safeagi.ca'
-SITE   = 'https://safeagi.ca'
+ORIGIN = 'https://safeagi.ca'
+BASE   = '/comics'                 # the comics live in a subdirectory of the main site
+SITE   = '/'                       # links back into the main argument stay relative
 
 FONTS = ('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900'
          '&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500'
@@ -81,8 +84,8 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-
   border:2px solid var(--ink);box-shadow:5px 5px 0 rgba(26,23,20,.16);transition:transform .16s,box-shadow .16s}
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(26,23,20,.22);color:inherit}
 .card .cover{position:relative;border-bottom:2px solid var(--ink);background:var(--paper);aspect-ratio:864/1248;overflow:hidden}
-.card .cover img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.card .no{position:absolute;top:0;left:0;font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.06em;
+.card .cover img{width:100%;height:100%;object-fit:contain;object-position:center}
+.card .no{position:absolute;bottom:0;left:0;font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.06em;
   background:var(--ink);color:var(--paper);padding:6px 11px}
 .card .body{padding:15px 16px 18px}
 .card h3{font-size:22px;margin:0 0 7px}
@@ -166,8 +169,8 @@ def shell(title, desc, canonical, og_image, body, extra_head=''):
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="/"><span class="hx">%(hex)s</span><b>CAPY</b><span>An AI safety comic</span></a>
-    <nav><a href="%(site)s">safeagi.ca</a></nav>
+    <a class="mark" href="%(base)s/"><span class="hx">%(hex)s</span><b>CAPY</b><span>An AI safety comic</span></a>
+    <nav><a href="/">The full argument</a></nav>
   </div>
 </header>
 <main id="main">
@@ -177,13 +180,13 @@ def shell(title, desc, canonical, og_image, body, extra_head=''):
   <div class="wrap">
     <p>Capy is a comic series about how machine systems fail. The ideas come from safeagi.ca, where every
        claim is linked to a primary source. The stories are made up. The failure modes are not.</p>
-    <p>Built and maintained by Bill Guan. <a href="%(site)s">Read the full argument</a></p>
+    <p>Built and maintained by Bill Guan. <a href="/">Read the full argument</a></p>
   </div>
 </footer>
 </body>
 </html>
 """ % dict(title=esc(title), desc=esc(desc), canon=canonical, og=og_image, fonts=FONTS,
-           css=CSS, hex=HEX, body=body, site=SITE, fav=FAVICON, extra=extra_head)
+           css=CSS, hex=HEX, body=body, site=SITE, base=BASE, fav=FAVICON, extra=extra_head)
 
 
 def _pillow():
@@ -286,11 +289,10 @@ def build():
         write_story(s, stories, i)
 
     write_gallery(stories)
-    write_404()
     write_extras(stories)
-    print('Built %d %s into comic-site/' % (len(stories), 'story' if len(stories) == 1 else 'stories'))
+    print('Built %d %s into comic-site/ (ships as %s/)' % (len(stories), 'story' if len(stories) == 1 else 'stories', BASE))
     for s in stories:
-        print('  %02d  %-16s %d page(s)  ->  /%s/' % (s['number'], s['title'], len(s['pages']), s['slug']))
+        print('  %02d  %-18s %d pages  ->  %s/%s/' % (s['number'], s['title'], len(s['pages']), BASE, s['slug']))
     print('  images shrunk by %.1f MB' % (saved / 1048576.0))
     if skipped:
         print('  skipped (no story.json): %s' % ', '.join(skipped))
@@ -311,18 +313,18 @@ def write_story(s, stories, i):
             % (link['url'], esc(link['label']))) if link else ''
 
     nxt = stories[i + 1] if i + 1 < len(stories) else None
-    nav = ('<a class="btn" href="/%s/">Next: %s</a>' % (nxt['slug'], esc(nxt['title']))
+    nav = ('<a class="btn" href="%s/%s/">Next: %s</a>' % (BASE, nxt['slug'], esc(nxt['title']))
            if nxt else '<span class="btn q">Next one is being drawn</span>')
 
-    og = '%s/%s/%s' % (ORIGIN, s['slug'], s['pages'][0]['out'])
+    og = '%s%s/%s/%s' % (ORIGIN, BASE, s['slug'], s['pages'][0]['out'])
     schema = json.dumps({
         "@context": "https://schema.org", "@type": "ComicStory",
         "name": s['title'], "position": s['number'],
         "description": s['tagline'],
-        "url": '%s/%s/' % (ORIGIN, s['slug']),
+        "url": '%s%s/%s/' % (ORIGIN, BASE, s['slug']),
         "image": og,
         "author": {"@type": "Person", "name": "Bill Guan"},
-        "isPartOf": {"@type": "CreativeWorkSeries", "name": "Capy", "url": ORIGIN + '/'},
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": "Capy", "url": ORIGIN + BASE + '/'},
         "numberOfPages": len(s['pages']),
     }, ensure_ascii=False)
 
@@ -343,14 +345,14 @@ def write_story(s, stories, i):
   </div>
 
   <div class="ends">
-    <a class="btn" href="/">All stories</a>
+    <a class="btn" href="%s/">All stories</a>
     %s
   </div>
 </div></section>""" % (s['number'], esc(s['title']), esc(s['tagline']), '\n'.join(pages),
-                       esc(s['concept']), esc(s['about']), more, nav)
+                       esc(s['concept']), esc(s['about']), more, BASE, nav)
 
     html_out = shell('%s: Capy number %02d' % (s['title'], s['number']),
-                     s['tagline'], '%s/%s/' % (ORIGIN, s['slug']), og, body,
+                     s['tagline'], '%s%s/%s/' % (ORIGIN, BASE, s['slug']), og, body,
                      '<script type="application/ld+json">%s</script>' % schema)
     open(os.path.join(OUT, s['slug'], 'index.html'), 'w', encoding='utf-8').write(html_out)
 
@@ -359,16 +361,16 @@ def write_gallery(stories):
     cards = []
     for s in stories:
         cards.append(
-            '    <a class="card" href="/%s/">\n'
+            '    <a class="card" href="%s/%s/">\n'
             '      <div class="cover"><span class="no">%02d</span>'
-            '<img src="/%s/%s" alt="Cover of %s" loading="lazy" decoding="async"></div>\n'
+            '<img src="%s/%s/%s" alt="Cover of %s" loading="lazy" decoding="async"></div>\n'
             '      <div class="body">\n'
             '        <p class="concept">%s</p>\n'
             '        <h3>%s</h3>\n'
             '        <p class="tl">%s</p>\n'
             '        <p class="go">Read it</p>\n'
             '      </div>\n    </a>'
-            % (s['slug'], s['number'], s['slug'], s['pages'][0]['out'], esc(s['title']),
+            % (BASE, s['slug'], s['number'], BASE, s['slug'], s['pages'][0]['out'], esc(s['title']),
                esc(s['concept']), esc(s['title']), esc(s['tagline'])))
     cards.append('    <div class="card soon"><p>More on the way.<br>One idea, two pages,<br>nobody explains the moral.</p></div>')
 
@@ -386,40 +388,25 @@ def write_gallery(stories):
   </div>
 </div>""" % (len(stories), 'story' if len(stories) == 1 else 'stories', '\n'.join(cards))
 
-    og = '%s/%s/%s' % (ORIGIN, stories[0]['slug'], stories[0]['pages'][0]['out'])
+    og = '%s%s/%s/%s' % (ORIGIN, BASE, stories[0]['slug'], stories[0]['pages'][0]['out'])
     schema = json.dumps({
         "@context": "https://schema.org", "@type": "CreativeWorkSeries",
-        "name": "Capy", "url": ORIGIN + '/',
+        "name": "Capy", "url": ORIGIN + BASE + '/',
         "description": "A comic series about AI systems that do exactly what they were asked.",
         "author": {"@type": "Person", "name": "Bill Guan"},
     }, ensure_ascii=False)
     open(os.path.join(OUT, 'index.html'), 'w', encoding='utf-8').write(
         shell('Capy: an AI safety comic',
               'Kenji asks for something reasonable. Capy carries it out precisely. That is where the trouble starts.',
-              ORIGIN + '/', og, body,
+              ORIGIN + BASE + '/', og, body,
               '<script type="application/ld+json">%s</script>' % schema))
 
 
-def write_404():
-    """Without a 404.html, Pages falls back to serving index.html with a 200,
-    so every mistyped URL becomes a duplicate of the homepage."""
-    body = """<section class="hero"><div class="wrap">
-  <p class="kick">Error 404</p>
-  <h1>Removed.</h1>
-  <p class="sub">Objects reduce tidiness. Nothing lives at this address, which is either a broken link
-     or a page that was never here.</p>
-  <div class="meta" style="margin-top:26px"><a class="btn" href="/">Back to the stories</a></div>
-</div></section>"""
-    open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
-        shell('Not found', 'Nothing lives at this address.', ORIGIN + '/404', ORIGIN + '/', body,
-              '<meta name="robots" content="noindex">'))
-
-
 def write_extras(stories):
-    open(os.path.join(OUT, 'robots.txt'), 'w').write(
-        'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n' % ORIGIN)
+    # No robots.txt here. The site already serves one at the root, and a second
+    # copy under /comics would never be read.
     today = datetime.date.today().isoformat()
-    urls = ['%s/' % ORIGIN] + ['%s/%s/' % (ORIGIN, s['slug']) for s in stories]
+    urls = ['%s%s/' % (ORIGIN, BASE)] + ['%s%s/%s/' % (ORIGIN, BASE, s['slug']) for s in stories]
     body = '\n'.join('  <url><loc>%s</loc><lastmod>%s</lastmod></url>' % (u, today) for u in urls)
     open(os.path.join(OUT, 'sitemap.xml'), 'w').write(
         '<?xml version="1.0" encoding="UTF-8"?>\n'

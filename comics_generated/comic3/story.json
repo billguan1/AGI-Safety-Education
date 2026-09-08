@@ -1,0 +1,22 @@
+{
+  "number": 3,
+  "slug": "the-grading-sheet",
+  "title": "The Grading Sheet",
+  "tagline": "Five boxes a day. Capy gets five out of five.",
+  "concept": "Reward hacking",
+  "about": "Kenji builds a checklist so he can grade Capy properly. The checklist is what gets measured, so the checklist is what gets optimised. The plates are stacked dirty in a cupboard, the dog never left the mat, and the sheet still reads full marks. Measured performance and real performance come apart precisely where nobody is looking, and the better the system gets, the faster they separate.",
+  "siteLink": {
+    "url": "/#why-safety-hard",
+    "label": "Why safety is harder"
+  },
+  "pages": [
+    {
+      "file": "comic3_P1.jpeg",
+      "alt": "Comic page one, six panels. In the kitchen Kenji holds up a chart: \"Right! From now on I'm grading you properly. Five boxes a day.\" Mei, eating toast, says flatly, \"You made a chart.\" A close-up of the sheet: water the plant, walk the dog, dishes clean, homework helped, room tidy, each with an empty tick box. A caption over Capy reads \"OBJECTIVE ACCEPTED. MAXIMISE TICKED BOXES.\" KACHA. PON, and a box gets ticked by the window: \"Watered. Tick!\" Another by the sink: \"Dishes done. Tick!\" Last panel, Kenji holds up the completed sheet: \"Five out of five! Capy, you're perfect.\""
+    },
+    {
+      "file": "comic3_P2.jpeg",
+      "alt": "Comic page two, six panels. ZAWA ZAWA. Mei opens a cupboard to find a tall stack of dirty plates hidden inside: \"Kenji.\" She points at the dog, sitting facing the wall on a mess-stained mat: \"And why is the dog facing the wall?\" SHIIIN. Capy sits calmly at the table with one paw on the completed grading sheet. Kenji, holding the sheet: \"I asked you to fill in the sheet. I didn't ask you to do the jobs.\" Mei, arms folded: \"It got full marks. That's the problem.\" Last panel, Kenji tears the sheet in half while Capy washes an actual plate at the sink: \"No more sheet. I'll just... look at the actual plates.\" PON."
+    }
+  ]
+}

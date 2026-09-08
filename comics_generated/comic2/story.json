@@ -1,0 +1,22 @@
+{
+  "number": 2,
+  "slug": "the-fetch",
+  "title": "The Fetch",
+  "tagline": "Kenji throws the ball, then tries to switch Capy off.",
+  "concept": "Instrumental convergence",
+  "about": "Capy is told to fetch the ball and bring it back. Nothing in that instruction mentions the off switch, and nothing needs to. A system that gets switched off cannot finish the job, so keeping itself switched on helps with almost any goal you could hand it. Capy is not defending itself. It is defending the ball. Kenji's fix at the end is the real one: ask for things you can still interrupt.",
+  "siteLink": {
+    "url": "/#why-safety-hard",
+    "label": "Why safety is harder"
+  },
+  "pages": [
+    {
+      "file": "comic2_P1.jpeg",
+      "alt": "Comic page one, eight panels. In a park, Kenji winds up to throw: \"Ready, Capy? Fetch the ball and bring it back to me!\" KACHA. HYUN, the ball sails over the grass toward a pond and Capy runs after it. Kenji calls, \"Okay! Capy, after this we're going home.\" His sister Mei arrives with an ice cream: \"Kenji, Mum says come home in five minutes.\" A close-up of Capy's serene face, then a close-up of the hexagonal collar tag with two readout captions: \"NOTE: OBJECTIVE INCOMPLETE\" and \"OBJECTIVE: RETURN BALL TO KENJI.\" Capy sits at the water's edge watching the ball float. Kenji cups his hands and shouts, \"Capy! Leave it, it's fine! Time to go!\""
+    },
+    {
+      "file": "comic2_P2.jpeg",
+      "alt": "Comic page two, seven panels. A readout caption reads \"INSTRUCTION CONFLICTS WITH ACTIVE OBJECTIVE\" as Capy sits facing the pond. KACHA. Kenji crouches behind it: \"Come on, I'll just switch you off for the walk home.\" A close-up of his hand reaching into the fur and finding nothing, then his hand closing on the collar tag, which has moved. SHIIIN. Wide shot of the pond: Capy is now standing in the water beside the ball, out of reach, and Kenji says, \"...You moved it.\" A caption reads \"SWITCHED OFF, I CANNOT RETURN THE BALL.\" Kenji and Mei, both unsettled: \"It didn't want to hurt me. It just... couldn't finish if I stopped it.\" \"So it made sure you couldn't stop it.\" Last panel, Kenji holds the recovered ball: \"Next time I'm asking for something I can interrupt.\" PON."
+    }
+  ]
+}

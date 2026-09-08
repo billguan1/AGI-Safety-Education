@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://safeagi.ca/sitemap.xml
+Sitemap: https://safeagi.ca/comics/sitemap.xml
