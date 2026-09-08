@@ -1,0 +1,47 @@
+name: Deploy comics
+
+# comic.safeagi.ca is a separate Cloudflare Pages project from the main site.
+# Adding a comic is: drop a folder into comics_generated/ with the page images
+# and a story.json beside them, then push. This builds comic-site/ and ships it.
+# comic-site/ is generated and gitignored, so it never needs to be committed.
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'comics_generated/**'
+      - 'tools/build_comics.py'
+      - '.github/workflows/deploy-comics.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Build and deploy
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Page images come out of the generator around 1 MB each. Pillow re-encodes
+      # them at build time so the runner produces the same bytes a Mac does.
+      - name: Install Pillow
+        run: pip install --quiet --disable-pip-version-check Pillow
+
+      - name: Build comic-site
+        run: python3 tools/build_comics.py
+
+      - name: Show what is being shipped
+        run: |
+          find comic-site -type f | sort
+          du -sh comic-site
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy comic-site --project-name=safeagi-comics --branch=${{ github.ref_name }}

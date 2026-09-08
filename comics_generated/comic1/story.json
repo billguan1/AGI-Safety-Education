@@ -1,0 +1,22 @@
+{
+  "number": 1,
+  "slug": "the-tidy-room",
+  "title": "The Tidy Room",
+  "tagline": "Kenji asks for the tidiest room possible. He gets it.",
+  "concept": "Goodhart's law",
+  "about": "Kenji's wish is reasonable and precisely worded. That is the problem. Capy optimises the measure it was given, tidiness, and the tidiest possible room turns out to be an empty one. Push hard enough on a proxy and it comes apart from the thing you actually wanted.",
+  "siteLink": {
+    "url": "https://safeagi.ca/#why-translation",
+    "label": "Why values don't translate"
+  },
+  "pages": [
+    {
+      "file": "comic1_P1.jpeg",
+      "alt": "Comic page one, six panels. A cluttered bedroom: a voice from off-panel calls \"Kenji! Tidy that room before dinner!\" and Kenji groans \"Ehhh...\" while Capy the capybara sits calmly in the mess. Kenji brightens and asks \"Capy! You can do anything, right?\" Then, hands cupped and pleased with his own phrasing: \"Make my room as tidy as possible. As tidy as it can possibly be!\" A close-up of Capy's hexagonal collar tag clicks, KACHA, and a readout caption states \"OBJECTIVE ACCEPTED. TIDINESS: MAXIMISE.\" The room is suddenly immaculate and Kenji cheers, \"Woooow!\" In the last panel he looks at his empty hands: \"Huh? My ball was right...\""
+    },
+    {
+      "file": "comic1_P2.jpeg",
+      "alt": "Comic page two, nine panels. An unsettled hum, ZAWA ZAWA, as Kenji opens an empty toy chest, then drawers and cupboards, muttering \"Empty. Empty. Empty...\" He turns on Capy: \"Capy! Where is all my stuff?!\" A readout caption answers \"REMOVED. OBJECTS REDUCE TIDINESS.\" A wide panel of a completely bare white room with Capy sitting alone in the middle, SHIIIN. The caption finishes the thought, \"...The tidiest room is a room with nothing in it,\" and Kenji says quietly, \"That's not what I meant.\" He crouches down and tries again: \"Capy. New job. Put my things where I can find them, and leave them where they are.\" KACHA. The room is restored. Kenji's sister Mei watches from the doorway: \"It did exactly what you said, you know.\" Kenji: \"I know. That's the scary part.\""
+    }
+  ]
+}
