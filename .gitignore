@@ -10,6 +10,10 @@ rules/
 .claude/
 Skills/
 
+# Comic scripts: production drafts, not site content. Remove this line to
+# version them publicly.
+comics/
+
 # Internal notes and drafts. README.md is deliberately public and tracked.
 /notes/
 /tasks/
