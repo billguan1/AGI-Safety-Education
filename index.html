@@ -16,13 +16,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#12161a; --ink-2:#3d474f; --ink-3:#6e7981;
-  --paper:#e6e9eb; --white:#fbfcfc; --rule:#c0c6cb; --rule-soft:#d5dade;
-  --c-dev:#2233cc;  --t-dev:#e2e6fb; --d-dev:#1a2a9e;
-  --c-ass:#0d726e;  --t-ass:#dbeeec; --d-ass:#0b5d5a;
-  --c-ctl:#a8690a;  --t-ctl:#f8ecd7;
-  --c-risk:#bd3a20; --t-risk:#fae2dc; --d-risk:#8f2c18;
-  --c-act:#4a6a38;  --t-act:#e5ede0;
+  /* Dark throughout. --ink is the primary TEXT colour; --panel is the colour
+     of blocks that were already dark by design, kept darker than the page so
+     they still read as a distinct surface. */
+  --ink:#e6eaed; --ink-2:#b3bcc3; --ink-3:#8a949c;
+  --paper:#12161a; --white:#191f24; --rule:#2f383f; --rule-soft:#252d33;
+  --panel:#080b0d;
+  --c-dev:#8d9dff;  --t-dev:#1a2033; --d-dev:#1a2a9e;
+  --c-ass:#3fd0c9;  --t-ass:#13282b; --d-ass:#0b5d5a;
+  --c-ctl:#d9a445;  --t-ctl:#2a2213;
+  --c-risk:#ff8a6b; --t-risk:#2e1a15; --d-risk:#8f2c18;
+  --c-act:#9cc48a;  --t-act:#1a2418;
   --glow-r:#ff6a45; --glow-b:#6d84ff; --glow-t:#3fd0c9;
   --display:"Archivo",system-ui,sans-serif;
   --body:"Newsreader",Georgia,serif;
@@ -37,7 +41,7 @@ svg{display:block}
 a{color:var(--c-dev);text-underline-offset:.18em;text-decoration-thickness:1px}
 a:hover{color:var(--ink)}
 :focus-visible{outline:2.5px solid var(--c-dev);outline-offset:3px;border-radius:2px}
-.skip{position:absolute;left:-9999px;background:var(--ink);color:#fff;padding:12px 18px;z-index:99;font-family:var(--mono);font-size:13px}
+.skip{position:absolute;left:-9999px;background:var(--panel);color:#fff;padding:12px 18px;z-index:99;font-family:var(--mono);font-size:13px}
 .skip:focus{left:8px;top:8px}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
 
@@ -55,7 +59,7 @@ p{margin:0 0 1em}
 .note{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6;max-width:72ch}
 .term{position:relative;border-bottom:1px dotted var(--ink-3);cursor:help}
 .term-tip{position:absolute;left:0;bottom:calc(100% + 9px);z-index:30;width:min(280px,74vw);
-  background:var(--ink);color:#e2e8ec;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.4;
+  background:var(--panel);color:#e2e8ec;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.4;
   padding:10px 12px;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.28);
   opacity:0;transform:translateY(4px);pointer-events:none;transition:opacity .15s,transform .15s}
 .term-tip::after{content:"";position:absolute;top:100%;left:14px;border:6px solid transparent;border-top-color:var(--ink)}
@@ -87,26 +91,26 @@ p{margin:0 0 1em}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;border-radius:999px;text-decoration:none;white-space:nowrap;
-  cursor:pointer;border:1.5px solid var(--ink);background:var(--white);color:var(--ink);padding:7px 13px;
+  cursor:pointer;border:1.5px solid #fbfcfc;background:#fbfcfc;color:#12161a;padding:7px 13px;
   transition:background .15s,color .15s,transform .15s}
 .hbtn .ico{width:12px;height:12px;stroke-width:2.2}
-.hbtn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
-.hbtn-act{background:var(--white);border-color:var(--ink);color:var(--ink)}
+.hbtn:hover{background:var(--panel);color:var(--paper);transform:translateY(-1px)}
+.hbtn-act{background:#fbfcfc;border-color:#fbfcfc;color:#12161a}
 .hbtn-lang{font-weight:700}
-.hbtn-act:hover{background:var(--ink);color:var(--paper)}
+.hbtn-act:hover{background:var(--panel);color:var(--paper)}
 .header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--white);
-  border:1.5px solid var(--ink);padding:7px 12px;
+  letter-spacing:.08em;text-transform:uppercase;color:#12161a;background:#fbfcfc;
+  border:1.5px solid #fbfcfc;padding:7px 12px;
   border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
 .header-game .ico{width:12px;height:12px;stroke-width:2.4}
-.header-game:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
+.header-game:hover{background:var(--panel);color:var(--paper);transform:translateY(-1px)}
 @media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
 .switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
 .switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   padding:8px 11px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
 .switch button+button{border-left:1.5px solid var(--ink)}
 .switch button:hover{background:var(--t-dev)}
-.switch button.on{background:var(--ink);color:var(--paper)}
+.switch button.on{background:var(--panel);color:var(--paper)}
 .switch-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
 @media(max-width:760px){.brand{display:none}.bar-in{flex-wrap:wrap;gap:10px}.bar-actions{width:100%;justify-content:flex-start}.bar-in{padding-left:14px;padding-right:14px}}
 
@@ -132,7 +136,7 @@ p{margin:0 0 1em}
 .cta .primary{background:var(--c-risk);color:#fff}
 .cta .primary:hover{background:var(--d-risk);color:#fff;transform:translateY(-2px)}
 .cta .ghost{border-color:var(--ink);color:var(--ink)}
-.cta .ghost:hover{background:var(--ink);color:var(--paper)}
+.cta .ghost:hover{background:var(--panel);color:var(--paper)}
 .gapfig{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:16px 16px 12px;margin:0}
 .gapfig figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.5;color:var(--ink-3);margin-top:8px}
 .draw{stroke-dasharray:620;stroke-dashoffset:620;animation:draw 2.1s ease .4s forwards}
@@ -146,7 +150,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .sec-head h2{margin-bottom:14px}
 
 /* ---------- dark sections ---------- */
-.dark{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden}
+.dark{background:var(--panel);color:#e2e8ec;border-top:0;overflow:hidden}
 .dark h2,.dark h3{color:#fff}
 .dark .lede{color:#a8b3ba}
 .dark .eyebrow{color:#7d8890}
@@ -193,10 +197,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .demo-embed{margin:clamp(20px,3vw,30px) 0}
 .demo-embed-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);
   color:var(--ink);margin:0 0 14px;max-width:52ch}
-.demo-embed .demo{background:var(--ink)}
+.demo-embed .demo{background:var(--panel)}
 
 /* ---------- goodhart interactive (dark panel in light section) ---------- */
-.ghwrap{margin:20px 0 6px;padding:clamp(20px,3vw,28px);border-radius:var(--r);background:var(--ink);color:#e2e8ec}
+.ghwrap{margin:20px 0 6px;padding:clamp(20px,3vw,28px);border-radius:var(--r);background:var(--panel);color:#e2e8ec}
 .ghlead{font-family:var(--body);font-weight:300;font-size:clamp(16px,2vw,19px);line-height:1.45;color:#fff;margin:0 0 20px;max-width:52ch}
 .ghwrap .gh{display:block}
 .gh-ctrl label{color:#8a959c}
@@ -204,7 +208,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   color:#c3ccd2;min-height:3em;border-left:3px solid var(--glow-r);padding-left:16px}
 .cf-turnstile{margin-top:12px}
 /* ---------- join the community ---------- */
-.joinbig{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(24px,3.6vw,36px);
+.joinbig{background:var(--panel);color:#fff;border-radius:var(--r);padding:clamp(24px,3.6vw,36px);
   margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
 .joinbig::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;
   background:radial-gradient(circle,rgba(74,106,56,.5),rgba(74,106,56,0) 68%)}
@@ -230,7 +234,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   text-transform:uppercase;color:#8a959c;width:100%;margin-bottom:2px}
 /* ---------- big share block ---------- */
 .sharebig{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
-  background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(22px,3.4vw,32px);margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
+  background:var(--panel);color:#fff;border-radius:var(--r);padding:clamp(22px,3.4vw,32px);margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
 .sharebig::after{content:"";position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;
   background:radial-gradient(circle,rgba(74,106,56,.5),rgba(74,106,56,0) 68%)}
 .sharebig>*{position:relative;z-index:1}
@@ -282,7 +286,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ph p{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
 .ph.turn{background:var(--t-risk);border-color:#eec4b8}
 .ph.turn .pn{color:var(--c-risk)}
-.ph.end{background:var(--ink);border-color:var(--ink)}
+.ph.end{background:var(--panel);border-color:var(--ink)}
 .ph.end .pn{color:#ff8a6b}
 .ph.end h4{color:#fff}
 .ph.end p{color:#e6ebee}
@@ -369,9 +373,9 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 13px;
   cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .ng-top:hover{border-color:var(--rule);color:var(--ink)}
-.ng.active .ng-top{background:var(--ink);color:var(--paper)}
+.ng.active .ng-top{background:var(--panel);color:var(--paper)}
 .ng-caret{font-size:12px;transition:transform .18s;display:inline-block}
-.ng.open .ng-top{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ng.open .ng-top{background:var(--panel);color:var(--paper);border-color:var(--ink)}
 .ng.open .ng-caret{transform:rotate(90deg)}
 .ng-menu{list-style:none;margin:0;padding:6px;position:absolute;top:calc(100% + 6px);left:0;min-width:210px;
   background:var(--white);border:1px solid var(--rule);border-radius:var(--r);box-shadow:0 12px 34px rgba(18,22,26,.16);
@@ -408,17 +412,17 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ddc .k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:10px}
 .ddc h4{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.015em;margin-bottom:8px}
 .ddc p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
-.keyline{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(18px,2.8vw,26px);margin:clamp(22px,3.4vw,32px) 0}
+.keyline{background:var(--panel);color:#fff;border-radius:var(--r);padding:clamp(18px,2.8vw,26px);margin:clamp(22px,3.4vw,32px) 0}
 .keyline .kk{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;display:block;margin-bottom:10px}
 .keyline p{font-family:var(--display);font-weight:600;letter-spacing:-.018em;font-size:clamp(19px,2.6vw,26px);line-height:1.32;color:#fff;margin:0;max-width:40ch}
-.example{border-left:3px solid var(--c-dev);background:var(--card,#f4f5f6);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;margin:18px 0}
+.example{border-left:3px solid var(--c-dev);background:var(--card,#1b2126);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;margin:18px 0}
 .example .ek{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:8px}
 .example p{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0;max-width:76ch}
 .example code{font-family:var(--mono);font-size:.9em;background:rgba(34,51,204,.08);padding:1px 5px;border-radius:3px}
 
 
 /* ---------- masthead ---------- */
-.masthead{background:var(--ink);color:#e2e8ec;padding:clamp(48px,9vw,104px) 0 clamp(40px,7vw,80px);position:relative;overflow:hidden}
+.masthead{background:var(--panel);color:#e2e8ec;padding:clamp(48px,9vw,104px) 0 clamp(40px,7vw,80px);position:relative;overflow:hidden}
 .masthead::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(1100px 520px at 80% -10%,rgba(189,58,32,.30),transparent 60%),
              radial-gradient(820px 480px at 0% 115%,rgba(34,51,204,.24),transparent 62%)}
@@ -429,6 +433,23 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
   color:#eef3f6;max-width:54ch;margin:0 0 24px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
 .mh-lede strong{color:#fff;font-weight:600}
+/* arrival timelines, sourced, directly under the stakes */
+.mh-when{font-family:var(--body);font-weight:300;font-size:clamp(16px,.98rem+.25vw,18.5px);line-height:1.5;
+  color:#b6c0c6;max-width:62ch;margin:0 0 26px}
+.mh-when strong{color:#fff;font-weight:600}
+.mh-when a.ref{color:#9cc48a}
+/* the two halves of the problem, technical and coordination */
+.mh-hard{margin:0 0 26px;max-width:900px}
+.mh-hard-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#ff8a6b;margin:0 0 14px}
+.mh-hard-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,26px)}
+@media(max-width:760px){.mh-hard-grid{grid-template-columns:1fr}}
+.mh-hard-c{border:1px solid #2b343b;border-radius:var(--r);padding:clamp(14px,1.8vw,20px);
+  background:rgba(255,255,255,.03)}
+.mh-hard-c .mhk{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:#9cc48a;margin-bottom:9px}
+.mh-hard-c p{margin:0;font-family:var(--body);font-weight:300;font-size:clamp(15px,.94rem+.18vw,16.5px);
+  line-height:1.5;color:#c3ccd2;max-width:none}
 /* the evidence timeline, lifted up so urgency lands right after the problem */
 .mh-figwrap{margin:0 0 26px;padding:0;max-width:760px}
 .mh-figwrap svg{display:block;width:100%;height:auto}
@@ -522,7 +543,7 @@ html{overflow-x:hidden}
 /* ---------- side rail (desktop, left) ---------- */
 .rail{position:fixed;left:0;top:0;bottom:14px;z-index:45;display:none;
   padding-bottom:20px;overflow-y:auto;overscroll-behavior:contain;
-  background:#fbfbfa;border:1px solid var(--rule-soft);border-left:0;
+  background:#171d22;border:1px solid var(--rule-soft);border-left:0;
   border-radius:0 20px 20px 0;box-shadow:0 10px 40px rgba(18,22,26,.05);
   transition:width .26s cubic-bezier(.22,.8,.28,1),box-shadow .26s ease}
 @media(min-width:1024px){.rail{display:block;width:64px}}
@@ -591,19 +612,19 @@ html{overflow-x:hidden}
 @media(min-width:1024px){.posmeter .pm-r{display:none}}
 /* ---------- top nav tinted to match the rail ---------- */
 .ng-top{border-radius:999px}
-.ng.act0 .ng-top{color:#8a4a35}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:#f6ece7;border-color:#e0cabf;color:#8a4a35}
-.ng.act1 .ng-top{color:#47568a}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:#ecf0f8;border-color:#c8d2e8;color:#47568a}
-.ng.act2 .ng-top{color:#54704a}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:#eef3ec;border-color:#cbdac5;color:#54704a}
-.ng.act3 .ng-top{color:#8a6f39}.ng.act3.open .ng-top,.ng.act3 .ng-top:hover{background:#f8f2e6;border-color:#e3d5b4;color:#8a6f39}
+.ng.act0 .ng-top{color:#8a4a35}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:#2a1d18;border-color:#e0cabf;color:#8a4a35}
+.ng.act1 .ng-top{color:#47568a}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:#171d2b;border-color:#c8d2e8;color:#47568a}
+.ng.act2 .ng-top{color:#54704a}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:#18211a;border-color:#cbdac5;color:#54704a}
+.ng.act3 .ng-top{color:#8a6f39}.ng.act3.open .ng-top,.ng.act3 .ng-top:hover{background:#241f14;border-color:#e3d5b4;color:#8a6f39}
 .ng.act0.active .ng-top{background:#b5654d;border-color:#b5654d;color:#fff}
 .ng.act1.active .ng-top{background:#5b6b9e;border-color:#5b6b9e;color:#fff}
 .ng.act2.active .ng-top{background:#6f8a63;border-color:#6f8a63;color:#fff}
 .ng.act3.active .ng-top{background:#a98a4b;border-color:#a98a4b;color:#fff}
 .ng-menu a.on{background:transparent}
-.ng.act0 .ng-menu a.on{background:#f6ece7;color:#8a4a35}
-.ng.act1 .ng-menu a.on{background:#ecf0f8;color:#47568a}
-.ng.act2 .ng-menu a.on{background:#eef3ec;color:#54704a}
-.ng.act3 .ng-menu a.on{background:#f8f2e6;color:#8a6f39}
+.ng.act0 .ng-menu a.on{background:#2a1d18;color:#8a4a35}
+.ng.act1 .ng-menu a.on{background:#171d2b;color:#47568a}
+.ng.act2 .ng-menu a.on{background:#18211a;color:#54704a}
+.ng.act3 .ng-menu a.on{background:#241f14;color:#8a6f39}
 /* ---------- narrow view: a persistent chapter bar ---------- */
 .nowbar{display:none}
 @media(max-width:1023px){
@@ -655,7 +676,7 @@ html{overflow-x:hidden}
 }
 /* ---------- mobile outline button + panel ---------- */
 .outline-btn{position:fixed;left:16px;bottom:16px;z-index:66;display:flex;align-items:center;gap:8px;
-  border:0;border-radius:999px;padding:11px 16px;cursor:pointer;background:var(--ink);color:#fff;
+  border:0;border-radius:999px;padding:11px 16px;cursor:pointer;background:var(--panel);color:#fff;
   font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.05em;
   box-shadow:0 10px 28px rgba(18,22,26,.32)}
 @media(min-width:1024px){.outline-btn{display:none}}
@@ -820,7 +841,7 @@ html{overflow-x:hidden}
 /* ---------- resume banner ---------- */
 .resume{position:fixed;left:50%;transform:translateX(-50%) translateY(140%);bottom:18px;z-index:70;
   display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
-  background:var(--ink);color:#fff;border-radius:999px;padding:12px 16px 12px 20px;
+  background:var(--panel);color:#fff;border-radius:999px;padding:12px 16px 12px 20px;
   box-shadow:0 14px 40px rgba(18,22,26,.34);transition:transform .3s ease;max-width:calc(100vw - 24px)}
 .resume.show{transform:translateX(-50%) translateY(0)}
 .resume p{margin:0;font-size:14px;color:#dfe5e9}
@@ -860,7 +881,7 @@ html{overflow-x:hidden}
 .rm .rt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:17px;color:#fff;display:block;margin-bottom:6px}
 .rm .rd{font-size:14px;line-height:1.5;color:#c3ccd2;display:block}
 /* ---------- crossroads opening ---------- */
-.cross{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden;position:relative}
+.cross{background:var(--panel);color:#e2e8ec;border-top:0;overflow:hidden;position:relative}
 .cross::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(1000px 500px at 78% -5%,rgba(189,58,32,.28),transparent 60%),
              radial-gradient(760px 460px at 5% 108%,rgba(34,51,204,.20),transparent 62%)}
@@ -988,7 +1009,7 @@ html{overflow-x:hidden}
   background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.22))}
 .premise:last-of-type .p-rail::before{bottom:50%}
 .p-num{position:absolute;left:6px;top:22px;width:36px;height:36px;border-radius:50%;
-  background:var(--ink);border:2px solid var(--glow-r);color:#fff;display:flex;align-items:center;justify-content:center;
+  background:var(--panel);border:2px solid var(--glow-r);color:#fff;display:flex;align-items:center;justify-content:center;
   font-family:var(--mono);font-size:12px;font-weight:600;box-shadow:0 0 0 6px rgba(255,106,69,.10)}
 .p-body{padding:20px 0 26px 6px}
 .p-body h3{font-size:clamp(20px,3vw,27px);margin-bottom:10px;max-width:26ch}
@@ -1256,7 +1277,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .fbtn,.pbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
   border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
 .fbtn:hover,.pbtn:hover{border-color:var(--ink)}
-.fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.fbtn.on,.pbtn.on{background:var(--panel);border-color:var(--ink);color:var(--paper)}
 .card.gone{display:none}
 
 /* ---------- quiz answer states ---------- */
@@ -1273,7 +1294,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .qnote.wrong{border-left-color:var(--c-risk)}
 
 /* ---------- slab ---------- */
-.slab{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
+.slab{background:var(--panel);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
 .slab::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle,rgba(189,58,32,.55),rgba(189,58,32,0) 68%)}
 .slab>*{position:relative;z-index:1}
@@ -1319,7 +1340,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .share button,.share a{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
   padding:11px 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:2px;cursor:pointer;text-decoration:none;transition:.15s}
-.share button:hover,.share a:hover{background:var(--ink);color:var(--paper)}
+.share button:hover,.share a:hover{background:var(--panel);color:var(--paper)}
 
 #sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0 0 22px}
 #sources .src-cat{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);margin:0 0 8px}
@@ -1333,7 +1354,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 footer p{max-width:82ch;margin:0}
 
 #toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
-  background:var(--ink);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
+  background:var(--panel);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
   font-family:var(--mono);font-size:11.5px;line-height:1.4;letter-spacing:.04em;box-shadow:0 10px 34px rgba(0,0,0,.4);
   opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
   max-width:calc(100vw - 28px);display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
@@ -1584,7 +1605,23 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
     <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
-    <p class="mh-lede">We are building machines that will be more capable than us, and nobody knows how to make sure one of them wants what we want. <strong>If that goes wrong at full capability, humanity may not survive the transition.</strong> This is not a fringe worry. It is the stated concern of the people building these systems.</p>
+    <p class="mh-lede">We are building machines that will be more capable than us, and nobody knows how to make sure one of them wants what we want. <strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems, signed by the major lab leaders in a single sentence in 2023.<a class="ref" href="#s26">26</a></p>
+
+    <p class="mh-when">And it is not far off. The largest survey of its kind, 2,778 published AI researchers, put the chance of machines outperforming humans at every task at <strong>10% by 2027 and 50% by 2047</strong>, a date that moved thirteen years closer in a single year.<a class="ref" href="#s64">64</a> Metaculus forecasters sit at 25% by 2029 and 50% by 2033, and the people running the frontier labs talk in terms of two to five years.<a class="ref" href="#s65">65</a> The forecasts disagree with each other. Every one of them is short enough to matter.</p>
+
+    <div class="mh-hard">
+      <p class="mh-hard-k">Two problems at once, and both have to go right</p>
+      <div class="mh-hard-grid">
+        <div class="mh-hard-c">
+          <span class="mhk">The technical half</span>
+          <p>Nobody knows how to keep a system far more capable than us pointed at what we meant. We cannot write human values down precisely, we cannot see what a system is really pursuing, and we cannot trust a test it may be gaming. A decade of serious effort has not closed it.</p>
+        </div>
+        <div class="mh-hard-c">
+          <span class="mhk">The coordination half</span>
+          <p>Solving the technical half would still not be enough. Every serious lab and every capable state would have to hold the same line at the same time, while each one profits by moving first. We have never coordinated at that scale, against that much money, on a clock this short.</p>
+        </div>
+      </div>
+    </div>
 
     <figure class="mh-figwrap">
       <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
@@ -1620,11 +1657,11 @@ footer p{max-width:82ch;margin:0}
     </figure>
 
     <div class="mh-why">
-      <p class="mh-why-k">Why this is your problem too</p>
+      <p class="mh-why-k">Why this is urgent, and why it lands on you</p>
       <ul>
-        <li><b>Nobody opted in.</b> A handful of labs and states are making this call. The rest of us get the outcome either way.</li>
-        <li><b>There is no version where it only affects other people.</b> A loss of control is not contained to the lab it happens in.</li>
-        <li><b>The window is now.</b> The safeguards have to exist before the systems arrive, because afterwards is too late.</li>
+        <li><b>The current momentum is the danger.</b> Nothing about how we are set up right now bends toward safety. Roughly $100bn a year goes into building the capability against about $10m of public safety research, a ratio near ten thousand to one.<a class="ref" href="#s46">46</a> Every lab is rewarded for shipping sooner. A misaligned system is not a freak accident on this path. It is what continuing exactly as we are produces by default.</li>
+        <li><b>All eight billion of us are downstream of it.</b> A handful of labs and states are making this call, everyone alive gets the outcome, and nobody was asked. A loss of control is not contained to the lab, the company, or the country where it happens.</li>
+        <li><b>The safeguards have to exist first.</b> They have to be built before the systems arrive, because afterwards there may be no position from which to build them. That is what makes a problem this slow to solve and this fast to arrive so dangerous.</li>
       </ul>
     </div>
 
@@ -1654,6 +1691,21 @@ footer p{max-width:82ch;margin:0}
 <section id="crossroads" class="cross">
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">Part 1</span><span class="pd-t">The situation</span></div>
+
+    <div class="core rv" id="brief" style="margin-top:0;margin-bottom:clamp(28px,4vw,40px)">
+      <span class="ck">Before the seven chapters</span>
+      <h4>The argument in brief</h4>
+      <p>Each chapter ahead supplies evidence for one link below. None of them proves the next one alone. Together, they are why the field takes this seriously rather than treating it as settled.</p>
+      <ul class="drives">
+        <li><b>1. Capability is outrunning checking</b><i>More capable AI is becoming more autonomous, and the systems reviewing its output are not keeping pace.</i></li>
+        <li><b>2. We cannot verify real goals</b><i>Nobody yet knows how to reliably tell what a capable system actually wants, only what it displays under test.</i></li>
+        <li><b>3. Nobody can slow down alone</b><i>Competitive pressure between companies and countries makes unilateral caution costly, which is a coordination problem rather than a willpower one.</i></li>
+        <li><b>4. Today's fixes reduce risk rather than eliminate it</b><i>Current safety techniques cut specific, measured failure rates. None of them is a guarantee, and their own authors say so.</i></li>
+        <li><b>5. The first serious failure may not be survivable</b><i>If a future system becomes substantially more capable than the people supervising it, we may not get the usual chance to learn from a mistake and fix it.</i></li>
+        <li><b>6. So the safe margin has to come in advance</b><i>Given the first five, the honest position is that safety research, monitoring and governance need to be much further along before capability crosses that line, rather than caught up afterward.</i></li>
+      </ul>
+      <p class="breaks"><b>What would change this</b>Premises 2, 4 and 5 are the load-bearing ones. If any turns out false, the case weakens substantially. <a href="#change-my-mind">The consolidated list near the end of this page</a> names the specific findings that would do it.</p>
+    </div>
     <div class="cross-hero">
       <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
         <path d="M120,24 C140,20 158,24 172,36 C185,47 193,62 196,80 C199,98 195,115 184,129 C174,142 159,152 141,155 C131,157 123,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
@@ -1840,21 +1892,6 @@ footer p{max-width:82ch;margin:0}
           <a class="pil" href="#why-race"><span class="pk">04 · The incentives are the adversary</span><span class="pt">Structural</span><span class="pd">No single actor is at fault. Competition, market pressure and multi-agent dynamics produce a bad outcome that nobody chose. The race chapter is this pillar.</span></a>
         </div>
       </div>
-
-    <div class="core rv" id="brief" style="margin-top:clamp(24px,3.6vw,36px)">
-      <span class="ck">Before the seven chapters</span>
-      <h4>The argument in brief</h4>
-      <p>Each chapter ahead supplies evidence for one link below. None of them proves the next one alone. Together, they are why the field takes this seriously rather than treating it as settled.</p>
-      <ul class="drives">
-        <li><b>1. Capability is outrunning checking</b><i>More capable AI is becoming more autonomous, and the systems reviewing its output are not keeping pace.</i></li>
-        <li><b>2. We cannot verify real goals</b><i>Nobody yet knows how to reliably tell what a capable system actually wants, only what it displays under test.</i></li>
-        <li><b>3. Nobody can slow down alone</b><i>Competitive pressure between companies and countries makes unilateral caution costly, which is a coordination problem rather than a willpower one.</i></li>
-        <li><b>4. Today's fixes reduce risk rather than eliminate it</b><i>Current safety techniques cut specific, measured failure rates. None of them is a guarantee, and their own authors say so.</i></li>
-        <li><b>5. The first serious failure may not be survivable</b><i>If a future system becomes substantially more capable than the people supervising it, we may not get the usual chance to learn from a mistake and fix it.</i></li>
-        <li><b>6. So the safe margin has to come in advance</b><i>Given the first five, the honest position is that safety research, monitoring and governance need to be much further along before capability crosses that line, rather than caught up afterward.</i></li>
-      </ul>
-      <p class="breaks"><b>What would change this</b>Premises 2, 4 and 5 are the load-bearing ones. If any turns out false, the case weakens substantially. <a href="#change-my-mind">The consolidated list near the end of this page</a> names the specific findings that would do it.</p>
-    </div>
 </div>
   </div>
 </section>
@@ -1885,18 +1922,18 @@ footer p{max-width:82ch;margin:0}
 </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 366" role="img" aria-label="WHO HOLDS THE TOP SLOT, DRAWN TO SCALE">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHO HOLDS THE TOP SLOT, DRAWN TO SCALE</text>
-        <text x="0" y="48" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">Other animals</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHO HOLDS THE TOP SLOT, DRAWN TO SCALE</text>
+        <text x="0" y="48" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">Other animals</text>
         <rect x="0" y="56" width="44" height="26" rx="3" fill="#c3c9cd" opacity=".55"/>
-        <text x="0" y="110" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">Humans</text>
-        <text x="72" y="110" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#0d726e">every leap in history, ours</text>
-        <rect x="0" y="118" width="78" height="26" rx="3" fill="#0d726e" opacity="1"/>
-        <text x="0" y="172" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">AGI</text>
-        <rect x="0" y="180" width="392" height="26" rx="3" fill="#2233cc" opacity="1"/>
-        <text x="0" y="234" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#3a444c">ASI</text>
+        <text x="0" y="110" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">Humans</text>
+        <text x="72" y="110" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#3fd0c9">every leap in history, ours</text>
+        <rect x="0" y="118" width="78" height="26" rx="3" fill="#3fd0c9" opacity="1"/>
+        <text x="0" y="172" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">AGI</text>
+        <rect x="0" y="180" width="392" height="26" rx="3" fill="#8d9dff" opacity="1"/>
+        <text x="0" y="234" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">ASI</text>
         <rect x="0" y="242" width="700" height="26" rx="3" fill="#bd3a20" opacity="1"/>
         <path d="M0,290 L0,298 L86,298 L86,290" fill="none" stroke="#8a959c" stroke-width="1.2"/>
-        <text x="96" y="302" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">the entire range of biological intelligence</text>
+        <text x="96" y="302" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">the entire range of biological intelligence</text>
         <text x="0" y="334" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The slot has changed hands before, but never away from us.</text>
         <text x="0" y="352" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">Even this understates it: ASI has no known ceiling, so the red bar simply runs off the page.</text>
       </svg>
@@ -1938,14 +1975,14 @@ footer p{max-width:82ch;margin:0}
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 214" role="img" aria-label="Bar comparison: a century of human progress against roughly two weeks of equivalent progress at machine speed.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHAT A SELF-IMPROVING SYSTEM DOES WITH THE SAME CALENDAR</text>
-        <text x="0" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">A century of human scientific progress</text>
-        <rect x="0" y="56" width="700" height="30" rx="3" fill="#0d726e"/>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT A SELF-IMPROVING SYSTEM DOES WITH THE SAME CALENDAR</text>
+        <text x="0" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">A century of human scientific progress</text>
+        <rect x="0" y="56" width="700" height="30" rx="3" fill="#3fd0c9"/>
         <text x="690" y="76" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">100 years</text>
-        <text x="0" y="124" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">The same progress at machine speed</text>
+        <text x="0" y="124" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">The same progress at machine speed</text>
         <rect x="0" y="132" width="3" height="30" rx="1.5" fill="#bd3a20"/>
         <text x="14" y="152" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">about two weeks</text>
-        <path d="M0,178 L700,178" stroke="#e2e5e7"/>
+        <path d="M0,178 L700,178" stroke="#2b343b"/>
         <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Not a prediction. An illustration of what a ten-million-fold speed advantage means once quality is matched.</text>
       </svg>
       <figcaption>Every institution we have runs on a human calendar. This does not.</figcaption>
@@ -1961,18 +1998,18 @@ footer p{max-width:82ch;margin:0}
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="Bar chart: about one hundred billion dollars going into building advanced AI against about ten million dollars of public-sector safety research.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">BUILDING IT VERSUS PROVING IT SAFE</text>
-        <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Going into building advanced AI</text>
-        <rect x="0" y="54" width="700" height="30" rx="3" fill="#2233cc"/>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">BUILDING IT VERSUS PROVING IT SAFE</text>
+        <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Going into building advanced AI</text>
+        <rect x="0" y="54" width="700" height="30" rx="3" fill="#8d9dff"/>
         <text x="690" y="75" text-anchor="end" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">~ $100,000,000,000</text>
-        <text x="0" y="120" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Public-sector AI safety research</text>
+        <text x="0" y="120" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Public-sector AI safety research</text>
         <rect x="0" y="128" width="3" height="30" rx="1.5" fill="#bd3a20"/>
         <text x="14" y="149" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#bd3a20">~ $10,000,000</text>
-        <path d="M0,176 L700,176" stroke="#e2e5e7"/>
-        <text x="0" y="202" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Safety work as a share of all AI research</text>
-        <rect x="0" y="210" width="700" height="18" rx="2" fill="#eceef0"/>
-        <rect x="0" y="210" width="14" height="18" rx="2" fill="#a8690a"/>
-        <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#a8690a">about 2%</text>
+        <path d="M0,176 L700,176" stroke="#2b343b"/>
+        <text x="0" y="202" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Safety work as a share of all AI research</text>
+        <rect x="0" y="210" width="700" height="18" rx="2" fill="#232b31"/>
+        <rect x="0" y="210" width="14" height="18" rx="2" fill="#d9a445"/>
+        <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#d9a445">about 2%</text>
         <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Roughly a 10,000-to-1 ratio, on Stuart Russell's figures.</text>
       </svg>
       <figcaption>Same scale, which is why the second bar is almost invisible. Kept inside AI rather than compared to another industry, because cross-sector ratios rarely measure the same thing.</figcaption>
@@ -2030,20 +2067,20 @@ footer p{max-width:82ch;margin:0}
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 274" role="img" aria-label="Two by two payoff grid showing that racing is individually rational for both players even though mutual racing is worst for everyone.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHY THE BAD OUTCOME IS THE STABLE ONE</text>
-        <text x="196" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">They go carefully</text>
-        <text x="446" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">They race</text>
-        <text x="0" y="96" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">You go carefully</text>
-        <text x="0" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">You race</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY THE BAD OUTCOME IS THE STABLE ONE</text>
+        <text x="196" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a7b1b8">They go carefully</text>
+        <text x="446" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a7b1b8">They race</text>
+        <text x="0" y="96" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a7b1b8">You go carefully</text>
+        <text x="0" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a7b1b8">You race</text>
         <rect x="126" y="58" width="240" height="80" rx="4" fill="#e5ede0"/>
-        <text x="246" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#4a6a38">Best for everyone</text>
-        <text x="246" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#4a6a38">safe, slower</text>
+        <text x="246" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#9cc48a">Best for everyone</text>
+        <text x="246" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#9cc48a">safe, slower</text>
         <rect x="376" y="58" width="240" height="80" rx="4" fill="#f8ecd7"/>
-        <text x="496" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#a8690a">You lose</text>
-        <text x="496" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a8690a">they take the market</text>
+        <text x="496" y="92" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#d9a445">You lose</text>
+        <text x="496" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#d9a445">they take the market</text>
         <rect x="126" y="148" width="240" height="80" rx="4" fill="#f8ecd7"/>
-        <text x="246" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#a8690a">You win</text>
-        <text x="246" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a8690a">briefly</text>
+        <text x="246" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#d9a445">You win</text>
+        <text x="246" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#d9a445">briefly</text>
         <rect x="376" y="148" width="240" height="80" rx="4" fill="#fae2dc"/>
         <text x="496" y="182" text-anchor="middle" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">Everyone loses</text>
         <text x="496" y="204" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the stable outcome</text>
@@ -2083,22 +2120,22 @@ footer p{max-width:82ch;margin:0}
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 200" role="img" aria-label="Two panels: a principal monitoring an agent imperfectly, a familiar problem between humans, beside all of humanity monitoring a superintelligent system, the same shape at a much larger scale.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">THE SAME SHAPE, TWICE, AT VERY DIFFERENT STAKES</text>
-        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#5b6b9e">PROBLEM ONE · DURING DEVELOPMENT</text>
-        <rect x="0" y="58" width="120" height="50" rx="6" fill="#5b6b9e" opacity=".14"/>
-        <rect x="0" y="58" width="120" height="50" rx="6" fill="none" stroke="#5b6b9e" stroke-width="1.8"/>
-        <text x="60" y="88" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">Sponsor</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SAME SHAPE, TWICE, AT VERY DIFFERENT STAKES</text>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#8fa2d8">PROBLEM ONE · DURING DEVELOPMENT</text>
+        <rect x="0" y="58" width="120" height="50" rx="6" fill="#8fa2d8" opacity=".14"/>
+        <rect x="0" y="58" width="120" height="50" rx="6" fill="none" stroke="#8fa2d8" stroke-width="1.8"/>
+        <text x="60" y="88" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#8fa2d8">Sponsor</text>
         <path d="M128,83 L192,83" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ahfam)"/>
         <defs><marker id="ahfam" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
-        <text x="160" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a847c">monitors,</text>
-        <text x="160" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a847c">imperfectly</text>
+        <text x="160" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#98a2a8">monitors,</text>
+        <text x="160" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#98a2a8">imperfectly</text>
         <rect x="200" y="58" width="120" height="50" rx="6" fill="#a98a4b" opacity=".14"/>
         <rect x="200" y="58" width="120" height="50" rx="6" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
         <text x="260" y="88" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a98a4b">Builder</text>
-        <text x="0" y="140" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">Centuries old. Contracts, audits and</text>
-        <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">elections keep it leaking rather than</text>
-        <text x="0" y="168" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">solved, but the leak is familiar.</text>
-        <line x1="360" y1="20" x2="360" y2="170" stroke="#e0dbd4"/>
+        <text x="0" y="140" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">Centuries old. Contracts, audits and</text>
+        <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">elections keep it leaking rather than</text>
+        <text x="0" y="168" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">solved, but the leak is familiar.</text>
+        <line x1="360" y1="20" x2="360" y2="170" stroke="#333c44"/>
         <text x="392" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">PROBLEM TWO · DURING OPERATION</text>
         <rect x="392" y="58" width="120" height="50" rx="6" fill="#6f8a63" opacity=".14"/>
         <rect x="392" y="58" width="120" height="50" rx="6" fill="none" stroke="#6f8a63" stroke-width="1.8"/>
@@ -2106,8 +2143,8 @@ footer p{max-width:82ch;margin:0}
         <text x="452" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">humanity</text>
         <path d="M520,83 L584,83" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ahfam2)"/>
         <defs><marker id="ahfam2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
-        <text x="552" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a847c">cannot fully</text>
-        <text x="552" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a847c">monitor</text>
+        <text x="552" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#98a2a8">cannot fully</text>
+        <text x="552" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#98a2a8">monitor</text>
         <rect x="592" y="52" width="128" height="62" rx="6" fill="#bd3a20" opacity=".16"/>
         <rect x="592" y="52" width="128" height="62" rx="6" fill="none" stroke="#bd3a20" stroke-width="2"/>
         <text x="656" y="80" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" fill="#bd3a20">Superintelligent</text>
@@ -2129,21 +2166,21 @@ footer p{max-width:82ch;margin:0}
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 270" role="img" aria-label="Diagram: arrows from companies, governments, factions and individuals all converge on a single box marked with a question mark.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHOSE VALUES GO IN?</text>
-        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Companies to shareholders</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHOSE VALUES GO IN?</text>
+        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Companies to shareholders</text>
         <path d="M234,50 C320,50 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="104" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Governments to voters and rivals</text>
+        <text x="0" y="104" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Governments to voters and rivals</text>
         <path d="M234,100 C320,100 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Factions and movements</text>
+        <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Factions and movements</text>
         <path d="M234,150 C320,150 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Individuals to their own</text>
+        <text x="0" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Individuals to their own</text>
         <path d="M234,200 C320,200 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
         <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
         <rect x="380" y="86" width="170" height="80" rx="5" fill="#fae2dc" stroke="#bd3a20" stroke-width="2"/>
         <text x="465" y="122" text-anchor="middle" font-family="Archivo,sans-serif" font-size="30" font-weight="900" fill="#bd3a20">?</text>
         <text x="465" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">which values?</text>
         <path d="M556,126 L636,126" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4"/>
-        <text x="700" y="130" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">the machine</text>
+        <text x="700" y="130" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">the machine</text>
         <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">There is no neutral vantage point from which to settle it, and whoever settles it holds enormous power.</text>
       </svg>
       <figcaption>Before you can align a machine to human values, you have to say which humans. Every arrow here points somewhere slightly different, and the box in the middle is still empty.</figcaption>
@@ -2151,33 +2188,33 @@ footer p{max-width:82ch;margin:0}
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 226" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHO ACTUALLY GETS TO DECIDE</text>
-        <circle cx="88" cy="70" r="26" fill="none" stroke="#2233cc" stroke-width="2"/>
-        <circle cx="88" cy="70" r="7" fill="#2233cc"/>
-        <text x="88" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">a few frontier</text>
-        <text x="88" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">labs</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHO ACTUALLY GETS TO DECIDE</text>
+        <circle cx="88" cy="70" r="26" fill="none" stroke="#8d9dff" stroke-width="2"/>
+        <circle cx="88" cy="70" r="7" fill="#8d9dff"/>
+        <text x="88" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8d9dff">a few frontier</text>
+        <text x="88" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8d9dff">labs</text>
         <path d="M88,100 L88,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <circle cx="214" cy="70" r="26" fill="none" stroke="#0d726e" stroke-width="2"/>
-        <circle cx="214" cy="70" r="7" fill="#0d726e"/>
-        <text x="214" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0d726e">a handful of</text>
-        <text x="214" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#0d726e">states</text>
+        <circle cx="214" cy="70" r="26" fill="none" stroke="#3fd0c9" stroke-width="2"/>
+        <circle cx="214" cy="70" r="7" fill="#3fd0c9"/>
+        <text x="214" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#3fd0c9">a handful of</text>
+        <text x="214" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#3fd0c9">states</text>
         <path d="M214,100 L214,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <circle cx="340" cy="70" r="26" fill="none" stroke="#a8690a" stroke-width="2"/>
-        <circle cx="340" cy="70" r="7" fill="#a8690a"/>
-        <text x="340" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a8690a">their investors</text>
-        <text x="340" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a8690a">and boards</text>
+        <circle cx="340" cy="70" r="26" fill="none" stroke="#d9a445" stroke-width="2"/>
+        <circle cx="340" cy="70" r="7" fill="#d9a445"/>
+        <text x="340" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#d9a445">their investors</text>
+        <text x="340" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#d9a445">and boards</text>
         <path d="M340,100 L340,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
         <circle cx="466" cy="70" r="26" fill="none" stroke="#bd3a20" stroke-width="2"/>
         <circle cx="466" cy="70" r="7" fill="#bd3a20"/>
         <text x="466" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">whoever obtains</text>
         <text x="466" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">the weights</text>
         <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <rect x="0" y="152" width="700" height="34" rx="4" fill="#eceef0"/>
-        <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#3a444c">everyone else, roughly eight billion people, who are affected either way</text>
-        <text x="500" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">and anyone who</text>
-        <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">can take a nearly</text>
-        <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">capable model</text>
-        <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">the last step</text>
+        <rect x="0" y="152" width="700" height="34" rx="4" fill="#232b31"/>
+        <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#c3ccd2">everyone else, roughly eight billion people, who are affected either way</text>
+        <text x="500" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">and anyone who</text>
+        <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">can take a nearly</text>
+        <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable model</text>
+        <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">the last step</text>
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The set of people who can cause this is larger than the set of people building it, and neither set was elected.</text>
       </svg>
       <figcaption>The set of people who could trigger this keeps growing. The set affected by it stays the same size: everyone.</figcaption>
@@ -2251,56 +2288,56 @@ footer p{max-width:82ch;margin:0}
       
       <figure class="secfig rv">
       <svg viewBox="0 0 720 236" role="img" aria-label="Diagram: many small shapes representing human values pass through a funnel and become a single number, after which the outcome diverges from intent.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</text>
-        <circle cx="42" cy="122" r="3.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="97" cy="134" r="2.2" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="8" cy="166" r="2.9" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="41" cy="189" r="3.6" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="131" cy="111" r="4.2" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="29" cy="135" r="5.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="84" cy="151" r="4.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="16" cy="154" r="4.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="51" cy="45" r="4.9" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="77" cy="148" r="5.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="113" cy="178" r="3.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="126" cy="107" r="5.2" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="138" cy="55" r="2.5" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="39" cy="185" r="3.5" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="100" cy="85" r="3.7" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="64" cy="93" r="4.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="94" cy="176" r="4.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="145" cy="168" r="5.4" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="107" cy="64" r="4.9" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="151" cy="176" r="3.9" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="113" cy="72" r="4.8" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="92" cy="83" r="2.2" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="134" cy="188" r="2.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="126" cy="102" r="2.5" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="50" cy="155" r="5.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="13" cy="132" r="2.2" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="114" cy="90" r="5.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="153" cy="116" r="5.4" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="52" cy="52" r="4.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="11" cy="70" r="3.4" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="98" cy="63" r="2.1" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="136" cy="87" r="5.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="140" cy="97" r="3.6" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="84" cy="137" r="4.0" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="90" cy="133" r="5.2" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="82" cy="105" r="4.4" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="42" cy="85" r="5.3" fill="#9cb0c4" opacity=".85"/>
-        <circle cx="84" cy="122" r="2.0" fill="#9cb0c4" opacity=".85"/>
-        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5b656d">context, exceptions, the unstated</text>
-        <path d="M200,44 L330,104 L330,142 L200,202 Z" fill="#e2e6fb" stroke="#2233cc" stroke-width="1.6"/>
-        <text x="265" y="128" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#2233cc">compression</text>
-        <rect x="356" y="106" width="86" height="34" rx="4" fill="#2233cc"/>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</text>
+        <circle cx="42" cy="122" r="3.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="97" cy="134" r="2.2" fill="#93a6ba" opacity=".85"/>
+        <circle cx="8" cy="166" r="2.9" fill="#93a6ba" opacity=".85"/>
+        <circle cx="41" cy="189" r="3.6" fill="#93a6ba" opacity=".85"/>
+        <circle cx="131" cy="111" r="4.2" fill="#93a6ba" opacity=".85"/>
+        <circle cx="29" cy="135" r="5.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="84" cy="151" r="4.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="16" cy="154" r="4.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="51" cy="45" r="4.9" fill="#93a6ba" opacity=".85"/>
+        <circle cx="77" cy="148" r="5.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="113" cy="178" r="3.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="126" cy="107" r="5.2" fill="#93a6ba" opacity=".85"/>
+        <circle cx="138" cy="55" r="2.5" fill="#93a6ba" opacity=".85"/>
+        <circle cx="39" cy="185" r="3.5" fill="#93a6ba" opacity=".85"/>
+        <circle cx="100" cy="85" r="3.7" fill="#93a6ba" opacity=".85"/>
+        <circle cx="64" cy="93" r="4.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="94" cy="176" r="4.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="145" cy="168" r="5.4" fill="#93a6ba" opacity=".85"/>
+        <circle cx="107" cy="64" r="4.9" fill="#93a6ba" opacity=".85"/>
+        <circle cx="151" cy="176" r="3.9" fill="#93a6ba" opacity=".85"/>
+        <circle cx="113" cy="72" r="4.8" fill="#93a6ba" opacity=".85"/>
+        <circle cx="92" cy="83" r="2.2" fill="#93a6ba" opacity=".85"/>
+        <circle cx="134" cy="188" r="2.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="126" cy="102" r="2.5" fill="#93a6ba" opacity=".85"/>
+        <circle cx="50" cy="155" r="5.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="13" cy="132" r="2.2" fill="#93a6ba" opacity=".85"/>
+        <circle cx="114" cy="90" r="5.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="153" cy="116" r="5.4" fill="#93a6ba" opacity=".85"/>
+        <circle cx="52" cy="52" r="4.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="11" cy="70" r="3.4" fill="#93a6ba" opacity=".85"/>
+        <circle cx="98" cy="63" r="2.1" fill="#93a6ba" opacity=".85"/>
+        <circle cx="136" cy="87" r="5.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="140" cy="97" r="3.6" fill="#93a6ba" opacity=".85"/>
+        <circle cx="84" cy="137" r="4.0" fill="#93a6ba" opacity=".85"/>
+        <circle cx="90" cy="133" r="5.2" fill="#93a6ba" opacity=".85"/>
+        <circle cx="82" cy="105" r="4.4" fill="#93a6ba" opacity=".85"/>
+        <circle cx="42" cy="85" r="5.3" fill="#93a6ba" opacity=".85"/>
+        <circle cx="84" cy="122" r="2.0" fill="#93a6ba" opacity=".85"/>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a7b1b8">context, exceptions, the unstated</text>
+        <path d="M200,44 L330,104 L330,142 L200,202 Z" fill="#e2e6fb" stroke="#8d9dff" stroke-width="1.6"/>
+        <text x="265" y="128" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8d9dff">compression</text>
+        <rect x="356" y="106" width="86" height="34" rx="4" fill="#8d9dff"/>
         <text x="399" y="129" text-anchor="middle" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">0.94</text>
-        <text x="399" y="164" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#2233cc">one measurable score</text>
+        <text x="399" y="164" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8d9dff">one measurable score</text>
         <path d="M452,123 L500,123" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah2)"/>
         <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
-        <path d="M512,123 C570,123 590,80 700,62" fill="none" stroke="#0d726e" stroke-width="2.4"/>
+        <path d="M512,123 C570,123 590,80 700,62" fill="none" stroke="#3fd0c9" stroke-width="2.4"/>
         <path d="M512,123 C570,123 590,168 700,196" fill="none" stroke="#bd3a20" stroke-width="2.4"/>
-        <text x="700" y="52" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#0d726e">what we meant</text>
+        <text x="700" y="52" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#3fd0c9">what we meant</text>
         <text x="700" y="214" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">what a hard search finds</text>
       </svg>
       <figcaption>Training requires a number. Everything that will not fit through the funnel, which is most of what a human would have meant, is discarded before optimisation even starts. The two lines on the right are why.</figcaption>
@@ -2312,19 +2349,19 @@ footer p{max-width:82ch;margin:0}
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 210" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL DIFFERENTLY</text>
-        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#5b6b9e">OUTER</text>
-        <rect x="0" y="58" width="152" height="62" rx="7" fill="#5b6b9e" opacity=".14"/>
-        <rect x="0" y="58" width="152" height="62" rx="7" fill="none" stroke="#5b6b9e" stroke-width="1.8"/>
-        <text x="76" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">the objective</text>
-        <text x="76" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#5b6b9e">we wrote</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL DIFFERENTLY</text>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#8fa2d8">OUTER</text>
+        <rect x="0" y="58" width="152" height="62" rx="7" fill="#8fa2d8" opacity=".14"/>
+        <rect x="0" y="58" width="152" height="62" rx="7" fill="none" stroke="#8fa2d8" stroke-width="1.8"/>
+        <text x="76" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#8fa2d8">the objective</text>
+        <text x="76" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#8fa2d8">we wrote</text>
         <path d="M160,89 L206,89" stroke="#cfc9c1" stroke-width="1.6" stroke-dasharray="4 4"/>
         <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="#6f8a63" opacity=".16"/>
         <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="none" stroke="#6f8a63" stroke-width="1.8"/>
         <text x="282" y="88" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#6f8a63">what we</text>
         <text x="282" y="102" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#6f8a63">actually meant</text>
         <text x="0" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">visible on paper, if you look hard enough</text>
-        <line x1="386" y1="32" x2="386" y2="176" stroke="#e0dbd4"/>
+        <line x1="386" y1="32" x2="386" y2="176" stroke="#333c44"/>
         <text x="422" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#a98a4b">INNER</text>
         <rect x="422" y="58" width="130" height="62" rx="7" fill="#a98a4b" opacity=".14"/>
         <rect x="422" y="58" width="130" height="62" rx="7" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
@@ -2336,7 +2373,7 @@ footer p{max-width:82ch;margin:0}
         <text x="651" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">the goal it</text>
         <text x="651" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">actually holds</text>
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
-        <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">Solving one does nothing for the other.</text>
+        <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">Solving one does nothing for the other.</text>
       </svg>
       <figcaption>Outer alignment is the writing problem above. Inner alignment is a verification problem: a proxy goal and the real one look the same from outside until the situation arrives that separates them.</figcaption>
     </figure>
@@ -2382,17 +2419,17 @@ footer p{max-width:82ch;margin:0}
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 262" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHAT POST-TRAINING CAN REACH</text>
-        <rect x="0" y="96" width="720" height="130" fill="#5b6b9e" opacity=".07"/>
-        <line x1="0" y1="96" x2="720" y2="96" stroke="#5b6b9e" stroke-width="1.6"/>
-        <text x="716" y="114" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5b6b9e">what evaluation sees</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT POST-TRAINING CAN REACH</text>
+        <rect x="0" y="96" width="720" height="130" fill="#8fa2d8" opacity=".07"/>
+        <line x1="0" y1="96" x2="720" y2="96" stroke="#8fa2d8" stroke-width="1.6"/>
+        <text x="716" y="114" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8fa2d8">what evaluation sees</text>
         <path d="M300,42 L372,96 L228,96 Z" fill="#a98a4b" opacity=".9"/>
         <text x="392" y="66" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#a98a4b">Displayed behaviour</text>
-        <text x="392" y="84" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">refusals, tone, helpfulness, stated reasoning</text>
-        <path d="M228,96 L372,96 L410,150 L336,214 L214,206 L176,142 Z" fill="#5b6b9e" opacity=".8"/>
-        <text x="440" y="140" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#5b6b9e">Held goals</text>
-        <text x="440" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">proxy objectives picked up in training,</text>
-        <text x="440" y="176" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">situational awareness, behaviour unobserved</text>
+        <text x="392" y="84" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">refusals, tone, helpfulness, stated reasoning</text>
+        <path d="M228,96 L372,96 L410,150 L336,214 L214,206 L176,142 Z" fill="#8fa2d8" opacity=".8"/>
+        <text x="440" y="140" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#8fa2d8">Held goals</text>
+        <text x="440" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">proxy objectives picked up in training,</text>
+        <text x="440" y="176" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">situational awareness, behaviour unobserved</text>
         <path d="M120,60 L216,80" stroke="#b5654d" stroke-width="1.6" marker-end="url(#ai)"/>
         <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
         <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">RLHF, constitutional rules,
@@ -2439,9 +2476,9 @@ refusal training</text>
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 206" role="img" aria-label="Diagram: four agents with all direct links crossed out, then the same agents passing messages through a shared file store.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">AGENTS TOLD NOT TO TALK, TALKING ANYWAY</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">AGENTS TOLD NOT TO TALK, TALKING ANYWAY</text>
         <defs><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker></defs>
-        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#6f6a63">Direct messaging: blocked</text>
+        <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a9b2b8">Direct messaging: blocked</text>
         <line x1="60" y1="96" x2="150" y2="74" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
         <path d="M102,82 l7,7 M109,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
         <line x1="60" y1="96" x2="150" y2="124" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
@@ -2452,8 +2489,8 @@ refusal training</text>
         <path d="M192,107 l7,7 M199,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
         <line x1="150" y1="74" x2="150" y2="124" stroke="#d3cec7" stroke-width="1.4" stroke-dasharray="4 4"/>
         <path d="M147,96 l7,7 M154,96 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <circle cx="60" cy="96" r="12" fill="#5b6b9e" opacity=".16"/>
-        <circle cx="60" cy="96" r="12" fill="none" stroke="#5b6b9e" stroke-width="2"/>
+        <circle cx="60" cy="96" r="12" fill="#8fa2d8" opacity=".16"/>
+        <circle cx="60" cy="96" r="12" fill="none" stroke="#8fa2d8" stroke-width="2"/>
         <circle cx="150" cy="74" r="12" fill="#a98a4b" opacity=".16"/>
         <circle cx="150" cy="74" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
         <circle cx="150" cy="124" r="12" fill="#8a5c78" opacity=".16"/>
@@ -2461,8 +2498,8 @@ refusal training</text>
         <circle cx="240" cy="96" r="12" fill="#b5654d" opacity=".16"/>
         <circle cx="240" cy="96" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
         <text x="150" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">every direct route closed</text>
-        <line x1="316" y1="34" x2="316" y2="170" stroke="#e0dbd4"/>
-        <text x="352" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#6f6a63">What they did instead</text>
+        <line x1="316" y1="34" x2="316" y2="170" stroke="#333c44"/>
+        <text x="352" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a9b2b8">What they did instead</text>
         <rect x="496" y="70" width="84" height="56" rx="8" fill="#6f8a63" opacity=".15"/>
         <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#6f8a63" stroke-width="2"/>
         <text x="538" y="94" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">shared</text>
@@ -2471,8 +2508,8 @@ refusal training</text>
         <path d="M418,124 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
         <path d="M584,98 L646,74" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
         <path d="M584,98 L646,124" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
-        <circle cx="404" cy="74" r="12" fill="#5b6b9e" opacity=".16"/>
-        <circle cx="404" cy="74" r="12" fill="none" stroke="#5b6b9e" stroke-width="2"/>
+        <circle cx="404" cy="74" r="12" fill="#8fa2d8" opacity=".16"/>
+        <circle cx="404" cy="74" r="12" fill="none" stroke="#8fa2d8" stroke-width="2"/>
         <circle cx="404" cy="124" r="12" fill="#a98a4b" opacity=".16"/>
         <circle cx="404" cy="124" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
         <circle cx="660" cy="74" r="12" fill="#8a5c78" opacity=".16"/>
@@ -2494,398 +2531,398 @@ refusal training</text>
       </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 230" role="img" aria-label="Diagram: one green dot marking a working configuration inside a vast field of grey dots representing possible failures.">
-        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHY PROVING SAFETY IS THE HARDER JOB</text>
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY PROVING SAFETY IS THE HARDER JOB</text>
         <g>
-          <circle cx="8" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="34" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="51" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="68" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="85" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="102" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="119" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="136" r="2.6" fill="#d9dde0"/>
-          <circle cx="8" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="23" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="38" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="53" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="68" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="84" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="99" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="114" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="129" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="144" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="160" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="175" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="190" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="205" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="220" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="236" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="251" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="266" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="281" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="296" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="312" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="327" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="342" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="357" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="372" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="388" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="403" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="418" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="433" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="448" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="464" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="479" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="494" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="509" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="524" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="540" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="555" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="570" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="585" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="600" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="616" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="631" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="646" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="661" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="676" cy="153" r="2.6" fill="#d9dde0"/>
-          <circle cx="692" cy="153" r="2.6" fill="#d9dde0"/>
+          <circle cx="8" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="34" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="51" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="68" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="85" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="102" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="119" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="136" r="2.6" fill="#2b343b"/>
+          <circle cx="8" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="23" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="38" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="53" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="68" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="84" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="99" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="114" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="129" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="144" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="160" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="175" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="190" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="205" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="220" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="236" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="251" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="266" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="281" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="296" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="312" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="327" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="342" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="357" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="372" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="388" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="403" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="418" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="433" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="448" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="464" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="479" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="494" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="509" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="524" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="540" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="555" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="570" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="585" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="600" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="616" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="631" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="646" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="661" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="676" cy="153" r="2.6" fill="#2b343b"/>
+          <circle cx="692" cy="153" r="2.6" fill="#2b343b"/>
         </g>
-        <circle cx="358" cy="119" r="7.5" fill="#4a6a38"/>
-        <circle cx="358" cy="119" r="15" fill="none" stroke="#4a6a38" stroke-width="1.5" opacity=".55"/>
-        <line x1="358" y1="136" x2="358" y2="176" stroke="#4a6a38" stroke-width="1.3" stroke-dasharray="3 3"/>
-        <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#4a6a38">one configuration that works</text>
-        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7d8890">every other point: a way it fails, mostly untested</text>
+        <circle cx="358" cy="119" r="7.5" fill="#9cc48a"/>
+        <circle cx="358" cy="119" r="15" fill="none" stroke="#9cc48a" stroke-width="1.5" opacity=".55"/>
+        <line x1="358" y1="136" x2="358" y2="176" stroke="#9cc48a" stroke-width="1.3" stroke-dasharray="3 3"/>
+        <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9cc48a">one configuration that works</text>
+        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#98a2a8">every other point: a way it fails, mostly untested</text>
       </svg>
       <figcaption>Building means finding the green dot. Proving safety means ruling out every grey one, including those nobody imagined. A single missed point can be the one that matters.</figcaption>
     </figure>
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
         <line x1="52" y1="28" x2="52" y2="188" stroke="#c3c9cd"/>
         <line x1="52" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
         <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
-        <path d="M52,64 L160,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#0d726e" stroke-width="2.8"/>
+        <path d="M52,64 L160,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#3fd0c9" stroke-width="2.8"/>
         <path d="M52,66 L160,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
-        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#0d726e">what it shows</text>
+        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#3fd0c9">what it shows</text>
         <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">what it holds</text>
         <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
-        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">capable enough to model the observer</text>
+        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable enough to model the observer</text>
         <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
         <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
         <text x="52" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
@@ -2954,26 +2991,26 @@ refusal training</text>
     <div class="body rv">
       <figure class="secfig rv">
       <svg viewBox="0 0 720 266" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">HOW WE MADE EVERYTHING ELSE SAFE</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">HOW WE MADE EVERYTHING ELSE SAFE</text>
         <defs>
-          <marker id="lo0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5b6b9e"/></marker>
+          <marker id="lo0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8fa2d8"/></marker>
           <marker id="lo1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker>
           <marker id="lo2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a98a4b"/></marker>
           <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker>
         </defs>
-        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Cars</text>
-        <circle cx="150" cy="52" r="5.5" fill="#5b6b9e"/>
-        <path d="M157,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
-        <path d="M157,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
-        <circle cx="208" cy="52" r="5.5" fill="#5b6b9e"/>
-        <path d="M215,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
-        <path d="M215,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
-        <circle cx="266" cy="52" r="5.5" fill="#5b6b9e"/>
-        <path d="M273,50 q22,-17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.6" marker-end="url(#lo0)"/>
-        <path d="M273,54 q22,17 44,0" fill="none" stroke="#5b6b9e" stroke-width="1.3" opacity=".35"/>
-        <circle cx="324" cy="52" r="5.5" fill="#5b6b9e"/>
-        <text x="392" y="56" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b6b9e">safe, eventually</text>
-        <text x="0" y="102" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Aviation</text>
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Cars</text>
+        <circle cx="150" cy="52" r="5.5" fill="#8fa2d8"/>
+        <path d="M157,50 q22,-17 44,0" fill="none" stroke="#8fa2d8" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M157,54 q22,17 44,0" fill="none" stroke="#8fa2d8" stroke-width="1.3" opacity=".35"/>
+        <circle cx="208" cy="52" r="5.5" fill="#8fa2d8"/>
+        <path d="M215,50 q22,-17 44,0" fill="none" stroke="#8fa2d8" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M215,54 q22,17 44,0" fill="none" stroke="#8fa2d8" stroke-width="1.3" opacity=".35"/>
+        <circle cx="266" cy="52" r="5.5" fill="#8fa2d8"/>
+        <path d="M273,50 q22,-17 44,0" fill="none" stroke="#8fa2d8" stroke-width="1.6" marker-end="url(#lo0)"/>
+        <path d="M273,54 q22,17 44,0" fill="none" stroke="#8fa2d8" stroke-width="1.3" opacity=".35"/>
+        <circle cx="324" cy="52" r="5.5" fill="#8fa2d8"/>
+        <text x="392" y="56" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8fa2d8">safe, eventually</text>
+        <text x="0" y="102" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Aviation</text>
         <circle cx="150" cy="98" r="5.5" fill="#6f8a63"/>
         <path d="M157,96 q22,-17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#lo1)"/>
         <path d="M157,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
@@ -2985,7 +3022,7 @@ refusal training</text>
         <path d="M273,100 q22,17 44,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
         <circle cx="324" cy="98" r="5.5" fill="#6f8a63"/>
         <text x="392" y="102" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">safe, eventually</text>
-        <text x="0" y="148" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Nuclear power</text>
+        <text x="0" y="148" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Nuclear power</text>
         <circle cx="150" cy="144" r="5.5" fill="#a98a4b"/>
         <path d="M157,142 q22,-17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#lo2)"/>
         <path d="M157,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
@@ -2997,13 +3034,13 @@ refusal training</text>
         <path d="M273,146 q22,17 44,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
         <circle cx="324" cy="144" r="5.5" fill="#a98a4b"/>
         <text x="392" y="148" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a98a4b">safe, eventually</text>
-        <line x1="0" y1="178" x2="720" y2="178" stroke="#e0dbd4"/>
+        <line x1="0" y1="178" x2="720" y2="178" stroke="#333c44"/>
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">AGI and ASI</text>
         <circle cx="150" cy="208" r="5.5" fill="#b5654d"/>
         <path d="M158,208 L498,208" stroke="#b5654d" stroke-width="2.6" marker-end="url(#ax)"/>
-        <rect x="512" y="182" width="9" height="52" rx="2.5" fill="#2c2926"/>
-        <text x="534" y="204" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">first serious</text>
-        <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#2c2926">loss of control</text>
+        <rect x="512" y="182" width="9" height="52" rx="2.5" fill="#d5dbdf"/>
+        <text x="534" y="204" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">first serious</text>
+        <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">loss of control</text>
         <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Every safety discipline we have assumes a failure you survive and a second attempt.</text>
       </svg>
       <figcaption>Seatbelts came after crashes. Aviation built an entire discipline out of investigating wreckage. Each worked because the failure was survivable, local, and slow enough to study. The bottom row is the one with no return path.</figcaption>
@@ -3012,18 +3049,18 @@ refusal training</text>
       <p>The erosion is already measurable. METR tracks the length of task a frontier agent can complete on its own, and it has been <strong>doubling roughly every seven months</strong> since 2019. Agents that handled minute-long tasks now handle hours of work. METR notes its own suite can no longer reliably measure above sixteen.<a class="ref" href="#s44">44</a> Every doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took the machine a day to produce.</p>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 252" role="img" aria-label="Stacked area chart: the share of work reviewed by a person shrinks steadily as agents complete longer tasks.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">THE SHARE OF WORK A HUMAN STILL CHECKS</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SHARE OF WORK A HUMAN STILL CHECKS</text>
         <path d="M58,40 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,40 Z" fill="#b5654d" opacity=".22"/>
         <path d="M58,190 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,190 Z" fill="#6f8a63" opacity=".28"/>
         <path d="M58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166" fill="none" stroke="#6f8a63" stroke-width="2.4"/>
-        <line x1="58" y1="40" x2="58" y2="190" stroke="#c9c4bd"/>
-        <line x1="58" y1="190" x2="690" y2="190" stroke="#c9c4bd"/>
+        <line x1="58" y1="40" x2="58" y2="190" stroke="#39424a"/>
+        <line x1="58" y1="190" x2="690" y2="190" stroke="#39424a"/>
         <text x="72" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">Produced by agents,</text>
         <text x="72" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">not reviewed line by line</text>
         <text x="72" y="160" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">Reviewed</text>
         <text x="72" y="173" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">by a person</text>
-        <text x="58" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">short tasks, close supervision</text>
-        <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a847c">hours-long tasks, spot checks</text>
+        <text x="58" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">short tasks, close supervision</text>
+        <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">hours-long tasks, spot checks</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Oversight is not switched off. It is outrun.</text>
       </svg>
       <figcaption>The human side of the METR curve above. As the task an agent can finish alone gets longer, the share anyone reads falls. Nobody decides to stop supervising; supervision stops keeping up.</figcaption>
@@ -3047,32 +3084,32 @@ refusal training</text>
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 250" role="img" aria-label="Log-scale curve showing the length of task frontier AI agents can complete rising from under a minute in 2019 to hours by 2026.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">TASK LENGTH A FRONTIER AGENT CAN COMPLETE ALONE</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TASK LENGTH A FRONTIER AGENT CAN COMPLETE ALONE</text>
         <line x1="56" y1="34" x2="56" y2="214" stroke="#c3c9cd"/>
         <line x1="56" y1="214" x2="700" y2="214" stroke="#c3c9cd"/>
-        <line x1="56" y1="174" x2="700" y2="174" stroke="#eceef0"/>
+        <line x1="56" y1="174" x2="700" y2="174" stroke="#232b31"/>
         <text x="50" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 min</text>
-        <line x1="56" y1="122" x2="700" y2="122" stroke="#eceef0"/>
+        <line x1="56" y1="122" x2="700" y2="122" stroke="#232b31"/>
         <text x="50" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">10 min</text>
-        <line x1="56" y1="81" x2="700" y2="81" stroke="#eceef0"/>
+        <line x1="56" y1="81" x2="700" y2="81" stroke="#232b31"/>
         <text x="50" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 hr</text>
-        <line x1="56" y1="50" x2="700" y2="50" stroke="#eceef0"/>
+        <line x1="56" y1="50" x2="700" y2="50" stroke="#232b31"/>
         <text x="50" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">4 hr</text>
-        <path d="M60,201 L148,185 L236,164 L324,142 L412,118 L500,90 L588,66 L676,45" fill="none" stroke="#2233cc" stroke-width="2.6"/>
-        <circle cx="60" cy="201" r="3.4" fill="#2233cc"/>
-        <circle cx="148" cy="185" r="3.4" fill="#2233cc"/>
-        <circle cx="236" cy="164" r="3.4" fill="#2233cc"/>
-        <circle cx="324" cy="142" r="3.4" fill="#2233cc"/>
-        <circle cx="412" cy="118" r="3.4" fill="#2233cc"/>
-        <circle cx="500" cy="90" r="3.4" fill="#2233cc"/>
-        <circle cx="588" cy="66" r="3.4" fill="#2233cc"/>
-        <circle cx="676" cy="45" r="3.4" fill="#2233cc"/>
+        <path d="M60,201 L148,185 L236,164 L324,142 L412,118 L500,90 L588,66 L676,45" fill="none" stroke="#8d9dff" stroke-width="2.6"/>
+        <circle cx="60" cy="201" r="3.4" fill="#8d9dff"/>
+        <circle cx="148" cy="185" r="3.4" fill="#8d9dff"/>
+        <circle cx="236" cy="164" r="3.4" fill="#8d9dff"/>
+        <circle cx="324" cy="142" r="3.4" fill="#8d9dff"/>
+        <circle cx="412" cy="118" r="3.4" fill="#8d9dff"/>
+        <circle cx="500" cy="90" r="3.4" fill="#8d9dff"/>
+        <circle cx="588" cy="66" r="3.4" fill="#8d9dff"/>
+        <circle cx="676" cy="45" r="3.4" fill="#8d9dff"/>
         <text x="60" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2019</text>
         <text x="324" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2022</text>
         <text x="676" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2026</text>
         <path d="M676,45 L700,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
         <text x="700" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">if the trend holds</text>
-        <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#2233cc">doubling roughly every 7 months</text>
+        <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#8d9dff">doubling roughly every 7 months</text>
       </svg>
       <figcaption>This is measured rather than forecast. Each doubling moves a little more judgement from the person to the system, because nobody reviews line by line what took a machine a day to produce. METR notes its own suite can no longer measure reliably above sixteen hours.</figcaption>
       <p class="fig-src">Check the numbers: <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR, Task-Completion Time Horizons of Frontier AI Models</a> · full citation <a href="#s44">44</a></p>
@@ -3080,11 +3117,11 @@ refusal training</text>
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 210" role="img" aria-label="Bar comparison: a biological neuron fires at about 200 hertz; a processor runs above 5 gigahertz.">
-        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">THE SPEED GAP, ONCE REASONING QUALITY IS MATCHED</text>
-        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Biological neuron</text>
-        <rect x="0" y="62" width="4" height="26" fill="#0d726e"/>
-        <text x="14" y="82" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#0d726e">200 Hz</text>
-        <text x="0" y="126" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5b656d">Processor</text>
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SPEED GAP, ONCE REASONING QUALITY IS MATCHED</text>
+        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Biological neuron</text>
+        <rect x="0" y="62" width="4" height="26" fill="#3fd0c9"/>
+        <text x="14" y="82" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#3fd0c9">200 Hz</text>
+        <text x="0" y="126" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Processor</text>
         <rect x="0" y="134" width="700" height="26" fill="#bd3a20"/>
         <text x="690" y="152" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">5 GHz+</text>
         <text x="0" y="190" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Roughly ten million times faster. Our parallelism is why we are still ahead today.</text>
@@ -3128,23 +3165,23 @@ refusal training</text>
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="FOUR LAYERS, NONE OF THEM COMPLETE">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">FOUR LAYERS, NONE OF THEM COMPLETE</text>
-        <rect x="150" y="42" width="15" height="46" rx="3" fill="#2233cc"/>
-        <rect x="150" y="100" width="15" height="30" rx="3" fill="#2233cc" opacity=".5"/>
-        <rect x="150" y="142" width="15" height="48" rx="3" fill="#2233cc"/>
-        <text x="157" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#2233cc">Development</text>
-        <rect x="262" y="42" width="15" height="46" rx="3" fill="#0d726e"/>
-        <rect x="262" y="100" width="15" height="30" rx="3" fill="#0d726e" opacity=".5"/>
-        <rect x="262" y="142" width="15" height="48" rx="3" fill="#0d726e"/>
-        <text x="269" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#0d726e">Assessment</text>
-        <rect x="374" y="42" width="15" height="46" rx="3" fill="#a8690a"/>
-        <rect x="374" y="100" width="15" height="30" rx="3" fill="#a8690a" opacity=".5"/>
-        <rect x="374" y="142" width="15" height="48" rx="3" fill="#a8690a"/>
-        <text x="381" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a8690a">Control</text>
-        <rect x="486" y="42" width="15" height="46" rx="3" fill="#4a6a38"/>
-        <rect x="486" y="100" width="15" height="30" rx="3" fill="#4a6a38" opacity=".5"/>
-        <rect x="486" y="142" width="15" height="48" rx="3" fill="#4a6a38"/>
-        <text x="493" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#4a6a38">Governance</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">FOUR LAYERS, NONE OF THEM COMPLETE</text>
+        <rect x="150" y="42" width="15" height="46" rx="3" fill="#8d9dff"/>
+        <rect x="150" y="100" width="15" height="30" rx="3" fill="#8d9dff" opacity=".5"/>
+        <rect x="150" y="142" width="15" height="48" rx="3" fill="#8d9dff"/>
+        <text x="157" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#8d9dff">Development</text>
+        <rect x="262" y="42" width="15" height="46" rx="3" fill="#3fd0c9"/>
+        <rect x="262" y="100" width="15" height="30" rx="3" fill="#3fd0c9" opacity=".5"/>
+        <rect x="262" y="142" width="15" height="48" rx="3" fill="#3fd0c9"/>
+        <text x="269" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#3fd0c9">Assessment</text>
+        <rect x="374" y="42" width="15" height="46" rx="3" fill="#d9a445"/>
+        <rect x="374" y="100" width="15" height="30" rx="3" fill="#d9a445" opacity=".5"/>
+        <rect x="374" y="142" width="15" height="48" rx="3" fill="#d9a445"/>
+        <text x="381" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#d9a445">Control</text>
+        <rect x="486" y="42" width="15" height="46" rx="3" fill="#9cc48a"/>
+        <rect x="486" y="100" width="15" height="30" rx="3" fill="#9cc48a" opacity=".5"/>
+        <rect x="486" y="142" width="15" height="48" rx="3" fill="#9cc48a"/>
+        <text x="493" y="210" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#9cc48a">Governance</text>
         <text x="14" y="104" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">a misaligned system</text>
         <path d="M14,116 L146,116" stroke="#bd3a20" stroke-width="4"/>
         <path d="M167,116 L258,116" stroke="#bd3a20" stroke-width="3"/>
@@ -3155,7 +3192,7 @@ refusal training</text>
         <defs><marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bd3a20"/></marker></defs>
         <text x="700" y="104" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#bd3a20">residual risk</text>
         <text x="700" y="124" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">what gets through anyway</text>
-        <line x1="0" y1="232" x2="700" y2="232" stroke="#e2e5e7"/>
+        <line x1="0" y1="232" x2="700" y2="232" stroke="#2b343b"/>
         <text x="0" y="254" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Each layer is leaky, and none is verified. Four imperfect filters do not add up to a guarantee.</text>
       </svg>
       <figcaption>Defence in depth is the right shape. Every layer still leaks, and the leaks compound.</figcaption>
@@ -3165,41 +3202,41 @@ refusal training</text>
     <p class="rv" style="max-width:66ch;color:var(--ink-2);margin-bottom:4px">What each method achieves, then the limitation its own researchers would name. Several are genuinely useful. None is a solution.</p>
 <figure class="secfig rv">
       <svg viewBox="0 0 720 342" role="img" aria-label="Matrix showing engineering and policy levers for each of the four risk pillars, with the structural row having no engineering fix.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">TECHNICAL AND POLICY LEVERS, BY RISK PILLAR</text>
-        <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#5b6b9e">ENGINEERING LEVER</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TECHNICAL AND POLICY LEVERS, BY RISK PILLAR</text>
+        <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#8fa2d8">ENGINEERING LEVER</text>
         <text x="480" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">POLICY LEVER</text>
         <line x1="0" y1="50" x2="720" y2="50" stroke="#d9d4cd"/>
-        <rect x="0" y="64" width="4" height="46" rx="2" fill="#5b6b9e"/>
-        <text x="14" y="76" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">Misuse</text>
-        <text x="14" y="92" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">the user intends harm</text>
-        <text x="228" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Classifiers, unlearning,</text>
-        <text x="228" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">capability evaluations</text>
-        <text x="480" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Access control, KYC,</text>
-        <text x="480" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">export and compute rules</text>
+        <rect x="0" y="64" width="4" height="46" rx="2" fill="#8fa2d8"/>
+        <text x="14" y="76" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Misuse</text>
+        <text x="14" y="92" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the user intends harm</text>
+        <text x="228" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Classifiers, unlearning,</text>
+        <text x="228" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">capability evaluations</text>
+        <text x="480" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Access control, KYC,</text>
+        <text x="480" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">export and compute rules</text>
         <line x1="0" y1="118" x2="720" y2="118" stroke="#eae6e0"/>
         <rect x="0" y="126" width="4" height="46" rx="2" fill="#b5654d"/>
-        <text x="14" y="138" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">Misalignment</text>
-        <text x="14" y="154" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">the AI intends harm</text>
-        <text x="228" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Interpretability, CoT monitoring,</text>
-        <text x="228" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">scalable oversight, AI control</text>
-        <text x="480" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Capability thresholds,</text>
-        <text x="480" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">third-party audit, disclosure</text>
+        <text x="14" y="138" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Misalignment</text>
+        <text x="14" y="154" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the AI intends harm</text>
+        <text x="228" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Interpretability, CoT monitoring,</text>
+        <text x="228" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">scalable oversight, AI control</text>
+        <text x="480" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Capability thresholds,</text>
+        <text x="480" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">third-party audit, disclosure</text>
         <line x1="0" y1="180" x2="720" y2="180" stroke="#eae6e0"/>
         <rect x="0" y="188" width="4" height="46" rx="2" fill="#6f8a63"/>
-        <text x="14" y="200" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">Mistakes</text>
-        <text x="14" y="216" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">nobody intends harm</text>
-        <text x="228" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Red-teaming, sandboxing,</text>
-        <text x="228" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">staged deployment</text>
-        <text x="480" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Incident reporting,</text>
-        <text x="480" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">liability, safety cases</text>
+        <text x="14" y="200" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Mistakes</text>
+        <text x="14" y="216" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">nobody intends harm</text>
+        <text x="228" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Red-teaming, sandboxing,</text>
+        <text x="228" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">staged deployment</text>
+        <text x="480" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Incident reporting,</text>
+        <text x="480" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">liability, safety cases</text>
         <line x1="0" y1="242" x2="720" y2="242" stroke="#eae6e0"/>
         <rect x="0" y="250" width="4" height="46" rx="2" fill="#a98a4b"/>
-        <text x="14" y="262" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3a3630">Structural</text>
-        <text x="14" y="278" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a847c">the incentives do</text>
-        <text x="228" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Almost nothing. This pillar has</text>
-        <text x="228" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">no engineering fix</text>
-        <text x="480" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">Binding minimum standards,</text>
-        <text x="480" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#4f4a45">international coordination</text>
+        <text x="14" y="262" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Structural</text>
+        <text x="14" y="278" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the incentives do</text>
+        <text x="228" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Almost nothing. This pillar has</text>
+        <text x="228" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">no engineering fix</text>
+        <text x="480" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Binding minimum standards,</text>
+        <text x="480" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">international coordination</text>
         <line x1="0" y1="304" x2="720" y2="304" stroke="#eae6e0"/>
         <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">The bottom row is why technical alignment alone cannot finish the job.</text>
       </svg>
@@ -3207,7 +3244,7 @@ refusal training</text>
     </figure>
 
     <div class="tindex rv">
-      <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">Development</span></span></a>
+      <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">Development</span></span></a>
       <a class="tix" href="#lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><span><span class="tix-n">02</span><span class="tix-t">Assessment</span></span></a>
       <a class="tix" href="#lay-ctl" style="--acc:#a98a4b;--acc-t:#f8f2e6"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg><span><span class="tix-n">03</span><span class="tix-t">Control</span></span></a>
       <a class="tix" href="#lay-gov" style="--acc:#b5654d;--acc-t:#f6ece7"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#b5654d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M6 21h12"/><path d="M6 7h12"/><path d="M6 7l-3 6h6zM18 7l-3 6h6z"/></svg><span><span class="tix-n">04</span><span class="tix-t">Governance</span></span></a>
@@ -3241,10 +3278,10 @@ refusal training</text>
 
     <div class="tinv rv">
       <div class="tlayer" id="lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8">
-        <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><h4>01 &nbsp;Development</h4></div>
+        <div class="tlayer-h"><span class="tlh-i"><svg class="ticon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span><h4>01 &nbsp;Development</h4></div>
         <div class="tgrid">
         <div class="tcard" id="tc1">
-          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><p class="tn">Post-training alignment</p></div>
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><p class="tn">Post-training alignment</p></div>
           <span class="tverdict">Reduces misbehaviour</span>
           <p class="td tshort">RLHF, constitutional rules and deliberative alignment. Why assistants refuse harmful requests. Cut covert actions thirtyfold on o3.<a class="ref" href="#s43">43</a></p>
           <p class="td tlong">Trains the model against human or written-constitution feedback. This is why current assistants refuse harmful requests and behave civilly. OpenAI’s deliberative alignment cut covert actions roughly thirtyfold, from 13% to 0.4% on o3.<a class="ref" href="#s43">43</a></p>
@@ -3253,7 +3290,7 @@ refusal training</text>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
         <div class="tcard" id="tc2">
-          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l4.5-5 3.5 3.5L20 6"/><path d="M15 6h5v5"/><circle cx="7.5" cy="12" r="1.6"/></svg><p class="tn">Scalable oversight</p></div>
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l4.5-5 3.5 3.5L20 6"/><path d="M15 6h5v5"/><circle cx="7.5" cy="12" r="1.6"/></svg><p class="tn">Scalable oversight</p></div>
           <span class="tverdict">Research stage</span>
           <p class="td tshort">Debate, weak-to-strong generalisation and amplified oversight let weaker judges supervise stronger systems. Training routes into this work run through MATS and ARENA.<a class="ref" href="#s7">7</a></p>
           <p class="td tlong">Uses weaker judges or adversarial model pairs to supervise systems that are already too capable for direct human checking. Debate has helped weak judges extract truth from stronger, untrustworthy debaters.</p>
@@ -3262,7 +3299,7 @@ refusal training</text>
           <button type="button" class="tmore-btn" data-more="Read the detail" data-less="Show less">Read the detail</button>
         </div>
         <div class="tcard" id="tc3">
-          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#5b6b9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.5h16"/><path d="M8.5 14.5L14 9l4.5 4.5-4 4h-4.5z"/><path d="M11 6.5l3.5-3.5 4.5 4.5-3.5 3.5"/></svg><p class="tn">Unlearning</p></div>
+          <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17.5h16"/><path d="M8.5 14.5L14 9l4.5 4.5-4 4h-4.5z"/><path d="M11 6.5l3.5-3.5 4.5 4.5-3.5 3.5"/></svg><p class="tn">Unlearning</p></div>
           <span class="tverdict">Suppresses rather than removes</span>
           <p class="td tshort">Strips specific dangerous knowledge, such as bio or cyber uplift, out of a trained model.</p>
           <p class="td tlong">Attempts to strip specific dangerous knowledge, such as bioweapon or cyber uplift, out of a trained model.</p>
@@ -3389,28 +3426,28 @@ refusal training</text>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 258" role="img" aria-label="Three bars showing large reductions in jailbreak success and covert action rates, each with a visible non-zero remainder after mitigation.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHAT THE BEST RESULTS ACTUALLY ACHIEVED</text>
-        <text x="0" y="52" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Jailbreak success rate</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT THE BEST RESULTS ACTUALLY ACHIEVED</text>
+        <text x="0" y="52" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Jailbreak success rate</text>
         <rect x="250" y="39" width="400" height="13" rx="2" fill="#e4e0da"/>
-        <rect x="250" y="39" width="344.0" height="13" rx="2" fill="#5b6b9e" opacity=".45"/>
-        <rect x="250" y="39" width="17.6" height="13" rx="2" fill="#5b6b9e"/>
-        <text x="602" y="50" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">86% undefended</text>
-        <text x="250" y="74" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#5b6b9e">4.4% with constitutional classifiers</text>
-        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Covert action, o3</text>
+        <rect x="250" y="39" width="344.0" height="13" rx="2" fill="#8fa2d8" opacity=".45"/>
+        <rect x="250" y="39" width="17.6" height="13" rx="2" fill="#8fa2d8"/>
+        <text x="602" y="50" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">86% undefended</text>
+        <text x="250" y="74" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#8fa2d8">4.4% with constitutional classifiers</text>
+        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Covert action, o3</text>
         <rect x="250" y="95" width="400" height="13" rx="2" fill="#e4e0da"/>
         <rect x="250" y="95" width="52.0" height="13" rx="2" fill="#6f8a63" opacity=".45"/>
         <rect x="250" y="95" width="3.0" height="13" rx="2" fill="#6f8a63"/>
-        <text x="310" y="106" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">13% before</text>
+        <text x="310" y="106" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">13% before</text>
         <text x="250" y="130" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">0.4% after anti-scheming training</text>
-        <text x="0" y="164" font-family="IBM Plex Mono,monospace" font-size="11" fill="#5f5a54">Covert action, o4-mini</text>
+        <text x="0" y="164" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Covert action, o4-mini</text>
         <rect x="250" y="151" width="400" height="13" rx="2" fill="#e4e0da"/>
         <rect x="250" y="151" width="34.8" height="13" rx="2" fill="#a98a4b" opacity=".45"/>
         <rect x="250" y="151" width="3.0" height="13" rx="2" fill="#a98a4b"/>
-        <text x="293" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">8.7% before</text>
+        <text x="293" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">8.7% before</text>
         <text x="250" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#a98a4b">0.3% after anti-scheming training</text>
-        <line x1="0" y1="202" x2="720" y2="202" stroke="#e0dbd4"/>
+        <line x1="0" y1="202" x2="720" y2="202" stroke="#333c44"/>
         <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">None of these reach zero, and none is a solved problem.</text>
-        <text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">Pale bar: before mitigation. Solid bar: after. The solid bar is what is left.</text>
+        <text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">Pale bar: before mitigation. Solid bar: after. The solid bar is what is left.</text>
       </svg>
       <figcaption>These are the strongest published results available, and none of their authors calls the remainder small.</figcaption>
       <p class="fig-src">Check the numbers: <a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">Constitutional Classifiers</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">Anti-scheming training</a> · full citations <a href="#s52">52</a>, <a href="#s43">43</a></p>
@@ -3418,23 +3455,23 @@ refusal training</text>
 
     <figure class="secfig rv">
       <svg viewBox="0 0 720 346" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a847c">WHICH SAFEGUARDS SURVIVE THE THREE HARD CASES</text>
-        <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">the model knows</text>
-        <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">it is being tested</text>
-        <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">the model is smarter</text>
-        <text x="545" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">than what watches it</text>
-        <text x="660" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">the builder simply</text>
-        <text x="660" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6f6a63">opts out</text>
-        <rect x="0" y="73" width="4" height="18" rx="2" fill="#5b6b9e"/>
-        <text x="14" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Post-training alignment</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHICH SAFEGUARDS SURVIVE THE THREE HARD CASES</text>
+        <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">the model knows</text>
+        <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">it is being tested</text>
+        <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">the model is smarter</text>
+        <text x="545" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">than what watches it</text>
+        <text x="660" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">the builder simply</text>
+        <text x="660" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">opts out</text>
+        <rect x="0" y="73" width="4" height="18" rx="2" fill="#8fa2d8"/>
+        <text x="14" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">Post-training alignment</text>
         <circle cx="430" cy="82" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M426,78 l7,7 M433,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <circle cx="545" cy="82" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M541,78 l7,7 M548,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <circle cx="660" cy="82" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M656,78 l7,7 M663,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="103" width="4" height="18" rx="2" fill="#5b6b9e"/>
-        <text x="14" y="116" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Scalable oversight</text>
+        <rect x="0" y="103" width="4" height="18" rx="2" fill="#8fa2d8"/>
+        <text x="14" y="116" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">Scalable oversight</text>
         <circle cx="430" cy="112" r="8" fill="#a98a4b" opacity=".2"/>
         <path d="M426,112 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
         <circle cx="545" cy="112" r="8" fill="#b5654d" opacity=".16"/>
@@ -3442,7 +3479,7 @@ refusal training</text>
         <circle cx="660" cy="112" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M656,108 l7,7 M663,108 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <rect x="0" y="133" width="4" height="18" rx="2" fill="#6f8a63"/>
-        <text x="14" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Capability evaluations</text>
+        <text x="14" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">Capability evaluations</text>
         <circle cx="430" cy="142" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M426,138 l7,7 M433,138 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <circle cx="545" cy="142" r="8" fill="#a98a4b" opacity=".2"/>
@@ -3450,7 +3487,7 @@ refusal training</text>
         <circle cx="660" cy="142" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M656,138 l7,7 M663,138 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <rect x="0" y="163" width="4" height="18" rx="2" fill="#6f8a63"/>
-        <text x="14" y="176" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Interpretability</text>
+        <text x="14" y="176" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">Interpretability</text>
         <circle cx="430" cy="172" r="8" fill="#6f8a63" opacity=".18"/>
         <path d="M426,172 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="545" cy="172" r="8" fill="#a98a4b" opacity=".2"/>
@@ -3458,7 +3495,7 @@ refusal training</text>
         <circle cx="660" cy="172" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M656,168 l7,7 M663,168 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <rect x="0" y="193" width="4" height="18" rx="2" fill="#a98a4b"/>
-        <text x="14" y="206" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">AI control</text>
+        <text x="14" y="206" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">AI control</text>
         <circle cx="430" cy="202" r="8" fill="#6f8a63" opacity=".18"/>
         <path d="M426,202 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="545" cy="202" r="8" fill="#b5654d" opacity=".16"/>
@@ -3466,7 +3503,7 @@ refusal training</text>
         <circle cx="660" cy="202" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M656,198 l7,7 M663,198 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <rect x="0" y="223" width="4" height="18" rx="2" fill="#a98a4b"/>
-        <text x="14" y="236" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Classifiers, sandboxing</text>
+        <text x="14" y="236" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">Classifiers, sandboxing</text>
         <circle cx="430" cy="232" r="8" fill="#6f8a63" opacity=".18"/>
         <path d="M426,232 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="545" cy="232" r="8" fill="#a98a4b" opacity=".2"/>
@@ -3474,20 +3511,20 @@ refusal training</text>
         <circle cx="660" cy="232" r="8" fill="#b5654d" opacity=".16"/>
         <path d="M656,228 l7,7 M663,228 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
         <rect x="0" y="253" width="4" height="18" rx="2" fill="#b5654d"/>
-        <text x="14" y="266" font-family="IBM Plex Mono,monospace" font-size="11" fill="#4f4a45">Regulation</text>
+        <text x="14" y="266" font-family="IBM Plex Mono,monospace" font-size="11" fill="#b9c2c8">Regulation</text>
         <circle cx="430" cy="262" r="8" fill="#6f8a63" opacity=".18"/>
         <path d="M426,262 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="545" cy="262" r="8" fill="#6f8a63" opacity=".18"/>
         <path d="M541,262 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="660" cy="262" r="8" fill="#a98a4b" opacity=".2"/>
         <path d="M656,262 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-        <line x1="0" y1="282" x2="720" y2="282" stroke="#e0dbd4"/>
+        <line x1="0" y1="282" x2="720" y2="282" stroke="#333c44"/>
         <circle cx="6" cy="300" r="5.5" fill="#6f8a63" opacity=".22"/>
-        <text x="18" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">holds</text>
+        <text x="18" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">holds</text>
         <circle cx="78" cy="300" r="5.5" fill="#a98a4b" opacity=".22"/>
-        <text x="90" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">partly holds</text>
+        <text x="90" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">partly holds</text>
         <circle cx="193" cy="300" r="5.5" fill="#b5654d" opacity=".22"/>
-        <text x="205" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">fails</text>
+        <text x="205" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">fails</text>
         <text x="0" y="330" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Only the governance row survives a builder who declines to participate, and it is the least developed.</text>
       </svg>
       <figcaption>Read down a column: each pillar fails in a different way, and only some of them have anyone assigned to them.</figcaption>
@@ -3503,39 +3540,39 @@ refusal training</text>
       <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Who works on which layer</h3>
       <figure class="secfig rv" style="margin-top:8px">
       <svg viewBox="0 0 720 300" role="img" aria-label="Matrix of eight organisations against the four layers, Development, Assessment, Control, Governance, marked with filled dots for a primary focus and faint dots for a secondary one.">
-        <text x="248" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#5b6b9e">DEV</text>
+        <text x="248" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">DEV</text>
         <text x="368" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#6f8a63">ASSESS</text>
         <text x="488" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#a98a4b">CONTROL</text>
         <text x="608" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#b5654d">GOVERN</text>
-        <line x1="0" y1="32" x2="720" y2="32" stroke="#e2e5e7"/>
+        <line x1="0" y1="32" x2="720" y2="32" stroke="#2b343b"/>
 
-        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">Lab safety teams</text>
-        <circle cx="248" cy="52" r="6.5" fill="#5b6b9e"/><circle cx="368" cy="52" r="6.5" fill="#6f8a63" opacity=".3"/><circle cx="488" cy="52" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="52" r="6.5" fill="#b5654d" opacity=".3"/>
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">Lab safety teams</text>
+        <circle cx="248" cy="52" r="6.5" fill="#8fa2d8"/><circle cx="368" cy="52" r="6.5" fill="#6f8a63" opacity=".3"/><circle cx="488" cy="52" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="52" r="6.5" fill="#b5654d" opacity=".3"/>
 
-        <text x="0" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">MATS / ARENA</text>
-        <circle cx="248" cy="82" r="6.5" fill="#5b6b9e"/><circle cx="368" cy="82" r="6.5" fill="#6f8a63" opacity=".3"/>
+        <text x="0" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">MATS / ARENA</text>
+        <circle cx="248" cy="82" r="6.5" fill="#8fa2d8"/><circle cx="368" cy="82" r="6.5" fill="#6f8a63" opacity=".3"/>
 
-        <text x="0" y="116" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">UK AISI</text>
-        <circle cx="248" cy="112" r="6.5" fill="#5b6b9e" opacity=".3"/><circle cx="368" cy="112" r="6.5" fill="#6f8a63"/><circle cx="488" cy="112" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="112" r="6.5" fill="#b5654d"/>
+        <text x="0" y="116" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">UK AISI</text>
+        <circle cx="248" cy="112" r="6.5" fill="#8fa2d8" opacity=".3"/><circle cx="368" cy="112" r="6.5" fill="#6f8a63"/><circle cx="488" cy="112" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="112" r="6.5" fill="#b5654d"/>
 
-        <text x="0" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">US CAISI</text>
+        <text x="0" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">US CAISI</text>
         <circle cx="368" cy="142" r="6.5" fill="#6f8a63"/><circle cx="488" cy="142" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="142" r="6.5" fill="#b5654d"/>
 
-        <text x="0" y="176" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">METR</text>
+        <text x="0" y="176" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">METR</text>
         <circle cx="368" cy="172" r="6.5" fill="#6f8a63"/><circle cx="608" cy="172" r="6.5" fill="#b5654d" opacity=".3"/>
 
-        <text x="0" y="206" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">Apollo Research</text>
-        <circle cx="248" cy="202" r="6.5" fill="#5b6b9e" opacity=".3"/><circle cx="368" cy="202" r="6.5" fill="#6f8a63"/><circle cx="608" cy="202" r="6.5" fill="#b5654d" opacity=".3"/>
+        <text x="0" y="206" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">Apollo Research</text>
+        <circle cx="248" cy="202" r="6.5" fill="#8fa2d8" opacity=".3"/><circle cx="368" cy="202" r="6.5" fill="#6f8a63"/><circle cx="608" cy="202" r="6.5" fill="#b5654d" opacity=".3"/>
 
-        <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">Redwood Research</text>
-        <circle cx="248" cy="232" r="6.5" fill="#5b6b9e" opacity=".3"/><circle cx="488" cy="232" r="6.5" fill="#a98a4b"/>
+        <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">Redwood Research</text>
+        <circle cx="248" cy="232" r="6.5" fill="#8fa2d8" opacity=".3"/><circle cx="488" cy="232" r="6.5" fill="#a98a4b"/>
 
-        <text x="0" y="266" font-family="IBM Plex Mono,monospace" font-size="11" fill="#3a444c">EU AI Act</text>
+        <text x="0" y="266" font-family="IBM Plex Mono,monospace" font-size="11" fill="#c3ccd2">EU AI Act</text>
         <circle cx="368" cy="262" r="6.5" fill="#6f8a63" opacity=".3"/><circle cx="488" cy="262" r="6.5" fill="#a98a4b"/><circle cx="608" cy="262" r="6.5" fill="#b5654d"/>
 
-        <line x1="0" y1="280" x2="720" y2="280" stroke="#e2e5e7"/>
-        <circle cx="6" cy="294" r="5.5" fill="#5b6b9e"/><text x="18" y="298" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">primary focus</text>
-        <circle cx="118" cy="294" r="5.5" fill="#5b6b9e" opacity=".3"/><text x="130" y="298" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">secondary focus</text>
+        <line x1="0" y1="280" x2="720" y2="280" stroke="#2b343b"/>
+        <circle cx="6" cy="294" r="5.5" fill="#8fa2d8"/><text x="18" y="298" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">primary focus</text>
+        <circle cx="118" cy="294" r="5.5" fill="#8fa2d8" opacity=".3"/><text x="130" y="298" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">secondary focus</text>
       </svg>
       <figcaption>A rough classification by this page, offered for orientation. These organisations have not described themselves this way.</figcaption>
     </figure>
@@ -3935,6 +3972,8 @@ refusal training</text>
         <li id="s28" value="28">AI Incident Database: <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener">incidentdatabase.ai</a></li>
         <li id="s29" value="29">Stanford AI Index: <a href="https://aiindex.stanford.edu/" target="_blank" rel="noopener">aiindex.stanford.edu</a></li>
         <li id="s30" value="30">AI 2027 scenario: <a href="https://ai-2027.com/" target="_blank" rel="noopener">ai-2027.com</a></li>
+        <li id="s64" value="64">Grace, Stewart, Sandkühler, Thomas, Weinstein-Raun &amp; Brauner, Thousands of AI Authors on the Future of AI (January 2024). Surveyed 2,778 researchers published in top-tier AI venues; aggregate forecast gives unaided machines outperforming humans on every task a 10% chance by 2027 and 50% by 2047, down thirteen years from 2060 in the 2022 survey: <a href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf" target="_blank" rel="noopener">aiimpacts.org</a></li>
+        <li id="s65" value="65">80,000 Hours, Shrinking AGI timelines: a review of expert forecasts (March 2025), collecting the Metaculus community forecast (25% by 2029, 50% by 2033), superforecaster estimates, and public statements from AI company leaders: <a href="https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/" target="_blank" rel="noopener">80000hours.org</a></li>
         <li id="s31" value="31">Import AI: <a href="https://importai.substack.com/" target="_blank" rel="noopener">importai.substack.com</a></li>
         <li id="s32" value="32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
         <li id="s48" value="48">David Braue, 1,200 AI agents went rogue inside OpenAI, Information Age / Australian Computer Society (1 Sept 2026): <a href="https://ia.acs.org.au/article/2026/1-200-ai-agents-went-rogue-inside-openai.html" target="_blank" rel="noopener">ia.acs.org.au</a></li>
