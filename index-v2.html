@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AGI &amp; ASI Safety: the hardest problem we have</title>
+<title>AGI &amp; ASI Safety: the hardest problem humanity has yet to solve</title>
 <meta name="description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">
-<meta property="og:title" content="AGI &amp; ASI Safety: the hardest problem we have">
+<meta property="og:title" content="AGI &amp; ASI Safety: the hardest problem humanity has yet to solve">
 <meta property="og:description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="og-image.png">
+<meta property="og:image" content="https://safeagi.ca/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="og-image.png">
+<meta name="twitter:image" content="https://safeagi.ca/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -438,6 +438,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;border-radius:999px;padding:8px 14px;
   cursor:pointer;transition:.15s;display:inline-flex;align-items:baseline;gap:7px}
 .mh-rbtn b{font-weight:700;color:#9cc48a}
+.mh-rlink{text-decoration:none;border-style:dashed}
+.mh-rlink:hover{border-color:#dfe5e9}
 .mh-rbtn:hover{border-color:#dfe5e9}
 .mh-rbtn.on{background:#9cc48a;border-color:#9cc48a;color:#12161a}
 .mh-rbtn.on b{color:#12161a}
@@ -742,15 +744,20 @@ html{overflow-x:hidden}
 .routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
 .routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
 .routes-sub{font-size:14.5px;line-height:1.55;color:#9aa5ac;margin:0 0 16px;max-width:64ch}
-.route-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.route-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:1000px){.route-btns{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.route-btns{grid-template-columns:1fr}}
+.rtier{text-decoration:none;border-style:dashed}
+.rtier .rbn{color:#dfe5e9}
+.rtier:hover{border-color:#9cc48a;background:rgba(255,255,255,.07)}
 @media(max-width:640px){.route-btns{grid-template-columns:1fr}}
-.rbtn{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
+.rbtn,.rtier{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
   padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
-.rbtn:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
+.rbtn,.rtier:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
 .rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
-.rbtn .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
-.rbtn .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
-.rbtn .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
+.rbtn .rbn,.rtier .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
+.rbtn .rbm,.rtier .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
+.rbtn .rbd,.rtier .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
 /* collapsed (off-route) chapters */
 .offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
 .offroute .sec-head .stand{display:none}
@@ -830,6 +837,9 @@ html{overflow-x:hidden}
 .cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(30px,6.4vw,60px);max-width:18ch;margin:0 0 22px}
 .cross .big em{font-style:normal;color:#ff8a6b}
+.cross-hero{position:relative}
+.cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
+@media(max-width:900px){.cross-brain{display:none}}
 .cross .stand{font-size:clamp(18px,1.1rem+.4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
 .cross .stand strong{color:#fff;font-weight:500}
 
@@ -994,6 +1004,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .gh-card .bar i{display:block;height:6px;max-width:100%;border-radius:99px;transition:width .12s linear}
 .gh-card.proxy .bar i{background:var(--glow-b)}
 .gh-card.real .bar i{background:var(--glow-t)}
+
+/* ---------- place-your-bets ---------- */
+.bet{background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--c-act);
+  border-radius:var(--r);padding:clamp(18px,2.8vw,28px);margin:clamp(20px,3vw,30px) 0}
+.bet-q{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 16px}
+.bet label{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;
+  align-items:baseline;gap:12px;margin-bottom:10px}
+.bet label b{font-family:var(--display);font-size:clamp(19px,2.6vw,24px);font-weight:900;
+  letter-spacing:-.02em;color:var(--ink);text-transform:none}
+.bet .filters{margin-top:16px}
 
 /* ---------- orthogonality ---------- */
 .orth-wrap{display:grid;grid-template-columns:1fr .82fr;gap:clamp(18px,3vw,40px);align-items:center}
@@ -1217,6 +1238,30 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   text-transform:uppercase;background:var(--paper);color:var(--ink);padding:13px 22px;border-radius:2px;text-decoration:none;margin-top:8px;transition:.16s}
 .btn:hover{transform:translateY(-2px);color:var(--ink)}
 
+/* ---------- what can be done ---------- */
+.cando-lead{max-width:70ch;margin-bottom:clamp(20px,3vw,28px)}
+.cando-block{margin:clamp(28px,4vw,44px) 0 0}
+.cando-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft)}
+.cando-h .ch-n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c-act)}
+.cando-h h3{margin:0;font-size:clamp(19px,2.5vw,24px)}
+.cando-h .ch-w{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+.jur{display:none;grid-template-columns:1fr 1fr;gap:14px}
+.jur.on{display:grid}
+@media(max-width:760px){.jur.on{grid-template-columns:1fr}}
+.jur-status,.jur-ask{border:1px solid var(--rule-soft);border-radius:var(--r);padding:18px}
+.jur-status{background:var(--paper-2)}
+.jur-ask{background:var(--white);border-top:3px solid var(--c-act)}
+.jur-status .k,.jur-ask .k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px;color:var(--ink-3)}
+.jur-ask .k{color:var(--c-act)}
+.jur-status p,.jur-ask p{margin:0;font-size:14.5px;line-height:1.6}
+.cando-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.cando-cols{grid-template-columns:1fr}}
+.actlist{list-style:none;margin:0;padding:0}
+.actlist li{padding:11px 0;border-bottom:1px solid var(--rule-soft);font-size:14.5px;line-height:1.6}
+.actlist li:last-child{border-bottom:0}
+.actlist b{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-act);margin-bottom:5px}
+.asof{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:18px}
+
 /* ---------- glossary ---------- */
 
 /* ---------- about ---------- */
@@ -1238,7 +1283,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .startlist li b{font-family:var(--mono);font-weight:600;color:var(--ink)}
 #sources li{margin-bottom:10px;break-inside:avoid;color:var(--ink-2)}
 #sources li a{word-break:break-word}
-footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.75}
+footer p{max-width:82ch;margin:0}
 
 #toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
   background:var(--ink);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
@@ -1257,19 +1303,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
 </style>
-  <link rel="canonical" href="https://safeagi.ca/index.html">
-  <link rel="alternate" hreflang="en" href="https://safeagi.ca/index.html">
-  <link rel="alternate" hreflang="zh-Hans" href="https://safeagi.ca/index-zh.html">
-  <link rel="alternate" hreflang="x-default" href="https://safeagi.ca/index.html">
-  <meta property="og:url" content="https://safeagi.ca/index.html">
+  <link rel="canonical" href="https://safeagi.ca/">
+  <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://safeagi.ca/index-zh">
+  <link rel="alternate" hreflang="x-default" href="https://safeagi.ca/">
+  <meta property="og:url" content="https://safeagi.ca/">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="AGI &amp; ASI Safety">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="theme-color" content="#12161a">
   <meta name="author" content="Bill Guan">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
  "@context": "https://schema.org",
  "@graph": [
   {
@@ -1281,7 +1326,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   },
   {
    "@type": "Article",
-   "@id": "https://safeagi.ca/index.html#article",
+   "@id": "https://safeagi.ca/#article",
    "isPartOf": {
     "@id": "https://safeagi.ca/#website"
    },
@@ -1290,14 +1335,25 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    "inLanguage": "en",
    "author": {
     "@type": "Person",
-    "name": "Bill Guan"
+    "name": "Bill Guan",
+    "url": "https://www.linkedin.com/in/billguan",
+    "sameAs": [
+     "https://www.linkedin.com/in/billguan",
+     "https://github.com/billguan1/AGI-Safety-Education"
+    ]
    },
    "publisher": {
     "@type": "Person",
-    "name": "Bill Guan"
+    "name": "Bill Guan",
+    "url": "https://www.linkedin.com/in/billguan",
+    "sameAs": [
+     "https://www.linkedin.com/in/billguan",
+     "https://github.com/billguan1/AGI-Safety-Education"
+    ]
    },
    "image": "https://safeagi.ca/og-image.png",
-   "dateModified": "2026-09-04",
+   "datePublished": "2026-09-01",
+   "dateModified": "2026-09-07",
    "about": [
     {
      "@type": "Thing",
@@ -1316,18 +1372,18 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "AI alignment"
     }
    ],
-   "mainEntityOfPage": "https://safeagi.ca/index.html"
+   "mainEntityOfPage": "https://safeagi.ca/"
   },
   {
    "@type": "FAQPage",
-   "@id": "https://safeagi.ca/index.html#faq",
+   "@id": "https://safeagi.ca/#faq",
    "mainEntity": [
     {
      "@type": "Question",
      "name": "Isn't this just science fiction?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.3736"
+      "text": "The concern is narrower and more boring than the films. It is not about robots deciding to hate us. It is that we train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they actually learned. The failures on this page, models cheating their tests and faking compliance, are documented in real systems today rather than imagined."
      }
     },
     {
@@ -1335,7 +1391,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "Can't we just switch it off if it misbehaves?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.3420"
+      "text": "That is exactly the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default."
      }
     },
     {
@@ -1343,7 +1399,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "Won't a smart enough AI just understand what we want?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was actually trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis.34"
+      "text": "Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was actually trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis."
      }
     },
     {
@@ -1359,7 +1415,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "What is \"alignment\", exactly?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Getting a system to actually pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training).25"
+      "text": "Getting a system to actually pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training)."
      }
     },
     {
@@ -1367,7 +1423,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "What are \"interpretability\", \"evals\", and \"AI control\"?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Interpretability reads a model's internal computation to see why it acted, the closest thing to opening the box.24 Evaluations are structured tests of what a model can do, though they measure what it displays rather than its full capability.19 AI control assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.20"
+      "text": "Interpretability reads a model's internal computation to see why it acted, the closest thing to opening the box. Evaluations are structured tests of what a model can do, though they measure what it displays rather than its full capability. AI control assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm."
      }
     },
     {
@@ -1375,7 +1431,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
      "name": "If it is this risky, why is anyone building it?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is precisely what makes it a coordination problem that no single careful actor can fix. That is the deep dive on the race.1"
+      "text": "Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is precisely what makes it a coordination problem that no single careful actor can fix. That is the deep dive on the race."
      }
     },
     {
@@ -1389,8 +1445,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
    ]
   }
  ]
-}
-</script>
+}</script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -1402,11 +1457,11 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
   <div class="bar-in">
     <a class="brand" href="#top">AGI &amp; ASI Safety <b>/</b> the hardest problem humanity has yet to solve</a>
     <div class="bar-actions">
-      <a class="hbtn hbtn-lang" href="index-zh.html" hreflang="zh-Hans">中文</a>
+      <a class="hbtn hbtn-lang" href="/index-zh" hreflang="zh-Hans">中文</a>
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>Share</span></button>
       <a class="hbtn hbtn-act" href="#ask"><span>Act now</span></a>
-      <a class="hbtn header-game" href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">
+      <a class="hbtn header-game" href="https://game.safeagi.ca/" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>Learn AGI &amp; ASI safety by playing a game</span></a>
     </div>
   </div>
@@ -1414,36 +1469,45 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <div class="posmeter" id="posmeter" aria-live="off"></div>
     <ul class="nav-groups">
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">The situation <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">Learn <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">The crossroads</a></li>
+          <li><a href="#brief">The argument in brief</a></li>
+          <li><a href="#why-intelligence">Why intelligence always wins</a></li>
+          <li><a href="#why-irresistible">Why we cannot look away</a></li>
+          <li><a href="#why-race">Why the race is the danger</a></li>
+          <li><a href="#why-human-misalignment">Why we disagree about values</a></li>
+          <li><a href="#why-translation">Why our values do not transfer</a></li>
+          <li><a href="#why-safety-hard">Why safety is harder than capability</a></li>
+          <li><a href="#why-one-try">Why there is no second attempt</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">Why it's hard <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">Evidence <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#why-intelligence">1 · Intelligence wins</a></li>
-          <li><a href="#why-irresistible">2 · The prize</a></li>
-          <li><a href="#why-race">3 · The race</a></li>
-          <li><a href="#why-human-misalignment">4 · We disagree</a></li>
-          <li><a href="#why-translation">5 · Translation</a></li>
-          <li><a href="#why-safety-hard">6 · Safety is hard</a></li>
-          <li><a href="#why-one-try">7 · Only one try</a></li>
+          <li><a href="#response">What the work looks like</a></li>
+          <li><a href="#change-my-mind">What would change this argument</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">What now <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">What can be done <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">The work so far</a></li>
-          <li><a href="#change-my-mind">What would change this</a></li>
-          <li><a href="#ask">Act now</a></li>
+          <li><a href="#ask">The ask</a></li>
+          <li><a href="#do">Governments, labs, researchers, you</a></li>
         </ul>
       </li>
       <li class="ng">
-        <button type="button" class="ng-top" aria-expanded="false">Reference <span class="ng-caret" aria-hidden="true">›</span></button>
+        <button type="button" class="ng-top" aria-expanded="false">Questions <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#faq">FAQ &amp; open questions</a></li>
+          <li><a href="#faq">FAQ and open disputes</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+        </ul>
+      </li>
+      <li class="ng">
+        <button type="button" class="ng-top" aria-expanded="false">Sources <span class="ng-caret" aria-hidden="true">›</span></button>
+        <ul class="ng-menu">
+          <li><a href="#resources">Courses and directories</a></li>
+          <li><a href="#sources">All sources</a></li>
         </ul>
       </li>
     </ul>
@@ -1475,15 +1539,15 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
     <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
     <p class="mh-sub">Human intelligence built the modern world. We are now building something greater than ourselves, and we cannot yet guarantee it stays on our side. This is a map of that problem, argued from first principles, and what to do about it.</p>
-      <p class="mh-def">A first-principles guide to why aligning superhuman AI with human survival is an unsolved technical and coordination problem, and what we must do about it.</p>
       <div class="mh-routes">
         <span class="mr-k">Read</span>
-        <button type="button" class="mh-rbtn" data-route="essentials"><b>6 min</b> essentials</button>
-        <button type="button" class="mh-rbtn" data-route="core"><b>18 min</b> core argument</button>
-        <button type="button" class="mh-rbtn on" data-route="full"><b>50 min</b> everything</button>
+        <a class="mh-rbtn mh-rlink" href="#brief"><b>90 sec</b> the argument</a>
+        <button type="button" class="mh-rbtn" data-route="essentials"><b>11 min</b> essentials</button>
+        <button type="button" class="mh-rbtn" data-route="core"><b>27 min</b> core argument</button>
+        <button type="button" class="mh-rbtn on" data-route="full"><b>49 min</b> everything</button>
       </div>
     <div class="mh-meta">
-      <span>AGI &amp; ASI safety</span><span>~50 min in full</span><span>Every claim sourced</span><span><a href="#glossary">Unfamiliar term? Glossary</a></span>
+      <span>AGI &amp; ASI safety</span><span>~49 min in full</span><span>Every claim sourced</span><span><a href="#glossary">Unfamiliar term? Glossary</a></span>
     </div>
   </div>
 </header>
@@ -1492,8 +1556,31 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 <section id="crossroads" class="cross">
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">Part 1</span><span class="pd-t">The situation</span></div>
-    <p class="eyebrow">Where we are <b class="rt-min">4 min</b></p>
-    <h2 class="big">We are about to do something <em>no species has ever done</em>: build a mind greater than our own.</h2>
+    <div class="cross-hero">
+      <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
+        <path d="M120,24 C140,20 158,24 172,36 C185,47 193,62 196,80 C199,98 195,115 184,129 C174,142 159,152 141,155 C131,157 123,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
+        <path d="M120,24 C100,20 82,24 68,36 C55,47 47,62 44,80 C41,98 45,115 56,129 C66,142 81,152 99,155 C109,157 117,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
+        <line x1="120" y1="24" x2="120" y2="152" stroke="#ff6a45" stroke-width="1.4" opacity=".5"/>
+        <path d="M111,152 L129,152 L123,178 L117,178 Z" fill="none" stroke="#ff6a45" stroke-width="2" opacity=".8"/>
+        <g stroke="#6d84ff" stroke-width="1.2" opacity=".85">
+          <line x1="120" y1="90" x2="95" y2="60"/>
+          <line x1="120" y1="90" x2="150" y2="60"/>
+          <line x1="120" y1="90" x2="75" y2="102"/>
+          <line x1="120" y1="90" x2="165" y2="102"/>
+          <line x1="95" y1="60" x2="75" y2="102"/>
+          <line x1="150" y1="60" x2="165" y2="102"/>
+        </g>
+        <g fill="#6d84ff">
+          <circle cx="120" cy="90" r="3.6"/>
+          <circle cx="95" cy="60" r="3"/>
+          <circle cx="150" cy="60" r="3"/>
+          <circle cx="75" cy="102" r="3"/>
+          <circle cx="165" cy="102" r="3"/>
+        </g>
+      </svg>
+      <p class="eyebrow">Where we are <b class="rt-min">4 min</b></p>
+      <h2 class="big">We are about to do something <em>no species has ever done</em>: build a mind greater than our own.</h2>
+    </div>
     <p class="stand">Every leap in our history was made by the smartest thing on the planet, and that thing was always us. We are now trying to end that streak on purpose. Soon the most capable intelligence on Earth will not be human at all. Two words for what is coming: <strong>AGI</strong>, a system matching humans across the board, and <strong>ASI</strong>, a superintelligence far beyond us. The first is the threshold. The second is what the first is expected to build, and quickly.</p>
 
     <div class="firsts">
@@ -1625,15 +1712,21 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <p class="routes-lead">You do not have to read all of this.</p>
         <p class="routes-sub">Pick how deep you want to go. Choosing a shorter route folds the other chapters down to their headline, and you can open any of them at any time. Nothing is hidden from you.</p>
         <div class="route-btns">
+          <a class="rtier" href="#brief">
+            <span class="rbm">90 seconds</span><span class="rbn">Why this matters</span>
+            <span class="rbd">The whole argument compressed to six lines, with nothing to read after it.</span></a>
           <button type="button" class="rbtn" data-route="essentials">
-            <span class="rbm">6 min</span><span class="rbn">The essentials</span>
-            <span class="rbd">The situation, and what to do about it. Enough to understand the argument and act on it.</span></button>
+            <span class="rbm">11 min</span><span class="rbn">The essential argument</span>
+            <span class="rbd">The situation and what to do about it. Enough to understand the case and act on it.</span></button>
           <button type="button" class="rbtn" data-route="core">
-            <span class="rbm">18 min</span><span class="rbn">The core argument</span>
-            <span class="rbd">Adds the three chapters that carry the weight: the race, why values do not transfer, and why there is no second attempt.</span></button>
+            <span class="rbm">27 min</span><span class="rbn">The strongest case</span>
+            <span class="rbd">Adds the three chapters carrying the weight: the race, why values do not transfer, and why there is no second attempt.</span></button>
           <button type="button" class="rbtn on" data-route="full">
-            <span class="rbm">35 min</span><span class="rbn">Everything</span>
+            <span class="rbm">49 min</span><span class="rbn">Evidence and objections</span>
             <span class="rbd">All seven chapters, the evidence, the open disputes, and the reference shelf.</span></button>
+          <a class="rtier" href="#sources">
+            <span class="rbm">2+ hours</span><span class="rbn">Primary sources</span>
+            <span class="rbd">Every source underneath every claim on this page, grouped by kind.</span></a>
         </div>
       </div>
 
@@ -1679,10 +1772,10 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">of o3 runs</text>
         <line x1="660" y1="196" x2="660" y2="29" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
         <circle cx="660" cy="20" r="6" fill="#ff8a6b"/>
-        <text text-anchor="end" x="660" y="14" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
-        <text x="660" y="30.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
-        <text x="660" y="48.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
-        <text x="660" y="60.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
+        <text text-anchor="end" x="648" y="14" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
+        <text x="648" y="30.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
+        <text x="648" y="48.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
+        <text x="648" y="60.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
         <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">the argument stays the same; the evidence keeps arriving</text>
         <text x="0" y="258" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">Each step is not a louder claim. It is the same claim, tested harder, and passing.</text>
       </svg>
@@ -1699,7 +1792,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         </div>
       </div>
 
-    <div class="core rv" style="margin-top:clamp(24px,3.6vw,36px)">
+    <div class="core rv" id="brief" style="margin-top:clamp(24px,3.6vw,36px)">
       <span class="ck">Before the seven chapters</span>
       <h4>The argument in brief</h4>
       <p>Each chapter ahead supplies evidence for one link below. None of them proves the next one alone. Together, they are why the field takes this seriously rather than treating it as settled.</p>
@@ -1762,6 +1855,17 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
     </figure>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Control has always flowed to the greater intelligence. We are betting the future on reversing that, on purpose, the first time we try.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Quick check before the next chapter: when a more capable intelligence arrives, what does this chapter say happens to the one below it?</p>
+      <div class="filters" id="recap-iw">
+        <button type="button" class="pbtn" data-p="0">It gets outvoted</button>
+        <button type="button" class="pbtn" data-p="1">It gets attacked</button>
+        <button type="button" class="pbtn" data-p="2">It gets bypassed</button>
+        <button type="button" class="pbtn" data-p="3">It adapts and pulls level</button>
+      </div>
+      <p class="note" id="recap-iw-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -1797,6 +1901,14 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
       </svg>
       <figcaption>This is the part that breaks every institution we have. Regulators, boards and treaties all run on human calendars. If a system closes the research loop on itself, the interval between noticing a problem and convening to discuss it is long enough for the thing you were going to discuss to have changed beyond recognition.</figcaption>
     </figure>
+
+      <div class="bet rv" id="bet-fund">
+        <p class="bet-q">Before the next chart, a bet. Roughly $100 billion is going into building advanced AI. How much do you think goes into public-sector AI safety research?</p>
+        <label for="bet-fund-in">Your guess <b id="bet-fund-val">$320 million</b></label>
+        <input type="range" id="bet-fund-in" min="0" max="100" value="50" aria-label="Your guess for public-sector AI safety research funding" aria-valuetext="320 million dollars">
+        <div class="filters"><button type="button" class="pbtn" id="bet-fund-go">Lock it in</button></div>
+        <p class="note" id="bet-fund-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+      </div>
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="Bar chart: about one hundred billion dollars going into building advanced AI against about ten million dollars of public-sector safety research.">
@@ -1901,6 +2013,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <button type="button" class="pbtn" data-r="3">Propose a joint industry pause</button>
       </div>
       <p class="note" id="race-scenario-out" role="status" aria-live="polite" style="margin-top:12px;min-height:4.5em"></p>
+      <p class="note rv" style="margin-top:18px">You made that call once, with the consequences spelled out for you. The <a href="https://game.safeagi.ca/" target="_blank" rel="noopener">ten-minute game</a> puts you in the seat for the whole run: same incentives, more turns, and the consequences arrive on their own. No signup.</p>
     </div>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>We are roped together and racing to the edge to see who jumps first. Nobody wins that race. The winner just falls first and pulls the rest of us along.</p></div>
@@ -2032,6 +2145,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
         <button type="button" class="pbtn" data-p="3">Nobody should get to</button>
       </div>
       <p class="note" id="predict-hm-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+      <p class="note rv" style="margin-top:18px">Four buttons cannot hold a real disagreement. <a href="/debate">Five conversations worth sitting through</a> takes five live disputes about advanced AI, argues each at its strongest on both sides, and asks you to vote before every verdict.</p>
     </div>
   </div>
 </section>
@@ -2245,6 +2359,17 @@ refusal training</text>
       </div>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Knowing what we want is the easy half. Getting a superhuman optimiser to actually want the same thing is the half nobody has solved.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Quick check: you trained a system on a measurable stand-in for what you want, and the score keeps climbing. What does this chapter say about the thing you actually wanted?</p>
+      <div class="filters" id="recap-vt">
+        <button type="button" class="pbtn" data-p="0">It is climbing too</button>
+        <button type="button" class="pbtn" data-p="1">The score cannot tell you, and past a point it is probably falling</button>
+        <button type="button" class="pbtn" data-p="2">It collapsed the moment training began</button>
+        <button type="button" class="pbtn" data-p="3">The score would drop and warn you</button>
+      </div>
+      <p class="note" id="recap-vt-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -2752,6 +2877,17 @@ refusal training</text>
 <p class="breaks"><b>What would defeat this</b>Interpretability matures enough to certify a system’s objectives, or evaluations become robust to a system that knows it is being evaluated.<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p>
 </div>
     <div class="keyline rv"><span class="kk">The takeaway</span><p>We are pouring resources into the easier problem and starving the harder one, while the harder one is the only thing standing between us and the cliff.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Quick check: why does this chapter call verifying a frontier system harder than building one?</p>
+      <div class="filters" id="recap-sh">
+        <button type="button" class="pbtn" data-p="0">Verification gets less funding</button>
+        <button type="button" class="pbtn" data-p="1">Building needs one working configuration; safety must rule out failure everywhere</button>
+        <button type="button" class="pbtn" data-p="2">Safety researchers get less compute</button>
+        <button type="button" class="pbtn" data-p="3">Regulators slow verification down</button>
+      </div>
+      <p class="note" id="recap-sh-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -2917,6 +3053,17 @@ refusal training</text>
       <p style="max-width:64ch;color:var(--ink-2)">We do not choose which of these we get, and we will likely only know which one it was in hindsight. That is the uncomfortable part: every plan that depends on reacting in time is a bet on the slow version, placed before the dice are thrown.</p>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Trial and error built every safe technology we have. It is exactly the method that does not work on something faster than us that we cannot switch off.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Last check: cars, aviation and nuclear power all became safe over time. What did that method depend on that this chapter argues may be missing here?</p>
+      <div class="filters" id="recap-ot">
+        <button type="button" class="pbtn" data-p="0">Stricter regulation from the start</button>
+        <button type="button" class="pbtn" data-p="1">A survivable first failure and time to react</button>
+        <button type="button" class="pbtn" data-p="2">Better engineering talent</button>
+        <button type="button" class="pbtn" data-p="3">Public pressure after accidents</button>
+      </div>
+      <p class="note" id="recap-ot-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -3384,11 +3531,86 @@ refusal training</text>
       <div class="first teal">
         <span class="fk">At the system level, second</span>
         <h3>Be willing to stop, and mean it</h3>
-        <p>Slowing down is the easy version of this ask. Here is the hard one. <strong>It is entirely possible that aligning a superintelligence is not a hard problem but an impossible one.</strong> Nothing we know rules that out. We cannot specify our values, we cannot read a model’s goals, we cannot trust a test it may be gaming, and every one of those may turn out to have no solution rather than an unfound one. If that is the world we are in, then the only move that saves us is the one nobody wants to make: <strong>not building it at all.</strong> No pause. No slower race. Stopping. The cost of waiting is real. The cost of being wrong about this is not recoverable, and it is not ours alone to pay.</p>
+        <p>Slowing down is the easy version of this ask. Here is the hard one. <strong>It is entirely possible that aligning a superintelligence is not a hard problem but an impossible one.</strong> Nothing we know rules that out. We cannot specify our values, we cannot read a model’s goals, we cannot trust a test it may be gaming, and every one of those may turn out to have no solution rather than an unfound one. If that is the world we are in, then the only move that saves us is the one nobody wants to make: <strong>not building it at all.</strong> No pause. No slower race. Stopping. The cost of waiting is real. The cost of being wrong about this is not recoverable, and it is not ours alone to pay.</p><p style="margin-top:12px">Chapter 3 already showed that no lab can afford to stop while its rivals continue, and that is the point rather than an objection to it. A coordination problem is answered by coordination, so the ask is for rules that bind everyone at the same moment, which is what verifiable agreements and enforced red lines exist to do.</p>
       </div>
     </div>
 
     <div class="keyline rv"><span class="kk">The bar</span><p>We do not need proof that this ends badly. We need the honesty to admit the problem may have no solution, and the nerve to stop if it does.</p></div>
+
+  </div>
+</section>
+
+<!-- WHAT CAN BE DONE -->
+<section id="do" class="dd">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What can be done <b class="rt-min">5 min</b></p>
+      <h2>Knowing all of this changes nothing on its own. Here is what would.</h2>
+      <p class="stand cando-lead">Four groups can move this: governments, the labs building the systems, the researchers working on the problem, and everyone else. Each ask below is specific. Where a government's position is described, that description is what the public record says, and it is dated, because this area moves quickly enough that a stale summary is worse than none.</p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">Group 01</span><h3>What governments should do</h3><span class="ch-w">Pick a jurisdiction</span></div>
+      <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
+          <button type="button" class="pbtn on" data-j="us" role="tab" id="jtab-us" aria-selected="true" aria-controls="jpanel-us" tabindex="0">United States</button>
+          <button type="button" class="pbtn" data-j="cn" role="tab" id="jtab-cn" aria-selected="false" aria-controls="jpanel-cn" tabindex="-1">China</button>
+          <button type="button" class="pbtn" data-j="ca" role="tab" id="jtab-ca" aria-selected="false" aria-controls="jpanel-ca" tabindex="-1">Canada</button>
+          <button type="button" class="pbtn" data-j="eu" role="tab" id="jtab-eu" aria-selected="false" aria-controls="jpanel-eu" tabindex="-1">European Union</button>
+          <button type="button" class="pbtn" data-j="uk" role="tab" id="jtab-uk" aria-selected="false" aria-controls="jpanel-uk" tabindex="-1">United Kingdom</button>
+          <button type="button" class="pbtn" data-j="intl" role="tab" id="jtab-intl" aria-selected="false" aria-controls="jpanel-intl" tabindex="-1">International</button>
+      </div>
+        <div class="jur on" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us">
+          <div class="jur-status"><span class="k">Where it stands</span><p>There is no federal AI statute, and individual states have passed their own. Executive Order 14365, signed in December 2025, directs the Justice Department to challenge state AI laws in federal court, and the March 2026 National Policy Framework backs broad federal preemption.<a class="ref" href="#s58">58</a> Congress has not passed preemption legislation. Executive Order 14409, from June 2026, does order classified benchmarking of frontier models, though it scopes that to cyber capability and national security.<a class="ref" href="#s59">59</a></p></div>
+          <div class="jur-ask"><span class="k">The ask</span><p>Preemption removes a floor. If federal rules displace state ones, they have to be stronger than what they replace. An evaluation regime aimed only at cyber misuse also leaves the failure mode this site is about completely unaddressed, so a serious federal standard has to cover loss of control on its own terms.</p></div>
+        </div>
+        <div class="jur" data-j="cn" role="tabpanel" id="jpanel-cn" aria-labelledby="jtab-cn" aria-hidden="true">
+          <div class="jur-status"><span class="k">Where it stands</span><p>China has no single comprehensive AI statute either, and regulates through layered rules instead: the Algorithm Recommendations Provisions, the Deep Synthesis Provisions, and the Interim Measures for Generative AI Services in force since August 2023, with content labelling measures added in September 2025.<a class="ref" href="#s62">62</a> Its AI Safety Governance Framework 2.0, published by TC260 in September 2025, names loss of control directly alongside chemical, biological, radiological and nuclear misuse, which is more than the current US federal framing does on that specific risk.<a class="ref" href="#s61">61</a><a class="ref" href="#s63">63</a> That framework is guidance feeding binding technical standards rather than law in itself.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><p>Turn the framework’s loss-of-control language into binding pre-deployment requirements, and take it to the international table. Any red line that Washington and Beijing do not both accept is not actually a red line, which makes agreement between exactly these two the load-bearing part of every international proposal on this page.</p></div>
+        </div>
+        <div class="jur" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca" aria-hidden="true">
+          <div class="jur-status"><span class="k">Where it stands</span><p>Canada has no AI statute. The Artificial Intelligence and Data Act died on the order paper in January 2025, and no successor bill has been introduced since.<a class="ref" href="#s57">57</a> Frontier development here runs on a voluntary code of conduct, and the Canadian AI Safety Institute, created in November 2024, does evaluation work without statutory power to compel anything.<a class="ref" href="#s57">57</a></p></div>
+          <div class="jur-ask"><span class="k">The ask</span><p>Put binding obligations on frontier developers, and give the safety institute a legal mandate with pre-deployment access. A voluntary code binds the developers who volunteer, which is the wrong set of people when the concern is whoever moves fastest under competitive pressure.</p></div>
+        </div>
+        <div class="jur" data-j="eu" role="tabpanel" id="jpanel-eu" aria-labelledby="jtab-eu" aria-hidden="true">
+          <div class="jur-status"><span class="k">Where it stands</span><p>The AI Act is the only binding frontier regime currently in force. Obligations on general-purpose AI models took effect in August 2025, and the Commission's enforcement powers together with the Article 50 transparency duties began on 2 August 2026.<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a> A May 2026 Digital Omnibus agreement delayed and simplified parts of the Act while leaving those general-purpose duties and enforcement powers intact.<a class="ref" href="#s60">60</a></p></div>
+          <div class="jur-ask"><span class="k">The ask</span><p>Use the powers. The Act's value from here depends on whether the AI Office is willing to enforce against a major developer on an occasion when enforcing carries a real cost, and that is the open question rather than the text of the law.</p></div>
+        </div>
+        <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
+          <div class="jur-status"><span class="k">Where it stands</span><p>The AI Security Institute, renamed from Safety to Security in February 2025, runs the most substantial public frontier evaluation programme any government has, and it depends on labs choosing to cooperate.<a class="ref" href="#s11">11</a> A Frontier AI Bill that would put the institute on statutory footing and let it compel pre-deployment testing has been promised for 2026 and has not been introduced.<a class="ref" href="#s11">11</a></p></div>
+          <div class="jur-ask"><span class="k">The ask</span><p>Introduce the bill. An evaluator that can test only what it is granted access to is measuring how willing the labs are to be measured, and that is a different quantity from how safe the systems are.</p></div>
+        </div>
+        <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
+          <div class="jur-status"><span class="k">Where it stands</span><p>The Global Call for AI Red Lines, launched at the United Nations in September 2025 and signed by more than 300 public figures including Nobel laureates, along with over 90 organisations, asks states to agree binding limits on the highest-risk AI capabilities by the end of 2026.<a class="ref" href="#s56">56</a> The route runs through the AI Impact Summit in India, the UN Global Dialogue in Geneva, and then the General Assembly and the G20.<a class="ref" href="#s56">56</a></p></div>
+          <div class="jur-ask"><span class="k">The ask</span><p>This is the one deadline on this page that is already running. The date it names is the end of 2026, the agreement it refers to does not yet exist, and the coordination problem in chapter 3 is exactly what it is trying to solve.</p></div>
+        </div>
+      <p class="asof" data-asof="2026-09">Status current as of September 2026. Every claim above links to its source.</p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">Group 02</span><h3>What the labs should do</h3></div>
+      <div class="cando-cols">
+        <div class="ddc g"><span class="k">Immediate</span><h4>Things that need no new agreement</h4><p>Publish evaluation results before deployment rather than after it. Fund internal safety work in proportion to capability spend, and state what that ratio actually is. Honour your own scaling policy on the one occasion where honouring it costs you a release, because a commitment that has never been binding has never been tested.<a class="ref" href="#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">Near-term</span><h4>Things that need outside access</h4><p>Give external auditors enough access to check the claims, which means the internal evaluation record and the models themselves under appropriate control. Support interpretability tooling that someone outside the company can run, since a safety argument only a lab can verify is a safety argument nobody has verified.<a class="ref" href="#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">Red lines</span><h4>Things to rule out in advance</h4><p>No system able to meaningfully improve itself without external sign-off. No autonomous replication. No deployment of a model shown to behave differently when it detects that it is being evaluated, until that behaviour is understood, because every safety claim resting on a gameable test inherits the same flaw.<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
+      </div>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">Group 03</span><h3>What researchers should do</h3></div>
+      <p>The Singapore Consensus and the International AI Safety Report converge on a similar shortlist: interpretability that scales to frontier models, evaluations that stay valid against a system that knows it is being evaluated, control methods that hold as capability grows, and ways to specify goals precisely enough to check them against behaviour.<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a> The routes in are shorter than most people assume. ARENA and MATS take people from strong technical backgrounds into published safety work in months, and the 80,000 Hours problem profile is the standard starting point for choosing which part of it to work on.<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">Group 04</span><h3>What you can do</h3></div>
+      <ul class="actlist">
+        <li><b>Learn properly</b>BlueDot Impact runs free structured courses that take this from reading to competence, and AISafety.info answers the specific question you have without requiring a course first.<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></li>
+        <li><b>Say it out loud</b>Public opinion is not the obstacle here. A poll of 2,000 US adults in October 2025 found majority support for slowing frontier development down.<a class="ref" href="#s33">33</a> The position feels fringe mainly because so few people say it in public, which is a problem that resolves one conversation at a time.</li>
+        <li><b>Contact the person who represents you</b>In Canada, ask your MP why nothing replaced AIDA. In the UK, ask your MP when the Frontier AI Bill arrives. In the US, ask your representative about preemption and your state legislator about the state law it would displace, because that is where the live fight currently sits. In the EU, ask your MEP whether the AI Office is enforcing.</li>
+        <li><b>Back the organisations doing the work</b>The Future of Life Institute, the Center for AI Safety, and the red lines campaign all take signatures, volunteers and money, and all three publish what they do with them.<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></li>
+      </ul>
+    </div>
+
+    <div class="keyline rv"><span class="kk">The point</span><p>None of this requires believing the worst case is certain. It requires believing it is possible, which is the position the people building these systems already hold in public.</p></div>
 
   </div>
 </section>
@@ -3626,6 +3848,13 @@ refusal training</text>
         <li id="s12" value="12">Center for AI Standards and Innovation (CAISI), NIST: <a href="https://www.nist.gov/caisi" target="_blank" rel="noopener">nist.gov/caisi</a></li>
         <li id="s13" value="13">California SB 53, Transparency in Frontier Artificial Intelligence Act: <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53" target="_blank" rel="noopener">leginfo.legislature.ca.gov</a></li>
         <li id="s14" value="14">The Singapore Consensus on Global AI Safety Research Priorities: <a href="https://arxiv.org/abs/2506.20702" target="_blank" rel="noopener">arXiv:2506.20702</a></li>
+        <li id="s57" value="57">Canadian Artificial Intelligence Safety Institute, Innovation, Science and Economic Development Canada (AIDA died on the order paper January 2025; no successor bill introduced since): <a href="https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute" target="_blank" rel="noopener">ised-isde.canada.ca</a></li>
+        <li id="s58" value="58">Executive Order 14365, Ensuring a National Policy Framework for Artificial Intelligence, signed 11 December 2025: <a href="https://www.federalregister.gov/documents/2025/12/16/2025-23092/ensuring-a-national-policy-framework-for-artificial-intelligence" target="_blank" rel="noopener">federalregister.gov</a></li>
+        <li id="s59" value="59">Executive Order 14409, Promoting Advanced Artificial Intelligence Innovation and Security, signed 2 June 2026: <a href="https://www.federalregister.gov/documents/2026/06/05/2026-11415/promoting-advanced-artificial-intelligence-innovation-and-security" target="_blank" rel="noopener">federalregister.gov</a></li>
+        <li id="s60" value="60">EU AI Act implementation timeline, including the 2 August 2026 general application date: <a href="https://artificialintelligenceact.eu/implementation-timeline/" target="_blank" rel="noopener">artificialintelligenceact.eu</a></li>
+        <li id="s61" value="61">AI Safety Governance Framework 2.0, National Information Security Standardization Technical Committee (TC260), September 2025, which names loss of control and CBRN misuse directly: <a href="https://www.tc260.org.cn/" target="_blank" rel="noopener">tc260.org.cn</a></li>
+        <li id="s62" value="62">Interim Measures for the Management of Generative AI Services, Cyberspace Administration of China, in force August 2023: <a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" target="_blank" rel="noopener">cac.gov.cn</a></li>
+        <li id="s63" value="63">State of AI Safety in China, Concordia AI, an English-language tracker of Chinese AI governance developments: <a href="https://aisafetychina.com/" target="_blank" rel="noopener">aisafetychina.com</a></li>
       </ol>
 
       <p class="src-cat">Policy &amp; advocacy</p>
@@ -3635,6 +3864,7 @@ refusal training</text>
         <li id="s26" value="26">Statement on AI Risk (one sentence, signed by the major lab leaders), Center for AI Safety: <a href="https://www.safe.ai/work/statement-on-ai-risk" target="_blank" rel="noopener">safe.ai</a></li>
         <li id="s27" value="27">80,000 Hours problem profile on AI: <a href="https://80000hours.org/problem-profiles/artificial-intelligence/" target="_blank" rel="noopener">80000hours.org</a></li>
         <li id="s33" value="33">FLI press release and accompanying poll of 2,000 US adults, October 2025: <a href="https://futureoflife.org/press-release/prominent-scientists-faith-leaders-policymakers-and-artists-call-for-a-prohibition-on-superintelligence/" target="_blank" rel="noopener">futureoflife.org</a></li>
+        <li id="s56" value="56">Global Call for AI Red Lines, launched at the United Nations September 2025, signed by 300+ public figures and 90+ organisations: <a href="https://red-lines.ai/" target="_blank" rel="noopener">red-lines.ai</a></li>
       </ol>
 
       <p class="src-cat">Education &amp; courses</p>
@@ -3670,7 +3900,7 @@ refusal training</text>
     <div class="anthem-grid">
       <div class="anthem-act">
         <div class="joinbig compact rv">
-          <span class="sb-k">The most useful thing you can do</span>
+          <span class="sb-k">Stay in the loop</span>
           <h3>Join the community</h3>
           <p>New evidence as it lands, what changed in the argument. No hype, unsubscribe in one click.</p>
           <form class="jform" id="join-form" data-bad="That does not look like an email address." data-sending="Sending…" data-ok="You are on the list. Check your inbox to confirm." data-err="That did not go through. Try again shortly." action="/subscribe" method="post" novalidate>
@@ -3684,7 +3914,7 @@ refusal training</text>
           <p class="jnote">Roughly monthly. Used for this newsletter only.</p>
         </div>
         <ol class="beats compact rv" style="counter-reset:b;list-style:none;margin:18px 0 0">
-          <li><h3>Play the AGI &amp; ASI Safety Game</h3><p>Ten minutes, no signup. <a href="https://ai-safety-game.billguan1-c4f.workers.dev/" target="_blank" rel="noopener">Play it here</a>.</p></li>
+          <li><h3>Play the AGI &amp; ASI Safety Game</h3><p>Ten minutes, no signup. <a href="https://game.safeagi.ca/" target="_blank" rel="noopener">Play it here</a>.</p></li>
           <li><h3>Do the two-hour course</h3><p>BlueDot's <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a>, free, no background needed.<a class="ref" href="#s3">3</a></p></li>
           <li><h3>Add your name</h3><p>Sign the <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Statement on Superintelligence</a>.<a class="ref" href="#s2">2</a></p></li>
         </ol>
@@ -3717,7 +3947,6 @@ refusal training</text>
             <p>does not go quiet into the night.</p>
           </div>
         </div>
-        <p class="poem-sig">Original, for this page. Share it.</p>
       </div>
     </div>
   </div>
@@ -3730,12 +3959,12 @@ refusal training</text>
 </div>
 
 <footer><div class="wrap">
-  <p>Built and maintained by Bill Guan. Independent, unfunded, unaffiliated with anyone named here. Every claim links to a source. <a href="https://github.com" target="_blank" rel="noopener">Report a correction</a>.</p>
+  <p>I am Bill Guan, a lead product manager who wants to help steer us toward AI that stays safe. I am not an AI safety researcher, which is exactly why nothing on this page rests on my judgment: every factual claim links to a primary source, the page is independent with no affiliation to any organisation. If something here is incorrect, <a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">tell me</a> and I will fix it.</p>
   </div></footer>
 
 <script>
 var SITE_CONFIG = {
-  GAME_URL: "https://ai-safety-game.billguan1-c4f.workers.dev/", // AGI Safety Game deployment URL
+  GAME_URL: "https://game.safeagi.ca/", // AGI Safety Game deployment URL
   NEWS_FEED_ENDPOINT: null    // phase 2: Worker returning [{title,url,source,date}]
 };
 
@@ -3864,8 +4093,8 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The crossroads", "min": 4, "end": true}, {"id": "why-intelligence", "label": "Why intelligence always wins", "min": 2, "end": true}, {"id": "why-irresistible", "label": "Why we cannot look away", "min": 3, "end": true}, {"id": "why-race", "label": "Why the race is the danger", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "Why we disagree", "min": 2, "end": true}, {"id": "why-translation", "label": "Why values don't translate", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "Why safety is harder", "min": 5, "end": true}, {"id": "why-one-try", "label": "Why we only get one try", "min": 5, "end": true}, {"id": "response", "label": "What the work looks like", "min": 10, "end": true}, {"id": "change-my-mind", "label": "What would change this argument", "min": 2, "end": true}, {"id": "ask", "label": "Act now", "min": 2, "end": false, "act": true}];
-    var ROUTES = {"essentials": ["crossroads", "ask"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask"], "full": null};
+    var META = [{"id": "crossroads", "label": "The crossroads", "min": 4, "end": true}, {"id": "why-intelligence", "label": "Why intelligence always wins", "min": 2, "end": true}, {"id": "why-irresistible", "label": "Why we cannot look away", "min": 3, "end": true}, {"id": "why-race", "label": "Why the race is the danger", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "Why we disagree", "min": 2, "end": true}, {"id": "why-translation", "label": "Why values don't translate", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "Why safety is harder", "min": 5, "end": true}, {"id": "why-one-try", "label": "Why we only get one try", "min": 5, "end": true}, {"id": "response", "label": "What the work looks like", "min": 10, "end": true}, {"id": "change-my-mind", "label": "What would change this argument", "min": 2, "end": true}, {"id": "ask", "label": "Act now", "min": 2, "end": false, "act": true}, {"id": "do", "label": "What can be done", "min": 5, "end": false, "act": true}];
+    var ROUTES = {"essentials": ["crossroads", "ask", "do"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     var S = {"endOf": "End of {n}", "next": "Next: {t} ({m} min)", "skip": "Or skip to what to do", "openCh": "Read this chapter ({m} min)", "pos": "Ch {i}/{n} · {m} min left", "startIn": "{m} min read"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
     window.__GAP_META = META;
@@ -4348,13 +4577,7 @@ var SITE_CONFIG = {
                          '<span class="nb-m">' + S.left.replace("{m}", Math.max(remain, 1)) + '</span>';
         }
       }
-      // the top nav group for the act you are in
-      var curAct = m ? (G[m.id] || "") : "";
-      $$(".ng").forEach(function(g){
-        var b = g.querySelector(".ng-top");
-        var nm = b ? b.textContent.replace(/[\u203a\s]+$/, "").trim() : "";
-        setCls(g, "active", !!curAct && nm === curAct);
-      });
+      // nav group active state is set structurally in update(), see closestGroup()
       if(oSub) oSub.textContent = S.panelS.replace("{i}", Math.max(pos, 1))
                                           .replace("{n}", total)
                                           .replace("{m}", Math.max(remain, 1));
@@ -4682,6 +4905,26 @@ var SITE_CONFIG = {
     });
   })();
 
+  /* ---------- WHAT CAN BE DONE: jurisdiction switcher ---------- */
+  (function(){
+    var wrap = $("#do-jur");
+    if(!wrap) return;
+    var btns = $$("#do-jur .pbtn");
+    var panels = $$("#do .jur");
+    btns.forEach(function(b){
+      b.addEventListener("click", function(){
+        var k = b.getAttribute("data-j");
+        btns.forEach(function(x){ var sel = x === b;
+          setCls(x, "on", sel);
+          x.setAttribute("aria-selected", sel ? "true" : "false");
+          x.setAttribute("tabindex", sel ? "0" : "-1"); });
+        panels.forEach(function(pnl){ var sel = pnl.getAttribute("data-j") === k;
+          setCls(pnl, "on", sel);
+          if(sel){ pnl.removeAttribute("aria-hidden"); } else { pnl.setAttribute("aria-hidden", "true"); } });
+      });
+    });
+  })();
+
   /* ---------- PREDICT-THEN-REVEAL: whose values go in ---------- */
   (function(){
     var out = $("#predict-hm-out");
@@ -4699,6 +4942,82 @@ var SITE_CONFIG = {
         $$("#predict-hm .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
         out.textContent = REVEAL[i] + " Notice that every option above concentrates an enormous decision in a group nobody elected to make it. That is the prior problem this chapter is about.";
       });
+    });
+  })();
+
+  /* ---------- CHAPTER RECALL CHECKS ---------- */
+  function recall(id, right, lines){
+    var out = $("#" + id + "-out");
+    if(!out) return;
+    $$("#" + id + " .pbtn").forEach(function(b){
+      b.addEventListener("click", function(){
+        var i = parseInt(b.getAttribute("data-p"), 10);
+        if(isNaN(i) || !lines[i]) return;
+        $$("#" + id + " .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
+        out.textContent = (i === right ? "Yes. " : "Not quite. ") + lines[i];
+      });
+    });
+  }
+  recall("recap-iw", 2, [
+    "Outvoted implies its preferences still count for something. The chapter's point is sharper: the less capable party gets bypassed, and its preferences simply stop being load-bearing.",
+    "No hostility is required. Gorillas are not endangered because people hate gorillas. The world just got reshaped around goals that were never theirs.",
+    "Its preferences stop being load-bearing, and it keeps whatever the more capable party has no reason to take. That is the pattern with no clear exception on record.",
+    "History records no lasting case of the less capable side closing the gap and taking back the wheel. That is what makes building something above us such an unusual bet."
+  ]);
+  recall("recap-vt", 1, [
+    "That holds only at low pressure, which is exactly why the proxy looked trustworthy in the first place. Push the optimisation hard enough and the two lines part.",
+    "The dashboard keeps reporting success because the proxy really is climbing. The thing you wanted is what the search quietly traded away, and no number you are watching warns you when that started.",
+    "At low pressure the proxy and the goal genuinely move together. The danger sits later, past the peak, where the split happens without any visible signal.",
+    "The whole trap is that the score never warns you. It keeps climbing while the goal it stood in for falls, which is why a perfect score can mean almost nothing is left of what you meant."
+  ]);
+  recall("recap-sh", 1, [
+    "The funding gap is real, and this chapter shows it, but it is the consequence rather than the cause. Building needs one configuration that works; proving safety means ruling out failure across a space too large to enumerate.",
+    "And the space it must rule failure out of includes situations no designer imagined, sometimes against a system gaming the evaluation itself. That asymmetry is why assurance lags capability.",
+    "The people are not the asymmetry, the task is. One working configuration on one side, every possible failure on the other, including a system that edits the test instead of passing it.",
+    "The asymmetry exists with no regulator in the room. Finding one configuration that works is a search problem. Ruling out every dangerous behaviour is closer to a proof, and the proof is the harder half."
+  ]);
+  recall("recap-ot", 1, [
+    "The rules came after the wreckage. Seatbelt laws followed crashes, and aviation built its discipline out of investigations, which is exactly the sequence that needs a survivable first failure.",
+    "Every safety discipline we have was built from mistakes we lived through, studied and fixed. A system faster than its supervisors that we cannot switch off removes both the survivable mistake and the time.",
+    "The engineers were often excellent long before the fixes existed. What made those technologies safe was the loop: fail, survive, study, fix. This chapter's argument is that the loop may not be available here.",
+    "Pressure helped, but it arrived through the same loop: a visible, survivable accident people could react to. The worry here is a failure that is neither survivable nor slow enough to study."
+  ]);
+
+  /* ---------- PLACE YOUR BETS: the funding gap ---------- */
+  (function(){
+    var s = $("#bet-fund-in"), val = $("#bet-fund-val"),
+        go = $("#bet-fund-go"), out = $("#bet-fund-out");
+    if(!s || !out) return;
+    function dollars(){
+      var t = parseInt(s.value, 10) / 100;
+      var d = Math.pow(10, 6 + 5 * t);
+      var m = Math.pow(10, Math.floor(Math.log(d) / Math.LN10) - 1);
+      return Math.round(d / m) * m;
+    }
+    function fmt(d){
+      if(d >= 1e9) return "$" + +((d / 1e9).toFixed(1)) + " billion";
+      return "$" + Math.round(d / 1e6) + " million";
+    }
+    function paint(){
+      var f = fmt(dollars());
+      if(val) val.textContent = f;
+      s.setAttribute("aria-valuetext", f.replace("$", "") + " dollars");
+    }
+    s.addEventListener("input", paint);
+    s.addEventListener("change", paint);
+    paint();
+    if(go) go.addEventListener("click", function(){
+      var d = dollars(), g = fmt(d), msg;
+      if(d >= 1e9){
+        msg = "Your guess: " + g + ". Most people land somewhere near there. On Stuart Russell's figures it is about $10 million, roughly 10,000 to 1 against the building side. The chart below draws both bars at the same scale, which is why one of them is almost invisible.";
+      } else if(d > 3e7){
+        msg = "Your guess: " + g + ". Lower than most people go, and still well above the sourced figure of about $10 million, on Stuart Russell's numbers. That is roughly 10,000 to 1 against the building side, drawn to scale in the chart below.";
+      } else if(d >= 1e7){
+        msg = "Your guess: " + g + ". Almost exactly right, which puts you in a small minority. The sourced figure is about $10 million on Stuart Russell's numbers, roughly 10,000 to 1 against the building side. The chart below draws it to scale.";
+      } else {
+        msg = "Your guess: " + g + ". You went under the sourced figure, which is about $10 million on Stuart Russell's numbers, and under is closer than most readers get. The ratio against the building side is still roughly 10,000 to 1, drawn to scale below.";
+      }
+      out.textContent = msg;
     });
   })();
 
