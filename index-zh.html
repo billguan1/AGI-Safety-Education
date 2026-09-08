@@ -1005,6 +1005,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .gh-card.proxy .bar i{background:var(--glow-b)}
 .gh-card.real .bar i{background:var(--glow-t)}
 
+/* ---------- place-your-bets ---------- */
+.bet{background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--c-act);
+  border-radius:var(--r);padding:clamp(18px,2.8vw,28px);margin:clamp(20px,3vw,30px) 0}
+.bet-q{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 16px}
+.bet label{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;
+  align-items:baseline;gap:12px;margin-bottom:10px}
+.bet label b{font-family:var(--display);font-size:clamp(19px,2.6vw,24px);font-weight:900;
+  letter-spacing:-.02em;color:var(--ink);text-transform:none}
+.bet .filters{margin-top:16px}
+
 /* ---------- orthogonality ---------- */
 .orth-wrap{display:grid;grid-template-columns:1fr .82fr;gap:clamp(18px,3vw,40px);align-items:center}
 @media(max-width:900px){.orth-wrap{grid-template-columns:1fr}}
@@ -1213,6 +1224,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
 .fbtn:hover,.pbtn:hover{border-color:var(--ink)}
 .fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* ---------- quiz answer states ---------- */
+/* 颜色不是唯一线索：按钮同时带对勾或叉号，下方回应也以“答对了”或“还差一点”开头。 */
+.pbtn.right{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.pbtn.wrong{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.pbtn.reveal{background:var(--t-act);border-color:var(--c-act);color:var(--c-act)}
+.pbtn.right:hover,.pbtn.wrong:hover,.pbtn.reveal:hover{border-color:currentColor}
+.pbtn .mk{font-weight:700;margin-right:6px}
+.qnote{border-left:3px solid var(--rule);padding-left:12px;transition:border-color .15s}
+.qnote.right{border-left-color:var(--c-act)}
+.qnote.wrong{border-left-color:var(--c-risk)}
 .card.gone{display:none}
 
 /* ---------- slab ---------- */
@@ -1844,6 +1866,17 @@ footer p{max-width:82ch;margin:0}
     </figure>
 
       <div class="keyline rv"><span class="kk">要点</span><p>控制权向来归于更强的智能。我们正把未来押在第一次尝试上，蓄意逆转这条规律。</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">进入下一章前先确认一下：当更强的智能出现时，本章认为处在下位的一方会遭遇什么？</p>
+      <div class="filters" id="recap-iw">
+        <button type="button" class="pbtn" data-p="0">被投票否决</button>
+        <button type="button" class="pbtn" data-p="1">被攻击</button>
+        <button type="button" class="pbtn" data-p="2">被绕过</button>
+        <button type="button" class="pbtn" data-p="3">迎头赶上，重新持平</button>
+      </div>
+      <p class="note" id="recap-iw-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -1879,6 +1912,14 @@ footer p{max-width:82ch;margin:0}
       </svg>
       <figcaption>这一点足以击穿我们现有的全部制度。监管机构、董事会和国际条约，运行的都是人类的日历。如果一个系统把研究闭环收进自己手里，那么从我们察觉问题到我们开会讨论的那段时间，已经足够让要讨论的东西面目全非。</figcaption>
     </figure>
+
+      <div class="bet rv" id="bet-fund">
+        <p class="bet-q">看下一张图之前，先押个注。投入先进人工智能建造的资金约为 1,000 亿美元。你觉得公共部门的 AI 安全研究经费有多少？</p>
+        <label for="bet-fund-in">你的猜测 <b id="bet-fund-val">3.2 亿美元</b></label>
+        <input type="range" id="bet-fund-in" min="0" max="100" value="50" aria-label="你对公共部门 AI 安全研究经费的猜测" aria-valuetext="3.2 亿美元">
+        <div class="filters"><button type="button" class="pbtn" id="bet-fund-go">锁定答案</button></div>
+        <p class="note" id="bet-fund-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+      </div>
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="柱状图：约一千亿美元投入先进人工智能的建造，对比约一千万美元的公共部门安全研究经费。">
@@ -1983,6 +2024,7 @@ footer p{max-width:82ch;margin:0}
           <button type="button" class="pbtn" data-r="3">提议全行业共同暂停</button>
         </div>
         <p class="note" id="race-scenario-out" role="status" aria-live="polite" style="margin-top:12px;min-height:4.5em"></p>
+        <p class="note rv" style="margin-top:18px">这个决定你只做了一次，而且后果是直接写给你看的。<a href="https://game.safeagi.ca/" target="_blank" rel="noopener">那个十分钟的游戏</a>让你坐在这个位置上走完全程：同样的激励，更多回合，后果自己找上门来。无需注册。</p>
       </div>
 
       <div class="keyline rv"><span class="kk">要点</span><p>我们被同一根绳索拴着，冲向悬崖边，比谁先跳下去。没有人能赢下这场竞赛，所谓的赢家只是先坠落，然后把其余人一起拽下去。</p></div>
@@ -2114,6 +2156,7 @@ footer p{max-width:82ch;margin:0}
           <button type="button" class="pbtn" data-p="3">谁都不该有这个资格</button>
         </div>
         <p class="note" id="predict-hm-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+        <p class="note rv" style="margin-top:18px">四个按钮装不下一场真正的分歧。<a href="/debate">《值得坐下来听完的五场对话》</a>取了五组关于先进人工智能的真实争论，把正反两方都按最强的版本陈述，并在每次给出结论前请你先投票。</p>
       </div>
 
   </div>
@@ -2328,6 +2371,17 @@ footer p{max-width:82ch;margin:0}
       </div>
 
       <div class="keyline rv"><span class="kk">要点</span><p>弄清我们想要什么，是容易的那一半。让一个超越人类的优化者真正也想要同样的东西，才是无人解决的另一半。</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">确认一下：你用一个可测量的代理指标训练系统，分数一路上涨。本章认为，你真正想要的那个东西此刻会怎样？</p>
+      <div class="filters" id="recap-vt">
+        <button type="button" class="pbtn" data-p="0">同样在上涨</button>
+        <button type="button" class="pbtn" data-p="1">分数无从告诉你，而且过了某个点它多半在下跌</button>
+        <button type="button" class="pbtn" data-p="2">训练一开始就崩掉了</button>
+        <button type="button" class="pbtn" data-p="3">分数会先下跌来提醒你</button>
+      </div>
+      <p class="note" id="recap-vt-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -2835,6 +2889,17 @@ footer p{max-width:82ch;margin:0}
 <p class="breaks"><b>何种情况可推翻此论</b>可解释性成熟到足以认证一个系统的目标，或者评估变得足以应对一个知道自己正在被评估的系统。<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p>
 </div>
     <div class="keyline rv"><span class="kk">要点</span><p>我们正把资源倾注在更容易的问题上，却让更难的那个备受冷落。而更难的那个，才是横在我们与悬崖之间的唯一屏障。</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">确认一下：本章为什么说验证一个前沿系统，比造出它更难？</p>
+      <div class="filters" id="recap-sh">
+        <button type="button" class="pbtn" data-p="0">验证拿到的经费更少</button>
+        <button type="button" class="pbtn" data-p="1">造出来只需找到一个可行配置，证明安全却要排除所有情形下的失败</button>
+        <button type="button" class="pbtn" data-p="2">安全研究员分到的算力更少</button>
+        <button type="button" class="pbtn" data-p="3">监管拖慢了验证</button>
+      </div>
+      <p class="note" id="recap-sh-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -3001,6 +3066,17 @@ footer p{max-width:82ch;margin:0}
     <p style="max-width:64ch;color:var(--ink-2)">我们无从挑选自己会遇上哪一种，多半也只能事后才知道究竟是哪一种。难堪之处正在于此：任何依赖“来得及反应”的计划，都是在骰子掷出之前，就押注于慢的那一种。</p>
 
     <div class="keyline rv"><span class="kk">要点</span><p>试错造就了我们拥有的每一项安全技术。但对一个比我们快、又关不掉的东西，试错恰恰是唯一行不通的办法。</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">最后一次确认：汽车、航空与核电都是逐步变安全的。本章认为，那套办法依赖的哪个前提，在这里可能并不存在？</p>
+      <div class="filters" id="recap-ot">
+        <button type="button" class="pbtn" data-p="0">一开始就有更严的监管</button>
+        <button type="button" class="pbtn" data-p="1">第一次失败可以幸存，并且有时间作出反应</button>
+        <button type="button" class="pbtn" data-p="2">更优秀的工程人才</button>
+        <button type="button" class="pbtn" data-p="3">事故之后的公众压力</button>
+      </div>
+      <p class="note" id="recap-ot-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -3650,6 +3726,7 @@ footer p{max-width:82ch;margin:0}
         <li><a class="rl" href="https://redwoodresearch.org/" target="_blank" rel="noopener">Redwood Research</a><span class="rl-d">AI 控制研究。<a class="ref" href="#s20">20</a></span></li>
       </ul></div>
     </div>
+  </div>
 </section>
 
 
@@ -4858,6 +4935,104 @@ var SITE_CONFIG = {
         $$("#predict-hm .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
         out.textContent = REVEAL[i] + "请注意，上面每一个选项，都把一个极其重大的决定集中到了一小群从未被授权做此决定的人手里。这正是本章要谈的那个更靠前的问题。";
       });
+    });
+  })();
+
+  /* ---------- CHAPTER RECALL CHECKS ---------- */
+  function recall(id, right, lines){
+    var out = $("#" + id + "-out");
+    var btns = $$("#" + id + " .pbtn");
+    if(!out || !btns.length) return;
+    setCls(out, "qnote", true);
+    btns.forEach(function(b){ b.setAttribute("data-label", b.textContent); });
+    /* 颜色不单独承担判定：按钮另有对勾或叉号，下方回应也以“答对了”或“还差一点”开头。 */
+    function mark(b, cls, glyph){
+      setCls(b, cls, true);
+      b.textContent = b.getAttribute("data-label");
+      var m = document.createElement("span");
+      m.className = "mk";
+      m.setAttribute("aria-hidden", "true");
+      m.textContent = glyph;
+      b.insertBefore(m, b.firstChild);
+    }
+    btns.forEach(function(b){
+      b.addEventListener("click", function(){
+        var i = parseInt(b.getAttribute("data-p"), 10);
+        if(isNaN(i) || !lines[i]) return;
+        var ok = (i === right);
+        btns.forEach(function(x){
+          x.textContent = x.getAttribute("data-label");
+          setCls(x, "on", false); setCls(x, "right", false);
+          setCls(x, "wrong", false); setCls(x, "reveal", false);
+        });
+        mark(b, ok ? "right" : "wrong", ok ? "\u2713" : "\u2717");
+        if(!ok) mark(btns[right], "reveal", "\u2713");
+        setCls(out, "right", ok);
+        setCls(out, "wrong", !ok);
+        out.textContent = (ok ? "答对了。" : "还差一点。") + lines[i];
+      });
+    });
+  }
+  recall("recap-iw", 2, [
+    "“被否决”意味着它的偏好多少还算数。本章的说法更锋利：处在下位的一方是被绕过，它的偏好不再承重。",
+    "这里不需要任何敌意。大猩猩濒危，并不是因为人类憎恨大猩猩。只是世界被按照另一套目标重新安排了，而那套目标从来不属于它们。",
+    "它的偏好不再承重，能留下的，只是更强一方没有理由拿走的东西。这就是那条在记录上没有明确例外的规律。",
+    "历史上没有哪一次，是处在下位的一方缩小差距、重新夺回方向盘。正因如此，造出一个高于我们的东西，才是一场极不寻常的赌注。"
+  ]);
+  recall("recap-vt", 1, [
+    "这只在低压力时成立，而这恰恰是代理指标一开始看起来可信的原因。优化压力一旦足够大，两条线就会分开。",
+    "仪表盘会继续报喜，因为代理分数确实在涨。被搜索悄悄换掉的，正是你真正想要的东西，而你盯着的数字，不会在那一刻发出任何警告。",
+    "在低压力下，代理与真实目标确实一同上升。危险出现在更后面，在峰值之后，两者分开时没有任何可见的信号。",
+    "整个陷阱就在于分数从不警告你。它一路上涨，而它所代表的那个目标正在下滑。这就是为什么满分可能意味着你原本想要的东西已所剩无几。"
+  ]);
+  recall("recap-sh", 1, [
+    "经费差距真实存在，本章也展示了它，但那是结果而非成因。造出来只需一个可行配置，证明安全却要在一个大到无法穷举的空间里排除失败。",
+    "而它要排除失败的那个空间，包含了设计者从未设想过的情形，有时对手还是一个正在钻评估空子的系统。这种不对称，正是保障始终落后于能力的原因。",
+    "不对称不在人身上，而在任务本身。一边是一个可行配置，另一边是所有可能的失败，其中还包括一个会去改测试、而不是通过测试的系统。",
+    "就算房间里没有任何监管者，这种不对称照样存在。找到一个可行配置是搜索问题，排除全部危险行为则更接近一个证明，而证明是更难的那一半。"
+  ]);
+  recall("recap-ot", 1, [
+    "规则都出现在残骸之后。安全带法规跟在车祸后面，航空业则把调查做成了学科，而这套顺序恰恰需要第一次失败可以幸存。",
+    "我们拥有的每一门安全学科，都是从活下来、研究过、并修好了的错误里长出来的。一个比监督者更快、又关不掉的系统，同时拿走了可幸存的错误和反应的时间。",
+    "在那些修补出现之前，工程师往往已经很出色了。让那些技术变安全的是这个循环：失败、幸存、研究、修复。本章的论点是，这个循环在这里可能无法使用。",
+    "压力确实起过作用，但它是通过同一个循环起作用的：一场看得见、又活得下来的事故，让人们来得及反应。这里令人担心的，是一种既无法幸存、也慢不到足以研究的失败。"
+  ]);
+
+  /* ---------- PLACE YOUR BETS: the funding gap ---------- */
+  (function(){
+    var s = $("#bet-fund-in"), val = $("#bet-fund-val"),
+        go = $("#bet-fund-go"), out = $("#bet-fund-out");
+    if(!s || !out) return;
+    function dollars(){
+      var t = parseInt(s.value, 10) / 100;
+      var d = Math.pow(10, 6 + 5 * t);
+      var m = Math.pow(10, Math.floor(Math.log(d) / Math.LN10) - 1);
+      return Math.round(d / m) * m;
+    }
+    function fmt(d){
+      if(d >= 1e8) return +((d / 1e8).toFixed(1)) + " \u4ebf\u7f8e\u5143";
+      return Math.round(d / 1e4) + " \u4e07\u7f8e\u5143";
+    }
+    function paint(){
+      var f = fmt(dollars());
+      if(val) val.textContent = f;
+      s.setAttribute("aria-valuetext", f);
+    }
+    s.addEventListener("input", paint);
+    s.addEventListener("change", paint);
+    paint();
+    if(go) go.addEventListener("click", function(){
+      var d = dollars(), g = fmt(d), msg;
+      if(d >= 1e9){
+        msg = "你的猜测：" + g + "。多数人都会落在这附近。按 Stuart Russell 的数字，实际约为 1,000 万美元，与建造一侧之比大致是一万比一。下面这张图把两根条画在同一比例上，这正是其中一根几乎看不见的原因。";
+      } else if(d > 3e7){
+        msg = "你的猜测：" + g + "。比多数人猜得低，但仍远高于有出处的数字：按 Stuart Russell 的测算约为 1,000 万美元。两者之比大致是一万比一，下面那张图按同一比例画了出来。";
+      } else if(d >= 1e7){
+        msg = "你的猜测：" + g + "。几乎正中，而这让你成了少数。按 Stuart Russell 的数字，有出处的数额约为 1,000 万美元，与建造一侧之比大致是一万比一。下面这张图按同一比例画了出来。";
+      } else {
+        msg = "你的猜测：" + g + "。你猜得比有出处的数字还低。按 Stuart Russell 的测算，那个数字约为 1,000 万美元，而猜低比多数读者更接近真相。与建造一侧之比仍大致是一万比一，下面按同一比例画了出来。";
+      }
+      out.textContent = msg;
     });
   })();
 
