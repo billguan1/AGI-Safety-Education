@@ -78,12 +78,13 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-
   border:1.5px solid var(--rule-2);border-radius:999px;padding:6px 13px;color:var(--ink-2);background:var(--card)}
 
 /* ---------- gallery ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,3vw,30px);align-items:stretch;
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,3vw,30px);align-items:start;
   padding:clamp(10px,2vw,18px) 0 clamp(50px,8vw,90px)}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);
   border:2px solid var(--ink);box-shadow:5px 5px 0 rgba(26,23,20,.16);transition:transform .16s,box-shadow .16s}
 .card:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 rgba(26,23,20,.22);color:inherit}
 .card .cover{position:relative;border-bottom:2px solid var(--ink);background:var(--paper);aspect-ratio:864/1248;overflow:hidden}
+.card .cover[style]{aspect-ratio:auto}
 .card .cover img{width:100%;height:100%;object-fit:contain;object-position:center}
 .card .no{position:absolute;bottom:0;left:0;font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.06em;
   background:var(--ink);color:var(--paper);padding:6px 11px}
@@ -380,7 +381,7 @@ def write_gallery(stories):
     for s in stories:
         cards.append(
             '    <a class="card" href="%s/%s/">\n'
-            '      <div class="cover"><span class="no">%02d</span>'
+            '      <div class="cover"%s><span class="no">%02d</span>'
             '<img src="%s/%s/%s" alt="Cover of %s" loading="lazy" decoding="async"></div>\n'
             '      <div class="body">\n'
             '        <p class="concept">%s</p>\n'
@@ -388,7 +389,9 @@ def write_gallery(stories):
             '        <p class="tl">%s</p>\n'
             '        <p class="go">Read it</p>\n'
             '      </div>\n    </a>'
-            % (BASE, s['slug'], s['number'], BASE, s['slug'], s['pages'][0]['out'], esc(s['title']),
+            % (BASE, s['slug'],
+               (' style="aspect-ratio:%d/%d"' % (s['pages'][0]['w'], s['pages'][0]['h'])) if s['pages'][0].get('w') else '',
+               s['number'], BASE, s['slug'], s['pages'][0]['out'], esc(s['title']),
                esc(s['concept']), esc(s['title']), esc(s['tagline'])))
     cards.append('    <div class="card soon"><p>More on the way.</p></div>')
 
