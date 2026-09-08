@@ -427,7 +427,29 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
   font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
 .mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
-  color:#eef3f6;max-width:54ch;margin:0 0 20px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
+  color:#eef3f6;max-width:54ch;margin:0 0 24px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
+.mh-lede strong{color:#fff;font-weight:600}
+/* the evidence timeline, lifted up so urgency lands right after the problem */
+.mh-figwrap{margin:0 0 26px;padding:0;max-width:760px}
+.mh-figwrap svg{display:block;width:100%;height:auto}
+.mh-figwrap figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:14px;
+  line-height:1.55;color:#8a959c;max-width:70ch}
+/* why-you-should-care and what-to-do, both above the fold */
+.mh-why,.mh-do{margin:0 0 24px;max-width:62ch}
+.mh-why-k,.mh-do-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#ff8a6b;margin:0 0 12px}
+.mh-do-k{color:#9cc48a}
+.mh-why ul,.mh-do ol{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.mh-why li,.mh-do li{font-family:var(--body);font-weight:300;font-size:clamp(15.5px,.95rem+.2vw,17.5px);
+  line-height:1.5;color:#c3ccd2;padding-left:26px;position:relative}
+.mh-why li b,.mh-do li b{font-weight:600;color:#fff}
+.mh-why li::before{content:"";position:absolute;left:8px;top:.62em;width:5px;height:5px;border-radius:50%;background:#ff8a6b}
+.mh-do ol{counter-reset:mhdo}
+.mh-do li{counter-increment:mhdo}
+.mh-do li::before{content:counter(mhdo);position:absolute;left:0;top:.06em;font-family:var(--mono);
+  font-size:11px;font-weight:700;color:#9cc48a}
+.mh-do a{color:#9cc48a;text-decoration-thickness:1px}
+.mh-do a:hover{color:#fff}
 .mh-sub{font-family:var(--body);font-weight:300;font-size:clamp(18px,1.1rem+.5vw,25px);line-height:1.45;color:#b6c0c6;max-width:56ch;margin:0 0 26px}
 .mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
@@ -1562,8 +1584,60 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
     <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
-    <p class="mh-lede">The problem, stated plainly: we are building systems that will be more capable than us, and nobody knows how to guarantee that such a system will want what we want. We cannot write human values down precisely, we cannot see what a system is really pursuing, and we cannot fully trust a test it may be gaming.</p>
-    <p class="mh-sub">Everything else we made safe, we made safe by failing first and fixing it afterwards. That method needs a mistake you survive. This is a map of why this one may not offer that, argued from first principles, and what to do about it.</p>
+    <p class="mh-lede">We are building machines that will be more capable than us, and nobody knows how to make sure one of them wants what we want. <strong>If that goes wrong at full capability, humanity may not survive the transition.</strong> This is not a fringe worry. It is the stated concern of the people building these systems.</p>
+
+    <figure class="mh-figwrap">
+      <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
+        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
+        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
+        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
+        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Named as a concern</text>
+        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">Concrete Problems</text>
+        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">in AI Safety</text>
+        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
+        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
+        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Seen in a model</text>
+        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">alignment faking</text>
+        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">under training</text>
+        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
+        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
+        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Measured at a rate</text>
+        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">covert action in 13%</text>
+        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">of o3 runs</text>
+        <line x1="660" y1="196" x2="660" y2="29" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="660" cy="20" r="6" fill="#ff8a6b"/>
+        <text text-anchor="end" x="648" y="14" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
+        <text x="648" y="30.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
+        <text x="648" y="48.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
+        <text x="648" y="60.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
+        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">the argument stays the same; the evidence keeps arriving</text>
+      </svg>
+      <figcaption>"Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.</figcaption>
+    </figure>
+
+    <div class="mh-why">
+      <p class="mh-why-k">Why this is your problem too</p>
+      <ul>
+        <li><b>Nobody opted in.</b> A handful of labs and states are making this call. The rest of us get the outcome either way.</li>
+        <li><b>There is no version where it only affects other people.</b> A loss of control is not contained to the lab it happens in.</li>
+        <li><b>The window is now.</b> The safeguards have to exist before the systems arrive, because afterwards is too late.</li>
+      </ul>
+    </div>
+
+    <p class="mh-sub">This page is not here to say the sky is falling, or that AI is bad. It is here to make one thing common knowledge: <strong>we may be walking into an <span class="term" tabindex="0">existential risk<span class="term-tip">A risk that could permanently and drastically curtail humanity's potential, up to and including extinction.</span></span>, and the way we are set up right now does not let us do this safely.</strong> Every claim below is sourced, and the open disputes are argued at their strongest.</p>
+
+    <div class="mh-do">
+      <p class="mh-do-k">What you can do about it</p>
+      <ol>
+        <li><b>Understand it.</b> Ninety seconds is enough to hold the argument. Pick a length below.</li>
+        <li><b>Tell one person.</b> This stays unsolved partly because it is not yet common knowledge. Passing it on is the highest-leverage thing most people can do.</li>
+        <li><b>Ask for the two changes.</b> <a href="#ask">Binding safety standards, and the willingness to stop</a> if a safe transition cannot be guaranteed.</li>
+      </ol>
+    </div>
       <div class="mh-routes">
         <span class="mr-k">Read</span>
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 sec</b> the argument</a>
@@ -1641,6 +1715,7 @@ footer p{max-width:82ch;margin:0}
             <stop offset="0%" stop-color="#bd3a20" stop-opacity=".34"/>
             <stop offset="100%" stop-color="#bd3a20" stop-opacity="0"/>
           </linearGradient>
+          <marker id="ropetip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a959c"/></marker>
           <radialGradient id="prizeGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#ffd88a" stop-opacity=".5"/>
             <stop offset="100%" stop-color="#ffd88a" stop-opacity="0"/>
@@ -1681,8 +1756,12 @@ footer p{max-width:82ch;margin:0}
         <text x="562" y="150" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#ff8a6b">CLIFF EDGE</text>
 
         <!-- rope + runners -->
-        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
-        <text x="70" y="180" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">one rope, all of us</text>
+        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#c3ccd2" stroke-width="2.2" stroke-dasharray="5 4"/>
+        <!-- rope callout, placed in the clear band above the runners and pointing
+             at a rope segment between two of them so nothing overlaps a head -->
+        <text x="205" y="132" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#e2e8ec">ROPED TOGETHER</text>
+        <text x="205" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#aeb9c0">the first one over drags the rest</text>
+        <path d="M205,158 L205,192" stroke="#8a959c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#ropetip)"/>
         <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
           <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
           <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
@@ -1700,23 +1779,24 @@ footer p{max-width:82ch;margin:0}
 
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">Racing to be first</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">to a place nobody should reach first.</text>
+        <text x="20" y="416" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="600" fill="#ff8a6b">Arriving first without control is not winning. It is falling first.</text>
       </svg>
-      <figcaption>The prize floating over the far side is real: abundance, cured disease, science at machine speed. That is exactly why everyone is running. The rope is the part they ignore, and the drop is what waits if we cross the line before we know how to land. Labs, companies, investors and whole nations are all tied to the same line, so the first one over does not win. They pull everyone down with them.</figcaption>
+      <figcaption>The prize is real, which is why everyone is running. The rope is the part they ignore.</figcaption>
     </figure>
 
     <div class="intent">
-      <span class="ik">Why this page exists</span>
-      <p>Not to tell you the sky is falling, and not to tell you AI is bad. It is to make one thing common knowledge: <strong>we may be walking into an <span class="term" tabindex="0">existential risk<span class="term-tip">A risk that could permanently and drastically curtail humanity's potential, up to and including extinction.</span></span>, and the way we are set up right now does not let us do this safely.</strong></p>
-      <p>So the aim is modest and serious at once. Understand the basics of why aligning a superhuman intelligence is genuinely hard. Understand why it deserves far more research than it gets. And understand why, if we reach a point where we cannot <strong>guarantee</strong> a safe transition, slowing down or pausing frontier development may be the only responsible move left, even at real economic cost.</p>
+      <span class="ik">What this page is asking of you</span>
+      <p>The aim is modest and serious at once. Understand why aligning a superhuman intelligence is genuinely hard. Understand why it deserves far more research than it gets. And understand why, if we reach a point where we cannot <strong>guarantee</strong> a safe transition, slowing down or pausing frontier development may be the only responsible move left, even at real economic cost.</p>
       <p>Some people are relaxed about all this. They think humanity is just the biological bootloader for a silicon intelligence that comes next, and that this is fine. This page does not share that view. The future should still have us in it.</p>
     </div>
 
     <figure class="secfig dark rv">
       <svg viewBox="0 0 720 200" role="img" aria-label="Comparison: a parent and infant satisfy three conditions; humans and machine intelligence satisfy none of them.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">THE ONE CASE WHERE WEAKER CONTROLS STRONGER</text>
-        <text x="210" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Shares your nature</text>
-        <text x="400" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Small, closing gap</text>
-        <text x="590" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Cannot redesign itself</text>
+        <text x="210" y="47" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Shares your nature</text>
+        <text x="400" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Intelligence gap is</text>
+        <text x="400" y="54" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">small and closing</text>
+        <text x="590" y="47" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">Cannot redesign itself</text>
         <text x="0" y="86" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Parent and infant</text>
         <text x="0" y="132" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">Us and a machine intelligence</text>
         <circle cx="210" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M205,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
@@ -1750,58 +1830,6 @@ footer p{max-width:82ch;margin:0}
             <span class="rbd">Every source underneath every claim on this page, grouped by kind.</span></a>
         </div>
       </div>
-
-      <figure class="secfig dark rv">
-      <svg viewBox="0 0 720 242" role="img" aria-label="Two diverging lines over time: capability rising steeply while our ability to verify safety rises slowly, with the widening gap shaded.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">THE GAP THIS PAGE IS ABOUT</text>
-        <line x1="52" y1="30" x2="52" y2="206" stroke="#3a444c"/>
-        <line x1="52" y1="206" x2="690" y2="206" stroke="#3a444c"/>
-        <path d="M52,196 C200,186 300,150 690,32 L690,206 L52,206 Z" fill="#bd3a20" opacity=".16"/>
-        <path d="M52,196 L160,182 L268,158 L376,122 L484,80 L592,44 L690,32" fill="none" stroke="#ff8a6b" stroke-width="3"/>
-        <path d="M52,198 L160,192 L268,184 L376,176 L484,168 L592,160 L690,154" fill="none" stroke="#3fd0c9" stroke-width="3"/>
-        <text x="686" y="24" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#ff8a6b">what systems can do</text>
-        <text x="686" y="172" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#3fd0c9">what we can verify</text>
-        <path d="M604,52 L604,152" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>
-        <text x="596" y="106" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#fff">the gap</text>
-        <text x="52" y="228" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">a decade ago</text>
-        <text x="690" y="228" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">now, and widening</text>
-      </svg>
-      <figcaption>Capability and assurance are both improving. They are not improving at the same rate, and the shaded area is the part nobody has a plan for. Everything else on this page is an attempt to explain why the lower line is so hard to lift.</figcaption>
-    </figure>
-
-      <figure class="secfig dark rv">
-      <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
-        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
-        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
-        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
-        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Named as a concern</text>
-        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">Concrete Problems</text>
-        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">in AI Safety</text>
-        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
-        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
-        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Seen in a model</text>
-        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">alignment faking</text>
-        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">under training</text>
-        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
-        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
-        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Measured at a rate</text>
-        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">covert action in 13%</text>
-        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">of o3 runs</text>
-        <line x1="660" y1="196" x2="660" y2="29" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="660" cy="20" r="6" fill="#ff8a6b"/>
-        <text text-anchor="end" x="648" y="14" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
-        <text x="648" y="30.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
-        <text x="648" y="48.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
-        <text x="648" y="60.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
-        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">the argument stays the same; the evidence keeps arriving</text>
-        <text x="0" y="258" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">Each step is not a louder claim. It is the same claim, tested harder, and passing.</text>
-      </svg>
-      <figcaption>The case did not get more dramatic over the decade. It got more empirical, and only in one direction. ("Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.)</figcaption>
-    </figure>
 
       <div class="pillars">
         <p class="pil-lead">Before the chapters, the shape of the problem. Researchers sort AI risk by <em>who, if anyone, intends the harm</em>. Google DeepMind's four-way split is the one used here; the International AI Safety Report uses a three-way version (misuse, malfunctions, systemic).<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
@@ -1920,7 +1948,7 @@ footer p{max-width:82ch;margin:0}
         <path d="M0,178 L700,178" stroke="#e2e5e7"/>
         <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Not a prediction. An illustration of what a ten-million-fold speed advantage means once quality is matched.</text>
       </svg>
-      <figcaption>This is the part that breaks every institution we have. Regulators, boards and treaties all run on human calendars. If a system closes the research loop on itself, the interval between noticing a problem and convening to discuss it is long enough for the thing you were going to discuss to have changed beyond recognition.</figcaption>
+      <figcaption>Every institution we have runs on a human calendar. This does not.</figcaption>
     </figure>
 
       <div class="bet rv" id="bet-fund">
@@ -2152,7 +2180,7 @@ footer p{max-width:82ch;margin:0}
         <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5b656d">the last step</text>
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The set of people who can cause this is larger than the set of people building it, and neither set was elected.</text>
       </svg>
-      <figcaption>The decision is not only in the hands of the labs. It also sits with the states that host them, the capital that funds them, and anyone who acquires model weights by theft, leak or open release and pushes a nearly-capable system the last step. As capability spreads, the group that could take the decisive action grows, while the group affected by it stays the same size: all of us.</figcaption>
+      <figcaption>The set of people who could trigger this keeps growing. The set affected by it stays the same size: everyone.</figcaption>
     </figure>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>We have never solved alignment between humans. We are now trying to solve it between all of humanity and a mind more capable than any of us.</p></div>
@@ -3130,7 +3158,7 @@ refusal training</text>
         <line x1="0" y1="232" x2="700" y2="232" stroke="#e2e5e7"/>
         <text x="0" y="254" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Each layer is leaky, and none is verified. Four imperfect filters do not add up to a guarantee.</text>
       </svg>
-      <figcaption>Defence in depth is the right shape, and it is not a solution. Every barrier here has known gaps: alignment is unsolved, evaluations are gamed by the systems being evaluated, control weakens as capability grows, and governance is almost entirely voluntary. Stacking them reduces risk. It does not remove it, and treating the stack as sufficient is its own failure mode.</figcaption>
+      <figcaption>Defence in depth is the right shape. Every layer still leaks, and the leaks compound.</figcaption>
     </figure>
 
     <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Every technique in use today, and where each one stops</h3>
@@ -3175,7 +3203,7 @@ refusal training</text>
         <line x1="0" y1="304" x2="720" y2="304" stroke="#eae6e0"/>
         <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">The bottom row is why technical alignment alone cannot finish the job.</text>
       </svg>
-      <figcaption>Read across a row and the division of labour becomes clear. Misuse and mistakes have real engineering answers backed by policy. Misalignment has engineering work underway and governance that mostly is not binding yet. Structural risk has no technical fix at all, because no single actor can engineer their way out of a competitive dynamic. That asymmetry is the argument for why the fourth layer exists.</figcaption>
+      <figcaption>Read across a row to see which layer is supposed to catch which failure.</figcaption>
     </figure>
 
     <div class="tindex rv">
@@ -3384,7 +3412,7 @@ refusal training</text>
         <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">None of these reach zero, and none is a solved problem.</text>
         <text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a847c">Pale bar: before mitigation. Solid bar: after. The solid bar is what is left.</text>
       </svg>
-      <figcaption>These are the strongest published safety results available, and they are real progress. They are also the honest ceiling of the current toolkit: an order-of-magnitude reduction in measured misbehaviour, on the tests we know how to write, and against models that can sometimes tell. A residual of 0.4% is small until it is running unsupervised across millions of tasks.</figcaption>
+      <figcaption>These are the strongest published results available, and none of their authors calls the remainder small.</figcaption>
       <p class="fig-src">Check the numbers: <a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">Constitutional Classifiers</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">Anti-scheming training</a> · full citations <a href="#s52">52</a>, <a href="#s43">43</a></p>
     </figure>
 
@@ -3462,7 +3490,7 @@ refusal training</text>
         <text x="205" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f6a63">fails</text>
         <text x="0" y="330" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Only the governance row survives a builder who declines to participate, and it is the least developed.</text>
       </svg>
-      <figcaption>The three columns are the failure conditions this page keeps returning to. Reading down them is more useful than reading any single technique: interpretability and control survive a model that knows it is watched, almost nothing survives a model more capable than its monitor, and only binding rules touch an actor who never opted in. Defence in depth works when the layers fail independently. These layers share failure modes.</figcaption>
+      <figcaption>Read down a column: each pillar fails in a different way, and only some of them have anyone assigned to them.</figcaption>
     </figure>
 
     <div class="keyline rv" style="margin-top:clamp(18px,2.6vw,24px)"><span class="kk">Reading the inventory</span><p>The layers are ordered by how much they assume. Development tries to make the goal right. Assessment assumes you might have failed and looks. Control assumes you cannot tell and contains anyway. Governance assumes the first three are voluntary and tries to make them binding. Risk that survives all four is the residual, and nobody currently claims it is small.</p></div>

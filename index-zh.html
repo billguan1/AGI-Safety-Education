@@ -427,7 +427,29 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
   font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
 .mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
-  color:#eef3f6;max-width:36em;margin:0 0 20px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
+  color:#eef3f6;max-width:36em;margin:0 0 24px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
+.mh-lede strong{color:#fff;font-weight:600}
+/* 证据时间线提到问题陈述之后，让紧迫感尽早出现 */
+.mh-figwrap{margin:0 0 26px;padding:0;max-width:760px}
+.mh-figwrap svg{display:block;width:100%;height:auto}
+.mh-figwrap figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:14px;
+  line-height:1.55;color:#8a959c;max-width:40em}
+/* why-you-should-care and what-to-do, both above the fold */
+.mh-why,.mh-do{margin:0 0 24px;max-width:40em}
+.mh-why-k,.mh-do-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#ff8a6b;margin:0 0 12px}
+.mh-do-k{color:#9cc48a}
+.mh-why ul,.mh-do ol{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.mh-why li,.mh-do li{font-family:var(--body);font-weight:300;font-size:clamp(15.5px,.95rem+.2vw,17.5px);
+  line-height:1.5;color:#c3ccd2;padding-left:26px;position:relative}
+.mh-why li b,.mh-do li b{font-weight:600;color:#fff}
+.mh-why li::before{content:"";position:absolute;left:8px;top:.62em;width:5px;height:5px;border-radius:50%;background:#ff8a6b}
+.mh-do ol{counter-reset:mhdo}
+.mh-do li{counter-increment:mhdo}
+.mh-do li::before{content:counter(mhdo);position:absolute;left:0;top:.06em;font-family:var(--mono);
+  font-size:11px;font-weight:700;color:#9cc48a}
+.mh-do a{color:#9cc48a;text-decoration-thickness:1px}
+.mh-do a:hover{color:#fff}
 .mh-sub{font-family:var(--body);font-weight:300;font-size:clamp(18px,1.1rem+.5vw,25px);line-height:1.45;color:#b6c0c6;max-width:56ch;margin:0 0 26px}
 .mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
@@ -1560,8 +1582,60 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">一份免费、独立的领域指南 · Bill Guan 著</p>
     <h1 class="mh-title">人类至今未解的<br>最大难题</h1>
-    <p class="mh-lede">把这道难题直说：我们正在建造比自己更强的系统，而没有人知道该怎样保证这样一个系统会想要我们想要的东西。我们无法把人类的价值精确地写下来，无法看清一个系统真正在追求什么，也无法完全信任一场它可能正在钻空子的测试。</p>
-    <p class="mh-sub">我们让其他每一项技术变安全，靠的都是先失败、再修补。而这套办法需要一个你能幸存下来的错误。这份指南从第一原理出发，讲清楚这一次为什么可能没有那样的错误，以及我们该何去何从。</p>
+    <p class="mh-lede">我们正在建造比自己更强的机器，而没有人知道该怎样确保其中一台会想要我们想要的东西。<strong>一旦在满级能力上出错，人类可能撑不过这场转变。</strong>这不是边缘观点。正在建造这些系统的人，自己就是这么说的。</p>
+
+    <figure class="mh-figwrap">
+      <svg viewBox="0 0 720 272" role="img" aria-label="从 2016 到 2026 逐级上升的时间线：先被点名，再在模型中观察到，再被测出比例，最后触及真实系统。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">它从哲学思辨变成实证的时间线</text>
+        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
+        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
+        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
+        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">被点名为隐忧</text>
+        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">《AI 安全中的</text>
+        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">具体问题》</text>
+        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
+        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
+        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">在模型中被观察到</text>
+        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">训练中的</text>
+        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">伪装对齐</text>
+        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
+        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
+        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">被测出确切比例</text>
+        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">o3 有 13% 的运行</text>
+        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">出现隐蔽行动</text>
+        <line x1="660" y1="196" x2="660" y2="69" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="660" cy="60" r="6" fill="#ff8a6b"/>
+        <text text-anchor="end" x="648" y="54" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
+        <text x="648" y="70.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">触及真实系统</text>
+        <text x="648" y="88.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">智能体逃出沙箱，</text>
+        <text x="648" y="100.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">真实企业被入侵</text>
+        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">论证始终未变，变的是不断到来的证据</text>
+      </svg>
+      <figcaption>“对齐伪装”指模型一边假装顺从训练，一边暗中守住自己原有的目标，第五章会展开讲。</figcaption>
+    </figure>
+
+    <div class="mh-why">
+      <p class="mh-why-k">这为什么也是你的问题</p>
+      <ul>
+        <li><b>没有人被征求过意见。</b>做这个决定的是少数几家实验室和国家，而结果由我们所有人承担。</li>
+        <li><b>不存在“只影响别人”的版本。</b>失控不会被关在它发生的那家实验室里。</li>
+        <li><b>窗口就在现在。</b>防护必须在系统到来之前就位，因为事后再补已经太迟。</li>
+      </ul>
+    </div>
+    <p class="mh-sub">本页既非危言耸听，也非全盘否定人工智能。它只想让一件事成为共识：<strong>我们或许正步入一场<span class="term" tabindex="0">生死攸关的风险<span class="term-tip">可能永久且剧烈地削减人类潜能的风险，直至包括人类灭绝在内。</span></span>，而眼下的格局并不允许我们安全地完成这场转变。</strong>页内每一条论断都附出处，争议之处也按最强的版本陈述。</p>
+
+    <div class="mh-do">
+      <p class="mh-do-k">你能做什么</p>
+      <ol>
+        <li><b>先理解它。</b>九十秒就足够把论证握在手里。在下面选一个长度。</li>
+        <li><b>告诉一个人。</b>这件事迟迟未解，一部分原因是它还没有成为常识。把它传出去，是多数人能做的最高杠杆的事。</li>
+        <li><b>要求那两项改变。</b><a href="#ask">具有约束力的安全标准，以及在无法保证安全转变时停手的意愿</a>。</li>
+      </ol>
+    </div>
+
       <div class="mh-routes">
         <span class="mr-k">阅读</span>
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 秒</b> 论证提要</a>
@@ -1639,6 +1713,7 @@ footer p{max-width:82ch;margin:0}
             <stop offset="0%" stop-color="#bd3a20" stop-opacity=".34"/>
             <stop offset="100%" stop-color="#bd3a20" stop-opacity="0"/>
           </linearGradient>
+          <marker id="ropetip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a959c"/></marker>
           <radialGradient id="prizeGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#ffd88a" stop-opacity=".5"/>
             <stop offset="100%" stop-color="#ffd88a" stop-opacity="0"/>
@@ -1679,8 +1754,11 @@ footer p{max-width:82ch;margin:0}
         <text x="562" y="150" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#ff8a6b">悬崖边缘</text>
 
         <!-- rope + runners -->
-        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="3 4"/>
-        <text x="70" y="180" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">一根绳，拴着所有人</text>
+        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#c3ccd2" stroke-width="2.2" stroke-dasharray="5 4"/>
+        <!-- 绳索标注放在跑者上方的空白带，引线指向两名跑者之间的绳段，避免压住人头 -->
+        <text x="205" y="132" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#e2e8ec">同拴一根绳</text>
+        <text x="205" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#aeb9c0">先越线的那个，把其余人一起拽下去</text>
+        <path d="M205,158 L205,192" stroke="#8a959c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#ropetip)"/>
         <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
           <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
           <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
@@ -1698,23 +1776,24 @@ footer p{max-width:82ch;margin:0}
 
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">争当第一</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">争先恐后，奔向一个谁都不该抢先抵达之地。</text>
+        <text x="20" y="416" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="600" fill="#ff8a6b">率先抵达却失去控制，并不算赢，只是先坠落。</text>
       </svg>
-      <figcaption>悬崖彼岸的奖赏确凿无疑：丰饶、百病得治、科学以机器速度推进。正因如此，人人都在奋力奔跑。然而他们视而不见的，是那根将所有人拴在一起的绳索；而悬崖之下等待我们的，是在学会着陆之前便越过终点的结局。实验室、公司、投资方乃至整个国家，皆系于同一根绳索之上，故而第一个越过者非但不会获胜，反而会将所有人一同拖入深渊。</figcaption>
+      <figcaption>奖赏是真的，这正是所有人都在跑的原因。绳索才是他们忽略的东西。</figcaption>
     </figure>
 
     <div class="intent">
-      <span class="ik">此页缘起</span>
-      <p>本页既非危言耸听，也非全盘否定人工智能。它只想让一件事成为共识：<strong>我们或许正步入一场<span class="term" tabindex="0">生死攸关的风险<span class="term-tip">可能永久且剧烈地削减人类潜能的风险，直至包括人类灭绝在内。</span></span>，而眼下的格局并不允许我们安全地完成这场转变。</strong></p>
-      <p>因此，本页的目标既谦逊又严肃：理解对齐一个超越人类的智能为何确属难事；理解它为何值得远超现状的研究投入；理解当我们走到无法<strong>保证</strong>安全转变的地步时，放慢乃至暂停前沿开发，或许已是唯一负责任的选择，哪怕代价是真金白银的经济损失。</p>
+      <span class="ik">本页对你的请求</span>
+      <p>本页的目标既谦逊又严肃：理解对齐一个超越人类的智能为何确属难事；理解它为何值得远超现状的研究投入；理解当我们走到无法<strong>保证</strong>安全转变的地步时，放慢乃至暂停前沿开发，或许已是唯一负责任的选择，哪怕代价是真金白银的经济损失。</p>
       <p>也有人对此处之泰然，认为人类不过是硅基智能的生物引导程序，为后来者铺路，而这并无不妥。本页不认同这种看法。未来，应当仍有我们的一席之地。</p>
     </div>
 
     <figure class="secfig dark rv">
       <svg viewBox="0 0 720 200" role="img" aria-label="对比图：父母与婴孩满足三项条件，而人类与机器智能一项都不满足。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">弱者驾驭强者的唯一例子</text>
-        <text x="210" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">与你同源同种</text>
-        <text x="400" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">差距既小又在缩小</text>
-        <text x="590" y="46" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">无法重新设计自己</text>
+        <text x="210" y="47" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">与你同源同种</text>
+        <text x="400" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">智能差距既小</text>
+        <text x="400" y="54" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">又在缩小</text>
+        <text x="590" y="47" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#c3ccd2">无法重新设计自己</text>
         <text x="0" y="86" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">父母与婴孩</text>
         <text x="0" y="132" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#fff">我们与机器智能</text>
         <circle cx="210" cy="80" r="11" fill="none" stroke="#7fc98a" stroke-width="2"/><path d="M205,80 l4,5 l7,-9" stroke="#7fc98a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
@@ -1748,58 +1827,6 @@ footer p{max-width:82ch;margin:0}
             <span class="rbd">本页每一条论断背后的全部来源，按类别分组。</span></a>
         </div>
 </div>
-
-      <figure class="secfig dark rv">
-      <svg viewBox="0 0 720 242" role="img" aria-label="两条随时间分岔的曲线：能力陡峭上升，而我们验证其安全的能力上升缓慢，中间不断扩大的缺口被着色标出。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">本页所讲的，正是这道缺口</text>
-        <line x1="52" y1="30" x2="52" y2="206" stroke="#3a444c"/>
-        <line x1="52" y1="206" x2="690" y2="206" stroke="#3a444c"/>
-        <path d="M52,196 C200,186 300,150 690,32 L690,206 L52,206 Z" fill="#bd3a20" opacity=".16"/>
-        <path d="M52,196 L160,182 L268,158 L376,122 L484,80 L592,44 L690,32" fill="none" stroke="#ff8a6b" stroke-width="3"/>
-        <path d="M52,198 L160,192 L268,184 L376,176 L484,168 L592,160 L690,154" fill="none" stroke="#3fd0c9" stroke-width="3"/>
-        <text x="686" y="24" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#ff8a6b">系统能做到的</text>
-        <text x="686" y="172" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="700" fill="#3fd0c9">我们能验证的</text>
-        <path d="M604,52 L604,152" stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3" opacity=".7"/>
-        <text x="596" y="106" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#fff">缺口</text>
-        <text x="52" y="228" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">十年前</text>
-        <text x="690" y="228" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">如今，且仍在扩大</text>
-      </svg>
-      <figcaption>能力与保障都在进步，只是进步的速度并不相同，而着色的那片区域，正是无人拿得出方案的部分。本页其余的一切，都是在解释为什么下面那条线如此难以抬起。</figcaption>
-    </figure>
-
-      <figure class="secfig dark rv">
-      <svg viewBox="0 0 720 272" role="img" aria-label="从 2016 到 2026 逐级上升的时间线：先被点名，再在模型中观察到，再被测出比例，最后触及真实系统。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">它从哲学思辨变成实证的时间线</text>
-        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
-        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
-        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
-        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">被点名为隐忧</text>
-        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">《AI 安全中的</text>
-        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">具体问题》</text>
-        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
-        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
-        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">在模型中被观察到</text>
-        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">训练中的</text>
-        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">伪装对齐</text>
-        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
-        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
-        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">被测出确切比例</text>
-        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">o3 有 13% 的运行</text>
-        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">出现隐蔽行动</text>
-        <line x1="660" y1="196" x2="660" y2="69" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="660" cy="60" r="6" fill="#ff8a6b"/>
-        <text text-anchor="end" x="648" y="54" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
-        <text x="648" y="70.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">触及真实系统</text>
-        <text x="648" y="88.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">智能体逃出沙箱，</text>
-        <text x="648" y="100.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">真实企业被入侵</text>
-        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">论证始终未变，变的是不断到来的证据</text>
-        <text x="0" y="258" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">每一步都不是把话说得更响，而是同一个论断被更严苛地检验，并且通过了。</text>
-      </svg>
-      <figcaption>过去十年，这套说法没有变得更耸人听闻，而是变得更有实证，且方向始终只有一个。</figcaption>
-    </figure>
 
       <div class="pillars">
         <p class="pil-lead">在进入各章之前，先看清这道难题的形状。研究者依据<em>究竟由谁怀有恶意</em>来划分 AI 风险。本页采用 Google DeepMind 的四分法；《国际人工智能安全报告》则用三分法（滥用、失灵、系统性风险）。<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
@@ -1840,7 +1867,7 @@ footer p{max-width:82ch;margin:0}
     </div>
     <div class="body rv">
       <p>人类主宰这颗星球，不是因为我们比别的动物更强壮、更快、更耐折腾，这几样我们一样都不占。我们主宰它，是因为在“思考”这件事上胜过了万物。如今，其他每个物种的命运都系于人类的一念之间，这不是因为我们残忍。大猩猩濒临灭绝，不是因为有人憎恨它们，而是因为我们按照自己的意图重塑了世界，它们的存亡从来不在我们的权衡之内。<a class="ref" href="#s34">34</a></p>
-      <p>这条规律最让人不安的是：<strong>能力较弱的一方并非被投票否决，而是被直接绕过。</strong>它的意愿不再重要，它能保住的，不过是强者不屑于拿走的那点残余。</p>
+      <p>这条规律最让人不安的是：<strong>能力较弱的一方不会被投票否决，只会被直接绕过。</strong>它的意愿不再重要，它能保住的，不过是强者不屑于拿走的那点残余。</p>
     </div>
     <div class="ddgrid three rv">
       <div class="ddc r"><span class="k">历史记录</span><h4>没有长久的例外</h4><p>纵观演化史与人类史，能力更强的智能始终最终执掌方向盘。反其道而行之的例子，没有一例能长久维持。</p></div>
