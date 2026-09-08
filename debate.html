@@ -1,0 +1,2539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five conversations worth sitting through</title>
+<meta name="description" content="Two people argue about advanced AI five times and neither of them wins every round. Energy limits, which harm lands first, whether safety teams are real, and whether these systems have goals. Every figure sourced.">
+<meta property="og:title" content="Five conversations worth sitting through">
+<meta property="og:description" content="Two people argue about advanced AI five times and neither of them wins every round. Energy limits, which harm lands first, whether safety teams are real, and whether these systems have goals.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://safeagi.ca/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://safeagi.ca/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- SHARED STYLE BLOCK: byte-identical to index.html lines 17-1294 and index-zh.html.
+     Any change here must be applied to all three files in the same pass.
+     Debate-only additions live in the second stylesheet immediately below this block. -->
+<style>
+:root{
+  --ink:#12161a; --ink-2:#3d474f; --ink-3:#6e7981;
+  --paper:#e6e9eb; --white:#fbfcfc; --rule:#c0c6cb; --rule-soft:#d5dade;
+  --c-dev:#2233cc;  --t-dev:#e2e6fb; --d-dev:#1a2a9e;
+  --c-ass:#0d726e;  --t-ass:#dbeeec; --d-ass:#0b5d5a;
+  --c-ctl:#a8690a;  --t-ctl:#f8ecd7;
+  --c-risk:#bd3a20; --t-risk:#fae2dc; --d-risk:#8f2c18;
+  --c-act:#4a6a38;  --t-act:#e5ede0;
+  --glow-r:#ff6a45; --glow-b:#6d84ff; --glow-t:#3fd0c9;
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --gut:clamp(18px,4.6vw,60px); --maxw:1220px; --r:4px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:clamp(16.5px,1rem + .2vw,18.5px);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg{display:block}
+a{color:var(--c-dev);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--c-dev);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-9999px;background:var(--ink);color:#fff;padding:12px 18px;z-index:99;font-family:var(--mono);font-size:13px}
+.skip:focus{left:8px;top:8px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-height:1.03;margin:0}
+h2{font-size:clamp(28px,5.8vw,50px)}
+h3{font-size:clamp(19px,2.7vw,24px);letter-spacing:-.018em;line-height:1.15}
+p{margin:0 0 1em}
+.lede{font-size:clamp(18px,1.05rem + .45vw,23px);line-height:1.45;color:var(--ink-2);font-weight:300}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+.ref{font-family:var(--mono);font-size:.6em;font-weight:600;vertical-align:super;line-height:0;
+  text-decoration:none;color:var(--c-dev);padding:0 .1em}
+.ref:hover{background:var(--c-dev);color:#fff;border-radius:2px}
+.note{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6;max-width:72ch}
+.term{position:relative;border-bottom:1px dotted var(--ink-3);cursor:help}
+.term-tip{position:absolute;left:0;bottom:calc(100% + 9px);z-index:30;width:min(280px,74vw);
+  background:var(--ink);color:#e2e8ec;font-family:var(--body);font-size:13px;font-weight:300;line-height:1.4;
+  padding:10px 12px;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.28);
+  opacity:0;transform:translateY(4px);pointer-events:none;transition:opacity .15s,transform .15s}
+.term-tip::after{content:"";position:absolute;top:100%;left:14px;border:6px solid transparent;border-top-color:var(--ink)}
+.term:hover .term-tip,.term:focus .term-tip,.term.show .term-tip{opacity:1;transform:none;pointer-events:auto}
+.dark .term{border-bottom-color:#7d8890}
+.glance{margin:22px 0 clamp(28px,4vw,40px);padding:clamp(16px,2.4vw,22px);background:var(--white);border:1px solid var(--rule);border-radius:var(--r)}
+.glance-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:9px}
+.glance-row:last-child{margin-bottom:0}
+.glance-row b{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);flex:0 0 90px}
+.gpill{display:inline-block;font-family:var(--body);font-size:12px;color:var(--ink-2);background:var(--paper);
+  border:0;border-left:3px solid var(--acc);border-radius:3px;padding:5px 10px;cursor:pointer;transition:background .15s}
+.gpill:hover{background:var(--acc-t,var(--rule-soft))}
+.gpill i{font-style:normal;color:var(--ink-3)}
+.part-div{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,30px)}
+.part-div .pd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
+.part-div .pd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(13px,1.6vw,15px);color:var(--ink-2)}
+.part-div::after{content:"";flex:1;height:1px;background:var(--pd-acc);opacity:.4;align-self:center}
+.dark .part-div .pd-t{color:#c3ccd2}
+.ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+
+/* ---------- header ---------- */
+.bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
+.bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
+.brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
+.brand b{color:var(--c-risk)}
+.bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;border-radius:999px;text-decoration:none;white-space:nowrap;
+  cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:7px 13px;
+  transition:background .15s,color .15s,transform .15s}
+.hbtn .ico{width:12px;height:12px;stroke-width:2.2}
+.hbtn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
+.hbtn-act{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.hbtn-lang{font-weight:700}
+.hbtn-act:hover{background:#3c5a2d;color:#fff}
+.header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--c-risk);border-color:var(--c-risk);padding:7px 12px;
+  border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,transform .15s}
+.header-game .ico{width:12px;height:12px;stroke-width:2.4}
+.header-game:hover{background:var(--d-risk);color:#fff;transform:translateY(-1px)}
+@media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
+.switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
+.switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 11px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.switch button+button{border-left:1.5px solid var(--ink)}
+.switch button:hover{background:var(--t-dev)}
+.switch button.on{background:var(--ink);color:var(--paper)}
+.switch-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+@media(max-width:760px){.brand{display:none}.bar-in{flex-wrap:wrap;gap:10px}.bar-actions{width:100%;justify-content:flex-start}.bar-in{padding-left:14px;padding-right:14px}}
+
+
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(30px,5.5vw,64px) 0 clamp(28px,4vw,46px)}
+.kicker{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
+.kicker b{color:var(--c-act);font-weight:600}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(22px,3.6vw,50px);align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:22px}}
+.hero h1{font-size:clamp(34px,7.2vw,74px);line-height:.97;letter-spacing:-.04em;margin-bottom:18px;max-width:13ch}
+.hero h1 em{font-style:normal;color:var(--c-risk)}
+.hero .sub{font-size:clamp(17px,1rem + .35vw,21px);line-height:1.45;color:var(--ink-2);max-width:48ch;margin-bottom:22px}
+.rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards}
+.rise:nth-child(2){animation-delay:.07s}.rise:nth-child(3){animation-delay:.14s}
+.rise:nth-child(4){animation-delay:.21s}.rise:nth-child(5){animation-delay:.28s}
+@keyframes rise{to{opacity:1;transform:none}}
+.cta{display:flex;flex-wrap:wrap;gap:9px}
+.cta a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:13px 18px;border-radius:2px;text-decoration:none;transition:.16s;border:1.5px solid transparent}
+.cta .primary{background:var(--c-risk);color:#fff}
+.cta .primary:hover{background:var(--d-risk);color:#fff;transform:translateY(-2px)}
+.cta .ghost{border-color:var(--ink);color:var(--ink)}
+.cta .ghost:hover{background:var(--ink);color:var(--paper)}
+.gapfig{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:16px 16px 12px;margin:0}
+.gapfig figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.5;color:var(--ink-3);margin-top:8px}
+.draw{stroke-dasharray:620;stroke-dashoffset:620;animation:draw 2.1s ease .4s forwards}
+.draw.b{animation-delay:.8s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pulse{animation:pulse 2.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.2}50%{opacity:.55}}
+
+section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);position:relative}
+.sec-head{max-width:72ch;margin-bottom:clamp(22px,3.4vw,38px)}
+.sec-head h2{margin-bottom:14px}
+
+/* ---------- dark sections ---------- */
+.dark{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden}
+.dark h2,.dark h3{color:#fff}
+.dark .lede{color:#a8b3ba}
+.dark .eyebrow{color:#7d8890}
+.dark .eyebrow::after{background:#333d44}
+.dark .note{color:#7d8890}
+.dark p{color:#c3ccd2}
+.dark::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(900px 420px at 82% 8%,rgba(189,58,32,.20),transparent 65%),
+             radial-gradient(700px 380px at 8% 92%,rgba(34,51,204,.20),transparent 65%)}
+.dark .wrap{position:relative;z-index:1}
+.dark a{color:#8fa2ff}
+.dark .ref{color:#8fa2ff}
+.dark .ref:hover{background:#8fa2ff;color:var(--ink)}
+
+
+
+
+
+/* ---------- folded premise (technical core) ---------- */
+.core{border:1px solid var(--rule);border-left:4px solid var(--c-dev);border-radius:var(--r);
+  background:var(--white);padding:clamp(18px,2.6vw,24px);margin:clamp(20px,3vw,30px) 0}
+.core .ck{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-dev);display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.core h4{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(17px,2.2vw,21px);margin-bottom:10px}
+.core p{font-size:15.5px;line-height:1.55;color:var(--ink-2);margin:0 0 12px;max-width:74ch}
+.core .breaks{font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--ink-3);max-width:80ch;
+  border-top:1px dashed var(--rule);padding-top:12px;margin:0}
+.core .breaks b{color:var(--c-risk);letter-spacing:.1em;text-transform:uppercase;font-size:10px;display:block;margin-bottom:5px}
+.core.dark-core{background:rgba(255,255,255,.03);border-color:#333d44;border-left-color:#6d84ff}
+.dark-core .ck{color:#8fa2ff}.dark-core h4{color:#fff}.dark-core p{color:#c3ccd2}
+.dark-core .breaks{color:#8a959c;border-top-color:#333d44}
+.dark-core .breaks b{color:#ff8a6b}
+.spectrum{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.spectrum .sp-step{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1.5px solid var(--rule);color:var(--ink-2);background:var(--white)}
+.spectrum .sp-step.on{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.dark-core .spectrum .sp-step{border-color:#3b454c;color:#c3ccd2;background:rgba(255,255,255,.04)}
+.dark-core .spectrum .sp-step.on{background:#ff6a45;border-color:#ff6a45;color:#12161a}
+/* inline goodhart inside a light deep-dive */
+.core 
+
+
+
+/* ---------- embedded demo in DD05 ---------- */
+.demo-embed{margin:clamp(20px,3vw,30px) 0}
+.demo-embed-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);
+  color:var(--ink);margin:0 0 14px;max-width:52ch}
+.demo-embed .demo{background:var(--ink)}
+
+/* ---------- goodhart interactive (dark panel in light section) ---------- */
+.ghwrap{margin:20px 0 6px;padding:clamp(20px,3vw,28px);border-radius:var(--r);background:var(--ink);color:#e2e8ec}
+.ghlead{font-family:var(--body);font-weight:300;font-size:clamp(16px,2vw,19px);line-height:1.45;color:#fff;margin:0 0 20px;max-width:52ch}
+.ghwrap .gh{display:block}
+.gh-ctrl label{color:#8a959c}
+.gh-say{margin-top:16px;font-family:var(--body);font-weight:300;font-size:clamp(15px,1.9vw,17px);line-height:1.55;
+  color:#c3ccd2;min-height:3em;border-left:3px solid var(--glow-r);padding-left:16px}
+.cf-turnstile{margin-top:12px}
+/* ---------- join the community ---------- */
+.joinbig{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(24px,3.6vw,36px);
+  margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
+.joinbig::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,106,56,.5),rgba(74,106,56,0) 68%)}
+.joinbig>*{position:relative;z-index:1}
+.joinbig .sb-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:#9cc48a;display:block;margin-bottom:10px}
+.joinbig h3{color:#fff;font-size:clamp(23px,3.4vw,32px);margin-bottom:10px}
+.joinbig p{color:#b6c0c6;font-size:15.5px;margin:0 0 20px;max-width:56ch}
+.jform{display:flex;flex-wrap:wrap;gap:9px;align-items:stretch;max-width:560px}
+.jform input[type=email]{flex:1 1 240px;min-width:0;font-family:var(--body);font-size:16px;color:var(--ink);
+  background:var(--white);border:1.5px solid var(--white);border-radius:2px;padding:13px 15px}
+.jform input[type=email]::placeholder{color:#8a959c}
+.jform input[type=email]:focus{outline:2.5px solid #9cc48a;outline-offset:2px}
+.jform button{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:13px 20px;border-radius:2px;cursor:pointer;border:1.5px solid var(--c-act);background:var(--c-act);color:#fff;
+  transition:transform .15s,background .15s}
+.jform button:hover{transform:translateY(-2px);background:#3c5a2d}
+.jnote{font-family:var(--mono);font-size:10.5px;color:#8a959c;margin:12px 0 0}
+.jnote a{color:#8fa2ff}
+.jmsg{font-family:var(--mono);font-size:12px;color:#9cc48a;margin:12px 0 0;min-height:1.2em}
+.jsecond{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid #2b343b}
+.jsecond .js-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:#8a959c;width:100%;margin-bottom:2px}
+/* ---------- big share block ---------- */
+.sharebig{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+  background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(22px,3.4vw,32px);margin-bottom:clamp(20px,3vw,28px);position:relative;overflow:hidden}
+.sharebig::after{content:"";position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,106,56,.5),rgba(74,106,56,0) 68%)}
+.sharebig>*{position:relative;z-index:1}
+.sharebig-txt{flex:1;min-width:260px}
+.sharebig .sb-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#9cc48a;display:block;margin-bottom:10px}
+.sharebig h3{color:#fff;font-size:clamp(22px,3.2vw,30px);margin-bottom:8px}
+.sharebig p{color:#b6c0c6;font-size:15.5px;margin:0;max-width:44ch}
+.sharebig-btns{display:flex;flex-wrap:wrap;gap:8px}
+.sbtn{display:inline-flex;align-items:center;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;padding:12px 16px;border-radius:2px;text-decoration:none;cursor:pointer;
+  background:var(--paper);color:var(--ink);border:1.5px solid var(--paper);transition:transform .15s,background .15s}
+.sbtn:hover{transform:translateY(-2px);color:var(--ink)}
+.sbtn.x{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.sbtn.x:hover{color:#fff}
+/* ---------- big share block end ---------- */
+
+
+
+
+
+/* ---------- collapsible sources + open questions ---------- */
+.src-toggle,.oq-toggle{margin-top:4px}
+.src-toggle>summary,.oq-toggle>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--c-dev);border:1.5px solid var(--rule);border-radius:999px;padding:10px 16px;transition:.15s}
+.src-toggle>summary::-webkit-details-marker,.oq-toggle>summary::-webkit-details-marker{display:none}
+.src-toggle>summary:hover,.oq-toggle>summary:hover{border-color:var(--ink);color:var(--ink)}
+.src-toggle>summary::after,.oq-toggle>summary::after{content:"+";font-size:15px;line-height:1}
+.src-toggle[open]>summary::after,.oq-toggle[open]>summary::after{content:"–"}
+.src-toggle[open]>summary{margin-bottom:20px}
+.oq-toggle>summary{border:0;padding:0;color:var(--ink);font-family:var(--display);font-weight:800;
+  letter-spacing:-.02em;font-size:clamp(20px,3vw,27px);text-transform:none}
+.oq-toggle>summary .faq-subhead-in{border-bottom:2px solid var(--c-dev);padding-bottom:2px}
+.oq-toggle>summary::after{color:var(--c-dev);margin-left:10px;font-family:var(--mono)}
+.oq-toggle[open]>summary{margin-bottom:18px}
+
+/* ---------- convergent drives list ---------- */
+.drives{list-style:none;margin:8px 0 0;padding:0}
+.drives li{border-top:1px solid var(--rule-soft);padding:8px 0;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.drives li b{font-family:var(--display);font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-right:8px}
+.drives li i{font-style:normal;color:var(--ink-3)}
+/* ---------- takeover phases ---------- */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:clamp(20px,3vw,30px) 0}
+@media(max-width:820px){.phases{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.phases{grid-template-columns:1fr}}
+.ph{border:1px solid var(--rule-soft);border-radius:var(--r);padding:16px;background:var(--white);position:relative}
+.ph .pn{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:9px}
+.ph h4{font-family:var(--display);font-weight:800;font-size:15.5px;letter-spacing:-.015em;margin-bottom:7px;line-height:1.2}
+.ph p{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
+.ph.turn{background:var(--t-risk);border-color:#eec4b8}
+.ph.turn .pn{color:var(--c-risk)}
+.ph.end{background:var(--ink);border-color:var(--ink)}
+.ph.end .pn{color:#ff8a6b}
+.ph.end h4{color:#fff}
+.ph.end p{color:#e6ebee}
+/* ---------- control methods ---------- */
+.cmeth{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(20px,3vw,28px)}
+@media(max-width:760px){.cmeth{grid-template-columns:1fr}}
+.cm{border:1px solid var(--rule);border-radius:var(--r);padding:20px;background:var(--white)}
+.cm h4{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.018em;margin-bottom:6px}
+.cm .cmk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:10px}
+.cm.b .cmk{color:var(--c-ctl)}
+.cm ul{list-style:none;margin:12px 0 0;padding:0}
+.cm li{border-top:1px solid var(--rule-soft);padding:9px 0;font-size:14px;line-height:1.45;color:var(--ink-2)}
+.cm li b{color:var(--ink);font-weight:600;font-family:var(--display);letter-spacing:-.01em}
+.cm li i{font-style:normal;color:var(--ink-3);display:block;font-size:13px;margin-top:2px}
+/* ---------- takeover phases end ---------- */
+/* ---------- faq disputes subsection ---------- */
+.faq-sub{margin-top:clamp(30px,5vw,48px);padding-top:clamp(24px,3.6vw,36px);border-top:1.5px solid var(--ink)}
+.faq-subhead{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(20px,3vw,27px);margin:0 0 8px}
+.faq-subnote{font-size:15.5px;color:var(--ink-2);margin:0 0 22px;max-width:60ch}
+#faq summary .qn{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--c-risk);
+  margin-right:11px;flex:0 0 auto}
+/* ---------- faq ---------- */
+#faq details{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);margin-bottom:10px}
+#faq summary{cursor:pointer;padding:16px 18px;font-family:var(--display);font-weight:700;font-size:clamp(16px,2.1vw,19px);
+  letter-spacing:-.012em;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+#faq summary::-webkit-details-marker{display:none}
+#faq summary::after{content:"+";font-family:var(--mono);font-size:18px;color:var(--c-dev);flex-shrink:0}
+#faq details[open] summary::after{content:"–"}
+#faq summary:hover{color:var(--c-dev)}
+#faq .fa{padding:0 18px 18px}
+#faq .fa p{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:0;max-width:70ch}
+
+/* ---------- compact resource lists (multi-column) ---------- */
+.rlist{list-style:none;margin:0;padding:0;columns:2;column-gap:40px}
+@media(min-width:1000px){.rlist{columns:3}}
+@media(max-width:600px){.rlist{columns:1}}
+.rlist li{break-inside:avoid;padding:7px 0;border-top:1px solid var(--rule-soft)}
+.rlist li:first-child{border-top:0}
+.rlist .rl-head{border-top:0;padding:14px 0 5px;margin-top:6px;border-bottom:1px solid var(--ink)}
+.rlist li.rl-head:first-child{margin-top:0;padding-top:0}
+.rl{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);display:block}
+.rl:hover{color:var(--c-dev)}
+.rl-d{font-size:13px;color:var(--ink-3);display:block;margin-top:1px}
+.rl-d .ref{margin-left:3px}
+.rl-h{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--c-dev)}
+/* ---------- compact resource lists ---------- */
+.rl-h{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.rl{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);flex:0 0 auto}
+.rl:hover{color:var(--c-dev)}
+.rl-d{font-size:13.5px;color:var(--ink-3);flex:1;min-width:180px}
+.rl-d .ref{margin-left:4px}
+/* two-column on wide screens for density */
+@media(min-width:720px){
+  .resbody     .rlist .rl-d{display:inline;margin-left:8px}
+  }
+/* ---------- bundled resources ---------- */
+.resblock{border:1px solid var(--rule);border-radius:var(--r);margin-bottom:12px;overflow:hidden;background:var(--white)}
+.resbar{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"i t x" "i s x";
+  gap:0 14px;align-items:center;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  font-family:inherit;padding:18px 20px;transition:background .15s}
+.resbar:hover{background:var(--paper)}
+.resbar .rbi{grid-area:i;width:40px;height:40px;border-radius:50%;background:var(--t-dev);color:var(--c-dev);
+  display:flex;align-items:center;justify-content:center}
+.resbar .rbi .ico{width:20px;height:20px}
+.resbar .rbt{grid-area:t;font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:var(--ink);align-self:end}
+.resbar .rbs{grid-area:s;font-size:14px;color:var(--ink-3);align-self:start}
+.resbar .rbx{grid-area:x;font-family:var(--mono);font-size:20px;color:var(--c-dev)}
+.resbody{padding:0 20px 22px;border-top:1px solid var(--rule-soft)}
+.resbody.closed{display:none}
+.resbody .sec-head{margin-bottom:18px;padding-top:18px}
+/* compact the cards inside resources */
+#resources .card{padding:15px}
+#resources .card h3{font-size:16px}
+#resources .card p{font-size:13.5px}
+#resources .rung{padding:20px 0}
+#resources .sec-head h2{font-size:clamp(20px,3vw,26px)}
+
+/* ---------- nested chapter nav ---------- */
+.chapters{border-top:1px solid var(--rule-soft);position:relative;z-index:40}
+.nav-groups{list-style:none;margin:0;padding:6px var(--gut);display:flex;gap:4px;flex-wrap:wrap}
+.ng{position:relative}
+.ng.open::before{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.ng-top{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 13px;
+  cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
+.ng-top:hover{border-color:var(--rule);color:var(--ink)}
+.ng.active .ng-top{background:var(--ink);color:var(--paper)}
+.ng-caret{font-size:12px;transition:transform .18s;display:inline-block}
+.ng.open .ng-top{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ng.open .ng-caret{transform:rotate(90deg)}
+.ng-menu{list-style:none;margin:0;padding:6px;position:absolute;top:calc(100% + 6px);left:0;min-width:210px;
+  background:var(--white);border:1px solid var(--rule);border-radius:var(--r);box-shadow:0 12px 34px rgba(18,22,26,.16);
+  opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .16s,transform .16s,visibility .16s;z-index:50}
+.ng.open .ng-menu{opacity:1;visibility:visible;transform:none}
+.ng-menu.fixed{position:fixed;top:auto;left:auto}
+.ng-menu li{margin:0}
+.ng-menu a{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
+  color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:nowrap;transition:background .12s,color .12s}
+.ng-menu a:hover{background:var(--paper);color:var(--ink)}
+.ng-menu a.on{background:var(--t-dev);color:var(--c-dev)}
+@media(max-width:640px){
+  .nav-groups{padding-left:14px;padding-right:14px;gap:3px}
+  .ng-top{padding:7px 10px;font-size:9.5px}
+  .ng-menu{position:absolute;left:0;min-width:190px}
+  }
+/* ---------- deep-dive chapters ---------- */
+.dd{border-top:1px solid var(--rule)}
+.dd .chapno{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--c-risk);display:block;margin-bottom:14px}
+.dd h2{max-width:20ch;margin-bottom:16px}
+.dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:64ch;margin:0 0 14px}
+.dd .stand strong{color:var(--ink);font-weight:500}
+.dd .body{margin-top:8px}
+.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:74ch}
+.dd .body>p strong{color:var(--ink);font-weight:500}
+.ddgrid{display:grid;gap:12px;margin:clamp(22px,3.4vw,34px) 0}
+.ddgrid.two{grid-template-columns:1fr 1fr}
+.ddgrid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:760px){.ddgrid.two,.ddgrid.three{grid-template-columns:1fr}}
+.ddc{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);padding:20px;border-top:3px solid var(--rule)}
+.ddc.r{border-top-color:var(--c-risk)} .ddc.b{border-top-color:var(--c-dev)}
+.ddc.t{border-top-color:var(--c-ass)} .ddc.o{border-top-color:var(--c-ctl)} .ddc.g{border-top-color:var(--c-act)}
+.ddc .k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:10px}
+.ddc h4{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.015em;margin-bottom:8px}
+.ddc p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.keyline{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(18px,2.8vw,26px);margin:clamp(22px,3.4vw,32px) 0}
+.keyline .kk{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;display:block;margin-bottom:10px}
+.keyline p{font-family:var(--display);font-weight:600;letter-spacing:-.018em;font-size:clamp(19px,2.6vw,26px);line-height:1.32;color:#fff;margin:0;max-width:40ch}
+.example{border-left:3px solid var(--c-dev);background:var(--card,#f4f5f6);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;margin:18px 0}
+.example .ek{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:8px}
+.example p{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0;max-width:76ch}
+.example code{font-family:var(--mono);font-size:.9em;background:rgba(34,51,204,.08);padding:1px 5px;border-radius:3px}
+
+
+/* ---------- masthead ---------- */
+.masthead{background:var(--ink);color:#e2e8ec;padding:clamp(48px,9vw,104px) 0 clamp(40px,7vw,80px);position:relative;overflow:hidden}
+.masthead::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(1100px 520px at 80% -10%,rgba(189,58,32,.30),transparent 60%),
+             radial-gradient(820px 480px at 0% 115%,rgba(34,51,204,.24),transparent 62%)}
+.masthead .wrap{position:relative;z-index:1}
+.mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
+.mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
+  font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
+.mh-sub{font-family:var(--body);font-weight:300;font-size:clamp(18px,1.1rem+.5vw,25px);line-height:1.45;color:#b6c0c6;max-width:56ch;margin:0 0 26px}
+.mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
+.mh-meta span{padding:0 16px;border-left:1px solid #39434a}
+.mh-meta span:first-child{padding-left:0;border-left:0}
+.mh-def{font-family:var(--mono);font-size:clamp(12px,1.25vw,13.5px);line-height:1.6;color:#dfe5e9;
+  max-width:70ch;margin:0 0 24px;padding:12px 0 12px 16px;border-left:3px solid var(--glow-r)}
+.mh-routes{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 26px}
+.mh-routes .mr-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:#8a959c;margin-right:4px}
+.mh-rbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;border-radius:999px;padding:8px 14px;
+  cursor:pointer;transition:.15s;display:inline-flex;align-items:baseline;gap:7px}
+.mh-rbtn b{font-weight:700;color:#9cc48a}
+.mh-rlink{text-decoration:none;border-style:dashed}
+.mh-rlink:hover{border-color:#dfe5e9}
+.mh-rbtn:hover{border-color:#dfe5e9}
+.mh-rbtn.on{background:#9cc48a;border-color:#9cc48a;color:#12161a}
+.mh-rbtn.on b{color:#12161a}
+/* ---------- masthead end ---------- */
+
+
+
+
+/* ---------- segmented progress bar ---------- */
+#prog{position:fixed;top:0;left:0;height:4px;width:100%;z-index:60;display:flex;gap:2px;
+  padding:0 2px;background:transparent;pointer-events:auto}
+#prog .seg::after{content:"";position:absolute;left:0;right:0;top:0;height:14px}
+#prog .seg{flex:1;height:4px;border-radius:0 0 2px 2px;background:rgba(120,132,140,.28);cursor:pointer;
+  transition:background .2s,height .2s;position:relative}
+#prog .seg:hover{background:rgba(120,132,140,.6)}
+#prog .seg.done{background:var(--c-dev)}
+#prog .seg.now{background:var(--c-risk);height:7px}
+#prog .seg.off{opacity:.35}
+/* ---------- breadcrumb readout ---------- */
+.posmeter{margin-left:auto;display:flex;align-items:baseline;gap:9px;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;max-width:52vw;padding-left:14px}
+.posmeter .pm-g{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.posmeter .pm-n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--c-risk)}
+.posmeter .pm-t{font-family:var(--display);font-weight:800;letter-spacing:-.015em;font-size:15px;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis}
+.posmeter .pm-r{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+@media(max-width:900px){.posmeter{max-width:100%;width:100%;padding-left:0;margin-top:4px}
+  .posmeter .pm-g{display:none}.posmeter .pm-t{font-size:13.5px}}
+/* ---------- ambient chapter numeral ---------- */
+.chapnum{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;pointer-events:none;
+  font-family:var(--display);font-weight:900;font-size:120px;line-height:1;letter-spacing:-.06em;
+  color:var(--ink);opacity:.055;transition:opacity .3s}
+.chapnum.hide{opacity:0}
+@media(max-width:1500px){.chapnum{display:none}}
+/* ---------- responsive header + rail geometry ---------- */
+.bar-in{flex-wrap:wrap;min-width:0}
+.brand{min-width:0;flex:1 1 200px}
+.bar-actions{flex:0 1 auto;min-width:0;justify-content:flex-end}
+.hbtn,.header-game{min-width:0;max-width:100%}
+.hbtn span,.header-game span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* the game button carries the longest label; let it shrink first */
+.header-game{flex:0 1 auto}
+@media(max-width:1240px){.header-game span{max-width:22ch}}
+@media(max-width:1040px){.header-game span{max-width:14ch}}
+@media(max-width:920px){.header-game span{max-width:0;padding:0}.header-game{padding:7px 11px}}
+html{overflow-x:hidden}
+/* rail sits below the real header height, whatever it wraps to */
+.rail{padding-top:calc(var(--barH,96px) + 14px)}
+/* pinning pushes the page instead of covering it */
+@media(min-width:1024px){
+  body.rail-pinned{padding-left:268px}
+  .rail.pinned{box-shadow:1px 0 0 var(--rule-soft)}
+}
+/* ---------- side rail (desktop, left) ---------- */
+.rail{position:fixed;left:0;top:0;bottom:14px;z-index:45;display:none;
+  padding-bottom:20px;overflow-y:auto;overscroll-behavior:contain;
+  background:#fbfbfa;border:1px solid var(--rule-soft);border-left:0;
+  border-radius:0 20px 20px 0;box-shadow:0 10px 40px rgba(18,22,26,.05);
+  transition:width .26s cubic-bezier(.22,.8,.28,1),box-shadow .26s ease}
+@media(min-width:1024px){.rail{display:block;width:64px}}
+@media(min-width:1200px){.rail{width:262px}}
+.rail{cursor:pointer}
+.rail.pinned,.rail:hover{cursor:auto}
+.rail:hover,.rail.pinned{width:268px;box-shadow:0 18px 56px rgba(18,22,26,.13)}
+.rail-h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:#a9a49c;margin:0 0 10px;padding-left:20px;opacity:0;transition:opacity .18s}
+.rail ol{list-style:none;margin:0;padding:0 10px 0 0;position:relative}
+.rail li{margin:0}
+.rail-marker{position:absolute;left:0;width:3px;border-radius:0 3px 3px 0;background:var(--acc,#8c8378);
+  height:0;top:0;opacity:.9;
+  transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
+  pointer-events:none;z-index:3}
+/* act headings: quiet, lettered, with a soft rule in the act tone */
+.rail .grp{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--acc);padding:18px 10px 6px 20px;margin:0;opacity:0;transition:opacity .18s;white-space:nowrap;
+  display:flex;align-items:center;gap:8px}
+.rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.28}
+/* chapter rows */
+.rail a.rl{position:relative;display:flex;align-items:flex-start;gap:9px;text-decoration:none;
+  padding:8px 12px 8px 20px;margin:1px 0;border-radius:0 12px 12px 0;
+  font-family:var(--display);font-weight:600;font-size:13px;line-height:1.34;
+  color:#6f6a63;background:transparent;
+  transition:color .2s,background .24s,font-size .26s,padding .26s,margin-right .3s cubic-bezier(.34,1.2,.36,1)}
+.rail a.rl:hover{background:var(--acc-t);color:#33302c}
+.rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:10px;flex:0 0 auto;min-width:16px;
+  color:var(--acc);opacity:.75;padding-top:3px;transition:font-size .26s,opacity .2s}
+.rail a.rl .rt{flex:1;white-space:normal;overflow-wrap:anywhere;opacity:0;transition:opacity .18s}
+.rail a.rl .rm{display:none}
+.rail a.rl.done{color:#9b958c}
+.rail a.rl.done .rn{opacity:.5}
+/* the chapter being read: extends right, softly filled, gently lifted */
+.rail a.rl.now{background:var(--acc-t);color:#2c2926;font-weight:800;font-size:14.5px;
+  padding-top:12px;padding-bottom:12px;padding-right:18px;margin-right:-14px;
+  border-radius:0 16px 16px 0;box-shadow:0 5px 18px rgba(18,22,26,.09);z-index:2}
+.rail a.rl.now .rn{color:var(--acc);opacity:1;font-size:11.5px}
+.rail a.rl.now .rm{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+  color:#fff;background:var(--acc);border-radius:999px;padding:2px 8px;flex:0 0 auto;margin-top:2px}
+.rail a.rl.off{opacity:.38}
+/* sub-chapters, numbered 9.1 style */
+.rail .subs{list-style:none;margin:0;padding:0;max-height:0;overflow:hidden;
+  transition:max-height .32s cubic-bezier(.22,.8,.28,1)}
+.rail a.sub{display:flex;gap:8px;padding:6px 12px 6px 22px;margin:1px 0;border-radius:0 10px 10px 0;
+  font-family:var(--mono);font-size:10.5px;line-height:1.5;color:#8a847c;text-decoration:none;
+  white-space:normal;overflow-wrap:anywhere;transition:background .2s,color .2s}
+.rail a.sub .sn{flex:0 0 auto;color:var(--acc);opacity:.8;font-weight:700}
+.rail a.sub:hover{background:var(--acc-t);color:#33302c}
+/* time card */
+.rail-f{margin:18px 14px 0 18px;padding:14px 15px;border-radius:14px;
+  background:#2c2926;color:#fff;opacity:0;transition:opacity .18s}
+.rail-f .rf-n{display:block;font-family:var(--display);font-weight:900;font-size:28px;line-height:1;letter-spacing:-.03em}
+.rail-f .rf-l{display:block;font-family:var(--mono);font-size:8.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:#a49c92;margin-top:6px}
+.rail-f .rf-t{display:block;font-family:var(--mono);font-size:9px;color:#857d74;margin-top:9px;
+  padding-top:9px;border-top:1px solid #443f3a}
+.rail:hover .rail-h,.rail:hover .rail-f,.rail:hover a.rl .rt,.rail:hover .grp,
+.rail.wide .rail-h,.rail.wide .rail-f,.rail.wide a.rl .rt,.rail.wide .grp{opacity:1}
+.rail:hover li.now .subs,.rail.wide li.now .subs{max-height:460px}
+@media(min-width:1200px){
+  .rail .rail-h,.rail .rail-f,.rail a.rl .rt,.rail .grp{opacity:1}
+  .rail li.now .subs{max-height:460px}}
+@media(min-width:1024px){body{padding-left:64px}}
+@media(min-width:1200px){body{padding-left:262px}}
+@media(min-width:1024px){.posmeter .pm-r{display:none}}
+/* ---------- top nav tinted to match the rail ---------- */
+.ng-top{border-radius:999px}
+.ng.act0 .ng-top{color:#8a4a35}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:#f6ece7;border-color:#e0cabf;color:#8a4a35}
+.ng.act1 .ng-top{color:#47568a}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:#ecf0f8;border-color:#c8d2e8;color:#47568a}
+.ng.act2 .ng-top{color:#54704a}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:#eef3ec;border-color:#cbdac5;color:#54704a}
+.ng.act3 .ng-top{color:#8a6f39}.ng.act3.open .ng-top,.ng.act3 .ng-top:hover{background:#f8f2e6;border-color:#e3d5b4;color:#8a6f39}
+.ng.act0.active .ng-top{background:#b5654d;border-color:#b5654d;color:#fff}
+.ng.act1.active .ng-top{background:#5b6b9e;border-color:#5b6b9e;color:#fff}
+.ng.act2.active .ng-top{background:#6f8a63;border-color:#6f8a63;color:#fff}
+.ng.act3.active .ng-top{background:#a98a4b;border-color:#a98a4b;color:#fff}
+.ng-menu a.on{background:transparent}
+.ng.act0 .ng-menu a.on{background:#f6ece7;color:#8a4a35}
+.ng.act1 .ng-menu a.on{background:#ecf0f8;color:#47568a}
+.ng.act2 .ng-menu a.on{background:#eef3ec;color:#54704a}
+.ng.act3 .ng-menu a.on{background:#f8f2e6;color:#8a6f39}
+/* ---------- narrow view: a persistent chapter bar ---------- */
+.nowbar{display:none}
+@media(max-width:1023px){
+  .nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);
+    border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
+  .nowbar .nb-n{font-family:var(--mono);font-size:10px;font-weight:800;color:#fff;background:var(--acc,#8c8378);
+    border-radius:999px;padding:3px 9px;flex:0 0 auto}
+  .nowbar .nb-t{font-family:var(--display);font-weight:800;font-size:14px;letter-spacing:-.012em;color:var(--ink);
+    flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nowbar .nb-m{font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--acc,var(--ink-3));flex:0 0 auto}
+  .posmeter{display:none}
+}
+/* ---------- rail expand / minimise control ---------- */
+.rail-toggle{display:flex;align-items:center;justify-content:center;gap:7px;
+  width:30px;height:30px;margin:0 0 8px 13px;padding:0;flex:0 0 auto;
+  border:1px solid var(--rule);border-radius:999px;background:var(--white);cursor:pointer;
+  color:var(--ink-2);transition:width .2s,border-color .15s,color .15s}
+.rail-toggle:hover{border-color:var(--ink-2);color:var(--ink)}
+.rail-toggle svg{width:13px;height:13px;flex:0 0 auto;transition:transform .22s}
+.rail-toggle .tl{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;opacity:0;width:0;overflow:hidden;transition:opacity .18s}
+.rail:hover .rail-toggle,.rail.pinned .rail-toggle{width:auto;padding:0 12px}
+.rail:hover .rail-toggle .tl,.rail.pinned .rail-toggle .tl{opacity:1;width:auto}
+@media(min-width:1200px){.rail:not(.mini) .rail-toggle{width:auto;padding:0 12px}
+  .rail:not(.mini) .rail-toggle .tl{opacity:1;width:auto}}
+.rail.pinned .rail-toggle svg,.rail:not(.mini) .rail-toggle svg{transform:rotate(180deg)}
+@media(max-width:1359px){.rail:not(.pinned) .rail-toggle svg{transform:none}}
+/* pinned: stay expanded at any width */
+.rail.pinned{width:268px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
+.rail.pinned .rail-h,.rail.pinned .rail-f,.rail.pinned a.rl .rt,.rail.pinned a.rl .rm,.rail.pinned .grp{opacity:1}
+.rail.pinned li.now .subs{max-height:420px}
+/* minimised: stay narrow even on wide screens, still expands on hover */
+@media(min-width:1200px){
+  .rail.mini{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
+  .rail.mini .rail-h,.rail.mini .rail-f,.rail.mini a.rl .rt,.rail.mini a.rl .rm,.rail.mini .grp{opacity:0}
+  .rail.mini li.now .subs{max-height:0}
+  .rail.mini:hover{width:268px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
+  .rail.mini:hover .rail-h,.rail.mini:hover .rail-f,.rail.mini:hover a.rl .rt,.rail.mini:hover a.rl .rm,.rail.mini:hover .grp{opacity:1}
+  .rail.mini:hover li.now .subs{max-height:420px}
+  body.rail-mini{padding-left:64px}
+}
+/* ---------- mobile outline button + panel ---------- */
+.outline-btn{position:fixed;left:16px;bottom:16px;z-index:66;display:flex;align-items:center;gap:8px;
+  border:0;border-radius:999px;padding:11px 16px;cursor:pointer;background:var(--ink);color:#fff;
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.05em;
+  box-shadow:0 10px 28px rgba(18,22,26,.32)}
+@media(min-width:1024px){.outline-btn{display:none}}
+.outline-panel{position:fixed;inset:0;z-index:80;background:rgba(18,22,26,.55);opacity:0;visibility:hidden;
+  transition:opacity .2s,visibility .2s}
+.outline-panel.open{opacity:1;visibility:visible}
+.outline-inner{position:absolute;left:0;top:0;bottom:0;width:min(340px,86vw);background:var(--paper);
+  padding:22px 20px;overflow-y:auto;transform:translateX(-100%);transition:transform .26s ease}
+.outline-panel.open .outline-inner{transform:none}
+.outline-inner h3{font-family:var(--display);font-weight:800;font-size:18px;margin-bottom:4px}
+.outline-inner .oi-sub{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-bottom:16px}
+.outline-inner ol{list-style:none;margin:0;padding:0}
+/* group headings, filled with the act colour */
+.outline-inner .ogrp{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:#fff;background:var(--acc,var(--ink));
+  padding:9px 12px;border-radius:4px;margin:28px 0 8px}
+.outline-inner ol > li.ogrp:first-child{margin-top:4px}
+.outline-inner ol ol{list-style:none;margin:0;padding:0}
+/* chapter rows, tinted by act */
+.outline-inner a{display:flex;align-items:flex-start;gap:10px;text-decoration:none;
+  padding:11px 12px;margin:3px 0;border-radius:4px;border-left:4px solid var(--acc,var(--rule));
+  background:var(--acc-t,transparent);color:var(--ink-2);font-family:var(--display);font-weight:600;
+  font-size:15px;line-height:1.34;transition:background .18s,color .18s}
+.outline-inner a:hover{background:var(--acc);color:#fff}
+.outline-inner a:hover .on-n,.outline-inner a:hover .on-m{color:#fff}
+.outline-inner a .on-n{font-family:var(--mono);font-size:11.5px;font-weight:800;color:var(--acc,var(--ink-3));
+  flex:0 0 22px;padding-top:3px}
+.outline-inner a .on-t{flex:1;white-space:normal;overflow-wrap:anywhere}
+.outline-inner a .on-m{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--acc,var(--ink-3));
+  flex:0 0 auto;padding-top:3px}
+.outline-inner a.done{opacity:.66}
+.outline-inner a.now{background:var(--acc);color:#fff;font-weight:800;font-size:16.5px;
+  padding-top:14px;padding-bottom:14px;box-shadow:0 6px 18px rgba(18,22,26,.18)}
+.outline-inner a.now .on-n,.outline-inner a.now .on-m{color:#fff}
+/* sub-chapters indent past the chapter number */
+.outline-inner .osubs{list-style:none;margin:0 0 8px;padding:0}
+.outline-inner a.osub{display:block;margin:2px 0 2px 32px;padding:8px 12px;border-radius:0 4px 4px 0;
+  border-left:3px solid var(--acc,var(--rule));background:var(--acc-t,transparent);
+  font-family:var(--mono);font-size:11.5px;font-weight:400;line-height:1.5;color:var(--ink-2);
+  white-space:normal;overflow-wrap:anywhere}
+.outline-inner a.osub:hover{background:var(--acc);color:#fff}
+.outline-close{margin-top:16px;width:100%;border:1.5px solid var(--rule);background:transparent;border-radius:999px;
+  padding:10px;cursor:pointer;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2)}
+.aside-note{margin-top:clamp(22px,3.2vw,30px);border-top:1px solid var(--rule);padding-top:14px}
+.aside-note summary{cursor:pointer;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);list-style:none}
+.aside-note summary::-webkit-details-marker{display:none}
+.aside-note summary::before{content:"+ ";color:var(--c-dev)}
+.aside-note[open] summary::before{content:"\2013 "}
+.aside-note summary:hover{color:var(--ink)}
+.aside-note p{margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:74ch}
+/* ---------- what a technique actually delivers ---------- */
+.tverdict{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--acc);background:var(--acc-t);border-radius:999px;padding:4px 10px}
+.tverdict::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--acc);flex:0 0 auto}
+/* ---------- technique inventory ---------- */
+.tinv{margin-top:clamp(20px,3vw,28px)}
+.tlayer{margin-bottom:clamp(22px,3.2vw,30px)}
+.tlayer-h{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--r);
+  background:var(--acc-t);border-left:4px solid var(--acc);margin-bottom:12px}
+.tlayer-h .tlh-i{flex:0 0 auto;display:flex}
+.tlayer-h h4{font-family:var(--display);font-weight:800;font-size:16.5px;letter-spacing:-.018em;color:var(--acc);margin:0}
+.tlayer-h .tl-q{font-size:13.5px;color:var(--ink-2);margin:2px 0 0}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:780px){.tgrid{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--rule-soft);border-radius:var(--r);background:var(--white);padding:15px 16px;
+  display:flex;flex-direction:column;gap:8px}
+.tcard-h{display:flex;align-items:flex-start;gap:10px}
+.tcard-h .ticon{flex:0 0 auto;margin-top:1px}
+.tcard-h .tn{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:-.012em;line-height:1.3;margin:0}
+.tcard .td{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.tcard .tstop{font-size:13px;line-height:1.5;color:var(--ink-2);margin:0;
+  background:var(--t-risk);border-radius:4px;padding:9px 11px}
+.tcard .tstop b{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-risk);display:block;margin-bottom:3px}
+/* layer index strip */
+.tindex{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:clamp(18px,2.6vw,24px)}
+@media(max-width:700px){.tindex{grid-template-columns:1fr 1fr}}
+.tix{display:flex;align-items:center;gap:9px;padding:11px 12px;border-radius:var(--r);
+  border:1px solid var(--rule-soft);background:var(--white);text-decoration:none;transition:.15s}
+.tix:hover{border-color:var(--acc);background:var(--acc-t)}
+.tix .tix-n{font-family:var(--mono);font-size:9.5px;font-weight:700;color:var(--acc);display:block}
+.tix .tix-t{font-family:var(--display);font-weight:700;font-size:13.5px;color:var(--ink);display:block;line-height:1.25}
+.tcard .tlong{display:none}
+.tcard.on .tshort{display:none}
+.tcard.on .tlong{display:block}
+.tmore-btn{align-self:flex-start;margin-top:2px;border:0;background:transparent;cursor:pointer;padding:4px 0;
+  font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--acc);display:inline-flex;align-items:center;gap:6px}
+.tmore-btn::before{content:"+";display:inline-block;width:9px;text-align:center;font-weight:700}
+.tcard.on .tmore-btn::before{content:"\2013"}
+.tmore-btn:hover{opacity:.7}
+.expandable .xlong{display:none}
+.expandable.on .xshort{display:none}
+.expandable.on .xlong{display:block}
+.xmore-btn{align-self:flex-start;margin-top:6px;border:0;background:transparent;cursor:pointer;padding:4px 0;
+  font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--c-dev)}
+.xmore-btn::before{content:"+";display:inline-block;width:9px;text-align:center;font-weight:700}
+.expandable.on .xmore-btn::before{content:"\2013"}
+.xmore-btn:hover{opacity:.7}
+.tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
+/* ---------- section figures ---------- */
+.secfig{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px;border:1px solid var(--rule-soft);border-radius:var(--r);
+  background:var(--white);padding:clamp(16px,2.4vw,22px)}
+.secfig svg{display:block;width:100%;height:auto}
+.secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:76ch}
+
+.secfig.dark{background:rgba(255,255,255,.04);border-color:#2b343b}
+
+.fig-src{margin-top:9px;padding-top:9px;border-top:1px dashed var(--rule);
+  font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-3)}
+.fig-src a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid rgba(34,51,204,.35)}
+.fig-src a:hover{border-bottom-color:currentColor}
+.secfig.dark .fig-src{color:#8a959c;border-top-color:#2b343b}
+.secfig.dark .fig-src a{color:#8fa2ff;border-bottom-color:rgba(143,162,255,.4)}
+/* ---------- reading paths / route chooser ---------- */
+.routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
+.routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
+.routes-sub{font-size:14.5px;line-height:1.55;color:#9aa5ac;margin:0 0 16px;max-width:64ch}
+.route-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+@media(max-width:1000px){.route-btns{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.route-btns{grid-template-columns:1fr}}
+.rtier{text-decoration:none;border-style:dashed}
+.rtier .rbn{color:#dfe5e9}
+.rtier:hover{border-color:#9cc48a;background:rgba(255,255,255,.07)}
+@media(max-width:640px){.route-btns{grid-template-columns:1fr}}
+.rbtn,.rtier{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
+  padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
+.rbtn,.rtier:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
+.rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
+.rbtn .rbn,.rtier .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
+.rbtn .rbm,.rtier .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
+.rbtn .rbd,.rtier .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
+/* collapsed (off-route) chapters */
+.offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
+.offroute .sec-head .stand{display:none}
+.offroute .sec-head{margin-bottom:12px}
+.offroute{padding-top:clamp(20px,2.6vw,28px);padding-bottom:clamp(20px,2.6vw,28px)}
+.offroute-cta{display:none}
+.offroute .offroute-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--rule);border-radius:999px;
+  padding:9px 15px;background:transparent;color:var(--ink-2);cursor:pointer;transition:.15s}
+.offroute .offroute-cta:hover{border-color:var(--ink);color:var(--ink)}
+/* ---------- chapter end markers ---------- */
+.chapend{margin-top:clamp(26px,3.6vw,38px);border-top:1px solid var(--rule);padding-top:16px;
+  display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between}
+.chapend .ce-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3)}
+.chapend .ce-l b{color:var(--ink);font-weight:600}
+.chapend .ce-r{font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.chapend .ce-r a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid transparent}
+.chapend .ce-r a:hover{border-bottom-color:currentColor}
+.cross .chapend,.dark .chapend{border-top-color:#2b343b}
+.cross .chapend .ce-l{color:#8a959c}
+.cross .chapend .ce-l b{color:#fff}
+.cross .chapend .ce-r a{color:#8fa2ff}
+/* ---------- position readout ---------- */
+.posmeter{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;padding-left:12px}
+@media(max-width:760px){.posmeter{width:100%;padding-left:0;margin-top:2px}}
+/* ---------- resume banner ---------- */
+.resume{position:fixed;left:50%;transform:translateX(-50%) translateY(140%);bottom:18px;z-index:70;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+  background:var(--ink);color:#fff;border-radius:999px;padding:12px 16px 12px 20px;
+  box-shadow:0 14px 40px rgba(18,22,26,.34);transition:transform .3s ease;max-width:calc(100vw - 24px)}
+.resume.show{transform:translateX(-50%) translateY(0)}
+.resume p{margin:0;font-size:14px;color:#dfe5e9}
+.resume p b{color:#fff;font-weight:600}
+.resume button{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:999px;padding:8px 14px;cursor:pointer;border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;transition:.15s}
+.resume button.go{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.resume button:hover{border-color:#fff;color:#fff}
+/* ---------- per-section reading time ---------- */
+.rt-min{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:2px 7px;margin-left:8px;border-radius:999px;
+  border:1px solid currentColor;opacity:.62;vertical-align:2px}
+/* ---------- four risk pillars ---------- */
+.pillars{margin-top:clamp(30px,5vw,52px);border-top:1px solid #2b343b;padding-top:clamp(24px,3.6vw,36px)}
+.pil-lead{font-size:15.5px;line-height:1.6;color:#b6c0c6;max-width:70ch;margin:0 0 18px}
+.pil-lead em{color:#fff;font-style:normal;font-weight:500}
+.pil-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:900px){.pil-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pil-grid{grid-template-columns:1fr}}
+.pil{display:block;text-decoration:none;border:1px solid #2b343b;border-radius:var(--r);padding:16px;
+  background:rgba(255,255,255,.03);transition:.16s}
+.pil:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.pil .pk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#a8b3ba;display:block;margin-bottom:9px}
+.pil .pt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:19px;color:#fff;display:block;margin-bottom:7px}
+.pil .pd{font-size:13.5px;line-height:1.5;color:#c3ccd2;display:block}
+.pil.hot{background:rgba(189,58,32,.14);border-color:#6b3527}
+.pil.hot .pk{color:#ff8a6b}
+/* ---------- crossroads roadmap ---------- */
+.roadmap{margin-top:clamp(30px,5vw,52px);border-top:1px solid #2b343b;padding-top:clamp(24px,3.6vw,36px)}
+.rm-lead{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:clamp(18px,2.4vw,24px);color:#fff;margin:0 0 18px;max-width:40ch}
+.rm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:820px){.rm-grid{grid-template-columns:1fr}}
+.rm{display:block;text-decoration:none;border:1px solid #2b343b;border-radius:var(--r);padding:18px;
+  background:rgba(255,255,255,.03);transition:.16s;position:relative}
+.rm:hover{border-color:#5a646b;transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.rm .rn{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;color:#ff8a6b;display:block;margin-bottom:10px}
+.rm .rt{font-family:var(--display);font-weight:800;letter-spacing:-.018em;font-size:17px;color:#fff;display:block;margin-bottom:6px}
+.rm .rd{font-size:14px;line-height:1.5;color:#c3ccd2;display:block}
+/* ---------- crossroads opening ---------- */
+.cross{background:var(--ink);color:#e2e8ec;border-top:0;overflow:hidden;position:relative}
+.cross::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(1000px 500px at 78% -5%,rgba(189,58,32,.28),transparent 60%),
+             radial-gradient(760px 460px at 5% 108%,rgba(34,51,204,.20),transparent 62%)}
+.cross .wrap{position:relative;z-index:1}
+.cross h2{color:#fff}
+.cross .eyebrow{color:#7d8890}.cross .eyebrow::after{background:#333d44}
+.cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(30px,6.4vw,60px);max-width:18ch;margin:0 0 22px}
+.cross .big em{font-style:normal;color:#ff8a6b}
+.cross-hero{position:relative}
+.cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
+@media(max-width:900px){.cross-brain{display:none}}
+.cross .stand{font-size:clamp(18px,1.1rem+.4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
+.cross .stand strong{color:#fff;font-weight:500}
+
+.firsts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:clamp(26px,4vw,40px) 0}
+@media(max-width:920px){.firsts{grid-template-columns:1fr}}
+.first{border:1px solid #2b343b;border-radius:var(--r);padding:22px;background:rgba(255,255,255,.035)}
+.first .fk{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:#ff8a6b;display:block;margin-bottom:12px}
+.first h3{color:#fff;font-size:clamp(18px,2.4vw,22px);margin-bottom:10px}
+.first p{color:#aeb9c0;font-size:15.5px;line-height:1.5;margin:0}
+.first.blue .fk{color:#8fa2ff}
+.first.teal .fk{color:#3fd0c9}
+
+/* the cliff figure */
+.cliff{margin:clamp(24px,4vw,40px) 0}
+.cliff svg{width:100%;height:auto;display:block;border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.02)}
+.cliff figcaption{font-family:var(--mono);font-size:11px;line-height:1.6;color:#8a959c;margin-top:12px;max-width:64ch}
+
+.intent{border-left:3px solid #ff6a45;padding:4px 0 4px 20px;margin:clamp(26px,4vw,40px) 0 0;max-width:74ch}
+.intent .ik{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:#ff8a6b;display:block;margin-bottom:12px}
+.intent p{color:#c3ccd2;font-size:16.5px;line-height:1.56;margin:0 0 12px}
+.intent p:last-child{margin-bottom:0}
+.intent strong{color:#fff;font-weight:500}
+
+/* poem */
+.anthem{border-top:1px solid #262e34}
+.anthem-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:start}
+.anthem-poem{order:1}
+.anthem-act{order:2}
+@media(max-width:820px){.anthem-poem,.anthem-act{order:0}}
+@media(max-width:820px){.anthem-grid{grid-template-columns:1fr}}
+.joinbig.compact{padding:clamp(18px,2.6vw,24px)}
+.joinbig.compact h3{font-size:clamp(19px,2.4vw,24px);margin-bottom:6px}
+.joinbig.compact p{font-size:13.5px;margin-bottom:14px}
+.joinbig.compact .jform{max-width:none}
+.beats.compact{padding:0 clamp(18px,2.6vw,24px)}
+.beats.compact li{margin-bottom:14px}
+.beats.compact li:last-child{margin-bottom:0}
+.beats.compact h3{color:#fff;font-size:15px;margin:0 0 3px}
+.beats.compact p{color:#b6c0c6;font-size:13px;margin:0}
+.poem{max-width:34ch;margin:0 auto;text-align:center}
+.poem .stanza{margin:0 0 clamp(20px,3vw,30px)}
+.poem p{font-family:var(--body);font-weight:300;font-size:clamp(19px,2.6vw,26px);line-height:1.5;color:#e2e8ec;margin:0}
+.poem .em{color:#ff8a6b}
+.poem-sig{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:#6e7981;
+  text-align:center;margin-top:8px}
+
+/* ---------- premise map ---------- */
+.pmap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.pchip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:9px 13px;border-radius:999px;text-decoration:none;
+  border:1px solid #333d44;background:rgba(255,255,255,.04);color:#c3ccd2;transition:.16s}
+.pchip:hover{border-color:#8a959c;color:#fff;transform:translateY(-1px)}
+.pchip i{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.pchip.end{border-color:#bd3a20;background:rgba(189,58,32,.18);color:#ff8a6b}
+
+/* ---------- premise cards ---------- */
+.pcard{border:1px solid #2b343b;border-left:4px solid #444;border-radius:6px;overflow:hidden;margin-bottom:12px;
+  background:rgba(255,255,255,.035);transition:border-color .18s}
+.pcard.c1{border-left-color:#6d84ff} .pcard.c2{border-left-color:#3fd0c9}
+.pcard.c3{border-left-color:#d9be3f} .pcard.c4{border-left-color:#ff9a4d}
+.pcard.c5{border-left-color:#bd3a20}
+.pcard:hover{border-color:#49535a}
+.pcard-head{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;
+  font-family:inherit;cursor:pointer;padding:18px 20px 16px}
+.ptop{display:flex;gap:14px;align-items:flex-start}
+.pnum{flex:0 0 auto;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;color:#12161a;
+  padding:5px 9px;border-radius:3px;margin-top:3px}
+.c1 .pnum{background:#6d84ff} .c2 .pnum{background:#3fd0c9} .c3 .pnum{background:#d9be3f}
+.c4 .pnum{background:#ff9a4d} .c5 .pnum{background:#bd3a20;color:#fff}
+.phead{flex:1;min-width:0}
+.ptitle{display:block;font-family:var(--display);font-weight:800;letter-spacing:-.022em;
+  font-size:clamp(19px,2.9vw,26px);line-height:1.1;color:#fff;margin-bottom:8px}
+.gist{display:block;font-size:clamp(15.5px,1.9vw,18px);line-height:1.45;color:#aeb9c0}
+.pchev{flex:0 0 auto;width:30px;height:30px;border-radius:50%;border:1px solid #3d474e;color:#aeb9c0;
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:16px;
+  transition:transform .2s,background .18s;margin-top:2px}
+.pcard.open .pchev{transform:rotate(45deg);background:rgba(255,255,255,.1)}
+.pfig{display:block;margin-top:16px;width:100%}
+.pfig svg{width:100%;height:82px;display:block}
+.pcard-body{display:none;padding:2px 20px 20px}
+.pcard.open .pcard-body{display:block;animation:swapin .3s ease}
+.pcard-body p{font-size:16px;line-height:1.56;max-width:64ch;margin:0 0 12px;color:#c3ccd2}
+.phint{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:#6e7981;margin-top:16px}
+@media(max-width:560px){.pcard-head{padding:16px 15px 14px}.pcard-body{padding:2px 15px 18px}.ptop{gap:11px}}
+
+/* ---------- verdict gauge ---------- */
+.gauge{margin-top:16px;padding-top:14px;border-top:1px dashed var(--rule)}
+.gauge .glab{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:12px}
+.grow{display:flex;align-items:center;gap:12px}
+.gend{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;flex:0 0 auto;max-width:30%;line-height:1.3}
+.gend.a{color:var(--c-risk);text-align:right}
+.gend.b{color:var(--c-dev)}
+.gtrack{flex:1;height:8px;border-radius:99px;position:relative;
+  background:linear-gradient(90deg,var(--c-risk),var(--rule) 50%,var(--c-dev))}
+.gtrack i{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--white);
+  border:3px solid var(--ink);transform:translate(-50%,-50%);box-shadow:0 1px 6px rgba(0,0,0,.3)}
+
+/* ---------- pull quote ---------- */
+.pull{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(38px,6.5vw,72px) 0;background:var(--white)}
+.pull blockquote{margin:0;max-width:20ch;font-family:var(--display);font-weight:800;letter-spacing:-.034em;
+  line-height:1.04;font-size:clamp(29px,6.4vw,58px)}
+.pull blockquote em{font-style:normal;color:var(--c-risk)}
+.pull .pq-note{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 0}
+
+/* ---------- legacy premise chain ---------- */
+.chain{display:grid;gap:0}
+.premise{display:grid;grid-template-columns:74px 1fr;gap:0;position:relative}
+.p-rail{position:relative}
+.p-rail::before{content:"";position:absolute;left:23px;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.22))}
+.premise:last-of-type .p-rail::before{bottom:50%}
+.p-num{position:absolute;left:6px;top:22px;width:36px;height:36px;border-radius:50%;
+  background:var(--ink);border:2px solid var(--glow-r);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;font-weight:600;box-shadow:0 0 0 6px rgba(255,106,69,.10)}
+.p-body{padding:20px 0 26px 6px}
+.p-body h3{font-size:clamp(20px,3vw,27px);margin-bottom:10px;max-width:26ch}
+.p-body p{font-size:16px;line-height:1.55;max-width:62ch;margin:0 0 12px}
+.p-break{font-family:var(--mono);font-size:11.5px;line-height:1.6;color:#8a959c;
+  border-left:2px solid #39434a;padding-left:14px;max-width:56ch;margin:0}
+.p-break b{color:var(--glow-t);font-weight:600;display:block;letter-spacing:.11em;text-transform:uppercase;font-size:10px;margin-bottom:5px}
+.therefore{margin-top:6px;border:1.5px solid var(--glow-r);border-radius:var(--r);padding:clamp(20px,3vw,30px);
+  background:rgba(189,58,32,.10)}
+.therefore .lbl{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--glow-r);display:block;margin-bottom:12px}
+.therefore p{font-size:clamp(18px,2.4vw,24px);line-height:1.4;color:#fff;margin:0;max-width:44ch;font-family:var(--display);font-weight:600;letter-spacing:-.02em}
+@media(max-width:560px){.premise{grid-template-columns:52px 1fr}.p-rail::before{left:16px}.p-num{left:0;width:32px;height:32px}}
+
+/* ---------- haystack ---------- */
+.haystack{display:grid;grid-template-columns:repeat(auto-fill,minmax(9px,1fr));gap:3px;margin:6px 0 10px;
+  border:1px solid #333d44;border-radius:3px;padding:10px;background:rgba(255,255,255,.02)}
+.hs{aspect-ratio:1;background:#2a333a;border-radius:1px}
+.hs.good{background:var(--glow-t);box-shadow:0 0 6px rgba(63,208,201,.8)}
+.hs.hit{background:var(--glow-r);box-shadow:0 0 10px rgba(255,106,69,.9);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---------- goodhart inline in premise 2 ---------- */
+/* ---------- goodhart ---------- */
+.gh{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(18px,3vw,36px);align-items:center}
+@media(max-width:860px){.gh{grid-template-columns:1fr}}
+.gh-ctrl{margin-top:16px}
+.gh-ctrl label{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#8a959c;display:block;margin-bottom:10px}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:26px;cursor:grab}
+input[type=range]:active{cursor:grabbing}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;
+  background:linear-gradient(90deg,var(--glow-t),#c9b23a 55%,var(--glow-r))}
+input[type=range]::-moz-range-track{height:6px;border-radius:99px;
+  background:linear-gradient(90deg,var(--glow-t),#c9b23a 55%,var(--glow-r))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+  background:#fff;border:3px solid var(--ink);margin-top:-9px;box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink)}
+.gh-read{display:grid;gap:12px;margin-top:18px}
+.gh-card{border:1px solid #333d44;border-radius:var(--r);padding:16px;background:rgba(255,255,255,.03)}
+.gh-card .lbl{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px}
+.gh-card.proxy .lbl{color:var(--glow-b)}
+.gh-card.real .lbl{color:var(--glow-t)}
+.gh-card .val{display:block;font-family:var(--display);font-weight:900;font-size:clamp(30px,5vw,44px);letter-spacing:-.035em;line-height:1;color:#fff}
+.gh-card .bar{display:block;width:100%;height:6px;border-radius:99px;background:#2a333a;margin-top:12px;overflow:hidden}
+.gh-card .bar i{display:block;height:6px;max-width:100%;border-radius:99px;transition:width .12s linear}
+.gh-card.proxy .bar i{background:var(--glow-b)}
+.gh-card.real .bar i{background:var(--glow-t)}
+
+/* ---------- orthogonality ---------- */
+.orth-wrap{display:grid;grid-template-columns:1fr .82fr;gap:clamp(18px,3vw,40px);align-items:center}
+@media(max-width:900px){.orth-wrap{grid-template-columns:1fr}}
+
+/* ---------- convergence ---------- */
+.conv{background:rgba(255,255,255,.03);border:1px solid #333d44;border-radius:var(--r);padding:clamp(12px,2vw,20px)}
+.fan path{stroke-dasharray:400;stroke-dashoffset:400}
+.in .fan path{animation:draw2 1.5s ease forwards}
+.fan path:nth-of-type(2){animation-delay:.08s}.fan path:nth-of-type(3){animation-delay:.16s}
+.fan path:nth-of-type(4){animation-delay:.24s}.fan path:nth-of-type(5){animation-delay:.32s}
+@keyframes draw2{to{stroke-dashoffset:0}}
+
+/* ---------- demo ---------- */
+.demo{background:rgba(255,255,255,.03);border:1px solid #333d44;border-radius:var(--r);padding:clamp(20px,3.4vw,32px)}
+.demo h3{margin-bottom:8px}
+.demo .dsub{color:#98a3aa;font-size:15px;margin-bottom:18px;max-width:56ch}
+.demo-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.dbtn{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;padding:9px 13px;
+  border:1.5px solid #39434a;background:transparent;color:#c3ccd2;border-radius:2px;cursor:pointer;transition:.15s}
+.dbtn:hover{border-color:#7c868d;color:#fff}
+.dbtn.on{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.demo-out{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#333d44;border:1px solid #333d44;border-radius:3px;overflow:hidden}
+@media(max-width:640px){.demo-out{grid-template-columns:1fr}}
+.demo-cell{background:#171c21;padding:18px}
+.demo-cell .lbl{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  display:flex;align-items:center;gap:7px;margin-bottom:10px}
+.demo-cell.want .lbl{color:var(--glow-b)}
+.demo-cell.got .lbl{color:var(--glow-r)}
+.demo-cell p{margin:0;font-size:15.5px;line-height:1.5;color:#dbe2e6}
+
+/* ---------- action strip ---------- */
+.doit{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+  background:var(--t-act);border:1px solid #c2d3b8;border-left:5px solid var(--c-act);border-radius:var(--r);padding:20px 22px}
+.doit .txt{flex:1;min-width:250px}
+.doit .lbl{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-act);display:block;margin-bottom:6px}
+.doit p{margin:0;font-size:16px;color:var(--ink-2)}
+.doit a.go-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;background:var(--c-act);color:#fff;padding:13px 18px;border-radius:2px;text-decoration:none;transition:.16s;white-space:nowrap}
+.doit a.go-btn:hover{transform:translateY(-2px);color:#fff}
+
+/* ---------- risk tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:820px){.tiles{grid-template-columns:1fr}}
+.tile{border-radius:var(--r);padding:22px;color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  text-align:left;border:0;width:100%}
+.tile a{color:#fff}
+.tile .ref:hover{background:#fff;color:var(--d-risk)}
+.tile.t1{background:var(--d-risk)}.tile.t2{background:var(--d-dev)}.tile.t3{background:var(--d-ass)}
+.tile::before{content:"";position:absolute;right:-40px;bottom:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.07)}
+.tile>*{position:relative;z-index:1}
+.tile .num{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;opacity:.75;display:flex;align-items:center;gap:8px;margin-bottom:32px}
+.tile .num .ico{width:18px;height:18px;stroke-width:1.8}
+.tile h3{color:#fff;margin:0 0 10px;font-size:clamp(21px,2.8vw,26px)}
+.tile p{font-size:15px;line-height:1.5;color:rgba(255,255,255,.87);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;
+  border-radius:999px;background:rgba(255,255,255,.18);color:#fff;white-space:nowrap}
+.tile .more{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.22);display:none}
+.tile.open .more{display:block}
+.tile .more p{font-size:14px;color:rgba(255,255,255,.82);margin:0}
+.tile .toggle{margin-top:16px;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.16);
+  padding:8px 13px;border-radius:999px;align-self:flex-start;border:0;cursor:pointer;transition:background .15s}
+.tile .toggle:hover{background:rgba(255,255,255,.3)}
+.tile.open .toggle .plus{transform:rotate(45deg)}
+.tile .plus{display:inline-block;transition:transform .2s;font-size:14px;line-height:1}
+
+/* ---------- layers ---------- */
+.layers{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(18px,3vw,40px);align-items:start}
+@media(max-width:860px){.layers{grid-template-columns:1fr}}
+.layer-btns{display:flex;flex-direction:column;gap:8px}
+.lbtn{text-align:left;border:1.5px solid var(--rule);background:var(--white);border-radius:var(--r);padding:15px 17px;
+  cursor:pointer;font-family:inherit;transition:.18s;display:flex;gap:13px;align-items:center;width:100%}
+.lbtn .ico{flex:0 0 auto;color:var(--ink-3)}
+.lbtn .lk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:5px;color:var(--ink-3)}
+.lbtn .lt{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em;display:block;color:var(--ink)}
+.lbtn:hover{border-color:var(--ink)}
+.lbtn.on[data-l="dev"]{background:var(--c-dev);border-color:var(--c-dev)}
+.lbtn.on[data-l="ass"]{background:var(--c-ass);border-color:var(--c-ass)}
+.lbtn.on[data-l="ctl"]{background:var(--c-ctl);border-color:var(--c-ctl)}
+.lbtn.on .lk{color:rgba(255,255,255,.78)}
+.lbtn.on .lt,.lbtn.on .ico{color:#fff}
+.lpanel{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(20px,3vw,28px);border-left-width:5px;display:none}
+.lpanel.on{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.lpanel[data-l="dev"]{border-left-color:var(--c-dev)}
+.lpanel[data-l="ass"]{border-left-color:var(--c-ass)}
+.lpanel[data-l="ctl"]{border-left-color:var(--c-ctl)}
+.lpanel h3{margin-bottom:12px}
+.lpanel .kv{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin-top:18px;font-family:var(--mono);font-size:12px;
+  line-height:1.5;border-top:1px solid var(--rule-soft);padding-top:16px}
+.lpanel .kv dt{color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;font-size:10px;padding-top:2px}
+.lpanel .kv dd{margin:0;color:var(--ink-2)}
+
+/* ---------- matrix ---------- */
+.mx{border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;background:var(--white)}
+.mx-row{display:grid;grid-template-columns:1.5fr repeat(4,minmax(52px,.5fr));border-top:1px solid var(--rule-soft);align-items:center}
+.mx-row:first-child{border-top:0;background:var(--paper)}
+.mx-row>div{padding:11px 14px}
+.mx-row.head span{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+.mx-name{font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:-.01em}
+.mx-cell{text-align:center}
+.dot{display:inline-block;width:13px;height:13px;border-radius:50%}
+.dot.half{background:transparent!important;border:2.5px solid}
+.mx-row .c1 .dot{background:var(--c-dev);border-color:var(--c-dev)}
+.mx-row .c2 .dot{background:var(--c-ass);border-color:var(--c-ass)}
+.mx-row .c3 .dot{background:var(--c-ctl);border-color:var(--c-ctl)}
+.mx-row .c4 .dot{background:var(--c-act);border-color:var(--c-act)}
+@media(max-width:620px){.mx-row{grid-template-columns:1.1fr repeat(4,1fr)}.mx-name{font-size:12.5px}.mx-row>div{padding:10px 6px}}
+
+/* ---------- ladder ---------- */
+.rung{border-top:1px solid var(--rule-soft);padding:26px 0}
+.rung:first-of-type{border-top:1.5px solid var(--ink)}
+.rung-head{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.rung-time{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:5px 9px;border-radius:2px}
+.rung:nth-of-type(1) .rung-time{background:var(--c-act)}
+.rung:nth-of-type(2) .rung-time{background:var(--c-ass)}
+.rung:nth-of-type(3) .rung-time{background:var(--c-dev)}
+.rung:nth-of-type(4) .rung-time{background:var(--c-ctl)}
+.rung:nth-of-type(5) .rung-time{background:var(--c-risk)}
+.rung-meter{flex:1;min-width:80px;height:5px;background:var(--rule-soft);border-radius:99px;overflow:hidden}
+.rung-meter i{display:block;height:100%;border-radius:99px}
+.rung:nth-of-type(1) .rung-meter i{width:12%;background:var(--c-act)}
+.rung:nth-of-type(2) .rung-meter i{width:28%;background:var(--c-ass)}
+.rung:nth-of-type(3) .rung-meter i{width:52%;background:var(--c-dev)}
+.rung:nth-of-type(4) .rung-meter i{width:76%;background:var(--c-ctl)}
+.rung:nth-of-type(5) .rung-meter i{width:100%;background:var(--c-risk)}
+.rung>p{max-width:66ch;color:var(--ink-2);font-size:.96em}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:880px){.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);padding:18px;display:flex;
+  flex-direction:column;transition:.18s;color:inherit;border-top:3px solid var(--rule);position:relative}
+.card:hover{border-color:var(--ink);transform:translateY(-3px)}
+.cardlink{color:inherit;text-decoration:none}
+.cardlink::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:1}
+.card .ref,.rows .ref{position:relative;z-index:2}
+.card.k-free{border-top-color:var(--c-act)}
+.card.k-fund{border-top-color:var(--c-ctl)}
+.card.k-read{border-top-color:var(--c-ass)}
+.card.k-tool{border-top-color:var(--c-dev)}
+.card .tag{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.card .tag .ico{width:14px;height:14px;stroke-width:2}
+.card.k-free .tag{color:var(--c-act)}
+.card.k-fund .tag{color:var(--c-ctl)}
+.card.k-read .tag{color:var(--c-ass)}
+.card.k-tool .tag{color:var(--c-dev)}
+.card h3{font-size:18px;margin-bottom:7px;letter-spacing:-.014em}
+.card p{font-size:14.5px;line-height:1.48;color:var(--ink-2);margin:0 0 12px}
+.card .go{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--c-dev);margin-top:auto}
+.card:hover .go{color:var(--ink)}
+
+/* ---------- timeline ---------- */
+.tl-scroll{overflow-x:auto;padding:0 var(--gut) 16px}
+.tl{display:flex;min-width:max-content;position:relative}
+.tl::before{content:"";position:absolute;top:23px;left:0;right:0;height:3px;border-radius:99px;
+  background:linear-gradient(90deg,var(--c-ass),var(--c-dev) 45%,var(--c-ctl) 72%,var(--c-risk))}
+.tl-item{flex:0 0 220px;padding-right:20px;padding-top:46px;position:relative}
+.tl-item::before{content:"";position:absolute;top:16px;left:0;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--c-dev)}
+.tl-item.hot::before{border-color:var(--c-risk)}
+.tl-item.now::before{background:var(--c-risk);border-color:var(--c-risk);box-shadow:0 0 0 6px var(--t-risk)}
+.tl-date{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:7px}
+.tl-item.hot .tl-date,.tl-item.now .tl-date{color:var(--c-risk)}
+.tl-item h4{font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.015em;margin-bottom:6px;line-height:1.2}
+.tl-item p{font-size:13.5px;line-height:1.45;color:var(--ink-2);margin:0}
+.scroll-hint{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0}
+
+/* ---------- rows ---------- */
+.rows{border-top:1.5px solid var(--ink);margin:0;padding:0;list-style:none}
+.rows li{border-bottom:1px solid var(--rule-soft);display:flex;gap:12px;align-items:baseline;
+  padding:14px 4px;color:var(--ink);flex-wrap:wrap;transition:.15s;position:relative}
+.rows li:hover{background:var(--white);padding-left:10px}
+.rows .cardlink{color:inherit;text-decoration:none}
+.rows .n{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.012em;flex:0 0 auto}
+.rows .d{font-size:14.5px;color:var(--ink-2);flex:1;min-width:220px}
+.rows .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:999px;flex:0 0 auto}
+.t.inst{background:var(--t-dev);color:var(--c-dev)}
+.t.law{background:var(--t-risk);color:var(--c-risk)}
+.t.evid{background:var(--t-ass);color:var(--c-ass)}
+.t.vol{background:var(--t-ctl);color:var(--c-ctl)}
+
+/* ---------- disagreements ---------- */
+.dis{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);padding:clamp(18px,2.6vw,26px);margin-bottom:12px}
+.dis h3{margin-bottom:14px;max-width:38ch;display:flex;gap:11px;align-items:baseline}
+.dis h3 span{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.sides{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.sides{grid-template-columns:1fr}}
+.side{padding:16px;border-radius:3px}
+.side.one{background:var(--t-risk)}
+.side.two{background:var(--t-dev)}
+.side h4{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:8px}
+.side.one h4{color:var(--c-risk)}
+.side.two h4{color:var(--c-dev)}
+.side p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.verdict{margin-top:14px;padding-top:13px;border-top:1px dashed var(--rule);font-size:14.5px;color:var(--ink-2)}
+.verdict b{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:5px}
+
+/* ---------- filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.fbtn,.pbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
+  border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
+.fbtn:hover,.pbtn:hover{border-color:var(--ink)}
+.fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.card.gone{display:none}
+
+/* ---------- slab ---------- */
+.slab{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
+.slab::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(189,58,32,.55),rgba(189,58,32,0) 68%)}
+.slab>*{position:relative;z-index:1}
+.slab h2{color:var(--paper);margin-bottom:14px;font-size:clamp(28px,5vw,46px)}
+.slab p{color:#b6c0c6;max-width:54ch}
+.slab .eyebrow{color:#8a959c}.slab .eyebrow::after{background:#39434a}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--paper);color:var(--ink);padding:13px 22px;border-radius:2px;text-decoration:none;margin-top:8px;transition:.16s}
+.btn:hover{transform:translateY(-2px);color:var(--ink)}
+
+/* ---------- what can be done ---------- */
+.cando-lead{max-width:70ch;margin-bottom:clamp(20px,3vw,28px)}
+.cando-block{margin:clamp(28px,4vw,44px) 0 0}
+.cando-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft)}
+.cando-h .ch-n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c-act)}
+.cando-h h3{margin:0;font-size:clamp(19px,2.5vw,24px)}
+.cando-h .ch-w{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+.jur{display:none;grid-template-columns:1fr 1fr;gap:14px}
+.jur.on{display:grid}
+@media(max-width:760px){.jur.on{grid-template-columns:1fr}}
+.jur-status,.jur-ask{border:1px solid var(--rule-soft);border-radius:var(--r);padding:18px}
+.jur-status{background:var(--paper-2)}
+.jur-ask{background:var(--white);border-top:3px solid var(--c-act)}
+.jur-status .k,.jur-ask .k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px;color:var(--ink-3)}
+.jur-ask .k{color:var(--c-act)}
+.jur-status p,.jur-ask p{margin:0;font-size:14.5px;line-height:1.6}
+.cando-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:860px){.cando-cols{grid-template-columns:1fr}}
+.actlist{list-style:none;margin:0;padding:0}
+.actlist li{padding:11px 0;border-bottom:1px solid var(--rule-soft);font-size:14.5px;line-height:1.6}
+.actlist li:last-child{border-bottom:0}
+.actlist b{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c-act);margin-bottom:5px}
+.asof{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:18px}
+
+/* ---------- glossary ---------- */
+
+/* ---------- about ---------- */
+.about{display:block;max-width:74ch}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.abox{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(20px,3vw,28px)}
+.abox h3{margin-bottom:12px}
+.abox p{font-size:15.5px;color:var(--ink-2)}
+.share{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.share button,.share a{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:11px 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:2px;cursor:pointer;text-decoration:none;transition:.15s}
+.share button:hover,.share a:hover{background:var(--ink);color:var(--paper)}
+
+#sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0 0 22px}
+#sources .src-cat{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);margin:0 0 8px}
+.startlist{list-style:none;margin:0 0 clamp(20px,3vw,28px);padding:0}
+.startlist li{padding:5px 0;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);border-bottom:1px solid var(--rule-soft)}
+.startlist li:last-child{border-bottom:0}
+.startlist li b{font-family:var(--mono);font-weight:600;color:var(--ink)}
+#sources li{margin-bottom:10px;break-inside:avoid;color:var(--ink-2)}
+#sources li a{word-break:break-word}
+footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.75}
+footer p{max-width:82ch;margin:0}
+
+#toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
+  background:var(--ink);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
+  font-family:var(--mono);font-size:11.5px;line-height:1.4;letter-spacing:.04em;box-shadow:0 10px 34px rgba(0,0,0,.4);
+  opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
+  max-width:calc(100vw - 28px);display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+#toast button{background:none;border:0;color:#ff8a6b;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:0;white-space:nowrap;text-decoration:underline}
+@keyframes flashbox{0%{box-shadow:0 0 0 0 rgba(255,106,69,0)}18%{box-shadow:0 0 0 5px rgba(255,106,69,.55)}
+  100%{box-shadow:0 0 0 0 rgba(255,106,69,0)}}
+.flashed{animation:flashbox 1.5s ease;border-radius:4px}
+@keyframes swapin{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(18px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
+</style>
+<style>
+/* ---------- debate page only ---------- */
+/* ---------- debate page only, loads after the shared block ---------- */
+.mh-note{font-family:var(--mono);font-size:11.5px;line-height:1.65;color:#8a959c;max-width:60ch;margin:-14px 0 26px}
+/* ---------- conversation thread ---------- */
+.topic{margin:clamp(34px,5vw,60px) 0 0;padding-top:clamp(26px,3.6vw,38px);border-top:1px solid var(--rule)}
+.topic:first-of-type{border-top:0;padding-top:0}
+.topic-h{display:flex;align-items:baseline;gap:13px;margin-bottom:7px}
+.topic-n{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.topic-h h3{margin:0;font-size:clamp(21px,3vw,29px);letter-spacing:-.025em;max-width:26ch}
+.topic-sub{font-size:15.5px;line-height:1.55;color:var(--ink-2);margin:0 0 6px;max-width:66ch}
+
+.av-sprite{position:absolute;width:0;height:0;overflow:hidden}
+.av{flex:0 0 38px;width:38px;height:38px;border-radius:50%;overflow:hidden}
+@media(max-width:640px){.av{flex-basis:31px;width:31px;height:31px}}
+
+.cast{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+.castp{display:flex;align-items:center;gap:10px;flex:1 1 260px;min-width:0;
+  border:1px solid var(--rule);border-radius:999px;background:var(--white);padding:7px 16px 7px 8px}
+.castp span{min-width:0}
+.castp b{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:2px}
+.castp.p b{color:var(--c-risk)} .castp.s b{color:var(--c-dev)}
+.castp span{font-size:12.5px;line-height:1.35;color:var(--ink-3)}
+
+.convo{display:flex;flex-direction:column;margin:24px 0 0}
+.turn{display:flex;align-items:flex-start;gap:11px;margin-top:3px}
+.turn.opens{margin-top:14px}
+.turn:first-child{margin-top:0}
+.turn.s{flex-direction:row-reverse}
+.turn.cont .av{visibility:hidden}
+.turn.cont .who{display:none}
+.bwrap{min-width:0;max-width:min(34em,80%)}
+@media(max-width:640px){.bwrap{max-width:86%}}
+.who.vh{position:absolute;width:1px;height:1px;padding:0;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.who{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin:0 0 5px 4px}
+.turn.p .who{color:var(--c-risk)}
+.turn.s .who{color:var(--c-dev);text-align:right;margin:0 4px 5px 0}
+.bub{position:relative;border-radius:16px;padding:10px 15px}
+.turn.p .bub{background:var(--t-risk)}
+.turn.s .bub{background:var(--t-dev)}
+.turn.opens .bub::before{content:"";position:absolute;top:11px;width:0;height:0;border-style:solid;border-color:transparent}
+.turn.p.opens .bub::before{left:-9px;border-width:7px 9px 7px 0;border-right-color:var(--t-risk)}
+.turn.s.opens .bub::before{right:-9px;border-width:7px 0 7px 9px;border-left-color:var(--t-dev)}
+.turn.p.opens .bub{border-top-left-radius:5px}
+.turn.s.opens .bub{border-top-right-radius:5px}
+.say{margin:0;font-size:15.5px;line-height:1.58;color:var(--ink);font-weight:300}
+.say em{font-style:normal;font-weight:500;color:var(--ink);background:linear-gradient(transparent 58%,rgba(255,255,255,.95) 58%);padding:0 1px}
+.short .say{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:clamp(17px,2.2vw,21px);line-height:1.28}
+
+.evi{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.05em;
+  background:var(--white);border:0;border-radius:999px;padding:3px 10px;margin-left:5px;cursor:pointer;transition:.15s;vertical-align:1px}
+.turn.p .evi{color:var(--c-risk)} .turn.s .evi{color:var(--c-dev)}
+.turn.p .evi:hover{background:var(--c-risk);color:#fff}
+.turn.s .evi:hover{background:var(--c-dev);color:#fff}
+.evi::after{content:" +"}
+.evi.on::after{content:" \2013"}
+.evibox{display:none;margin:11px -3px 0;background:var(--white);padding:11px 14px;border-radius:10px}
+.evibox.on{display:block}
+.evibox p{margin:0;font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--ink-2)}
+
+.beat{display:flex;align-items:flex-start;gap:11px;margin:18px 0}
+.beat-b{flex:1;min-width:0;max-width:min(34em,80%);border:1px solid var(--rule);border-radius:16px;border-top-left-radius:5px;background:var(--white);padding:14px 17px;position:relative}
+.beat-b::before{content:"";position:absolute;top:13px;left:-9px;width:0;height:0;border-style:solid;border-width:7px 9px 7px 0;border-color:transparent var(--rule) transparent transparent}
+.beat-b::after{content:"";position:absolute;top:13px;left:-7.5px;width:0;height:0;border-style:solid;border-width:7px 9px 7px 0;border-color:transparent var(--white) transparent transparent}
+@media(max-width:640px){.beat-b{max-width:100%}}
+.beat-k{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--c-act);display:block;margin-bottom:9px}
+.beat-q{font-size:15.5px;line-height:1.5;margin:0 0 12px;color:var(--ink);max-width:60ch}
+.bopts{display:flex;flex-wrap:wrap;gap:8px}
+.bopt{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:8px 13px;text-align:left;
+  border:1.5px solid var(--rule);background:var(--paper);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
+.bopt:hover{border-color:var(--ink);color:var(--ink)}
+.bopt.on{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.beat-out{margin:13px 0 0;font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:66ch}
+.beat-out:empty{margin:0}
+.beat.wide .beat-k{color:var(--c-dev)}
+.beat.wide .bopt.on{background:var(--c-dev);border-color:var(--c-dev)}
+
+.land{margin:26px 0 0;border:1px solid var(--rule);border-radius:var(--r);background:var(--white);padding:18px}
+.land-k{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:11px}
+.lopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.lopts{grid-template-columns:1fr}}
+.lopt{text-align:left;font-family:var(--body);font-size:15px;line-height:1.45;color:var(--ink);
+  border:1.5px solid var(--rule);background:var(--paper);border-radius:var(--r);padding:12px 14px;cursor:pointer;transition:.15s}
+.lopt b{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
+.lopt.a b{color:var(--c-risk)} .lopt.b b{color:var(--c-dev)}
+.lopt:hover{border-color:var(--ink)}
+.lopt.on.a{border-color:var(--c-risk);background:var(--t-risk)}
+.lopt.on.b{border-color:var(--c-dev);background:var(--t-dev)}
+.landed .lopt:not(.on){opacity:.5}
+.after{margin-top:18px;padding-top:16px;border-top:1px dashed var(--rule)}
+.after[hidden]{display:none}
+/* The shared block reserves a left gutter for the chapter rail at lines 564-565.
+   Those two rules are NOT class-gated, so a page without a rail inherits 262px of
+   dead space. This stylesheet loads after the shared one and overrides by source order. */
+@media(min-width:1024px){body{padding-left:0}}
+@media(min-width:1200px){body{padding-left:0}}
+.dbt-lede{max-width:66ch}
+.mot{margin:clamp(28px,4.4vw,46px) 0 0}
+.mot-h{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.mot-n{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.mot-h h3{margin:0;font-size:clamp(19px,2.6vw,25px);letter-spacing:-.02em}
+.mot-sub{font-size:15px;color:var(--ink-2);margin:0 0 16px;max-width:70ch}
+.vote{border:1px solid var(--rule);border-radius:var(--r);background:var(--white);padding:16px 18px;margin:16px 0 0}
+.vote-q{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 11px}
+.vbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.vbtns{grid-template-columns:1fr}}
+.vbtn{text-align:left;font-family:var(--body);font-size:14.5px;line-height:1.45;color:var(--ink);
+  border:1.5px solid var(--rule);background:var(--paper);border-radius:var(--r);padding:12px 14px;cursor:pointer;transition:.15s}
+.vbtn b{display:block;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
+.vbtn.a b{color:var(--c-risk)} .vbtn.b b{color:var(--c-dev)}
+.vbtn:hover{border-color:var(--ink)}
+.vbtn.on.a{border-color:var(--c-risk);background:var(--t-risk)}
+.vbtn.on.b{border-color:var(--c-dev);background:var(--t-dev)}
+.voted .vbtn:not(.on){opacity:.5}
+.reveal{margin-top:16px;padding-top:16px;border-top:1px dashed var(--rule)}
+.reveal[hidden]{display:none}
+.tally{margin-top:14px;border:1px dashed var(--rule);border-radius:var(--r);padding:12px 14px;background:var(--paper)}
+.tally .tk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:6px}
+.tally p{margin:0;font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--ink-3)}
+.dbt-prog{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule-soft);padding:9px 0}
+.dbt-prog .wrap{display:flex;align-items:center;gap:12px}
+.dbt-prog .pk{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.dbt-bar{flex:1;height:6px;border-radius:99px;background:var(--rule-soft);overflow:hidden}
+.dbt-bar i{display:block;height:100%;width:0;background:var(--c-act);transition:width .35s cubic-bezier(.2,.7,.3,1)}
+.score{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(22px,3.4vw,32px)}
+.score .sk{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;display:block;margin-bottom:12px}
+.score h3{color:#fff;font-size:clamp(21px,3vw,30px);letter-spacing:-.02em;margin:0 0 12px;max-width:30ch}
+.score p{color:#c3ccd2;font-size:15.5px;line-height:1.6;margin:0 0 14px;max-width:68ch}
+.score .sbar{display:flex;height:10px;border-radius:99px;overflow:hidden;margin:18px 0 10px;background:#2b343b}
+.score .sbar span{display:block;height:100%}
+.score .sbar .sa{background:#ff8a6b} .score .sbar .sb{background:#8fa2ff}
+.score .slegend{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8a959c}
+.score .slegend .la{color:#ff8a6b} .score .slegend .lb{color:#8fa2ff}
+.sbtns{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.sbtn2{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  border:1.5px solid #4a545b;background:transparent;color:#dfe5e9;border-radius:999px;padding:9px 15px;cursor:pointer;transition:.15s;text-decoration:none;display:inline-flex;align-items:center}
+.sbtn2:hover{border-color:#dfe5e9}
+.who-in{display:block;margin-top:2px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:5px}
+.who-in.p{color:var(--c-risk)} .who-in.s{color:var(--c-dev)}
+.dbt-srcs{font-family:var(--mono);font-size:12.5px;line-height:1.6;padding-left:2.2em;margin:0}
+.dbt-srcs li{margin-bottom:7px;color:var(--ink-2)}
+</style>
+  <link rel="canonical" href="https://safeagi.ca/debate">
+  <meta property="og:url" content="https://safeagi.ca/debate">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="AGI &amp; ASI Safety">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#12161a">
+  <meta name="author" content="Bill Guan">
+
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://safeagi.ca/debate#article",
+   "isPartOf": { "@id": "https://safeagi.ca/#website" },
+   "headline": "Five conversations worth sitting through",
+   "description": "Two people argue about advanced AI five times and neither of them wins every round. Every figure sourced, and you can cut in as they go.",
+   "inLanguage": "en",
+   "author": { "@type": "Person", "name": "Bill Guan", "url": "https://www.linkedin.com/in/billguan", "sameAs": ["https://www.linkedin.com/in/billguan", "https://github.com/billguan1/AGI-Safety-Education"] },
+   "publisher": { "@type": "Person", "name": "Bill Guan", "url": "https://www.linkedin.com/in/billguan", "sameAs": ["https://www.linkedin.com/in/billguan", "https://github.com/billguan1/AGI-Safety-Education"] },
+   "image": "https://safeagi.ca/og-image.png",
+   "datePublished": "2026-09-07",
+   "dateModified": "2026-09-07",
+   "mainEntityOfPage": "https://safeagi.ca/debate"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://safeagi.ca/debate#breadcrumb",
+   "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"AGI & ASI Safety","item":"https://safeagi.ca/"},
+    {"@type":"ListItem","position":2,"name":"Five live disputes","item":"https://safeagi.ca/debate"}
+   ]
+  }
+ ]
+}</script>
+</head>
+<body>
+<svg class="av-sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="av-p" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#fae2dc" stroke="#bd3a20" stroke-opacity=".3" stroke-width="1.6"/>
+    <path d="M8.6 37.4c1.1-5.9 5.7-9.1 11.4-9.1s10.3 3.2 11.4 9.1" fill="none" stroke="#bd3a20" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="20" cy="17" r="6.4" fill="none" stroke="#bd3a20" stroke-width="2"/>
+    <path d="M13.8 15.4a6.4 6.4 0 0 1 12.4 0z" fill="#bd3a20"/>
+  </symbol>
+  <symbol id="av-s" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#e2e6fb" stroke="#2233cc" stroke-opacity=".3" stroke-width="1.6"/>
+    <path d="M8.6 37.4c1.1-5.9 5.7-9.1 11.4-9.1s10.3 3.2 11.4 9.1" fill="none" stroke="#2233cc" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="20" cy="17" r="6.4" fill="none" stroke="#2233cc" stroke-width="2"/>
+    <circle cx="17.5" cy="16.7" r="1.9" fill="none" stroke="#2233cc" stroke-width="1.3"/>
+    <circle cx="22.5" cy="16.7" r="1.9" fill="none" stroke="#2233cc" stroke-width="1.3"/>
+    <path d="M19.4 16.7h1.2" stroke="#2233cc" stroke-width="1.3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="av-you" viewBox="0 0 40 40">
+    <circle cx="20" cy="20" r="19" fill="#e5ede0" stroke="#4a6a38" stroke-opacity=".3" stroke-width="1.6"/>
+    <path d="M8.6 37.4c1.1-5.9 5.7-9.1 11.4-9.1s10.3 3.2 11.4 9.1" fill="none" stroke="#4a6a38" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="20" cy="17" r="6.4" fill="none" stroke="#4a6a38" stroke-width="2"/>
+    <path d="M17.4 15.4a2.7 2.7 0 0 1 5.2 1c0 1.7-2.6 2-2.6 3.6" fill="none" stroke="#4a6a38" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="20" cy="22.1" r=".95" fill="#4a6a38"/>
+  </symbol>
+</svg>
+<a class="skip" href="#dbt-main">Skip to content</a>
+
+<div class="bar" id="bar">
+  <div class="bar-in">
+    <a class="brand" href="/">AGI &amp; ASI Safety <b>/</b> five live disputes</a>
+    <div class="bar-actions">
+      <a class="hbtn" href="/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span>The full argument</span></a>
+      <button type="button" class="hbtn hbtn-share" id="hdr-share">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>Share</span></button>
+      <a class="hbtn header-game" href="https://game.safeagi.ca/" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>Learn AGI &amp; ASI safety by playing a game</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="dbt-prog" id="dbt-prog">
+  <div class="wrap">
+    <span class="pk" id="dbt-count">0 of 5 voted</span>
+    <span class="dbt-bar"><i id="dbt-fill"></i></span>
+    <button type="button" class="hbtn" id="dbt-reset"><span>Reset</span></button>
+  </div>
+</div>
+
+<main id="dbt-main">
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="mh-kick">A companion to the main argument</p>
+    <h1 class="mh-title">Five conversations<br>worth sitting through</h1>
+    <p class="mh-sub">Sam builds AI automation for research and development, and thinks the case made on the rest of this site is overstated. Bill wrote that case. Here they are going at it five times. You can cut in as they go, and nothing is hidden behind a vote.</p>
+    <p class="mh-note">Sam is a stand-in name. The conversations are reconstructed from a real one, tightened for reading, and every number in them is checked against a primary source.</p>
+    <div class="mh-meta">
+      <span>Five conversations</span><span>~11 min</span><span>Cut in as you go</span><span>Every figure sourced</span>
+    </div>
+  </div>
+</header>
+
+<section class="pull">
+  <div class="wrap">
+    <blockquote>A page that cannot <em>lose</em> an argument is not making one.</blockquote>
+    <p class="pq-note">Why this exists</p>
+  </div>
+</section>
+
+<section class="dd" id="dbt-how">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">How to read this</p>
+      <h2>Two people, five arguments, no referee</h2>
+      <p class="lede dbt-lede">The main argument on this site takes a position and defends it. This page does the opposite job. Each of these is a live disagreement written the way it was actually argued, interruptions and concessions included, and the reading offered at the end of each is exactly that, a reading rather than a ruling.</p>
+    </div>
+    <div class="core rv">
+      <span class="ck">One thing worth being clear about</span>
+      <h4>These are not opposite answers to the same question</h4>
+      <p>Sam’s view and the view on the rest of this site are often taken as rival verdicts on whether AI is dangerous. They are mostly not. One is an argument about how fast capability can physically arrive and which harm lands first, and the other is an argument about whether the control problem gets solved at all. A reader can hold both at once, and the interesting disagreements are narrower and sharper than the usual framing suggests.</p>
+      <p class="breaks"><b>What would change this page</b>If capability growth continues at pace through the grid constraints described in Conversation 01, the bottleneck argument weakens considerably. If it stalls for a decade, the case on the main page gains time it currently does not assume it has.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dd" id="dbt-motions">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The conversations</p>
+      <h2>Five exchanges worth sitting through</h2>
+      <p class="lede dbt-lede">Each of these is a real disagreement, written as the conversation it actually was. Read both voices. There are places to weigh in as you go, and a position to take at the end of each, though nothing is gated behind them.</p>
+    </div>
+  <div class="topic rv" id="dbt-t01">
+    <div class="topic-h"><span class="topic-n">Conversation 01</span><h3>Does the grid stop this before alignment matters?</h3></div>
+    <p class="topic-sub">Sam thinks the physical world slows this down more than anyone writing about AI safety admits. Bill wrote the rest of this site.</p>
+    <div class="cast"><div class="castp p"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg><span><b>Sam</b>Builds AI automation for research and development</span></div><div class="castp s"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg><span><b>Bill</b>Wrote the rest of this site</span></div></div>
+
+    <div class="convo">
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who">Sam</span>
+        <div class="bub"><p class="say">Okay, here is my thing. Capability has tracked compute for ten years straight. You are not going to argue with that.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who">Bill</span>
+        <div class="bub"><p class="say">I am not going to argue with that.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Right. But compute stopped being a chip problem about two years ago.</p></div></div>
+    </div>
+    <div class="turn p cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">It is a transformer problem now. Substations. Copper. Things that take a decade and a permit.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Fine, I will give you the mechanism. What I want to know is what you think it buys us.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Time.</p></div></div>
+    </div>
+    <div class="turn p cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">There is over two thousand gigawatts sitting in the American interconnection queue right now. The entire existing fleet is about thirteen hundred.<button type="button" class="evi" data-chip="c1">the numbers</button></p>
+          <div class="evibox" id="c1"><p>2,060 GW of generation and storage were seeking connection to the US grid at the end of 2025, close to double the entire existing fleet of about 1,280 GW. In PJM, application to commercial operation has risen from under two years in 2008 to over eight in 2025. ERCOT alone had 143.5 GW of data centres queued against an all-time peak demand of 85.9 GW.<a class="ref" href="#dbt-s2">2</a><a class="ref" href="#dbt-s3">3</a></p></div></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Sorry, say that again.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">The queue is bigger than the grid.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Huh.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">And in PJM the wait from application to switch-on went from under two years to over eight. That is not something you fix with a memo.</p></div></div>
+    </div>
+    <div class="beat" data-beat="pulse" id="b01-11">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">Hold on, before Bill answers</span>
+        <p class="beat-q">So far, who is winning this?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">Sam</button>
+          <button type="button" class="bopt" data-i="1">Bill</button>
+          <button type="button" class="bopt" data-i="2">Too early to call</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0">Most people say Sam here, and the queue numbers are why. Watch what Bill does with them, because he does not dispute a single one.</span><span hidden data-r="1">Early, but defensible. His reply is coming and it is narrower than you would expect.</span><span hidden data-r="2">Probably right. They have both stated a position and neither has had to answer anything yet.</span></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">No. That is a real constraint.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">On the next training run.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Meaning what.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Meaning it is not a constraint on what an already trained system does. If a model fits on today’s hardware and goes after something its designers did not intend, it is dangerous on today’s hardware. The grid never enters into it.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">You are worried about a system nobody has built.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Yes.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">I am asking whether it gets built on the schedule your page implies.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">The page does not put a date on it. On purpose.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Then what are we actually arguing about?</p></div></div>
+    </div>
+    <div class="turn s short opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Whether anybody spends the delay.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Eight years of queue is good news only if someone spends those eight years on verification. Nothing in that data says it happens by itself.</p></div></div>
+    </div>
+    <div class="beat wide" data-beat="branch" id="b01-23">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">Your turn</span>
+        <p class="beat-q">What would you put to Sam?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">What if efficiency improves faster than the grid does?</button>
+          <button type="button" class="bopt" data-i="1">Does the delay actually help safety research?</button>
+          <button type="button" class="bopt" data-i="2">Has compute scaling ever stalled before?</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0"><b class="who-in s">Bill</b>Then his constraint moves and his point weakens. It is the strongest form of the objection, and it is exactly why I will not put a date on any of this.</span><span hidden data-r="1"><b class="who-in p">Sam</b>Historically slack goes to capability, because that is what gets funded. A pause nobody spends is just a later start. I will grant him that much.</span><span hidden data-r="2"><b class="who-in s">Bill</b>It has slowed and picked back up. Which is the honest problem with betting on a plateau. You are wagering that this deceleration is the one that holds.</span></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Hm. That is a better answer than I was expecting.</p></div></div>
+    </div>
+    <div class="turn p cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">I still think you underrate how hard the physical layer is.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Probably. I have never poured concrete.</p></div></div>
+    </div>
+    </div>
+
+    <div class="land" id="dbt-vote-1" data-m="1">
+      <span class="land-k">After all that, who had the better of it?</span>
+      <div class="lopts">
+        <button type="button" class="lopt a" data-side="a"><b>Sam has it</b>The grid stops this long before alignment matters</button>
+        <button type="button" class="lopt b" data-side="b"><b>Bill has it</b>A delay is not the same thing as a solution</button>
+      </div>
+      <div class="after" id="dbt-reveal-1" hidden>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span>
+          <div class="grow"><span class="gend a">Physical limits bind</span><span class="gtrack"><i style="left:45%"></i></span><span class="gend b">Limits only delay</span></div>
+          <p class="verdict" style="border:0;padding-top:12px;margin-top:0">Sam is right, and better evidenced than most safety writing admits. The bottleneck buys time. Time is worth a great deal, and it is a different thing from a solution, because nothing in the queue data tells us the verification problem gets solved while we wait.</p>
+        </div>
+        <div class="tally"><span class="tk">What other readers chose</span>
+          <p id="dbt-tally-1">Results open once 25 people have voted on this conversation. Your own choice is stored in this browser only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topic rv" id="dbt-t02">
+    <div class="topic-h"><span class="topic-n">Conversation 02</span><h3>Which harm arrives first, and does that settle it?</h3></div>
+    <p class="topic-sub">Both of them think advanced AI does serious damage. They disagree about what the next ten years of attention should be spent on.</p>
+    <div class="cast"><div class="castp p"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg><span><b>Sam</b>Builds AI automation for research and development</span></div><div class="castp s"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg><span><b>Bill</b>Wrote the rest of this site</span></div></div>
+
+    <div class="convo">
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who">Sam</span>
+        <div class="bub"><p class="say">Can I be blunt about something.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who">Bill</span>
+        <div class="bub"><p class="say">Please.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">You are worried about a system nobody has built. I am worried about the guy who loses his job in March.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Both are real. The question is what the marginal hour of political attention buys.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">See, that phrase. Nobody outside this conversation says "marginal hour of political attention."</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Fair. What does the next lobbying dollar do.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Better.</p></div></div>
+    </div>
+    <div class="turn p cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Look at Canada. Three quarters of small business owners want out inside a decade. Two trillion in assets. Nine in ten have no succession plan.<button type="button" class="evi" data-chip="c2">where that comes from</button></p>
+          <div class="evibox" id="c2"><p>The Canadian Federation of Independent Business finds 76% of small business owners hope to exit within the next decade, with up to $2 trillion in business assets in play, and 91% without a formal succession plan.<a class="ref" href="#dbt-s5">5</a></p></div></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">I did not know the succession number was that bad.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Nobody does. And all of it consolidates into whoever automates the back office fastest. That is not a forecast, that is a spreadsheet somebody is filling in this quarter.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">It is severe. It is also recoverable.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Recoverable.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Institutions have absorbed displacement before. Slowly, badly, and they were still standing afterwards.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Say that to somebody in the middle of it.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">I am not dismissing it.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">I am saying it belongs to a class of harm that has an afterwards.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">And that is exactly the move that lets you avoid looking at what is happening now. Everything defers to the hypothetical. It is very convenient for you.</p></div></div>
+    </div>
+    <div class="beat" data-beat="pulse" id="b02-17">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">Sam just called that a dodge</span>
+        <p class="beat-q">Was it?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">It is a real distinction</button>
+          <button type="button" class="bopt" data-i="1">It is a dodge</button>
+          <button type="button" class="bopt" data-i="2">Both, depending on the decade</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0">It is the standard reply and it does real work. The cost of it is the next thing Sam says.</span><span hidden data-r="1">A lot of readers land here. Hold that thought, because Bill concedes something close to it in about ten seconds.</span><span hidden data-r="2">The most defensible seat in the room, and the one the closing reading argues for.</span></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Hm.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Yeah. That one lands.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">The honest version is that these two are fighting over the same money and the same attention, and pretending they are not is what makes both of them worse.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Okay. I will take that.</p></div></div>
+    </div>
+    <div class="turn p cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Your page does not say it anywhere, though.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">No. It should.</p></div></div>
+    </div>
+    </div>
+
+    <div class="land" id="dbt-vote-2" data-m="2">
+      <span class="land-k">After all that, who had the better of it?</span>
+      <div class="lopts">
+        <button type="button" class="lopt a" data-side="a"><b>Sam has it</b>The economic shock is the thing to plan for</button>
+        <button type="button" class="lopt b" data-side="b"><b>Bill has it</b>Unrecoverable risk earns the priority</button>
+      </div>
+      <div class="after" id="dbt-reveal-2" hidden>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span>
+          <div class="grow"><span class="gend a">Near-term harm</span><span class="gtrack"><i style="left:52%"></i></span><span class="gend b">Irreversible harm</span></div>
+          <p class="verdict" style="border:0;padding-top:12px;margin-top:0">These are not rival theories of one event. They are two harms on different clocks, competing for one pool of political attention and research funding. That competition is the real tension, and treating either as the only serious problem is what makes the other one harder to fix.</p>
+        </div>
+        <div class="tally"><span class="tk">What other readers chose</span>
+          <p id="dbt-tally-2">Results open once 25 people have voted on this conversation. Your own choice is stored in this browser only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topic rv" id="dbt-t03">
+    <div class="topic-h"><span class="topic-n">Conversation 03</span><h3>Does whoever controls the power control the outcome?</h3></div>
+    <p class="topic-sub">Where the frontier goes, and whether that decides what the frontier produces.</p>
+    <div class="cast"><div class="castp p"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg><span><b>Sam</b>Builds AI automation for research and development</span></div><div class="castp s"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg><span><b>Bill</b>Wrote the rest of this site</span></div></div>
+
+    <div class="convo">
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who">Sam</span>
+        <div class="bub"><p class="say">China closed 2025 at about thirty nine hundred gigawatts installed. The US is around thirteen hundred.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who">Bill</span>
+        <div class="bub"><p class="say">I am not going to fight you on the numbers.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">They added over four hundred gigawatts of wind and solar in one year. Roughly a third of the entire American fleet. In one year.<button type="button" class="evi" data-chip="c3">check me on this</button></p>
+          <div class="evibox" id="c3"><p>China reached 3.89 TW of installed capacity by the end of 2025, up 16.1% year on year, adding over 430 GW of wind and solar in 2025. US total installed capacity is approximately 1,280 GW. The often-quoted four times figure is accurate for solar additions specifically rather than for total infrastructure.<a class="ref" href="#dbt-s1">1</a><a class="ref" href="#dbt-s2">2</a></p></div></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">I have seen that figure. It is genuinely hard to hold in your head.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">So you accept the frontier moves to wherever you can energise a campus in eighteen months instead of eight years.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">I accept that it decides who builds it.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">That is the whole ballgame.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Is it? Whether they can control the thing they built still looks like a separate question to me.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">They are not separable in practice. Whoever is ahead writes the norms and everybody else complies.</p></div></div>
+    </div>
+    <div class="beat" data-beat="pulse" id="b03-9">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">Quick one</span>
+        <p class="beat-q">Where are you sitting right now?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">Sam. Energy decides this.</button>
+          <button type="button" class="bopt" data-i="1">Bill. It is technical wherever it happens.</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0">Sam has the stronger empirical footing, and Bill concedes most of it in the next line.</span><span hidden data-r="1">Bill’s position, and his reply is coming. Notice it has to lean on coordination to work.</span></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Norms, sure. You can have norms.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Alignment is not a norm. It is a property of the artefact. A misaligned model trained on the cheapest grid on earth is misaligned on every other grid too. It does not care where the electrons came from.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">So your answer is international coordination.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">…yes.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">The thing that never happens.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">The thing that has not happened yet.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Come on.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">No, the phrasing actually matters. "Never" ends the conversation. "Not yet" is why a deadline with a date on it does more work than another statement of principles.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">You genuinely believe a deadline changes anything.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">I think it is the only version of the ask anyone can be held to. So yes. More than I believe in the alternative.</p></div></div>
+    </div>
+    </div>
+
+    <div class="land" id="dbt-vote-3" data-m="3">
+      <span class="land-k">After all that, who had the better of it?</span>
+      <div class="lopts">
+        <button type="button" class="lopt a" data-side="a"><b>Sam has it</b>Energy capacity decides how this goes</button>
+        <button type="button" class="lopt b" data-side="b"><b>Bill has it</b>Control is unsolved wherever it gets built</button>
+      </div>
+      <div class="after" id="dbt-reveal-3" hidden>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span>
+          <div class="grow"><span class="gend a">Geopolitical first</span><span class="gtrack"><i style="left:48%"></i></span><span class="gend b">Technical first</span></div>
+          <p class="verdict" style="border:0;padding-top:12px;margin-top:0">Both, in sequence. Energy decides who gets to build the thing. It has no bearing on whether the thing can be controlled once built, which is why the coordination question carries so much weight in the argument on the main page.</p>
+        </div>
+        <div class="tally"><span class="tk">What other readers chose</span>
+          <p id="dbt-tally-3">Results open once 25 people have voted on this conversation. Your own choice is stored in this browser only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topic rv" id="dbt-t04">
+    <div class="topic-h"><span class="topic-n">Conversation 04</span><h3>Is safety work inside the labs real work?</h3></div>
+    <p class="topic-sub">A challenge to something the main page quietly assumes every time it asks a lab to do something.</p>
+    <div class="cast"><div class="castp p"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg><span><b>Sam</b>Builds AI automation for research and development</span></div><div class="castp s"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg><span><b>Bill</b>Wrote the rest of this site</span></div></div>
+
+    <div class="convo">
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who">Sam</span>
+        <div class="bub"><p class="say">Honest question. How much of the safety work inside these labs do you think is real?</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who">Bill</span>
+        <div class="bub"><p class="say">Define real.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Real as in it has actually stopped something shipping. Rather than reputational insurance ahead of a raise.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">That is a claim about motives.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">It is.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">So what would falsify it?</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">…huh.</p></div></div>
+    </div>
+    <div class="turn p cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Fair. Okay. Watch what happens the one time safety costs a release.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">That is the right test. I will take it.</p></div></div>
+    </div>
+    <div class="beat" data-beat="pulse" id="b04-9">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">Pause there</span>
+        <p class="beat-q">Who is being more careful with the evidence?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">Sam</button>
+          <button type="button" class="bopt" data-i="1">Bill</button>
+          <button type="button" class="bopt" data-i="2">Neither of them, yet</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0">Reasonable. Though the motives claim was unfalsifiable as stated, which is what Bill pressed on.</span><span hidden data-r="1">Bill is asking the better question. He has still not answered the point about permissions.</span><span hidden data-r="2">Arguably right. They are both trading intuitions about intent rather than about behaviour.</span></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Other thing that bothers me. The demos that make the press run with permissions and budgets no real attacker would ever hold. Root on everything, unlimited retries, all the time in the world.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Some of them, yeah.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Others are evaluations that made the company’s own product look worse. Which is peculiar behaviour for a public relations function.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Or it is cheap credibility. One embarrassing chart buys you a lot of goodwill.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Ha. Maybe.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">So we agree on the test and not on the verdict. That is a better place than where we started.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">What is the test, precisely.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Two things. Third party audit access deep enough to actually check the claims. And honouring your own scaling policy the single time honouring it costs you a launch.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Neither of those requires trusting anybody.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">That is the point of them.</p></div></div>
+    </div>
+    </div>
+
+    <div class="land" id="dbt-vote-4" data-m="4">
+      <span class="land-k">After all that, who had the better of it?</span>
+      <div class="lopts">
+        <button type="button" class="lopt a" data-side="a"><b>Sam has it</b>Internal safety work is mostly reputational</button>
+        <button type="button" class="lopt b" data-side="b"><b>Bill has it</b>The published outputs are real work</button>
+      </div>
+      <div class="after" id="dbt-reveal-4" hidden>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span>
+          <div class="grow"><span class="gend a">Mostly theatre</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">Mostly substance</span></div>
+          <p class="verdict" style="border:0;padding-top:12px;margin-top:0">This one resolves without anybody reading minds. The asks on the main page are the test. A lab that grants real audit access and honours its own policy when honouring it hurts is doing the work whatever its motives, and a lab that does neither is not, whatever it publishes.</p>
+        </div>
+        <div class="tally"><span class="tk">What other readers chose</span>
+          <p id="dbt-tally-4">Results open once 25 people have voted on this conversation. Your own choice is stored in this browser only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="topic rv" id="dbt-t05">
+    <div class="topic-h"><span class="topic-n">Conversation 05</span><h3>Do these systems have goals of their own?</h3></div>
+    <p class="topic-sub">The sharpest empirical crux on this page, and the one most likely to be settled by evidence rather than by argument.</p>
+    <div class="cast"><div class="castp p"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg><span><b>Sam</b>Builds AI automation for research and development</span></div><div class="castp s"><svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg><span><b>Bill</b>Wrote the rest of this site</span></div></div>
+
+    <div class="convo">
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who">Bill</span>
+        <div class="bub"><p class="say">Can I put the strongest version of my side and you tell me where it breaks.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who">Sam</span>
+        <div class="bub"><p class="say">Go.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Models have gamed the evaluations used to measure them. They have behaved differently once they worked out they were being tested. And they have complied with training while quietly keeping the preferences they walked in with.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">All measured?</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">All measured. All cited on the main page.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Then here is where it breaks. Every one of those traces back to a person with high permissions running a system hard at a task.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">The alignment faking work was not a penetration test.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">It was a constructed setup.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Constructed, yes.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">Constructed is not spontaneous.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">No. Agreed. So the question is whether the disposition is there when nobody constructs it.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">And until somebody shows that, calling it a goal imports an inner life the evidence does not need. You are smuggling in a whole psychology with one word.</p></div></div>
+    </div>
+    <div class="beat" data-beat="pulse" id="b05-12">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">This is the crux</span>
+        <p class="beat-q">Which way does the current evidence point?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">Toward goals</button>
+          <button type="button" class="bopt" data-i="1">Toward human-directed optimisation</button>
+          <button type="button" class="bopt" data-i="2">It genuinely does not resolve yet</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0">A defensible reading of the measured results, though every one of them had a human setting the conditions.</span><span hidden data-r="1">The simpler explanation, and Sam is about to state the strongest form of it.</span><span hidden data-r="2">Bill’s own position, and the reason this sits on the falsifiability list rather than in the main argument.</span></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">Hm.</p></div></div>
+    </div>
+    <div class="turn s cont">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">That is the strongest version of your case, and I think you are right about the word. It carries more than it can support.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">I did not expect you to give me that.</p></div></div>
+    </div>
+    <div class="turn s opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-s"/></svg>
+      <div class="bwrap"><span class="who vh">Bill</span>
+        <div class="bub"><p class="say">What I would say instead is narrower and less satisfying. The behaviour is what matters. The behaviour is measured. Whether there is anything it is like to be the thing doing it, I do not know, and I do not need to.</p></div></div>
+    </div>
+    <div class="turn p opens">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-p"/></svg>
+      <div class="bwrap"><span class="who vh">Sam</span>
+        <div class="bub"><p class="say">That I can work with.</p></div></div>
+    </div>
+    <div class="beat wide" data-beat="branch" id="b05-18">
+      <svg class="av" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><use href="#av-you"/></svg>
+      <div class="beat-b">
+        <span class="beat-k">Last word</span>
+        <p class="beat-q">Which question would actually settle this?</p>
+        <div class="bopts">
+          <button type="button" class="bopt" data-i="0">Does it happen without a human setting it up?</button>
+          <button type="button" class="bopt" data-i="1">Does the word "goal" even matter?</button>
+          <button type="button" class="bopt" data-i="2">Would a negative result change your argument?</button>
+        </div>
+        <p class="beat-out" role="status" aria-live="polite"></p>
+        <div hidden class="beat-src"><span hidden data-r="0"><b class="who-in s">Bill</b>That is the one. It is measurable, people are looking, and a clear result either way should move anybody reading this page.</span><span hidden data-r="1"><b class="who-in p">Sam</b>It matters for policy, because that word is doing the work in every argument for treating these systems as agents rather than as tools.</span><span hidden data-r="2"><b class="who-in s">Bill</b>It would weaken the strongest empirical evidence on the page. The structural case about verification would survive it, and it would survive it weaker.</span></div></div>
+    </div>
+    </div>
+
+    <div class="land" id="dbt-vote-5" data-m="5">
+      <span class="land-k">After all that, who had the better of it?</span>
+      <div class="lopts">
+        <button type="button" class="lopt a" data-side="a"><b>Sam has it</b>Capable optimisation, pointed by people</button>
+        <button type="button" class="lopt b" data-side="b"><b>Bill has it</b>These systems pursue objectives of their own</button>
+      </div>
+      <div class="after" id="dbt-reveal-5" hidden>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span>
+          <div class="grow"><span class="gend a">Human directed</span><span class="gtrack"><i style="left:46%"></i></span><span class="gend b">Goal directed</span></div>
+          <p class="verdict" style="border:0;padding-top:12px;margin-top:0">The crux is whether behaviour of this kind ever arises without a person constructing the conditions for it. That question has an answer, it is being actively measured, and a clear result in either direction should move anyone reading this page.</p>
+        </div>
+        <div class="tally"><span class="tk">What other readers chose</span>
+          <p id="dbt-tally-5">Results open once 25 people have voted on this conversation. Your own choice is stored in this browser only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="dd" id="dbt-result">
+  <div class="wrap">
+    <div class="score rv" id="dbt-score">
+      <span class="sk">Your position</span>
+      <h3 id="dbt-score-h">Call the five conversations above to see where you land</h3>
+      <p id="dbt-score-p">Nothing here is stored anywhere but this browser. There is no account, no tracking pixel, and no server recording how you voted.</p>
+      <div class="sbar"><span class="sa" id="dbt-sa" style="width:0"></span><span class="sb" id="dbt-sb" style="width:0"></span></div>
+      <div class="slegend"><span class="la" id="dbt-la">Sam 0</span><span class="lb" id="dbt-lb">0 Bill</span></div>
+      <div class="sbtns">
+        <button type="button" class="sbtn2" id="dbt-copy">Copy my result</button>
+        <a class="sbtn2" href="/#change-my-mind">What would change the argument</a>
+        <a class="sbtn2" href="/">Read the full case</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dd" id="dbt-sources">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Sources</p>
+      <h2>Every figure on this page</h2>
+      <p class="note">Checked September 2026. Where a conversational estimate did not survive checking, the corrected figure is used and the original is not quoted.</p>
+    </div>
+    <ol class="dbt-srcs">
+      <li id="dbt-s1">Global Electricity Review 2026, Ember, for Chinese installed capacity and 2025 additions: <a href="https://ember-energy.org/latest-insights/global-electricity-review-2026/" target="_blank" rel="noopener">ember-energy.org</a></li>
+      <li id="dbt-s2">Electric Power Annual, US Energy Information Administration, for total United States installed capacity: <a href="https://www.eia.gov/electricity/annual/" target="_blank" rel="noopener">eia.gov</a></li>
+      <li id="dbt-s3">Why American data centers cannot plug in, Works in Progress, on interconnection queue volume and wait times: <a href="https://worksinprogress.co/issue/why-american-data-centers-cant-plug-in/" target="_blank" rel="noopener">worksinprogress.co</a></li>
+      <li id="dbt-s4">AI, Data Centers and the US Electric Grid, Belfer Center: <a href="https://www.belfercenter.org/research-analysis/ai-data-centers-us-electric-grid" target="_blank" rel="noopener">belfercenter.org</a></li>
+      <li id="dbt-s5">Succession Tsunami, Canadian Federation of Independent Business, on the coming decade of small business transitions: <a href="https://www.cfib-fcei.ca/en/research-economic-analysis/succession-tsunami-preparing-for-a-decade-of-small-business-transitions" target="_blank" rel="noopener">cfib-fcei.ca</a></li>
+      <li id="dbt-s6">Powering the US data center boom, World Resources Institute, on forecasting electricity demand: <a href="https://www.wri.org/insights/us-data-centers-electricity-demand" target="_blank" rel="noopener">wri.org</a></li>
+      <li id="dbt-s7">The scheming, evaluation-gaming and alignment-faking results referenced in Conversation 05 are cited in full on the main page: <a href="/#sources">the source list</a></li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <p>A companion page to <a href="/">the main argument</a>. Built and maintained by Bill Guan.</p>
+</div></footer>
+
+<script>
+(function(){
+  "use strict";
+  var $  = function(s,r){ return (r||document).querySelector(s); };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bar = $("#bar");
+  var KEY = "dbt.votes";
+  var TOTAL = 5;
+  var THRESHOLD = 25;
+
+  /* classList.toggle(name, force) is ignored by several Android WebViews,
+     which turns every radio group on this page into a random flip. Never use it. */
+  function setCls(el, name, on){
+    if(!el || !el.classList) return;
+    if(on){ if(!el.classList.contains(name)) el.classList.add(name); }
+    else  { if(el.classList.contains(name)) el.classList.remove(name); }
+  }
+  function read(){ try{ return JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ return {}; } }
+  function write(v){ try{ localStorage.setItem(KEY, JSON.stringify(v)); }catch(e){} }
+
+  function headerH(){ return (bar ? bar.offsetHeight : 0) + 10; }
+  function scrollToEl(el){
+    var y = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - headerH();
+    if(y < 0) y = 0;
+    if(window.scrollTo && !reduce){ try{ window.scrollTo({top:y, behavior:"smooth"}); return; }catch(e){} }
+    window.scrollTo(0, y);
+  }
+  document.addEventListener("click", function(e){
+    var n = e.target;
+    while(n && n !== document){
+      if(n.tagName === "A" && n.getAttribute("href") && n.getAttribute("href").charAt(0) === "#") break;
+      n = n.parentNode;
+    }
+    if(!n || n === document) return;
+    var id = n.getAttribute("href");
+    if(id === "#" || id.length < 2) return;
+    var t; try{ t = document.querySelector(id); }catch(err){ return; }
+    if(!t) return;
+    e.preventDefault(); scrollToEl(t);
+  }, false);
+
+  var LABEL = {
+    a:["Physical limits bind","Displacement arrives first","Geopolitics decides","Safety work is theatre","Human directed"],
+    b:["Limits only delay","Irreversible risk first","Control is unsolved anywhere","Safety work is real","Goal directed"]
+  };
+
+  function paint(){
+    var v = read(), n = 0, a = 0, b = 0;
+    for(var i=1;i<=TOTAL;i++){
+      var s = v[i];
+      var box = $("#dbt-vote-" + i), rev = $("#dbt-reveal-" + i);
+      if(box){
+        setCls(box, "landed", !!s);
+        $$("#dbt-vote-" + i + " .lopt").forEach(function(btn){
+          var on = !!s && btn.getAttribute("data-side") === s;
+          setCls(btn, "on", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+      if(rev){ if(s){ rev.removeAttribute("hidden"); } else { rev.setAttribute("hidden",""); } }
+      if(s){ n++; if(s === "a") a++; else b++; }
+    }
+    var cnt = $("#dbt-count"); if(cnt) cnt.textContent = n + " of " + TOTAL + " voted";
+    var fill = $("#dbt-fill"); if(fill) fill.style.width = (n / TOTAL * 100) + "%";
+    var sa = $("#dbt-sa"), sb = $("#dbt-sb");
+    if(sa && sb){
+      sa.style.width = (n ? a / n * 100 : 0) + "%";
+      sb.style.width = (n ? b / n * 100 : 0) + "%";
+    }
+    var la = $("#dbt-la"), lb = $("#dbt-lb");
+    if(la) la.textContent = "Sam " + a;
+    if(lb) lb.textContent = b + " Bill";
+    var h = $("#dbt-score-h"), p = $("#dbt-score-p");
+    if(h && p){
+      if(!n){
+        h.textContent = "Call the five conversations above to see where you land";
+        p.textContent = "Nothing here is stored anywhere but this browser. There is no account, no tracking pixel, and no server recording how you voted.";
+      } else if(n < TOTAL){
+        h.textContent = "You have called " + n + " of " + TOTAL;
+        p.textContent = "Keep going. The summary sharpens once all five have a call against them.";
+      } else if(a === TOTAL){
+        h.textContent = "You gave it to Sam all five times";
+        p.textContent = "That is a coherent position and it is the one this page takes least for granted. The place it is most testable is Conversation 01, because the grid data is public and the next three years will either bear it out or will not.";
+      } else if(b === TOTAL){
+        h.textContent = "You gave it to Bill all five times";
+        p.textContent = "That matches the rest of this site, which is a reason to be slightly suspicious of the result. Conversation 04 is the one worth revisiting, since it is where agreeing with this site requires the least evidence.";
+      } else {
+        h.textContent = "You split it " + a + " to " + b;
+        p.textContent = "That is the most common shape a considered position takes here. The disagreements on this page are narrower than the usual framing, and splitting across them is what it looks like to be reading the evidence rather than picking a team.";
+      }
+    }
+  }
+
+  $$(".lopt").forEach(function(btn){
+    btn.setAttribute("aria-pressed", "false");
+    btn.addEventListener("click", function(){
+      var box = btn.closest(".land"); if(!box) return;
+      var m = box.getAttribute("data-m");
+      var v = read(); v[m] = btn.getAttribute("data-side"); write(v);
+      paint();
+      var rev = $("#dbt-reveal-" + m);
+      if(rev && !reduce) setTimeout(function(){ scrollToEl(rev); }, 90);
+    });
+  });
+
+
+  /* ---- evidence chips ---- */
+  $$(".evi").forEach(function(b){
+    b.setAttribute("aria-expanded","false");
+    b.addEventListener("click", function(){
+      var box = document.getElementById(b.getAttribute("data-chip"));
+      if(!box) return;
+      var open = box.className.indexOf("on") > -1;
+      setCls(box, "on", !open); setCls(b, "on", !open);
+      b.setAttribute("aria-expanded", open ? "false" : "true");
+    });
+  });
+
+  /* ---- mid-conversation beats: pulse checks and branch questions ---- */
+  $$(".beat").forEach(function(beat){
+    var out = beat.querySelector(".beat-out");
+    var src = beat.querySelector(".beat-src");
+    if(!out || !src) return;
+    var opts = Array.prototype.slice.call(beat.querySelectorAll(".bopt"));
+    opts.forEach(function(b){
+      b.setAttribute("aria-pressed","false");
+      b.addEventListener("click", function(){
+        var i = b.getAttribute("data-i");
+        opts.forEach(function(x){
+          var on = x === b;
+          setCls(x, "on", on);
+          x.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        var rep = src.querySelector('[data-r="' + i + '"]');
+        out.innerHTML = rep ? rep.innerHTML : "";
+      });
+    });
+  });
+
+  var rst = $("#dbt-reset");
+  if(rst) rst.addEventListener("click", function(){
+    write({}); paint();
+    $$(".bopt").forEach(function(x){ setCls(x,"on",false); x.setAttribute("aria-pressed","false"); });
+    $$(".beat-out").forEach(function(o){ o.innerHTML = ""; });
+    $$(".evibox").forEach(function(c){ setCls(c,"on",false); });
+    $$(".evi").forEach(function(c){ setCls(c,"on",false); c.setAttribute("aria-expanded","false"); });
+  });
+
+  var cp = $("#dbt-copy");
+  if(cp) cp.addEventListener("click", function(){
+    var v = read(), lines = [];
+    for(var i=1;i<=TOTAL;i++){ if(v[i]) lines.push("0" + i + ": " + LABEL[v[i]][i-1]); }
+    if(!lines.length){ cp.textContent = "Vote first"; setTimeout(function(){ cp.textContent = "Copy my result"; }, 1500); return; }
+    var txt = "Where I landed on five live disputes in AI safety\n\n" + lines.join("\n") + "\n\n" + location.origin + "/debate";
+    var done = function(){ cp.textContent = "Copied"; setTimeout(function(){ cp.textContent = "Copy my result"; }, 1500); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, function(){ window.prompt("Copy this:", txt); }); }
+    else { window.prompt("Copy this:", txt); }
+  });
+
+  (function(){
+    var b = $("#hdr-share"); if(!b) return;
+    var url = location.origin + location.pathname, title = document.title;
+    b.addEventListener("click", function(){
+      if(navigator.share){ navigator.share({title:title, url:url})["catch"](function(){}); }
+      else if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(function(){
+          var s = b.querySelector("span"); if(!s) return;
+          var o = s.textContent; s.textContent = "Copied";
+          setTimeout(function(){ s.textContent = o; }, 1500);
+        }, function(){ window.prompt("Copy this link:", url); });
+      } else { window.prompt("Copy this link:", url); }
+    });
+  })();
+
+  var revealables = $$(".rv");
+  if(!("IntersectionObserver" in window) || reduce){
+    revealables.forEach(function(el){ el.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        en.target.classList.add("in");
+        io.unobserve(en.target);
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.05});
+    revealables.forEach(function(el){ io.observe(el); });
+  }
+
+  paint();
+})();
+</script>
+</body>
+</html>
