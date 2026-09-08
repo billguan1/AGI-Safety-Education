@@ -792,15 +792,7 @@ html{overflow-x:hidden}
 .routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
 @media(max-width:1000px){}
 @media(max-width:600px){}
-.rtier .rbn{color:#dfe5e9}
 @media(max-width:640px){}
-.rbtn,.rtier{text-align:left;background:rgba(255,255,255,.03);border:1px solid #2b343b;border-radius:var(--r);
-  padding:15px 16px;cursor:pointer;font-family:inherit;transition:.16s;color:inherit;display:block}
-.rbtn,.rtier:hover{border-color:#5a646b;background:rgba(255,255,255,.07)}
-.rbtn.on{border-color:#9cc48a;background:rgba(74,106,56,.22)}
-.rbtn .rbn,.rtier .rbn{display:block;font-family:var(--display);font-weight:800;font-size:17px;color:#fff;margin-bottom:4px}
-.rbtn .rbm,.rtier .rbm{display:block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#9cc48a;margin-bottom:7px}
-.rbtn .rbd,.rtier .rbd{display:block;font-size:13.5px;line-height:1.5;color:#c3ccd2}
 /* collapsed (off-route) chapters */
 .offroute>.wrap>*:not(.sec-head):not(.offroute-cta){display:none}
 .offroute .sec-head .stand{display:none}
@@ -1648,7 +1640,7 @@ footer p{max-width:82ch;margin:0}
 
       <div class="care-c">
         <span class="care-n">2</span>
-        <h3>The consequences are enormous</h3>
+        <h3>The consequences are enormous, for you and your loved ones</h3>
         <div class="care-viz">
           <svg viewBox="0 0 320 104" role="img" aria-label="One technology forking into two outcomes: extreme abundance if it goes right, human extinction if it does not.">
             <defs><marker id="fu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8c98a"/></marker>
@@ -4257,22 +4249,12 @@ var SITE_CONFIG = {
         var off = keep && keep.indexOf(m.id) < 0 && el.getAttribute("data-forced") !== "1";
         setCls(el, "offroute", !!off);
       });
-      $$(".rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
       $$(".mh-rbtn").forEach(function(b){ setCls(b, "on", b.getAttribute("data-route") === r); });
       if(persist) store(KEY_ROUTE, r);
       updatePos();
       if(window.__GAP_PAINT) window.__GAP_PAINT();
     }
     $$(".mh-rbtn").forEach(function(b){
-      b.addEventListener("click", function(){
-        META.forEach(function(m){
-          var el = document.getElementById(m.id);
-          if(el) el.removeAttribute("data-forced");
-        });
-        applyRoute(b.getAttribute("data-route"), true);
-      });
-    });
-    $$(".rbtn").forEach(function(b){
       b.addEventListener("click", function(){
         META.forEach(function(m){
           var el = document.getElementById(m.id);
