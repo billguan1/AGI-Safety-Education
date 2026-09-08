@@ -87,18 +87,19 @@ p{margin:0 0 1em}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;border-radius:999px;text-decoration:none;white-space:nowrap;
-  cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:7px 13px;
+  cursor:pointer;border:1.5px solid var(--ink);background:var(--white);color:var(--ink);padding:7px 13px;
   transition:background .15s,color .15s,transform .15s}
 .hbtn .ico{width:12px;height:12px;stroke-width:2.2}
 .hbtn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
-.hbtn-act{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.hbtn-act{background:var(--white);border-color:var(--ink);color:var(--ink)}
 .hbtn-lang{font-weight:700}
-.hbtn-act:hover{background:#3c5a2d;color:#fff}
+.hbtn-act:hover{background:var(--ink);color:var(--paper)}
 .header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--c-risk);border-color:var(--c-risk);padding:7px 12px;
-  border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,transform .15s}
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--white);
+  border:1.5px solid var(--ink);padding:7px 12px;
+  border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
 .header-game .ico{width:12px;height:12px;stroke-width:2.4}
-.header-game:hover{background:var(--d-risk);color:#fff;transform:translateY(-1px)}
+.header-game:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
 @media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
 .switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
 .switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
@@ -425,6 +426,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
 .mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
   font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
+.mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
+  color:#eef3f6;max-width:54ch;margin:0 0 20px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
 .mh-sub{font-family:var(--body);font-weight:300;font-size:clamp(18px,1.1rem+.5vw,25px);line-height:1.45;color:#b6c0c6;max-width:56ch;margin:0 0 26px}
 .mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
@@ -619,6 +622,14 @@ html{overflow-x:hidden}
   .rail.mini:hover .rail-h,.rail.mini:hover .rail-f,.rail.mini:hover a.rl .rt,.rail.mini:hover a.rl .rm,.rail.mini:hover .grp{opacity:1}
   .rail.mini:hover li.now .subs{max-height:420px}
   body.rail-mini{padding-left:64px}
+  /* After clicking Minimise the pointer is still inside the rail, so the hover
+     rule above would immediately re-expand it and the button looks dead. Hold
+     the collapsed state until the pointer actually leaves. */
+  .rail.mini.nohover:hover{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
+  .rail.mini.nohover:hover .rail-h,.rail.mini.nohover:hover .rail-f,
+  .rail.mini.nohover:hover a.rl .rt,.rail.mini.nohover:hover a.rl .rm,
+  .rail.mini.nohover:hover .grp{opacity:0}
+  .rail.mini.nohover:hover li.now .subs{max-height:0}
 }
 /* ---------- mobile outline button + panel ---------- */
 .outline-btn{position:fixed;left:16px;bottom:16px;z-index:66;display:flex;align-items:center;gap:8px;
@@ -1468,7 +1479,7 @@ footer p{max-width:82ch;margin:0}
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <a class="brand" href="#top">AGI &amp; ASI Safety <b>/</b> the hardest problem humanity has yet to solve</a>
+    <a class="brand" href="#top">A primer on artificial general <b>&amp;</b> super intelligence safety</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="/index-zh" hreflang="zh-Hans">中文</a>
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
@@ -1551,7 +1562,8 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
     <h1 class="mh-title">The hardest problem<br>humanity has yet to solve</h1>
-    <p class="mh-sub">Human intelligence built the modern world. We are now building something greater than ourselves, and we cannot yet guarantee it stays on our side. This is a map of that problem, argued from first principles, and what to do about it.</p>
+    <p class="mh-lede">The problem, stated plainly: we are building systems that will be more capable than us, and nobody knows how to guarantee that such a system will want what we want. We cannot write human values down precisely, we cannot see what a system is really pursuing, and we cannot fully trust a test it may be gaming.</p>
+    <p class="mh-sub">Everything else we made safe, we made safe by failing first and fixing it afterwards. That method needs a mistake you survive. This is a map of why this one may not offer that, argued from first principles, and what to do about it.</p>
       <div class="mh-routes">
         <span class="mr-k">Read</span>
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 sec</b> the argument</a>
@@ -4461,6 +4473,7 @@ var SITE_CONFIG = {
         setCls(rail, "pinned", state === "pinned");
         setCls(rail, "mini", state === "mini");
         setCls(document.body, "rail-mini", state === "mini");
+        if(state !== "mini") setCls(rail, "nohover", false);
         var open = expandedNow();
         tog.setAttribute("aria-expanded", open ? "true" : "false");
         tog.setAttribute("title", open ? mLabel : xLabel);
@@ -4470,8 +4483,13 @@ var SITE_CONFIG = {
       }
       tog.addEventListener("click", function(e){
         e.stopPropagation();
-        apply(expandedNow() ? "mini" : "pinned", true);
+        var goingMini = expandedNow();
+        apply(goingMini ? "mini" : "pinned", true);
+        /* The cursor is still over the rail at this point, so without this the
+           hover rule re-expands it instantly and the click looks ignored. */
+        if(goingMini) setCls(rail, "nohover", true);
       });
+      rail.addEventListener("mouseleave", function(){ setCls(rail, "nohover", false); });
       // clicking the collapsed strip itself expands it
       rail.addEventListener("click", function(e){
         if(expandedNow()) return;
@@ -4480,7 +4498,7 @@ var SITE_CONFIG = {
       });
       var saved = null;
       try{ saved = localStorage.getItem(KEY); }catch(e){}
-      apply(saved === "pinned" || saved === "mini" ? saved : "", false);
+      apply(saved === "pinned" || saved === "mini" ? saved : "mini", false);
       window.addEventListener("resize", function(){
         if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
       });

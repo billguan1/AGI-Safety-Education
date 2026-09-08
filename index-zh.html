@@ -87,18 +87,19 @@ p{margin:0 0 1em}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;border-radius:999px;text-decoration:none;white-space:nowrap;
-  cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:7px 13px;
+  cursor:pointer;border:1.5px solid var(--ink);background:var(--white);color:var(--ink);padding:7px 13px;
   transition:background .15s,color .15s,transform .15s}
 .hbtn .ico{width:12px;height:12px;stroke-width:2.2}
 .hbtn:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
-.hbtn-act{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.hbtn-act{background:var(--white);border-color:var(--ink);color:var(--ink)}
 .hbtn-lang{font-weight:700}
-.hbtn-act:hover{background:#3c5a2d;color:#fff}
+.hbtn-act:hover{background:var(--ink);color:var(--paper)}
 .header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--c-risk);border-color:var(--c-risk);padding:7px 12px;
-  border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,transform .15s}
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--white);
+  border:1.5px solid var(--ink);padding:7px 12px;
+  border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
 .header-game .ico{width:12px;height:12px;stroke-width:2.4}
-.header-game:hover{background:var(--d-risk);color:#fff;transform:translateY(-1px)}
+.header-game:hover{background:var(--ink);color:var(--paper);transform:translateY(-1px)}
 @media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
 .switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
 .switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
@@ -425,6 +426,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
 .mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
   font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
+.mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
+  color:#eef3f6;max-width:36em;margin:0 0 20px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
 .mh-sub{font-family:var(--body);font-weight:300;font-size:clamp(18px,1.1rem+.5vw,25px);line-height:1.45;color:#b6c0c6;max-width:56ch;margin:0 0 26px}
 .mh-meta{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8a959c}
 .mh-meta span{padding:0 16px;border-left:1px solid #39434a}
@@ -619,6 +622,14 @@ html{overflow-x:hidden}
   .rail.mini:hover .rail-h,.rail.mini:hover .rail-f,.rail.mini:hover a.rl .rt,.rail.mini:hover a.rl .rm,.rail.mini:hover .grp{opacity:1}
   .rail.mini:hover li.now .subs{max-height:420px}
   body.rail-mini{padding-left:64px}
+  /* After clicking Minimise the pointer is still inside the rail, so the hover
+     rule above would immediately re-expand it and the button looks dead. Hold
+     the collapsed state until the pointer actually leaves. */
+  .rail.mini.nohover:hover{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
+  .rail.mini.nohover:hover .rail-h,.rail.mini.nohover:hover .rail-f,
+  .rail.mini.nohover:hover a.rl .rt,.rail.mini.nohover:hover a.rl .rm,
+  .rail.mini.nohover:hover .grp{opacity:0}
+  .rail.mini.nohover:hover li.now .subs{max-height:0}
 }
 /* ---------- mobile outline button + panel ---------- */
 .outline-btn{position:fixed;left:16px;bottom:16px;z-index:66;display:flex;align-items:center;gap:8px;
@@ -1466,7 +1477,7 @@ footer p{max-width:82ch;margin:0}
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <a class="brand" href="#top">AGI 与 ASI 安全 <b>/</b> 人类至今未解的最大难题</a>
+    <a class="brand" href="#top">通用人工智能与超级智能安全 <b>·</b> 入门读本</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="/" hreflang="en">EN</a>
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
@@ -1549,7 +1560,8 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">一份免费、独立的领域指南 · Bill Guan 著</p>
     <h1 class="mh-title">人类至今未解的<br>最大难题</h1>
-    <p class="mh-sub">人类的智能缔造了现代文明。如今，我们正要创造一个超越自身的存在，却无法保证它始终与人类同心同德。这份指南从第一原理出发，逐层剖析这道难题，并指出我们该何去何从。</p>
+    <p class="mh-lede">把这道难题直说：我们正在建造比自己更强的系统，而没有人知道该怎样保证这样一个系统会想要我们想要的东西。我们无法把人类的价值精确地写下来，无法看清一个系统真正在追求什么，也无法完全信任一场它可能正在钻空子的测试。</p>
+    <p class="mh-sub">我们让其他每一项技术变安全，靠的都是先失败、再修补。而这套办法需要一个你能幸存下来的错误。这份指南从第一原理出发，讲清楚这一次为什么可能没有那样的错误，以及我们该何去何从。</p>
       <div class="mh-routes">
         <span class="mr-k">阅读</span>
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 秒</b> 论证提要</a>
@@ -4441,6 +4453,7 @@ var SITE_CONFIG = {
         setCls(rail, "pinned", state === "pinned");
         setCls(rail, "mini", state === "mini");
         setCls(document.body, "rail-mini", state === "mini");
+        if(state !== "mini") setCls(rail, "nohover", false);
         var open = expandedNow();
         tog.setAttribute("aria-expanded", open ? "true" : "false");
         tog.setAttribute("title", open ? mLabel : xLabel);
@@ -4450,8 +4463,13 @@ var SITE_CONFIG = {
       }
       tog.addEventListener("click", function(e){
         e.stopPropagation();
-        apply(expandedNow() ? "mini" : "pinned", true);
+        var goingMini = expandedNow();
+        apply(goingMini ? "mini" : "pinned", true);
+        /* The cursor is still over the rail at this point, so without this the
+           hover rule re-expands it instantly and the click looks ignored. */
+        if(goingMini) setCls(rail, "nohover", true);
       });
+      rail.addEventListener("mouseleave", function(){ setCls(rail, "nohover", false); });
       // clicking the collapsed strip itself expands it
       rail.addEventListener("click", function(e){
         if(expandedNow()) return;
@@ -4460,7 +4478,7 @@ var SITE_CONFIG = {
       });
       var saved = null;
       try{ saved = localStorage.getItem(KEY); }catch(e){}
-      apply(saved === "pinned" || saved === "mini" ? saved : "", false);
+      apply(saved === "pinned" || saved === "mini" ? saved : "mini", false);
       window.addEventListener("resize", function(){
         if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
       });
