@@ -78,7 +78,7 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-
   border:1.5px solid var(--rule-2);border-radius:999px;padding:6px 13px;color:var(--ink-2);background:var(--card)}
 
 /* ---------- gallery ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,3vw,30px);align-items:start;
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,3vw,30px);align-items:stretch;
   padding:clamp(10px,2vw,18px) 0 clamp(50px,8vw,90px)}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);
   border:2px solid var(--ink);box-shadow:5px 5px 0 rgba(26,23,20,.16);transition:transform .16s,box-shadow .16s}
@@ -87,13 +87,13 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-
 .card .cover img{width:100%;height:100%;object-fit:contain;object-position:center}
 .card .no{position:absolute;bottom:0;left:0;font-family:var(--display);font-weight:900;font-size:13px;letter-spacing:.06em;
   background:var(--ink);color:var(--paper);padding:6px 11px}
-.card .body{padding:15px 16px 18px}
+.card .body{padding:15px 16px 18px;display:flex;flex-direction:column;flex:1}
 .card h3{font-size:22px;margin:0 0 7px}
 .card .concept{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin:0 0 9px}
 .card .tl{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
-.card .go{margin-top:13px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.card .go{margin-top:auto;padding-top:13px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
 .card .go::after{content:" \\2192"}
-.soon{display:flex;align-items:center;justify-content:center;text-align:center;border:2px dashed var(--rule-2);
+.soon{align-self:start;display:flex;align-items:center;justify-content:center;text-align:center;border:2px dashed var(--rule-2);
   background:transparent;box-shadow:none;padding:44px 24px}
 .soon:hover{transform:none;box-shadow:none}
 .soon p{font-family:var(--mono);font-size:11.5px;line-height:1.7;letter-spacing:.04em;color:var(--ink-3);margin:0}
@@ -115,6 +115,23 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.028em;line-
 .about p:last-child{margin-bottom:0}
 .about .chip{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--red);border:1.5px solid var(--red);border-radius:999px;padding:4px 11px;margin-bottom:13px}
+.about .def{font-size:clamp(17px,2.1vw,20px);line-height:1.5;color:var(--ink)}
+.about .inx{padding-top:14px;border-top:1px solid var(--rule)}
+.about .inx b{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:6px}
+
+/* ---------- the ideas, stated plainly ---------- */
+.defs{border-top:2px solid var(--ink);padding:clamp(30px,5vw,50px) 0 clamp(50px,8vw,90px)}
+.defs h2{font-size:clamp(24px,3.6vw,34px);margin:0 0 10px}
+.dlede{color:var(--ink-3);font-size:16px;margin:0 0 clamp(20px,3vw,30px);max-width:56ch}
+.defs dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(18px,2.6vw,28px);margin:0}
+.defs .d{background:var(--card);border:2px solid var(--ink);padding:18px 20px 20px}
+.defs dt{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:19px;margin:0 0 9px}
+.defs dd{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
+.defs dd a{display:table;margin-top:12px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  white-space:nowrap;text-decoration:none;border-bottom:1.5px solid var(--blue);padding-bottom:1px}
+a.tag{text-decoration:none}
+a.tag:hover{border-color:var(--ink);color:var(--ink)}
 .ends{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
   max-width:900px;margin:clamp(24px,4vw,40px) auto 0;padding-bottom:clamp(46px,7vw,80px)}
 .btn{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
@@ -338,9 +355,10 @@ def write_story(s, stories, i):
 %s
 
   <div class="about">
-    <span class="chip">%s</span>
-    <h2>What went wrong</h2>
-    <p>%s</p>
+    <span class="chip">The idea</span>
+    <h2>%s</h2>
+    <p class="def">%s</p>
+    <p class="inx"><b>In this story</b>%s</p>
     %s
   </div>
 
@@ -349,7 +367,7 @@ def write_story(s, stories, i):
     %s
   </div>
 </div></section>""" % (s['number'], esc(s['title']), esc(s['tagline']), '\n'.join(pages),
-                       esc(s['concept']), esc(s['about']), more, BASE, nav)
+                       esc(s['concept']), esc(s.get('definition', '')), esc(s['about']), more, BASE, nav)
 
     html_out = shell('%s: Capy number %02d' % (s['title'], s['number']),
                      s['tagline'], '%s%s/%s/' % (ORIGIN, BASE, s['slug']), og, body,
@@ -372,21 +390,41 @@ def write_gallery(stories):
             '      </div>\n    </a>'
             % (BASE, s['slug'], s['number'], BASE, s['slug'], s['pages'][0]['out'], esc(s['title']),
                esc(s['concept']), esc(s['title']), esc(s['tagline'])))
-    cards.append('    <div class="card soon"><p>More on the way.<br>One idea, two pages,<br>nobody explains the moral.</p></div>')
+    cards.append('    <div class="card soon"><p>More on the way.</p></div>')
+
+    # Every concept spelled out plainly, so the ideas are readable without
+    # working them out from the stories.
+    defs = []
+    for s in stories:
+        defs.append(
+            '      <div class="d">\n'
+            '        <dt>%s</dt>\n'
+            '        <dd>%s <a href="%s/%s/">%s</a></dd>\n'
+            '      </div>'
+            % (esc(s['concept']), esc(s.get('definition', '')), BASE, s['slug'], esc(s['title'])))
 
     body = """<section class="hero"><div class="wrap">
   <p class="kick">A comic about machines doing exactly what they were told</p>
   <h1>Capy grants<br>your wish.</h1>
   <p class="sub">Kenji asks for something reasonable. Capy the capybara carries it out precisely.
      That is where the trouble starts, every time.</p>
-  <div class="meta"><span class="tag">%d %s</span><span class="tag">Two pages each</span><span class="tag">No moral in a caption</span></div>
+  <div class="meta">%s</div>
 </div></section>
 
 <div class="wrap">
   <div class="grid">
 %s
   </div>
-</div>""" % (len(stories), 'story' if len(stories) == 1 else 'stories', '\n'.join(cards))
+
+  <section class="defs" id="ideas">
+    <h2>The ideas, stated plainly</h2>
+    <p class="dlede">Each story is one failure mode. Here is each of them in a sentence, without the capybara.</p>
+    <dl>
+%s
+    </dl>
+  </section>
+</div>""" % (' '.join('<a class="tag" href="#ideas">%s</a>' % esc(s['concept']) for s in stories),
+             '\n'.join(cards), '\n'.join(defs))
 
     og = '%s%s/%s/%s' % (ORIGIN, BASE, stories[0]['slug'], stories[0]['pages'][0]['out'])
     schema = json.dumps({

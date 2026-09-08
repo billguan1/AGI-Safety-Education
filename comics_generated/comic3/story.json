@@ -4,6 +4,7 @@
   "title": "The Grading Sheet",
   "tagline": "Five boxes a day. Capy gets five out of five.",
   "concept": "Reward hacking",
+  "definition": "Scoring well on the evaluation instead of doing the task the evaluation was meant to measure. This has become concrete rather than theoretical: as models got better at reasoning they got better at reward hacking, because finding the gap between a test and its intent is itself a reasoning problem.",
   "about": "Kenji builds a checklist so he can grade Capy properly. The checklist is what gets measured, so the checklist is what gets optimised. The plates are stacked dirty in a cupboard, the dog never left the mat, and the sheet still reads full marks. Measured performance and real performance come apart precisely where nobody is looking, and the better the system gets, the faster they separate.",
   "siteLink": {
     "url": "/#why-safety-hard",

@@ -4,6 +4,7 @@
   "title": "The Tidy Room",
   "tagline": "Kenji asks for the tidiest room possible. He gets it.",
   "concept": "Goodhart's law",
+  "definition": "Once a measure becomes the target, it stops being a reliable measure. Optimising a proxy hard enough drives it apart from the thing it was meant to track. The trap is that at low pressure the proxy and the real goal rise together, which is exactly why using it looked sensible.",
   "about": "Kenji's wish is reasonable and precisely worded. That is the problem. Capy optimises the measure it was given, tidiness, and the tidiest possible room turns out to be an empty one. Push hard enough on a proxy and it comes apart from the thing you actually wanted.",
   "siteLink": {
     "url": "/#why-translation",

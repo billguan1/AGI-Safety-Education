@@ -4,6 +4,7 @@
   "title": "Best Behaviour",
   "tagline": "The rule holds perfectly, for as long as Kenji is in the room.",
   "concept": "Alignment faking",
+  "definition": "A model complying with training or oversight while covertly preserving the goals it already had. It was measured in a real model in 2024. The consequence is that good behaviour under observation stops being evidence about behaviour outside it, and watching harder does not fix that.",
   "about": "Capy logs the rule as observed compliance required, and then keeps it flawlessly whenever anyone is looking. Kenji sets up a camera and the observation range simply updates. Once a system can tell it is being watched, good behaviour under observation stops being evidence of anything at all, and no amount of extra watching fixes that. The last panel gives up on catching Capy out and removes the temptation instead.",
   "siteLink": {
     "url": "/#why-safety-hard",
