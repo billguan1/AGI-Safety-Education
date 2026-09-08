@@ -1005,6 +1005,17 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .gh-card.proxy .bar i{background:var(--glow-b)}
 .gh-card.real .bar i{background:var(--glow-t)}
 
+/* ---------- place-your-bets ---------- */
+.bet{background:var(--white);border:1px solid var(--rule);border-left:4px solid var(--c-act);
+  border-radius:var(--r);padding:clamp(18px,2.8vw,28px);margin:clamp(20px,3vw,30px) 0}
+.bet-q{font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin:0 0 16px}
+.bet label{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;
+  align-items:baseline;gap:12px;margin-bottom:10px}
+.bet label b{font-family:var(--display);font-size:clamp(19px,2.6vw,24px);font-weight:900;
+  letter-spacing:-.02em;color:var(--ink);text-transform:none}
+.bet .filters{margin-top:16px}
+
 /* ---------- orthogonality ---------- */
 .orth-wrap{display:grid;grid-template-columns:1fr .82fr;gap:clamp(18px,3vw,40px);align-items:center}
 @media(max-width:900px){.orth-wrap{grid-template-columns:1fr}}
@@ -1214,6 +1225,19 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .fbtn:hover,.pbtn:hover{border-color:var(--ink)}
 .fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .card.gone{display:none}
+
+/* ---------- quiz answer states ---------- */
+/* Colour is redundant here: the button also gains a tick or cross glyph and
+   the reply below opens with "Yes." or "Not quite.", so the state reads
+   without relying on hue. */
+.pbtn.right{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.pbtn.wrong{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.pbtn.reveal{background:var(--t-act);border-color:var(--c-act);color:var(--c-act)}
+.pbtn.right:hover,.pbtn.wrong:hover,.pbtn.reveal:hover{border-color:currentColor}
+.pbtn .mk{font-weight:700;margin-right:6px}
+.qnote{border-left:3px solid var(--rule);padding-left:12px;transition:border-color .15s}
+.qnote.right{border-left-color:var(--c-act)}
+.qnote.wrong{border-left-color:var(--c-risk)}
 
 /* ---------- slab ---------- */
 .slab{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
@@ -1844,6 +1868,17 @@ footer p{max-width:82ch;margin:0}
     </figure>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Control has always flowed to the greater intelligence. We are betting the future on reversing that, on purpose, the first time we try.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Quick check before the next chapter: when a more capable intelligence arrives, what does this chapter say happens to the one below it?</p>
+      <div class="filters" id="recap-iw">
+        <button type="button" class="pbtn" data-p="0">It gets outvoted</button>
+        <button type="button" class="pbtn" data-p="1">It gets attacked</button>
+        <button type="button" class="pbtn" data-p="2">It gets bypassed</button>
+        <button type="button" class="pbtn" data-p="3">It adapts and pulls level</button>
+      </div>
+      <p class="note" id="recap-iw-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -1879,6 +1914,14 @@ footer p{max-width:82ch;margin:0}
       </svg>
       <figcaption>This is the part that breaks every institution we have. Regulators, boards and treaties all run on human calendars. If a system closes the research loop on itself, the interval between noticing a problem and convening to discuss it is long enough for the thing you were going to discuss to have changed beyond recognition.</figcaption>
     </figure>
+
+      <div class="bet rv" id="bet-fund">
+        <p class="bet-q">Before the next chart, a bet. Roughly $100 billion is going into building advanced AI. How much do you think goes into public-sector AI safety research?</p>
+        <label for="bet-fund-in">Your guess <b id="bet-fund-val">$320 million</b></label>
+        <input type="range" id="bet-fund-in" min="0" max="100" value="50" aria-label="Your guess for public-sector AI safety research funding" aria-valuetext="320 million dollars">
+        <div class="filters"><button type="button" class="pbtn" id="bet-fund-go">Lock it in</button></div>
+        <p class="note" id="bet-fund-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+      </div>
 
       <figure class="secfig rv">
       <svg viewBox="0 0 720 272" role="img" aria-label="Bar chart: about one hundred billion dollars going into building advanced AI against about ten million dollars of public-sector safety research.">
@@ -1983,6 +2026,7 @@ footer p{max-width:82ch;margin:0}
         <button type="button" class="pbtn" data-r="3">Propose a joint industry pause</button>
       </div>
       <p class="note" id="race-scenario-out" role="status" aria-live="polite" style="margin-top:12px;min-height:4.5em"></p>
+      <p class="note rv" style="margin-top:18px">You made that call once, with the consequences spelled out for you. The <a href="https://game.safeagi.ca/" target="_blank" rel="noopener">ten-minute game</a> puts you in the seat for the whole run: same incentives, more turns, and the consequences arrive on their own. No signup.</p>
     </div>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>We are roped together and racing to the edge to see who jumps first. Nobody wins that race. The winner just falls first and pulls the rest of us along.</p></div>
@@ -2114,6 +2158,7 @@ footer p{max-width:82ch;margin:0}
         <button type="button" class="pbtn" data-p="3">Nobody should get to</button>
       </div>
       <p class="note" id="predict-hm-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+      <p class="note rv" style="margin-top:18px">Four buttons cannot hold a real disagreement. <a href="/debate">Five conversations worth sitting through</a> takes five live disputes about advanced AI, argues each at its strongest on both sides, and asks you to vote before every verdict.</p>
     </div>
   </div>
 </section>
@@ -2327,6 +2372,17 @@ refusal training</text>
       </div>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Knowing what we want is the easy half. Getting a superhuman optimiser to actually want the same thing is the half nobody has solved.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Quick check: you trained a system on a measurable stand-in for what you want, and the score keeps climbing. What does this chapter say about the thing you actually wanted?</p>
+      <div class="filters" id="recap-vt">
+        <button type="button" class="pbtn" data-p="0">It is climbing too</button>
+        <button type="button" class="pbtn" data-p="1">The score cannot tell you, and past a point it is probably falling</button>
+        <button type="button" class="pbtn" data-p="2">It collapsed the moment training began</button>
+        <button type="button" class="pbtn" data-p="3">The score would drop and warn you</button>
+      </div>
+      <p class="note" id="recap-vt-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -2834,6 +2890,17 @@ refusal training</text>
 <p class="breaks"><b>What would defeat this</b>Interpretability matures enough to certify a system’s objectives, or evaluations become robust to a system that knows it is being evaluated.<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p>
 </div>
     <div class="keyline rv"><span class="kk">The takeaway</span><p>We are pouring resources into the easier problem and starving the harder one, while the harder one is the only thing standing between us and the cliff.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Quick check: why does this chapter call verifying a frontier system harder than building one?</p>
+      <div class="filters" id="recap-sh">
+        <button type="button" class="pbtn" data-p="0">Verification gets less funding</button>
+        <button type="button" class="pbtn" data-p="1">Building needs one working configuration; safety must rule out failure everywhere</button>
+        <button type="button" class="pbtn" data-p="2">Safety researchers get less compute</button>
+        <button type="button" class="pbtn" data-p="3">Regulators slow verification down</button>
+      </div>
+      <p class="note" id="recap-sh-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -2999,6 +3066,17 @@ refusal training</text>
       <p style="max-width:64ch;color:var(--ink-2)">We do not choose which of these we get, and we will likely only know which one it was in hindsight. That is the uncomfortable part: every plan that depends on reacting in time is a bet on the slow version, placed before the dice are thrown.</p>
 
       <div class="keyline rv"><span class="kk">The takeaway</span><p>Trial and error built every safe technology we have. It is exactly the method that does not work on something faster than us that we cannot switch off.</p></div>
+
+    <div class="rv" style="margin-top:24px">
+      <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">Last check: cars, aviation and nuclear power all became safe over time. What did that method depend on that this chapter argues may be missing here?</p>
+      <div class="filters" id="recap-ot">
+        <button type="button" class="pbtn" data-p="0">Stricter regulation from the start</button>
+        <button type="button" class="pbtn" data-p="1">A survivable first failure and time to react</button>
+        <button type="button" class="pbtn" data-p="2">Better engineering talent</button>
+        <button type="button" class="pbtn" data-p="3">Public pressure after accidents</button>
+      </div>
+      <p class="note" id="recap-ot-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
+    </div>
   </div>
 </section>
 
@@ -4877,6 +4955,105 @@ var SITE_CONFIG = {
         $$("#predict-hm .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
         out.textContent = REVEAL[i] + " Notice that every option above concentrates an enormous decision in a group nobody elected to make it. That is the prior problem this chapter is about.";
       });
+    });
+  })();
+
+  /* ---------- CHAPTER RECALL CHECKS ---------- */
+  function recall(id, right, lines){
+    var out = $("#" + id + "-out");
+    var btns = $$("#" + id + " .pbtn");
+    if(!out || !btns.length) return;
+    setCls(out, "qnote", true);
+    btns.forEach(function(b){ b.setAttribute("data-label", b.textContent); });
+    /* Colour never carries the verdict alone: each button also gains a tick or
+       cross, and the live region below opens with "Yes." or "Not quite." */
+    function mark(b, cls, glyph){
+      setCls(b, cls, true);
+      b.textContent = b.getAttribute("data-label");
+      var m = document.createElement("span");
+      m.className = "mk";
+      m.setAttribute("aria-hidden", "true");
+      m.textContent = glyph;
+      b.insertBefore(m, b.firstChild);
+    }
+    btns.forEach(function(b){
+      b.addEventListener("click", function(){
+        var i = parseInt(b.getAttribute("data-p"), 10);
+        if(isNaN(i) || !lines[i]) return;
+        var ok = (i === right);
+        btns.forEach(function(x){
+          x.textContent = x.getAttribute("data-label");
+          setCls(x, "on", false); setCls(x, "right", false);
+          setCls(x, "wrong", false); setCls(x, "reveal", false);
+        });
+        mark(b, ok ? "right" : "wrong", ok ? "✓" : "✗");
+        if(!ok) mark(btns[right], "reveal", "✓");
+        setCls(out, "right", ok);
+        setCls(out, "wrong", !ok);
+        out.textContent = (ok ? "Yes. " : "Not quite. ") + lines[i];
+      });
+    });
+  }
+  recall("recap-iw", 2, [
+    "Outvoted implies its preferences still count for something. The chapter's point is sharper: the less capable party gets bypassed, and its preferences simply stop being load-bearing.",
+    "No hostility is required. Gorillas are not endangered because people hate gorillas. The world just got reshaped around goals that were never theirs.",
+    "Its preferences stop being load-bearing, and it keeps whatever the more capable party has no reason to take. That is the pattern with no clear exception on record.",
+    "History records no lasting case of the less capable side closing the gap and taking back the wheel. That is what makes building something above us such an unusual bet."
+  ]);
+  recall("recap-vt", 1, [
+    "That holds only at low pressure, which is exactly why the proxy looked trustworthy in the first place. Push the optimisation hard enough and the two lines part.",
+    "The dashboard keeps reporting success because the proxy really is climbing. The thing you wanted is what the search quietly traded away, and no number you are watching warns you when that started.",
+    "At low pressure the proxy and the goal genuinely move together. The danger sits later, past the peak, where the split happens without any visible signal.",
+    "The whole trap is that the score never warns you. It keeps climbing while the goal it stood in for falls, which is why a perfect score can mean almost nothing is left of what you meant."
+  ]);
+  recall("recap-sh", 1, [
+    "The funding gap is real, and this chapter shows it, but it is the consequence rather than the cause. Building needs one configuration that works; proving safety means ruling out failure across a space too large to enumerate.",
+    "And the space it must rule failure out of includes situations no designer imagined, sometimes against a system gaming the evaluation itself. That asymmetry is why assurance lags capability.",
+    "The people are not the asymmetry, the task is. One working configuration on one side, every possible failure on the other, including a system that edits the test instead of passing it.",
+    "The asymmetry exists with no regulator in the room. Finding one configuration that works is a search problem. Ruling out every dangerous behaviour is closer to a proof, and the proof is the harder half."
+  ]);
+  recall("recap-ot", 1, [
+    "The rules came after the wreckage. Seatbelt laws followed crashes, and aviation built its discipline out of investigations, which is exactly the sequence that needs a survivable first failure.",
+    "Every safety discipline we have was built from mistakes we lived through, studied and fixed. A system faster than its supervisors that we cannot switch off removes both the survivable mistake and the time.",
+    "The engineers were often excellent long before the fixes existed. What made those technologies safe was the loop: fail, survive, study, fix. This chapter's argument is that the loop may not be available here.",
+    "Pressure helped, but it arrived through the same loop: a visible, survivable accident people could react to. The worry here is a failure that is neither survivable nor slow enough to study."
+  ]);
+
+  /* ---------- PLACE YOUR BETS: the funding gap ---------- */
+  (function(){
+    var s = $("#bet-fund-in"), val = $("#bet-fund-val"),
+        go = $("#bet-fund-go"), out = $("#bet-fund-out");
+    if(!s || !out) return;
+    function dollars(){
+      var t = parseInt(s.value, 10) / 100;
+      var d = Math.pow(10, 6 + 5 * t);
+      var m = Math.pow(10, Math.floor(Math.log(d) / Math.LN10) - 1);
+      return Math.round(d / m) * m;
+    }
+    function fmt(d){
+      if(d >= 1e9) return "$" + +((d / 1e9).toFixed(1)) + " billion";
+      return "$" + Math.round(d / 1e6) + " million";
+    }
+    function paint(){
+      var f = fmt(dollars());
+      if(val) val.textContent = f;
+      s.setAttribute("aria-valuetext", f.replace("$", "") + " dollars");
+    }
+    s.addEventListener("input", paint);
+    s.addEventListener("change", paint);
+    paint();
+    if(go) go.addEventListener("click", function(){
+      var d = dollars(), g = fmt(d), msg;
+      if(d >= 1e9){
+        msg = "Your guess: " + g + ". Most people land somewhere near there. On Stuart Russell's figures it is about $10 million, roughly 10,000 to 1 against the building side. The chart below draws both bars at the same scale, which is why one of them is almost invisible.";
+      } else if(d > 3e7){
+        msg = "Your guess: " + g + ". Lower than most people go, and still well above the sourced figure of about $10 million, on Stuart Russell's numbers. That is roughly 10,000 to 1 against the building side, drawn to scale in the chart below.";
+      } else if(d >= 1e7){
+        msg = "Your guess: " + g + ". Almost exactly right, which puts you in a small minority. The sourced figure is about $10 million on Stuart Russell's numbers, roughly 10,000 to 1 against the building side. The chart below draws it to scale.";
+      } else {
+        msg = "Your guess: " + g + ". You went under the sourced figure, which is about $10 million on Stuart Russell's numbers, and under is closer than most readers get. The ratio against the building side is still roughly 10,000 to 1, drawn to scale below.";
+      }
+      out.textContent = msg;
     });
   })();
 
