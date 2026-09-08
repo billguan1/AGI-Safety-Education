@@ -10,26 +10,60 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Assemble an explicit publish directory. Deploying the repo root would
+      # upload everything present, including files that belong in version
+      # control but must never be public (schema.sql, README.md, and any
+      # untracked local file such as CLAUDE.md or rules/). Listing the site's
+      # files here means a new internal file is private by default: it reaches
+      # the public site only if someone adds it to this list on purpose.
+      - name: Assemble publish directory
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          for f in index.html index-zh.html debate.html og-image.png robots.txt sitemap.xml; do
+            [ -f "$f" ] && cp "$f" _site/ || echo "skip missing $f"
+          done
+          [ -d functions ] && cp -R functions _site/functions
+          echo "--- publishing ---"
+          find _site -type f | sort
+
       # Stamp freshness dates at deploy time so they can never go stale.
-      # Only the deployed artifact is changed; nothing is committed back.
+      # Applied to the copies in _site; nothing is committed back.
       - name: Stamp dateModified and sitemap lastmod
         run: |
           TODAY=$(date -u +%Y-%m-%d)
           echo "Stamping $TODAY"
-          for f in index.html index-zh.html; do
+          for f in _site/index.html _site/index-zh.html; do
             [ -f "$f" ] || continue
             sed -i -E "s/\"dateModified\": \"[0-9]{4}-[0-9]{2}-[0-9]{2}\"/\"dateModified\": \"$TODAY\"/g" "$f"
           done
-          if [ -f sitemap.xml ]; then
-            sed -i -E "s#<lastmod>[0-9]{4}-[0-9]{2}-[0-9]{2}</lastmod>#<lastmod>$TODAY</lastmod>#g" sitemap.xml
+          if [ -f _site/sitemap.xml ]; then
+            sed -i -E "s#<lastmod>[0-9]{4}-[0-9]{2}-[0-9]{2}</lastmod>#<lastmod>$TODAY</lastmod>#g" _site/sitemap.xml
           fi
           echo "--- result ---"
-          grep -o '"dateModified": "[^"]*"' index.html index-zh.html || true
-          grep -o '<lastmod>[^<]*</lastmod>' sitemap.xml | sort -u || true
+          grep -o '"dateModified": "[^"]*"' _site/index.html _site/index-zh.html || true
+          grep -o '<lastmod>[^<]*</lastmod>' _site/sitemap.xml | sort -u || true
+
+      # Fail the build rather than publish an internal file.
+      - name: Guard against publishing internal files
+        run: |
+          set -euo pipefail
+          BAD=0
+          for f in CLAUDE.md CONTEXT.md README.md schema.sql .gitignore; do
+            if [ -e "_site/$f" ]; then echo "REFUSING: _site/$f must not be published"; BAD=1; fi
+          done
+          if [ -d _site/rules ] || [ -d _site/.claude ]; then
+            echo "REFUSING: internal rules directory present in _site"; BAD=1
+          fi
+          if [ -n "$(find _site -name '*.md' -print -quit)" ]; then
+            echo "REFUSING: markdown file present in _site:"; find _site -name '*.md'; BAD=1
+          fi
+          [ "$BAD" -eq 0 ] && echo "publish directory is clean"
+          exit $BAD
 
       - name: Deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=safeagi-pages --branch=${{ github.ref_name }}
+          command: pages deploy _site --project-name=safeagi-pages --branch=${{ github.ref_name }}
