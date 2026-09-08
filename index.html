@@ -1567,8 +1567,7 @@ footer p{max-width:82ch;margin:0}
       <div class="mh-routes">
         <span class="mr-k">Read</span>
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 sec</b> the argument</a>
-        <button type="button" class="mh-rbtn" data-route="essentials"><b>11 min</b> essentials</button>
-        <button type="button" class="mh-rbtn" data-route="core"><b>27 min</b> core argument</button>
+        <button type="button" class="mh-rbtn" data-route="core"><b>27 min</b> the essentials</button>
         <button type="button" class="mh-rbtn on" data-route="full"><b>49 min</b> everything</button>
       </div>
     <div class="mh-meta">
@@ -1606,7 +1605,7 @@ footer p{max-width:82ch;margin:0}
       <p class="eyebrow">Where we are <b class="rt-min">4 min</b></p>
       <h2 class="big">We are about to do something <em>no species has ever done</em>: build a mind greater than our own.</h2>
     </div>
-    <p class="stand">Every leap in our history was made by the smartest thing on the planet, and that thing was always us. We are now trying to end that streak on purpose. Soon the most capable intelligence on Earth will not be human at all. Two words for what is coming: <strong>AGI</strong>, a system matching humans across the board, and <strong>ASI</strong>, a superintelligence far beyond us. The first is the threshold. The second is what the first is expected to build, and quickly.</p>
+    <p class="stand">Every leap in our history came from the smartest thing on the planet, and that was always us. We are ending that streak on purpose. <strong>AGI</strong> matches humans across the board. <strong>ASI</strong> goes far beyond us, and AGI is what builds it, quickly.</p>
 
     <div class="firsts">
       <div class="first expandable">
@@ -1740,12 +1739,9 @@ footer p{max-width:82ch;margin:0}
           <a class="rtier" href="#brief">
             <span class="rbm">90 seconds</span><span class="rbn">Why this matters</span>
             <span class="rbd">The whole argument compressed to six lines, with nothing to read after it.</span></a>
-          <button type="button" class="rbtn" data-route="essentials">
-            <span class="rbm">11 min</span><span class="rbn">The essential argument</span>
-            <span class="rbd">The situation and what to do about it. Enough to understand the case and act on it.</span></button>
           <button type="button" class="rbtn" data-route="core">
-            <span class="rbm">27 min</span><span class="rbn">The strongest case</span>
-            <span class="rbd">Adds the three chapters carrying the weight: the race, why values do not transfer, and why there is no second attempt.</span></button>
+            <span class="rbm">27 min</span><span class="rbn">The essential argument</span>
+            <span class="rbd">The situation, the three chapters carrying the weight (the race, why values do not transfer, why there is no second attempt), and what to do about it.</span></button>
           <button type="button" class="rbtn on" data-route="full">
             <span class="rbm">49 min</span><span class="rbn">Evidence and objections</span>
             <span class="rbd">All seven chapters, the evidence, the open disputes, and the reference shelf.</span></button>
@@ -4119,7 +4115,10 @@ var SITE_CONFIG = {
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
     var META = [{"id": "crossroads", "label": "The crossroads", "min": 4, "end": true}, {"id": "why-intelligence", "label": "Why intelligence always wins", "min": 2, "end": true}, {"id": "why-irresistible", "label": "Why we cannot look away", "min": 3, "end": true}, {"id": "why-race", "label": "Why the race is the danger", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "Why we disagree", "min": 2, "end": true}, {"id": "why-translation", "label": "Why values don't translate", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "Why safety is harder", "min": 5, "end": true}, {"id": "why-one-try", "label": "Why we only get one try", "min": 5, "end": true}, {"id": "response", "label": "What the work looks like", "min": 10, "end": true}, {"id": "change-my-mind", "label": "What would change this argument", "min": 2, "end": true}, {"id": "ask", "label": "Act now", "min": 2, "end": false, "act": true}, {"id": "do", "label": "What can be done", "min": 5, "end": false, "act": true}];
-    var ROUTES = {"essentials": ["crossroads", "ask", "do"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
+    var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
+    /* "essentials" was a separate 11 min tier that has been folded into core.
+       Readers who saved it still have it in localStorage, so map it across. */
+    var ROUTE_ALIAS = {"essentials": "core"};
     var S = {"endOf": "End of {n}", "next": "Next: {t} ({m} min)", "skip": "Or skip to what to do", "openCh": "Read this chapter ({m} min)", "pos": "Ch {i}/{n} · {m} min left", "startIn": "{m} min read"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
     window.__GAP_META = META;
@@ -4206,6 +4205,7 @@ var SITE_CONFIG = {
       });
     });
     var savedRoute = load(KEY_ROUTE);
+    if(savedRoute && ROUTE_ALIAS[savedRoute]) savedRoute = ROUTE_ALIAS[savedRoute];
     applyRoute(savedRoute && ROUTES[savedRoute] !== undefined ? savedRoute : "full", false);
 
     /* ---- position readout ---- */

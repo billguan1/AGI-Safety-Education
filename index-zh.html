@@ -1565,7 +1565,6 @@ footer p{max-width:82ch;margin:0}
       <div class="mh-routes">
         <span class="mr-k">阅读</span>
         <a class="mh-rbtn mh-rlink" href="#brief"><b>90 秒</b> 论证提要</a>
-        <button type="button" class="mh-rbtn" data-route="essentials"><b>11 分钟</b> 只看要害</button>
         <button type="button" class="mh-rbtn" data-route="core"><b>27 分钟</b> 核心论证</button>
         <button type="button" class="mh-rbtn on" data-route="full"><b>49 分钟</b> 全部读完</button>
       </div>
@@ -1604,7 +1603,7 @@ footer p{max-width:82ch;margin:0}
       <p class="eyebrow">现状 <b class="rt-min">约 4 分钟</b></p>
       <h2 class="big">我们即将做一件<em>亘古未有之事</em>：造出超越自身的智能。</h2>
     </div>
-    <p class="stand">纵观历史，每一次文明飞跃都由地球上最聪明的头脑推动，而那个头脑始终是我们自己。如今，我们要亲手终结这一历史。用不了多久，这颗星球上最强的智能将不再是人类。这里有两个词：<strong>AGI（通用人工智能）</strong>，指在各方面都能比肩人类的系统；<strong>ASI（超级智能）</strong>，指远远超越人类的智能。前者是门槛，后者则很可能是前者跨越门槛后的产物，而且不会太远。</p>
+    <p class="stand">历史上每一次飞跃都出自最聪明的头脑，而那始终是我们自己。如今我们要亲手终结这一点。<strong>AGI（通用人工智能）</strong>各方面比肩人类；<strong>ASI（超级智能）</strong>远超人类，而造出它的正是 AGI，且不会太远。</p>
 
     <div class="firsts">
       <div class="first expandable">
@@ -1738,12 +1737,9 @@ footer p{max-width:82ch;margin:0}
           <a class="rtier" href="#brief">
             <span class="rbm">90 秒</span><span class="rbn">为什么这件事重要</span>
             <span class="rbd">把整个论证压缩成六行，读完之后不必再往下读。</span></a>
-          <button type="button" class="rbtn" data-route="essentials">
-            <span class="rbm">11 分钟</span><span class="rbn">最核心的论证</span>
-            <span class="rbd">现状，以及该怎么办。足够你理解这个论证，并据此行动。</span></button>
           <button type="button" class="rbtn" data-route="core">
-            <span class="rbm">27 分钟</span><span class="rbn">最有力的版本</span>
-            <span class="rbd">补上承重的三章：竞赛、价值为何无法迁移，以及为何没有第二次机会。</span></button>
+            <span class="rbm">27 分钟</span><span class="rbn">最核心的论证</span>
+            <span class="rbd">现状、承重的三章（竞赛、价值为何无法迁移、为何没有第二次机会），以及该怎么办。</span></button>
           <button type="button" class="rbtn on" data-route="full">
             <span class="rbm">49 分钟</span><span class="rbn">证据与反驳</span>
             <span class="rbd">全部七章、证据、尚未平息的争议，以及参考书架。</span></button>
@@ -4099,7 +4095,10 @@ var SITE_CONFIG = {
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
     var META = [{"id": "crossroads", "label": "十字路口", "min": 4, "end": true}, {"id": "why-intelligence", "label": "智者为王", "min": 2, "end": true}, {"id": "why-irresistible", "label": "利令智昏", "min": 3, "end": true}, {"id": "why-race", "label": "竞争本身就是风险", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "人心不齐", "min": 2, "end": true}, {"id": "why-translation", "label": "辞不达意", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "为何安全研究更难", "min": 5, "end": true}, {"id": "why-one-try", "label": "只有一次机会", "min": 5, "end": true}, {"id": "response", "label": "正在做什么", "min": 10, "end": true}, {"id": "change-my-mind", "label": "什么会推翻这个论点", "min": 2, "end": true}, {"id": "ask", "label": "立即行动", "min": 2, "end": false, "act": true}, {"id": "do", "label": "可以做什么", "min": 5, "end": false, "act": true}];
-    var ROUTES = {"essentials": ["crossroads", "ask", "do"], "core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
+    var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
+    /* "essentials" 原是单独的 11 分钟档，现已并入 core。
+       之前保存过该选项的读者，localStorage 里仍是旧值，在此映射过去。 */
+    var ROUTE_ALIAS = {"essentials": "core"};
     var S = {"endOf": "{n} · 本章完", "next": "下一章：{t}（{m} 分钟）", "skip": "或直接看该怎么办", "openCh": "展开本章（{m} 分钟）", "pos": "第 {i}/{n} 章 · 还剩 {m} 分钟", "startIn": "全文约 {m} 分钟"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
     window.__GAP_META = META;
@@ -4186,6 +4185,7 @@ var SITE_CONFIG = {
       });
     });
     var savedRoute = load(KEY_ROUTE);
+    if(savedRoute && ROUTE_ALIAS[savedRoute]) savedRoute = ROUTE_ALIAS[savedRoute];
     applyRoute(savedRoute && ROUTES[savedRoute] !== undefined ? savedRoute : "full", false);
 
     /* ---- position readout ---- */
