@@ -427,12 +427,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 /* "Why should we care?" — three reasons side by side */
 .care3{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px);margin:0 0 28px}
 .care-c.wide{grid-column:1 / -1}
-.care-evidence{margin-top:clamp(14px,2vw,20px);padding-top:clamp(14px,2vw,20px);
-  border-top:1px solid #2b343b}
-.care-evidence svg{display:block;width:100%;height:auto}
-.care-evidence figure{margin:0}
-.care-evidence figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:13px;
-  line-height:1.5;color:#8a959c}
 @media(max-width:900px){.care3{grid-template-columns:1fr}}
 .care-c{position:relative;border:1px solid #2b343b;border-radius:var(--r);
   padding:clamp(16px,1.9vw,22px);background:rgba(255,255,255,.03);display:flex;flex-direction:column}
@@ -449,10 +443,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .care-c a.ref{color:#9cc48a}
 .care-c .term{border-bottom-color:#6e7981}
 /* the evidence timeline, lifted up so urgency lands right after the problem *//* the evidence timeline, lifted up so urgency lands right after the problem */
-.mh-figwrap{margin:0 0 26px;padding:0;max-width:760px}
-.mh-figwrap svg{display:block;width:100%;height:auto}
-.mh-figwrap figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:14px;
-  line-height:1.55;color:#8a959c;max-width:70ch}
 /* why-you-should-care and what-to-do, both above the fold */
 .mh-do{margin:0 0 24px;max-width:62ch}
 .mh-do-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.18em;
@@ -1591,51 +1581,49 @@ footer p{max-width:82ch;margin:0}
         <span class="care-n">1</span>
         <h3>Artificial superintelligence is coming soon</h3>
         <div class="care-viz">
-          <svg viewBox="0 0 320 104" role="img" aria-label="Median expert forecasts for AI that outperforms humans at every task fall between 2033 and 2047, and lab leaders say sooner.">
-            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">MEDIAN EXPERT FORECAST</text>
-            <text x="0" y="52" font-family="Archivo,sans-serif" font-size="34" font-weight="900" letter-spacing="-.03em" fill="#fff">2033–2047</text>
-            <line x1="0" y1="70" x2="300" y2="70" stroke="#3a444c" stroke-width="1.4"/>
-            <circle cx="24" cy="70" r="4.5" fill="#ff8a6b"/>
-            <text x="24" y="90" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#ff8a6b">now</text>
-            <rect x="150" y="66" width="120" height="8" rx="4" fill="#9cc48a" opacity=".85"/>
-            <text x="300" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#9cc48a">labs say sooner</text>
+          <svg viewBox="0 0 720 250" role="img" aria-label="Log scale chart: the length of task frontier AI can finish on its own, measured against how long a human professional takes, rising from about three seconds in 2019 to roughly twelve hours by early 2026.">
+            <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">HOW LONG A JOB AI CAN FINISH ON ITS OWN</text>
+            <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#6e7981">measured in how long the same job takes a human professional</text>
+            <line x1="60" y1="200.0" x2="700" y2="200.0" stroke="#2b343b" stroke-width="1"/>
+            <text x="52" y="203.5" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 sec</text>
+            <line x1="60" y1="140.2" x2="700" y2="140.2" stroke="#2b343b" stroke-width="1"/>
+            <text x="52" y="143.7" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 min</text>
+            <line x1="60" y1="80.4" x2="700" y2="80.4" stroke="#2b343b" stroke-width="1"/>
+            <text x="52" y="83.9" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 hr</text>
+            <line x1="60" y1="50.0" x2="700" y2="50.0" stroke="#2b343b" stroke-width="1"/>
+            <text x="52" y="53.5" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">8 hr</text>
+            <line x1="60" y1="50" x2="700" y2="50" stroke="#9cc48a" stroke-width="1.4" stroke-dasharray="5 4"/>
+            <text x="700" y="45" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" fill="#9cc48a">a full human workday</text>
+            <line x1="60" y1="200" x2="700" y2="200" stroke="#3a444c" stroke-width="1.4"/>
+            <polyline points="70.3,182.9 179.9,168.5 333.3,147.7 418.3,120.0 473.7,119.8 517.9,111.8 526.8,104.6 546.4,96.2 555.8,96.0 566.1,86.7 585.0,80.3 596.9,70.3 623.3,62.6 647.4,61.1 648.8,57.2 652.8,54.5 665.9,44.1" fill="none" stroke="#8d9dff" stroke-width="2.4" stroke-linejoin="round"/>
+            <circle cx="70.3" cy="182.9" r="3.4" fill="#8d9dff"/>
+            <circle cx="179.9" cy="168.5" r="3.4" fill="#8d9dff"/>
+            <circle cx="333.3" cy="147.7" r="3.4" fill="#8d9dff"/>
+            <circle cx="418.3" cy="120.0" r="3.4" fill="#8d9dff"/>
+            <circle cx="473.7" cy="119.8" r="3.4" fill="#8d9dff"/>
+            <circle cx="517.9" cy="111.8" r="3.4" fill="#8d9dff"/>
+            <circle cx="526.8" cy="104.6" r="3.4" fill="#8d9dff"/>
+            <circle cx="546.4" cy="96.2" r="3.4" fill="#8d9dff"/>
+            <circle cx="555.8" cy="96.0" r="3.4" fill="#8d9dff"/>
+            <circle cx="566.1" cy="86.7" r="3.4" fill="#8d9dff"/>
+            <circle cx="585.0" cy="80.3" r="3.4" fill="#8d9dff"/>
+            <circle cx="596.9" cy="70.3" r="3.4" fill="#8d9dff"/>
+            <circle cx="623.3" cy="62.6" r="3.4" fill="#8d9dff"/>
+            <circle cx="647.4" cy="61.1" r="3.4" fill="#8d9dff"/>
+            <circle cx="648.8" cy="57.2" r="3.4" fill="#8d9dff"/>
+            <circle cx="652.8" cy="54.5" r="3.4" fill="#8d9dff"/>
+            <circle cx="665.9" cy="44.1" r="5.5" fill="#ff8a6b"/>
+            <text x="655.9" y="34.1" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#ff8a6b">12 hours</text>
+            <text x="80.3" y="174.9" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">3 seconds in 2019</text>
+            <text x="60.0" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2019</text>
+            <text x="230.9" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2021</text>
+            <text x="401.5" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2023</text>
+            <text x="572.4" y="222" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2025</text>
+            <text x="0" y="243" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8d9dff">Each dot is the best model of its moment. The scale is logarithmic: every step up is a doubling.</text>
           </svg>
         </div>
-        <p>Not a problem for some distant generation. Median expert forecasts for AI that outperforms humans at <em>every</em> task land <strong>between 2033 and 2047</strong>, and the people actually building these systems say sooner.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a> That threshold is not the end point. A system that can do research improves itself, so <a href="#why-one-try">what comes after arrives fast</a>.</p>
-        <div class="care-evidence">
-          <figure class="mh-figwrap">
-      <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
-        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
-        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
-        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
-        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Named as a concern</text>
-        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">Concrete Problems</text>
-        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">in AI Safety</text>
-        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
-        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
-        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Seen in a model</text>
-        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">alignment faking</text>
-        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">under training</text>
-        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
-        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
-        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Measured at a rate</text>
-        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">covert action in 13%</text>
-        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">of o3 runs</text>
-        <line x1="660" y1="196" x2="660" y2="29" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
-        <circle cx="660" cy="20" r="6" fill="#ff8a6b"/>
-        <text text-anchor="end" x="648" y="14" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
-        <text x="648" y="30.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
-        <text x="648" y="48.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
-        <text x="648" y="60.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
-        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">the argument stays the same; the evidence keeps arriving</text>
-      </svg>
-      <figcaption>"Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.</figcaption>
-    </figure>
-        </div>
+        <p>In 2019 the best AI could finish a job that takes a person about three seconds. By early 2026 it was finishing jobs that take a person <strong>twelve hours</strong>. That length has been doubling roughly every seven months, and since 2023 closer to every four.<a class="ref" href="#s44">44</a></p>
+        <p style="margin-top:10px">Median expert forecasts for AI that outperforms humans at <em>every</em> task land <strong>between 2033 and 2047</strong>, and the people building these systems say sooner.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a> That threshold is not the end point either. A system that can do research improves itself, so <a href="#why-one-try">what comes after arrives fast</a>.</p>
       </div>
 
       <div class="care-c">
@@ -1880,6 +1868,39 @@ footer p{max-width:82ch;margin:0}
         <text x="0" y="182" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#ff8a6b">Three ticks become three crosses. The analogy people reach for does not survive contact with the case.</text>
       </svg>
       <figcaption>The parent-and-infant case is the nearest thing to weaker-controlling-stronger that history offers, and it works only because of three properties none of which carry over.</figcaption>
+    </figure>
+
+      <figure class="secfig dark rv">
+      <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
+        <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
+        <line x1="76" y1="196" x2="76" y2="185" stroke="#6f8a63" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="76" cy="176" r="6" fill="#6f8a63"/>
+        <text x="88" y="170" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#6f8a63">2016</text>
+        <text x="88.0" y="185.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Named as a concern</text>
+        <text x="88.0" y="203.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">Concrete Problems</text>
+        <text x="88.0" y="215.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">in AI Safety</text>
+        <line x1="271" y1="196" x2="271" y2="151" stroke="#a98a4b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="271" cy="142" r="6" fill="#a98a4b"/>
+        <text x="283" y="136" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#a98a4b">2024</text>
+        <text x="282.66666666666663" y="151.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Seen in a model</text>
+        <text x="282.66666666666663" y="169.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">alignment faking</text>
+        <text x="282.66666666666663" y="181.6" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">under training</text>
+        <line x1="465" y1="196" x2="465" y2="115" stroke="#b5654d" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="465" cy="106" r="6" fill="#b5654d"/>
+        <text x="477" y="100" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#b5654d">2025</text>
+        <text x="477.3333333333333" y="116.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Measured at a rate</text>
+        <text x="477.3333333333333" y="134.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">covert action in 13%</text>
+        <text x="477.3333333333333" y="146.24" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">of o3 runs</text>
+        <line x1="660" y1="196" x2="660" y2="29" stroke="#ff8a6b" stroke-width="1.2" opacity=".5" stroke-dasharray="3 3"/>
+        <circle cx="660" cy="20" r="6" fill="#ff8a6b"/>
+        <text text-anchor="end" x="648" y="14" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="800" fill="#ff8a6b">2026</text>
+        <text x="648" y="30.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Reached real systems</text>
+        <text x="648" y="48.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">agents out of the sandbox,</text>
+        <text x="648" y="60.0" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">real firms compromised</text>
+        <text x="62" y="236" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">the argument stays the same; the evidence keeps arriving</text>
+      </svg>
+      <figcaption>"Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.</figcaption>
     </figure>
 
       <div class="pillars">
