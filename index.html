@@ -411,8 +411,12 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
              radial-gradient(820px 480px at 0% 115%,rgba(34,51,204,.24),transparent 62%)}
 .masthead .wrap{position:relative;z-index:1}
 .mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
-.mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
-  font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
+/* No hard line break: the title is long enough that a fixed break strands a
+   word on its own line. balance spreads the lines evenly instead, and the
+   nbsp keeps "AGI Safety" together. */
+.mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.98;
+  font-size:clamp(34px,6.4vw,76px);color:#fff;margin:0 0 24px;max-width:26ch;
+  text-wrap:balance;overflow-wrap:break-word}
 .grp-div{display:flex;align-items:baseline;gap:12px;margin:0 0 clamp(16px,2.2vw,24px);
   padding-bottom:9px;border-bottom:1px solid var(--rule-soft)}
 .grp-div .gd-n{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;
@@ -1573,7 +1577,7 @@ footer p{max-width:82ch;margin:0}
 <header class="masthead">
   <div class="wrap">
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
-    <h1 class="mh-title">The hardest problem humanity<br>has yet to solve: AGI Safety</h1>
+    <h1 class="mh-title">The hardest problem humanity has yet to solve: AGI&nbsp;Safety</h1>
     <h2 class="mh-h">Why should we care?</h2>
 
     <div class="care3">
