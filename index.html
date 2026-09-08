@@ -444,7 +444,14 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-h{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(30px,2rem+1.6vw,50px);color:#fff;margin:clamp(30px,4vw,46px) 0 clamp(18px,2.4vw,26px)}
 /* "Why should we care?" — three reasons side by side */
-.care3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px);margin:0 0 28px}
+.care3{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px);margin:0 0 28px}
+.care-c.wide{grid-column:1 / -1}
+.care-evidence{margin-top:clamp(14px,2vw,20px);padding-top:clamp(14px,2vw,20px);
+  border-top:1px solid #2b343b}
+.care-evidence svg{display:block;width:100%;height:auto}
+.care-evidence figure{margin:0}
+.care-evidence figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:13px;
+  line-height:1.5;color:#8a959c}
 @media(max-width:900px){.care3{grid-template-columns:1fr}}
 .care-c{position:relative;border:1px solid #2b343b;border-radius:var(--r);
   padding:clamp(16px,1.9vw,22px);background:rgba(255,255,255,.03);display:flex;flex-direction:column}
@@ -1617,7 +1624,7 @@ footer p{max-width:82ch;margin:0}
     <h2 class="mh-h">Why should we care?</h2>
 
     <div class="care3">
-      <div class="care-c">
+      <div class="care-c wide">
         <span class="care-n">1</span>
         <h3>Timelines are imminent</h3>
         <div class="care-viz">
@@ -1632,51 +1639,8 @@ footer p{max-width:82ch;margin:0}
           </svg>
         </div>
         <p>Not a problem for some distant generation. Median expert forecasts for AI that outperforms humans at every task land <strong>between 2033 and 2047</strong>, and the people actually building these systems say sooner.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a></p>
-      </div>
-
-      <div class="care-c">
-        <span class="care-n">2</span>
-        <h3>The consequences are enormous</h3>
-        <div class="care-viz">
-          <svg viewBox="0 0 320 104" role="img" aria-label="One technology forking into two outcomes: extreme abundance if it goes right, human extinction if it does not.">
-            <defs><marker id="fu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8c98a"/></marker>
-            <marker id="fd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">ONE TECHNOLOGY, TWO ENDINGS</text>
-            <circle cx="18" cy="58" r="5" fill="#c3ccd2"/>
-            <path d="M26,56 C90,56 96,30 156,30" fill="none" stroke="#e8c98a" stroke-width="2.2" marker-end="url(#fu)"/>
-            <path d="M26,60 C90,60 96,88 156,88" fill="none" stroke="#ff8a6b" stroke-width="2.2" marker-end="url(#fd)"/>
-            <text x="168" y="27" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#e8c98a">Abundance</text>
-            <text x="168" y="42" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#b9a374">disease, energy, science</text>
-            <text x="168" y="85" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#ff8a6b">Extinction</text>
-            <text x="168" y="100" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#c9836c">no second attempt</text>
-          </svg>
-        </div>
-        <p><strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems.<a class="ref" href="#s26">26</a></p>
-      </div>
-
-      <div class="care-c">
-        <span class="care-n">3</span>
-        <h3>It is hard twice over, and almost nobody is in the room</h3>
-        <div class="care-viz">
-          <svg viewBox="0 0 320 104" role="img" aria-label="Two locks that both have to open: the technical problem and the coordination problem.">
-            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">TWO THINGS BOTH HAVE TO GO RIGHT</text>
-            <rect x="8" y="28" width="128" height="66" rx="6" fill="none" stroke="#3fd0c9" stroke-width="1.8"/>
-            <text x="72" y="45" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7fc4c0">BETWEEN PEOPLE</text>
-            <text x="72" y="64" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#3fd0c9">Everyone slows</text>
-            <text x="72" y="83" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7fc4c0">every lab and country</text>
-            <text x="160" y="64" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8a959c">+</text>
-            <rect x="184" y="28" width="128" height="66" rx="6" fill="none" stroke="#8d9dff" stroke-width="1.8"/>
-            <text x="248" y="45" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#9aa8e0">PEOPLE AND MACHINE</text>
-            <text x="248" y="64" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#8d9dff">It wants what</text>
-            <text x="248" y="80" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#8d9dff">we want</text>
-          </svg>
-        </div>
-        <p>Two problems stacked, and both have to go right.<a class="ref" href="#s14">14</a> <strong>One is between people.</strong> Every lab and every country would have to hold the same line at the same time, while each one gains by going faster. <strong>The other is between us and the machine.</strong> We have to say what we want precisely enough for a machine to follow, then make sure it really wants that, and not something that merely scored well while we were watching. Meanwhile a few hundred people are deciding this for eight billion who were never asked.</p>
-      </div>
-    </div>
-
-    <p class="mh-figlead">The evidence behind reason 1: this stopped being philosophy a while ago.</p>
-    <figure class="mh-figwrap">
+        <div class="care-evidence">
+          <figure class="mh-figwrap">
       <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
         <line x1="62" y1="196" x2="690" y2="196" stroke="#3a444c" stroke-width="1.4"/>
@@ -1708,6 +1672,50 @@ footer p{max-width:82ch;margin:0}
       </svg>
       <figcaption>"Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.</figcaption>
     </figure>
+        </div>
+      </div>
+
+      <div class="care-c">
+        <span class="care-n">2</span>
+        <h3>The consequences are enormous</h3>
+        <div class="care-viz">
+          <svg viewBox="0 0 320 104" role="img" aria-label="One technology forking into two outcomes: extreme abundance if it goes right, human extinction if it does not.">
+            <defs><marker id="fu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8c98a"/></marker>
+            <marker id="fd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
+            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">ONE TECHNOLOGY, TWO ENDINGS</text>
+            <circle cx="18" cy="58" r="5" fill="#c3ccd2"/>
+            <path d="M26,56 C90,56 96,30 156,30" fill="none" stroke="#e8c98a" stroke-width="2.2" marker-end="url(#fu)"/>
+            <path d="M26,60 C90,60 96,88 156,88" fill="none" stroke="#ff8a6b" stroke-width="2.2" marker-end="url(#fd)"/>
+            <text x="168" y="27" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#e8c98a">Abundance</text>
+            <text x="168" y="42" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#b9a374">disease, energy, science</text>
+            <text x="168" y="85" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#ff8a6b">Extinction</text>
+            <text x="168" y="100" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#c9836c">no second attempt</text>
+          </svg>
+        </div>
+        <p>The upside is enormous and real. A machine that can do research would mean cures for diseases we cannot touch today, cheap clean energy, science at machine speed, and material abundance on a scale no economy has produced. That is exactly why everyone is running.<a class="ref" href="#s1">1</a></p>
+        <p style="margin-top:10px">The same technology, built without control, ends the other way. <strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems.<a class="ref" href="#s26">26</a></p>
+      </div>
+
+      <div class="care-c">
+        <span class="care-n">3</span>
+        <h3>It is hard twice over, and almost nobody is in the room</h3>
+        <div class="care-viz">
+          <svg viewBox="0 0 320 104" role="img" aria-label="Two locks that both have to open: the technical problem and the coordination problem.">
+            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">TWO THINGS BOTH HAVE TO GO RIGHT</text>
+            <rect x="8" y="28" width="128" height="66" rx="6" fill="none" stroke="#3fd0c9" stroke-width="1.8"/>
+            <text x="72" y="45" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7fc4c0">BETWEEN PEOPLE</text>
+            <text x="72" y="64" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#3fd0c9">Everyone slows</text>
+            <text x="72" y="83" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7fc4c0">every lab and country</text>
+            <text x="160" y="64" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8a959c">+</text>
+            <rect x="184" y="28" width="128" height="66" rx="6" fill="none" stroke="#8d9dff" stroke-width="1.8"/>
+            <text x="248" y="45" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#9aa8e0">PEOPLE AND MACHINE</text>
+            <text x="248" y="64" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#8d9dff">It wants what</text>
+            <text x="248" y="80" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#8d9dff">we want</text>
+          </svg>
+        </div>
+        <p>Two problems stacked, and both have to go right.<a class="ref" href="#s14">14</a> <strong>One is between people.</strong> Every lab and every country would have to hold the same line at the same time, while each one gains by going faster. <strong>The other is between us and the machine.</strong> We have to say what we want precisely enough for a machine to follow, then make sure it really wants that, and not something that merely scored well while we were watching. Meanwhile a few hundred people are deciding this for eight billion who were never asked.</p>
+      </div>
+    </div>
 
     <h2 class="mh-h">The goal of this page</h2>
     <p class="mh-sub"><strong>To make more people aware of a problem that is close, serious, and being decided without them, so that together we can steer toward the safe version.</strong> This page is not here to say the sky is falling, or that AI is bad. Every claim is sourced, and the open disputes are argued at their strongest.</p>
