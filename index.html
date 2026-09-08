@@ -430,29 +430,37 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
 .mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
   font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
-.mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem+.55vw,26px);line-height:1.42;
-  color:#eef3f6;max-width:54ch;margin:0 0 24px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
-.mh-lede strong{color:#fff;font-weight:600}
+.mh-figlead{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:#ff8a6b;margin:0 0 12px}
+.grp-div{display:flex;align-items:baseline;gap:12px;margin:0 0 clamp(16px,2.2vw,24px);
+  padding-bottom:9px;border-bottom:1px solid var(--rule-soft)}
+.grp-div .gd-n{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gd-acc);white-space:nowrap}
+.grp-div .gd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;
+  font-size:clamp(13px,1.5vw,15.5px);color:var(--ink-2)}
 .mh-routes-note{font-family:var(--mono);font-size:10.5px;line-height:1.55;color:#8a959c;
   margin:-14px 0 26px;max-width:70ch}
-/* "Why should we care?" — three numbered reasons, the core of the opening */
-.mh-care{margin:0 0 30px;max-width:70ch}
-.mh-care-k{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
-  font-size:clamp(21px,1.3rem+.7vw,30px);color:#fff;margin:0 0 20px}
-.mh-care ol{list-style:none;margin:0;padding:0;counter-reset:care;display:grid;gap:clamp(16px,2.2vw,22px)}
-.mh-care li{counter-increment:care;position:relative;padding-left:46px}
-.mh-care li::before{content:counter(care);position:absolute;left:0;top:-2px;
-  width:30px;height:30px;border-radius:50%;border:1.5px solid #ff8a6b;color:#ff8a6b;
-  font-family:var(--mono);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
-.mh-care h2{font-family:var(--display);font-weight:800;letter-spacing:-.015em;
-  font-size:clamp(17px,1.05rem+.35vw,21px);color:#fff;margin:2px 0 7px;line-height:1.25}
-.mh-care p{margin:0;font-family:var(--body);font-weight:300;line-height:1.52;
-  font-size:clamp(15.5px,.96rem+.22vw,18px);color:#c3ccd2;max-width:62ch}
-.mh-care strong{color:#fff;font-weight:600}
-.mh-care a.ref{color:#9cc48a}
-@media(max-width:560px){.mh-care li{padding-left:38px}
-  .mh-care li::before{width:26px;height:26px;font-size:12px}}
-/* the evidence timeline, lifted up so urgency lands right after the problem */
+/* big section headers inside the masthead: one thing to look at per screen */
+.mh-h{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(30px,2rem+1.6vw,50px);color:#fff;margin:clamp(30px,4vw,46px) 0 clamp(18px,2.4vw,26px)}
+/* "Why should we care?" — three reasons side by side */
+.care3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px);margin:0 0 28px}
+@media(max-width:900px){.care3{grid-template-columns:1fr}}
+.care-c{position:relative;border:1px solid #2b343b;border-radius:var(--r);
+  padding:clamp(16px,1.9vw,22px);background:rgba(255,255,255,.03);display:flex;flex-direction:column}
+.care-n{position:absolute;top:-13px;left:clamp(16px,1.9vw,22px);width:26px;height:26px;border-radius:50%;
+  background:var(--paper);border:1.5px solid #ff8a6b;color:#ff8a6b;font-family:var(--mono);
+  font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.care-c h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.16;
+  font-size:clamp(17px,1rem+.5vw,22px);color:#fff;margin:8px 0 14px}
+.care-viz{margin:0 0 14px}
+.care-viz svg{display:block;width:100%;height:auto}
+.care-c p{margin:0;font-family:var(--body);font-weight:300;line-height:1.5;
+  font-size:clamp(14.5px,.9rem+.15vw,16px);color:#b6c0c6;max-width:none}
+.care-c strong{color:#fff;font-weight:600}
+.care-c a.ref{color:#9cc48a}
+.care-c .term{border-bottom-color:#6e7981}
+/* the evidence timeline, lifted up so urgency lands right after the problem *//* the evidence timeline, lifted up so urgency lands right after the problem */
 .mh-figwrap{margin:0 0 26px;padding:0;max-width:760px}
 .mh-figwrap svg{display:block;width:100%;height:auto}
 .mh-figwrap figcaption{margin-top:10px;font-family:var(--body);font-weight:300;font-size:14px;
@@ -1606,26 +1614,68 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">A free, independent field guide · by Bill Guan</p>
     <h1 class="mh-title">The hardest problem humanity<br>has yet to solve: AGI Safety</h1>
-    <p class="mh-lede">We are building machines that will be more capable than us, and nobody knows how to make sure one of them wants what we want.</p>
+    <h2 class="mh-h">Why should we care?</h2>
 
-    <div class="mh-care">
-      <p class="mh-care-k">Why should we care?</p>
-      <ol>
-        <li>
-          <h2>Timelines are imminent</h2>
-          <p>This is not a problem for some distant generation. Median expert forecasts for AI that outperforms humans at every task land <strong>between 2033 and 2047</strong>, and the people actually building these systems say sooner.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a></p>
-        </li>
-        <li>
-          <h2>The consequences are enormous</h2>
-          <p><strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems, signed by the major lab leaders in a single sentence.<a class="ref" href="#s26">26</a></p>
-        </li>
-        <li>
-          <h2>It is genuinely hard, and almost nobody is in the room</h2>
-          <p>Technically, nobody knows how to keep a system far more capable than us pointed at what we meant, and a decade of serious effort has not closed it. Politically, every serious lab and every capable state would have to hold the same line at once, while each one profits by moving first. <strong>Meanwhile the decision is being made by a few hundred people, on behalf of eight billion who were never asked.</strong></p>
-        </li>
-      </ol>
+    <div class="care3">
+      <div class="care-c">
+        <span class="care-n">1</span>
+        <h3>Timelines are imminent</h3>
+        <div class="care-viz">
+          <svg viewBox="0 0 320 104" role="img" aria-label="Median expert forecasts for AI that outperforms humans at every task fall between 2033 and 2047, and lab leaders say sooner.">
+            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">MEDIAN EXPERT FORECAST</text>
+            <text x="0" y="52" font-family="Archivo,sans-serif" font-size="34" font-weight="900" letter-spacing="-.03em" fill="#fff">2033–2047</text>
+            <line x1="0" y1="70" x2="300" y2="70" stroke="#3a444c" stroke-width="1.4"/>
+            <circle cx="24" cy="70" r="4.5" fill="#ff8a6b"/>
+            <text x="24" y="90" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#ff8a6b">now</text>
+            <rect x="150" y="66" width="120" height="8" rx="4" fill="#9cc48a" opacity=".85"/>
+            <text x="300" y="90" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#9cc48a">labs say sooner</text>
+          </svg>
+        </div>
+        <p>Not a problem for some distant generation. Median expert forecasts for AI that outperforms humans at every task land <strong>between 2033 and 2047</strong>, and the people actually building these systems say sooner.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a></p>
+      </div>
+
+      <div class="care-c">
+        <span class="care-n">2</span>
+        <h3>The consequences are enormous</h3>
+        <div class="care-viz">
+          <svg viewBox="0 0 320 104" role="img" aria-label="One technology forking into two outcomes: extreme abundance if it goes right, human extinction if it does not.">
+            <defs><marker id="fu" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8c98a"/></marker>
+            <marker id="fd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
+            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">ONE TECHNOLOGY, TWO ENDINGS</text>
+            <circle cx="18" cy="58" r="5" fill="#c3ccd2"/>
+            <path d="M26,56 C90,56 96,30 156,30" fill="none" stroke="#e8c98a" stroke-width="2.2" marker-end="url(#fu)"/>
+            <path d="M26,60 C90,60 96,88 156,88" fill="none" stroke="#ff8a6b" stroke-width="2.2" marker-end="url(#fd)"/>
+            <text x="168" y="27" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#e8c98a">Abundance</text>
+            <text x="168" y="42" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#b9a374">disease, energy, science</text>
+            <text x="168" y="85" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#ff8a6b">Extinction</text>
+            <text x="168" y="100" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#c9836c">no second attempt</text>
+          </svg>
+        </div>
+        <p><strong>The worst case is not a bad product or lost jobs. It is the permanent end of human control over our own future, up to and including human extinction.</strong> That is the stated concern of the people building these systems.<a class="ref" href="#s26">26</a></p>
+      </div>
+
+      <div class="care-c">
+        <span class="care-n">3</span>
+        <h3>It is hard twice over, and almost nobody is in the room</h3>
+        <div class="care-viz">
+          <svg viewBox="0 0 320 104" role="img" aria-label="Two locks that both have to open: the technical problem and the coordination problem.">
+            <text x="0" y="12" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="600" letter-spacing=".14em" fill="#8a959c">TWO THINGS BOTH HAVE TO GO RIGHT</text>
+            <rect x="8" y="28" width="128" height="66" rx="6" fill="none" stroke="#3fd0c9" stroke-width="1.8"/>
+            <text x="72" y="45" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7fc4c0">BETWEEN PEOPLE</text>
+            <text x="72" y="64" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#3fd0c9">Everyone slows</text>
+            <text x="72" y="83" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7fc4c0">every lab and country</text>
+            <text x="160" y="64" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8a959c">+</text>
+            <rect x="184" y="28" width="128" height="66" rx="6" fill="none" stroke="#8d9dff" stroke-width="1.8"/>
+            <text x="248" y="45" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8" fill="#9aa8e0">PEOPLE AND MACHINE</text>
+            <text x="248" y="64" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#8d9dff">It wants what</text>
+            <text x="248" y="80" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#8d9dff">we want</text>
+          </svg>
+        </div>
+        <p>Two problems stacked, and both have to go right.<a class="ref" href="#s14">14</a> <strong>One is between people.</strong> Every lab and every country would have to hold the same line at the same time, while each one gains by going faster. <strong>The other is between us and the machine.</strong> We have to say what we want precisely enough for a machine to follow, then make sure it really wants that, and not something that merely scored well while we were watching. Meanwhile a few hundred people are deciding this for eight billion who were never asked.</p>
+      </div>
     </div>
 
+    <p class="mh-figlead">The evidence behind reason 1: this stopped being philosophy a while ago.</p>
     <figure class="mh-figwrap">
       <svg viewBox="0 0 720 272" role="img" aria-label="Timeline rising from 2016 to 2026: a concern named, then observed in a model, then measured at a rate, then reaching real systems.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#9aa5ac">WHEN THIS STOPPED BEING PHILOSOPHY</text>
@@ -1659,10 +1709,11 @@ footer p{max-width:82ch;margin:0}
       <figcaption>"Alignment faking" means a model pretending to comply with training while covertly protecting its existing goals, unpacked in chapter 5.</figcaption>
     </figure>
 
-    <p class="mh-sub">So the goal of this page is simple: <strong>make more people aware of a problem that is close, serious, and being decided without them, so that together we can steer toward the safe version.</strong> It is not here to say the sky is falling, or that AI is bad. Every claim is sourced, and the open disputes are argued at their strongest.</p>
+    <h2 class="mh-h">The goal of this page</h2>
+    <p class="mh-sub"><strong>To make more people aware of a problem that is close, serious, and being decided without them, so that together we can steer toward the safe version.</strong> This page is not here to say the sky is falling, or that AI is bad. Every claim is sourced, and the open disputes are argued at their strongest.</p>
 
     <div class="mh-do">
-      <p class="mh-do-k">What you can do about it</p>
+      <p class="mh-do-k">So here is what you can do</p>
       <ol>
         <li><b>Understand it.</b> Ninety seconds is enough to hold the argument. Pick a length below.</li>
         <li><b>Tell one person.</b> This stays unsolved partly because it is not yet common knowledge. Passing it on is the highest-leverage thing most people can do.</li>
@@ -1875,7 +1926,8 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 1: intelligence wins -->
 <section id="why-intelligence" class="dd">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#5b6b9e"><span class="pd-n">Part 2</span><span class="pd-t">Why it's hard</span></div>
+    <div class="part-div" style="--pd-acc:#5b6b9e"><span class="pd-n">Part 2</span><span class="pd-t">The three reasons, in full</span></div>
+    <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">Reason 2</span><span class="gd-t">What is at stake</span></div>
     <div class="sec-head rv">
       <span class="chapno">Deep dive 01 <b class="rt-min">2 min</b></span>
       <h2>Whenever a smarter thing arrived, it took the wheel</h2>
@@ -1934,6 +1986,7 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 2: irresistible carrot -->
 <section id="why-irresistible" class="dd">
   <div class="wrap">
+    <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">Reason 3, first half</span><span class="gd-t">Hard between people</span></div>
     <div class="sec-head rv">
       <span class="chapno">Deep dive 02 <b class="rt-min">3 min</b></span>
       <h2>The prize is too large for anyone to walk away from</h2>
@@ -2215,6 +2268,7 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 5: translation gap -->
 <section id="why-translation" class="dd">
   <div class="wrap">
+    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">Reason 3, second half</span><span class="gd-t">Hard between us and the machine</span></div>
     <div class="sec-head rv">
       <span class="chapno">Deep dive 05 <b class="rt-min">6 min</b></span>
       <h2>Even a value we agree on will not translate cleanly</h2>
@@ -2959,6 +3013,7 @@ refusal training</text>
 <!-- DEEP DIVE 7: one try -->
 <section id="why-one-try" class="dd">
   <div class="wrap">
+    <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">Reason 2</span><span class="gd-t">Why there is no retry</span></div>
     <div class="sec-head rv">
       <span class="chapno">Deep dive 07 <b class="rt-min">5 min</b></span>
       <h2>Control is more likely to slip away than to be seized</h2>
@@ -4310,7 +4365,7 @@ var SITE_CONFIG = {
   (function(){
     var META = window.__GAP_META || [];
     if(!META.length) return;
-    var G = {"crossroads": "The situation", "why-intelligence": "Why it's hard", "why-irresistible": "Why it's hard", "why-race": "Why it's hard", "why-human-misalignment": "Why it's hard", "why-translation": "Why it's hard", "why-safety-hard": "Why it's hard", "why-one-try": "Why it's hard", "response": "What now", "change-my-mind": "What now", "ask": "What now"};
+    var G = {"crossroads": "The situation", "why-intelligence": "What is at stake", "why-irresistible": "Hard between people", "why-race": "Hard between people", "why-human-misalignment": "Hard between people", "why-translation": "Hard between us and the machine", "why-safety-hard": "Hard between us and the machine", "why-one-try": "Why there is no retry", "response": "What now", "change-my-mind": "What now", "ask": "What now"};
     var S = {"left": "{m} min left", "panelS": "{i} of {n} chapters · {m} min left", "refGroup": "Reference", "refs": [{"id": "resources", "label": "Resources"}, {"id": "faq", "label": "FAQ & open questions"}], "footLabel": "min left in this chapter", "footTotal": "{m} min left overall"};
     var chapters = META.filter(function(m){ return m.end || m.act; });
 
