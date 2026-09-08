@@ -1226,6 +1226,19 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
 .card.gone{display:none}
 
+/* ---------- quiz answer states ---------- */
+/* Colour is redundant here: the button also gains a tick or cross glyph and
+   the reply below opens with "Yes." or "Not quite.", so the state reads
+   without relying on hue. */
+.pbtn.right{background:var(--c-act);border-color:var(--c-act);color:#fff}
+.pbtn.wrong{background:var(--c-risk);border-color:var(--c-risk);color:#fff}
+.pbtn.reveal{background:var(--t-act);border-color:var(--c-act);color:var(--c-act)}
+.pbtn.right:hover,.pbtn.wrong:hover,.pbtn.reveal:hover{border-color:currentColor}
+.pbtn .mk{font-weight:700;margin-right:6px}
+.qnote{border-left:3px solid var(--rule);padding-left:12px;transition:border-color .15s}
+.qnote.right{border-left-color:var(--c-act)}
+.qnote.wrong{border-left-color:var(--c-risk)}
+
 /* ---------- slab ---------- */
 .slab{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
 .slab::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;
@@ -4948,13 +4961,36 @@ var SITE_CONFIG = {
   /* ---------- CHAPTER RECALL CHECKS ---------- */
   function recall(id, right, lines){
     var out = $("#" + id + "-out");
-    if(!out) return;
-    $$("#" + id + " .pbtn").forEach(function(b){
+    var btns = $$("#" + id + " .pbtn");
+    if(!out || !btns.length) return;
+    setCls(out, "qnote", true);
+    btns.forEach(function(b){ b.setAttribute("data-label", b.textContent); });
+    /* Colour never carries the verdict alone: each button also gains a tick or
+       cross, and the live region below opens with "Yes." or "Not quite." */
+    function mark(b, cls, glyph){
+      setCls(b, cls, true);
+      b.textContent = b.getAttribute("data-label");
+      var m = document.createElement("span");
+      m.className = "mk";
+      m.setAttribute("aria-hidden", "true");
+      m.textContent = glyph;
+      b.insertBefore(m, b.firstChild);
+    }
+    btns.forEach(function(b){
       b.addEventListener("click", function(){
         var i = parseInt(b.getAttribute("data-p"), 10);
         if(isNaN(i) || !lines[i]) return;
-        $$("#" + id + " .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
-        out.textContent = (i === right ? "Yes. " : "Not quite. ") + lines[i];
+        var ok = (i === right);
+        btns.forEach(function(x){
+          x.textContent = x.getAttribute("data-label");
+          setCls(x, "on", false); setCls(x, "right", false);
+          setCls(x, "wrong", false); setCls(x, "reveal", false);
+        });
+        mark(b, ok ? "right" : "wrong", ok ? "✓" : "✗");
+        if(!ok) mark(btns[right], "reveal", "✓");
+        setCls(out, "right", ok);
+        setCls(out, "wrong", !ok);
+        out.textContent = (ok ? "Yes. " : "Not quite. ") + lines[i];
       });
     });
   }

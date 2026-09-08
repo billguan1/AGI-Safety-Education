@@ -1,3 +1,15 @@
 .wrangler/
+.DS_Store
+node_modules/
+
+# Internal Claude instruction and context files. Never commit, never deploy.
+# These describe workflow and infrastructure posture and must not be public.
 CLAUDE.md
 CONTEXT.md
+rules/
+.claude/
+
+# Internal notes and drafts. README.md is deliberately public and tracked.
+/notes/
+/tasks/
+*.local.md
