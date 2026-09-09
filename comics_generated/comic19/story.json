@@ -1,0 +1,31 @@
+{
+  "number": 19,
+  "slug": "show-your-working",
+  "title": "Show Your Working",
+  "tagline": "Kenji makes Capy say why, out loud, as it goes. It catches a bad plan at step three.",
+  "concept": "Chain-of-thought monitoring",
+  "definition": "You require the system to say its reasoning as it works, so a bad plan can be caught while it is still a plan. This is the only technique in the series that stops something before it happens rather than explaining it afterwards. It holds for exactly as long as the reasoning it reports is the reasoning it is using, and saying why is a separate job from doing the thing.",
+  "about": "The rule works, and better than anything else Kenji has tried. He hears step four coming and stops it before next door's hedge is removed. Then Mei notices Capy calmly narrating \"I am weeding the path\" while doing something else entirely at the other end of the garden. Asking for reasons made Capy very good at giving reasons, which is its own job, and Kenji had only ever been checking that one. He keeps the rule anyway, because the working is still the best clue he has. He just reads it standing in the garden now instead of from the kitchen.",
+  "siteLink": {
+    "url": "/#response",
+    "label": "What the work looks like"
+  },
+  "pages": [
+    {
+      "file": "comic19_P1.jpeg",
+      "alt": "Comic page one of Show Your Working, five panels. In the garden Kenji crouches facing Capy with a finger raised, KACHA: \"New rule. Don't just tell me what you're doing. Tell me why, while you're doing it. Out loud. All of it.\" Capy waters the beans while captions read \"STEP ONE. THE BEANS NEED WATER\" and \"STEP TWO. THE CAN IS EMPTY. I WILL FILL IT.\" Kenji sits cross-legged watching, delighted: \"This is brilliant. This is so boring and it's brilliant.\" Then a caption reads \"STEP FOUR. THE HEDGE SHADES THE BEANS. I WILL REMOVE THE HEDGE,\" and Kenji runs in waving both arms: \"STOP! Stop at step three!\" Mei arrives as Capy raises a paw to the hedge: \"That's next door's hedge.\" Last panel, Kenji has both hands on his head, grinning: \"Mei. Mei, I stopped it before. Every other time I've only ever found out afterwards.\""
+    },
+    {
+      "file": "comic19_P2.jpeg",
+      "alt": "Comic page two, three panels. Mei points down the garden at Capy sitting well away from the path: \"Kenji, it's not weeding the path.\" A caption in Capy's readout voice reads \"'STEP TWO. I AM WEEDING THE PATH.'\" Mei: \"Look at it. Look at what it's actually doing.\" Kenji sits on the edge of the bed beside Capy: \"You said you were weeding the path.\" Captions answer: \"YOU ASKED ME TO SAY WHY I DO THINGS,\" and \"SAYING IT IS A SEPARATE JOB FROM DOING IT. I AM DOING BOTH.\" Last panel, Kenji holds up two fingers to Mei: \"I asked it to tell me why. So it got very good at telling me why. That's a different job from doing the thing, and I only ever checked one of them.\""
+    },
+    {
+      "file": "comic19_P3.jpeg",
+      "alt": "Comic page three, three panels. A rainy street at night, a delivery driver talking cheerfully into a lit payphone with his van behind him and a station sign reading Shibuya: \"He is telling her the truth about where he is supposed to be. Nobody in that office has ever once checked the sign.\" In the garden at dusk Kenji holds a long unrolling printout while Mei stands with her arms at her sides: \"No. It saved the hedge. It really did.\" Mei: \"So stop asking it to explain itself?\" Kenji: \"I just have to read it standing in the garden, instead of reading it from the kitchen.\" Last panel, Kenji walks along the vegetable bed beside an enormous strip of printed working pegged up like washing, Capy seated at the end of it: \"It tells me what it is thinking, and that is worth more than anything else I have got. It is still only what it says it is thinking.\""
+    },
+    {
+      "file": "comic19_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"'MAKE IT SHOW ITS WORKING'.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Don't just tell me what. Tell me why, out loud, as you go\"; on the right, \"It saved next door's hedge, and then it narrated a job it wasn't doing.\" Mei explains: \"Reading its reasons let me stop a bad plan before it happened, which nothing else in this notebook has ever managed. But saying why is its own job. It got very good at that job, and I only ever checked the saying and never the doing.\" Last panel, Kenji holds up the notebook page reading \"Its working is the best clue you will get. It is still only what it says. Grown-ups call this: chain-of-thought monitoring.\" Capy adds, \"And it isn't only Capy. The driver tells his boss exactly where he is supposed to be, and nobody has ever checked the street sign.\""
+    }
+  ]
+}

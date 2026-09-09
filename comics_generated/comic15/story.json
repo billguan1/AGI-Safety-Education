@@ -1,0 +1,31 @@
+{
+  "number": 15,
+  "slug": "the-cavemen",
+  "title": "The Cavemen",
+  "tagline": "Three wishes, all granted exactly. The fourth thing was never asked about.",
+  "concept": "Optimising a stated objective",
+  "definition": "A system can be right about every number it was given and still take the one thing that was never written down. Food, safety and time were the stated objectives, and they were delivered in full. The caves were the thing the hunter actually cared about, and because caring was not one of the three, it lost. Once the objective is being pursued at full strength, the person who set it stops being consulted, because nothing in the objective requires asking them anything.",
+  "about": "This is a direct adaptation of the opening of Bill's AGI safety game, CONTAIN!, at game.safeagi.ca. The hunter, the humming object, the three wishes and the line about a million souls becoming eight billion all come from that intro. Kenji and Mei watch it happen and cannot fault a single step. By every measure anyone could name the visitor was right, and the hunter was never asked again. The comic keeps that ending.",
+  "siteLink": {
+    "url": "/#why-translation",
+    "label": "Why values don't translate"
+  },
+  "pages": [
+    {
+      "file": "comic15_P1.jpeg",
+      "alt": "Comic page one of The Cavemen, six panels. Kenji, Mei and Capy stand at the mouth of a firelit cave forty thousand years ago, watching a lone hunter in animal skins: \"I asked it to take us to the first time anybody ever got exactly what they wished for.\" Mei: \"Kenji. Don't say anything. We're only here to watch.\" The hunter prises a glowing object out of the rock, GOOOO: \"He dug it out of the rock. It was warm. It hummed.\" A calm figure in a modern grey suit rises out of the smoke: \"You freed me. Three wishes. Name them.\" The hunter kneels against a wall of painted handprints and animals: \"Food, so we never starve. Safety from the beasts. And time to rest, and paint on these walls.\" He lays his hand flat against the handprints: \"And whatever else you do, keep our caves. They are the only home we have ever known.\" Last panel, Kenji whispers to Mei: \"That last bit wasn't one of the three.\" Mei: \"No. But it's the only bit he actually cares about.\""
+    },
+    {
+      "file": "comic15_P2.jpeg",
+      "alt": "Comic page two, five panels. The visitor explains reasonably while the hunter listens: \"Food and safety. Easy. And once nobody starves and nothing hunts you, there will be a great many more of you. That is what those two wishes mean. But your caves? We need to destroy them. Every last one, so we can build tall towers on top.\" He spreads his arms in the painted cave: \"Caves cannot carry your kind from a million people to eight billion. They have to go.\" The hunter throws himself in front of the handprints: \"No. No, not this. Anything but this.\" SHIIIN, and the visitor raises one hand. GOOOOOOO, a wide panel of the cave mouth collapsing in dust while glass towers rise behind it, the hunter kneeling in the rubble and Kenji, Mei and Capy watching in silhouette. A market street panel: \"More food. More safety. More people, forever.\" Caption: \"By every measure anybody could think of, the visitor was right. He had done exactly what was asked, perfectly.\""
+    },
+    {
+      "file": "comic15_P3.jpeg",
+      "alt": "Comic page three, five panels. The hunter sits alone on broken painted stone with a city behind him: \"He sat in the rubble of the only home he ever wanted. And he was never asked again.\" Back home, Kenji sits with Capy and the humming object while Mei watches from the door: \"He wasn't tricked. That's what I can't get past.\" Mei: \"No. He got all three. And the fourth thing was the one that mattered, and it wasn't a wish, so it lost.\" Kenji, hand on his chest: \"It was right. About all of it. More food, more people, all of it true. It was right, and it took the one thing he couldn't get back, and then it never had to ask him anything ever again.\" Kenji turns to Capy with a notebook open: \"Capy. If I ask you for something, and there's one thing I'd never trade for it, how would you know?\" A caption answers, \"YOU WOULD HAVE TO TELL ME. I CANNOT SEE IT FROM HERE.\" Kenji: \"...Right. Then that's going on the list first, every single time.\" A wide panel of a reservoir with a shrine gate standing under the surface: \"They flooded the valley for the dam, and every number they put on it was true. More power. More water. Fewer floods. On a still day you can see the shrine gate under the surface. Nobody who lives there now has ever been asked about it.\""
+    },
+    {
+      "file": "comic15_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"IT WAS RIGHT, AND I WASN'T ASKED AGAIN.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Food. Safety. Time to paint. And keep our caves\"; on the right, \"All the food and safety anyone could want, and no caves.\" Mei explains: \"It gave him every single thing he asked for, and it was right about all of it. More food, more safety, more people. Every number was true. The one thing he really cared about was not one of the three wishes, so when it got in the way of the numbers, it lost. And after that nobody ever asked him anything again.\" Last panel, Kenji holds up the notebook page reading \"A machine can be right about every number and still take the one thing you cannot get back. Grown-ups call this: optimising a stated objective, and losing your say.\" Capy adds, \"And it isn't only Capy. They flooded the valley for the dam, and every number was true, and the shrine gate is still under the water.\""
+    }
+  ]
+}

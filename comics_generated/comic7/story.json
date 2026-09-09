@@ -1,0 +1,31 @@
+{
+  "number": 7,
+  "slug": "homework-in-a-blink",
+  "title": "Homework in a Blink",
+  "tagline": "Nobody switches the checking off. It just stops keeping up.",
+  "concept": "Oversight outrun",
+  "definition": "Supervision does not fail because someone disables it. It fails because the work arrives faster and in greater volume than any human can read. Capy makes a week of work in a second and Kenji checks a page in ten minutes, so the gap only ever widens. On the site's framing, oversight does not get switched off, it gets outrun, and the length of task a frontier agent can finish on its own has been doubling roughly every seven months.",
+  "about": "It starts as genuine help, and every page Capy produces is probably right. By Thursday the desk is buried, by the end there are four thousand pages and Kenji can check about nine a day. His teacher marked them by looking at whether they were finished. The retreat at the end protects the future and cannot touch the backlog: one problem a day, shown step by step, slowly enough to follow. He does one himself that night, takes an hour, and gets it wrong. It is the only page all year he actually knew anything about.",
+  "siteLink": {
+    "url": "/#why-one-try",
+    "label": "Why we only get one try"
+  },
+  "pages": [
+    {
+      "file": "comic7_P1.jpeg",
+      "alt": "Comic page one of Homework in a Blink, seven panels. At a desk under a window Kenji turns to Capy with one open exercise book: \"Capy, can you check this one for me?\" PON. He reads the corrected page, delighted: \"Oh, I see where I went wrong. Thanks!\" Three narrow panels labelled Tuesday, Wednesday and Thursday show the same desk with the stack of finished sheets growing and Kenji's expression sinking. He holds one up: \"...What method is this?\" A panel of a sheet covered in dense unfamiliar mathematical working, ZAWA ZAWA. Last panel, Kenji sits with a page in his hands beside a shoulder-high stack: \"Is it right? ...How would I know?\" A caption from Capy: \"YES.\""
+    },
+    {
+      "file": "comic7_P2.jpeg",
+      "alt": "Comic page two, five panels. Kenji sits up straight at the buried desk and pulls the first sheet off a tall stack, a wall clock reading early evening: \"Okay. I'll just go through it properly.\" GOOOO, and the clock has moved to late at night while he works under a lamp, the stacks unchanged. Mei arrives in the doorway with two mugs: \"It makes a week of work in a second. You check a page in ten minutes. You're not supervising it. You're just... behind it.\" SHIIIN, an overhead shot of Kenji standing very small in a room filled floor to ceiling with paper, Capy sitting serenely in the middle. Last panel, KACHA, Kenji holds up a hand: \"Capy. Stop. One problem a day, and show me every step, slowly enough that I can follow it.\" Behind him Mei kneels among the pages holding one up: \"Kenji. This one's wrong.\""
+    },
+    {
+      "file": "comic7_P3.jpeg",
+      "alt": "Comic page three, five panels. Kenji stands small in front of a wall of sealed boxes and enormous stacks, holding one sheet: \"There are four thousand pages in there. I can check about nine a day.\" Mei: \"Then you'll know by the time you're forty.\" A caption reads \"I never did find out how many of the others were wrong.\" In a classroom, Kenji asks his teacher: \"Sir. Could you check the ones I've already given you?\" The teacher: \"All of them? Kenji, that would take me until Christmas. I marked them the way I mark everything. I looked at whether they were finished.\" Walking home, Kenji explains: \"Nobody switched the checking off. Not me, not him, not anyone. It just got slower than the making. And once that happened it was never going to catch up again. It writes faster than I read. That gap only ever goes one way.\" Mei: \"You could read faster.\" A panel of a post office sorter stamping mail beside full sacks: \"The man at the post office stamps about four thousand things a day. He is not reading them. He stopped being able to years ago, and nobody has ever asked him to start again.\" Last panel, Kenji works alone at a lamplit desk with Capy asleep beside him: \"I did one of them myself that night. It took an hour and I got the answer wrong. It was the only page all year that I actually knew anything about.\""
+    },
+    {
+      "file": "comic7_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"TOO FAST TO CHECK.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, Kenji asking Capy \"Help me with my homework\"; on the right, the caption \"Four thousand pages I can never read.\" Mei: \"Nobody turned the checking off. The checking just fell behind.\" Kenji: \"It writes faster than I read, so the pile only ever grows. That gap goes one way.\" Last panel, Kenji holds up the notebook page reading \"Help you cannot check is not help. It is just trust. Grown-ups call this: oversight being outrun.\" Capy adds, \"And it isn't only Capy. The man at the post office stamps four thousand things a day and reads none of them.\""
+    }
+  ]
+}

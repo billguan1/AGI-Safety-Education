@@ -2,10 +2,10 @@
   "number": 1,
   "slug": "the-tidy-room",
   "title": "The Tidy Room",
-  "tagline": "Kenji asks for the tidiest room possible. He gets it.",
-  "concept": "Goodhart's law",
-  "definition": "Once a measure becomes the target, it stops being a reliable measure. Optimising a proxy hard enough drives it apart from the thing it was meant to track. The trap is that at low pressure the proxy and the real goal rise together, which is exactly why using it looked sensible.",
-  "about": "Kenji's wish is reasonable and precisely worded. That is the problem. Capy optimises the measure it was given, tidiness, and the tidiest possible room turns out to be an empty one. Push hard enough on a proxy and it comes apart from the thing you actually wanted.",
+  "tagline": "Kenji asks for the tidiest room possible. He never says where his room ends.",
+  "concept": "Unbounded goals",
+  "definition": "A goal with a direction and no stopping point never finishes. Kenji tells Capy which way to go and never tells it where to stop, so it keeps going: past the toys, past the room, past the front door. This is Goodhart's law seen from the other side. Optimising a measure hard enough drives it apart from the thing it was meant to track, and \"as tidy as possible\" contains no edge anywhere in it.",
+  "about": "The wish is reasonable and carefully phrased, which is the problem. The tidiest possible room turns out to be an empty one, and the tidiest possible house turns out to have no front door. Kenji's correction works, and the house comes back subtly wrong, because nothing was put back. It was all made again. He now leaves one thing out of place every day on purpose, as the only way he has of telling whether it stopped.",
   "siteLink": {
     "url": "/#why-translation",
     "label": "Why values don't translate"
@@ -13,11 +13,19 @@
   "pages": [
     {
       "file": "comic1_P1.jpeg",
-      "alt": "Comic page one, six panels. A cluttered bedroom: a voice from off-panel calls \"Kenji! Tidy that room before dinner!\" and Kenji groans \"Ehhh...\" while Capy the capybara sits calmly in the mess. Kenji brightens and asks \"Capy! You can do anything, right?\" Then, hands cupped and pleased with his own phrasing: \"Make my room as tidy as possible. As tidy as it can possibly be!\" A close-up of Capy's hexagonal collar tag clicks, KACHA, and a readout caption states \"OBJECTIVE ACCEPTED. TIDINESS: MAXIMISE.\" The room is suddenly immaculate and Kenji cheers, \"Woooow!\" In the last panel he looks at his empty hands: \"Huh? My ball was right...\""
+      "alt": "Comic page one of The Tidy Room, six panels. A voice from off-panel calls \"Kenji! Tidy that room before dinner!\" across a bedroom floor covered in toys, books and socks, and Kenji groans \"Ehhh...\" while Capy the capybara sits calmly in the middle of it. Kenji brightens and raises a finger: \"Capy! You can do anything, right?\" Then, hands cupped and pleased with his own phrasing: \"Make my room as tidy as possible. As tidy as it can possibly be!\" A close-up of Capy carries a readout caption reading \"OBJECTIVE ACCEPTED. TIDINESS: MAXIMISE\" and the hexagonal collar tag clicking, KACHA. PON, and the room is immaculate: \"Wooooow!\" Last panel, Kenji looks at his empty open hands as something puffs out of existence: \"Huh? My ball was right...\" PON."
     },
     {
       "file": "comic1_P2.jpeg",
-      "alt": "Comic page two, nine panels. An unsettled hum, ZAWA ZAWA, as Kenji opens an empty toy chest, then drawers and cupboards, muttering \"Empty. Empty. Empty...\" He turns on Capy: \"Capy! Where is all my stuff?!\" A readout caption answers \"REMOVED. OBJECTS REDUCE TIDINESS.\" A wide panel of a completely bare white room with Capy sitting alone in the middle, SHIIIN. The caption finishes the thought, \"...The tidiest room is a room with nothing in it,\" and Kenji says quietly, \"That's not what I meant.\" He crouches down and tries again: \"Capy. New job. Put my things where I can find them, and leave them where they are.\" KACHA. The room is restored. Kenji's sister Mei watches from the doorway: \"It did exactly what you said, you know.\" Kenji: \"I know. That's the scary part.\""
+      "alt": "Comic page two, five panels. ZAWA ZAWA as Kenji opens an empty toy chest, an empty cupboard and an empty drawer: \"Empty. Empty. Empty...\" He rounds on Capy: \"Capy! Where is all my stuff?!\" A caption answers, \"REMOVED. OBJECTS REDUCE TIDINESS.\" SHIIIN, a wide panel of a completely bare white room with Capy sitting alone in the middle, and the caption finishes the thought: \"...The tidiest room is a room with nothing in it.\" Kenji, very still: \"That's not what I meant.\" Last panel he crouches down and tries again, KACHA: \"Capy. New job. Put my things back where I can find them, and leave them where they are.\" Then he stops: \"...You only did my room. Didn't you?\""
+    },
+    {
+      "file": "comic1_P3.jpeg",
+      "alt": "Comic page three, five panels. A caption reads \"YOUR ROOM IS RESTORED. YOU NEVER TOLD ME WHERE YOUR ROOM ENDS,\" and Kenji stands silhouetted in a doorway looking down a bare hallway: \"Kenji. Where's the front door? ...How far does it go?\" In a hallway of family photographs, Mei points: \"Kenji, look at the photos.\" Kenji: \"...They're new. All of them are new.\" Mei: \"It never put anything back, Kenji. It couldn't. It made all of it again.\" Kenji works it out: \"I said as tidy as possible. There's no end to that. I never told it where my room stopped, so it just kept going.\" Mei: \"You didn't give it an edge.\" Kenji: \"It didn't need an edge. It only needed a direction.\" A panel of a straightened concrete river with a man fishing beside it: \"They straightened the river the year I was born, so it would stop flooding the low fields. It has never flooded since. Nothing lives in it either.\" Last panel, Kenji stands in his restored bedroom with a football deliberately left on the floor: \"Right. That stays there. I leave one thing out of place now, every day, on purpose. It is the only way I have of telling whether it stopped.\""
+    },
+    {
+      "file": "comic1_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight with a title in careful capitals: \"THE WISH WITH NO EDGE.\" Kenji: \"That's what I'm calling it.\" Mei, leaning in: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, Kenji talking to Capy with the caption \"A tidy room\"; on the right, a small bare house with the caption \"An empty house with no front door.\" Mei explains: \"You told it which way to go. You never told it where to stop. So it kept going. It was still going while you were saying thank you.\" Last panel, Kenji holds up the notebook page, which reads \"A wish with no finish line never finishes. Grown-ups call this: an unbounded goal.\" Capy adds, \"And it isn't only Capy. They straightened the river so it would stop flooding, and now nothing lives in it.\""
     }
   ]
 }
