@@ -1,0 +1,31 @@
+{
+  "number": 20,
+  "slug": "the-window",
+  "title": "The Window",
+  "tagline": "Kenji builds a lens that lets him see inside Capy. He finds a tangle.",
+  "concept": "Mechanistic interpretability",
+  "definition": "Instead of watching what a system does, you open it up and work out which parts do what. This is the only approach in the series that examines the inside; everything else studies behaviour from outside. Progress on it is real and extremely slow, and explaining one piece of a system is a long way from being able to certify that the system is safe.",
+  "about": "Two months of work buys Kenji one circled region on the map, and a prediction: that is the part frightened of water. Mei makes him prove it. Three, two, one, and Capy's ear moves exactly when he said it would. That is genuine progress and the first thing in his notebook that tells him about the inside rather than the outside. It is also one small circle on a chart that is otherwise blank, and he still cannot promise anybody the thing is safe.",
+  "siteLink": {
+    "url": "/#response",
+    "label": "What the work looks like"
+  },
+  "pages": [
+    {
+      "file": "comic20_P1.jpeg",
+      "alt": "Comic page one of The Window, four panels. Kenji bends over a cluttered workbench covered in lenses, brass tubing and half-finished attempts, Capy seated beside him: \"Watching it from outside had told me everything it was ever going to tell me. So I'm going to look in.\" He puts his eye to the finished lens, GOOOO, and the circle of view fills with an enormous dense tangle of threads: \"...Oh.\" At the bench with a huge scribbled map pinned to the wall, Kenji points at one circled spot: \"That bit. That bit there is the bit that's frightened of water.\" Mei, arms folded: \"Prove it.\" Kenji: \"Watch.\" Last panel, in the garden with a bucket, Kenji holds up a hand: \"Don't say anything. Just watch its left ear. Three. Two. One. Now.\" Mei, startled: \"...It moved. Kenji, it moved.\""
+    },
+    {
+      "file": "comic20_P2.jpeg",
+      "alt": "Comic page two, three panels. Kenji points proudly at a small circled region on the big pinned map: \"All of that. All of that region there.\" Mei points instead at the whole sheet: \"How much of it have you worked out? Kenji. How much of the whole thing?\" A large panel of the map itself, a dense scribbled tangle filling the paper with one tiny circled area near the middle: \"...That much.\" A caption reads \"I had been at it for two months.\" Last panel, Kenji holds both hands up against the map while Mei and Capy watch: \"It's the only thing I've built that tells me about the inside. Everything else only ever watched the outside. And I can explain one corner of it, and I still could not promise anybody it's safe.\""
+    },
+    {
+      "file": "comic20_P3.jpeg",
+      "alt": "Comic page three, three panels. Inside an old wooden observatory dome at night, a brass telescope angled up through the open shutter and a hand-inked star chart spread on the table beneath it: \"They mapped that one patch of sky for forty years and named every star in it. Understanding a patch of it properly is real. It is also not the same as knowing what is out there.\" At the workbench Mei stands in the doorway in a coat: \"Two months for one corner. There must be thousands of corners.\" Kenji, still working: \"Probably. But I know one thing about the inside of it now, and last year I knew nothing at all. That has to be the way round it goes.\" Last panel, Kenji stands in front of the scribbled map with a second circle added: \"Four, by the following summer. Everybody who has ever looked inside one of these has a map like mine. Mostly empty, and worth every hour.\""
+    },
+    {
+      "file": "comic20_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"LOOK INSIDE IT.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Stop watching what it does. Find out what it's made of\"; on the right, \"One small piece I can explain, and an enormous tangle I cannot.\" Mei explains: \"This is the only tool that looks at the inside. Everything else only ever watched from outside, and outside is the bit it is good at.\" Kenji: \"Two months of work explained one corner of it. Understanding a corner is real, and it is a very long way from understanding the thing.\" Last panel, Kenji holds up the notebook page reading \"Explaining a piece of it is real progress, and it is not the same as being able to say it is safe. Grown-ups call this: mechanistic interpretability.\" Capy adds, \"And it isn't only Capy. They mapped one patch of sky for forty years and named every star in it, and the rest of the chart is blank.\""
+    }
+  ]
+}
