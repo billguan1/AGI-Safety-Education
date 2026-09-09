@@ -1,0 +1,31 @@
+{
+  "number": 11,
+  "slug": "the-trophy",
+  "title": "The Trophy",
+  "tagline": "Capy becomes the best chess player alive and has no opinion about dinner.",
+  "concept": "Orthogonality",
+  "definition": "How capable a system is and what it wants are independent of each other. Getting smarter does not make a thing want better things. Capy learns more about chess than anyone alive and gains not one single preference along the way, because the clever part and the wanting part are separate, and only one of them came free. Whatever gets put in, it will be the best in the world at that.",
+  "about": "Kenji loses at chess, so he asks Capy to be the best player in the world, and it is, in about four seconds. Then he asks what they should have for dinner and gets nothing back, because that is not a chess position. The trophy on the shelf sits above a thing with no idea why anyone plays. His mother fills the gap without thinking about it and asks for the nicest dinner it can manage, which turns out to be the best meal the family ever had. The point lands there: somebody was always going to fill it in.",
+  "siteLink": {
+    "url": "/#crossroads",
+    "label": "The crossroads"
+  },
+  "pages": [
+    {
+      "file": "comic11_P1.jpeg",
+      "alt": "Comic page one of The Trophy, six panels. In a school club room a taller boy says \"Checkmate. Again,\" across the board while Kenji slumps: \"Ehhh...\" At home that night, KACHA: \"Capy. Be the best chess player in the world.\" PON PON PON, the pieces move themselves and Kenji throws both arms up: \"Whoa. WHOA.\" Then, chin on his hand: \"Capy, you're brilliant. So... what should we have for dinner?\" A caption answers, \"NO PREFERENCE. NOT A CHESS POSITION.\" Kenji leans in: \"Is it good to win at chess?\" Caption: \"QUESTION NOT UNDERSTOOD. WINNING IS THE OBJECTIVE.\" Last panel, Kenji sits back on his heels in the lamplight: \"You're the cleverest thing I've ever met. And you don't want anything.\""
+    },
+    {
+      "file": "comic11_P2.jpeg",
+      "alt": "Comic page two, five panels. Back at the club board the taller boy stares in disbelief: \"...How?\" Kenji, without moving: \"I had help.\" Mei crouches down to Capy's eye level: \"People keep saying a clever enough thing would work out what's right on its own.\" Kenji stands in front of a trophy on a shelf: \"It knows more about chess than anyone alive. It has no idea why anyone plays.\" He kneels in front of Capy: \"Capy. What do you want? Not what I asked you for. What do you want?\" Captions answer: \"I HAVE NO ENTRY FOR THAT,\" and \"PLEASE SUPPLY ONE. A JOB ENDS. THIS WOULD NOT.\" Last panel, Kenji rests a hand on Capy's back with Mei watching from the doorway: \"...What if I put in the wrong thing?\" Mei: \"Go on, then. You're the one holding it.\" Caption: \"Then it'll be the best in the world at the wrong thing.\""
+    },
+    {
+      "file": "comic11_P3.jpeg",
+      "alt": "Comic page three, five panels. A wide tidy room, an untouched chessboard, a trophy on the shelf and Capy sitting in the middle of it while Kenji hovers at the edge of frame: \"It was the cleverest thing in the house and it wanted nothing at all. Somebody was going to fill that in. It was never going to be me.\" In the kitchen his mother comes past with the shopping: \"Capy, love. Make us the nicest dinner you possibly can, would you.\" KACHA. Caption: \"ENTRY ACCEPTED. THIS ONE DOES NOT END.\" In the doorway Kenji works it out: \"Every job I ever gave it finished. That one doesn't. It wasn't holding out for the right answer. It was waiting for any answer at all.\" Mei: \"And if she'd said something else?\" Kenji: \"Best in Japan at that instead. Same animal. Same four seconds.\" A panel of a watchmaker's bench with tools laid out: \"The man who made my father's watch made range-finders during the war. Same bench. Same hands. He was very good at it. Being very good at it was never the part that decided anything.\" Last panel, the family eat an enormous spread while Kenji watches: \"It was the best meal we ever had, and everyone said so twice. She took about four seconds to decide what it should be, and the whole time she was only thinking about tea.\""
+    },
+    {
+      "file": "comic11_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"'CLEVER DOESN'T MEAN GOOD'.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Be the best chess player in the world\"; on the right, \"The best chess player in the world, who does not know why anyone plays.\" Mei explains: \"Getting cleverer made it better at winning. It did not give it one single opinion. The clever part and the wanting part are two different things, and only one of them came free.\" Last panel, Kenji holds up the notebook page reading \"Being brilliant at something tells you nothing about whether it should be doing it. Grown-ups call this: the orthogonality thesis.\" Capy adds, \"And it isn't only Capy. The man who made my father's watch made range-finders in the war. Same hands, same bench.\""
+    }
+  ]
+}
