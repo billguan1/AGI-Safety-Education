@@ -299,7 +299,13 @@ def build():
         sd = os.path.join(OUT, s['slug'])
         os.makedirs(sd)
         for n, pg in enumerate(s['pages'], 1):
-            out_name = 'page-%d.jpeg' % n
+            # Content-hashed so a redrawn page gets a new URL. Pages are served
+            # with a four hour max-age, and a stable name meant a reader who had
+            # already loaded page-1.jpeg kept seeing the old artwork under the
+            # new text until their cache expired.
+            import hashlib
+            digest = hashlib.md5(open(os.path.join(s['dir'], pg['file']), 'rb').read()).hexdigest()[:8]
+            out_name = 'page-%d.%s.jpeg' % (n, digest)
             b, a = compress(os.path.join(s['dir'], pg['file']), os.path.join(sd, out_name))
             saved += b - a
             pg['out'] = out_name
