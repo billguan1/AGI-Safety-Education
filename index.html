@@ -392,7 +392,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd .chapno{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
   color:var(--c-risk);display:block;margin-bottom:14px}
 .dd h2{max-width:20ch;margin-bottom:16px}
-.dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:68ch;margin:0 0 14px}
+.dd .stand{font-size:clamp(17px,1rem + .4vw,21px);line-height:1.5;color:var(--ink-2);max-width:68ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{margin-top:8px}
 .dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:68ch}
@@ -437,13 +437,13 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 /* big section headers inside the masthead: one thing to look at per screen */
 .mh-h{display:flex;align-items:center;gap:14px;margin:0 0 clamp(16px,2vw,22px)}
 .mh-h span{font-family:var(--mono);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  font-size:clamp(11.5px,.6rem+.4vw,14px);white-space:nowrap;color:#ff8a6b;
+  font-size:clamp(11.5px,.6rem + .4vw,14px);white-space:nowrap;color:#ff8a6b;
   background:linear-gradient(90deg,#ff8a6b,#e8c98a 42%,#3fd0c9 72%,#8d9dff);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .mh-h::after{content:"";flex:1;height:2px;border-radius:2px;
   background:linear-gradient(90deg,rgba(255,138,107,.6),rgba(232,201,138,.4) 35%,rgba(63,208,201,.3) 65%,rgba(141,157,255,.12) 85%,transparent)}
 .mh-lede{font-family:var(--body);font-weight:300;color:#b6c0c6;
-  font-size:clamp(17px,1rem+.55vw,22px);line-height:1.45;max-width:60ch;margin:0}
+  font-size:clamp(17px,1rem + .55vw,22px);line-height:1.45;max-width:60ch;margin:0}
 .mh-care{margin-top:clamp(44px,6vw,76px)}
 /* "Why should we care?" three reasons side by side */
 .care3{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px);margin:0 0 28px}
@@ -455,13 +455,13 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   background:var(--paper);border:1.5px solid #ff8a6b;color:#ff8a6b;font-family:var(--mono);
   font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .care-c h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.16;
-  font-size:clamp(17px,1rem+.5vw,22px);color:#fff;margin:8px 0 14px}
+  font-size:clamp(17px,1rem + .5vw,22px);color:#fff;margin:8px 0 14px}
 .care-viz{margin:0 0 14px}
 .care-viz.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px)}
 @media(max-width:640px){.care-viz.split{grid-template-columns:1fr}}
 .care-viz svg{display:block;width:100%;height:auto}
 .care-c p{margin:0;font-family:var(--body);font-weight:300;line-height:1.5;
-  font-size:clamp(14.5px,.9rem+.15vw,16px);color:#b6c0c6;max-width:none}
+  font-size:clamp(14.5px,.9rem + .15vw,16px);color:#b6c0c6;max-width:none}
 .care-c strong{color:#fff;font-weight:600}
 .care-c a.ref{color:#9cc48a}
 .care-c .term{border-bottom-color:#6e7981}
@@ -889,7 +889,7 @@ html{overflow-x:hidden}
 .cross-hero{position:relative}
 .cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
 @media(max-width:900px){.cross-brain{display:none}}
-.cross .stand{font-size:clamp(18px,1.1rem+.4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
+.cross .stand{font-size:clamp(18px,1.1rem + .4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
 .cross .stand strong{color:#fff;font-weight:500}
 
 /* ---------- the three claims, illustrated ---------- */
@@ -933,7 +933,7 @@ html{overflow-x:hidden}
 .mh-close .mc-k{display:block;font-family:var(--mono);font-size:10px;font-weight:700;
   letter-spacing:.18em;text-transform:uppercase;color:#3fd0c9;margin-bottom:10px}
 .mh-close .mc-h{display:block;font-family:var(--display);font-weight:900;letter-spacing:-.02em;
-  font-size:clamp(21px,1.1rem+1vw,30px);line-height:1.16;color:#fff;margin-bottom:10px}
+  font-size:clamp(21px,1.1rem + 1vw,30px);line-height:1.16;color:#fff;margin-bottom:10px}
 .mh-close .mc-b{display:block;color:#aeb9c0;font-size:15.5px;line-height:1.55;max-width:64ch}
 .mh-close a{color:#3fd0c9}
 .cl-n{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
@@ -1457,7 +1457,7 @@ div.endc{cursor:default}
 .ends-arrows span{display:block;text-align:center;font-family:var(--mono);font-size:15px;color:#4a545c;line-height:1.4}
 .ends-out{border:1px solid #bd3a20;border-radius:var(--r);background:rgba(189,58,32,.12);
   padding:16px;text-align:center;font-family:var(--display);font-weight:900;letter-spacing:-.02em;
-  font-size:clamp(17px,1rem+.7vw,23px);color:#ff8a6b}
+  font-size:clamp(17px,1rem + .7vw,23px);color:#ff8a6b}
 
 .endc-icons{display:flex;flex-wrap:wrap;gap:12px 14px;margin-top:14px;padding-top:12px;
   border-top:1px dashed #2b343b}
@@ -1466,7 +1466,7 @@ div.endc{cursor:default}
 .endc-icons .ei i{font-style:normal;font-family:var(--mono);font-size:8.5px;line-height:1.3;color:#8a959c}
 .ends-out{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
 .ends-out .eo-k{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
-  font-size:clamp(16px,1rem+.6vw,21px);color:#ff8a6b}
+  font-size:clamp(16px,1rem + .6vw,21px);color:#ff8a6b}
 .ends-out .eo-ways{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 26px}
 .ends-out .eo-w{display:flex;flex-direction:column;align-items:center;gap:6px;width:104px}
 .ends-out .eo-w svg{width:26px;height:26px;color:#ff8a6b}
