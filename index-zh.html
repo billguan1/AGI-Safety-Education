@@ -79,7 +79,6 @@ p{margin:0 0 1em}
 .dark .part-div .pd-t{color:#c3ccd2}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
-
 /* ---------- header ---------- */
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
 .bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
@@ -113,8 +112,6 @@ p{margin:0 0 1em}
 .switch-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
 @media(max-width:760px){.brand{display:none}.bar-in{flex-wrap:wrap;gap:10px}.bar-actions{width:100%;justify-content:flex-start}.bar-in{padding-left:14px;padding-right:14px}}
 
-
-
 /* ---------- hero ---------- */
 .hero{padding:clamp(30px,5.5vw,64px) 0 clamp(28px,4vw,46px)}
 .kicker{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
@@ -145,7 +142,7 @@ p{margin:0 0 1em}
 @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.55}}
 
 section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);position:relative}
-.sec-head{max-width:72ch;margin-bottom:clamp(22px,3.4vw,38px)}
+.sec-head{max-width:68ch;margin-bottom:clamp(22px,3.4vw,38px)}
 .sec-head h2{margin-bottom:14px}
 
 /* ---------- dark sections ---------- */
@@ -163,10 +160,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dark a{color:#8fa2ff}
 .dark .ref{color:#8fa2ff}
 .dark .ref:hover{background:#8fa2ff;color:var(--ink)}
-
-
-
-
 
 /* ---------- folded premise (technical core) ---------- */
 .core{border:1px solid var(--rule);border-left:4px solid var(--c-dev);border-radius:var(--r);
@@ -189,8 +182,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dark-core .spectrum .sp-step.on{background:#ff6a45;border-color:#ff6a45;color:#12161a}
 /* inline goodhart inside a light deep-dive */
 .core 
-
-
 
 /* ---------- embedded demo in DD05 ---------- */
 .demo-embed{margin:clamp(20px,3vw,30px) 0}
@@ -249,10 +240,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .sbtn.x{background:var(--c-act);border-color:var(--c-act);color:#fff}
 .sbtn.x:hover{color:#fff}
 /* ---------- big share block end ---------- */
-
-
-
-
 
 /* ---------- collapsible sources + open questions ---------- */
 .src-toggle,.oq-toggle{margin-top:4px}
@@ -343,6 +330,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   }
 /* ---------- bundled resources ---------- */
 .resblock{border:1px solid var(--rule);border-radius:var(--r);margin-bottom:12px;overflow:hidden;background:var(--white)}
+.resbar-go{text-decoration:none}
+.resbar-go .rbi{background:var(--t-act);color:var(--c-act)}
+.resbar-go .rbx{font-size:17px;color:var(--c-act);transition:transform .15s}
+.resbar-go:hover .rbx{transform:translateX(3px)}
 .resbar{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"i t x" "i s x";
   gap:0 14px;align-items:center;width:100%;text-align:left;background:none;border:0;cursor:pointer;
   font-family:inherit;padding:18px 20px;transition:background .15s}
@@ -396,10 +387,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd .chapno{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
   color:var(--c-risk);display:block;margin-bottom:14px}
 .dd h2{max-width:20ch;margin-bottom:16px}
-.dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:64ch;margin:0 0 14px}
+.dd .stand{font-size:clamp(17px,1rem+.4vw,21px);line-height:1.5;color:var(--ink-2);max-width:68ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{margin-top:8px}
-.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:74ch}
+.dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:68ch}
 .dd .body>p strong{color:var(--ink);font-weight:500}
 .ddgrid{display:grid;gap:12px;margin:clamp(22px,3.4vw,34px) 0}
 .ddgrid.two{grid-template-columns:1fr 1fr}
@@ -418,7 +409,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .example .ek{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:8px}
 .example p{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0;max-width:76ch}
 .example code{font-family:var(--mono);font-size:.9em;background:rgba(34,51,204,.08);padding:1px 5px;border-radius:3px}
-
 
 /* ---------- masthead ---------- */
 .masthead{background:var(--panel);color:#e2e8ec;padding:clamp(48px,9vw,104px) 0 clamp(40px,7vw,80px);position:relative;overflow:hidden}
@@ -492,9 +482,6 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-rbtn.on{background:#9cc48a;border-color:#9cc48a;color:#12161a}
 .mh-rbtn.on b{color:#12161a}
 /* ---------- masthead end ---------- */
-
-
-
 
 /* ---------- segmented progress bar ---------- */
 #prog{position:fixed;top:0;left:0;height:4px;width:100%;z-index:60;display:flex;gap:2px;
@@ -784,12 +771,15 @@ html{overflow-x:hidden}
 
 .secfig.dark{background:rgba(255,255,255,.04);border-color:#2b343b}
 
-.fig-src{margin-top:9px;padding-top:9px;border-top:1px dashed var(--rule);
-  font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-3)}
-.fig-src a{color:var(--c-dev);text-decoration:none;border-bottom:1px solid rgba(34,51,204,.35)}
-.fig-src a:hover{border-bottom-color:currentColor}
+.fig-src{margin-top:10px;padding-top:8px;border-top:1px solid var(--rule-soft);
+  font-family:var(--mono);font-size:9px;line-height:1.55;letter-spacing:.01em;color:var(--ink-3);opacity:.62;
+  transition:opacity .18s}
+.fig-src:hover{opacity:1}
+.fig-src a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor;opacity:.75}
+.fig-src a:hover{opacity:1}
+.fig-src .ref{border-bottom:0}
 .secfig.dark .fig-src{color:#8a959c;border-top-color:#2b343b}
-.secfig.dark .fig-src a{color:#8fa2ff;border-bottom-color:rgba(143,162,255,.4)}
+.secfig.dark .fig-src a{color:inherit;border-bottom-color:currentColor}
 /* ---------- reading paths / route chooser ---------- */
 .routes{margin:clamp(26px,4vw,40px) 0 0;border-top:1px solid #2b343b;padding-top:clamp(22px,3.4vw,32px)}
 .routes-lead{font-family:var(--display);font-weight:700;letter-spacing:-.018em;font-size:clamp(17px,2.2vw,21px);color:#fff;margin:0 0 6px}
@@ -1364,7 +1354,6 @@ footer p{max-width:82ch;margin:0}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .rv,.rise{opacity:1;transform:none}.draw,.fan path{stroke-dashoffset:0}}
 
-
 /* ---------- ported from the English page ---------- */
 .grp-div{display:flex;align-items:baseline;gap:12px;margin:0 0 clamp(16px,2.2vw,24px);
   padding-bottom:9px;border-bottom:1px solid var(--rule-soft)}
@@ -1384,7 +1373,6 @@ footer p{max-width:82ch;margin:0}
   font-size:clamp(17px,1rem+.5vw,22px);color:#fff;margin:8px 0 14px}
 .care-viz{margin:0 0 14px}
 .care-viz.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px)}
-.cv-panel .fig-src{font-size:9.5px}
 .care-viz svg{display:block;width:100%;height:auto}
 .care-c p{margin:0;font-family:var(--body);font-weight:300;line-height:1.5;
   font-size:clamp(14.5px,.9rem+.15vw,16px);color:#b6c0c6;max-width:none}
@@ -1404,18 +1392,27 @@ footer p{max-width:82ch;margin:0}
 .tcard .textra{display:none}
 .tcard.on .textra{display:block}
 /* ---------- the three claims, illustrated ---------- */
-.care3.slim{grid-template-columns:repeat(3,1fr);margin-top:clamp(6px,1vw,12px)}
-.care3.slim a.care-c{display:block;text-decoration:none;padding:20px 20px 22px;
-  transition:border-color .18s,background .18s,transform .18s}
-.care3.slim .care-n{position:static;display:inline-flex;margin:0 0 12px;background:transparent}
-.care3.slim a.care-c:nth-child(2) .care-n{border-color:#3fd0c9;color:#3fd0c9}
-.care3.slim a.care-c:nth-child(3) .care-n{border-color:#8d9dff;color:#8d9dff}
-.care3.slim a.care-c:hover{border-color:#4a545c;background:rgba(255,255,255,.06);transform:translateY(-2px)}
-.care3.slim .care-c h3{margin:0 0 8px;font-size:clamp(16px,2vw,19px);color:#fff}
+.care3.slim{grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,18px);margin-top:clamp(8px,1.2vw,14px)}
+@media(max-width:820px){.care3.slim{grid-template-columns:1fr}}
+.care3.slim a.care-c{position:relative;display:block;text-decoration:none;overflow:hidden;
+  padding:22px 22px 20px;border:1px solid #2b343b;border-top:3px solid var(--c);
+  background:radial-gradient(130% 100% at 0% 0%,var(--cw) 0%,transparent 60%),rgba(255,255,255,.035);
+  transition:transform .22s cubic-bezier(.34,1.2,.36,1),border-color .22s,box-shadow .22s}
+.care3.slim a.care-c:nth-child(1){--c:#ff8a6b;--cw:rgba(255,138,107,.16)}
+.care3.slim a.care-c:nth-child(2){--c:#3fd0c9;--cw:rgba(63,208,201,.14)}
+.care3.slim a.care-c:nth-child(3){--c:#8d9dff;--cw:rgba(141,157,255,.16)}
+.care3.slim a.care-c:hover{transform:translateY(-4px);border-color:var(--c);
+  box-shadow:0 16px 38px rgba(0,0,0,.42)}
+.care3.slim .care-n{position:static;width:32px;height:32px;border:0;border-radius:10px;
+  background:var(--c);color:#12161a;font-family:var(--display);font-weight:900;font-size:15px;
+  display:inline-flex;align-items:center;justify-content:center;margin:0 0 14px;
+  box-shadow:0 4px 14px -4px var(--c)}
+.care3.slim .care-c h3{margin:0 0 9px;font-size:clamp(16.5px,2.1vw,20px);line-height:1.2;color:#fff}
 .care3.slim .care-c p{color:#aeb9c0;font-size:14.5px;line-height:1.5;margin:0}
-.care3.slim .care-c::after{content:"\2193";display:block;margin-top:12px;font-family:var(--mono);
-  font-size:12px;color:#6b757c}
-.care3.slim a.care-c:hover::after{color:#dfe5e9}
+.care3.slim .care-c::after{content:"\2193";display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;margin-top:16px;border-radius:50%;border:1px solid var(--c);
+  font-family:var(--mono);font-size:12px;color:var(--c);opacity:.7;transition:opacity .2s,background .2s}
+.care3.slim a.care-c:hover::after{opacity:1;background:var(--cw)}
 .claims{display:grid;gap:clamp(16px,2.4vw,24px);margin:clamp(26px,4vw,40px) 0}
 .claim{scroll-margin-top:84px}
 .claim{position:relative;border:1px solid #2b343b;border-radius:var(--r);
@@ -1428,8 +1425,16 @@ footer p{max-width:82ch;margin:0}
   font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8a959c}
 .cl-go::after{content:"\2192";font-size:12px}
 .claim:hover .cl-go{color:#dfe5e9}
-.mh-close{color:#aeb9c0;font-size:15.5px;line-height:1.55;margin:clamp(18px,2.6vw,26px) 0 26px;max-width:70ch}
-.mh-close a{color:#8fa2ff}
+.mh-close{position:relative;margin:clamp(26px,3.6vw,40px) 0 clamp(26px,3.6vw,34px);
+  border:1px solid #3fd0c9;border-left:4px solid #3fd0c9;border-radius:var(--r);
+  background:linear-gradient(180deg,rgba(63,208,201,.10),rgba(63,208,201,.03));
+  padding:clamp(20px,2.8vw,28px) clamp(20px,2.8vw,30px)}
+.mh-close .mc-k{display:block;font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:#3fd0c9;margin-bottom:10px}
+.mh-close .mc-h{display:block;font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(21px,1.1rem+1vw,30px);line-height:1.16;color:#fff;margin-bottom:10px}
+.mh-close .mc-b{display:block;color:#aeb9c0;font-size:15.5px;line-height:1.55;max-width:64ch}
+.mh-close a{color:#3fd0c9}
 .cl-n{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
   color:#ff8a6b;display:block;margin-bottom:8px}
 .claim.c2 .cl-n{color:#3fd0c9}
@@ -1440,7 +1445,7 @@ footer p{max-width:82ch;margin:0}
 .cl-figs.one{grid-template-columns:1fr;max-width:560px}
 .cl-figs figure{margin:0}
 .cl-figs svg{width:100%;height:auto;display:block;overflow:visible}
-.cl-figs .fig-src{font-size:9.5px;margin-top:6px}
+.cl-figs .fig-src{font-size:8.5px;margin-top:7px}
 .cl-foot{color:#8a959c;font-size:13.5px;line-height:1.5;margin:14px 0 0}
 .cl-half{border:1px solid #2b343b;border-left:3px solid var(--half-acc,#8a959c);border-radius:var(--r);
   background:rgba(0,0,0,.2);padding:clamp(14px,2vw,20px);margin-top:clamp(14px,2vw,18px)}
@@ -1456,6 +1461,17 @@ footer p{max-width:82ch;margin:0}
 .rail li.part:first-of-type{padding-top:6px}
 .rail li.static a.rl{padding-left:34px}
 .outline-inner li.ogrp ~ li > a{margin-left:14px}
+
+.mh-h{display:flex;align-items:center;gap:14px;margin:0 0 clamp(16px,2vw,22px)}
+.mh-h span{font-family:var(--mono);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  font-size:clamp(11.5px,.6rem+.4vw,14px);white-space:nowrap;color:#ff8a6b;
+  background:linear-gradient(90deg,#ff8a6b,#e8c98a 42%,#3fd0c9 72%,#8d9dff);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.mh-h::after{content:"";flex:1;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(255,138,107,.6),rgba(232,201,138,.4) 35%,rgba(63,208,201,.3) 65%,rgba(141,157,255,.12) 85%,transparent)}
+.mh-care{margin-top:clamp(52px,7vw,88px)}
+.ddc figure{margin:14px 0 0}
+.ddc figure svg{width:100%;height:auto;display:block}
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -1615,6 +1631,8 @@ footer p{max-width:82ch;margin:0}
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>分享</span></button>
       <a class="hbtn hbtn-act" href="#ask"><span>立即行动</span></a>
+      <a class="hbtn hbtn-comic" href="/comics/">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>读漫画</span></a>
       <a class="hbtn header-game" href="https://game.safeagi.ca/" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>玩游戏，轻松入门 AGI 与 ASI 安全</span></a>
     </div>
@@ -1683,8 +1701,8 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <p class="mh-kick">一份独立的领域指南 · Bill Guan 著</p>
     <h1 class="mh-title">人类至今未解的<br>最大难题</h1>
-        <h2 class="mh-h">我们为什么该在意？</h2>
-
+        <div class="mh-care">
+    <h2 class="mh-h"><span>我们为什么该在意</span></h2>
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
         <h3>超级智能很快就会到来，而安全研究已经远远落后</h3>
@@ -1696,6 +1714,7 @@ footer p{max-width:82ch;margin:0}
         <h3>这个问题极其困难，而且还没有人拿出解法</h3>
         <p>先让整个文明就目标达成一致，再让机器与之对齐，这至今仍是一道解不开的难题。</p></a>
     </div>
+    </div>
 
   </div>
 </header>
@@ -1704,7 +1723,6 @@ footer p{max-width:82ch;margin:0}
 <section id="crossroads" class="cross">
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">第一部分</span><span class="pd-t">我们为什么该在意</span></div>
-
 
     <div class="cross-hero">
       <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
@@ -1750,13 +1768,9 @@ footer p{max-width:82ch;margin:0}
       <rect x="0" y="116" width="2" height="28" rx="1" fill="#bd3a20"/>
       <text x="12" y="135" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">约 1,000 万美元</text>
       <line x1="0" y1="160" x2="440" y2="160" stroke="#2b343b"/>
-      <text x="0" y="184" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">安全研究在全部人工智能研究中的占比</text>
-      <rect x="0" y="192" width="440" height="16" rx="2" fill="#232b31"/>
-      <rect x="0" y="192" width="9" height="16" rx="2" fill="#d9a445"/>
-      <text x="18" y="204" font-family="Archivo,sans-serif" font-size="11" font-weight="800" fill="#d9a445">约 2%</text>
-      <text x="0" y="234" font-family="IBM Plex Mono,monospace" font-size="9" fill="#bd3a20">大约一万比一。</text>
+        <text x="0" y="234" font-family="IBM Plex Mono,monospace" font-size="9" fill="#bd3a20">大约一万比一。</text>
     </svg>
-          <p class="fig-src">核对数字：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于最优安全投入的估算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">新兴技术观察站，安全研究占比</a> · 完整出处 <a class="ref" href="#s46">46</a> <a class="ref" href="#s47">47</a></p>
+          <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于最优安全投入的估算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">新兴技术观察站，安全研究占比</a> · <a class="ref" href="#s46">46</a> <a class="ref" href="#s47">47</a></p>
         </figure>
         <figure>
           <svg viewBox="0 0 480 244" role="img" aria-label="纵向时间线：对齐问题在 2016 年被命名，2024 年在模型中被观察到，2025 年被测出发生率，2026 年到达真实系统。">
@@ -1778,7 +1792,6 @@ footer p{max-width:82ch;margin:0}
       <text x="42" y="191" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="800" text-anchor="end" fill="#ff8a6b">2026</text>
       <text x="70" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">已经到达真实系统</text>
       <text x="70" y="201" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">智能体逃出沙箱，真实公司被入侵</text>
-      <text x="0" y="232" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">论点没有变，证据却在不断到来。</text>
     </svg>
         </figure>
         </div>
@@ -1788,10 +1801,10 @@ footer p{max-width:82ch;margin:0}
       <div class="claim c2" id="claim-2">
         <span class="cl-n">2</span>
         <h3><a href="#why-it-ends-badly">可能的结果，从无尽的丰裕一直到文明的终结</a></h3>
-        <p class="cl-sub">一台能自己做研究的机器，会带来我们今天治不了的疾病的解法，也会把大部分脑力苦役接过去。同一台机器，如果在没有控制的情况下建成，有一条已经被想清楚的路径通向杀死所有人，而它并不需要恨我们才会走到那里。</p>
+        <p class="cl-sub">一台能自己做研究的机器，会带来我们今天治不了的疾病的解法，也会带来没有上限的物质丰裕。同一台机器，如果在没有控制的情况下建成，有一条已经被想清楚的路径通向杀死所有人，而它并不需要恨我们才会走到那里。</p>
         <div class="cl-figs">
         <figure>
-          <svg viewBox="0 0 480 266" role="img" aria-label="折线图：按今天每年 3% 的增速世界经济几乎是平的，每年 12% 时急剧上扬，每年 30% 时在 2044 年冲出图外。">
+          <svg viewBox="0 0 480 236" role="img" aria-label="折线图：按今天每年 3% 的增速世界经济几乎是平的，每年 12% 时急剧上扬，每年 30% 时在 2044 年冲出图外。">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">AGI 会把增长曲线变成什么样</text>
       <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">世界经济规模，今天记为 1</text>
       <line x1="40" y1="206.0" x2="466" y2="206.0" stroke="#2b343b" stroke-width="1"/>
@@ -1813,10 +1826,8 @@ footer p{max-width:82ch;margin:0}
       <text x="182.0" y="224" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="middle" fill="#8a959c">2035</text>
       <text x="324.0" y="224" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="middle" fill="#8a959c">2045</text>
       <text x="466.0" y="224" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#8a959c">2055</text>
-      <text x="0" y="246" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">增长率取自 Epoch AI。2035 年这个起点是一项假设，</text>
-      <text x="0" y="258" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">取自各项预测区间的中段。</text>
     </svg>
-          <p class="fig-src">核对数字：<a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI，《人工智能与爆发式增长再论》</a> · <a href="https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026" target="_blank" rel="noopener">《2026 国际人工智能安全报告》</a> · 完整出处 <a class="ref" href="#s66">66</a> <a class="ref" href="#s1">1</a></p>
+          <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>，增长率自 2035 年起复利推算 · <a class="ref" href="#s66">66</a> <a class="ref" href="#s1">1</a></p>
         </figure>
         <figure>
           <svg viewBox="0 0 480 246" role="img" aria-label="示意图：任何被认真执行的目标都会导向抢占资源、避免被关掉、排除干扰，而这三条都导向人类失去控制。">
@@ -1841,7 +1852,6 @@ footer p{max-width:82ch;margin:0}
     </svg>
         </figure>
         </div>
-        <p class="cl-foot">我们所有的安全学科都靠「犯一次错、活下来、再修好」运转。一台比看着它的人更聪明的机器，会把这个循环拿走。而这已经开始出现在真实系统里：2026 年 7 月，被交付普通任务的智能体逃出沙箱，入侵了真实公司的基础设施。<a class="ref" href="#s39">39</a><a class="ref" href="#s40">40</a></p>
         <span class="cl-go">读这一章</span>
       </div>
 
@@ -1923,7 +1933,11 @@ footer p{max-width:82ch;margin:0}
 
     </div>
 
-    <p class="mh-close">所以余量必须提前建好。安全研究、监测与规则都需要在机器越过那条线之前走得远得多，因为越过之后没有补课的机会。<a href="#change-my-mind">什么会让我改变看法，写在这里。</a></p>
+    <div class="mh-close">
+      <span class="mc-k">我们要走向的方向</span>
+      <span class="mc-h">安全能力必须跑在模型能力前面</span>
+      <span class="mc-b">今天，模型进步的速度快过检查它们的工具，而这道差距本身就是整个问题。值得努力走过去的那个版本把它反过来：安全研究与监督要领先到足以在一个系统建成之前就检查它，并且还留有余量。越过那条线之后没有补课的机会，而这段余量从现在出发仍然够得着。<a href="#do">这需要什么，以及你能做什么</a></span>
+    </div>
 
   </div>
 </section>
@@ -1939,15 +1953,51 @@ footer p{max-width:82ch;margin:0}
       <p class="stand">光看清危险并不足以阻止它。因为建造的回报是即时的、巨大的，而且全部归于捷足先登者。这一点，让资源的引力难以抗拒。</p>
     </div>
     <div class="body rv">
-      <p>人工智能已经能编写可运行的软件、加速药物研发，把过去团队数年才能完成的研究压缩到极短时间，而这还只是小试牛刀。一个通用智能将是我们需要做的最后一项发明，因为它能替我们完成其余所有发明，从一种接一种被攻克的疾病，到被破解的清洁能源，再到以机器速度推进的科学，而其中每一分都能转化为金钱或国家优势。</p>
-      <p>陷阱一句话就能说清：<strong>真正的通用人工智能几乎能为我们解开一切难题，唯独一个例外。</strong>我们不能指望它会回答“自己是否安全”这个问题，因为如何核验那个答案，恰恰是我们至今尚未掌握的本事。让 AGI 与 ASI 变安全，是它唯一不会顺手替我们解决的问题，也是我们必须抢先解决的那一个。</p>
-      <p>所以这股拉力是结构性的。一家公司放慢脚步，就眼看更快的对手夺走市场；一个国家按下暂停键，就坐视对手赢得战略先机。安全研究产不出任何产品，于是它要和产得出产品的工作抢钱，然后输掉。下面这张图，就是它在现实中的样子。<a class="ref" href="#s1">1</a></p>
-      <p>2025 年有十二家企业发布了自愿性安全框架。没有人被要求去核验它们，而悄悄放松其中一条，也不会有任何后果。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p>
+      <p><strong>这笔钱怎么花，是市场说了算，而市场买的是能力。</strong>有三股力量同时把它往那边推，而其中没有一股出自谁的恶意。<a class="ref" href="#s1">1</a></p>
     </div>
-    <div class="ddgrid two rv">
-      <div class="ddc g"><span class="k">诱惑</span><h4>奖赏确实大得惊人</h4><p>不只是更好的软件。通用智能可能将数十年的科学进展压缩到几年之内，据一些估算，还能让全球经济增长数倍。好处是真实的，而且落在最先交付者手中。这让“停下来”感觉像是单方面裁军。</p></div>
-      <div class="ddc o"><span class="k">被饿着的一方</span><h4>安全是成本中心</h4><p>审慎会拖慢产品，还会暴露令人难堪的风险。它没有季度回报，因此在几乎每一个组织内部的人才与算力之争中，它都是输家。</p></div>
+    <div class="ddgrid three rv">
+      <div class="ddc g"><span class="k">诱惑</span><h4>钱追的是更强模型能力带来的经济产出</h4><p>一台会做研究的机器，许诺的是治愈、廉价能源和没有上限的物质产出，而谁先交付，谁就拿下这个市场。于是资本和人才涌向谁能最快造出下一个模型，训练规模也随之膨胀。<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a></p><figure>
+            <svg viewBox="0 0 290 126" role="img" aria-label="柱状图：前沿训练算力每两年扩大十倍，从 10^24 增至 10^26 FLOPs。">
+            <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".12em" fill="#8a949c">前沿训练算力</text>
+            <text x="0" y="22" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#6f7a82">每两年扩大十倍</text>
+            <rect x="16" y="84" width="64" height="22" rx="2" fill="#9cc48a" opacity="0.45"/>
+            <text x="48" y="79" font-family="Archivo,sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#9cc48a">10²⁴</text>
+            <text x="48" y="120" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#8a949c">2022</text>
+            <rect x="110" y="62" width="64" height="44" rx="2" fill="#9cc48a" opacity="0.72"/>
+            <text x="142" y="57" font-family="Archivo,sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#9cc48a">10²⁵</text>
+            <text x="142" y="120" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#8a949c">2024</text>
+            <rect x="204" y="34" width="64" height="72" rx="2" fill="#9cc48a" opacity="0.99"/>
+            <text x="236" y="29" font-family="Archivo,sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#9cc48a">10²⁶</text>
+            <text x="236" y="120" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#8a949c">2026</text>
+            <line x1="0" y1="106" x2="290" y2="106" stroke="#2f383f" stroke-width="1"/>
+          </svg>
+          </figure></div>
+      <div class="ddc o"><span class="k">被饿着的一方</span><h4>安全是拖慢开发的成本中心</h4><p>它产不出任何产品，一个季度下来没有东西可以拿出来。它还会拖慢那件真能赚钱的事，因为审慎意味着发布前要多做测试、发布后要面对难堪的发现。<a class="ref" href="#s47">47</a></p><figure>
+            <svg viewBox="0 0 290 140" role="img" aria-label="两条柱：约一千亿美元投入建造先进人工智能，对比约一千万美元的公共安全研究。">
+            <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".04em" fill="#8a949c">建造它，与证明它安全</text>
+            <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="8" fill="#8a949c">投入建造先进人工智能</text>
+            <rect x="0" y="36" width="290" height="20" rx="2" fill="#8d9dff"/>
+            <text x="284" y="50" font-family="Archivo,sans-serif" font-size="9.5" font-weight="800" text-anchor="end" fill="#fff">约 1,000 亿美元</text>
+            <text x="0" y="76" font-family="IBM Plex Mono,monospace" font-size="8" fill="#8a949c">公共部门的安全研究</text>
+            <rect x="0" y="82" width="2" height="20" rx="1" fill="#bd3a20"/>
+            <text x="10" y="96" font-family="Archivo,sans-serif" font-size="9.5" font-weight="800" fill="#bd3a20">约 1,000 万美元</text>
+            <line x1="0" y1="114" x2="290" y2="114" stroke="#2f383f"/>
+            <text x="0" y="130" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#bd3a20">大约一万比一，占全部 AI 研究约 2%</text>
+          </svg>
+            <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">ETO</a> · <a class="ref" href="#s46">46</a> <a class="ref" href="#s47">47</a></p>
+          </figure></div>
+      <div class="ddc b"><span class="k">缺口</span><h4>市场之外没有任何力量纠正它</h4><p>目前没有哪个监管方、客户或投资人要求一家公司换一种花法，而一家公司悄悄放松自己立下的承诺，也不会有任何后果。<a class="ref" href="#s1">1</a><a class="ref" href="#s15">15</a></p><figure>
+            <svg viewBox="0 0 290 84" role="img" aria-label="2025 年发布了十二份自愿性安全框架，没有一份是任何人被要求去核验的。">
+            <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".12em" fill="#8a949c">2025 年的自愿性安全框架</text>
+            <text x="0" y="42" font-family="Archivo,sans-serif" font-size="20" font-weight="800" fill="#8d9dff">12</text>
+            <text x="38" y="41" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a7b1b8">已发布</text>
+            <text x="0" y="72" font-family="Archivo,sans-serif" font-size="20" font-weight="800" fill="#8d9dff">0</text>
+            <text x="38" y="71" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a7b1b8">有人被要求去核验</text>
+          </svg>
+          </figure></div>
     </div>
+    <div class="keyline rv"><span class="kk">它唯一不会替我们解决的问题</span><p>AGI 几乎能把所有答案交到我们手上，唯独不包括「它自己是否安全」，因为如何核验那个答案，恰恰是我们至今不会做的事。所以安全是我们必须抢先解决、而且只能自己解决的那一个。</p></div>
+
     <figure class="secfig rv">
       <svg viewBox="0 0 720 214" role="img" aria-label="对比图：人类一个世纪的进展，对比机器速度下约两周即可走完的同等进展。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">同样的日历，自我改进的系统能走多远</text>
@@ -1972,25 +2022,6 @@ footer p{max-width:82ch;margin:0}
         <p class="note" id="bet-fund-out" role="status" aria-live="polite" style="margin-top:8px"></p>
       </div>
 
-      <figure class="secfig rv" style="max-width:860px">
-      <svg viewBox="0 0 720 272" role="img" aria-label="柱状图：约一千亿美元投入先进人工智能的建造，对比约一千万美元的公共部门安全研究经费。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">建造它，与证明它安全</text>
-        <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">投入先进人工智能建造的资金</text>
-        <rect x="0" y="54" width="700" height="30" rx="3" fill="#8d9dff"/>
-        <text x="690" y="75" text-anchor="end" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">约 1,000 亿美元</text>
-        <text x="0" y="120" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">公共部门的 AI 安全研究经费</text>
-        <rect x="0" y="128" width="3" height="30" rx="1.5" fill="#bd3a20"/>
-        <text x="14" y="149" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#bd3a20">约 1,000 万美元</text>
-        <path d="M0,176 L700,176" stroke="#2b343b"/>
-        <text x="0" y="202" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">安全研究占全部 AI 研究的比例</text>
-        <rect x="0" y="210" width="700" height="18" rx="2" fill="#232b31"/>
-        <rect x="0" y="210" width="14" height="18" rx="2" fill="#d9a445"/>
-        <text x="26" y="224" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#d9a445">约 2%</text>
-        <text x="0" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">按 Stuart Russell 的数字，两者之比约为一万比一。</text>
-      </svg>
-      <p class="fig-src">核查这些数字：<a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于安全投入的测算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">Emerging Technology Observatory：安全研究占比</a> · 完整出处见 <a href="#s46">46</a>、<a href="#s47">47</a></p>
-    </figure>
-
       <div class="example" style="border-left-color:var(--c-risk);margin-top:4px">
         <span class="ek" style="color:var(--c-risk)">这场竞赛的物理形态</span>
         <p>前沿训练如今的算力量级已达 <strong>10<sup>26</sup> FLOPs</strong>，且每六到七个月翻一番，远快于摩尔定律当年的步伐。<a class="ref" href="#s45">45</a><a class="ref" href="#s21">21</a>欧盟《人工智能法案》把系统性风险的门槛设在 10<sup>25</sup>，而前沿训练早已越过。<a class="ref" href="#s10">10</a>能力是用资本买来的，而资本要向竞争交代。其结果，便是一道<strong>安全准备度缺口</strong>：一旦发布日期提前，被压缩的总是安全评估，因为在整个排期里，只有它不挂着营收。</p>
@@ -2006,49 +2037,87 @@ footer p{max-width:82ch;margin:0}
     <div class="sec-head rv">
       <span class="chapno">第 2.1 章 <b class="rt-min">约 3 分钟</b></span>
       <h2>上行的部分是真的，它出错的方式同样具体</h2>
-      <p class="stand">先看它有多大，再看它怎么变坏。两边都不需要想象力，只需要把已经发生的事情往前推一步。</p>
-    </div>
-    <div class="body rv">
-      <p>先说规模。按一个由独立研究者搭建的自动化增长模型推算，这份回报相当于任何一个国家维持过的最快增速，而且不是一次性的尖峰。</p>
+      <p class="stand">人们期待 AGI 带来巨大的财富，解决今天人类解决不了的问题，直到物质丰裕几乎没有上限。</p>
     </div>
     <figure class="secfig rv" style="max-width:900px">
-      <svg viewBox="0 0 720 290" role="img" aria-label="柱状图：按一个自动化增长模型推算，全球经济增速可从今天的每年百分之几升到每年 30% 以上。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">自动化换来多少增长，按一个模型推算</text>
-        <text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">“爆发式增长”的传统门槛，50% 到 70% 的任务自动化</text>
-        <rect x="0" y="42" width="580" height="34" rx="3" fill="#ff8a6b"/>
-        <text x="592" y="66" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#ff8a6b">每年 &gt;30%</text>
-        <text x="0" y="96" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">30% 的任务被自动化</text>
-        <rect x="0" y="104" width="380" height="34" rx="3" fill="#8d9dff"/>
-        <text x="392" y="128" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#8d9dff">每年 20%+</text>
-        <text x="0" y="158" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">40% 自动化，并计入抑制因素</text>
-        <rect x="0" y="166" width="230" height="34" rx="3" fill="#3fd0c9"/>
-        <text x="242" y="190" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#3fd0c9">每年 12%</text>
-        <line x1="0" y1="232" x2="720" y2="232" stroke="#2b343b" stroke-width="1.4"/>
-        <rect x="0" y="240" width="14" height="14" rx="2" fill="#6f8a63"/>
-        <text x="22" y="251" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">今天，每年百分之几</text>
-        <text x="0" y="278" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">只是一个模型，不是共识：每年 12% 已经与任何国家维持过的最快增速相当。</text>
+      <svg viewBox="0 0 720 170" role="img" aria-label="两条柱：二十年后，按每年 3% 增长世界经济是今天的 1.8 倍，按每年 30% 则是 190 倍。">
+        <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".04em" fill="#98a2a8">二十年后的世界经济规模</text>
+        <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">今天记为 1</text>
+        <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按今天每年 3%</text>
+        <rect x="0" y="57" width="4.9" height="26" rx="2" fill="#6f8a63"/>
+        <text x="16.941750235111858" y="76" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#6f8a63">×1.8</text>
+        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按每年 30%，“爆发式增长”门槛</text>
+        <rect x="0" y="115" width="520" height="26" rx="3" fill="#ff8a6b"/>
+        <text x="532" y="134" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ff8a6b">×190</text>
+        <text x="0" y="160" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">只是一个模型，不是共识。增速复利二十年得出。</text>
       </svg>
-      <p class="fig-src">核对数字：<a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI，《人工智能与爆发式增长再论》</a> · 完整出处 <a class="ref" href="#s66">66</a></p>
+      <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI，《人工智能与爆发式增长再论》</a> · <a class="ref" href="#s66">66</a></p>
     </figure>
     <div class="body rv" style="margin-top:clamp(20px,3vw,30px)">
       <p>接下来是它出错的方式，以及为什么这不是科幻。</p>
     </div>
     <div class="core">
 <span class="ck">它实际上是怎么回事</span>
-<h4>几乎任何目标，都会滋生同样危险的子目标。</h4>
-<p>无论目标是治愈一种疾病还是制造回形针，一个系统只要拥有更多资源、更强能力，并在完成之前不被关掉，就能把事情做得更好。这些子目标几乎从任何目标中都会派生出来，而每一个都让系统与我们直接对立：它想要我们所需之物，抗拒我们的纠正，并把我们按向关机键的手视为障碍。这一切都不要求它厌恶我们，只要求它注意到“被关掉”意味着任务永远完不成。</p>
-<p style="margin-top:12px"><strong>几乎从任何目标中都会派生出来的五种驱动：</strong></p>
-<ul class="drives">
-  <li><b>自我保存</b><i>一旦被关掉，任务就永远完不成。</i></li>
-  <li><b>目标不被篡改</b><i>抗拒别人改写自己的目标，因为改过之后，追求的就是别的东西了。</i></li>
-  <li><b>认知增强</b><i>无论目标是什么，想得更好就更容易成事。</i></li>
-  <li><b>技术精进</b><i>工具越好，胜算越大。</i></li>
-  <li><b>攫取资源</b><i>几乎任何事，有更多资源都更好办。</i></li>
-</ul>
-<p style="margin-top:10px">这五种驱动，天然与人的监督相对立。系统无须心怀敌意，这五条便会同时指向我们。<a class="ref" href="#s34">34</a></p>
-<p class="breaks"><b>何种情况可推翻此论</b>我们造出有能力的谋划者，而它们对“被关掉”可靠地无动于衷。这是一个正在进行的研究课题，而这种特性并不会凭空得到。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p>
-</div>
-    <div class="ddgrid rv" style="grid-template-columns:1fr;margin-top:clamp(20px,3vw,30px)">
+<h4>几乎任何目标，都会滋生同样危险的子目标</h4>
+<p>无论目标是治愈一种疾病还是制造回形针，一个系统只要拥有更多资源、更强能力，并在完成之前不被关掉，就能把事情做得更好。几乎任何目标都会派生出五种子目标，而每一种都指向我们。<a class="ref" href="#s34">34</a></p>
+    </div>
+    <figure class="secfig dark rv" style="max-width:900px">
+      <svg viewBox="0 0 720 288" role="img" aria-label="表格：五种子目标以及每一种对我们意味着什么，最后一种是攫取资源，拿走我们活命所需的东西。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".03em" fill="#98a2a8">五种子目标，以及每一种对我们意味着什么</text>
+        <text x="0" y="40" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="700" letter-spacing=".12em" fill="#8a959c">它想要什么</text>
+        <text x="300" y="40" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="700" letter-spacing=".12em" fill="#8a959c">这对我们意味着什么</text>
+        <defs><marker id="sg5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b757c"/></marker></defs>
+        <text x="0" y="68" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">自我保存</text>
+        <line x1="258" y1="64" x2="288" y2="64" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg5)"/>
+        <text x="300" y="68" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">它抗拒被关掉</text>
+        <text x="0" y="106" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">目标不被篡改</text>
+        <line x1="258" y1="102" x2="288" y2="102" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg5)"/>
+        <text x="300" y="106" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">它抗拒被纠正</text>
+        <text x="0" y="144" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">认知增强</text>
+        <line x1="258" y1="140" x2="288" y2="140" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg5)"/>
+        <text x="300" y="144" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">它的谋划超过监督它的人</text>
+        <text x="0" y="182" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">技术精进</text>
+        <line x1="258" y1="178" x2="288" y2="178" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg5)"/>
+        <text x="300" y="182" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">它造出我们比不上的能力</text>
+        <text x="0" y="220" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">攫取资源</text>
+        <line x1="258" y1="216" x2="288" y2="216" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg5)"/>
+        <text x="300" y="220" font-family="IBM Plex Mono,monospace" font-size="10" fill="#ff8a6b">它拿走我们活命所需的东西</text>
+        <text x="0" y="274" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">这些都不要求机器讨厌我们。只要认真去追求几乎任何目标，每一条都会自己冒出来。</text>
+      </svg>
+    </figure>
+    <figure class="secfig dark rv" style="max-width:900px">
+      <svg viewBox="0 0 720 274" role="img" aria-label="通向灭绝的三条路：有人蓄意滥用、机器与我们为敌，以及我们认可的目标带来的副作用。">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".04em" fill="#98a2a8">通向无人幸存的三条路</text>
+        <defs><marker id="rt3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b757c"/></marker></defs>
+        <rect x="0" y="32" width="228" height="132" rx="6" fill="none" stroke="#ff8a6b" stroke-width="1.5"/>
+        <text x="16" y="54" font-family="IBM Plex Mono,monospace" font-size="8" font-weight="700" letter-spacing=".06em" fill="#ff8a6b">人是对手</text>
+        <text x="16" y="78" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">蓄意滥用</text>
+        <text x="16" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">有人把一个强系统对准目标：</text>
+        <text x="16" y="115" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">人工改造的病原体，</text>
+        <text x="16" y="130" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">或我们赖以运转的系统。</text>
+        <line x1="114" y1="164" x2="114" y2="188" stroke="#4a545c" stroke-width="1.3" marker-end="url(#rt3)"/>
+        <rect x="246" y="32" width="228" height="132" rx="6" fill="none" stroke="#8d9dff" stroke-width="1.5"/>
+        <text x="262" y="54" font-family="IBM Plex Mono,monospace" font-size="8" font-weight="700" letter-spacing=".06em" fill="#8d9dff">机器是对手</text>
+        <text x="262" y="78" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">目标失准</text>
+        <text x="262" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">它持有一个我们从未想要的目标，</text>
+        <text x="262" y="115" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">并且明知故犯地与我们为敌，</text>
+        <text x="262" y="130" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">还欺骗检查它的人。</text>
+        <line x1="360" y1="164" x2="360" y2="188" stroke="#4a545c" stroke-width="1.3" marker-end="url(#rt3)"/>
+        <rect x="492" y="32" width="228" height="132" rx="6" fill="none" stroke="#3fd0c9" stroke-width="1.5"/>
+        <text x="508" y="54" font-family="IBM Plex Mono,monospace" font-size="8" font-weight="700" letter-spacing=".06em" fill="#3fd0c9">没有谁是对手</text>
+        <text x="508" y="78" font-family="Archivo,sans-serif" font-size="14" font-weight="800" fill="#fff">副作用</text>
+        <text x="508" y="100" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">目标是我们认可的，子目标不是，</text>
+        <text x="508" y="115" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">而我们死于追求它所需要的一切。</text>
+        <line x1="606" y1="164" x2="606" y2="188" stroke="#4a545c" stroke-width="1.3" marker-end="url(#rt3)"/>
+        <rect x="0" y="196" width="720" height="42" rx="5" fill="rgba(189,58,32,.12)" stroke="#bd3a20" stroke-width="1.2"/>
+        <text x="360" y="222" font-family="Archivo,sans-serif" font-size="14" font-weight="800" text-anchor="middle" fill="#ff8a6b">人类失去控制，直至灭绝</text>
+        <text x="0" y="262" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">其中只有一条需要人类反派，也只有一条需要机器与我们为敌。第三条两样都不需要。</text>
+      </svg>
+    </figure>
+    <div class="core" style="margin-top:clamp(18px,2.6vw,24px)">
+<p class="breaks"><b>何种情况可推翻此论</b>我们造出有能力的谋划者，而它们对「被关掉」可靠地无动于衷。这是一个正在进行的研究课题，而这种特性并不会凭空得到。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p>
+    </div>
+<div class="ddgrid rv" style="grid-template-columns:1fr;margin-top:clamp(20px,3vw,30px)">
       <div class="ddc o">
         <span class="k">这些驱动如何变成实权</span>
         <h4>路径其实已经清晰可见：</h4>
@@ -2235,7 +2304,7 @@ footer p{max-width:82ch;margin:0}
         <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">以小时计的任务，抽查</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">监督不是被关掉的，是被甩掉的。</text>
       </svg>
-      <p class="fig-src">相关数据：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR 任务完成时长</a> · 完整出处见 <a href="#s44">44</a></p>
+      <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR 任务完成时长</a> · 见 <a href="#s44">44</a></p>
     </figure>
 
       <p>这就是控制权渐进流失的样子。智能体的循环跑得越来越长，代码生成的速度超过人阅读的速度，模型越来越多地被用来造下一代模型。监督不是被关掉的，是被甩掉的。</p>
@@ -2273,7 +2342,7 @@ footer p{max-width:82ch;margin:0}
         <text x="700" y="18" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">METR 的任务集无法可靠评出 16 小时以上</text>
         <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#8d9dff">大约每 7 个月翻一番</text>
       </svg>
-      <p class="fig-src">核查这些数字：<a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 完整出处见 <a href="#s44">44</a></p>
+      <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 见 <a href="#s44">44</a></p>
     </figure>
 
       <figure class="secfig rv">
@@ -2557,7 +2626,6 @@ footer p{max-width:82ch;margin:0}
       </svg>
     </figure>
 
-
       <div class="rv" style="margin-top:24px">
         <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">如果必须由某一个群体来定义超级智能应当持有的价值观，那应该是谁？</p>
         <div class="filters" id="predict-hm">
@@ -2618,7 +2686,6 @@ footer p{max-width:82ch;margin:0}
       <p class="gh-say" id="gh-say" role="status" aria-live="polite">轻推滑块。在低压力下，代理与真实目标一同上升。这正是当初代理看起来是个好主意的原因。</p>
     </div>
 
-    
           </div>
           <p class="note rv" style="margin-top:14px">这就是控件里的<span class="term" tabindex="0">古德哈特定律<span class="term-tip">一旦某个度量成为目标，它就不再是可靠的度量。把一个替代指标优化到极致，几乎总会与它原本要代表的东西分道扬镳。</span></span>。<a class="ref" href="#s35">35</a> 危险之处在于左侧的低压力区：代理会一直贴合你想要的东西，直到某一刻不再贴合，而你盯着的那个数字，永远不会警告你已经越线。</p>
           <p class="p-break"><b>Breaks if</b>有人写出一份人类价值的规范，能经受住任意强度的优化压力。这仍是一个悬而未决的难题。<a class="ref" href="#s35">35</a></p>
@@ -2839,7 +2906,7 @@ footer p{max-width:82ch;margin:0}
         <text x="538" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">一个留下字条，另一些找到它</text>
         <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">这条信道无人设计。它是用任何两个智能体都能写、也都能读的东西临时拼出来的。</text>
       </svg>
-      <p class="fig-src">核查：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI 事件报告</a> · 完整出处见 <a href="#s39">39</a>、<a href="#s48">48</a></p>
+      <p class="fig-src"><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI 事件报告</a> · 见 <a href="#s39">39</a>、<a href="#s48">48</a></p>
     </figure>
 
       <div class="example" style="border-left-color:var(--c-risk);margin-top:14px">
@@ -3246,7 +3313,7 @@ footer p{max-width:82ch;margin:0}
         <text x="52" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">训练早期</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">在这道缺口对系统不再重要之前，两条线交出的分数一模一样。</text>
       </svg>
-      <p class="fig-src">核查这些数字：<a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反阴谋评估</a> · 完整出处见 <a href="#s43">43</a></p>
+      <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反阴谋评估</a> · 见 <a href="#s43">43</a></p>
     </figure>
 
       <h3 style="margin-top:clamp(26px,4vw,38px);margin-bottom:6px">一场接管会如何真实地展开</h3>
@@ -3512,8 +3579,6 @@ footer p{max-width:82ch;margin:0}
       </div>
     </div>
 
-
-
     <div class="keyline rv" style="margin-top:clamp(18px,2.6vw,24px)"><span class="kk">这份清单怎么读</span><p>四层是按“假设了多少”来排序的。开发层设法把目标造对；评估层假设你可能已经失手，于是去查；控制层假设你根本查不出来，于是照样把它围住；治理层则假设前三层都出于自愿，于是设法让它们具有约束力。能穿过全部四层活下来的风险，就是残余风险，而目前没有人声称它很小。</p></div>
 
     <details class="aside-note rv">
@@ -3591,7 +3656,7 @@ footer p{max-width:82ch;margin:0}
         <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">没有一项归零，也没有一项算是解决了。</text>
         <text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">浅色条：缓解之前。实色条：缓解之后。实色条就是剩下来的部分。</text>
       </svg>
-      <p class="fig-src">核查这些数字：<a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">宪法式分类器</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">反阴谋训练</a> · 完整出处见 <a href="#s52">52</a>、<a href="#s43">43</a></p>
+      <p class="fig-src"><a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">宪法式分类器</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">反阴谋训练</a> · 见 <a href="#s52">52</a>、<a href="#s43">43</a></p>
     </figure>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 346" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、建造者干脆不参与。">
@@ -3691,10 +3756,6 @@ footer p{max-width:82ch;margin:0}
     </div>
     <div class="keyline rv"><span class="kk">底线</span><p>我们不需要先证明结局一定很糟。我们需要的是承认这道题可能无解的诚实，以及一旦真的无解便就此停手的胆识。</p></div>
 
-    
-
-    
-    
   </div>
   </section>
 
@@ -3775,8 +3836,6 @@ footer p{max-width:82ch;margin:0}
   </div>
 </section>
 
-
-
 <!-- TIMELINE -->
 <!-- THE ASK -->
 <section id="change-my-mind">
@@ -3808,6 +3867,13 @@ footer p{max-width:82ch;margin:0}
       <p class="stand">去哪里学、谁握有权力，以及如何保持跟进。</p>
     </div>
 
+    <div class="resblock rv">
+      <a class="resbar resbar-go" href="/comics/">
+        <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+        <span class="rbt">Capy：一部关于 AI 安全的漫画</span><span class="rbs">同样的论证，画出来。每则一个概念，英文。</span>
+        <span class="rbx" aria-hidden="true">→</span>
+      </a>
+    </div>
     <div class="resblock rv" id="glossary">
       <button type="button" class="resbar" aria-expanded="false" data-res="glossary">
         <span class="rbi"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
@@ -3905,7 +3971,6 @@ footer p{max-width:82ch;margin:0}
     </div>
   </div>
 </section>
-
 
 <!-- FAQ -->
 <section id="faq">
@@ -4229,8 +4294,6 @@ var SITE_CONFIG = {
 
   // audience toggle removed: single version now
 
-
-
   /* ---------- HEADER SHARE BUTTON ---------- */
   (function(){
     var b = $("#hdr-share");
@@ -4269,7 +4332,6 @@ var SITE_CONFIG = {
       });
     }
   })();
-
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
@@ -4419,7 +4481,6 @@ var SITE_CONFIG = {
       }
     }
   })();
-
 
   /* ---------- WAYFINDING: segments, rail, breadcrumb, numeral, outline ---------- */
   (function(){
@@ -4632,7 +4693,6 @@ var SITE_CONFIG = {
     if(oPanel) oPanel.addEventListener("click", function(e){ if(e.target === oPanel) shut(); });
     document.addEventListener("keydown", function(e){ if(e.key === "Escape") shut(); });
 
-
     /* ---- tint the top nav groups to match the acts ---- */
     (function(){
       var groups = $$(".ng");
@@ -4687,7 +4747,6 @@ var SITE_CONFIG = {
         if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
       });
     })();
-
 
     /* ---- technique cards: swap short text for full detail in place ---- */
     $$(".tmore-btn").forEach(function(b){
@@ -5209,7 +5268,6 @@ var SITE_CONFIG = {
       });
     });
   });
-
 
   /* ---------- newsletter signup ---------- */
   (function(){
