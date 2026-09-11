@@ -377,8 +377,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
 .ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
 .ng-grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;
-  color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;pointer-events:none;
+  color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;
   border-top:1px solid #232b31;position:relative}
+.ng-grp a{color:inherit;text-decoration:none;display:block;transition:color .12s}
+.ng-grp:hover a{color:var(--ga,var(--ink))}
 .ng-grp::before{content:"";position:absolute;left:0;top:11px;width:2px;height:9px;border-radius:1px;background:var(--ga,#8a959c)}
 .ng-menu > .ng-grp:first-child{margin-top:0;border-top:0;padding-top:4px}
 .ng-menu a{padding-left:22px}
@@ -560,12 +562,10 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* act headings: quiet, lettered, with a soft rule in the act tone */
-.rail .grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--acc);opacity:0;padding:14px 10px 4px 34px;margin:0;transition:opacity .18s;white-space:nowrap;
-  display:flex;align-items:center;gap:8px}
+.rail .grp{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
 .rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.28}
 /* chapter rows */
-.rail a.rl{padding-left:34px}
+.rail a.rl{padding-left:36px}
 .rail a.rl:hover{background:var(--acc-t);color:#33302c}
 .rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:9.5px;flex:0 0 auto;min-width:30px;
   color:var(--acc);opacity:.75;padding-top:3px;transition:font-size .26s,opacity .2s}
@@ -1391,9 +1391,7 @@ footer p{max-width:82ch;margin:0}
 .care-c a.ref{color:#9cc48a}
 .care-c .term{border-bottom-color:#6e7981}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--acc);padding:26px 10px 4px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:nowrap;
-  display:flex;align-items:center;gap:9px}
+.rail .part{font-family:var(--display);font-size:11.5px;font-weight:800;letter-spacing:.02em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
 /* group headings, filled with the act colour */
 .outline-inner .opart{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.16em;
@@ -1488,6 +1486,11 @@ footer p{max-width:82ch;margin:0}
 /* CJK: the Latin label tracking spreads Chinese characters apart */
 .mh-h span,.rail .part,.rail .grp,.chapno,.eyebrow,.k,.gd-n,.pd-n,.ek,.kk{letter-spacing:.04em}
 .ng-grp{letter-spacing:.04em}
+
+/* rail: part > chapter > section, each level clickable */
+.rail .part a,.rail .grp a{color:inherit;text-decoration:none;display:block;flex:1}
+.rail .part a:hover{color:var(--ink)}
+.rail .grp a:hover{color:var(--ink)}
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -1668,16 +1671,16 @@ footer p{max-width:82ch;margin:0}
         <button type="button" class="ng-top" aria-expanded="false">我们为什么该在意 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">现状，一页说完</a></li>
-          <li class="ng-grp" style="--ga:#ff8a6b">第 1 章 · 我们押上一切的十年</li>
+          <li class="ng-grp" style="--ga:#ff8a6b"><a href="#why-irresistible">第 1 章 · 我们押上一切的十年</a></li>
           <li><a href="#why-irresistible">1.1 · 千亿美元的盲区</a></li>
-          <li class="ng-grp" style="--ga:#3fd0c9">第 2 章 · 岔路口</li>
+          <li class="ng-grp" style="--ga:#3fd0c9"><a href="#why-upside">第 2 章 · 岔路口</a></li>
           <li><a href="#why-upside">2.1 · 丰裕的时代</a></li>
           <li><a href="#why-it-ends-badly">2.2 · 故事的终点</a></li>
           <li><a href="#why-one-try">2.3 · 无法重来的实验</a></li>
-          <li class="ng-grp" style="--ga:#8d9dff">第 3 章 · 我们自己的麻烦</li>
+          <li class="ng-grp" style="--ga:#8d9dff"><a href="#why-race">第 3 章 · 我们自己的麻烦</a></li>
           <li><a href="#why-race">3.1 · 没有刹车的竞赛</a></li>
           <li><a href="#why-human-misalignment">3.2 · 没人达成一致的愿望</a></li>
-          <li class="ng-grp" style="--ga:#e8c98a">第 4 章 · 缺失的两块</li>
+          <li class="ng-grp" style="--ga:#e8c98a"><a href="#why-translation">第 4 章 · 缺失的两块</a></li>
           <li><a href="#why-translation">4.1 · 神灯问题</a></li>
           <li><a href="#why-safety-hard">4.2 · 黑箱</a></li>
         </ul>
@@ -1685,7 +1688,7 @@ footer p{max-width:82ch;margin:0}
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">能做些什么 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li class="ng-grp" style="--ga:#6f8a63">第 5 章 · 应对</li>
+          <li class="ng-grp" style="--ga:#6f8a63"><a href="#response">第 5 章 · 应对</a></li>
           <li><a href="#response">5.1 · 防线</a></li>
           <li><a href="#response-gaps">5.2 · 裂缝</a></li>
           <li><a href="#ask">5.3 · 航向修正</a></li>
@@ -2082,8 +2085,8 @@ footer p{max-width:82ch;margin:0}
     </figure>
     <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
       <div class="ddc t"><span class="k">健康</span><h4>寿命更长，也更健康</h4><p>健康寿命大致翻倍，多数癌症被消除，多数传染病被预防或治愈。这类研究的瓶颈在于受过训练的生物学家有多少，而不在于知识本身的边界。<a class="ref" href="#s67">67</a></p></div>
-      <div class="ddc g"><span class="k">丰裕</span><h4>物资不再稀缺</h4><p>东西之所以卖这个价，是因为做出来需要熟练的人类工时，而这正是它解除的约束。上面那条曲线是这件事变成数字的样子；落到家庭层面，就是原先靠价格配给的东西变成寻常物。<a class="ref" href="#s66">66</a></p></div>
-      <div class="ddc b"><span class="k">工作</span><h4>脑力苦工交出去</h4><p>产出照样送到，人却不必再耗那些小时。这是人们真正想要的那种自动化，而它来自同一种能力，也正是这之后一切困难的源头。<a class="ref" href="#s1">1</a></p></div>
+      <div class="ddc g"><span class="k">丰裕</span><h4>物资不再稀缺</h4><p>东西之所以卖这个价，是因为做出来要耗掉熟练工的时间，而这正是它解除的那道约束。上面那条曲线就是它换算成数字的结果；落到家庭层面，就是原先靠价格来配给的东西变得稀松平常。<a class="ref" href="#s66">66</a></p></div>
+      <div class="ddc b"><span class="k">工作</span><h4>重复的脑力劳动交出去</h4><p>产出照样完成，人却不必再把时间耗进去。这是人们真正想要的那种自动化，而它来自同一种能力，也正是这之后一切困难的源头。<a class="ref" href="#s1">1</a></p></div>
     </div>
 
   </div>
@@ -2095,22 +2098,8 @@ footer p{max-width:82ch;margin:0}
     <div class="sec-head rv">
       <span class="chapno">第 2.2 节 <b class="rt-min">2 分钟</b></span>
       <h2>同一个 AI 也可能终结文明</h2>
-      <p class="stand">人们期待 AGI 带来巨大的财富，解决今天人类解决不了的问题，直到物质丰裕几乎没有上限。</p>
+      <p class="stand">同一台机器也可能造成极端的伤害：有人蓄意滥用，机器与我们的目标错位，以及根本没有人打算造成伤害的那几条路。</p>
     </div>
-    <figure class="secfig rv" style="max-width:900px">
-      <svg viewBox="0 0 720 170" role="img" aria-label="两条柱：二十年后，按每年 3% 增长世界经济是今天的 1.8 倍，按每年 30% 则是 190 倍。">
-        <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".04em" fill="#98a2a8">二十年后的世界经济规模</text>
-        <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">今天记为 1</text>
-        <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按今天每年 3%</text>
-        <rect x="0" y="57" width="4.9" height="26" rx="2" fill="#6f8a63"/>
-        <text x="16.941750235111858" y="76" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#6f8a63">×1.8</text>
-        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按每年 30%，“爆发式增长”门槛</text>
-        <rect x="0" y="115" width="520" height="26" rx="3" fill="#ff8a6b"/>
-        <text x="532" y="134" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ff8a6b">×190</text>
-        <text x="0" y="160" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">只是一个模型，不是共识。增速复利二十年得出。</text>
-      </svg>
-      <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI，《人工智能与爆发式增长再论》</a> · <a class="ref" href="#s66">66</a></p>
-    </figure>
     <div class="body rv" style="margin-top:clamp(20px,3vw,30px)">
       <p>接下来是它出错的方式，以及为什么这不是科幻。</p>
     </div>
@@ -3635,9 +3624,9 @@ footer p{max-width:82ch;margin:0}
       <p class="lede">上面每一项技术都有用。真正的问题是它们加起来等于什么，所以这里放两样东西：已发表的最好结果实际达到的数字，以及在最要紧的三种情形下，每一道防护会变成什么样。</p>
     </div>
     <div class="ddgrid three rv">
-      <div class="ddc o"><span class="k">难点一</span><h4>模型知道自己正在被测试</h4><p>这些防护多数是在评估里测出来的。一个能分辨评估与真实部署的系统，可以在前者通过，在后者换一副样子。</p></div>
-      <div class="ddc r"><span class="k">难点二</span><h4>模型比看着它的那个更强</h4><p>监督、可解释性与控制，都假定看的人跟得上被看的那个在做什么。能力越往上走，这个假定就越站不住。</p></div>
-      <div class="ddc b"><span class="k">难点三</span><h4>建造者干脆不参与</h4><p>每一项技术防护，都要开发者自己选择去用。只有具备约束力的规则才够得着一个决定不用的实验室，而这样的规则目前没有几个地方有。</p></div>
+      <div class="ddc o"><span class="k">难点一</span><h4>模型知道自己正在被测试</h4><p>这些防护的效果，多数是在评估环境里测出来的。一个能分辨评估与真实部署的系统，可以在前者通过，在后者换一副样子。</p></div>
+      <div class="ddc r"><span class="k">难点二</span><h4>模型比监督它的系统更强</h4><p>监督、可解释性与控制，都预设监督方跟得上被监督方在做什么。能力越往上走，这个预设就越站不住。</p></div>
+      <div class="ddc b"><span class="k">难点三</span><h4>开发方索性不采用</h4><p>每一项技术防护，都得由开发方自己选择采用。真正管得住一家决定不采用的实验室的，只有具备约束力的规则，而这样的规则目前没有几个地方立得起来。</p></div>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 258" role="img" aria-label="三根柱状图显示越狱成功率与隐蔽行动比例大幅下降，但每一项在缓解之后都仍留有可见的非零残余。">
@@ -3667,7 +3656,7 @@ footer p{max-width:82ch;margin:0}
       <p class="fig-src"><a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">宪法式分类器</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">反阴谋训练</a> · 见 <a href="#s52">52</a>、<a href="#s43">43</a></p>
     </figure>
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 346" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、建造者干脆不参与。">
+      <svg viewBox="0 0 720 346" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、开发方索性不采用。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">哪些防护扛得住这三种最难的情形</text>
         <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">模型知道</text>
         <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">自己正被测试</text>
@@ -4574,7 +4563,7 @@ var SITE_CONFIG = {
         if(act.part && act.part !== lastPart){
           var pl = document.createElement("li");
           pl.className = "part";
-          pl.textContent = act.part;
+          pl.innerHTML = '<a href="#' + act.items[0].meta.id + '">' + act.part + '</a>';
           pl.style.setProperty("--acc", pal[0]);
           railList.appendChild(pl);
           lastPart = act.part;
@@ -4582,7 +4571,7 @@ var SITE_CONFIG = {
         if(act.name){
           var gl = document.createElement("li");
           gl.className = "grp";
-          gl.textContent = act.name;
+          gl.innerHTML = '<a href="#' + act.items[0].meta.id + '">' + act.name + '</a>';
           gl.style.setProperty("--acc", pal[0]);
           railList.appendChild(gl);
         }

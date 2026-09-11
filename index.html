@@ -382,8 +382,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
 .ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
 .ng-grp{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;pointer-events:none;
+  color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;
   border-top:1px solid #232b31;position:relative}
+.ng-grp a{color:inherit;text-decoration:none;display:block;transition:color .12s}
+.ng-grp:hover a{color:var(--ga,var(--ink))}
 .ng-grp::before{content:"";position:absolute;left:0;top:11px;width:2px;height:9px;border-radius:1px;background:var(--ga,#8a959c)}
 .ng-menu li:first-child .ng-grp,.ng-menu > .ng-grp:first-child{margin-top:0;border-top:0;padding-top:4px}
 .ng-menu a{padding-left:22px}
@@ -573,18 +575,14 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--acc);padding:26px 10px 4px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:nowrap;
-  display:flex;align-items:center;gap:9px}
+.rail .part{font-family:var(--display);font-size:11.5px;font-weight:800;letter-spacing:.02em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
 .rail li.part:first-of-type{padding-top:6px}
 /* group headings: nested under a part, so quieter and indented */
-.rail .grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--acc);opacity:0;padding:14px 10px 4px 34px;margin:0;transition:opacity .18s;white-space:nowrap;
-  display:flex;align-items:center;gap:8px}
+.rail .grp{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
 .rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.2}
 /* chapter rows sit one step in again */
-.rail a.rl{padding-left:34px}
+.rail a.rl{padding-left:36px}
 .rail li.static a.rl{padding-left:34px}
 /* chapter rows */
 .rail a.rl{position:relative;display:flex;align-items:flex-start;gap:9px;text-decoration:none;
@@ -1512,6 +1510,11 @@ div.endc{cursor:default}
 .ends-foot{font-family:var(--mono);font-size:9.5px;line-height:1.6;color:#8a959c;margin:12px 0 0}
 .endc-how{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed #2b343b;
   font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--e,#8a959c)}
+
+/* rail: part > chapter > section, each level clickable */
+.rail .part a,.rail .grp a{color:inherit;text-decoration:none;display:block;flex:1}
+.rail .part a:hover{color:var(--ink)}
+.rail .grp a:hover{color:var(--ink)}
 </style>
   <link rel="canonical" href="https://safeagi.ca/">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -1694,16 +1697,16 @@ div.endc{cursor:default}
         <button type="button" class="ng-top" aria-expanded="false">Why you should care <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">The situation, in one page</a></li>
-          <li class="ng-grp" style="--ga:#ff8a6b">Chapter 1 · The decade we bet everything</li>
+          <li class="ng-grp" style="--ga:#ff8a6b"><a href="#why-irresistible">Chapter 1 · The decade we bet everything</a></li>
           <li><a href="#why-irresistible">1.1 · The hundred-billion-dollar blind spot</a></li>
-          <li class="ng-grp" style="--ga:#3fd0c9">Chapter 2 · The fork in the road</li>
+          <li class="ng-grp" style="--ga:#3fd0c9"><a href="#why-upside">Chapter 2 · The fork in the road</a></li>
           <li><a href="#why-upside">2.1 · The age of abundance</a></li>
           <li><a href="#why-it-ends-badly">2.2 · The end of the story</a></li>
           <li><a href="#why-one-try">2.3 · The unrepeatable experiment</a></li>
-          <li class="ng-grp" style="--ga:#8d9dff">Chapter 3 · The trouble with us</li>
+          <li class="ng-grp" style="--ga:#8d9dff"><a href="#why-race">Chapter 3 · The trouble with us</a></li>
           <li><a href="#why-race">3.1 · The race with no brakes</a></li>
           <li><a href="#why-human-misalignment">3.2 · The wish nobody agreed on</a></li>
-          <li class="ng-grp" style="--ga:#e8c98a">Chapter 4 · The two missing pieces</li>
+          <li class="ng-grp" style="--ga:#e8c98a"><a href="#why-translation">Chapter 4 · The two missing pieces</a></li>
           <li><a href="#why-translation">4.1 · The genie problem</a></li>
           <li><a href="#why-safety-hard">4.2 · The black box</a></li>
         </ul>
@@ -1711,7 +1714,7 @@ div.endc{cursor:default}
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">What can be done about it <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li class="ng-grp" style="--ga:#6f8a63">Chapter 5 · The response</li>
+          <li class="ng-grp" style="--ga:#6f8a63"><a href="#response">Chapter 5 · The response</a></li>
           <li><a href="#response">5.1 · The defences</a></li>
           <li><a href="#response-gaps">5.2 · The cracks</a></li>
           <li><a href="#ask">5.3 · The course correction</a></li>
@@ -4540,7 +4543,7 @@ var SITE_CONFIG = {
         if(act.part && act.part !== lastPart){
           var pl = document.createElement("li");
           pl.className = "part";
-          pl.textContent = act.part;
+          pl.innerHTML = '<a href="#' + act.items[0].meta.id + '">' + act.part + '</a>';
           pl.style.setProperty("--acc", pal[0]);
           railList.appendChild(pl);
           lastPart = act.part;
@@ -4548,7 +4551,7 @@ var SITE_CONFIG = {
         if(act.name){
           var gl = document.createElement("li");
           gl.className = "grp";
-          gl.textContent = act.name;
+          gl.innerHTML = '<a href="#' + act.items[0].meta.id + '">' + act.name + '</a>';
           gl.style.setProperty("--acc", pal[0]);
           railList.appendChild(gl);
         }
