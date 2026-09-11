@@ -72,10 +72,10 @@ p{margin:0 0 1em}
   border:0;border-left:3px solid var(--acc);border-radius:3px;padding:5px 10px;cursor:pointer;transition:background .15s}
 .gpill:hover{background:var(--acc-t,var(--rule-soft))}
 .gpill i{font-style:normal;color:var(--ink-3)}
-.part-div{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,30px)}
-.part-div .pd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
-.part-div .pd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(13px,1.6vw,15px);color:var(--ink-2)}
-.part-div::after{content:"";flex:1;height:1px;background:var(--pd-acc);opacity:.4;align-self:center}
+.part-div{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(24px,3.4vw,36px)}
+.part-div .pd-n{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
+.part-div .pd-t{font-family:var(--display);font-weight:800;letter-spacing:-.015em;font-size:clamp(21px,1.1rem + 1.25vw,31px);color:var(--ink-2)}
+.part-div::after{content:"";flex:1;height:2px;background:var(--pd-acc);opacity:.4;align-self:center}
 .dark .part-div .pd-t{color:#c3ccd2}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
@@ -142,7 +142,7 @@ p{margin:0 0 1em}
 @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.55}}
 
 section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);position:relative}
-.sec-head{max-width:68ch;margin-bottom:clamp(22px,3.4vw,38px)}
+.sec-head{max-width:82ch;margin-bottom:clamp(22px,3.4vw,38px)}
 .sec-head h2{margin-bottom:14px}
 
 /* ---------- dark sections ---------- */
@@ -386,8 +386,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd{border-top:1px solid var(--rule)}
 .dd .chapno{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
   color:var(--c-risk);display:block;margin-bottom:14px}
-.dd h2{max-width:20ch;margin-bottom:16px}
-.dd .stand{font-size:clamp(17px,1rem + .4vw,21px);line-height:1.5;color:var(--ink-2);max-width:68ch;margin:0 0 14px}
+.dd h2{max-width:28ch;margin-bottom:16px}
+.dd .stand{font-size:clamp(17px,1rem + .4vw,21px);line-height:1.5;color:var(--ink-2);max-width:74ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{margin-top:8px}
 .dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:68ch}
@@ -419,6 +419,11 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .mh-kick{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;margin:0 0 22px}
 .mh-title{font-family:var(--display);font-weight:900;letter-spacing:-.035em;line-height:.95;
   font-size:clamp(38px,7.5vw,84px);color:#fff;margin:0 0 24px;max-width:16ch}
+.mh-hl{color:#ff8a6b}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .mh-hl{background:linear-gradient(104deg,#ff8a6b 0%,#e8c98a 32%,#3fd0c9 64%,#8d9dff 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+}
 .mh-lede{font-family:var(--body);font-weight:400;font-size:clamp(19px,1.15rem + .55vw,26px);line-height:1.42;
   color:#eef3f6;max-width:36em;margin:0 0 24px;border-left:3px solid #ff8a6b;padding-left:clamp(14px,1.6vw,20px)}
 .mh-lede strong{color:#fff;font-weight:600}
@@ -549,7 +554,7 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* act headings: quiet, lettered, with a soft rule in the act tone */
-.rail .grp{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+.rail .grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--acc);opacity:0;padding:14px 10px 4px 34px;margin:0;transition:opacity .18s;white-space:nowrap;
   display:flex;align-items:center;gap:8px}
 .rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.28}
@@ -874,8 +879,8 @@ html{overflow-x:hidden}
 .cross .wrap{position:relative;z-index:1}
 .cross h2{color:#fff}
 .cross .eyebrow{color:#7d8890}.cross .eyebrow::after{background:#333d44}
-.cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;
-  font-size:clamp(30px,6.4vw,60px);max-width:18ch;margin:0 0 22px}
+.cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.06;
+  font-size:clamp(25px,2.4vw + 1rem,40px);max-width:24ch;margin:0 0 20px}
 .cross .big em{font-style:normal;color:#ff8a6b}
 .cross-hero{position:relative}
 .cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
@@ -1357,10 +1362,10 @@ footer p{max-width:82ch;margin:0}
 /* ---------- ported from the English page ---------- */
 .grp-div{display:flex;align-items:baseline;gap:12px;margin:0 0 clamp(16px,2.2vw,24px);
   padding-bottom:9px;border-bottom:1px solid var(--rule-soft)}
-.grp-div .gd-n{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;
+.grp-div .gd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gd-acc);white-space:nowrap}
-.grp-div .gd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;
-  font-size:clamp(13px,1.5vw,15.5px);color:var(--ink-2)}
+.grp-div .gd-t{font-family:var(--display);font-weight:800;letter-spacing:-.012em;
+  font-size:clamp(16px,.95rem + .6vw,21px);color:var(--ink-2)}
 /* "Why should we care?" three reasons side by side */
 .care3{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.8vw,22px);margin:0 0 28px}
 .care-c.wide{grid-column:1 / -1}
@@ -1380,7 +1385,7 @@ footer p{max-width:82ch;margin:0}
 .care-c a.ref{color:#9cc48a}
 .care-c .term{border-bottom-color:#6e7981}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+.rail .part{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
   color:var(--acc);padding:26px 10px 4px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:nowrap;
   display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
@@ -1700,7 +1705,7 @@ footer p{max-width:82ch;margin:0}
 <header class="masthead">
   <div class="wrap">
     <p class="mh-kick">一份独立的领域指南 · Bill Guan 著</p>
-    <h1 class="mh-title">人类至今未解的<br>最大难题</h1>
+    <h1 class="mh-title">人类至今未解的<br><span class="mh-hl">最大难题</span></h1>
         <div class="mh-care">
     <h2 class="mh-h"><span>我们为什么该在意</span></h2>
     <div class="care3 slim">
@@ -2313,7 +2318,7 @@ footer p{max-width:82ch;margin:0}
     </div>
 
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 250" role="img" aria-label="对数坐标曲线：前沿 AI 智能体能完成的任务时长，从 2019 年的不足一分钟升至 2026 年的数小时。">
+      <svg viewBox="0 -12 720 262" role="img" aria-label="对数坐标曲线：前沿 AI 智能体能完成的任务时长，从 2019 年的不足一分钟升至 2026 年的数小时。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">前沿智能体能独立完成的任务时长</text>
         <line x1="56" y1="34" x2="56" y2="214" stroke="#c3c9cd"/>
         <line x1="56" y1="214" x2="700" y2="214" stroke="#c3c9cd"/>

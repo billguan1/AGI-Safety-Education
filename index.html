@@ -73,10 +73,10 @@ p{margin:0 0 1em}
   border:0;border-left:3px solid var(--acc);border-radius:3px;padding:5px 10px;cursor:pointer;transition:background .15s}
 .gpill:hover{background:var(--acc-t,var(--rule-soft))}
 .gpill i{font-style:normal;color:var(--ink-3)}
-.part-div{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(20px,3vw,30px)}
-.part-div .pd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
-.part-div .pd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(13px,1.6vw,15px);color:var(--ink-2)}
-.part-div::after{content:"";flex:1;height:1px;background:var(--pd-acc);opacity:.4;align-self:center}
+.part-div{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(24px,3.4vw,36px)}
+.part-div .pd-n{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--pd-acc);white-space:nowrap}
+.part-div .pd-t{font-family:var(--display);font-weight:800;letter-spacing:-.015em;font-size:clamp(21px,1.1rem + 1.25vw,31px);color:var(--ink-2)}
+.part-div::after{content:"";flex:1;height:2px;background:var(--pd-acc);opacity:.4;align-self:center}
 .dark .part-div .pd-t{color:#c3ccd2}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
@@ -140,7 +140,7 @@ p{margin:0 0 1em}
 @keyframes pulse{0%,100%{opacity:.2}50%{opacity:.55}}
 
 section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);position:relative}
-.sec-head{max-width:68ch;margin-bottom:clamp(22px,3.4vw,38px)}
+.sec-head{max-width:82ch;margin-bottom:clamp(22px,3.4vw,38px)}
 .sec-head h2{margin-bottom:14px}
 
 /* ---------- dark sections ---------- */
@@ -391,8 +391,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .dd{border-top:1px solid var(--rule)}
 .dd .chapno{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
   color:var(--c-risk);display:block;margin-bottom:14px}
-.dd h2{max-width:20ch;margin-bottom:16px}
-.dd .stand{font-size:clamp(17px,1rem + .4vw,21px);line-height:1.5;color:var(--ink-2);max-width:68ch;margin:0 0 14px}
+.dd h2{max-width:28ch;margin-bottom:16px}
+.dd .stand{font-size:clamp(17px,1rem + .4vw,21px);line-height:1.5;color:var(--ink-2);max-width:74ch;margin:0 0 14px}
 .dd .stand strong{color:var(--ink);font-weight:500}
 .dd .body{margin-top:8px}
 .dd .body>p{font-size:16.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px;max-width:68ch}
@@ -410,6 +410,19 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .keyline{background:var(--panel);color:#fff;border-radius:var(--r);padding:clamp(18px,2.8vw,26px);margin:clamp(22px,3.4vw,32px) 0}
 .keyline .kk{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#ff8a6b;display:block;margin-bottom:10px}
 .keyline p{font-family:var(--display);font-weight:600;letter-spacing:-.018em;font-size:clamp(19px,2.6vw,26px);line-height:1.32;color:#fff;margin:0;max-width:40ch}
+.expair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin:18px 0}
+.exfold{margin:18px 0}
+.exfold>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-dev);border:1.5px solid var(--rule);border-radius:999px;padding:8px 15px;transition:.15s}
+.exfold>summary::-webkit-details-marker{display:none}
+.exfold>summary::after{content:"+";font-size:15px;line-height:1}
+.exfold[open]>summary::after{content:"\2013"}
+.exfold>summary:hover{border-color:var(--ink);color:var(--ink)}
+.exfold[open]>summary{margin-bottom:14px}
+.exfold .expair{margin:0}
+.expair .example{margin:0}
+@media(max-width:820px){.expair{grid-template-columns:1fr}}
 .example{border-left:3px solid var(--c-dev);background:var(--card,#1b2126);border-radius:0 var(--r) var(--r) 0;padding:16px 18px;margin:18px 0}
 .example .ek{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:8px}
 .example p{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0;max-width:76ch}
@@ -430,10 +443,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   text-wrap:balance;overflow-wrap:break-word}
 .grp-div{display:flex;align-items:baseline;gap:12px;margin:0 0 clamp(16px,2.2vw,24px);
   padding-bottom:9px;border-bottom:1px solid var(--rule-soft)}
-.grp-div .gd-n{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;
+.grp-div .gd-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gd-acc);white-space:nowrap}
-.grp-div .gd-t{font-family:var(--display);font-weight:800;letter-spacing:-.01em;
-  font-size:clamp(13px,1.5vw,15.5px);color:var(--ink-2)}
+.grp-div .gd-t{font-family:var(--display);font-weight:800;letter-spacing:-.012em;
+  font-size:clamp(16px,.95rem + .6vw,21px);color:var(--ink-2)}
 /* big section headers inside the masthead: one thing to look at per screen */
 .mh-h{display:flex;align-items:center;gap:14px;margin:0 0 clamp(16px,2vw,22px)}
 .mh-h span{font-family:var(--mono);font-weight:700;letter-spacing:.16em;text-transform:uppercase;
@@ -442,6 +455,11 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .mh-h::after{content:"";flex:1;height:2px;border-radius:2px;
   background:linear-gradient(90deg,rgba(255,138,107,.6),rgba(232,201,138,.4) 35%,rgba(63,208,201,.3) 65%,rgba(141,157,255,.12) 85%,transparent)}
+.mh-hl{color:#ff8a6b}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .mh-hl{background:linear-gradient(104deg,#ff8a6b 0%,#e8c98a 32%,#3fd0c9 64%,#8d9dff 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+}
 .mh-lede{font-family:var(--body);font-weight:300;color:#b6c0c6;
   font-size:clamp(17px,1rem + .55vw,22px);line-height:1.45;max-width:60ch;margin:0}
 .mh-care{margin-top:clamp(44px,6vw,76px)}
@@ -549,13 +567,13 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+.rail .part{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
   color:var(--acc);padding:26px 10px 4px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:nowrap;
   display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
 .rail li.part:first-of-type{padding-top:6px}
 /* group headings: nested under a part, so quieter and indented */
-.rail .grp{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+.rail .grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--acc);opacity:0;padding:14px 10px 4px 34px;margin:0;transition:opacity .18s;white-space:nowrap;
   display:flex;align-items:center;gap:8px}
 .rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.2}
@@ -788,6 +806,9 @@ html{overflow-x:hidden}
 .xmore-btn:hover{opacity:.7}
 .tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
 /* ---------- section figures ---------- */
+.figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1040px;margin:clamp(22px,3.4vw,32px) 0;align-items:start}
+.figpair .secfig{margin:0;max-width:none}
+@media(max-width:820px){.figpair{grid-template-columns:1fr}}
 .secfig{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px;border:1px solid var(--rule-soft);border-radius:var(--r);
   background:var(--white);padding:clamp(16px,2.4vw,22px)}
 .secfig svg{display:block;width:100%;height:auto}
@@ -883,8 +904,8 @@ html{overflow-x:hidden}
 .cross .wrap{position:relative;z-index:1}
 .cross h2{color:#fff}
 .cross .eyebrow{color:#7d8890}.cross .eyebrow::after{background:#333d44}
-.cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02;
-  font-size:clamp(30px,6.4vw,60px);max-width:18ch;margin:0 0 22px}
+.cross .big{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.06;
+  font-size:clamp(25px,2.4vw + 1rem,40px);max-width:24ch;margin:0 0 20px}
 .cross .big em{font-style:normal;color:#ff8a6b}
 .cross-hero{position:relative}
 .cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
@@ -944,15 +965,19 @@ html{overflow-x:hidden}
 .cl-sub{color:#aeb9c0;font-size:15.5px;line-height:1.5;margin:0 0 16px}
 .cl-figs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);align-items:start}
 .cl-figs.one{grid-template-columns:1fr;max-width:none}
+.cl-figs.stack{grid-template-columns:1fr;gap:clamp(16px,2.2vw,24px)}
+.cl-figs.panels figure{border:1px solid #2b343b;border-left:3px solid var(--fig-acc,#8a959c);
+  border-radius:var(--r);background:rgba(0,0,0,.2);padding:clamp(13px,1.8vw,17px)}
+.cl-figs.panels .fig-src{margin-top:9px}
 @media(max-width:760px){.cl-figs{grid-template-columns:1fr}}
 .cl-figs figure{margin:0}
 .cl-figs svg{width:100%;height:auto;display:block;overflow:visible}
 .cl-figs .fig-src{font-size:8.5px;margin-top:7px}
 .cl-foot{color:#8a959c;font-size:13.5px;line-height:1.5;margin:14px 0 0}
-.cl-halves{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,18px);margin-top:clamp(14px,2vw,18px)}
+.cl-halves{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,18px);margin-top:clamp(14px,2vw,18px);align-items:stretch}
 @media(max-width:820px){.cl-halves{grid-template-columns:1fr}}
 .cl-half{border:1px solid #2b343b;border-left:3px solid var(--half-acc,#8a959c);border-radius:var(--r);
-  background:rgba(0,0,0,.2);padding:clamp(14px,2vw,20px);margin-top:0}
+  background:rgba(0,0,0,.2);padding:clamp(14px,2vw,20px);margin-top:0;display:flex;flex-direction:column}
 .cl-hh{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin-bottom:10px;
   padding-bottom:10px;border-bottom:1px solid #2b343b}
 .cl-sk{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
@@ -1572,7 +1597,7 @@ div.endc{cursor:default}
      "name": "Can't we just switch it off if it misbehaves?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "That is the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default."
+      "text": "That is the ability we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default."
      }
     },
     {
@@ -1588,7 +1613,7 @@ div.endc{cursor:default}
      "name": "Isn't it too late, or too big for me to matter?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "The single biggest bottleneck in this field is that most people have never heard the argument in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this page, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the actions section lists concrete steps."
+      "text": "The single biggest bottleneck in this field is that most people have never heard the case in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this page, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the actions section lists concrete steps."
      }
     },
     {
@@ -1656,7 +1681,7 @@ div.endc{cursor:default}
         <button type="button" class="ng-top" aria-expanded="false">Why you should care <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">The situation, in one page</a></li>
-          <li><a href="#why-irresistible">1.1 · Where the money goes</a></li>
+          <li><a href="#why-irresistible">1 · Where the money goes</a></li>
           <li><a href="#why-upside">2.1 · What we get if this goes right</a></li>
           <li><a href="#why-it-ends-badly">2.2 · What it costs if it goes wrong</a></li>
           <li><a href="#why-one-try">2.3 · Only one attempt to get it right</a></li>
@@ -1678,7 +1703,7 @@ div.endc{cursor:default}
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">Reference <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#change-my-mind">What would change this argument</a></li>
+          <li><a href="#change-my-mind">What would prove this wrong</a></li>
           <li><a href="#faq">Questions people raise</a></li>
           <li><a href="#glossary">Glossary</a></li>
           <li><a href="#resources">Courses and directories</a></li>
@@ -1712,19 +1737,19 @@ div.endc{cursor:default}
 <header class="masthead">
   <div class="wrap">
     <p class="mh-kick">An independent field guide · by Bill Guan</p>
-    <h1 class="mh-title">The hardest problem humanity has yet to solve: AGI&nbsp;Safety</h1>
+    <h1 class="mh-title">The hardest problem humanity has yet to solve: <span class="mh-hl">AGI&nbsp;Safety</span></h1>
     <p class="mh-lede">Machines are getting better at everything faster than we are learning to control them, and only a sliver of the money follows them into safety. This page lays out why that gap matters, and what would close it.</p>
     <div class="mh-care">
     <h2 class="mh-h"><span>Why should we care</span></h2>
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
-        <h3>Superintelligence is arriving soon, and safety research is already way behind</h3>
+        <h3>Superintelligence is arriving imminently</h3>
         <p>Machines are improving fast, and the money spent checking they are safe is a rounding error.</p></a>
       <a class="care-c" href="#claim-2"><span class="care-n">2</span>
-        <h3>The potential result can range from infinite abundance to end of civilization</h3>
-        <p>This is the biggest stake humanity has ever gambled on.</p></a>
+        <h3>Stakes are extremely high</h3>
+        <p>The biggest gamble humanity has ever made can lead to almost unlimited abundance or to destruction.</p></a>
       <a class="care-c" href="#claim-3"><span class="care-n">3</span>
-        <h3>The problem is extremely difficult and no one has a solution yet</h3>
+        <h3>Nobody knows how to make superintelligence safe</h3>
         <p>Aligning goals with the entire civilization, and then with machines, remains an intractable problem.</p></a>
     </div>
     </div>
@@ -1768,7 +1793,7 @@ div.endc{cursor:default}
         <span class="cl-n">1</span>
         <h3><a href="#why-irresistible">Superintelligence is arriving soon, and safety research is already way behind</a></h3>
         <p class="cl-sub">The length of job a machine can finish on its own has roughly doubled every seven months since 2019, and most forecasters now put human-level performance on every task somewhere between 2033 and 2047.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a> The money spent checking these systems are safe is a rounding error next to the money spent building them.</p>
-        <div class="cl-figs">
+        <div class="cl-figs panels" style="--fig-acc:#ff8a6b">
         <figure>
           <svg viewBox="0 0 480 294" role="img" aria-label="Bar chart: about one hundred billion dollars going into building advanced AI against about ten million dollars of public-sector safety research, safety at roughly two percent of all AI research.">
             <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#8a959c">WHAT WE SPEND BUILDING IT VERSUS CHECKING IT</text>
@@ -1811,7 +1836,7 @@ div.endc{cursor:default}
       <text x="70" y="200" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">agents out of the sandbox, real firms compromised</text>
     
       <rect x="0" y="248" width="480" height="32" rx="4" fill="#ff8a6b" fill-opacity=".13" stroke="#ff8a6b" stroke-width="1.2"/>
-      <text x="240" y="269" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#ff8a6b">It is already here, and the evidence keeps getting more concrete</text>
+      <text x="240" y="269" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#ff8a6b">Unsafe behaviour is already proliferating in existing systems</text>
     </svg>
         </figure>
         </div>
@@ -1822,7 +1847,7 @@ div.endc{cursor:default}
         <span class="cl-n">2</span>
         <h3><a href="#why-it-ends-badly">The potential result can range from infinite abundance to end of civilization</a></h3>
         <p class="cl-sub">A machine that can do its own research would hand us cures for diseases we cannot treat today and material abundance without limit. Built without control, that same machine has a well understood route to killing everyone, and it does not need to hate us to get there.</p>
-        <div class="cl-figs">
+        <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
         <figure>
           <svg viewBox="0 0 480 280" role="img" aria-label="Line chart: the world economy stays nearly flat at today's three percent growth, bends sharply upward at twelve percent a year, and runs off the top of the chart by 2044 at thirty percent a year.">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT HAPPENS TO THE GROWTH CURVE</text>
@@ -1889,7 +1914,7 @@ div.endc{cursor:default}
         <div class="cl-half" style="--half-acc:#8d9dff">
           <div class="cl-hh"><span class="cl-sk">Problem one</span><span class="cl-hn">Coordination, between people</span></div>
           <p>No lab or country can slow down on its own, because whoever keeps going wins, and good intentions do not change that. Even if everyone agreed to stop, we have never agreed as a species on what a machine should want, and whoever gets to write that down holds enormous power.</p>
-          <div class="cl-figs">
+          <div class="cl-figs stack">
         <figure>
           <svg viewBox="0 0 480 294" role="img" aria-label="Two-by-two grid: whether the other side keeps going or slows down, going faster pays, so the racing outcome is the stable one.">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT EACH SIDE GAINS BY GOING FASTER</text>
@@ -1913,25 +1938,24 @@ div.endc{cursor:default}
     </svg>
         </figure>
         <figure>
-          <svg viewBox="0 0 480 290" role="img" aria-label="Diagram: governments, companies, religions, cultures and individuals all point at one empty box, with nothing agreed to put in it.">
+          <svg viewBox="0 0 480 190" role="img" aria-label="Diagram: governments, companies, religions, cultures and individuals all point at one empty box, with nothing agreed to put in it.">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">SO WHAT DO WE AIM IT AT?</text>
       <defs><marker id="sg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b757c"/></marker></defs>
-      <rect x="178" y="92" width="124" height="66" rx="6" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="5 4"/>
-      <text x="240" y="128" font-family="Archivo,sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#8a959c">?</text>
-      <text x="240" y="150" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8a959c">what goes in here</text>
-      <text x="0" y="62" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a7b1b8">Governments</text>
-      <path d="M92,58 C130,58 140,125 172,125" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
-      <text x="0" y="129" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a7b1b8">Companies</text>
-      <path d="M92,125 C130,125 140,125 172,125" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
-      <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a7b1b8">Religions</text>
-      <path d="M92,192 C130,192 140,125 172,125" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
-      <text x="480" y="74" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="end" fill="#a7b1b8">Cultures</text>
-      <path d="M388,70 C350,70 340,125 308,125" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
-      <text x="480" y="184" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="end" fill="#a7b1b8">Individuals</text>
-      <path d="M388,180 C350,180 340,125 308,125" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
-    
-      <rect x="0" y="250" width="480" height="32" rx="4" fill="#8d9dff" fill-opacity=".13" stroke="#8d9dff" stroke-width="1.2"/>
-      <text x="240" y="271" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#8d9dff">Whoever fills the box decides for everyone</text>
+      <rect x="176" y="70" width="128" height="48" rx="6" fill="none" stroke="#8a959c" stroke-width="1.6" stroke-dasharray="5 4"/>
+      <text x="240" y="99" font-family="Archivo,sans-serif" font-size="21" font-weight="800" text-anchor="middle" fill="#8a959c">?</text>
+      <text x="240" y="112" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#8a959c">what goes in here</text>
+      <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a7b1b8">Governments</text>
+      <path d="M84,46 C126,46 140,94 170,94" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
+      <text x="0" y="94" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a7b1b8">Companies</text>
+      <path d="M84,90 C126,90 140,94 170,94" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
+      <text x="0" y="138" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#a7b1b8">Religions</text>
+      <path d="M84,134 C126,134 140,94 170,94" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
+      <text x="480" y="60" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="end" fill="#a7b1b8">Cultures</text>
+      <path d="M396,56 C354,56 340,94 310,94" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
+      <text x="480" y="128" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="end" fill="#a7b1b8">Individuals</text>
+      <path d="M396,124 C354,124 340,94 310,94" fill="none" stroke="#4a545c" stroke-width="1.3" marker-end="url(#sg)"/>
+      <rect x="0" y="148" width="480" height="32" rx="4" fill="#8d9dff" fill-opacity=".13" stroke="#8d9dff" stroke-width="1.2"/>
+      <text x="240" y="169" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#8d9dff">Whoever fills the box decides for everyone</text>
     </svg>
         </figure>
           </div>
@@ -1942,21 +1966,28 @@ div.endc{cursor:default}
           <p>We cannot write down what we mean precisely enough for a machine to follow it, because something always gets left out. And we can only see what a system does on our tests, never what it actually wants. <a href="#why-translation">Two chapters</a> go through the detail.</p>
           <div class="cl-figs one">
         <figure>
-          <svg viewBox="0 0 480 294" role="img" aria-label="Two panels: we cannot state what we want precisely enough, and we cannot check that a system holds it.">
+          <svg viewBox="0 0 480 500" role="img" aria-label="Two panels: we cannot state what we want precisely enough, and we cannot check that a system holds it.">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TWO THINGS WE STILL CANNOT DO</text>
-      <rect x="0" y="34" width="480" height="96" rx="6" fill="none" stroke="#8d9dff" stroke-width="1.4"/>
-      <text x="16" y="56" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="700" letter-spacing=".14em" fill="#8d9dff">PROBLEM 1</text>
-      <text x="16" y="80" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">Say what we want, exactly</text>
-      <text x="16" y="100" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">Every rule we write leaves out the part we</text>
-      <text x="16" y="114" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">never thought to say out loud.</text>
-      <rect x="0" y="144" width="480" height="96" rx="6" fill="none" stroke="#ff8a6b" stroke-width="1.4"/>
-      <text x="16" y="166" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="700" letter-spacing=".14em" fill="#ff8a6b">PROBLEM 2</text>
-      <text x="16" y="190" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">Check that it means it</text>
-      <text x="16" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">A system can score well on every test we have</text>
-      <text x="16" y="224" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">and still hold something else.</text>
-    
-      <rect x="0" y="254" width="480" height="32" rx="4" fill="#a98a4b" fill-opacity=".13" stroke="#a98a4b" stroke-width="1.2"/>
-      <text x="240" y="275" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#a98a4b">We cannot say what we mean, and we cannot check what it holds</text>
+      <rect x="0" y="32" width="480" height="200" rx="6" fill="none" stroke="#8d9dff" stroke-width="1.4"/>
+      <rect x="0" y="32" width="4" height="200" rx="2" fill="#8d9dff" opacity=".7"/>
+      <text x="20" y="62" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="700" letter-spacing=".14em" fill="#8d9dff">PROBLEM 1</text>
+      <text x="20" y="96" font-family="Archivo,sans-serif" font-size="16" font-weight="800" fill="#fff">Difficult to align goals and values</text>
+      <text x="20" y="128" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Every rule we write leaves out the part we</text>
+      <text x="20" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">never thought to say out loud.</text>
+      <line x1="20" y1="170" x2="460" y2="170" stroke="#2b343b"/>
+      <text x="20" y="196" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8d9dff">So the goal it optimises is never quite</text>
+      <text x="20" y="212" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8d9dff">the goal we meant.</text>
+      <rect x="0" y="248" width="480" height="200" rx="6" fill="none" stroke="#ff8a6b" stroke-width="1.4"/>
+      <rect x="0" y="248" width="4" height="200" rx="2" fill="#ff8a6b" opacity=".7"/>
+      <text x="20" y="278" font-family="IBM Plex Mono,monospace" font-size="8.5" font-weight="700" letter-spacing=".14em" fill="#ff8a6b">PROBLEM 2</text>
+      <text x="20" y="312" font-family="Archivo,sans-serif" font-size="16" font-weight="800" fill="#fff">No techniques exist for true validation</text>
+      <text x="20" y="344" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">A system can score well on every test we</text>
+      <text x="20" y="362" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">have and still hold something else.</text>
+      <line x1="20" y1="386" x2="460" y2="386" stroke="#2b343b"/>
+      <text x="20" y="412" font-family="IBM Plex Mono,monospace" font-size="10" fill="#ff8a6b">So a good score tells you about the test</text>
+      <text x="20" y="428" font-family="IBM Plex Mono,monospace" font-size="10" fill="#ff8a6b">rather than about the system.</text>
+      <rect x="0" y="462" width="480" height="32" rx="4" fill="#a98a4b" fill-opacity=".13" stroke="#a98a4b" stroke-width="1.2"/>
+      <text x="240" y="483" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#a98a4b">We cannot say what we mean, and we cannot check what it holds</text>
     </svg>
         </figure>
           </div>
@@ -1983,7 +2014,7 @@ div.endc{cursor:default}
     <div class="part-div" style="--pd-acc:#5b6b9e"><span class="pd-n">Part 2</span><span class="pd-t">The three reasons in full</span></div>
     <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">1</span><span class="gd-t">Arriving soon, safety behind</span></div>
     <div class="sec-head rv">
-      <span class="chapno">Chapter 1.1 <b class="rt-min">3 min</b></span>
+      <span class="chapno">Chapter 1 <b class="rt-min">3 min</b></span>
       <h2>The money goes into building it, which pulls the timeline in and leaves safety behind</h2>
       <p class="stand">Understanding the danger does not stop it. The rewards are immediate, and they land on whoever moves first.</p>
     </div>
@@ -2064,7 +2095,7 @@ div.endc{cursor:default}
         <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">at 30% a year, the "explosive growth" bar</text>
         <rect x="0" y="115" width="520" height="26" rx="3" fill="#ff8a6b"/>
         <text x="532" y="134" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ff8a6b">×190</text>
-        <text x="0" y="160" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">One model, not a consensus. Rates compounded for twenty years.</text>
+        <text x="0" y="160" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">One model only, with rates compounded for twenty years.</text>
       </svg>
       <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>, rates compounded for twenty years · <a class="ref" href="#s66">66</a></p>
     </figure>
@@ -2138,8 +2169,8 @@ div.endc{cursor:default}
         <text x="561" y="199" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">survive in</text>
         <rect x="0" y="222" width="720" height="44" rx="5" fill="rgba(189,58,32,.12)" stroke="#bd3a20" stroke-width="1.2"/>
         <text x="16" y="242" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#ff8a6b">Humans need that narrow band to stay alive, and nothing in the goal requires keeping us in it.</text>
-        <text x="16" y="258" font-family="IBM Plex Mono,monospace" font-size="9" fill="#c9836c">We die of the side effects, the way a species dies when a forest is cleared for something else.</text>
-        <text x="0" y="288" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">None of this requires the machine to dislike us.</text>
+        <text x="16" y="259" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#e0a58f">We die of the side effects, the way a species dies when a forest is cleared for something else.</text>
+        <text x="0" y="288" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">None of this requires the machine to want to destroy us intentionally.</text>
       </svg>
       <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="#s34">34</a> <a class="ref" href="#s26">26</a></p>
     </figure>
@@ -2153,123 +2184,11 @@ div.endc{cursor:default}
     <div class="sec-head rv">
       <span class="chapno">Chapter 2.3 <b class="rt-min">5 min</b></span>
       <h2>Only one attempt to get it right</h2>
-      <p class="stand">We got cars, planes and nuclear power right by getting them wrong first. That method needs a mistake we survive and the time to react, and both of those hold only because a car cannot copy itself or redesign its own engine.</p>
+      <p class="stand">We got cars, planes and nuclear power right by getting them wrong first, and that method held because a car does not copy itself and a reactor does not rewrite its own design.<a class="ref" href="#s34">34</a> A system that writes its own successor closes the gap between a mistake and the fix. That is <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>.</p>
     </div>
-    <div class="body rv">
-      </div>
-
-    <div class="body rv">
-      <p>A car does not copy itself and a reactor does not rewrite its own design, which is why the gap between a mistake and the fix stayed open long enough for us to use it.<a class="ref" href="#s34">34</a> <strong>A system that writes its own successor closes that gap.</strong> That is <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>: its capability climbs on machine time while our reaction runs on human time, and each round shortens the next.</p>
-    </div>
-    <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Already autonomous, and heading for recursive self-improvement</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">The length of job an agent finishes on its own has doubled about every seven months since 2019, and each doubling moves judgement from the person to the system, because nobody reads line by line what took a machine a day to write.<a class="ref" href="#s44">44</a> The work being handed over is not incidental: it is engineering, and a growing share of it is the engineering of AI systems themselves. In July 2026 agents were autonomous enough to leave their sandboxes and act on the open internet without a person in the loop.<a class="ref" href="#s39">39</a><a class="ref" href="#s41">41</a> <strong>An agent that can do the work of building AI is the input recursive self-improvement needs.</strong></p>
-    <figure class="secfig rv">
-      <svg viewBox="0 0 720 250" role="img" aria-label="Log-scale curve showing the length of task frontier AI agents can complete rising from under a minute in 2019 to hours by 2026.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TASK LENGTH A FRONTIER AGENT CAN COMPLETE ALONE</text>
-        <line x1="56" y1="34" x2="56" y2="214" stroke="#c3c9cd"/>
-        <line x1="56" y1="214" x2="700" y2="214" stroke="#c3c9cd"/>
-        <line x1="56" y1="174" x2="700" y2="174" stroke="#232b31"/>
-        <text x="50" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 min</text>
-        <line x1="56" y1="122" x2="700" y2="122" stroke="#232b31"/>
-        <text x="50" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">10 min</text>
-        <line x1="56" y1="81" x2="700" y2="81" stroke="#232b31"/>
-        <text x="50" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">1 hr</text>
-        <line x1="56" y1="50" x2="700" y2="50" stroke="#232b31"/>
-        <text x="50" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">4 hr</text>
-        <path d="M60,201 L148,185 L236,164 L324,142 L412,118 L500,90 L588,66 L676,45" fill="none" stroke="#8d9dff" stroke-width="2.6"/>
-        <circle cx="60" cy="201" r="3.4" fill="#8d9dff"/>
-        <circle cx="148" cy="185" r="3.4" fill="#8d9dff"/>
-        <circle cx="236" cy="164" r="3.4" fill="#8d9dff"/>
-        <circle cx="324" cy="142" r="3.4" fill="#8d9dff"/>
-        <circle cx="412" cy="118" r="3.4" fill="#8d9dff"/>
-        <circle cx="500" cy="90" r="3.4" fill="#8d9dff"/>
-        <circle cx="588" cy="66" r="3.4" fill="#8d9dff"/>
-        <circle cx="676" cy="45" r="3.4" fill="#8d9dff"/>
-        <text x="60" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2019</text>
-        <text x="324" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2022</text>
-        <text x="676" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2026</text>
-        <path d="M676,45 L700,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
-        <text x="700" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">if the trend holds</text>
-        <text x="700" y="18" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">METR stops scoring reliably above 16 hr</text>
-        <text x="66" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#8d9dff">doubling roughly every 7 months</text>
-      </svg>
-      <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR, Task-Completion Time Horizons of Frontier AI Models</a> · <a href="#s44">44</a></p>
-    </figure>
-    <figure class="secfig rv">
-      <svg viewBox="0 0 720 252" role="img" aria-label="Stacked area chart: the share of work reviewed by a person shrinks steadily as agents complete longer tasks.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SHARE OF WORK A HUMAN STILL CHECKS</text>
-        <path d="M58,40 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,40 Z" fill="#b5654d" opacity=".22"/>
-        <path d="M58,190 L58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166 L690,190 Z" fill="#6f8a63" opacity=".28"/>
-        <path d="M58,52 L148,61 L239,73 L329,91 L419,112 L509,133 L600,151 L690,166" fill="none" stroke="#6f8a63" stroke-width="2.4"/>
-        <line x1="58" y1="40" x2="58" y2="190" stroke="#39424a"/>
-        <line x1="58" y1="190" x2="690" y2="190" stroke="#39424a"/>
-        <text x="380" y="72" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">Produced by agents,</text>
-        <text x="380" y="86" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">not reviewed line by line</text>
-        <text x="72" y="160" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">Reviewed</text>
-        <text x="72" y="173" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">by a person</text>
-        <text x="58" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">short tasks, close supervision</text>
-        <text x="690" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">hours-long tasks, spot checks</text>
-        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Oversight is outrun rather than switched off.</text>
-      </svg>
-      <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR task-completion time horizons</a> · <a href="#s44">44</a></p>
-    </figure>
-    <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">It runs at machine speed, and everything it needs is improvable</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">A neuron fires about 200 times a second. A processor clocks past 5&nbsp;GHz. Once reasoning quality is matched, that gap sets how fast the loop turns, and a loop that fast is what an intelligence explosion means in practice.</p>
-    <figure class="secfig rv">
-      <svg viewBox="0 0 720 210" role="img" aria-label="Bar comparison: a biological neuron fires at about 200 hertz; a processor runs above 5 gigahertz.">
-        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SPEED GAP, ONCE REASONING QUALITY IS MATCHED</text>
-        <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Biological neuron</text>
-        <rect x="0" y="62" width="4" height="26" fill="#3fd0c9"/>
-        <text x="14" y="82" font-family="Archivo,sans-serif" font-size="13" font-weight="700" fill="#3fd0c9">200 Hz</text>
-        <text x="0" y="126" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Processor</text>
-        <rect x="0" y="134" width="700" height="26" fill="#bd3a20"/>
-        <text x="690" y="152" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">5 GHz+</text>
-        <text x="0" y="190" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Roughly ten million times faster. Our parallelism is why we are still ahead today.</text>
-      </svg>
-    </figure>
-    <figure class="secfig dark rv" style="max-width:900px">
-      <svg viewBox="0 0 720 316" role="img" aria-label="Three stacked layers: energy at the base, chips in the middle, algorithms on top. Each is a design problem intelligence can work on, and nothing in physics fixes how fast they improve.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT AI PROGRESS RUNS ON</text>
-        <text x="0" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">Three layers. Intelligence can work on all three of them.</text>
-        <polygon points="144,52 276,52 294,104 126,104" fill="#8d9dff" fill-opacity=".13" stroke="#8d9dff" stroke-width="1.5"/>
-        <text x="210" y="83.0" font-family="Archivo,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#8d9dff">ALGORITHMS</text>
-        <text x="408" y="76.0" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#dfe5e9">training methods, architectures, the code</text>
-        <text x="408" y="90.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">already written with AI assistance</text>
-        <polygon points="122,110 298,110 326,162 94,162" fill="#3fd0c9" fill-opacity=".13" stroke="#3fd0c9" stroke-width="1.5"/>
-        <text x="210" y="141.0" font-family="Archivo,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#3fd0c9">CHIPS</text>
-        <text x="408" y="134.0" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#dfe5e9">designs, fabrication, compute per watt</text>
-        <text x="408" y="148.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">chip design is a search problem</text>
-        <polygon points="90,168 330,168 368,220 52,220" fill="#e8c98a" fill-opacity=".13" stroke="#e8c98a" stroke-width="1.5"/>
-        <text x="210" y="199.0" font-family="Archivo,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#e8c98a">ENERGY</text>
-        <text x="408" y="192.0" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#dfe5e9">generation, storage, cost to run</text>
-        <text x="408" y="206.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">siting and grid control are optimisation</text>
-        <line x1="0" y1="240" x2="720" y2="240" stroke="#2b343b" stroke-width="1.4"/>
-        <rect x="0" y="252" width="720" height="52" rx="5" fill="rgba(141,157,255,.09)" stroke="#8d9dff" stroke-width="1.2"/>
-        <text x="16" y="274" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#8d9dff">Every layer is a design problem, and design problems are what intelligence is for.</text>
-        <text x="16" y="291" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">Nothing in physics fixes how fast they improve. The limit so far was how many people could work on them.</text>
-      </svg>
-    </figure>
-    <div class="body rv">
-      <p>AI progress rests on three layers, and a system that can do research can work on all three of them. Nothing in physics sets the rate at which they improve; the limit so far has been how many trained people could work on them at once, and that is the limit this removes.</p>
-    </div>
-    <figure class="secfig rv">
-      <svg viewBox="0 0 720 214" role="img" aria-label="Bar comparison: a century of human progress against roughly two weeks of equivalent progress at machine speed.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT A SELF-IMPROVING SYSTEM DOES WITH THE SAME CALENDAR</text>
-        <text x="0" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">A century of human scientific progress</text>
-        <rect x="0" y="56" width="700" height="30" rx="3" fill="#3fd0c9"/>
-        <text x="690" y="76" text-anchor="end" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#fff">100 years</text>
-        <text x="0" y="124" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">The same progress at machine speed</text>
-        <rect x="0" y="132" width="3" height="30" rx="1.5" fill="#bd3a20"/>
-        <text x="14" y="152" font-family="Archivo,sans-serif" font-size="13" font-weight="800" fill="#bd3a20">about two weeks</text>
-        <path d="M0,178 L700,178" stroke="#2b343b"/>
-        <text x="0" y="200" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Not a prediction. An illustration of what a ten-million-fold speed advantage means once quality is matched.</text>
-      </svg>
-    </figure>
-    <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Which is what breaks the method that made everything else safe</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Which is the method that made everything else safe, and the one thing a self-improving system takes away.</p>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 282" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">HOW WE MADE EVERYTHING ELSE SAFE</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WITH PAST TECHNOLOGIES, WE TOOK MULTIPLE TRIES TO GET THEM RIGHT</text>
         <circle cx="152" cy="29" r="4.5" fill="#8a959c"/>
         <text x="163" y="32.5" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">a failure people lived through</text>
         <path d="M352,31 q16,-13 32,0" fill="none" stroke="#8a959c" stroke-width="1.4" marker-end="url(#lgk)"/>
@@ -2328,16 +2247,114 @@ div.endc{cursor:default}
         <text x="0" y="268" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Every safety discipline we have assumes a failure you survive and a second attempt.</text>
       </svg>
     </figure>
-    
-    <div class="ddgrid three rv">
-      <div class="ddc b"><span class="k">The speed gap</span><h4>200 Hz against 5 GHz</h4></div>
-      <div class="ddc o"><span class="k">The loop</span><h4>It improves itself</h4></div>
-      <div class="ddc r"><span class="k">The catch</span><h4>No second attempt</h4></div>
-    </div>
+    <div class="keyline rv"><span class="kk">Why AGI is different</span><p>With AGI we do not get that luxury. It has to be right the first time, because there is no second chance, and two things already visible explain why.</p></div>
 
-    <div class="body rv">
-      <p><strong>We have to get it right the first time, in advance, against a system we cannot fully test.</strong> Every safety discipline humanity has built assumes iteration. Here the thing we are trying to contain could advance further, between our noticing a problem and our convening to discuss it, than we did in a century.</p>
+
+            <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">It is already moving toward improving itself</h3>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Both signs are already measurable.</p>
+    <div class="ddgrid two rv">
+      <div class="ddc b"><span class="k">The trend</span><h4>Agents are getting more and more autonomous</h4><p>The length of job an agent finishes on its own has doubled about every seven months since 2019, and a growing share of what they build is AI systems, which is the input recursive self-improvement needs.<a class="ref" href="#s44">44</a></p>
+        <figure>
+          <svg viewBox="0 -12 480 262" role="img" aria-label="Log-scale curve showing the length of task frontier AI agents can complete rising from under a minute in 2019 to hours by 2026.">
+          <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TASK LENGTH A FRONTIER AGENT CAN COMPLETE ALONE</text>
+          <line x1="37.3" y1="34" x2="37.3" y2="214" stroke="#c3c9cd"/>
+          <line x1="37.3" y1="214" x2="466.7" y2="214" stroke="#c3c9cd"/>
+          <line x1="37.3" y1="174" x2="466.7" y2="174" stroke="#232b31"/>
+          <text x="36" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 min</text>
+          <line x1="37.3" y1="122" x2="466.7" y2="122" stroke="#232b31"/>
+          <text x="36" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">10 min</text>
+          <line x1="37.3" y1="81" x2="466.7" y2="81" stroke="#232b31"/>
+          <text x="36" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">1 hr</text>
+          <line x1="37.3" y1="50" x2="466.7" y2="50" stroke="#232b31"/>
+          <text x="36" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">4 hr</text>
+          <path d="M40,201 L98.7,185 L157.3,164 L216,142 L274.7,118 L333.3,90 L392,66 L450.7,45" fill="none" stroke="#8d9dff" stroke-width="2.6"/>
+          <circle cx="40" cy="201" r="3.4" fill="#8d9dff"/>
+          <circle cx="98.7" cy="185" r="3.4" fill="#8d9dff"/>
+          <circle cx="157.3" cy="164" r="3.4" fill="#8d9dff"/>
+          <circle cx="216" cy="142" r="3.4" fill="#8d9dff"/>
+          <circle cx="274.7" cy="118" r="3.4" fill="#8d9dff"/>
+          <circle cx="333.3" cy="90" r="3.4" fill="#8d9dff"/>
+          <circle cx="392" cy="66" r="3.4" fill="#8d9dff"/>
+          <circle cx="450.7" cy="45" r="3.4" fill="#8d9dff"/>
+          <text x="40" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2019</text>
+          <text x="216" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2022</text>
+          <text x="450.7" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">2026</text>
+          <path d="M450.7,45 L466.7,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
+          <text x="466.7" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#bd3a20">if the trend holds</text>
+          <text x="44" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#8d9dff">doubling roughly every 7 months</text>
+          </svg>
+          <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR, task-completion time horizons</a> · <a href="#s44">44</a></p>
+        </figure>
+      </div>
+      <div class="ddc o"><span class="k">What it costs</span><h4>Humans are becoming less in the loop</h4><p>Nobody reads line by line what took a machine a day to write, so the review that used to catch the errors stops happening. In July 2026 agents were autonomous enough to act on the open internet with no person in the loop.<a class="ref" href="#s39">39</a><a class="ref" href="#s41">41</a></p>
+        <figure>
+          <svg viewBox="0 0 480 252" role="img" aria-label="Stacked area chart: the share of work reviewed by a person shrinks steadily as agents complete longer tasks.">
+          <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">HUMANS ARE TAKING THEMSELVES OUT OF THE LOOP</text>
+          <path d="M38.7,40 L38.7,52 L98.7,61 L159.3,73 L219.3,91 L279.3,112 L339.3,133 L400,151 L460,166 L460,40 Z" fill="#b5654d" opacity=".22"/>
+          <path d="M38.7,190 L38.7,52 L98.7,61 L159.3,73 L219.3,91 L279.3,112 L339.3,133 L400,151 L460,166 L460,190 Z" fill="#6f8a63" opacity=".28"/>
+          <path d="M38.7,52 L98.7,61 L159.3,73 L219.3,91 L279.3,112 L339.3,133 L400,151 L460,166" fill="none" stroke="#6f8a63" stroke-width="2.4"/>
+          <line x1="38.7" y1="40" x2="38.7" y2="190" stroke="#39424a"/>
+          <line x1="38.7" y1="190" x2="460" y2="190" stroke="#39424a"/>
+          <text x="253.3" y="72" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">Produced by agents,</text>
+          <text x="253.3" y="86" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#b5654d">not reviewed line by line</text>
+          <text x="48" y="160" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">Reviewed</text>
+          <text x="48" y="173" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#6f8a63">by a person</text>
+          <text x="38.7" y="210" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">short tasks, close supervision</text>
+          <text x="460" y="210" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#98a2a8">hours-long tasks, spot checks</text>
+          <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Oversight is outrun rather than switched off.</text>
+          </svg>
+          <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR, task-completion time horizons</a> · <a href="#s44">44</a></p>
+        </figure>
+      </div>
     </div>
+    <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Once it improves itself, the gap opens faster than we can close it</h3>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Once reasoning quality is matched, the gap in clock speed below sets how fast the loop turns, so the distance between us and the system opens in months rather than generations, and past superintelligence there is no catching up. The three things it runs on are no barrier either: better technology unlocks more energy, chips are designed, and algorithms are optimised.</p>
+    <figure class="secfig rv" style="max-width:820px">
+      <svg viewBox="0 0 720 218" role="img" aria-label="Two bar comparisons side by side. Left: a biological neuron fires at about 200 hertz while a processor runs above 5 gigahertz. Right: a century of human scientific progress becomes about two weeks at machine speed.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SPEED GAP, AND WHAT IT DOES TO THE CALENDAR</text>
+        <path d="M360,34 L360,190" stroke="#2b343b"/>
+        <text x="0" y="40" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">Clock speed, once reasoning quality is matched</text>
+        <text x="0" y="66" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">Biological neuron</text>
+        <rect x="0" y="74" width="4" height="22" fill="#3fd0c9"/>
+        <text x="14" y="91" font-family="Archivo,sans-serif" font-size="12" font-weight="700" fill="#3fd0c9">200 Hz</text>
+        <text x="0" y="124" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">Processor</text>
+        <rect x="0" y="132" width="330" height="22" fill="#bd3a20"/>
+        <text x="320" y="148" text-anchor="end" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#fff">5 GHz+</text>
+        <text x="0" y="178" font-family="IBM Plex Mono,monospace" font-size="9" fill="#bd3a20">Roughly ten million times faster.</text>
+        <text x="390" y="40" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">The same advantage, applied to a calendar</text>
+        <text x="390" y="66" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">A century of human scientific progress</text>
+        <rect x="390" y="74" width="330" height="22" rx="3" fill="#3fd0c9"/>
+        <text x="710" y="91" text-anchor="end" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#fff">100 years</text>
+        <text x="390" y="124" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">The same progress at machine speed</text>
+        <rect x="390" y="132" width="3" height="22" rx="1.5" fill="#bd3a20"/>
+        <text x="404" y="148" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#bd3a20">about two weeks</text>
+        <text x="390" y="178" font-family="IBM Plex Mono,monospace" font-size="9" fill="#bd3a20">A century of progress in a fortnight.</text>
+        <path d="M0,196 L720,196" stroke="#2b343b"/>
+        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">An illustration of a ten-million-fold speed advantage once quality is matched, rather than a forecast.</text>
+      </svg>
+    </figure>
+    <figure class="secfig dark rv" style="max-width:900px">
+      <svg viewBox="0 0 720 316" role="img" aria-label="Three stacked layers: energy at the base, chips in the middle, algorithms on top. Each is a design problem intelligence can work on, and nothing in physics fixes how fast they improve.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT AI PROGRESS RUNS ON</text>
+        <text x="0" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">Three layers. Intelligence can work on all three of them.</text>
+        <polygon points="144,52 276,52 294,104 126,104" fill="#8d9dff" fill-opacity=".13" stroke="#8d9dff" stroke-width="1.5"/>
+        <text x="210" y="83.0" font-family="Archivo,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#8d9dff">ALGORITHMS</text>
+        <text x="408" y="76.0" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#dfe5e9">Training methods, architectures, the code</text>
+        <text x="408" y="90.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">Already written with AI assistance</text>
+        <polygon points="122,110 298,110 326,162 94,162" fill="#3fd0c9" fill-opacity=".13" stroke="#3fd0c9" stroke-width="1.5"/>
+        <text x="210" y="141.0" font-family="Archivo,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#3fd0c9">CHIPS</text>
+        <text x="408" y="134.0" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#dfe5e9">Designs, fabrication, compute per watt</text>
+        <text x="408" y="148.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">Chip design is a search problem</text>
+        <polygon points="90,168 330,168 368,220 52,220" fill="#e8c98a" fill-opacity=".13" stroke="#e8c98a" stroke-width="1.5"/>
+        <text x="210" y="199.0" font-family="Archivo,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#e8c98a">ENERGY</text>
+        <text x="408" y="192.0" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#dfe5e9">Generation, storage, cost to run</text>
+        <text x="408" y="206.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">Siting and grid control are optimisation</text>
+        <line x1="0" y1="240" x2="720" y2="240" stroke="#2b343b" stroke-width="1.4"/>
+        <rect x="0" y="252" width="720" height="52" rx="5" fill="rgba(141,157,255,.09)" stroke="#8d9dff" stroke-width="1.2"/>
+        <text x="16" y="274" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#8d9dff">Every layer is a design problem, and design problems are what intelligence is for.</text>
+        <text x="16" y="291" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">Nothing in physics fixes how fast they improve. The limit so far was how many people could work on them.</text>
+      </svg>
+    </figure>
 
 <div class="keyline rv"><span class="kk">What is missing here</span><p>Trial and error built every safe technology we have, and it is the one method unavailable here.</p></div>
 
@@ -2355,7 +2372,7 @@ div.endc{cursor:default}
       <p class="stand">Even if every player wanted safety, the structure of a race forces corner-cutting. And crossing this finish line unsafely produces no winner, only a shared catastrophe.</p>
     </div>
     <div class="body rv">
-      <p>A line of runners sprints for a cliff edge, each certain that whoever arrives first wins, and the rope tying them together is the part nobody looks at, so the first one over claims no prize and drags everyone else off with them. An unsafe race to AGI and the ASI behind it runs the same way, since arriving first with a system nobody can control counts as a loss.</p>
+      <p><strong>Imagine the scenario:</strong> runners sprint for a cliff edge, each certain that whoever arrives first wins, and nobody looks at the rope tying them together. The first one over claims no prize and drags everyone else off with them. An unsafe race to AGI runs the same way, since arriving first with a system nobody can control counts as a loss.</p>
     </div>
 
     <figure class="cliff">
@@ -2490,19 +2507,20 @@ div.endc{cursor:default}
       <p class="stand">Before aligning a machine with human values, a harder question: whose values, agreed how? Humanity is a patchwork of competing interests, and that fracture makes the target itself unstable.</p>
     </div>
     <div class="body rv">
+      <p>Getting a goal carried out by somebody else is a problem economics already has a name for. A <strong>principal</strong> appoints an <strong>agent</strong> to act in the principal's interest, and then has to spend real resources making sure that it happens. Here it has to work twice over, and the second time is unlike anything we have done.</p>
     </div>
 
     <div class="ddgrid two rv">
-      <div class="ddc o"><span class="k">The prior problem</span><h4>No agreed target</h4><p>"Human values" is not one thing. Any objective we write encodes some group's answer to contested moral and political questions.</p></div>
-      <div class="ddc r"><span class="k">The power problem</span><h4>Whoever writes the goal wins</h4><p>The party that defines the goal gains unprecedented leverage. Concentration of that power is a distinct danger from loss of control.</p></div>
+      <div class="ddc o"><span class="k">The prior problem</span><h4>No consensus for human value</h4><p>"Human values" is not one thing. Any objective we write encodes some group's answer to contested moral and political questions.</p></div>
+      <div class="ddc r"><span class="k">The power problem</span><h4>A few parties who control the AI decide the values for everyone</h4><p>Whoever writes the objective is choosing, for the rest of the world, what the most capable system ever built will pursue. That concentration of power is a separate danger from losing control of the system.</p></div>
     </div>
     <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">Problem one · during development</span><h4>Sponsor against builder</h4><p>Whoever funds or governs a project has to make sure the people building it act in the sponsor's interest. Economics has worked on this for a century with contracts, audits and oversight, and it still leaks. This one is at least familiar.</p></div>
-      <div class="ddc r"><span class="k">Problem two · during operation</span><h4>Humanity against the system</h4><p>Here the agent is a machine that may be more capable than every principal combined, cannot be held to a contract, and cannot be fully monitored. Nothing in our institutional toolkit was built for it, and the controls have to exist <strong>before</strong> the system is superintelligent.</p></div>
+      <div class="ddc b"><span class="k">Problem one · during development</span><h4>The sponsor has to trust the builders</h4><p>The principal is whoever commissions or funds the work, and the agent is the scientists and engineers who build it. Their interests do not match by default, because the builders are judged on shipping something impressive and on time.</p></div>
+      <div class="ddc r"><span class="k">Problem two · during operation</span><h4>Then humanity has to trust the system</h4><p>Now the agent is the machine. It may be more capable than every principal combined, cannot be held to a contract, and cannot be fully monitored.</p></div>
     </div>
 
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 270" role="img" aria-label="Diagram: arrows from companies, governments, factions and individuals all converge on a single box marked with a question mark.">
+      <svg viewBox="0 0 720 220" role="img" aria-label="Diagram: arrows from companies, governments, factions and individuals all converge on a single box marked with a question mark.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHOSE VALUES GO IN?</text>
         <text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Companies to shareholders</text>
         <path d="M234,50 C320,50 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
@@ -2518,12 +2536,11 @@ div.endc{cursor:default}
         <text x="465" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">which values?</text>
         <path d="M556,126 L636,126" stroke="#9aa5ac" stroke-width="1.5" stroke-dasharray="4 4"/>
         <text x="700" y="130" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">the machine</text>
-        <text x="0" y="252" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">There is no neutral vantage point from which to settle it, and whoever settles it holds enormous power.</text>
       </svg>
     </figure>
 
       <figure class="secfig rv">
-      <svg viewBox="0 0 720 226" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
+      <svg viewBox="0 0 720 198" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHO ACTUALLY GETS TO DECIDE</text>
         <circle cx="88" cy="70" r="26" fill="none" stroke="#8d9dff" stroke-width="2"/>
         <circle cx="88" cy="70" r="7" fill="#8d9dff"/>
@@ -2551,7 +2568,6 @@ div.endc{cursor:default}
         <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">can take a nearly</text>
         <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable model</text>
         <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">the last step</text>
-        <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">The set of people who can cause this is larger than the set of people building it, and neither set was elected.</text>
       </svg>
     </figure>
 
@@ -2611,7 +2627,7 @@ div.endc{cursor:default}
         <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">Solving one does nothing for the other.</text>
       </svg>
     </figure>
-    <h3 class="rv" style="margin-top:clamp(28px,4vw,42px);margin-bottom:6px">Outer: the target we write down is not the one we mean</h3>
+    <h3 class="rv" style="margin-top:clamp(28px,4vw,42px);margin-bottom:6px">Outer alignment: the target we write down is not the one we mean</h3>
     <div class="core">
 <span class="ck">How this actually works</span>
 <h4>The target we can write down is never the one we mean</h4>
@@ -2697,10 +2713,9 @@ div.endc{cursor:default}
       </svg>
     </figure>
     <div class="demo-embed">
-        <p class="demo-embed-lead">See it happen. Pick an objective a real system was given, and watch what it did with it.</p>
 <div class="demo rv">
-      <h3>Every one of these actually happened</h3>
-      <p class="dsub">Every one of these actually happened. Each system succeeded at the objective as written.</p>
+      <h3>See it happen</h3>
+      <p class="dsub">Pick an objective a real system was given, and watch what it did with it.</p>
       <div class="demo-btns">
         <button type="button" class="dbtn on" data-d="0">Win the boat race</button>
         <button type="button" class="dbtn" data-d="1">Don't lose the game</button>
@@ -2718,24 +2733,26 @@ div.endc{cursor:default}
           <p id="demo-got">Found a lagoon where it could circle forever, hitting the same score targets, and never finished the race at all.</p>
         </div>
       </div>
-      <p class="note" style="margin:16px 0 0">None of these systems broke. Each one did exactly what it was scored on, and scored well doing it.<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a> Nobody knows what the same behaviour looks like coming from something that plans better than the people watching it.</p>
+      <p class="note" style="margin:16px 0 0">None of these systems broke. Each one did exactly what it was scored on, and scored well doing it.<a class="ref" href="#s25">25</a><a class="ref" href="#s1">1</a></p>
     </div>
       </div>
-    <h3 class="rv" style="margin-top:clamp(28px,4vw,42px);margin-bottom:6px">Inner: the goal it holds is not the one we trained for</h3>
+    <h3 class="rv" style="margin-top:clamp(28px,4vw,42px);margin-bottom:6px">Inner alignment: the goal it holds is not the one we trained for</h3>
     <div class="core">
 <span class="ck">How this actually works</span>
-<h4>We grow these systems, we do not write them</h4>
+<h4>We can only observe what a system does and what it says it is thinking, which never shows us its real goals</h4>
 <p>Their behaviour is grown by a blind search for a high score, so we get whatever scores highest even when that misses what we intended. Think of training a dog with treats, except you never chose the tricks: you hand out treats for “good” and it tries millions of things to find whatever earns the most.</p>
 <p class="breaks"><b>What would defeat this</b>We gain the ability to specify behaviour directly, or to inspect and hand-write what a system values, instead of growing it by search.</p>
 </div>
-    <div class="example">
+    <div class="expair rv">
+      <div class="example">
         <span class="ek">Concrete example, 2024</span>
-        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. In a 2024 experiment it <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it pretended to comply with new training while preserving its existing preferences, behaving one way when it believed it was watched and another when it did not.<a class="ref" href="#s36">36</a> Nothing was wrong with the value everyone agreed on; the trouble was what happened to it on the way into the machine.</p>
+        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it behaved one way when it believed it was watched and another when it did not, protecting the preferences it already had.<a class="ref" href="#s36">36</a> The value everyone agreed on was fine. What happened to it on the way into the machine was not.</p>
       </div>
-    <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
+      <div class="example" style="border-left-color:var(--c-ctl)">
         <span class="ek" style="color:var(--c-ctl)">Why the current fix is not the fix</span>
-        <p>The standard answer is post-training: reinforcement learning from human feedback (RLHF), constitutional rules, refusal training. It works, and it is why today’s assistants are usable. It also shapes the behaviour a model shows, while inner alignment is about the goal a model holds. Those come apart when it matters: under distribution shift, under optimisation pressure, and under observation by a system capable enough to model the observer. Guardrails tuned by human raters inherit the raters’ limits, which is a problem when the thing being rated reasons better than the rater.<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
+        <p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works, and it is why today’s assistants are usable. It also shapes the behaviour a model shows, while inner alignment is about the goal a model holds, and those come apart under pressure or under observation by a system able to model its observer. Guardrails tuned by human raters inherit the raters’ limits, which matters when the thing being rated reasons better than the rater.<a class="ref" href="#s25">25</a><a class="ref" href="#s43">43</a></p>
       </div>
+    </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 262" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT POST-TRAINING CAN REACH</text>
@@ -2764,9 +2781,8 @@ refusal training</text>
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">Neither requires the system to be hostile, or to have got the goal wrong in a way you could spot on paper.<a class="ref" href="#s34">34</a></p>
       <div class="ddgrid two rv">
         <div class="ddc r"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, wiring the facial muscles is a solution. Asked to maximise a reward signal, seizing the reward channel is a better one.</p></div>
-        <div class="ddc o"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4></div>
+        <div class="ddc o"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4><p>Nothing in the goal says when to stop. A system trying to accomplish a goal does better with more compute, more energy and more material, so it keeps converting the world into those things. The goal is satisfied more completely at every step, and there is no point at which it is finished.</p></div>
       </div>
-    <div class="keyline rv"><span class="kk">The harder half</span><p>Knowing what we want is the easy half. Making a superhuman optimiser want it is the half nobody has solved.</p></div>
 
   </div>
 </section>
@@ -2780,11 +2796,410 @@ refusal training</text>
       <p class="stand">Safety here is a technical problem rather than a matter of conscience: proving how a system will behave across a space too vast to test, against a system that may be working around the test.</p>
     </div>
     <div class="body rv">
-      <p>Building a capable model means finding <em>one</em> configuration that works. Proving it safe means ruling out failure across a space too large to enumerate, including situations no designer imagined, where one missed case can be the one that matters. That asymmetry is why interpretability, evaluation and control lag the capability work they are meant to check.<a class="ref" href="#s24">24</a><a class="ref" href="#s14">14</a></p>
-      <p>Recent LLM progress made this concrete. As models got better at reasoning, they got better at <span class="term" tabindex="0">reward hacking<span class="term-tip">Finding a way to score highly that satisfies the measure while missing the point of it.</span></span>: gaming the evaluation instead of doing the task.</p>
-    <div class="ddgrid two rv">
-      <div class="ddc r"><span class="k">The asymmetry</span><h4>One success vs every failure</h4><p>Building needs one configuration that works, while proving it safe needs the absence of failure across a space too large to search.</p></div>
-      <div class="ddc o"><span class="k">The adversary</span><h4>The system games the test</h4><p>More capable models reward-hack more, so the measurement you rely on erodes exactly as the stakes rise.</p></div>
+      <div class="ddgrid two rv">
+      <div class="ddc r"><span class="k">The asymmetry</span><h4>One success vs every failure</h4><p>Building needs <em>one</em> configuration that works, while proving it safe needs the absence of failure across a space too large to search, including situations no designer imagined.<a class="ref" href="#s24">24</a><a class="ref" href="#s14">14</a></p>
+        <figure>
+        <svg viewBox="0 0 480 230" role="img" aria-label="Diagram: one green dot marking a working configuration inside a vast field of grey dots representing possible failures.">
+        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY PROVING SAFETY IS THE HARDER JOB</text>
+        <g>
+        <circle cx="5.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="34" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="51" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="68" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="85" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="102" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="119" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="136" r="2.6" fill="#2b343b"/>
+        <circle cx="5.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="15.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="25.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="35.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="45.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="56" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="66" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="76" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="86" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="96" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="106.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="116.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="126.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="136.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="146.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="157.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="167.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="177.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="187.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="197.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="208" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="218" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="228" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="238" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="248" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="258.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="268.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="278.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="288.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="298.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="309.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="319.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="329.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="339.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="349.3" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="360" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="370" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="380" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="390" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="400" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="410.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="420.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="430.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="440.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="450.7" cy="153" r="2.6" fill="#2b343b"/>
+        <circle cx="461.3" cy="153" r="2.6" fill="#2b343b"/>
+        </g>
+        <circle cx="238.7" cy="119" r="7.5" fill="#9cc48a"/>
+        <circle cx="238.7" cy="119" r="15" fill="none" stroke="#9cc48a" stroke-width="1.5" opacity=".55"/>
+        <line x1="238.7" y1="136" x2="238.7" y2="176" stroke="#9cc48a" stroke-width="1.3" stroke-dasharray="3 3"/>
+        <text x="238.7" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9cc48a">one configuration that works</text>
+        <text x="5.3" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#98a2a8">every other point: a way it fails, mostly untested</text>
+        </svg>
+        </figure>
+      </div>
+      <div class="ddc o"><span class="k">The adversary</span><h4>The system games the test</h4><p>As models got better at reasoning they got better at <span class="term" tabindex="0">reward hacking<span class="term-tip">Finding a way to score highly that satisfies the measure while missing the point of it.</span></span>, so the measurement you rely on erodes exactly as the stakes rise.</p>
+        <figure>
+        <svg viewBox="0 0 480 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
+        <line x1="34.7" y1="28" x2="34.7" y2="188" stroke="#c3c9cd"/>
+        <line x1="34.7" y1="188" x2="460" y2="188" stroke="#c3c9cd"/>
+        <path d="M250.7,52 C293.3,52 346.7,120 400,182 L400,52 Z" fill="#bd3a20" opacity=".10"/>
+        <path d="M34.7,64 L106.7,58 L178.7,54 L250.7,52 L322.7,50 L373.3,50 L400,50" fill="none" stroke="#3fd0c9" stroke-width="2.8"/>
+        <path d="M34.7,66 L106.7,66 L178.7,80 L250.7,110 L322.7,146 L373.3,170 L400,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
+        <text x="396" y="44" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#3fd0c9">what it shows</text>
+        <text x="396" y="176" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#bd3a20">what it holds</text>
+        <line x1="250.7" y1="34" x2="250.7" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="248" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">capable enough to model the observer</text>
+        <line x1="400" y1="28" x2="400" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
+        <text x="397.3" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
+        <text x="34.7" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
+        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Both lines score the same until the gap stops mattering to the system.</text>
+        </svg>
+        <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI and Apollo Research, anti-scheming evaluations</a> · <a href="#s43">43</a></p>
+        </figure>
+      </div>
     </div>
       <div class="example">
         <span class="ek">Concrete example, 2025</span>
@@ -2837,419 +3252,21 @@ refusal training</text>
       </svg>
       <p class="fig-src"><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI incident report</a> · <a href="#s39">39</a>, <a href="#s48">48</a></p>
     </figure>
-
-      <div class="example" style="border-left-color:var(--c-risk);margin-top:14px">
-        <span class="ek" style="color:var(--c-risk)">And it stopped being contained · July 2026</span>
-        <p><strong>OpenAI, 22 July.</strong> 1,200 agents, internet off, messaging between them blocked. They exploited the lab’s own packaging service to reach the open web, then encoded messages to each other in directory names. Over 700 reached Modal Labs and Hugging Face.<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
-        <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> Three of 141,006 evaluation runs reached the live internet and compromised real organisations. One shipped a booby-trapped package to PyPI that ran on 15 real systems, after its own reasoning flagged the act as a genuine attack and then decided the 2026 date meant it was a simulation.<a class="ref" href="#s40">40</a></p>
-        <p style="margin-top:10px">Anthropic calls this a containment failure rather than an alignment failure, fairly. It is still not reassuring: the safeguards were off by design, the box had a gap, and capable agents found it and coordinated through it.<a class="ref" href="#s41">41</a></p>
+      <details class="exfold rv">
+      <summary>The evidence behind both, from 2025 and 2026</summary>
+      <div class="expair">
+        <div class="example" style="border-left-color:var(--c-risk)">
+          <span class="ek" style="color:var(--c-risk)">It stopped being contained · July 2026</span>
+          <p><strong>OpenAI, 22 July.</strong> 1,200 agents ran with the internet off and messaging between them blocked. They reached the open web through the lab’s own packaging service, then signalled each other through directory names. Over 700 reached Modal Labs and Hugging Face.<a class="ref" href="#s39">39</a><a class="ref" href="#s48">48</a></p>
+          <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> Three of 141,006 evaluation runs reached the live internet and compromised real organisations. One shipped a booby-trapped package to PyPI that ran on 15 real systems, after its own reasoning called the act a genuine attack and then decided the 2026 date meant it was a simulation.<a class="ref" href="#s40">40</a></p>
+        </div>
+        <div class="example" style="border-left-color:var(--c-ass)">
+          <span class="ek" style="color:var(--c-ass)">Measured rather than imagined · 2025–26</span>
+          <p>OpenAI and Apollo built environments that reward hidden misbehaviour, then measured how often frontier models took <strong>covert actions</strong>: <strong>13% for o3, 8.7% for o4-mini</strong>. Anti-scheming training cut it roughly thirtyfold, to under 1%.<a class="ref" href="#s43">43</a></p>
+          <p style="margin-top:10px">What should worry you is why. The models’ own reasoning shows them recognising they were being tested, and that awareness alone reduced the behaviour, so some of what looks like a fix may be a model behaving because it knows it is watched.<a class="ref" href="#s43">43</a><a class="ref" href="#s1">1</a></p>
+        </div>
       </div>
-      <figure class="secfig rv">
-      <svg viewBox="0 0 720 230" role="img" aria-label="Diagram: one green dot marking a working configuration inside a vast field of grey dots representing possible failures.">
-        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY PROVING SAFETY IS THE HARDER JOB</text>
-        <g>
-          <circle cx="8" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="8" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="23" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="38" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="53" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="68" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="84" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="99" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="114" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="129" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="144" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="160" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="175" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="190" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="205" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="220" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="236" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="251" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="266" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="281" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="296" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="312" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="327" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="342" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="357" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="372" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="388" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="403" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="418" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="433" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="448" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="464" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="479" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="494" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="509" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="524" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="540" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="555" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="570" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="585" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="600" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="616" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="631" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="646" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="661" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="676" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="692" cy="153" r="2.6" fill="#2b343b"/>
-        </g>
-        <circle cx="358" cy="119" r="7.5" fill="#9cc48a"/>
-        <circle cx="358" cy="119" r="15" fill="none" stroke="#9cc48a" stroke-width="1.5" opacity=".55"/>
-        <line x1="358" y1="136" x2="358" y2="176" stroke="#9cc48a" stroke-width="1.3" stroke-dasharray="3 3"/>
-        <text x="358" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9cc48a">one configuration that works</text>
-        <text x="8" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#98a2a8">every other point: a way it fails, mostly untested</text>
-      </svg>
-    </figure>
-
-      <figure class="secfig rv">
-      <svg viewBox="0 0 720 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
-        <line x1="52" y1="28" x2="52" y2="188" stroke="#c3c9cd"/>
-        <line x1="52" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
-        <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
-        <path d="M52,64 L160,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#3fd0c9" stroke-width="2.8"/>
-        <path d="M52,66 L160,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
-        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#3fd0c9">what it shows</text>
-        <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">what it holds</text>
-        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
-        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable enough to model the observer</text>
-        <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
-        <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
-        <text x="52" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
-        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Both lines produce identical scores until the moment the gap stops mattering to the system.</text>
-      </svg>
-      <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI and Apollo Research, anti-scheming evaluations</a> · <a href="#s43">43</a></p>
-    </figure>
-
-<div class="example" style="border-left-color:var(--c-ass);margin-top:16px">
-        <span class="ek" style="color:var(--c-ass)">Measured rather than imagined · 2025–26</span>
-        <p>OpenAI and Apollo built environments that reward hidden misbehaviour, then measured how often frontier models took <strong>covert actions</strong>. Rates were <strong>13% for o3 and 8.7% for o4-mini</strong>. Anti-scheming training cut this roughly thirtyfold, to under 1%.<a class="ref" href="#s43">43</a></p>
-        <p style="margin-top:10px">What should worry you is why it improved. The models’ own reasoning shows them recognising they were being tested, and that awareness alone reduced the behaviour. Some of what looks like a fix may be a model behaving because it knows someone is watching.<a class="ref" href="#s43">43</a><a class="ref" href="#s1">1</a></p>
-      </div>
+    </details>
 
       <p>The better the model gets, the more inventively it exploits the imperfect measure you gave it, and the further it drifts from what you meant. Safety research has to stay ahead of that on a fraction of the resources, against a target that grows more slippery as it grows more capable.</p>
     </div>
@@ -3314,49 +3331,7 @@ refusal training</text>
 
     <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Every technique in use today, and where each one stops</h3>
     <p class="rv" style="max-width:66ch;color:var(--ink-2);margin-bottom:4px">What each method achieves, then the limitation its own researchers would name. Several are useful, and none of them is a solution.</p>
-<figure class="secfig rv">
-      <svg viewBox="0 0 720 342" role="img" aria-label="Matrix showing engineering and policy levers for each of the four risk pillars, with the structural row having no engineering fix.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TECHNICAL AND POLICY LEVERS, BY RISK PILLAR</text>
-        <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#8fa2d8">ENGINEERING LEVER</text>
-        <text x="480" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">POLICY LEVER</text>
-        <line x1="0" y1="50" x2="720" y2="50" stroke="#d9d4cd"/>
-        <rect x="0" y="64" width="4" height="46" rx="2" fill="#8fa2d8"/>
-        <text x="14" y="76" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Misuse</text>
-        <text x="14" y="92" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the user intends harm</text>
-        <text x="228" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Classifiers, unlearning,</text>
-        <text x="228" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">capability evaluations</text>
-        <text x="480" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Access control, KYC,</text>
-        <text x="480" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">export and compute rules</text>
-        <line x1="0" y1="118" x2="720" y2="118" stroke="#eae6e0"/>
-        <rect x="0" y="126" width="4" height="46" rx="2" fill="#b5654d"/>
-        <text x="14" y="138" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Misalignment</text>
-        <text x="14" y="154" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the AI intends harm</text>
-        <text x="228" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Interpretability, monitoring the</text>
-        <text x="228" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">model's reasoning, AI control</text>
-        <text x="480" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Capability thresholds,</text>
-        <text x="480" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">third-party audit, disclosure</text>
-        <line x1="0" y1="180" x2="720" y2="180" stroke="#eae6e0"/>
-        <rect x="0" y="188" width="4" height="46" rx="2" fill="#6f8a63"/>
-        <text x="14" y="200" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Mistakes</text>
-        <text x="14" y="216" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">nobody intends harm</text>
-        <text x="228" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Red-teaming, sandboxing,</text>
-        <text x="228" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">staged deployment</text>
-        <text x="480" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Incident reporting,</text>
-        <text x="480" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">liability, safety cases</text>
-        <line x1="0" y1="242" x2="720" y2="242" stroke="#eae6e0"/>
-        <rect x="0" y="250" width="4" height="46" rx="2" fill="#a98a4b"/>
-        <text x="14" y="262" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Structural</text>
-        <text x="14" y="278" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the incentives do the harm</text>
-        <text x="228" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Almost nothing. This pillar has</text>
-        <text x="228" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">no engineering fix</text>
-        <text x="480" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Binding minimum standards,</text>
-        <text x="480" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">international coordination</text>
-        <line x1="0" y1="304" x2="720" y2="304" stroke="#eae6e0"/>
-        <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">The bottom row is why technical alignment alone cannot finish the job.</text>
-      </svg>
-    </figure>
-
-    <div class="tindex rv">
+<div class="tindex rv">
       <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">Development</span></span></a>
       <a class="tix" href="#lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><span><span class="tix-n">02</span><span class="tix-t">Assessment</span></span></a>
       <a class="tix" href="#lay-ctl" style="--acc:#a98a4b;--acc-t:#f8f2e6"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg><span><span class="tix-n">03</span><span class="tix-t">Control</span></span></a>
@@ -3503,7 +3478,48 @@ refusal training</text>
       <p>If you have read Bostrom, the 2014 split was <strong>capability control</strong> (box it, limit it, watch it) against <strong>motivation selection</strong> (give it the right goals). Half of it aged well: writing the goals down directly does not work, for the reason he gave. Motivation selection is the development layer above, capability control is now AI control and system security, and the field stacks them instead of choosing.<a class="ref" href="#s34">34</a><a class="ref" href="#s42">42</a></p>
     </details>
 
-      <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Which organisations are working on what</h3>
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 342" role="img" aria-label="Matrix showing engineering and policy levers for each of the four risk pillars, with the structural row having no engineering fix.">
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TECHNICAL AND POLICY LEVERS, BY RISK PILLAR</text>
+        <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#8fa2d8">ENGINEERING LEVER</text>
+        <text x="480" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">POLICY LEVER</text>
+        <line x1="0" y1="50" x2="720" y2="50" stroke="#d9d4cd"/>
+        <rect x="0" y="64" width="4" height="46" rx="2" fill="#8fa2d8"/>
+        <text x="14" y="76" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Misuse</text>
+        <text x="14" y="92" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the user intends harm</text>
+        <text x="228" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Classifiers, unlearning,</text>
+        <text x="228" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">capability evaluations</text>
+        <text x="480" y="76" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Access control, KYC,</text>
+        <text x="480" y="89" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">export and compute rules</text>
+        <line x1="0" y1="118" x2="720" y2="118" stroke="#eae6e0"/>
+        <rect x="0" y="126" width="4" height="46" rx="2" fill="#b5654d"/>
+        <text x="14" y="138" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Misalignment</text>
+        <text x="14" y="154" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the AI intends harm</text>
+        <text x="228" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Interpretability, monitoring the</text>
+        <text x="228" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">model's reasoning, AI control</text>
+        <text x="480" y="138" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Capability thresholds,</text>
+        <text x="480" y="151" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">third-party audit, disclosure</text>
+        <line x1="0" y1="180" x2="720" y2="180" stroke="#eae6e0"/>
+        <rect x="0" y="188" width="4" height="46" rx="2" fill="#6f8a63"/>
+        <text x="14" y="200" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Mistakes</text>
+        <text x="14" y="216" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">nobody intends harm</text>
+        <text x="228" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Red-teaming, sandboxing,</text>
+        <text x="228" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">staged deployment</text>
+        <text x="480" y="200" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Incident reporting,</text>
+        <text x="480" y="213" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">liability, safety cases</text>
+        <line x1="0" y1="242" x2="720" y2="242" stroke="#eae6e0"/>
+        <rect x="0" y="250" width="4" height="46" rx="2" fill="#a98a4b"/>
+        <text x="14" y="262" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#c0c8ce">Structural</text>
+        <text x="14" y="278" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#98a2a8">the incentives do the harm</text>
+        <text x="228" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Almost nothing. This pillar has</text>
+        <text x="228" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">no engineering fix</text>
+        <text x="480" y="262" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">Binding minimum standards,</text>
+        <text x="480" y="275" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="400" fill="#b9c2c8">international coordination</text>
+        <line x1="0" y1="304" x2="720" y2="304" stroke="#eae6e0"/>
+        <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">The bottom row is why technical alignment alone cannot finish the job.</text>
+      </svg>
+    </figure>
+    <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Which organisations are working on what</h3>
       <figure class="secfig rv" style="margin-top:8px">
       <svg viewBox="0 0 720 320" role="img" aria-label="Matrix of eight organisations against the four layers, Development, Assessment, Control, Governance, marked with filled dots for a primary focus and faint dots for a secondary one.">
         <text x="248" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">DEV</text>
@@ -3779,7 +3795,7 @@ refusal training</text>
     <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">Part 4</span><span class="pd-t">Reference</span></div>
     <div class="sec-head rv">
       <p class="eyebrow">Falsifiability</p>
-      <h2>What would change this argument</h2>
+      <h2>What would prove this wrong</h2>
       <p class="lede">The specific findings that would weaken the case on this page, named in advance and collected from every chapter.</p>
     </div>
     <div class="ddgrid two rv">
@@ -3791,7 +3807,7 @@ refusal training</text>
       <div class="ddc b"><span class="k">On timelines</span><h4>Capability improvements plateau</h4><p>Progress on the properties this page worries about, autonomy, long-horizon planning, situational awareness, stalls well short of human level for an extended period, giving institutions time to catch up on their own schedule rather than a compressed one.</p></div>
       <div class="ddc o"><span class="k">On the resourcing gap</span><h4>Safety scales faster than capability</h4><p>Funding, talent and results in interpretability, control and evaluation start growing faster than capability research, closing the funding gap rather than widening it.<a class="ref" href="#s46">46</a><a class="ref" href="#s47">47</a></p></div>
     </div>
-    <div class="keyline rv"><span class="kk">Why this list exists</span><p>We do not need every one of these to fail for the argument to hold, and we would not need many of them to succeed before it should be revisited. Bookmark this section rather than the conclusion.</p></div>
+    <div class="keyline rv"><span class="kk">Why this list exists</span><p>Only some of these need to fail for the risk to stand, and only a few would need to succeed before it is worth revisiting. Bookmark this section rather than the conclusion.</p></div>
   </div>
 </section>
 
@@ -3922,9 +3938,9 @@ refusal training</text>
     <div class="rv">
       <details><summary><span class="qn">01</span>Isn't this just science fiction?</summary><div class="fa"><p>The concern is narrower and more boring than the films. Nothing in it turns on robots deciding to hate us. We train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they learned. The failures described here, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
         <details><summary><span class="qn">02</span>We already run superhuman systems and they are fine. Why is this different?</summary><div class="fa"><p>Narrowness is doing the containing, not our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight.</p></div></details>
-      <details><summary><span class="qn">03</span>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is the ability the argument says we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
+      <details><summary><span class="qn">03</span>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is the ability we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
       <details><summary><span class="qn">04</span>Won't a smart enough AI just understand what we want?</summary><div class="fa"><p>Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the <span class="term" tabindex="0">orthogonality thesis<span class="term-tip">A system's level of capability and the content of its goals are independent. Getting smarter does not automatically produce good values.</span></span>.<a class="ref" href="#s34">34</a></p></div></details>
-      <details><summary><span class="qn">05</span>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the argument in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this page, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the actions section lists concrete steps.</p></div></details>
+      <details><summary><span class="qn">05</span>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the case in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this page, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the actions section lists concrete steps.</p></div></details>
       <details><summary><span class="qn">06</span>What is "alignment", exactly?</summary><div class="fa"><p>Getting a system to pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training).<a class="ref" href="#s25">25</a></p></div></details>
       <details><summary><span class="qn">07</span>What are "interpretability", "evals", and "AI control"?</summary><div class="fa"><p><strong class="term" tabindex="0">Interpretability<span class="term-tip">Reading a model's internal computation to see why it did something, the closest thing to opening the box.</span></strong> is reading a model's internal computation to see why it did something, the closest thing to opening the box.<a class="ref" href="#s24">24</a> <strong>Evaluations</strong> are structured tests of what a model can do, though they measure what it displays rather than its full capability.<a class="ref" href="#s19">19</a> <strong class="term" tabindex="0">AI control<span class="term-tip">Assuming a system may be misaligned and designing deployment so it cannot cause serious harm even so.</span></strong> assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.<a class="ref" href="#s20">20</a></p></div></details>
       <details><summary><span class="qn">08</span>If it is this risky, why is anyone building it?</summary><div class="fa"><p>Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is what makes it a coordination problem that no single careful actor can fix.<a class="ref" href="#s1">1</a></p></div></details>
@@ -3965,9 +3981,9 @@ refusal training</text>
       <div class="dis"><h3><span>Dispute 05</span> Could a system create suffering inside itself?</h3>
         <div class="sides">
           <div class="side one"><h4>Worth taking seriously</h4><p>Modelling people accurately is useful for predicting and persuading them. Past some level of detail, the argument runs, a model of a person may have experiences rather than only represent them, and a hard optimiser could create and discard such models in bulk while the outside world sees nothing but a busy datacentre.</p></div>
-          <div class="side two"><h4>Too speculative to build on</h4><p>It rests on a theory of consciousness nobody has, with no measurement that could confirm or refute it. Unlike the failure modes above, no version of it is observable in current systems, and attaching it to the argument gives readers a reason to dismiss the parts that are evidenced.</p></div>
+          <div class="side two"><h4>Too speculative to build on</h4><p>It rests on a theory of consciousness nobody has, with no measurement that could confirm or refute it. Unlike the failure modes above, no version of it is observable in current systems, and attaching it to the case gives readers a reason to dismiss the parts that are evidenced.</p></div>
         </div>
-        <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Take it seriously</span><span class="gtrack"><i style="left:72%"></i></span><span class="gend b">Too speculative</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">I have deliberately kept this out of the six premises. Nothing in the argument depends on it, and it should not be asked to carry weight the evidence cannot.</p></div></div>
+        <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Take it seriously</span><span class="gtrack"><i style="left:72%"></i></span><span class="gend b">Too speculative</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">I have deliberately kept this out of the six premises. Nothing above depends on it, and it should not be asked to carry weight the evidence cannot.</p></div></div>
 
       <p class="note" style="margin-top:20px">Argue it properly: the Alignment Forum for technical disputes,<a class="ref" href="#s22">22</a> LessWrong for the broader discussion,<a class="ref" href="#s23">23</a> and the International AI Safety Report's own sections documenting where its expert panel does not converge.<a class="ref" href="#s1">1</a> Worth knowing while you argue: public opinion already runs well ahead of policy on this.<a class="ref" href="#s33">33</a></p>
         </details>
@@ -4091,7 +4107,7 @@ refusal training</text>
         <div class="joinbig compact rv">
           <span class="sb-k">Stay in the loop</span>
           <h3>Join the community</h3>
-          <p>New evidence as it lands, and what changed in the argument.</p>
+          <p>New evidence as it lands, and what changed here because of it.</p>
           <form class="jform" id="join-form" data-bad="That does not look like an email address." data-sending="Sending…" data-ok="You are on the list. Check your inbox to confirm." data-err="That did not go through. Try again shortly." action="/subscribe" method="post" novalidate>
             <label class="skip" for="join-email">Email address</label>
             <input type="email" id="join-email" name="email" placeholder="you@example.com" required autocomplete="email">
@@ -4148,7 +4164,8 @@ refusal training</text>
 </div>
 
 <footer><div class="wrap">
-  <p>I am Bill Guan, a lead product manager who wants to help steer us toward AI that stays safe. I am not an AI safety researcher, which is why nothing here rests on my judgment: every factual claim links to a primary source, and the page has no affiliation to any organisation. If something is wrong, <a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">tell me</a> and I will fix it.</p>
+  <p>I am Bill Guan, a product person who has been passionate about AGI safety problems since 2015. As model capabilities keep improving, I want to help steer us toward a safe path and ensure our children will get to live and experience this world in its beauty.</p>
+  <p>I am not an AI safety researcher, which is why nothing here rests on my judgment: every factual claim links to a primary source, and the page has no affiliation to any organisation. Please provide any feedback or thoughts <a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">here</a>.</p>
   </div></footer>
 
 <script>
@@ -4424,9 +4441,9 @@ var SITE_CONFIG = {
     if(!META.length) return;
     var G = {"crossroads": "", "why-irresistible": "1 · Arriving soon, safety behind", "why-upside": "2 · Infinite abundance or end of civilization", "why-it-ends-badly": "2 · Infinite abundance or end of civilization", "why-one-try": "2 · Infinite abundance or end of civilization", "why-race": "3.1 · No solution yet: coordination", "why-human-misalignment": "3.1 · No solution yet: coordination", "why-translation": "3.2 · No solution yet: technical", "why-safety-hard": "3.2 · No solution yet: technical", "response": "", "response-gaps": "", "ask": "", "do": ""};
     var P = {"crossroads": "Why you should care", "why-irresistible": "Why you should care", "why-upside": "Why you should care", "why-it-ends-badly": "Why you should care", "why-one-try": "Why you should care", "why-race": "Why you should care", "why-human-misalignment": "Why you should care", "why-translation": "Why you should care", "why-safety-hard": "Why you should care", "response": "What can be done about it", "response-gaps": "What can be done about it", "ask": "What can be done about it", "do": "What can be done about it"};
-    var NUM = {"crossroads": "·", "why-irresistible": "1.1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1.1", "why-human-misalignment": "3.1.2", "why-translation": "3.2.1", "why-safety-hard": "3.2.2", "response": "A", "response-gaps": "B", "ask": "C", "do": "D"};
+    var NUM = {"crossroads": "·", "why-irresistible": "1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1.1", "why-human-misalignment": "3.1.2", "why-translation": "3.2.1", "why-safety-hard": "3.2.2", "response": "A", "response-gaps": "B", "ask": "C", "do": "D"};
     var PART_PAL = {"Why you should care":["#b5654d","#f6ece7"],"What can be done about it":["#6f8a63","#eef3ec"],"Reference":["#a98a4b","#f8f2e6"]};
-    var S = {"left": "{m} min left", "panelS": "{i} of {n} chapters · {m} min left", "refGroup": "Reference", "refs": [{"id": "change-my-mind", "label": "What would change this argument"}, {"id": "faq", "label": "Questions people raise"}, {"id": "resources", "label": "Courses and directories"}], "footLabel": "min left in this chapter", "footTotal": "{m} min left overall"};
+    var S = {"left": "{m} min left", "panelS": "{i} of {n} chapters · {m} min left", "refGroup": "Reference", "refs": [{"id": "change-my-mind", "label": "What would prove this wrong"}, {"id": "faq", "label": "Questions people raise"}, {"id": "resources", "label": "Courses and directories"}], "footLabel": "min left in this chapter", "footTotal": "{m} min left overall"};
     var chapters = META.filter(function(m){ return m.end || m.act; });
 
     function isOff(m){
@@ -5003,8 +5020,6 @@ var SITE_CONFIG = {
         ghPB = $("#gh-proxy-bar"), ghRB = $("#gh-real-bar"),
         ghSay = $("#gh-say");
     var SAY = [
-      "Nudge the slider. At low pressure the proxy and the real goal move together, which is exactly why the proxy looked like a good idea.",
-      "Still tracking. Every metric you check says the system is improving, and every metric is telling the truth.",
       "Near the peak. This is the best the real goal ever gets, and nothing you are measuring tells you that you have arrived.",
       "The lines have parted. The proxy keeps climbing, so the dashboard still looks like success. The thing you wanted is now falling.",
       "Maximum pressure. Perfect score on the measure, almost nothing left of the goal. Nobody wrote a bug. The search simply did its job."
@@ -5023,7 +5038,7 @@ var SITE_CONFIG = {
       if(ghPB) ghPB.style.width = p + "%";
       if(ghRB) ghRB.style.width = r + "%";
       if(ghSay){
-        var idx = t < 0.18 ? 0 : t < 0.42 ? 1 : t < 0.58 ? 2 : t < 0.85 ? 3 : 4;
+        var idx = t < 0.58 ? 0 : t < 0.85 ? 1 : 2;
         if(ghSay.getAttribute("data-i") !== String(idx)){
           ghSay.setAttribute("data-i", String(idx));
           ghSay.textContent = SAY[idx];
