@@ -80,12 +80,12 @@ p{margin:0 0 1em}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- header ---------- */
-.bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
-.bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule-soft)}
+.bar-in,.chapters{background:rgba(10,13,16,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
 .brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
-.brand b{color:var(--c-risk)}
+.brand b{color:#ff8a6b}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;border-radius:999px;text-decoration:none;white-space:nowrap;
@@ -374,13 +374,13 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng-menu.fixed{position:fixed;top:auto;left:auto}
 .ng-menu li{margin:0}
 .ng-menu a{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
-  color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:nowrap;transition:background .12s,color .12s}
-.ng-menu a:hover{background:var(--paper);color:var(--ink)}
+  color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
+.ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
 .ng-menu a.on{background:var(--t-dev);color:var(--c-dev)}
 @media(max-width:640px){
   .nav-groups{padding-left:14px;padding-right:14px;gap:3px}
   .ng-top{padding:7px 10px;font-size:9.5px}
-  .ng-menu{position:absolute;left:0;min-width:190px}
+  .ng-menu{position:absolute;left:0;min-width:190px;max-width:min(92vw,360px)}
   }
 /* ---------- deep-dive chapters ---------- */
 .dd{border-top:1px solid var(--rule)}
@@ -602,19 +602,19 @@ html{overflow-x:hidden}
 @media(min-width:1024px){.posmeter .pm-r{display:none}}
 /* ---------- top nav tinted to match the rail ---------- */
 .ng-top{border-radius:999px}
-.ng.act0 .ng-top{color:#8a4a35}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:#2a1d18;border-color:#e0cabf;color:#8a4a35}
-.ng.act1 .ng-top{color:#47568a}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:#171d2b;border-color:#c8d2e8;color:#47568a}
-.ng.act2 .ng-top{color:#54704a}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:#18211a;border-color:#cbdac5;color:#54704a}
-.ng.act3 .ng-top{color:#8a6f39}.ng.act3.open .ng-top,.ng.act3 .ng-top:hover{background:#241f14;border-color:#e3d5b4;color:#8a6f39}
-.ng.act0.active .ng-top{background:#b5654d;border-color:#b5654d;color:#fff}
-.ng.act1.active .ng-top{background:#5b6b9e;border-color:#5b6b9e;color:#fff}
-.ng.act2.active .ng-top{background:#6f8a63;border-color:#6f8a63;color:#fff}
-.ng.act3.active .ng-top{background:#a98a4b;border-color:#a98a4b;color:#fff}
+.ng.act0 .ng-top{color:#ff8a6b}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:rgba(255,138,107,.14);border-color:#ff8a6b;color:#ff8a6b}
+.ng.act1 .ng-top{color:#3fd0c9}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:rgba(63,208,201,.13);border-color:#3fd0c9;color:#3fd0c9}
+.ng.act2 .ng-top{color:#8d9dff}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:rgba(141,157,255,.14);border-color:#8d9dff;color:#8d9dff}
+
+.ng.act0.active .ng-top{background:#ff8a6b;border-color:#ff8a6b;color:#0d1114}
+.ng.act1.active .ng-top{background:#3fd0c9;border-color:#3fd0c9;color:#0d1114}
+.ng.act2.active .ng-top{background:#8d9dff;border-color:#8d9dff;color:#0d1114}
+
 .ng-menu a.on{background:transparent}
-.ng.act0 .ng-menu a.on{background:#2a1d18;color:#8a4a35}
-.ng.act1 .ng-menu a.on{background:#171d2b;color:#47568a}
-.ng.act2 .ng-menu a.on{background:#18211a;color:#54704a}
-.ng.act3 .ng-menu a.on{background:#241f14;color:#8a6f39}
+.ng.act0 .ng-menu a.on{background:rgba(255,138,107,.14);color:#ff8a6b;box-shadow:inset 3px 0 0 #ff8a6b}
+.ng.act1 .ng-menu a.on{background:rgba(63,208,201,.13);color:#3fd0c9;box-shadow:inset 3px 0 0 #3fd0c9}
+.ng.act2 .ng-menu a.on{background:rgba(141,157,255,.14);color:#8d9dff;box-shadow:inset 3px 0 0 #8d9dff}
+
 /* ---------- narrow view: a persistent chapter bar ---------- */
 .nowbar{display:none}
 @media(max-width:1023px){

@@ -81,35 +81,35 @@ p{margin:0 0 1em}
 .ico{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- header ---------- */
-.bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule)}
-.bar-in,.chapters{background:rgba(230,233,235,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule-soft)}
+.bar-in,.chapters{background:rgba(10,13,16,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
 .brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
-.brand b{color:var(--c-risk)}
+  color:var(--ink-2);text-decoration:none;line-height:1.3;max-width:34ch}
+.brand b{color:#ff8a6b}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;border-radius:999px;text-decoration:none;white-space:nowrap;
   cursor:pointer;border:1.5px solid #fbfcfc;background:#fbfcfc;color:#12161a;padding:7px 13px;
   transition:background .15s,color .15s,transform .15s}
 .hbtn .ico{width:12px;height:12px;stroke-width:2.2}
-.hbtn:hover{background:var(--panel);color:var(--paper);transform:translateY(-1px)}
+.hbtn:hover{background:var(--panel);color:var(--ink);transform:translateY(-1px)}
 .hbtn-act{background:#fbfcfc;border-color:#fbfcfc;color:#12161a}
 .hbtn-lang{font-weight:700}
-.hbtn-act:hover{background:var(--panel);color:var(--paper)}
+.hbtn-act:hover{background:var(--panel);color:var(--ink)}
 .header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;color:#12161a;background:#fbfcfc;
   border:1.5px solid #fbfcfc;padding:7px 12px;
   border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
 .header-game .ico{width:12px;height:12px;stroke-width:2.4}
-.header-game:hover{background:var(--panel);color:var(--paper);transform:translateY(-1px)}
+.header-game:hover{background:var(--panel);color:var(--ink);transform:translateY(-1px)}
 @media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
 .switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
 .switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   padding:8px 11px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
 .switch button+button{border-left:1.5px solid var(--ink)}
 .switch button:hover{background:var(--t-dev)}
-.switch button.on{background:var(--panel);color:var(--paper)}
+.switch button.on{background:var(--panel);color:var(--ink)}
 .switch-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
 @media(max-width:760px){.brand{display:none}.bar-in{flex-wrap:wrap;gap:10px}.bar-actions{width:100%;justify-content:flex-start}.bar-in{padding-left:14px;padding-right:14px}}
 
@@ -132,7 +132,7 @@ p{margin:0 0 1em}
 .cta .primary{background:var(--c-risk);color:#fff}
 .cta .primary:hover{background:var(--d-risk);color:#fff;transform:translateY(-2px)}
 .cta .ghost{border-color:var(--ink);color:var(--ink)}
-.cta .ghost:hover{background:var(--panel);color:var(--paper)}
+.cta .ghost:hover{background:var(--panel);color:var(--ink)}
 .draw{stroke-dasharray:620;stroke-dashoffset:620;animation:draw 2.1s ease .4s forwards}
 .draw.b{animation-delay:.8s}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -368,9 +368,9 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 13px;
   cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .ng-top:hover{border-color:var(--rule);color:var(--ink)}
-.ng.active .ng-top{background:var(--panel);color:var(--paper)}
+.ng.active .ng-top{background:var(--panel);color:var(--ink)}
 .ng-caret{font-size:12px;transition:transform .18s;display:inline-block}
-.ng.open .ng-top{background:var(--panel);color:var(--paper);border-color:var(--ink)}
+.ng.open .ng-top{background:var(--panel);color:var(--ink);border-color:var(--ink)}
 .ng.open .ng-caret{transform:rotate(90deg)}
 .ng-menu{list-style:none;margin:0;padding:6px;position:absolute;top:calc(100% + 6px);left:0;min-width:210px;
   background:var(--white);border:1px solid var(--rule);border-radius:var(--r);box-shadow:0 12px 34px rgba(18,22,26,.16);
@@ -379,13 +379,19 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng-menu.fixed{position:fixed;top:auto;left:auto}
 .ng-menu li{margin:0}
 .ng-menu a{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
-  color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:nowrap;transition:background .12s,color .12s}
-.ng-menu a:hover{background:var(--paper);color:var(--ink)}
+  color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
+.ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
+.ng-grp{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;pointer-events:none;
+  border-top:1px solid #232b31;position:relative}
+.ng-grp::before{content:"";position:absolute;left:0;top:11px;width:2px;height:9px;border-radius:1px;background:var(--ga,#8a959c)}
+.ng-menu li:first-child .ng-grp,.ng-menu > .ng-grp:first-child{margin-top:0;border-top:0;padding-top:4px}
+.ng-menu a{padding-left:22px}
 .ng-menu a.on{background:var(--t-dev);color:var(--c-dev)}
 @media(max-width:640px){
   .nav-groups{padding-left:14px;padding-right:14px;gap:3px}
   .ng-top{padding:7px 10px;font-size:9.5px}
-  .ng-menu{position:absolute;left:0;min-width:190px}
+  .ng-menu{position:absolute;left:0;min-width:190px;max-width:min(92vw,360px)}
   }
 /* ---------- deep-dive chapters ---------- */
 .dd{border-top:1px solid var(--rule)}
@@ -632,19 +638,21 @@ html{overflow-x:hidden}
 @media(min-width:1024px){.posmeter .pm-r{display:none}}
 /* ---------- top nav tinted to match the rail ---------- */
 .ng-top{border-radius:999px}
-.ng.act0 .ng-top{color:#8a4a35}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:#2a1d18;border-color:#e0cabf;color:#8a4a35}
-.ng.act1 .ng-top{color:#47568a}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:#171d2b;border-color:#c8d2e8;color:#47568a}
-.ng.act2 .ng-top{color:#54704a}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:#18211a;border-color:#cbdac5;color:#54704a}
-.ng.act3 .ng-top{color:#8a6f39}.ng.act3.open .ng-top,.ng.act3 .ng-top:hover{background:#241f14;border-color:#e3d5b4;color:#8a6f39}
-.ng.act0.active .ng-top{background:#b5654d;border-color:#b5654d;color:#fff}
-.ng.act1.active .ng-top{background:#5b6b9e;border-color:#5b6b9e;color:#fff}
-.ng.act2.active .ng-top{background:#6f8a63;border-color:#6f8a63;color:#fff}
-.ng.act3.active .ng-top{background:#a98a4b;border-color:#a98a4b;color:#fff}
-.ng-menu a.on{background:transparent}
-.ng.act0 .ng-menu a.on{background:#2a1d18;color:#8a4a35}
-.ng.act1 .ng-menu a.on{background:#171d2b;color:#47568a}
-.ng.act2 .ng-menu a.on{background:#18211a;color:#54704a}
-.ng.act3 .ng-menu a.on{background:#241f14;color:#8a6f39}
+.ng.act0 .ng-top{color:#ff8a6b}.ng.act0.open .ng-top,.ng.act0 .ng-top:hover{background:rgba(255,138,107,.14);border-color:#ff8a6b;color:#ff8a6b}
+.ng.act1 .ng-top{color:#3fd0c9}.ng.act1.open .ng-top,.ng.act1 .ng-top:hover{background:rgba(63,208,201,.13);border-color:#3fd0c9;color:#3fd0c9}
+.ng.act2 .ng-top{color:#8d9dff}.ng.act2.open .ng-top,.ng.act2 .ng-top:hover{background:rgba(141,157,255,.14);border-color:#8d9dff;color:#8d9dff}
+
+.ng.act0.active .ng-top{background:#ff8a6b;border-color:#ff8a6b;color:#0d1114}
+.ng.act1.active .ng-top{background:#3fd0c9;border-color:#3fd0c9;color:#0d1114}
+.ng.act2.active .ng-top{background:#8d9dff;border-color:#8d9dff;color:#0d1114}
+
+.ng.act0 .ng-menu a.on{background:rgba(255,138,107,.14);color:#ff8a6b;box-shadow:inset 3px 0 0 #ff8a6b}
+.ng.act1 .ng-menu a.on{background:rgba(63,208,201,.13);color:#3fd0c9;box-shadow:inset 3px 0 0 #3fd0c9}
+.ng.act2 .ng-menu a.on{background:rgba(141,157,255,.14);color:#8d9dff;box-shadow:inset 3px 0 0 #8d9dff}
+
+
+
+
 /* ---------- narrow view: a persistent chapter bar ---------- */
 .nowbar{display:none}
 @media(max-width:1023px){
@@ -788,7 +796,8 @@ html{overflow-x:hidden}
 .tix:hover{border-color:var(--acc);background:var(--acc-t)}
 .tix .tix-n{font-family:var(--mono);font-size:9.5px;font-weight:700;color:var(--acc);display:block}
 .tix .tix-t{font-family:var(--display);font-weight:700;font-size:13.5px;color:var(--ink);display:block;line-height:1.25}
-.tcard .textra{display:none}
+.tcard .textra{display:none;font-size:13px;line-height:1.5;color:var(--ink-3);margin:0;
+  border-top:1px solid var(--rule-soft);padding-top:9px}
 .tcard.on .textra{display:block}
 .tmore-btn{align-self:flex-start;margin-top:2px;border:0;background:transparent;cursor:pointer;padding:4px 0;
   font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
@@ -908,7 +917,7 @@ html{overflow-x:hidden}
   font-size:clamp(25px,2.4vw + 1rem,40px);max-width:24ch;margin:0 0 20px}
 .cross .big em{font-style:normal;color:#ff8a6b}
 .cross-hero{position:relative}
-.cross-brain{position:absolute;top:50%;transform:translateY(-50%);right:0;width:min(26vw,300px);opacity:.55;pointer-events:none;z-index:0}
+.cross-brain{position:absolute;top:50%;transform:translateY(-32%);right:0;width:min(25vw,290px);opacity:.55;pointer-events:none;z-index:0}
 @media(max-width:900px){.cross-brain{display:none}}
 .cross .stand{font-size:clamp(18px,1.1rem + .4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
 .cross .stand strong{color:#fff;font-weight:500}
@@ -930,6 +939,8 @@ html{overflow-x:hidden}
   display:inline-flex;align-items:center;justify-content:center;margin:0 0 14px;
   box-shadow:0 4px 14px -4px var(--c)}
 .care3.slim .care-c h3{margin:0 0 9px;font-size:clamp(16.5px,2.1vw,20px);line-height:1.2;color:#fff}
+/* while the three sit side by side, reserve two lines of headline so the bodies start on the same row */
+@media(min-width:821px){.care3.slim .care-c h3{min-height:2.4em}}
 .care3.slim .care-c p{color:#aeb9c0;font-size:14.5px;line-height:1.5;margin:0}
 .care3.slim .care-c::after{content:"\2193";display:inline-flex;align-items:center;justify-content:center;
   width:26px;height:26px;margin-top:16px;border-radius:50%;border:1px solid var(--c);
@@ -1369,7 +1380,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .fbtn,.pbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
   border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
 .fbtn:hover,.pbtn:hover{border-color:var(--ink)}
-.fbtn.on,.pbtn.on{background:var(--panel);border-color:var(--ink);color:var(--paper)}
+.fbtn.on,.pbtn.on{background:var(--ink);border-color:var(--ink);color:var(--panel)}
 .card.gone{display:none}
 
 /* ---------- quiz answer states ---------- */
@@ -1386,11 +1397,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .qnote.wrong{border-left-color:var(--c-risk)}
 
 /* ---------- slab ---------- */
-.slab{background:var(--panel);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
+.slab{background:var(--panel);color:var(--ink);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
 .slab::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle,rgba(189,58,32,.55),rgba(189,58,32,0) 68%)}
 .slab>*{position:relative;z-index:1}
-.slab h2{color:var(--paper);margin-bottom:14px;font-size:clamp(28px,5vw,46px)}
+.slab h2{color:var(--ink);margin-bottom:14px;font-size:clamp(28px,5vw,46px)}
 .slab p{color:#b6c0c6;max-width:54ch}
 .slab .eyebrow{color:#8a959c}.slab .eyebrow::after{background:#39434a}
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;
@@ -1412,6 +1423,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .jur-ask{background:var(--white);border-top:3px solid var(--c-act)}
 .jur-status .k,.jur-ask .k{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:8px;color:var(--ink-3)}
 .jur-ask .k{color:var(--c-act)}
+.jur-ask h4{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.015em;
+  color:var(--ink);margin:0 0 8px;line-height:1.2}
 .jur-status p,.jur-ask p{margin:0;font-size:14.5px;line-height:1.6}
 .cando-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media(max-width:860px){.cando-cols{grid-template-columns:1fr}}
@@ -1432,7 +1445,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .share button,.share a{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
   padding:11px 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:2px;cursor:pointer;text-decoration:none;transition:.15s}
-.share button:hover,.share a:hover{background:var(--panel);color:var(--paper)}
+.share button:hover,.share a:hover{background:var(--panel);color:var(--ink)}
 
 #sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0 0 22px}
 #sources .src-cat{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);margin:0 0 8px}
@@ -1442,7 +1455,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 footer p{max-width:82ch;margin:0}
 
 #toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
-  background:var(--panel);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
+  background:var(--panel);color:var(--ink);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
   font-family:var(--mono);font-size:11.5px;line-height:1.4;letter-spacing:.04em;box-shadow:0 10px 34px rgba(0,0,0,.4);
   opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
   max-width:calc(100vw - 28px);display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
@@ -1589,7 +1602,7 @@ div.endc{cursor:default}
      "name": "We already run superhuman systems and they are fine. Why is this different?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Narrowness is doing the containing, not our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight."
+      "text": "Narrowness is what contains those systems, rather than our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight."
      }
     },
     {
@@ -1681,23 +1694,27 @@ div.endc{cursor:default}
         <button type="button" class="ng-top" aria-expanded="false">Why you should care <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">The situation, in one page</a></li>
-          <li><a href="#why-irresistible">1 · Where the money goes</a></li>
-          <li><a href="#why-upside">2.1 · What we get if this goes right</a></li>
-          <li><a href="#why-it-ends-badly">2.2 · What it costs if it goes wrong</a></li>
-          <li><a href="#why-one-try">2.3 · Only one attempt to get it right</a></li>
-          <li><a href="#why-race">3.1.1 · Nobody can slow down alone</a></li>
-          <li><a href="#why-human-misalignment">3.1.2 · We have never agreed what to aim at</a></li>
-          <li><a href="#why-translation">3.2.1 · Values do not translate</a></li>
-          <li><a href="#why-safety-hard">3.2.2 · Validation is harder than building</a></li>
+          <li class="ng-grp" style="--ga:#ff8a6b">1 · The decade we bet everything</li>
+          <li><a href="#why-irresistible">1 · The hundred-billion-dollar blind spot</a></li>
+          <li class="ng-grp" style="--ga:#3fd0c9">2 · The fork in the road</li>
+          <li><a href="#why-upside">2.1 · The age of abundance</a></li>
+          <li><a href="#why-it-ends-badly">2.2 · The end of the story</a></li>
+          <li><a href="#why-one-try">2.3 · The unrepeatable experiment</a></li>
+          <li class="ng-grp" style="--ga:#8d9dff">3.1 · The trouble with us</li>
+          <li><a href="#why-race">3.1.1 · The race with no brakes</a></li>
+          <li><a href="#why-human-misalignment">3.1.2 · The wish nobody agreed on</a></li>
+          <li class="ng-grp" style="--ga:#e8c98a">3.2 · The two missing pieces</li>
+          <li><a href="#why-translation">3.2.1 · The genie problem</a></li>
+          <li><a href="#why-safety-hard">3.2.2 · The black box</a></li>
         </ul>
       </li>
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">What can be done about it <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">A · What safety experts work on today</a></li>
-          <li><a href="#response-gaps">B · Where those techniques fall short</a></li>
-          <li><a href="#ask">C · What has to change</a></li>
-          <li><a href="#do">D · How you can help</a></li>
+          <li><a href="#response">A · The defences</a></li>
+          <li><a href="#response-gaps">B · The cracks</a></li>
+          <li><a href="#ask">C · The course correction</a></li>
+          <li><a href="#do">D · Your move</a></li>
         </ul>
       </li>
       <li class="ng">
@@ -1744,7 +1761,7 @@ div.endc{cursor:default}
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
         <h3>Superintelligence is arriving imminently</h3>
-        <p>Machines are improving fast, and the money spent checking they are safe is a rounding error.</p></a>
+        <p>ASI is expected to arrive in one to two decades, and safety work is already a long way behind.</p></a>
       <a class="care-c" href="#claim-2"><span class="care-n">2</span>
         <h3>Stakes are extremely high</h3>
         <p>The biggest gamble humanity has ever made can lead to almost unlimited abundance or to destruction.</p></a>
@@ -1761,25 +1778,35 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#b5654d"><span class="pd-n">Part 1</span><span class="pd-t">Why you should care</span></div>
     <div class="cross-hero">
-      <svg class="cross-brain" viewBox="0 0 240 200" aria-hidden="true" focusable="false">
-        <path d="M120,24 C140,20 158,24 172,36 C185,47 193,62 196,80 C199,98 195,115 184,129 C174,142 159,152 141,155 C131,157 123,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
-        <path d="M120,24 C100,20 82,24 68,36 C55,47 47,62 44,80 C41,98 45,115 56,129 C66,142 81,152 99,155 C109,157 117,155 120,152 Z" fill="none" stroke="#ff6a45" stroke-width="2" stroke-linejoin="round" opacity=".8"/>
-        <line x1="120" y1="24" x2="120" y2="152" stroke="#ff6a45" stroke-width="1.4" opacity=".5"/>
-        <path d="M111,152 L129,152 L123,178 L117,178 Z" fill="none" stroke="#ff6a45" stroke-width="2" opacity=".8"/>
+      <svg class="cross-brain" viewBox="0 0 240 210" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="#ff6a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
+          <path d="M120,26 C104,16 84,18 74,30 C58,30 46,42 46,56 C34,62 28,76 33,90 C24,100 26,116 37,124 C36,140 47,152 62,152 C70,164 86,168 98,161 C106,170 118,170 124,162"/>
+          <path d="M120,26 C136,16 156,18 166,30 C182,30 194,42 194,56 C206,62 212,76 207,90 C216,100 214,116 203,124 C204,140 193,152 178,152 C170,164 154,168 142,161 C136,170 128,170 124,162"/>
+          <path d="M124,162 L124,26" stroke-width="1.4" opacity=".55"/>
+          <path d="M114,168 C112,182 116,192 124,196 C132,192 136,182 134,168" stroke-width="1.8"/>
+        </g>
+        <g fill="none" stroke="#ff6a45" stroke-width="1.3" stroke-linecap="round" opacity=".5">
+          <path d="M74,30 C84,40 80,52 68,56 C56,60 54,72 64,78"/>
+          <path d="M46,56 C58,62 60,74 50,82 C41,89 44,100 54,104"/>
+          <path d="M37,124 C50,120 62,126 64,138"/>
+          <path d="M166,30 C156,40 160,52 172,56 C184,60 186,72 176,78"/>
+          <path d="M194,56 C182,62 180,74 190,82 C199,89 196,100 186,104"/>
+          <path d="M203,124 C190,120 178,126 176,138"/>
+        </g>
         <g stroke="#6d84ff" stroke-width="1.2" opacity=".85">
-          <line x1="120" y1="90" x2="95" y2="60"/>
-          <line x1="120" y1="90" x2="150" y2="60"/>
-          <line x1="120" y1="90" x2="75" y2="102"/>
-          <line x1="120" y1="90" x2="165" y2="102"/>
-          <line x1="95" y1="60" x2="75" y2="102"/>
-          <line x1="150" y1="60" x2="165" y2="102"/>
+          <line x1="124" y1="96" x2="99" y2="66"/>
+          <line x1="124" y1="96" x2="154" y2="66"/>
+          <line x1="124" y1="96" x2="79" y2="108"/>
+          <line x1="124" y1="96" x2="169" y2="108"/>
+          <line x1="99" y1="66" x2="79" y2="108"/>
+          <line x1="154" y1="66" x2="169" y2="108"/>
         </g>
         <g fill="#6d84ff">
-          <circle cx="120" cy="90" r="3.6"/>
-          <circle cx="95" cy="60" r="3"/>
-          <circle cx="150" cy="60" r="3"/>
-          <circle cx="75" cy="102" r="3"/>
-          <circle cx="165" cy="102" r="3"/>
+          <circle cx="124" cy="96" r="3.6"/>
+          <circle cx="99" cy="66" r="3"/>
+          <circle cx="154" cy="66" r="3"/>
+          <circle cx="79" cy="108" r="3"/>
+          <circle cx="169" cy="108" r="3"/>
         </g>
       </svg>
       <p class="eyebrow">Where we are <b class="rt-min">4 min</b></p>
@@ -1791,7 +1818,7 @@ div.endc{cursor:default}
 
       <div class="claim c1" id="claim-1">
         <span class="cl-n">1</span>
-        <h3><a href="#why-irresistible">Superintelligence is arriving soon, and safety research is already way behind</a></h3>
+        <h3><a href="#why-irresistible">Superintelligence is arriving soon, and safety research is already far behind</a></h3>
         <p class="cl-sub">The length of job a machine can finish on its own has roughly doubled every seven months since 2019, and most forecasters now put human-level performance on every task somewhere between 2033 and 2047.<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a> The money spent checking these systems are safe is a rounding error next to the money spent building them.</p>
         <div class="cl-figs panels" style="--fig-acc:#ff8a6b">
         <figure>
@@ -1845,7 +1872,7 @@ div.endc{cursor:default}
 
       <div class="claim c2" id="claim-2">
         <span class="cl-n">2</span>
-        <h3><a href="#why-it-ends-badly">The potential result can range from infinite abundance to end of civilization</a></h3>
+        <h3><a href="#why-it-ends-badly">The stakes run from curing every disease to ending civilization</a></h3>
         <p class="cl-sub">A machine that can do its own research would hand us cures for diseases we cannot treat today and material abundance without limit. Built without control, that same machine has a well understood route to killing everyone, and it does not need to hate us to get there.</p>
         <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
         <figure>
@@ -1907,7 +1934,7 @@ div.endc{cursor:default}
 
       <div class="claim c3" id="claim-3">
         <span class="cl-n">3</span>
-        <h3><a href="#why-race">The problem is extremely difficult and no one has a solution yet</a></h3>
+        <h3><a href="#why-race">Nobody knows how to make superintelligence safe, and two problems block the way</a></h3>
         <p class="cl-sub">Two separate problems sit underneath this. Both have to be solved, and neither one is.</p>
 
     <div class="cl-halves">
@@ -2011,11 +2038,10 @@ div.endc{cursor:default}
 <!-- DEEP DIVE 01: irresistible carrot -->
 <section id="why-irresistible" class="dd">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#5b6b9e"><span class="pd-n">Part 2</span><span class="pd-t">The three reasons in full</span></div>
-    <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">1</span><span class="gd-t">Arriving soon, safety behind</span></div>
+    <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">1</span><span class="gd-t">The decade we bet everything</span></div>
     <div class="sec-head rv">
-      <span class="chapno">Chapter 1 <b class="rt-min">3 min</b></span>
-      <h2>The money goes into building it, which pulls the timeline in and leaves safety behind</h2>
+      <span class="chapno">Chapter 1 <b class="rt-min">2 min</b></span>
+      <h2>Billions go into building AI, and a sliver into checking it is safe</h2>
       <p class="stand">Understanding the danger does not stop it. The rewards are immediate, and they land on whoever moves first.</p>
     </div>
     <div class="body rv">
@@ -2079,10 +2105,10 @@ div.endc{cursor:default}
 <!-- DEEP DIVE 2.1: the upside -->
 <section id="why-upside" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">Infinite abundance or end of civilization</span></div>
+    <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">The fork in the road</span></div>
     <div class="sec-head rv">
       <span class="chapno">Chapter 2.1 <b class="rt-min">1 min</b></span>
-      <h2>What we get if this goes right</h2>
+      <h2>AI could cure diseases and end scarcity</h2>
       <p class="stand">AGI is expected to create extreme wealth and solve problems humanity cannot solve today, up to essentially unlimited material abundance.</p>
     </div>
     <figure class="secfig rv" style="max-width:820px">
@@ -2112,8 +2138,8 @@ div.endc{cursor:default}
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Chapter 2.2 <b class="rt-min">3 min</b></span>
-      <h2>If it goes wrong, civilization can be ended.</h2>
+      <span class="chapno">Chapter 2.2 <b class="rt-min">2 min</b></span>
+      <h2>The same AI could end civilization</h2>
       <p class="stand">The same machine can also cause extreme harm, through misuse, through misalignment, and through routes where nobody intended harm at all.</p>
     </div>
 
@@ -2182,9 +2208,9 @@ div.endc{cursor:default}
 <section id="why-one-try" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Chapter 2.3 <b class="rt-min">5 min</b></span>
-      <h2>Only one attempt to get it right</h2>
-      <p class="stand">We got cars, planes and nuclear power right by getting them wrong first, and that method held because a car does not copy itself and a reactor does not rewrite its own design.<a class="ref" href="#s34">34</a> A system that writes its own successor closes the gap between a mistake and the fix. That is <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>.</p>
+      <span class="chapno">Chapter 2.3 <b class="rt-min">3 min</b></span>
+      <h2>We only get one attempt at this</h2>
+      <p class="stand">We got cars, planes and nuclear power right by getting them wrong first, and that method held because a car does not copy itself and a reactor does not rewrite its own design.<a class="ref" href="#s34">34</a> A system that writes its own successor closes the gap between a mistake and the fix. That is <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>, and it is why the first serious mistake may also be the last.</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 282" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
@@ -2364,11 +2390,11 @@ div.endc{cursor:default}
 <!-- DEEP DIVE 05: the race -->
 <section id="why-race" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">3.1</span><span class="gd-t">No solution yet: coordination</span></div>
+    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">3.1</span><span class="gd-t">The trouble with us</span></div>
 
     <div class="sec-head rv">
-      <span class="chapno">Chapter 3.1.1 <b class="rt-min">3 min</b></span>
-      <h2>Nobody can slow down alone, so everybody keeps going</h2>
+      <span class="chapno">Chapter 3.1.1 <b class="rt-min">2 min</b></span>
+      <h2>Whoever slows down first loses, so nobody slows down</h2>
       <p class="stand">Even if every player wanted safety, the structure of a race forces corner-cutting. And crossing this finish line unsafely produces no winner, only a shared catastrophe.</p>
     </div>
     <div class="body rv">
@@ -2503,7 +2529,7 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">Chapter 3.1.2 <b class="rt-min">2 min</b></span>
-      <h2>We have never agreed among ourselves what a machine should want</h2>
+      <h2>Humans have never agreed whose values a machine should follow</h2>
       <p class="stand">Before aligning a machine with human values, a harder question: whose values, agreed how? Humanity is a patchwork of competing interests, and that fracture makes the target itself unstable.</p>
     </div>
     <div class="body rv">
@@ -2587,15 +2613,15 @@ div.endc{cursor:default}
 <!-- DEEP DIVE 07: translation gap -->
 <section id="why-translation" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#a98a4b"><span class="gd-n">3.2</span><span class="gd-t">No solution yet: technical</span></div>
+    <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">3.2</span><span class="gd-t">The two missing pieces</span></div>
     <div class="sec-head rv">
-      <span class="chapno">Chapter 3.2.1 <b class="rt-min">6 min</b></span>
-      <h2>We cannot say what we mean precisely enough for a machine to follow it</h2>
+      <span class="chapno">Chapter 3.2.1 <b class="rt-min">5 min</b></span>
+      <h2>AI does what we typed, which is rarely what we meant</h2>
       <p class="stand">Suppose we did agree on what we want. We still could not reliably put it into a machine. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
     </div>
     <div class="body rv">
       <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">Outer alignment</span><h4>The target we write down is wrong</h4><p>We state an objective that sounds right and misses what we meant, because the part we never thought to say out loud does not make it into the words.</p></div>
+      <div class="ddc b"><span class="k">Outer alignment</span><h4>The target we established is wrong</h4><p>We state an objective that sounds right and misses what we meant, because the part we never thought to say out loud does not make it into the words.</p></div>
       <div class="ddc r"><span class="k">Inner alignment</span><h4>The target it actually holds is wrong</h4><p>Training rewards whatever scored well while we were watching, which need not be the objective we wrote. The system can pass every test and hold something else.</p></div>
     </div>
     <figure class="secfig rv">
@@ -2627,7 +2653,7 @@ div.endc{cursor:default}
         <text x="0" y="196" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">Solving one does nothing for the other.</text>
       </svg>
     </figure>
-    <h3 class="rv" style="margin-top:clamp(28px,4vw,42px);margin-bottom:6px">Outer alignment: the target we write down is not the one we mean</h3>
+    <h3 class="rv" style="margin-top:clamp(28px,4vw,42px);margin-bottom:6px">Outer alignment: the target we established is not the one we mean</h3>
     <div class="core">
 <span class="ck">How this actually works</span>
 <h4>The target we can write down is never the one we mean</h4>
@@ -2791,8 +2817,8 @@ refusal training</text>
 <section id="why-safety-hard" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Chapter 3.2.2 <b class="rt-min">5 min</b></span>
-      <h2>Validating that a system is safe is harder than building it</h2>
+      <span class="chapno">Chapter 3.2.2 <b class="rt-min">3 min</b></span>
+      <h2>Nobody can check what an AI actually wants</h2>
       <p class="stand">Safety here is a technical problem rather than a matter of conscience: proving how a system will behave across a space too vast to test, against a system that may be working around the test.</p>
     </div>
     <div class="body rv">
@@ -3287,10 +3313,10 @@ refusal training</text>
 <!-- RESPONSE -->
 <section id="response">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">Part 3</span><span class="pd-t">What can be done about it</span></div>
-    <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">A</span><span class="gd-t">What safety experts are working on today</span></div>
+    <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">Part 2</span><span class="pd-t">What can be done about it</span></div>
+    <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">A</span><span class="gd-t">The defences</span></div>
     <div class="sec-head rv">
-      <p class="eyebrow">What safety experts are working on today <b class="rt-min">8 min</b></p>
+      <p class="eyebrow">What safety experts are working on today <b class="rt-min">7 min</b></p>
       <h2>What are the techniques safety experts are working on today?</h2>
       <p class="lede">The rest of this page is about the response, in three steps: what is already being done, where it still falls short, and what you can do about it. Start with the work itself, which is real and small next to the effort going into capability. It sorts into four layers: fix the specification, check what you built, contain what you cannot check, and make the whole thing binding.<a class="ref" href="#s14">14</a></p>
     </div>
@@ -3566,11 +3592,16 @@ refusal training</text>
 <!-- WHAT CAN BE DONE, B: where it falls short -->
 <section id="response-gaps" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#b5654d"><span class="gd-n">B</span><span class="gd-t">Where existing techniques fall short</span></div>
+    <div class="grp-div" style="--gd-acc:#b5654d"><span class="gd-n">B</span><span class="gd-t">The cracks</span></div>
     <div class="sec-head rv">
       <p class="eyebrow">How well it works <b class="rt-min">2 min</b></p>
       <h2>Where are existing safety techniques falling short?</h2>
       <p class="lede">Every technique above helps. The question is what they add up to, so here are the numbers the best published results actually reached, and what happens to each safeguard under the three cases that matter most.</p>
+    </div>
+    <div class="ddgrid three rv">
+      <div class="ddc o"><span class="k">Hard case one</span><h4>The model knows it is being tested</h4><p>Most of these safeguards are measured in evaluations. A system that can tell an evaluation from deployment can pass the first and behave differently in the second.</p></div>
+      <div class="ddc r"><span class="k">Hard case two</span><h4>The model outclasses its monitor</h4><p>Oversight, interpretability and control all assume the watcher can follow what the watched is doing. That assumption weakens exactly as capability grows.</p></div>
+      <div class="ddc b"><span class="k">Hard case three</span><h4>The builder simply opts out</h4><p>Every technical safeguard is something a developer chooses to apply. Only binding rules reach a lab that decides not to, and those exist in few places.</p></div>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 258" role="img" aria-label="Three bars showing large reductions in jailbreak success and covert action rates, each with a visible non-zero remainder after mitigation.">
@@ -3680,8 +3711,8 @@ refusal training</text>
 
 <section id="ask" class="cross">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">C</span><span class="gd-t">What has to change</span></div>
-    <p class="eyebrow">Act now <b class="rt-min">2 min</b></p>
+    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">C</span><span class="gd-t">The course correction</span></div>
+    <p class="eyebrow">Act now <b class="rt-min">1 min</b></p>
     <h2 class="big">Two things need to change, and the second is the willingness to <em>stop altogether</em>.</h2>
     <div class="firsts">
       <div class="first">
@@ -3709,21 +3740,21 @@ refusal training</text>
 <!-- WHAT CAN BE DONE -->
 <section id="do" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">D</span><span class="gd-t">How you can help</span></div>
+    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">D</span><span class="gd-t">Your move</span></div>
     <div class="sec-head">
-      <p class="eyebrow">Who does what <b class="rt-min">5 min</b></p>
+      <p class="eyebrow">Who does what <b class="rt-min">6 min</b></p>
       <h2>Knowing all of this changes nothing on its own. Here is what would.</h2>
       <p class="stand cando-lead">Four groups can move this, and you are the first of them. Each ask below is specific, and positions attributed to a government are what the public record says, dated, because a stale summary here is worse than none.</p>
     </div>
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">You</span><h3>What you can do</h3></div>
-      <ul class="actlist">
-        <li><b>Learn properly</b>BlueDot Impact runs structured courses that take this from reading to competence, and AISafety.info answers the specific question you have without requiring a course first.<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></li>
-        <li><b>Say it out loud</b>Public opinion is not the obstacle here. A poll of 2,000 US adults in October 2025 found majority support for slowing frontier development down.<a class="ref" href="#s33">33</a> The position feels fringe because so few people say it out loud, and that resolves one conversation at a time.</li>
-        <li><b>Contact the person who represents you</b>In Canada, ask your MP why nothing replaced AIDA. In the UK, ask your MP when the Frontier AI Bill arrives. In the US, ask your representative about preemption and your state legislator about the state law it would displace, because that is where the live fight currently sits. In the EU, ask your MEP whether the AI Office is enforcing.</li>
-        <li><b>Back the organisations doing the work</b>The Future of Life Institute, the Center for AI Safety, and the red lines campaign all take signatures, volunteers and money, and all three publish what they do with them.<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></li>
-      </ul>
+      <div class="ddgrid two rv">
+        <div class="ddc g"><span class="k">Learn</span><h4>Take a real course</h4><p>BlueDot Impact runs structured courses that take this from reading to competence, and AISafety.info answers the specific question you have without requiring a course first.<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></p></div>
+        <div class="ddc t"><span class="k">Speak</span><h4>Say it out loud</h4><p>Public opinion is not the obstacle here. A poll of 2,000 US adults in October 2025 found majority support for slowing frontier development down.<a class="ref" href="#s33">33</a> The position feels fringe because so few people say it out loud, and that resolves one conversation at a time.</p></div>
+        <div class="ddc b"><span class="k">Press</span><h4>Write to your representative</h4><p>In Canada, ask your MP why nothing replaced AIDA. In the UK, ask your MP when the Frontier AI Bill arrives. In the US, ask your representative about preemption and your state legislator about the state law it would displace, because that is where the live fight currently sits. In the EU, ask your MEP whether the AI Office is enforcing.</p></div>
+        <div class="ddc o"><span class="k">Fund</span><h4>Back the people doing the work</h4><p>The Future of Life Institute, the Center for AI Safety, and the red lines campaign all take signatures, volunteers and money, and all three publish what they do with them.<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></p></div>
+      </div>
     </div>
 
     <div class="cando-block">
@@ -3738,27 +3769,27 @@ refusal training</text>
       </div>
         <div class="jur on" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us">
           <div class="jur-status"><span class="k">Where it stands</span><p>There is no federal AI statute, and individual states have passed their own. Executive Order 14365, signed in December 2025, directs the Justice Department to challenge state AI laws in federal court, and the March 2026 National Policy Framework backs broad federal preemption.<a class="ref" href="#s58">58</a> Congress has not passed preemption legislation. Executive Order 14409, from June 2026, does order classified benchmarking of frontier models, though it scopes that to cyber capability and national security.<a class="ref" href="#s59">59</a></p></div>
-          <div class="jur-ask"><span class="k">The ask</span><p>Preemption removes a floor. If federal rules displace state ones, they have to be stronger than what they replace. An evaluation regime aimed only at cyber misuse also leaves the failure mode this site is about completely unaddressed, so a serious federal standard has to cover loss of control on its own terms.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><h4>Write a federal standard</h4><p>Cover loss of control as well as cyber misuse, and make it stronger than the state rules it replaces. Federal rules that override state ones without being stronger take away a floor and put nothing in its place.</p></div>
         </div>
         <div class="jur" data-j="cn" role="tabpanel" id="jpanel-cn" aria-labelledby="jtab-cn" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>China has no single comprehensive AI statute either, and regulates through layered rules instead: the Algorithm Recommendations Provisions, the Deep Synthesis Provisions, and the Interim Measures for Generative AI Services in force since August 2023, with content labelling measures added in September 2025.<a class="ref" href="#s62">62</a> Its AI Safety Governance Framework 2.0, published by TC260 in September 2025, names loss of control directly alongside chemical, biological, radiological and nuclear misuse, which is more than the current US federal framing does on that specific risk.<a class="ref" href="#s61">61</a><a class="ref" href="#s63">63</a> That framework is guidance feeding binding technical standards rather than law in itself.</p></div>
-          <div class="jur-ask"><span class="k">The ask</span><p>Turn the framework’s loss-of-control language into binding pre-deployment requirements, and take it to the international table. Any red line that Washington and Beijing do not both accept is not actually a red line, so agreement between these two is what every international proposal ultimately rests on.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><h4>Make the framework binding</h4><p>Turn its loss-of-control language into rules that apply before release, and take it to the table with Washington. A red line counts only if both sides accept it, so every international proposal rests on these two agreeing.</p></div>
         </div>
         <div class="jur" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>Canada has no AI statute. The Artificial Intelligence and Data Act died on the order paper in January 2025, and no successor bill has been introduced since.<a class="ref" href="#s57">57</a> Frontier development here runs on a voluntary code of conduct, and the Canadian AI Safety Institute, created in November 2024, does evaluation work without statutory power to compel anything.<a class="ref" href="#s57">57</a></p></div>
-          <div class="jur-ask"><span class="k">The ask</span><p>Put binding obligations on frontier developers, and give the safety institute a legal mandate with pre-deployment access. A voluntary code binds the developers who volunteer, which is the wrong set of people when the concern is whoever moves fastest under competitive pressure.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><h4>Put the duties in law</h4><p>Bind frontier developers, and give the safety institute a legal mandate with access before release. A voluntary code binds the labs that volunteer, which is the wrong set when the worry is whoever moves fastest.</p></div>
         </div>
         <div class="jur" data-j="eu" role="tabpanel" id="jpanel-eu" aria-labelledby="jtab-eu" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>The AI Act is the only binding frontier regime currently in force. Obligations on general-purpose AI models took effect in August 2025, and the Commission's enforcement powers together with the Article 50 transparency duties began on 2 August 2026.<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a> A May 2026 Digital Omnibus agreement delayed and simplified parts of the Act while leaving those general-purpose duties and enforcement powers intact.<a class="ref" href="#s60">60</a></p></div>
-          <div class="jur-ask"><span class="k">The ask</span><p>Use the powers. The Act's value from here depends on whether the AI Office is willing to enforce against a major developer on an occasion when enforcing carries a real cost, and that is the open question rather than the text of the law.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><h4>Enforce the Act</h4><p>Use it against a major developer, once, when enforcing costs something real. The text is already written. Whether anyone will use it is the open question.</p></div>
         </div>
         <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>The AI Security Institute, renamed from Safety to Security in February 2025, runs the most substantial public frontier evaluation programme any government has, and it depends on labs choosing to cooperate.<a class="ref" href="#s11">11</a> A Frontier AI Bill that would put the institute on statutory footing and let it compel pre-deployment testing has been promised for 2026 and has not been introduced.<a class="ref" href="#s11">11</a></p></div>
-          <div class="jur-ask"><span class="k">The ask</span><p>Introduce the bill. An evaluator that can test only what it is granted access to is measuring how willing the labs are to be measured, and that is a different quantity from how safe the systems are.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><h4>Introduce the bill</h4><p>An evaluator that can only test what it is handed measures how willing the labs are, rather than how safe the systems are.</p></div>
         </div>
         <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
           <div class="jur-status"><span class="k">Where it stands</span><p>The Global Call for AI Red Lines, launched at the United Nations in September 2025 and signed by more than 300 public figures including Nobel laureates, along with over 90 organisations, asks states to agree binding limits on the highest-risk AI capabilities by the end of 2026.<a class="ref" href="#s56">56</a> The route runs through the AI Impact Summit in India, the UN Global Dialogue in Geneva, and then the General Assembly and the G20.<a class="ref" href="#s56">56</a></p></div>
-          <div class="jur-ask"><span class="k">The ask</span><p>This deadline is already running. The date is the end of 2026, and the agreement it refers to does not yet exist.</p></div>
+          <div class="jur-ask"><span class="k">The ask</span><h4>Meet the 2026 deadline</h4><p>It runs to the end of 2026, and the agreement it points at does not exist yet.</p></div>
         </div>
       <p class="asof" data-asof="2026-09">Status current as of September 2026. Every claim above links to its source.</p>
     </div>
@@ -3766,9 +3797,9 @@ refusal training</text>
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">The labs</span><h3>What the labs should do</h3></div>
       <div class="cando-cols">
-        <div class="ddc g"><span class="k">Immediate</span><h4>Things that need no new agreement</h4><p>Publish evaluation results before deployment rather than after it. Fund internal safety work in proportion to capability spend, and state what that ratio is. Honour your own scaling policy on the one occasion where honouring it costs you a release, because a commitment that has never been binding has never been tested.<a class="ref" href="#s16">16</a></p></div>
-        <div class="ddc b"><span class="k">Near-term</span><h4>Things that need outside access</h4><p>Give external auditors enough access to check the claims, which means the internal evaluation record and the models themselves under appropriate control. Support interpretability tooling that someone outside the company can run, since a safety argument only a lab can verify is a safety argument nobody has verified.<a class="ref" href="#s15">15</a></p></div>
-        <div class="ddc r"><span class="k">Red lines</span><h4>Things to rule out in advance</h4><p>No system able to meaningfully improve itself without external sign-off. No autonomous replication. No deployment of a model shown to behave differently when it detects that it is being evaluated, until that behaviour is understood, because every safety claim resting on a gameable test inherits the same flaw.<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
+        <div class="ddc g"><span class="k">Immediate</span><h4>Publish results before release</h4><p><strong>Publish test results before release rather than after.</strong> <strong>Fund safety work in proportion to what you spend on capability, and say what the ratio is.</strong> <strong>Keep your own scaling policy on the one occasion it costs you a release.</strong> A promise that has never been binding has never been tested.<a class="ref" href="#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">Near-term</span><h4>Open the books to auditors</h4><p><strong>Give outside auditors enough access to check your claims</strong>, which means the internal test record and the models themselves under proper control. <strong>Back tools that someone outside the company can run.</strong> A safety claim only you can check is a safety claim nobody has checked.<a class="ref" href="#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">Red lines</span><h4>Rule these out now</h4><p><strong>Rule out any system that can meaningfully improve itself without outside sign-off.</strong> <strong>Rule out systems that copy themselves.</strong> <strong>Hold back any model that behaves differently once it works out it is being tested</strong>, until you know why. Every safety claim built on a test the model can game carries the same flaw.<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
       </div>
     </div>
 
@@ -3776,10 +3807,10 @@ refusal training</text>
       <div class="cando-h"><span class="ch-n">Researchers</span><h3>What researchers should do</h3></div>
       <p>Four problems are where the field says the effort should go, and the routes in are shorter than most people assume.<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a></p>
       <div class="ddgrid two rv" style="margin-top:14px">
-        <div class="ddc b"><span class="k">Open problem</span><h4>Interpretability that scales</h4><p>Reading a model&rsquo;s internal computation has to keep working at frontier size, not just on small models.</p></div>
-        <div class="ddc o"><span class="k">Open problem</span><h4>Evaluations that survive being noticed</h4><p>Tests have to stay valid against a system that can tell it is being evaluated and change what it does.</p></div>
-        <div class="ddc r"><span class="k">Open problem</span><h4>Control that holds as capability grows</h4><p>Containment methods have to keep working as the gap between the system and its monitor widens.</p></div>
-        <div class="ddc g"><span class="k">Open problem</span><h4>Goals precise enough to check</h4><p>A specification has to be exact enough that behaviour can be measured against it rather than argued about.</p></div>
+        <div class="ddc b"><span class="k">Open problem</span><h4>Make interpretability scale</h4><p>Reading a model&rsquo;s internal computation still works on small models and has to keep working on the largest ones.</p></div>
+        <div class="ddc o"><span class="k">Open problem</span><h4>Build tests models can’t game</h4><p>A system that can tell it is being tested will change what it does, and the test has to stay valid anyway.</p></div>
+        <div class="ddc r"><span class="k">Open problem</span><h4>Keep control as capability grows</h4><p>Containment has to hold as the system pulls further ahead of whatever is watching it.</p></div>
+        <div class="ddc g"><span class="k">Open problem</span><h4>Write goals we can check</h4><p>A goal has to be precise enough that behaviour can be measured against it rather than argued about.</p></div>
       </div>
       <p style="margin-top:14px">ARENA and MATS take strong technical backgrounds into published safety work in months, and the 80,000 Hours problem profile is the usual starting point for choosing where to aim.<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
     </div>
@@ -3792,7 +3823,7 @@ refusal training</text>
 <!-- RESOURCES (compact reference) -->
 <section id="change-my-mind">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">Part 4</span><span class="pd-t">Reference</span></div>
+    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">Part 3</span><span class="pd-t">Reference</span></div>
     <div class="sec-head rv">
       <p class="eyebrow">Falsifiability</p>
       <h2>What would prove this wrong</h2>
@@ -3937,7 +3968,7 @@ refusal training</text>
     </div>
     <div class="rv">
       <details><summary><span class="qn">01</span>Isn't this just science fiction?</summary><div class="fa"><p>The concern is narrower and more boring than the films. Nothing in it turns on robots deciding to hate us. We train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they learned. The failures described here, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
-        <details><summary><span class="qn">02</span>We already run superhuman systems and they are fine. Why is this different?</summary><div class="fa"><p>Narrowness is doing the containing, not our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight.</p></div></details>
+        <details><summary><span class="qn">02</span>We already run superhuman systems and they are fine. Why is this different?</summary><div class="fa"><p>Narrowness is what contains those systems, rather than our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight.</p></div></details>
       <details><summary><span class="qn">03</span>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is the ability we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
       <details><summary><span class="qn">04</span>Won't a smart enough AI just understand what we want?</summary><div class="fa"><p>Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the <span class="term" tabindex="0">orthogonality thesis<span class="term-tip">A system's level of capability and the content of its goals are independent. Getting smarter does not automatically produce good values.</span></span>.<a class="ref" href="#s34">34</a></p></div></details>
       <details><summary><span class="qn">05</span>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the case in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this page, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the actions section lists concrete steps.</p></div></details>
@@ -4296,12 +4327,12 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "Where the money goes", "min": 3, "end": true}, {"id": "why-upside", "label": "What we get if this goes right", "min": 1, "end": true}, {"id": "why-it-ends-badly", "label": "What it costs if it goes wrong", "min": 3, "end": true}, {"id": "why-one-try", "label": "Only one attempt to get it right", "min": 5, "end": true}, {"id": "why-race", "label": "Nobody can slow down alone", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "We have never agreed what to aim at", "min": 2, "end": true}, {"id": "why-translation", "label": "Values do not translate", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "Validation is harder than building", "min": 5, "end": true}, {"id": "response", "label": "What safety experts work on today", "min": 8, "end": true}, {"id": "response-gaps", "label": "Where those techniques fall short", "min": 2, "end": true}, {"id": "ask", "label": "What has to change", "min": 2, "end": false, "act": true}, {"id": "do", "label": "How you can help", "min": 5, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 1, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 2, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" was a separate 11 min tier that has been folded into core.
        Readers who saved it still have it in localStorage, so map it across. */
     var ROUTE_ALIAS = {"essentials": "core"};
-    var S = {"endOf": "End of {n}", "next": "Next: {t} ({m} min)", "skip": "Or skip to what to do", "openCh": "Read this chapter ({m} min)", "pos": "Ch {i}/{n} · {m} min left", "startIn": "{m} min read"};
+    var S = {"endOf": "Finished: {n}", "next": "Next: {t} ({m} min)", "skip": "Or skip to what to do", "openCh": "Read this chapter ({m} min)", "pos": "Ch {i}/{n} · {m} min left", "startIn": "{m} min read"};
     var KEY_ROUTE = "gap.route", KEY_POS = "gap.pos";
     window.__GAP_META = META;
 
@@ -4439,7 +4470,7 @@ var SITE_CONFIG = {
   (function(){
     var META = window.__GAP_META || [];
     if(!META.length) return;
-    var G = {"crossroads": "", "why-irresistible": "1 · Arriving soon, safety behind", "why-upside": "2 · Infinite abundance or end of civilization", "why-it-ends-badly": "2 · Infinite abundance or end of civilization", "why-one-try": "2 · Infinite abundance or end of civilization", "why-race": "3.1 · No solution yet: coordination", "why-human-misalignment": "3.1 · No solution yet: coordination", "why-translation": "3.2 · No solution yet: technical", "why-safety-hard": "3.2 · No solution yet: technical", "response": "", "response-gaps": "", "ask": "", "do": ""};
+    var G = {"crossroads": "", "why-irresistible": "1 · The decade we bet everything", "why-upside": "2 · The fork in the road", "why-it-ends-badly": "2 · The fork in the road", "why-one-try": "2 · The fork in the road", "why-race": "3.1 · The trouble with us", "why-human-misalignment": "3.1 · The trouble with us", "why-translation": "3.2 · The two missing pieces", "why-safety-hard": "3.2 · The two missing pieces", "response": "", "response-gaps": "", "ask": "", "do": ""};
     var P = {"crossroads": "Why you should care", "why-irresistible": "Why you should care", "why-upside": "Why you should care", "why-it-ends-badly": "Why you should care", "why-one-try": "Why you should care", "why-race": "Why you should care", "why-human-misalignment": "Why you should care", "why-translation": "Why you should care", "why-safety-hard": "Why you should care", "response": "What can be done about it", "response-gaps": "What can be done about it", "ask": "What can be done about it", "do": "What can be done about it"};
     var NUM = {"crossroads": "·", "why-irresistible": "1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1.1", "why-human-misalignment": "3.1.2", "why-translation": "3.2.1", "why-safety-hard": "3.2.2", "response": "A", "response-gaps": "B", "ask": "C", "do": "D"};
     var PART_PAL = {"Why you should care":["#b5654d","#f6ece7"],"What can be done about it":["#6f8a63","#eef3ec"],"Reference":["#a98a4b","#f8f2e6"]};
