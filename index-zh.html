@@ -1453,6 +1453,10 @@ footer p{max-width:82ch;margin:0}
 .cl-sub{color:#aeb9c0;font-size:15.5px;line-height:1.5;margin:0 0 16px}
 .cl-figs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);align-items:start}
 .cl-figs.one{grid-template-columns:1fr;max-width:560px}
+.cl-figs.stack{grid-template-columns:1fr;gap:clamp(16px,2.2vw,24px)}
+.cl-figs.panels figure{border:1px solid #2b343b;border-left:3px solid var(--fig-acc,#8a959c);
+  border-radius:var(--r);background:rgba(0,0,0,.2);padding:clamp(13px,1.8vw,17px)}
+.cl-figs.panels .fig-src{margin-top:9px}
 .cl-figs figure{margin:0}
 .cl-figs svg{width:100%;height:auto;display:block;overflow:visible}
 .cl-figs .fig-src{font-size:8.5px;margin-top:7px}
@@ -1537,6 +1541,22 @@ div.endc{cursor:default}
 
 @media(max-width:760px){.cl-figs{grid-template-columns:1fr}}
 @media(max-width:560px){.bet-row{gap:8px}.bet-row input[type=range]{flex:1 1 100%}}
+
+.expair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin:18px 0}
+.exfold{margin:18px 0}
+.exfold>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-dev);border:1.5px solid var(--rule);border-radius:999px;padding:8px 15px;transition:.15s}
+.exfold>summary::-webkit-details-marker{display:none}
+.exfold>summary::after{content:"+";font-size:15px;line-height:1}
+.exfold[open]>summary::after{content:"\2013"}
+.exfold>summary:hover{border-color:var(--ink);color:var(--ink)}
+.exfold[open]>summary{margin-bottom:14px}
+.exfold .expair{margin:0}
+.expair .example{margin:0}
+.cl-halves{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.8vw,18px);margin-top:clamp(14px,2vw,18px);align-items:stretch}
+@media(max-width:820px){.expair{grid-template-columns:1fr}}
+@media(max-width:820px){.cl-halves{grid-template-columns:1fr}}
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -1781,6 +1801,7 @@ div.endc{cursor:default}
   <div class="wrap">
     <p class="mh-kick">一份独立的领域指南 · Bill Guan 著</p>
     <h1 class="mh-title">人类至今未解的<br><span class="mh-hl">最大难题</span></h1>
+    <p class="mh-lede">机器在各方面变得更强的速度，快过我们学会控制它们的速度，而流向安全的钱只有其中一丝。这个页面讲清楚这道差距为什么要紧，以及什么能把它补上。</p>
         <div class="mh-care">
     <h2 class="mh-h"><span>我们为什么该在意</span></h2>
     <div class="care3 slim">
@@ -1837,7 +1858,7 @@ div.endc{cursor:default}
         <span class="cl-n">1</span>
         <h3><a href="#why-irresistible">超级智能很快就会到来，而安全研究已经远远落后</a></h3>
         <p class="cl-sub">机器能独立完成的任务长度，自 2019 年起大约每七个月翻一番；多数预测者把「机器在每一项任务上都胜过人类」放在 2033 到 2047 年之间。<a class="ref" href="#s64">64</a><a class="ref" href="#s65">65</a> 而用来检查这些系统是否安全的钱，相对于用来建造它们的钱，少到可以四舍五入掉。</p>
-        <div class="cl-figs">
+        <div class="cl-figs panels" style="--fig-acc:#ff8a6b">
         <figure>
           <svg viewBox="0 0 480 244" role="img" aria-label="柱状图：约一千亿美元投入建造先进人工智能，对应约一千万美元的公共安全研究。">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">投入建造 vs 投入证明其安全</text>
@@ -1882,7 +1903,7 @@ div.endc{cursor:default}
         <span class="cl-n">2</span>
         <h3><a href="#why-it-ends-badly">赌注从治愈所有疾病，一直到终结文明</a></h3>
         <p class="cl-sub">一台能自己做研究的机器，会带来我们今天治不了的疾病的解法，也会带来没有上限的物质丰裕。同一台机器，如果在没有控制的情况下建成，有一条已经被想清楚的路径通向杀死所有人，而它并不需要恨我们才会走到那里。</p>
-        <div class="cl-figs">
+        <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
         <figure>
           <svg viewBox="0 0 480 236" role="img" aria-label="折线图：按今天每年 3% 的增速世界经济几乎是平的，每年 12% 时急剧上扬，每年 30% 时在 2044 年冲出图外。">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">AGI 会把增长曲线变成什么样</text>
@@ -1940,10 +1961,11 @@ div.endc{cursor:default}
         <h3><a href="#why-race">没有人知道怎样让超级智能变得安全，而两个问题横在路上</a></h3>
         <p class="cl-sub">底下是两个各自独立的问题。两个都必须解决，而两个都还没有。</p>
 
-        <div class="cl-half" style="--half-acc:#8d9dff">
+        <div class="cl-halves">
+      <div class="cl-half" style="--half-acc:#8d9dff">
           <div class="cl-hh"><span class="cl-sk">难题一</span><span class="cl-hn">协调：人与人之间</span></div>
           <p>没有哪一家实验室或哪一个国家能独自慢下来，因为继续往前的那一方会赢，而善意改变不了这一点。就算所有人都同意停手，我们作为一个物种也从未就「机器该想要什么」达成一致，而谁有资格把它写下来，谁就握着极大的权力。</p>
-          <div class="cl-figs">
+          <div class="cl-figs stack">
         <figure>
           <svg viewBox="0 0 480 250" role="img" aria-label="二乘二矩阵：无论对方继续冲还是慢下来，加速都更划算，所以竞赛是稳定的结果。">
       <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">为什么所有人都继续往前冲</text>
@@ -2008,6 +2030,7 @@ div.endc{cursor:default}
         </figure>
           </div>
         </div>
+    </div>
         <span class="cl-go">读这几章</span>
       </div>
 
