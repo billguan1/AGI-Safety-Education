@@ -1490,136 +1490,144 @@ footer p{max-width:82ch;margin:0}
   <meta name="author" content="Bill Guan">
 
 <script type="application/ld+json">{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "WebSite",
-   "@id": "https://safeagi.ca/#website",
-   "url": "https://safeagi.ca/",
-   "name": "AGI & ASI Safety",
-   "inLanguage": "zh-Hans"
-  },
-  {
-   "@type": "Article",
-   "@id": "https://safeagi.ca/index-zh#article",
-   "isPartOf": {
-    "@id": "https://safeagi.ca/#website"
-   },
-   "headline": "AGI 与 ASI 安全，人类至今未解的最大难题",
-   "description": "从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。",
-   "inLanguage": "zh-Hans",
-   "author": {
-    "@type": "Person",
-    "name": "Bill Guan",
-    "url": "https://www.linkedin.com/in/billguan",
-    "sameAs": [
-     "https://www.linkedin.com/in/billguan",
-     "https://github.com/billguan1/AGI-Safety-Education"
-    ]
-   },
-   "publisher": {
-    "@type": "Person",
-    "name": "Bill Guan",
-    "url": "https://www.linkedin.com/in/billguan",
-    "sameAs": [
-     "https://www.linkedin.com/in/billguan",
-     "https://github.com/billguan1/AGI-Safety-Education"
-    ]
-   },
-   "image": "https://safeagi.ca/og-image.png",
-   "datePublished": "2026-09-01",
-   "dateModified": "2026-09-07",
-   "about": [
+  "@context": "https://schema.org",
+  "@graph": [
     {
-     "@type": "Thing",
-     "name": "AI safety"
+      "@type": "WebSite",
+      "@id": "https://safeagi.ca/#website",
+      "url": "https://safeagi.ca/",
+      "name": "AGI & ASI Safety",
+      "inLanguage": "zh-Hans"
     },
     {
-     "@type": "Thing",
-     "name": "Artificial general intelligence"
+      "@type": "Article",
+      "@id": "https://safeagi.ca/index-zh#article",
+      "isPartOf": {
+        "@id": "https://safeagi.ca/#website"
+      },
+      "headline": "AGI 与 ASI 安全，人类至今未解的最大难题",
+      "description": "从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。",
+      "inLanguage": "zh-Hans",
+      "author": {
+        "@type": "Person",
+        "name": "Bill Guan",
+        "url": "https://www.linkedin.com/in/billguan",
+        "sameAs": [
+          "https://www.linkedin.com/in/billguan",
+          "https://github.com/billguan1/AGI-Safety-Education"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Bill Guan",
+        "url": "https://www.linkedin.com/in/billguan",
+        "sameAs": [
+          "https://www.linkedin.com/in/billguan",
+          "https://github.com/billguan1/AGI-Safety-Education"
+        ]
+      },
+      "image": "https://safeagi.ca/og-image.png",
+      "datePublished": "2026-09-01",
+      "dateModified": "2026-09-07",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "AI safety"
+        },
+        {
+          "@type": "Thing",
+          "name": "Artificial general intelligence"
+        },
+        {
+          "@type": "Thing",
+          "name": "Superintelligence"
+        },
+        {
+          "@type": "Thing",
+          "name": "AI alignment"
+        }
+      ],
+      "mainEntityOfPage": "https://safeagi.ca/index-zh"
     },
     {
-     "@type": "Thing",
-     "name": "Superintelligence"
-    },
-    {
-     "@type": "Thing",
-     "name": "AI alignment"
+      "@type": "FAQPage",
+      "@id": "https://safeagi.ca/index-zh#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这不就是科幻小说吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我们已经在用超人水平的系统，它们都好好的。这次为什么不一样？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "狭窄本身才是约束这些系统的东西，我们的监督并不是。国际象棋引擎从 1997 年起就赢过所有人类，它之所以仍然只是工具，是因为它的整个世界只有六十四格：它无法获取资源，无法为自己的存续争辩，也无法在棋盘之外行动。通用能力恰恰就是把这条边界拿掉。最让人安心的那个类比，父母引导终将超越自己的孩子，在三处站不住：孩子与我们同种，差距很小且还在缩小，而且孩子无法在一夜之间重新设计自己。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "它一旦不听话，我们直接关掉不就行了？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为\"关掉\"意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而\"可纠正性\"并不是我们默认就能得到的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "足够聪明的 AI 难道不会自然明白我们想要什么吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "\"明白我们想要什么\"和\"有动机去追求它\"是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为正交性论题。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "是不是已经太晚了，或者事情太大，轮不到我起作用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "这个领域最大的单一瓶颈，就是大多数人从未以一种他们能评判的方式听过这套论证。这让\"普通人的认知\"具有异乎寻常的杠杆效应。分享这个页面、在声明上签名、或向一个人讲清楚这个问题，都是在切实地推动那个最需要被推动的东西。\"行动\"一节列出了具体步骤。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "“对齐”到底是什么意思？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "“可解释性”“评估”“AI 控制”分别是什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可解释性是读取模型内部的计算，弄清它为何这样做，是最接近\"打开黑箱\"的手段。 评估是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。 AI 控制则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "既然风险这么大，为什么还有人要造它？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我们会不会只是过渡的一步，AI 才是我们的继承者？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于，未来仍应有我们的位置。"
+          }
+        }
+      ]
     }
-   ],
-   "mainEntityOfPage": "https://safeagi.ca/index-zh"
-  },
-  {
-   "@type": "FAQPage",
-   "@id": "https://safeagi.ca/index-zh#faq",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "这不就是科幻小说吗？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "它一旦不听话，我们直接关掉不就行了？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为\"关掉\"意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而\"可纠正性\"并不是我们默认就能得到的。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "足够聪明的 AI 难道不会自然明白我们想要什么吗？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "\"明白我们想要什么\"和\"有动机去追求它\"是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为正交性论题。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "是不是已经太晚了，或者事情太大，轮不到我起作用？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "这个领域最大的单一瓶颈，就是大多数人从未以一种他们能评判的方式听过这套论证。这让\"普通人的认知\"具有异乎寻常的杠杆效应。分享这个页面、在声明上签名、或向一个人讲清楚这个问题，都是在切实地推动那个最需要被推动的东西。\"行动\"一节列出了具体步骤。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "\"对齐\"到底是什么意思？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "\"可解释性\"\"评估\"\"AI 控制\"分别是什么？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "可解释性是读取模型内部的计算，弄清它为何这样做，是最接近\"打开黑箱\"的手段。 评估是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。 AI 控制则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "既然风险这么大，为什么还有人要造它？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是\"竞赛\"那一节所深入探讨的。"
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "我们会不会只是过渡的一步，AI 才是我们的继承者？",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于，未来仍应有我们的位置。"
-     }
-    }
-   ]
-  }
- ]
+  ]
 }</script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -1649,23 +1657,27 @@ footer p{max-width:82ch;margin:0}
         <button type="button" class="ng-top" aria-expanded="false">我们为什么该在意 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">现状，一页说完</a></li>
-          <li><a href="#why-irresistible">1.1 · 钱都流去了哪里</a></li>
-          <li><a href="#why-it-ends-badly">2.1 · 上行与下行分别长什么样</a></li>
-          <li><a href="#why-intelligence">2.2 · 是什么让机器还是工具</a></li>
-          <li><a href="#why-one-try">2.3 · 没有第二次机会</a></li>
-          <li><a href="#why-race">3.1.1 · 没有人能独自慢下来</a></li>
-          <li><a href="#why-human-misalignment">3.1.2 · 我们从未就目标达成一致</a></li>
-          <li><a href="#why-translation">3.2.1 · 价值传递不过去</a></li>
-          <li><a href="#why-safety-hard">3.2.2 · 检验比建造更难</a></li>
+          <li class="ng-grp" style="--ga:#ff8a6b">1 · 我们押上一切的十年</li>
+          <li><a href="#why-irresistible">1 · 千亿美元的盲区</a></li>
+          <li class="ng-grp" style="--ga:#3fd0c9">2 · 岔路口</li>
+          <li><a href="#why-upside">2.1 · 丰裕的时代</a></li>
+          <li><a href="#why-it-ends-badly">2.2 · 故事的终点</a></li>
+          <li><a href="#why-one-try">2.3 · 无法重来的实验</a></li>
+          <li class="ng-grp" style="--ga:#8d9dff">3.1 · 我们自己的麻烦</li>
+          <li><a href="#why-race">3.1.1 · 没有刹车的竞赛</a></li>
+          <li><a href="#why-human-misalignment">3.1.2 · 没人达成一致的愿望</a></li>
+          <li class="ng-grp" style="--ga:#e8c98a">3.2 · 缺失的两块</li>
+          <li><a href="#why-translation">3.2.1 · 神灯问题</a></li>
+          <li><a href="#why-safety-hard">3.2.2 · 黑箱</a></li>
         </ul>
       </li>
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">能做些什么 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">A · 已经在做的事</a></li>
-          <li><a href="#response-gaps">B · 它仍然不够的地方</a></li>
-          <li><a href="#ask">C · 必须改变的东西</a></li>
-          <li><a href="#do">D · 你能帮上什么</a></li>
+          <li><a href="#response">A · 防线</a></li>
+          <li><a href="#response-gaps">B · 裂缝</a></li>
+          <li><a href="#ask">C · 航向修正</a></li>
+          <li><a href="#do">D · 轮到你了</a></li>
         </ul>
       </li>
       <li class="ng">
@@ -1710,13 +1722,13 @@ footer p{max-width:82ch;margin:0}
     <h2 class="mh-h"><span>我们为什么该在意</span></h2>
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
-        <h3>超级智能很快就会到来，而安全研究已经远远落后</h3>
-        <p>机器进步得很快，而用来检查它们是否安全的钱，少到可以四舍五入掉。</p></a>
+        <h3>超级智能即将到来</h3>
+        <p>预计超级智能将在一到二十年内到来，而安全方面的工作早已远远落在后面。</p></a>
       <a class="care-c" href="#claim-2"><span class="care-n">2</span>
-        <h3>可能的结果，从无尽的丰裕一直到文明的终结</h3>
-        <p>这是人类押上过的最大一笔赌注。</p></a>
+        <h3>赌注极高</h3>
+        <p>人类下过的最大一笔赌注，结果可能通向近乎无限的丰裕，也可能通向毁灭。</p></a>
       <a class="care-c" href="#claim-3"><span class="care-n">3</span>
-        <h3>这个问题极其困难，而且还没有人拿出解法</h3>
+        <h3>没有人知道怎样让超级智能变得安全</h3>
         <p>先让整个文明就目标达成一致，再让机器与之对齐，这至今仍是一道解不开的难题。</p></a>
     </div>
     </div>
@@ -1805,7 +1817,7 @@ footer p{max-width:82ch;margin:0}
 
       <div class="claim c2" id="claim-2">
         <span class="cl-n">2</span>
-        <h3><a href="#why-it-ends-badly">可能的结果，从无尽的丰裕一直到文明的终结</a></h3>
+        <h3><a href="#why-it-ends-badly">赌注从治愈所有疾病，一直到终结文明</a></h3>
         <p class="cl-sub">一台能自己做研究的机器，会带来我们今天治不了的疾病的解法，也会带来没有上限的物质丰裕。同一台机器，如果在没有控制的情况下建成，有一条已经被想清楚的路径通向杀死所有人，而它并不需要恨我们才会走到那里。</p>
         <div class="cl-figs">
         <figure>
@@ -1862,7 +1874,7 @@ footer p{max-width:82ch;margin:0}
 
       <div class="claim c3" id="claim-3">
         <span class="cl-n">3</span>
-        <h3><a href="#why-race">这个问题极其困难，而且还没有人拿出解法</a></h3>
+        <h3><a href="#why-race">没有人知道怎样让超级智能变得安全，而两个问题横在路上</a></h3>
         <p class="cl-sub">底下是两个各自独立的问题。两个都必须解决，而两个都还没有。</p>
 
         <div class="cl-half" style="--half-acc:#8d9dff">
@@ -1950,11 +1962,10 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 2: irresistible carrot -->
 <section id="why-irresistible" class="dd">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#5b6b9e"><span class="pd-n">第二部分</span><span class="pd-t">三条理由，逐条展开</span></div>
-    <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">1</span><span class="gd-t">很快到来，安全落后</span></div>
+    <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">1</span><span class="gd-t">我们押上一切的十年</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 1.1 章 <b class="rt-min">约 3 分钟</b></span>
-      <h2>奖赏太过诱人，无人愿意止步</h2>
+      <span class="chapno">第 1 章 <b class="rt-min">2 分钟</b></span>
+      <h2>巨额资金流向建造 AI，只有一丝流向检验它是否安全</h2>
       <p class="stand">光看清危险并不足以阻止它。因为建造的回报是即时的、巨大的，而且全部归于捷足先登者。这一点，让资源的引力难以抗拒。</p>
     </div>
     <div class="body rv">
@@ -2035,13 +2046,43 @@ footer p{max-width:82ch;margin:0}
   </div>
 </section>
 
+<section id="why-upside" class="dd">
+  <div class="wrap">
+    <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">岔路口</span></div>
+    <div class="sec-head rv">
+      <span class="chapno">第 2.1 章 <b class="rt-min">1 分钟</b></span>
+      <h2>AI 可以治愈疾病，终结物资匮乏</h2>
+      <p class="stand">通用人工智能有望创造巨大的财富，解决人类今天解决不了的问题，一直到物质上近乎无限的丰裕。</p>
+    </div>
+    <figure class="secfig rv" style="max-width:820px">
+      <svg viewBox="0 0 720 170" role="img" aria-label="两根柱：二十年后，按每年百分之三的增速，世界经济是今天的一点八倍；按每年百分之三十，是今天的一百九十倍。">
+        <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">二十年后的世界经济</text>
+        <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">今天 = 1</text>
+        <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按今天每年 3%</text>
+        <rect x="0" y="57" width="4.9" height="26" rx="2" fill="#6f8a63"/>
+        <text x="16.9" y="76" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#6f8a63">×1.8</text>
+        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按每年 30%，也就是「爆发式增长」那一档</text>
+        <rect x="0" y="115" width="520" height="26" rx="3" fill="#ff8a6b"/>
+        <text x="532" y="134" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ff8a6b">×190</text>
+        <text x="0" y="160" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">仅取一个模型的估计，增速按二十年复利计算。</text>
+      </svg>
+      <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>，按二十年复利计算 · <a class="ref" href="#s66">66</a></p>
+    </figure>
+    <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
+      <div class="ddc t"><span class="k">健康</span><h4>寿命更长，也更健康</h4><p>健康寿命大致翻倍，多数癌症被消除，多数传染病被预防或治愈。这类研究的瓶颈在于受过训练的生物学家有多少，而不在于知识本身的边界。<a class="ref" href="#s67">67</a></p></div>
+      <div class="ddc g"><span class="k">丰裕</span><h4>物资不再稀缺</h4><p>东西之所以卖这个价，是因为做出来需要熟练的人类工时，而这正是它解除的约束。上面那条曲线是这件事变成数字的样子；落到家庭层面，就是原先靠价格配给的东西变成寻常物。<a class="ref" href="#s66">66</a></p></div>
+      <div class="ddc b"><span class="k">工作</span><h4>脑力苦工交出去</h4><p>产出照样送到，人却不必再耗那些小时。这是人们真正想要的那种自动化，而它来自同一种能力，也正是这之后一切困难的源头。<a class="ref" href="#s1">1</a></p></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- DEEP DIVE 2.1: the impact, sized and made concrete -->
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">从无尽的丰裕到文明的终结</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 2.1 章 <b class="rt-min">约 3 分钟</b></span>
-      <h2>上行的部分是真的，它出错的方式同样具体</h2>
+      <span class="chapno">第 2.2 章 <b class="rt-min">2 分钟</b></span>
+      <h2>同一个 AI 也可能终结文明</h2>
       <p class="stand">人们期待 AGI 带来巨大的财富，解决今天人类解决不了的问题，直到物质丰裕几乎没有上限。</p>
     </div>
     <figure class="secfig rv" style="max-width:900px">
@@ -2166,62 +2207,11 @@ footer p{max-width:82ch;margin:0}
 </section>
 
 <!-- DEEP DIVE 1: intelligence wins -->
-<section id="why-intelligence" class="dd">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="chapno">第 2.2 章 <b class="rt-min">约 2 分钟</b></span>
-      <h2>让超人系统留在工具位置上的，是它的狭窄</h2>
-      <p class="stand">超人系统早就存在，我们也一直控制得住它们，原因在于每一个都被锁在单一领域里，围堵写在系统的构造里，而不靠我们的监督本事。真正的问题是：这把锁一旦取下，还剩什么。</p>
-    </div>
-    <div class="body rv">
-      <p>这个论证常见的版本会说：较弱的智能从未控制过更强的智能。这个版本应当放弃，因为我们天天都在这么做。国际象棋引擎自 1997 年起就无人能敌，路径优化系统、高频交易系统、电网调度系统也都在各自那件活儿上胜过我们，而我们照样想开就开、想关就关。</p>
-      <p>让它们可控的是狭窄。一个象棋引擎无法获取资源，无法为自己的存续争辩，无法拿起没人递给它的工具，在棋盘之外更是什么都做不了。围堵长在系统本身的形状里，而不长在我们监督的本事上。我们的工具在各自领域里都想得比我们快，我们握着的是广度。<a class="ref" href="#s34">34</a></p>
-      <p>通用能力就是这份广度的名字。一个能跨领域规划、写代码、赚钱、说服人，并且操作那些操作机器的机器的系统，不再给我们留下任何“外面”可以占据。所以这套危险论证并不需要一条横贯历史的定律，它只需要一条：<strong>今天承担围堵的那个性质，恰恰是通用超人能力会取消的那个性质。</strong></p>
-      <p>从下位往上看是什么滋味，并不需要假设。人类靠广度而非力气或速度占住这颗星球，如今其他每个物种的命运都系于人类的决定；大猩猩濒临灭绝，是因为我们按自己的意图重塑了世界，而它们的存亡从来不在权衡之内。没有人需要憎恨它们，处在下位的一方也不会被投票否决，它的意愿只是不再算数。</p>
-    </div>
-    <div class="ddgrid three rv">
-      <div class="ddc t"><span class="k">超人却安全</span><h4>我们早已放心使用的工具</h4><p>国际象棋引擎、电网调度、蛋白质结构预测。每一个在自己的领域里都远远超过我们，出了这个领域却毫无危害，因为对它们来说根本没有“外面”，围堵是随着构造一起造出来的。</p></div>
-      <div class="ddc b"><span class="k">人们常举的反例</span><h4>父母与婴孩</h4><p>婴孩能左右大人，乍看正好相反。它成立，只因为婴孩与大人血脉相连、会习得他们的价值观，差距既小又在缩小，而且它无法重新设计自己的心智；抽掉这三条，类比就不再有分量。</p></div>
-      <div class="ddc r"><span class="k">真正新的东西</span><h4>一个没有“外面”的系统</h4><p>通用超人能力的意思，就是能力不再被圈在某个领域里。而那道围栏正是今天让超人系统保持安全的机制，取消它改变的是问题的性质，而非问题的大小，目前也没有人提出能在那个层级上顶替它的东西。</p></div>
-    </div>
-    <div class="core">
-<span class="ck">它实际上是怎么回事</span>
-<h4>能力与目标，彼此独立。</h4>
-<p>没有任何定律规定：一个系统能力有多强，它的目标就是我们愿意选择的目标。国际象棋引擎棋力超群，却只想赢棋，棋艺从未让它变得睿智或仁慈。我们之所以期待聪明之物也通情达理，只因为迄今为止我们遇到的每一个聪明之物，都是人类。</p>
-<p class="breaks"><b>何种情况可推翻此论</b>事实证明，足够强的能力会可靠地产生人类认同的目标。然而无人展示过这样的机制，当前的系统也毫无此种迹象。<a class="ref" href="#s34">34</a></p>
-</div>
-    <figure class="secfig rv">
-      <svg viewBox="0 0 720 366" role="img" aria-label="谁占据着最高的那一格（按比例绘制）">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">谁占据着最高的那一格（按比例绘制）</text>
-        <text x="0" y="48" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">其他动物</text>
-        <rect x="0" y="56" width="44" height="26" rx="3" fill="#c3c9cd" opacity=".55"/>
-        <text x="0" y="110" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">人类</text>
-        <text x="36" y="110" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#3fd0c9">史上每一次飞跃，都归我们</text>
-        <rect x="0" y="118" width="78" height="26" rx="3" fill="#3fd0c9" opacity="1"/>
-        <text x="0" y="172" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">AGI 通用人工智能</text>
-        <rect x="0" y="180" width="392" height="26" rx="3" fill="#8d9dff" opacity="1"/>
-        <text x="0" y="234" font-family="Archivo,sans-serif" font-size="12.5" font-weight="700" fill="#c3ccd2">ASI 超级智能</text>
-        <rect x="0" y="242" width="700" height="26" rx="3" fill="#bd3a20" opacity="1"/>
-        <path d="M0,290 L0,298 L86,298 L86,290" fill="none" stroke="#8a959c" stroke-width="1.2"/>
-        <text x="96" y="302" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">整个生物智能的跨度</text>
-        <text x="0" y="334" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">今天所有超人系统都待在一个盒子里，通用的那个没有盒子。</text>
-        <text x="0" y="352" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">即便如此仍是低估：ASI 没有已知的上限，红条其实一直延伸到纸面之外。</text>
-      </svg>
-    </figure>
-
-      <div class="keyline rv"><span class="kk">这一章需要的唯一论断</span><p>我们控制得住的每一个超人系统，靠的都是它自身的狭窄；通用的那个没有狭窄，而顶替它的东西还不存在。</p></div>
-  </div>
-</section>
-
-<!-- GOODHART -->
-<!-- ORTHOGONALITY -->
-<!-- CONVERGENCE -->
-<!-- DEEP DIVE 7: one try -->
 <section id="why-one-try" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 2.3 章 <b class="rt-min">约 5 分钟</b></span>
-      <h2>控制权更可能悄然滑落，而非被人夺走</h2>
+      <span class="chapno">第 2.3 章 <b class="rt-min">3 分钟</b></span>
+      <h2>我们只有一次机会</h2>
       <p class="stand">不必想象“突然觉醒”。现实中的路径是渐进的：智能体运行得越来越久、写下越来越多的代码、受到的核查却越来越少，直到监督早已名存实亡而无人察觉。汽车、飞机、核电，我们都是先做错再修好才做对的，这既需要失误可以幸存，也需要有时间反应，而随着那个循环收紧，这两个前提都在削弱。</p>
     </div>
 
@@ -2379,7 +2369,7 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 3: the race -->
 <section id="why-race" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">3.1</span><span class="gd-t">还没有解法：协调</span></div>
+    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">3.1</span><span class="gd-t">我们自己的麻烦</span></div>
       <div class="pillars">
         <p class="pil-lead">在进入各章之前，先看清这道难题的形状。研究者依据<em>究竟由谁怀有恶意</em>来划分 AI 风险。本页采用 Google DeepMind 的四分法；《国际人工智能安全报告》则用三分法（滥用、失灵、系统性风险）。<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
         <div class="pil-grid">
@@ -2390,8 +2380,8 @@ footer p{max-width:82ch;margin:0}
         </div>
       </div>
     <div class="sec-head rv">
-      <span class="chapno">第 3.1.1 章 <b class="rt-min">约 3 分钟</b></span>
-      <h2>竞赛本身最可能置我们于死地</h2>
+      <span class="chapno">第 3.1.1 章 <b class="rt-min">2 分钟</b></span>
+      <h2>谁先慢下来谁就输，于是没有人慢下来</h2>
       <p class="stand">即便每个参与者都想要安全，竞赛的结构也会逼他们偷工减料。这不是一场普通的竞赛：以不安全的方式冲过终点线，产生的只会是所有人共担的浩劫，而没有赢家。</p>
     </div>
     <div class="body rv">
@@ -2524,8 +2514,8 @@ footer p{max-width:82ch;margin:0}
 <section id="why-human-misalignment" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 3.1.2 章 <b class="rt-min">约 2 分钟</b></span>
-      <h2>我们连彼此都没对齐</h2>
+      <span class="chapno">第 3.1.2 章 <b class="rt-min">2 分钟</b></span>
+      <h2>人类从未就机器该遵循谁的价值达成一致</h2>
       <p class="stand">在让机器对齐人类价值之前，我们得先回答一个更难的问题：谁的价值？怎么达成一致？人类是一块由相互竞争的利益拼凑而成的百衲衣，这种裂痕让目标本身摇摆不定。</p>
     </div>
     <div class="body rv">
@@ -2648,10 +2638,10 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 5: translation gap -->
 <section id="why-translation" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#a98a4b"><span class="gd-n">3.2</span><span class="gd-t">还没有解法：技术</span></div>
+    <div class="grp-div" style="--gd-acc:#a98a4b"><span class="gd-n">3.2</span><span class="gd-t">缺失的两块</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 3.2.1 章 <b class="rt-min">约 6 分钟</b></span>
-      <h2>即便我们一致认同，价值也无法干净传递</h2>
+      <span class="chapno">第 3.2.1 章 <b class="rt-min">5 分钟</b></span>
+      <h2>AI 照着我们写下的做，而那很少是我们真正的意思</h2>
       <p class="stand">假设我们真的就“想要什么”达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息，危险恰恰藏在这些丢失之处。</p>
     </div>
     <div class="body rv">
@@ -2855,8 +2845,8 @@ footer p{max-width:82ch;margin:0}
 <section id="why-safety-hard" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 3.2.2 章 <b class="rt-min">约 5 分钟</b></span>
-      <h2>安全研究比造出 AGI 与 ASI 更难，资源却更少</h2>
+      <span class="chapno">第 3.2.2 章 <b class="rt-min">3 分钟</b></span>
+      <h2>没有人能检验一个 AI 真正想要什么</h2>
       <p class="stand">安全不是“凭良心建造”。它是一个截然不同、在深层意义上更难的技术问题。你要在一个浩瀚到无法穷尽测试的情境空间中，证明系统会如何行事，而对手还可能正在主动绕过你的测试。</p>
     </div>
     <div class="body rv">
@@ -3357,10 +3347,10 @@ footer p{max-width:82ch;margin:0}
 <!-- RESPONSE -->
 <section id="response">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">第三部分</span><span class="pd-t">能做些什么</span>
-    <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">A</span><span class="gd-t">已经在做的事</span></div></div>
+    <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">第二部分</span><span class="pd-t">能做些什么</span></div>
+    <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">A</span><span class="gd-t">防线</span></div>
     <div class="sec-head rv">
-      <p class="eyebrow">应对 <b class="rt-min">约 10 分钟</b></p>
+      <p class="eyebrow">应对 <b class="rt-min">7 分钟</b></p>
       <h2>安全研究到底在做些什么</h2>
       <p class="lede">确实有实打实的工作在推进，而与投向能力的力量相比，它小得可怜。共四层：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，再让它具有约束力。第四层，才是让前三层长出牙齿的那一层。<a class="ref" href="#s14">14</a></p>
     </div>
@@ -3630,11 +3620,16 @@ footer p{max-width:82ch;margin:0}
 <!-- WHAT CAN BE DONE, B: where it still falls short -->
 <section id="response-gaps" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#b5654d"><span class="gd-n">B</span><span class="gd-t">它仍然不够的地方</span></div>
+    <div class="grp-div" style="--gd-acc:#b5654d"><span class="gd-n">B</span><span class="gd-t">裂缝</span></div>
     <div class="sec-head rv">
-      <p class="eyebrow">它到底管不管用 <b class="rt-min">约 2 分钟</b></p>
+      <p class="eyebrow">它到底管不管用 <b class="rt-min">2 分钟</b></p>
       <h2>我们最好的防护把失败率压了下来，却没有把它关上</h2>
       <p class="lede">上面每一项技术都有用。真正的问题是它们加起来等于什么，所以这里放两样东西：已发表的最好结果实际达到的数字，以及在最要紧的三种情形下，每一道防护会变成什么样。</p>
+    </div>
+    <div class="ddgrid three rv">
+      <div class="ddc o"><span class="k">难点一</span><h4>模型知道自己正在被测试</h4><p>这些防护多数是在评估里测出来的。一个能分辨评估与真实部署的系统，可以在前者通过，在后者换一副样子。</p></div>
+      <div class="ddc r"><span class="k">难点二</span><h4>模型比看着它的那个更强</h4><p>监督、可解释性与控制，都假定看的人跟得上被看的那个在做什么。能力越往上走，这个假定就越站不住。</p></div>
+      <div class="ddc b"><span class="k">难点三</span><h4>建造者干脆不参与</h4><p>每一项技术防护，都要开发者自己选择去用。只有具备约束力的规则才够得着一个决定不用的实验室，而这样的规则目前没有几个地方有。</p></div>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 258" role="img" aria-label="三根柱状图显示越狱成功率与隐蔽行动比例大幅下降，但每一项在缓解之后都仍留有可见的非零残余。">
@@ -3744,8 +3739,8 @@ footer p{max-width:82ch;margin:0}
 
 <section id="ask" class="cross">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">C</span><span class="gd-t">必须改变的东西</span></div>
-    <p class="eyebrow">立即行动 <b class="rt-min">约 2 分钟</b></p>
+    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">C</span><span class="gd-t">航向修正</span></div>
+    <p class="eyebrow">立即行动 <b class="rt-min">1 分钟</b></p>
     <h2 class="big">有两件事必须改变，第二件是<em>彻底停手</em>的意愿。</h2>
     <div class="firsts" style="grid-template-columns:1fr 1fr">
       <div class="first">
@@ -3768,13 +3763,21 @@ footer p{max-width:82ch;margin:0}
 <!-- WHAT CAN BE DONE -->
 <section id="do" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">D</span><span class="gd-t">你能帮上什么</span></div>
+    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">D</span><span class="gd-t">轮到你了</span></div>
     <div class="sec-head">
-      <p class="eyebrow">可以做什么 <b class="rt-min">约 5 分钟</b></p>
+      <p class="eyebrow">可以做什么 <b class="rt-min">6 分钟</b></p>
       <h2>光是知道这些，本身什么也改变不了。下面才是能改变的东西。</h2>
       <p class="stand cando-lead">有四类人能推动这件事：政府、正在建造这些系统的实验室、研究这个问题的研究者，以及其他所有人。下面每一项诉求都是具体的。凡是描述某国政府立场的地方，写的都是公开记录目前的说法，并且标注了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
     </div>
-
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">你</span><h3>你可以做什么</h3></div>
+      <div class="ddgrid two rv">
+        <div class="ddc g"><span class="k">学习</span><h4>认真上一门课</h4><p>BlueDot Impact 提供结构化课程，能把你从读过一些带到真的懂，而 AISafety.info 可以直接回答你心里那个具体问题，不必先上完一门课。<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></p></div>
+        <div class="ddc t"><span class="k">发声</span><h4>把它说出口</h4><p>公众舆论并不是这里的阻力。2025 年 10 月一项针对 2000 名美国成年人的调查发现，多数人支持放慢前沿开发的速度。<a class="ref" href="#s33">33</a>这个立场之所以显得小众，主要是因为公开这么说的人太少，而这个问题每多一次对话就少一分。</p></div>
+        <div class="ddc b"><span class="k">施压</span><h4>写信给代表你的人</h4><p>在加拿大，问你的国会议员，为什么 AIDA 之后什么都没有补上。在英国，问你的议员，《前沿人工智能法案》什么时候提出。在美国，问你的众议员对联邦优先适用的立场，也问你的州议员那部会被它取代的州法，因为真正的角力眼下就在那里。在欧盟，问你的欧洲议会议员，人工智能办公室到底有没有在执法。</p></div>
+        <div class="ddc o"><span class="k">出力</span><h4>支持正在做事的人</h4><p>生命未来研究所、人工智能安全中心，以及红线倡议，都接受签名、志愿者与捐助，而且三者都会公开这些资源的去向。<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></p></div>
+      </div>
+    </div>
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">各国政府</span><h3>政府应该做什么</h3><span class="ch-w">选择一个辖区</span></div>
       <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
@@ -3787,27 +3790,27 @@ footer p{max-width:82ch;margin:0}
       </div>
         <div class="jur on" data-j="us" role="tabpanel" id="jpanel-us" aria-labelledby="jtab-us">
           <div class="jur-status"><span class="k">目前的状况</span><p>美国没有联邦层面的人工智能法律，各州则各自立法。2025 年 12 月签署的第 14365 号行政命令，指示司法部在联邦法院挑战各州的人工智能法律，2026 年 3 月的《国家人工智能政策框架》则支持广泛的联邦优先适用。<a class="ref" href="#s58">58</a>国会至今没有通过相关立法。2026 年 6 月的第 14409 号行政命令确实要求对前沿模型做保密的基准测试，但其范围限定在网络能力与国家安全。<a class="ref" href="#s59">59</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>优先适用会拆掉一层地板。如果联邦规则要取代各州规则，它就必须比被取代的那些更严格。而一套只盯着网络滥用的评估机制，完全没有触及本页所讨论的那种失败模式，所以一份认真的联邦标准，必须正面处理失控问题本身。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><h4>写出一份联邦标准</h4><p>优先适用会拆掉一层地板。如果联邦规则要取代各州规则，它就必须比被取代的那些更严格。而一套只盯着网络滥用的评估机制，完全没有触及本页所讨论的那种失败模式，所以一份认真的联邦标准，必须正面处理失控问题本身。</p></div>
         </div>
         <div class="jur" data-j="cn" role="tabpanel" id="jpanel-cn" aria-labelledby="jtab-cn" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>中国同样没有一部统一的人工智能法，而是通过分层规则来监管：《互联网信息服务算法推荐管理规定》《互联网信息服务深度合成管理规定》，以及自 2023 年 8 月起施行的《生成式人工智能服务管理暂行办法》，2025 年 9 月又增加了内容标识相关要求。<a class="ref" href="#s62">62</a>由全国网络安全标准化技术委员会于 2025 年 9 月发布的《人工智能安全治理框架》2.0 版，直接点名了失控风险，以及化学、生物、放射与核领域的滥用，这一点比目前美国联邦层面的表述走得更远。<a class="ref" href="#s61">61</a><a class="ref" href="#s63">63</a>不过该框架属于指导性文件，它通向的是具有约束力的技术标准，其本身并不是法律。</p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>把框架里关于失控的表述，落成具有约束力的部署前要求，并把它带到国际谈判桌上。任何一条华盛顿与北京没有共同接受的红线，都算不上真正的红线；因此这两方之间能否达成一致，正是所有国际方案最终依赖的那一环。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><h4>让框架具有约束力</h4><p>把框架里关于失控的表述，落成具有约束力的部署前要求，并把它带到国际谈判桌上。任何一条华盛顿与北京没有共同接受的红线，都算不上真正的红线；因此这两方之间能否达成一致，正是所有国际方案最终依赖的那一环。</p></div>
         </div>
         <div class="jur" data-j="ca" role="tabpanel" id="jpanel-ca" aria-labelledby="jtab-ca" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>加拿大没有任何人工智能方面的法律。《人工智能与数据法案》（AIDA）已于 2025 年 1 月随会期结束而失效，此后没有任何替代法案被提出。<a class="ref" href="#s57">57</a>这里的前沿开发依靠的是一份自愿性行为准则，而 2024 年 11 月成立的加拿大人工智能安全研究所，做的是评估工作，没有任何强制执行的权力。<a class="ref" href="#s57">57</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>对前沿开发者设定具有约束力的义务，并赋予这家安全研究所法定授权与部署前的访问权。自愿准则约束的是那些自愿接受约束的人，而当我们担心的恰恰是在竞争压力下跑得最快的那一批时，这就找错了对象。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><h4>把义务写进法律</h4><p>对前沿开发者设定具有约束力的义务，并赋予这家安全研究所法定授权与部署前的访问权。自愿准则约束的是那些自愿接受约束的人，而当我们担心的恰恰是在竞争压力下跑得最快的那一批时，这就找错了对象。</p></div>
         </div>
         <div class="jur" data-j="eu" role="tabpanel" id="jpanel-eu" aria-labelledby="jtab-eu" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>《人工智能法案》是目前唯一生效的、具有约束力的前沿监管制度。针对通用人工智能模型的义务已于 2025 年 8 月生效，欧盟委员会的执法权连同第 50 条透明度义务，自 2026 年 8 月 2 日起适用。<a class="ref" href="#s10">10</a><a class="ref" href="#s60">60</a>2026 年 5 月的数字综合法案协议推迟并简化了该法案的部分内容，但保留了上述通用模型义务与执法权。<a class="ref" href="#s60">60</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>把权力用起来。这部法案接下来的价值，取决于人工智能办公室是否愿意在执法真正要付出代价的那一次，对一家大型开发者动手。真正的未知数在这里，而不在法条本身。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><h4>动用《法案》里的权力</h4><p>把权力用起来。这部法案接下来的价值，取决于人工智能办公室是否愿意在执法真正要付出代价的那一次，对一家大型开发者动手。真正的未知数在这里，而不在法条本身。</p></div>
         </div>
         <div class="jur" data-j="uk" role="tabpanel" id="jpanel-uk" aria-labelledby="jtab-uk" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>英国人工智能安全研究所在 2025 年 2 月由 Safety 更名为 Security，它运行着所有政府之中最实质的前沿评估项目，而这套项目依赖实验室自愿配合。<a class="ref" href="#s11">11</a>一部会赋予该研究所法定地位、并让它有权强制要求部署前测试的《前沿人工智能法案》，已被承诺在 2026 年提出，至今尚未提交。<a class="ref" href="#s11">11</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>把法案提出来。一个只能测试别人允许它测试的那部分的评估者，量出来的是实验室愿意被测量的程度，而这和系统究竟有多安全是两回事。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><h4>把法案提上去</h4><p>把法案提出来。一个只能测试别人允许它测试的那部分的评估者，量出来的是实验室愿意被测量的程度，而这和系统究竟有多安全是两回事。</p></div>
         </div>
         <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
           <div class="jur-status"><span class="k">目前的状况</span><p>《全球人工智能红线倡议》于 2025 年 9 月在联合国发起，已有 300 多位公众人物（其中包括多位诺贝尔奖得主）以及 90 多家机构签署，呼吁各国在 2026 年底之前，就风险最高的人工智能能力达成具有约束力的限制。<a class="ref" href="#s56">56</a>推进路径依次经过印度的人工智能影响力峰会、日内瓦的联合国全球对话，然后是联合国大会与二十国集团。<a class="ref" href="#s56">56</a></p></div>
-          <div class="jur-ask"><span class="k">我们的诉求</span><p>这个期限已经在倒计时。它指向的日期是 2026 年底，而它所说的那份协议目前还不存在。</p></div>
+          <div class="jur-ask"><span class="k">我们的诉求</span><h4>赶上 2026 年的期限</h4><p>这个期限已经在倒计时。它指向的日期是 2026 年底，而它所说的那份协议目前还不存在。</p></div>
         </div>
       <p class="asof" data-asof="2026-09">状态更新于 2026 年 9 月。上面每一条论断都链接到它的来源。</p>
     </div>
@@ -3815,26 +3818,24 @@ footer p{max-width:82ch;margin:0}
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">各家实验室</span><h3>实验室应该做什么</h3></div>
       <div class="cando-cols">
-        <div class="ddc g"><span class="k">立刻</span><h4>不需要任何新协议的事</h4><p>在部署之前公布评估结果，而不是在之后。按与能力投入相称的比例为内部安全工作拨款，并说明这个比例究竟是多少。在遵守自家扩展政策会让你损失一次发布的那一次，仍然遵守它，因为一项从未产生过约束的承诺，等于从未被检验过。<a class="ref" href="#s16">16</a></p></div>
-        <div class="ddc b"><span class="k">近期</span><h4>需要外部介入的事</h4><p>给外部审计者足够的访问权限去核对这些说法，这意味着内部评估记录，以及在适当管控下的模型本身。支持那些公司之外的人也能运行的可解释性工具，因为一个只有实验室自己能验证的安全论证，等于没有人验证过。<a class="ref" href="#s15">15</a></p></div>
-        <div class="ddc r"><span class="k">红线</span><h4>需要事先排除的事</h4><p>不得在没有外部签字的情况下构建能够实质自我改进的系统。不得自主复制。对于已被证明会在察觉自己正被评估时表现不同的模型，在这一行为被弄清楚之前不得部署，因为任何建立在可被糊弄的测试之上的安全论断，都继承了同一个缺陷。<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
+        <div class="ddc g"><span class="k">立刻</span><h4>发布前就公开测试结果</h4><p>在部署之前公布评估结果，而不是在之后。按与能力投入相称的比例为内部安全工作拨款，并说明这个比例究竟是多少。在遵守自家扩展政策会让你损失一次发布的那一次，仍然遵守它，因为一项从未产生过约束的承诺，等于从未被检验过。<a class="ref" href="#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">近期</span><h4>向外部审计者开放</h4><p>给外部审计者足够的访问权限去核对这些说法，这意味着内部评估记录，以及在适当管控下的模型本身。支持那些公司之外的人也能运行的可解释性工具，因为一个只有实验室自己能验证的安全论证，等于没有人验证过。<a class="ref" href="#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">红线</span><h4>现在就划掉这几条</h4><p>不得在没有外部签字的情况下构建能够实质自我改进的系统。不得自主复制。对于已被证明会在察觉自己正被评估时表现不同的模型，在这一行为被弄清楚之前不得部署，因为任何建立在可被糊弄的测试之上的安全论断，都继承了同一个缺陷。<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
       </div>
     </div>
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">研究者</span><h3>研究者应该做什么</h3></div>
-      <p>《新加坡共识》与《国际人工智能安全报告》给出的清单高度重合：能扩展到前沿模型的可解释性、在系统知道自己正被评估时依然有效的评估方法、不随能力增长而失效的控制手段，以及精确到能逐条对照行为核验的目标写法。<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a>入行的路径比多数人以为的短：ARENA 与 MATS 能在几个月内把有扎实技术背景的人带进已发表的安全研究，而 80,000 Hours 的问题简介是挑选具体方向时的常用起点。<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
+      <p>这个领域自己给出的清单高度重合，共四个问题，而入行的路径比多数人以为的短。<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a></p>
+    <div class="ddgrid two rv" style="margin-top:14px">
+      <div class="ddc b"><span class="k">开放问题</span><h4>让可解释性扩展到前沿规模</h4><p>读出模型内部的计算，在小模型上已经可行，还得在最大的模型上继续可行。</p></div>
+      <div class="ddc o"><span class="k">开放问题</span><h4>做出模型骗不过去的测试</h4><p>一个能察觉自己正在被测试的系统会改变行为，而测试必须在这种情况下依然有效。</p></div>
+      <div class="ddc r"><span class="k">开放问题</span><h4>让控制随能力一起生效</h4><p>当系统越来越领先于看着它的那个东西时，围堵手段必须继续兜得住。</p></div>
+      <div class="ddc g"><span class="k">开放问题</span><h4>把目标写到能核验</h4><p>目标必须精确到行为可以逐条对照，而不是只能拿来争论。</p></div>
+    </div>
     </div>
 
-    <div class="cando-block">
-      <div class="cando-h"><span class="ch-n">你</span><h3>你可以做什么</h3></div>
-      <ul class="actlist">
-        <li><b>认真地学一遍</b>BlueDot Impact 提供结构化课程，能把你从读过一些带到真的懂，而 AISafety.info 可以直接回答你心里那个具体问题，不必先上完一门课。<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></li>
-        <li><b>把它说出口</b>公众舆论并不是这里的阻力。2025 年 10 月一项针对 2000 名美国成年人的调查发现，多数人支持放慢前沿开发的速度。<a class="ref" href="#s33">33</a>这个立场之所以显得小众，主要是因为公开这么说的人太少，而这个问题每多一次对话就少一分。</li>
-        <li><b>联系代表你的那个人</b>在加拿大，问你的国会议员，为什么 AIDA 之后什么都没有补上。在英国，问你的议员，《前沿人工智能法案》什么时候提出。在美国，问你的众议员对联邦优先适用的立场，也问你的州议员那部会被它取代的州法，因为真正的角力眼下就在那里。在欧盟，问你的欧洲议会议员，人工智能办公室到底有没有在执法。</li>
-        <li><b>支持正在做事的机构</b>生命未来研究所、人工智能安全中心，以及红线倡议，都接受签名、志愿者与捐助，而且三者都会公开这些资源的去向。<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></li>
-      </ul>
-    </div>
+    
 
     <div class="keyline rv"><span class="kk">这一节的分量</span><p>这里没有一条要求你相信最坏的情况一定会发生，只要求你承认那是可能的，而这正是建造这些系统的人已经在公开场合持有的立场。</p></div>
 
@@ -3845,7 +3846,7 @@ footer p{max-width:82ch;margin:0}
 <!-- THE ASK -->
 <section id="change-my-mind">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">第四部分</span><span class="pd-t">参考</span></div>
+    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">第三部分</span><span class="pd-t">参考</span></div>
     <div class="sec-head rv">
       <p class="eyebrow">可证伪性 <b class="rt-min">约 2 分钟</b></p>
       <h2>什么会推翻这个论点</h2>
@@ -3987,17 +3988,18 @@ footer p{max-width:82ch;margin:0}
     </div>
     <div class="rv">
       <details><summary><span class="qn">01</span>这不就是科幻小说吗？</summary><div class="fa"><p>这里的担忧比电影里的要狭窄，也无聊得多。它无关机器人决定憎恨我们，而在于我们训练系统的方式。我们搜索任何能在一个只能大致写下的目标上得分最高的行为，却还无法检验它们究竟学到了什么。本页面上的种种失败，模型在测试中作弊、伪装合规，是当今真实系统中有据可查的现象，而非凭空想象。<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
-      <details><summary><span class="qn">02</span>它一旦不听话，我们直接关掉不就行了？</summary><div class="fa"><p>这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为“关掉”意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而“可纠正性”并不是我们默认就能得到的。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
-      <details><summary><span class="qn">03</span>足够聪明的 AI 难道不会自然明白我们想要什么吗？</summary><div class="fa"><p>“明白我们想要什么”和“有动机去追求它”是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为<span class="term" tabindex="0">正交性论题<span class="term-tip">一个系统的能力水平与它目标的内容彼此独立。变得更聪明并不会自动带来良好的价值观。</span></span>。<a class="ref" href="#s34">34</a></p></div></details>
-      <details><summary><span class="qn">04</span>是不是已经太晚了，或者事情太大，轮不到我起作用？</summary><div class="fa"><p>这个领域最大的单一瓶颈，就是大多数人从未以一种他们能评判的方式听过这套论证。这让“普通人的认知”具有异乎寻常的杠杆效应。分享这个页面、在声明上签名、或向一个人讲清楚这个问题，都是在切实地推动那个最需要被推动的东西。“行动”一节列出了具体步骤。</p></div></details>
-      <details><summary><span class="qn">05</span>“对齐”到底是什么意思？</summary><div class="fa"><p>让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。<a class="ref" href="#s25">25</a></p></div></details>
-      <details><summary><span class="qn">06</span>“可解释性”“评估”“AI 控制”分别是什么？</summary><div class="fa"><p><strong class="term" tabindex="0">可解释性<span class="term-tip">读取模型的内部计算，以了解它为什么那样做，这是目前最接近打开黑箱的手段。</span></strong>是读取模型内部的计算，弄清它为何这样做，是最接近“打开黑箱”的手段。<a class="ref" href="#s24">24</a> <strong>评估</strong>是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。<a class="ref" href="#s19">19</a> <strong class="term" tabindex="0">AI 控制<span class="term-tip">先假定系统可能并未对齐，再据此设计部署方式，使它即便真的未对齐也无法造成严重危害。</span></strong>则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。<a class="ref" href="#s20">20</a></p></div></details>
-      <details><summary><span class="qn">07</span>既然风险这么大，为什么还有人要造它？</summary><div class="fa"><p>因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是“竞赛”那一节所深入探讨的。<a class="ref" href="#s1">1</a></p></div></details>
-      <details><summary><span class="qn">08</span>我们会不会只是过渡的一步，AI 才是我们的继承者？</summary><div class="fa"><p>确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于，未来仍应有我们的位置。</p></div></details>
+        <details><summary><span class="qn">02</span>我们已经在用超人水平的系统，它们都好好的。这次为什么不一样？</summary><div class="fa"><p>狭窄本身才是约束这些系统的东西，我们的监督并不是。国际象棋引擎从 1997 年起就赢过所有人类，它之所以仍然只是工具，是因为它的整个世界只有六十四格：它无法获取资源，无法为自己的存续争辩，也无法在棋盘之外行动。通用能力恰恰就是把这条边界拿掉。最让人安心的那个类比，父母引导终将超越自己的孩子，在三处站不住：孩子与我们同种，差距很小且还在缩小，而且孩子无法在一夜之间重新设计自己。</p></div></details>
+      <details><summary><span class="qn">03</span>它一旦不听话，我们直接关掉不就行了？</summary><div class="fa"><p>这恰恰是这套论证所说我们可能失去的能力。一个追求几乎任何目标的强能力系统，都有理由避免被关掉，因为“关掉”意味着目标无法达成。它无需憎恨我们就会绕过关机开关，只需注意到那个开关碍事。造出始终可被纠正的系统是一个悬而未决的研究难题，而“可纠正性”并不是我们默认就能得到的。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
+      <details><summary><span class="qn">04</span>足够聪明的 AI 难道不会自然明白我们想要什么吗？</summary><div class="fa"><p>“明白我们想要什么”和“有动机去追求它”是两回事。一个系统可以完美地建模你的意图，却仍然去优化它实际被训练的那个目标。能力与目标是相互独立的：变得更聪明，并不会顺带把我们的价值观装进去。这被称为<span class="term" tabindex="0">正交性论题<span class="term-tip">一个系统的能力水平与它目标的内容彼此独立。变得更聪明并不会自动带来良好的价值观。</span></span>。<a class="ref" href="#s34">34</a></p></div></details>
+      <details><summary><span class="qn">05</span>是不是已经太晚了，或者事情太大，轮不到我起作用？</summary><div class="fa"><p>这个领域最大的单一瓶颈，就是大多数人从未以一种他们能评判的方式听过这套论证。这让“普通人的认知”具有异乎寻常的杠杆效应。分享这个页面、在声明上签名、或向一个人讲清楚这个问题，都是在切实地推动那个最需要被推动的东西。“行动”一节列出了具体步骤。</p></div></details>
+      <details><summary><span class="qn">06</span>“对齐”到底是什么意思？</summary><div class="fa"><p>让系统真正去追求其设计者所设想的东西。它分为外部对齐（首先要写下正确的目标，这很难，因为我们的价值观不是一个数字）和内部对齐（系统真正采纳那个目标，而不是训练中仅仅与之相关的某种替代物）。<a class="ref" href="#s25">25</a></p></div></details>
+      <details><summary><span class="qn">07</span>“可解释性”“评估”“AI 控制”分别是什么？</summary><div class="fa"><p><strong class="term" tabindex="0">可解释性<span class="term-tip">读取模型的内部计算，以了解它为什么那样做，这是目前最接近打开黑箱的手段。</span></strong>是读取模型内部的计算，弄清它为何这样做，是最接近“打开黑箱”的手段。<a class="ref" href="#s24">24</a> <strong>评估</strong>是对模型能力的结构化测试，尽管它度量的是模型所展现的、而非其全部能力。<a class="ref" href="#s19">19</a> <strong class="term" tabindex="0">AI 控制<span class="term-tip">先假定系统可能并未对齐，再据此设计部署方式，使它即便真的未对齐也无法造成严重危害。</span></strong>则假定你无法完全信任系统，并据此设计部署方式，使一个不受信任的模型即便如此也无法造成严重伤害。<a class="ref" href="#s20">20</a></p></div></details>
+      <details><summary><span class="qn">08</span>既然风险这么大，为什么还有人要造它？</summary><div class="fa"><p>因为短期回报极其巨大、且落在最先行动者手里，而风险却分散且由所有人共担。每个抢跑的参与者，就自身而言都是理性的。这恰恰使它成为一个单靠某个谨慎的参与者无法解决的协调难题。这正是“竞赛”那一节所深入探讨的。<a class="ref" href="#s1">1</a></p></div></details>
+      <details><summary><span class="qn">09</span>我们会不会只是过渡的一步，AI 才是我们的继承者？</summary><div class="fa"><p>确实有人持这种看法：人类不过是硅基智能的生物引导程序，为紧随其后的它做铺垫。本页面并不认同。把这件事做对，其意义正在于，未来仍应有我们的位置。</p></div></details>
 
     <div class="faq-sub rv">
         <details class="oq-toggle">
-          <summary><span class="qn">09</span><span class="faq-subhead-in">以及真正的行家仍在争论的问题</span></summary>
+          <summary><span class="qn">10</span><span class="faq-subhead-in">以及真正的行家仍在争论的问题</span></summary>
           <p class="faq-subnote">这些都尚无定论。每一条都把正反双方最有力的说法摆出来，再说明目前证据似乎指向哪一边。这是一种解读，而非裁决，学界在这四条上确实存在真实分歧。</p>
           <div class="dis"><h3><span>一</span> 我们还有多少时间？</h3>
         <div class="sides">
@@ -4135,6 +4137,7 @@ footer p{max-width:82ch;margin:0}
         <li id="s64" value="64">Grace、Stewart、Sandkühler、Thomas、Weinstein-Raun 与 Brauner，《数千位人工智能作者论人工智能的未来》（2024 年 1 月）。调查了 2,778 位在顶级人工智能会议发表过论文的研究者；总体预测认为机器在每一项任务上胜过人类的概率，2027 年前为 10%，2047 年前为 50%，后者较 2022 年调查的 2060 年提前了十三年：<a href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf" target="_blank" rel="noopener">aiimpacts.org</a></li>
         <li id="s65" value="65">80,000 Hours，《不断缩短的 AGI 时间线：专家预测综述》（2025 年 3 月），汇总了 Metaculus 社区预测（2029 年前 25%，2033 年前 50%）、超级预测者的估计，以及人工智能公司负责人的公开表态：<a href="https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/" target="_blank" rel="noopener">80000hours.org</a></li>
         <li id="s66" value="66">Epoch AI，《人工智能与爆发式增长再论》（2025 年 6 月）：其自动化增长模型推算，在 30% 的任务被自动化时，全球增速可达每年 20% 以上；加入抑制因素后，40% 自动化对应每年 12%，与二十世纪东亚增长的峰值相当；而“爆发式增长”的传统门槛（每年 30% 以上）大约需要 50% 到 70% 的任务被自动化：<a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">epoch.ai</a></li>
+        <li id="s67" value="67">Dario Amodei，《充满爱意的机器》（Machines of Loving Grace，2024 年 10 月），来自一家前沿实验室负责人对上行前景的论证：强大的 AI 有可能把几十年的生物学进展压缩到几年之内，预防或治愈多数传染病，消除多数癌症，并让人类的健康寿命大致翻倍：<a href="https://www.darioamodei.com/essay/machines-of-loving-grace" target="_blank" rel="noopener">darioamodei.com</a></li>
         <li id="s31" value="31">Import AI: <a href="https://importai.substack.com/" target="_blank" rel="noopener">importai.substack.com</a></li>
         <li id="s32" value="32">Transformer: <a href="https://www.transformernews.ai/" target="_blank" rel="noopener">transformernews.ai</a></li>
         <li id="s48" value="48">David Braue，《1,200 个 AI 智能体在 OpenAI 内部失控》，Information Age／澳大利亚计算机学会（2026 年 9 月 1 日）：<a href="https://ia.acs.org.au/article/2026/1-200-ai-agents-went-rogue-inside-openai.html" target="_blank" rel="noopener">ia.acs.org.au</a></li>
@@ -4340,7 +4343,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "现状，一页说完", "min": 4, "end": true}, {"id": "why-irresistible", "label": "钱都流去了哪里", "min": 3, "end": true}, {"id": "why-it-ends-badly", "label": "上行与下行分别长什么样", "min": 3, "end": true}, {"id": "why-intelligence", "label": "是什么让机器还是工具", "min": 2, "end": true}, {"id": "why-one-try", "label": "没有第二次机会", "min": 5, "end": true}, {"id": "why-race", "label": "没有人能独自慢下来", "min": 3, "end": true}, {"id": "why-human-misalignment", "label": "我们从未就目标达成一致", "min": 2, "end": true}, {"id": "why-translation", "label": "价值传递不过去", "min": 6, "end": true}, {"id": "why-safety-hard", "label": "检验比建造更难", "min": 5, "end": true}, {"id": "response", "label": "已经在做的事", "min": 8, "end": true}, {"id": "response-gaps", "label": "它仍然不够的地方", "min": 2, "end": true}, {"id": "ask", "label": "必须改变的东西", "min": 2, "end": false, "act": true}, {"id": "do", "label": "你能帮上什么", "min": 5, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "现状，一页说完", "min": 4, "end": true}, {"id": "why-irresistible", "label": "千亿美元的盲区", "min": 2, "end": true}, {"id": "why-upside", "end": true, "label": "丰裕的时代", "min": 1}, {"id": "why-it-ends-badly", "label": "故事的终点", "min": 2, "end": true}, {"id": "why-one-try", "label": "无法重来的实验", "min": 3, "end": true}, {"id": "why-race", "label": "没有刹车的竞赛", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "没人达成一致的愿望", "min": 2, "end": true}, {"id": "why-translation", "label": "神灯问题", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "黑箱", "min": 3, "end": true}, {"id": "response", "label": "防线", "min": 7, "end": true}, {"id": "response-gaps", "label": "裂缝", "min": 2, "end": true}, {"id": "ask", "label": "航向修正", "min": 1, "end": false, "act": true}, {"id": "do", "label": "轮到你了", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" 原是单独的 11 分钟档，现已并入 core。
        之前保存过该选项的读者，localStorage 里仍是旧值，在此映射过去。 */
@@ -4491,9 +4494,9 @@ var SITE_CONFIG = {
   (function(){
     var META = window.__GAP_META || [];
     if(!META.length) return;
-    var G = {"crossroads": "", "why-irresistible": "1 · 很快到来，安全落后", "why-it-ends-badly": "2 · 从无尽的丰裕到文明的终结", "why-intelligence": "2 · 从无尽的丰裕到文明的终结", "why-one-try": "2 · 从无尽的丰裕到文明的终结", "why-race": "3.1 · 还没有解法：协调", "why-human-misalignment": "3.1 · 还没有解法：协调", "why-translation": "3.2 · 还没有解法：技术", "why-safety-hard": "3.2 · 还没有解法：技术", "response": "", "response-gaps": "", "ask": "", "do": ""};
-    var P = {"crossroads": "我们为什么该在意", "why-irresistible": "我们为什么该在意", "why-it-ends-badly": "我们为什么该在意", "why-intelligence": "我们为什么该在意", "why-one-try": "我们为什么该在意", "why-race": "我们为什么该在意", "why-human-misalignment": "我们为什么该在意", "why-translation": "我们为什么该在意", "why-safety-hard": "我们为什么该在意", "response": "能做些什么", "response-gaps": "能做些什么", "ask": "能做些什么", "do": "能做些什么"};
-    var NUM = {"crossroads": "·", "why-irresistible": "1.1", "why-it-ends-badly": "2.1", "why-intelligence": "2.2", "why-one-try": "2.3", "why-race": "3.1.1", "why-human-misalignment": "3.1.2", "why-translation": "3.2.1", "why-safety-hard": "3.2.2", "response": "A", "response-gaps": "B", "ask": "C", "do": "D"};
+    var G = {"crossroads": "", "why-irresistible": "1 · 我们押上一切的十年", "why-upside": "2 · 岔路口", "why-it-ends-badly": "2 · 岔路口", "why-one-try": "2 · 岔路口", "why-race": "3.1 · 我们自己的麻烦", "why-human-misalignment": "3.1 · 我们自己的麻烦", "why-translation": "3.2 · 缺失的两块", "why-safety-hard": "3.2 · 缺失的两块", "response": "", "response-gaps": "", "ask": "", "do": ""};
+    var P = {"crossroads": "我们为什么该在意", "why-irresistible": "我们为什么该在意", "why-upside": "我们为什么该在意", "why-it-ends-badly": "我们为什么该在意", "why-one-try": "我们为什么该在意", "why-race": "我们为什么该在意", "why-human-misalignment": "我们为什么该在意", "why-translation": "我们为什么该在意", "why-safety-hard": "我们为什么该在意", "response": "能做些什么", "response-gaps": "能做些什么", "ask": "能做些什么", "do": "能做些什么"};
+    var NUM = {"crossroads": "·", "why-irresistible": "1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1.1", "why-human-misalignment": "3.1.2", "why-translation": "3.2.1", "why-safety-hard": "3.2.2", "response": "A", "response-gaps": "B", "ask": "C", "do": "D"};
     var PART_PAL = {"我们为什么该在意":["#b5654d","#f6ece7"],"能做些什么":["#6f8a63","#eef3ec"],"参考":["#a98a4b","#f8f2e6"]};
     var S = {"left": "还剩 {m} 分钟", "panelS": "第 {i} 章 / 共 {n} 章 · 还剩 {m} 分钟", "refGroup": "参考", "refs": [{"id": "change-my-mind", "label": "什么会推翻这个论点"}, {"id": "faq", "label": "人们最先提出的质疑"}, {"id": "resources", "label": "课程与资源目录"}], "footLabel": "本章剩余分钟", "footTotal": "全文还剩 {m} 分钟"};
     var chapters = META.filter(function(m){ return m.end || m.act; });
