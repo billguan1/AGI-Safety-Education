@@ -84,8 +84,8 @@ p{margin:0 0 1em}
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule-soft)}
 .bar-in,.chapters{background:rgba(10,13,16,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
-.brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-2);text-decoration:none;line-height:1.3;max-width:34ch}
+.brand{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-2);text-decoration:none;line-height:1.3;max-width:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand b{color:#ff8a6b}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
@@ -364,7 +364,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .nav-groups{list-style:none;margin:0;padding:6px var(--gut);display:flex;gap:4px;flex-wrap:wrap}
 .ng{position:relative}
 .ng.open::before{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
-.ng-top{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+.ng-top{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 13px;
   cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .ng-top:hover{border-color:var(--rule);color:var(--ink)}
@@ -378,10 +378,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng.open .ng-menu{opacity:1;visibility:visible;transform:none}
 .ng-menu.fixed{position:fixed;top:auto;left:auto}
 .ng-menu li{margin:0}
-.ng-menu a{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
+.ng-menu a{display:block;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.05em;
   color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
 .ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
-.ng-grp{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+.ng-grp{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;
   border-top:1px solid #232b31;position:relative}
 .ng-grp a{color:inherit;text-decoration:none;display:block;transition:color .12s}
@@ -392,7 +392,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng-menu a.on{background:var(--t-dev);color:var(--c-dev)}
 @media(max-width:640px){
   .nav-groups{padding-left:14px;padding-right:14px;gap:3px}
-  .ng-top{padding:7px 10px;font-size:9.5px}
+  .ng-top{padding:7px 10px;font-size:10.5px}
   .ng-menu{position:absolute;left:0;min-width:190px;max-width:min(92vw,360px)}
   }
 /* ---------- deep-dive chapters ---------- */
@@ -538,7 +538,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 @media(max-width:1500px){.chapnum{display:none}}
 /* ---------- responsive header + rail geometry ---------- */
 .bar-in{flex-wrap:wrap;min-width:0}
-.brand{min-width:0;flex:1 1 200px}
+.brand{min-width:0;flex:1 1 auto}
 .bar-actions{flex:0 1 auto;min-width:0;justify-content:flex-end}
 .hbtn,.header-game{min-width:0;max-width:100%}
 .hbtn span,.header-game span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -566,7 +566,7 @@ html{overflow-x:hidden}
 .rail{cursor:pointer}
 .rail.pinned,.rail:hover{cursor:auto}
 .rail:hover,.rail.pinned{width:312px;box-shadow:0 18px 56px rgba(18,22,26,.13)}
-.rail-h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+.rail-h{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:#a9a49c;margin:0 0 10px;padding-left:20px;opacity:0;transition:opacity .18s}
 .rail ol{list-style:none;margin:0;padding:0 10px 0 0;position:relative}
 .rail li{margin:0}
@@ -575,11 +575,11 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--display);font-size:12.5px;font-weight:800;letter-spacing:.01em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
+.rail .part{font-family:var(--display);font-size:16px;font-weight:800;letter-spacing:.01em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
 .rail li.part:first-of-type{padding-top:6px}
 /* group headings: nested under a part, so quieter and indented */
-.rail .grp{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
+.rail .grp{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
 .rail .grp::before{content:"";width:10px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto;opacity:.55}
 /* chapter rows sit one step in again */
 .rail a.rl{padding-left:36px}
@@ -587,11 +587,11 @@ html{overflow-x:hidden}
 /* chapter rows */
 .rail a.rl{position:relative;display:flex;align-items:flex-start;gap:9px;text-decoration:none;
   padding:8px 12px 8px 20px;margin:1px 0;border-radius:0 12px 12px 0;
-  font-family:var(--display);font-weight:600;font-size:13px;line-height:1.34;
+  font-family:var(--display);font-weight:600;font-size:13.5px;line-height:1.34;
   color:#6f6a63;background:transparent;
   transition:color .2s,background .24s,font-size .26s,padding .26s,margin-right .3s cubic-bezier(.34,1.2,.36,1)}
 .rail a.rl:hover{background:var(--acc-t);color:#33302c}
-.rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:9.5px;flex:0 0 auto;min-width:30px;
+.rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:10.5px;flex:0 0 auto;min-width:30px;
   color:var(--acc);opacity:.75;padding-top:3px;transition:font-size .26s,opacity .2s}
 .rail a.rl .rt{flex:1;white-space:normal;overflow-wrap:anywhere;opacity:0;transition:opacity .18s}
 .rail a.rl .rm{display:none}
@@ -600,7 +600,7 @@ html{overflow-x:hidden}
 /* the chapter being read: extends right, softly filled, gently lifted.
    the light --acc-t pill only shows once the rail is wide enough to carry a
    label; collapsed, it would just be an unlabelled bright chip on the dark bar. */
-.rail a.rl.now{color:#c9c2b7;font-weight:800;font-size:14.5px;
+.rail a.rl.now{color:#c9c2b7;font-weight:800;font-size:15px;
   padding-top:12px;padding-bottom:12px;padding-right:18px;margin-right:-14px;
   border-radius:0 16px 16px 0;transition:background .18s,color .18s,box-shadow .18s;z-index:2}
 .rail:hover a.rl.now,.rail.pinned a.rl.now{background:var(--acc-t);color:#2c2926;
@@ -994,6 +994,7 @@ html{overflow-x:hidden}
 .cl-hn{font-family:var(--display);font-weight:800;letter-spacing:-.01em;
   font-size:clamp(16px,1.9vw,19px);color:#fff}
 .cl-half>p{color:#aeb9c0;font-size:15px;line-height:1.5;margin:0 0 14px}
+.firsts.two{grid-template-columns:repeat(2,1fr)}
 .firsts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:clamp(26px,4vw,40px) 0}
 @media(max-width:920px){.firsts{grid-template-columns:1fr}}
 .first{border:1px solid #2b343b;border-radius:var(--r);padding:22px;background:rgba(255,255,255,.035)}
@@ -1770,7 +1771,7 @@ div.endc{cursor:default}
         <p>ASI is expected to arrive in one to two decades, and safety work is already a long way behind.</p></a>
       <a class="care-c" href="#claim-2"><span class="care-n">2</span>
         <h3>Stakes are extremely high</h3>
-        <p>The biggest gamble humanity has ever made can lead to almost unlimited abundance or to destruction.</p></a>
+        <p>The biggest gamble humanity has ever made can lead to almost unlimited abundance or to destruction, for you and your loved ones.</p></a>
       <a class="care-c" href="#claim-3"><span class="care-n">3</span>
         <h3>Nobody knows how to make superintelligence safe</h3>
         <p>Aligning goals with the entire civilization, and then with machines, remains an intractable problem.</p></a>
@@ -3714,7 +3715,7 @@ refusal training</text>
     
     <p class="eyebrow">Section 5.3 · Act now <b class="rt-min">1 min</b></p>
     <h2 class="big">Two things need to change, and the second is the willingness to <em>stop altogether</em>.</h2>
-    <div class="firsts">
+    <div class="firsts two">
       <div class="first">
         <span class="fk">At the system level, first</span>
         <h3>Treat safety as the priority it is</h3>
@@ -3725,11 +3726,7 @@ refusal training</text>
         <h3>Be willing to stop, and mean it</h3>
         <p><strong>Aligning a superintelligence may be impossible rather than merely hard.</strong> Nothing we know rules that out, because we cannot state our values precisely enough for a machine, and we cannot read a model&rsquo;s goals to check. If that is the world we are in, the only move left is the one nobody wants: stopping.</p>
       </div>
-      <div class="first blue">
-        <span class="fk">Why it has to bind everyone</span>
-        <h3>Rules that apply to all of them at once</h3>
-        <p>No lab can afford to stop while its rivals continue, which is the point rather than an objection to it. Coordination problems are answered by coordination: verifiable agreements and enforced red lines.</p>
-      </div>
+      
     </div>
 
 <div class="keyline rv"><span class="kk">The bar</span><p>We do not need proof that this ends badly. We need the honesty to admit the problem may have no solution, and the nerve to stop if it does.</p></div>
@@ -3750,10 +3747,33 @@ refusal training</text>
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">You</span><h3>What you can do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">Learn</span><h4>Take a real course</h4><p>BlueDot Impact runs structured courses that take this from reading to competence, and AISafety.info answers the specific question you have without requiring a course first.<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></p></div>
-        <div class="ddc t"><span class="k">Speak</span><h4>Say it out loud</h4><p>Public opinion is not the obstacle here. A poll of 2,000 US adults in October 2025 found majority support for slowing frontier development down.<a class="ref" href="#s33">33</a> The position feels fringe because so few people say it out loud, and that resolves one conversation at a time.</p></div>
-        <div class="ddc b"><span class="k">Press</span><h4>Write to your representative</h4><p>In Canada, ask your MP why nothing replaced AIDA. In the UK, ask your MP when the Frontier AI Bill arrives. In the US, ask your representative about preemption and your state legislator about the state law it would displace, because that is where the live fight currently sits. In the EU, ask your MEP whether the AI Office is enforcing.</p></div>
-        <div class="ddc o"><span class="k">Fund</span><h4>Back the people doing the work</h4><p>The Future of Life Institute, the Center for AI Safety, and the red lines campaign all take signatures, volunteers and money, and all three publish what they do with them.<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></p></div>
+        <div class="ddc g"><span class="k">Join</span><h4>Join the community</h4><p>The sign-up at the bottom of this page exists so there is somewhere to reach you when a bill, a treaty or an incident makes public pressure count. One person acting alone on a quiet Tuesday changes little, and several thousand acting in the same week changes what a politician thinks is safe to ignore.</p></div>
+        <div class="ddc t"><span class="k">Share</span><h4>Share this with your network</h4><p>The biggest bottleneck in this whole field is that most people have never heard the argument in a form they can judge for themselves. Send this page to one person who would take it seriously, then to as many as you can. Every reader strengthens the human immune system against harmful AGI.</p></div>
+        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition on developing superintelligence until there is scientific consensus that it can be done safely, with public buy-in behind it. It takes a minute, and the size of the count is the whole point of it.<a class="ref" href="#s2">2</a></p></div>
+        <div class="ddc o"><span class="k">Choose</span><h4>Buy from the labs that take this seriously</h4><p>You are a paying customer of these companies. Prefer the ones that publish their evaluations, fund safety work in proportion to capability work, and keep their own scaling commitments, and tell them that is why you chose them. Revenue is the one signal every lab reads closely.<a class="ref" href="#s15">15</a></p></div>
+      </div>
+    </div>
+
+    
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">Researchers</span><h3>What researchers should do</h3></div>
+      <p>The people closest to these systems carry the most credible voice in public and the most leverage inside the buildings where the decisions actually get made.<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a></p>
+      <div class="ddgrid two rv" style="margin-top:14px">
+        <div class="ddc b"><span class="k">Explain</span><h4>Show the public where safety stops</h4><p>Say in plain language what today&rsquo;s techniques catch and where each one gives out. Nobody outside the field can hold a lab or a government to a standard that has never been described to them, so the gap stays invisible until a researcher describes it.</p></div>
+        <div class="ddc r"><span class="k">Refuse</span><h4>Push back on the work that builds danger</h4><p>You are the one being asked to build the specific thing. Declining the asks that cross a red line, in writing and alongside colleagues, is pressure that no regulator or outside campaign can apply on your behalf.</p></div>
+        <div class="ddc o"><span class="k">Press</span><h4>Argue for a bigger safety budget</h4><p>Safety research is roughly 2% of all AI research, which is the ratio that decides whether the techniques arrive in time.<a class="ref" href="#s46">46</a> Researchers asking together and in public for a stated split is how a number like that moves.</p></div>
+        <div class="ddc g"><span class="k">Build</span><h4>Keep inventing the techniques</h4><p>Interpretability at frontier scale, tests a model cannot game, control that holds as the system pulls ahead of its supervisor, and goals precise enough to measure behaviour against are all still open.</p></div>
+      </div>
+      <p style="margin-top:14px">ARENA and MATS take strong technical backgrounds into published safety work in months, and the 80,000 Hours problem profile is the usual starting point for choosing where to aim.<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">The labs</span><h3>What the labs should do</h3></div>
+      <div class="cando-cols">
+        <div class="ddc g"><span class="k">Pace</span><h4>Slow down and carry the responsibility</h4><p>There is no prize waiting at the bottom of a cliff. Everybody&rsquo;s lives sit in the hands of a few hundred people here, and the labs still being used in twenty years will be the ones that behaved accordingly, because trust of that kind gets built before the accident rather than apologised for after it.<a class="ref" href="#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">Publish</span><h4>Publish what you learn about the dangers</h4><p>Release the evaluation results and the failure analyses, including the ones that embarrass you, and write them up as open problems with enough detail that outsiders can work on them. A danger only your team knows about has only your team working on it.<a class="ref" href="#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">Together</span><h4>Build a joint safety effort with your rivals</h4><p>Competing on capability while sharing the safety problem is available today. A standing body funded and staffed by every major lab, with real money behind it, turns a race nobody can leave into a problem everybody is working on at once.<a class="ref" href="#s56">56</a></p></div>
       </div>
     </div>
 
@@ -3792,27 +3812,6 @@ refusal training</text>
           <div class="jur-ask"><span class="k">The ask</span><h4>Meet the 2026 deadline</h4><p>It runs to the end of 2026, and the agreement it points at does not exist yet.</p></div>
         </div>
       <p class="asof" data-asof="2026-09">Status current as of September 2026. Every claim above links to its source.</p>
-    </div>
-
-    <div class="cando-block">
-      <div class="cando-h"><span class="ch-n">The labs</span><h3>What the labs should do</h3></div>
-      <div class="cando-cols">
-        <div class="ddc g"><span class="k">Immediate</span><h4>Publish results before release</h4><p><strong>Publish test results before release rather than after.</strong> <strong>Fund safety work in proportion to what you spend on capability, and say what the ratio is.</strong> <strong>Keep your own scaling policy on the one occasion it costs you a release.</strong> A promise that has never been binding has never been tested.<a class="ref" href="#s16">16</a></p></div>
-        <div class="ddc b"><span class="k">Near-term</span><h4>Open the books to auditors</h4><p><strong>Give outside auditors enough access to check your claims</strong>, which means the internal test record and the models themselves under proper control. <strong>Back tools that someone outside the company can run.</strong> A safety claim only you can check is a safety claim nobody has checked.<a class="ref" href="#s15">15</a></p></div>
-        <div class="ddc r"><span class="k">Red lines</span><h4>Rule these out now</h4><p><strong>Rule out any system that can meaningfully improve itself without outside sign-off.</strong> <strong>Rule out systems that copy themselves.</strong> <strong>Hold back any model that behaves differently once it works out it is being tested</strong>, until you know why. Every safety claim built on a test the model can game carries the same flaw.<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
-      </div>
-    </div>
-
-    <div class="cando-block">
-      <div class="cando-h"><span class="ch-n">Researchers</span><h3>What researchers should do</h3></div>
-      <p>Four problems are where the field says the effort should go, and the routes in are shorter than most people assume.<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a></p>
-      <div class="ddgrid two rv" style="margin-top:14px">
-        <div class="ddc b"><span class="k">Open problem</span><h4>Make interpretability scale</h4><p>Reading a model&rsquo;s internal computation still works on small models and has to keep working on the largest ones.</p></div>
-        <div class="ddc o"><span class="k">Open problem</span><h4>Build tests models can’t game</h4><p>A system that can tell it is being tested will change what it does, and the test has to stay valid anyway.</p></div>
-        <div class="ddc r"><span class="k">Open problem</span><h4>Keep control as capability grows</h4><p>Containment has to hold as the system pulls further ahead of whatever is watching it.</p></div>
-        <div class="ddc g"><span class="k">Open problem</span><h4>Write goals we can check</h4><p>A goal has to be precise enough that behaviour can be measured against it rather than argued about.</p></div>
-      </div>
-      <p style="margin-top:14px">ARENA and MATS take strong technical backgrounds into published safety work in months, and the 80,000 Hours problem profile is the usual starting point for choosing where to aim.<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
     </div>
 
     <div class="keyline rv"><span class="kk">The point</span><p>None of this requires believing the worst case is certain. It requires believing it is possible, which is the position the people building these systems already hold in public.</p></div>

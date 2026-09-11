@@ -86,8 +86,8 @@ p{margin:0 0 1em}
 .bar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--rule-soft)}
 .bar-in,.chapters{background:rgba(10,13,16,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .bar-in{margin:0;padding:9px var(--gut);display:flex;align-items:center;gap:14px;justify-content:space-between}
-.brand{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;line-height:1.3;max-width:34ch}
+.brand{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;line-height:1.3;max-width:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand b{color:#ff8a6b}
 .bar-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .hbtn{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
@@ -366,7 +366,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .nav-groups{list-style:none;margin:0;padding:6px var(--gut);display:flex;gap:4px;flex-wrap:wrap}
 .ng{position:relative}
 .ng.open::before{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
-.ng-top{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+.ng-top{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 13px;
   cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .ng-top:hover{border-color:var(--rule);color:var(--ink)}
@@ -380,10 +380,10 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng.open .ng-menu{opacity:1;visibility:visible;transform:none}
 .ng-menu.fixed{position:fixed;top:auto;left:auto}
 .ng-menu li{margin:0}
-.ng-menu a{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
+.ng-menu a{display:block;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.05em;
   color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
 .ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
-.ng-grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;
+.ng-grp{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;
   color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;
   border-top:1px solid #232b31;position:relative}
 .ng-grp a{color:inherit;text-decoration:none;display:block;transition:color .12s}
@@ -394,7 +394,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng-menu a.on{background:var(--t-dev);color:var(--c-dev)}
 @media(max-width:640px){
   .nav-groups{padding-left:14px;padding-right:14px;gap:3px}
-  .ng-top{padding:7px 10px;font-size:9.5px}
+  .ng-top{padding:7px 10px;font-size:10.5px}
   .ng-menu{position:absolute;left:0;min-width:190px;max-width:min(92vw,360px)}
   }
 /* ---------- deep-dive chapters ---------- */
@@ -492,7 +492,7 @@ text-wrap:balance;overflow-wrap:break-word}
 @media(max-width:1500px){.chapnum{display:none}}
 /* ---------- responsive header + rail geometry ---------- */
 .bar-in{flex-wrap:wrap;min-width:0}
-.brand{min-width:0;flex:1 1 200px}
+.brand{min-width:0;flex:1 1 auto}
 .bar-actions{flex:0 1 auto;min-width:0;justify-content:flex-end}
 .hbtn,.header-game{min-width:0;max-width:100%}
 .hbtn span,.header-game span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -520,7 +520,7 @@ html{overflow-x:hidden}
 .rail{cursor:pointer}
 .rail.pinned,.rail:hover{cursor:auto}
 .rail:hover,.rail.pinned{width:312px;box-shadow:0 18px 56px rgba(18,22,26,.13)}
-.rail-h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+.rail-h{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:#a9a49c;margin:0 0 10px;padding-left:20px;opacity:0;transition:opacity .18s}
 .rail ol{list-style:none;margin:0;padding:0 10px 0 0;position:relative}
 .rail li{margin:0}
@@ -529,19 +529,24 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* act headings: quiet, lettered, with a soft rule in the act tone */
-.rail .grp{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
+.rail .grp{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
 .rail .grp::before{content:"";width:10px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto;opacity:.55}
 /* chapter rows */
 .rail a.rl{padding-left:36px}
+.rail a.rl{position:relative;display:flex;align-items:flex-start;gap:9px;text-decoration:none;
+  padding:8px 12px 8px 20px;margin:1px 0;border-radius:0 12px 12px 0;
+  font-family:var(--display);font-weight:600;font-size:13.5px;line-height:1.34;
+  color:#6f6a63;background:transparent;
+  transition:color .2s,background .24s,font-size .26s,padding .26s,margin-right .3s cubic-bezier(.34,1.2,.36,1)}
 .rail a.rl:hover{background:var(--acc-t);color:#33302c}
-.rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:9.5px;flex:0 0 auto;min-width:30px;
+.rail a.rl .rn{font-family:var(--mono);font-weight:700;font-size:10.5px;flex:0 0 auto;min-width:30px;
   color:var(--acc);opacity:.75;padding-top:3px;transition:font-size .26s,opacity .2s}
 .rail a.rl .rt{flex:1;white-space:normal;overflow-wrap:anywhere;opacity:0;transition:opacity .18s}
 .rail a.rl .rm{display:none}
 .rail a.rl.done{color:#9b958c}
 .rail a.rl.done .rn{opacity:.5}
 /* the chapter being read: extends right, softly filled, gently lifted */
-.rail a.rl.now{background:var(--acc-t);color:#2c2926;font-weight:800;font-size:14.5px;
+.rail a.rl.now{background:var(--acc-t);color:#2c2926;font-weight:800;font-size:15px;
   padding-top:12px;padding-bottom:12px;padding-right:18px;margin-right:-14px;
   border-radius:0 16px 16px 0;box-shadow:0 5px 18px rgba(18,22,26,.09);z-index:2}
 .rail:hover a.rl.now,.rail.pinned a.rl.now{background:var(--acc-t);color:#2c2926;
@@ -851,6 +856,7 @@ html{overflow-x:hidden}
 .cross .stand{font-size:clamp(18px,1.1rem + .4vw,23px);line-height:1.5;color:#c3ccd2;max-width:60ch;margin:0 0 18px}
 .cross .stand strong{color:#fff;font-weight:500}
 
+.firsts.two{grid-template-columns:repeat(2,1fr)}
 .firsts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:clamp(26px,4vw,40px) 0}
 @media(max-width:920px){.firsts{grid-template-columns:1fr}}
 .first{border:1px solid #2b343b;border-radius:var(--r);padding:22px;background:rgba(255,255,255,.035)}
@@ -1348,7 +1354,7 @@ footer p{max-width:82ch;margin:0}
 .care-c a.ref{color:#9cc48a}
 .care-c .term{border-bottom-color:#6e7981}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--display);font-size:12.5px;font-weight:800;letter-spacing:.01em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
+.rail .part{font-family:var(--display);font-size:16px;font-weight:800;letter-spacing:.01em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
 /* group headings, filled with the act colour */
 .outline-inner .opart{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.16em;
@@ -3693,7 +3699,7 @@ div.endc{cursor:default}
     
     <p class="eyebrow">第 5.3 节 · 立即行动 <b class="rt-min">1 分钟</b></p>
     <h2 class="big">有两件事必须改变，第二件是<em>彻底停手</em>的意愿。</h2>
-    <div class="firsts">
+    <div class="firsts two">
       <div class="first">
         <span class="fk">在系统层面，其一</span>
         <h3>把安全当作它本应有的优先事项</h3>
@@ -3704,11 +3710,7 @@ div.endc{cursor:default}
         <h3>敢于停手，并且当真</h3>
         <p><strong>对齐一个超级智能，可能是一道无解的题，而不只是一道很难的题。</strong>我们所知的一切都不排除这种可能，因为我们写不清自己的价值观到机器能懂的程度，也读不出模型真正的目标来核对。若我们身处的正是这样一个世界，那么唯一剩下的一步，就是谁都不愿走的那一步：停手。</p>
       </div>
-      <div class="first blue">
-        <span class="fk">为什么它必须同时约束所有人</span>
-        <h3>同时管住所有人的规则</h3>
-        <p>只要竞争对手还在继续，就没有哪一家实验室停得下来，而这正是问题的核心，而不是对它的反驳。协调问题只能靠协调来回答：可核查的协议，以及真正被执行的红线。</p>
-      </div>
+      
     </div>
     <div class="keyline rv"><span class="kk">底线</span><p>我们不需要先证明结局一定很糟。我们需要的是承认这道题可能无解的诚实，以及一旦真的无解便就此停手的胆识。</p></div>
 
@@ -3723,17 +3725,38 @@ div.endc{cursor:default}
     <div class="sec-head">
       <p class="eyebrow">第 5.4 节 · 可以做什么 <b class="rt-min">6 分钟</b></p>
       <h2>光是知道这些，本身什么也改变不了。下面才是能改变的东西。</h2>
-      <p class="stand cando-lead">有四类人能推动这件事：政府、正在建造这些系统的实验室、研究这个问题的研究者，以及其他所有人。下面每一项诉求都是具体的。凡涉及各国政府立场之处，依据的都是公开记录，并注明了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
+      <p class="stand cando-lead">有四类人能推动这件事，而你就是第一类。下面每一项诉求都是具体的。凡涉及各国政府立场之处，依据的都是公开记录，并注明了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
     </div>
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">你</span><h3>你可以做什么</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">学习</span><h4>认真上一门课</h4><p>BlueDot Impact 提供结构化课程，能带你从“有所耳闻”走到“真正弄懂”，而 AISafety.info 可以直接回答你心里那个具体问题，不必先上完一门课。<a class="ref" href="#s3">3</a><a class="ref" href="#s4">4</a></p></div>
-        <div class="ddc t"><span class="k">发声</span><h4>把它说出口</h4><p>公众舆论并不是这里的阻力。2025 年 10 月一项针对 2,000 名美国成年人的调查发现，多数人支持放慢前沿开发的速度。<a class="ref" href="#s33">33</a>这个立场之所以显得小众，主要是因为公开这么说的人太少，这个问题每多一次公开讨论，“小众”的帽子就小一分。</p></div>
-        <div class="ddc b"><span class="k">施压</span><h4>写信给代表你的人</h4><p>在加拿大，问你的国会议员，为什么 AIDA 之后什么都没有补上。在英国，问你的议员，《前沿人工智能法案》什么时候提出。在美国，问你的众议员对联邦优先适用的立场，也问你的州议员那部会被它取代的州法，因为真正的角力眼下就在那里。在欧盟，问你的欧洲议会议员，人工智能办公室到底有没有在执法。</p></div>
-        <div class="ddc o"><span class="k">出力</span><h4>支持正在做事的人</h4><p>生命未来研究所、人工智能安全中心、红线倡议，都接受签名、志愿者与捐助，而且三者都会公开这些资源的去向。<a class="ref" href="#s2">2</a><a class="ref" href="#s26">26</a><a class="ref" href="#s56">56</a></p></div>
+        <div class="ddc g"><span class="k">加入</span><h4>加入这个社区</h4><p>本页底部的订阅之所以存在，是为了当某项法案、某个条约或某起事故让公众压力真正起作用时，有一个地方能找到你。一个人在某个平平无奇的周二单独发声，几乎改变不了什么；几千人在同一周里一起发声，会改变政客心里“这件事可以不理”的盘算。</p></div>
+        <div class="ddc t"><span class="k">分享</span><h4>把这件事分享到你的人脉里</h4><p>整个领域最大的瓶颈，是大多数人从未以一种自己能判断的方式听过这套论证。把这个页面发给一个会认真对待它的人，然后发给尽可能多的人。每多一位读者，人类面对有害 AGI 的免疫力就强一分。</p></div>
+        <div class="ddc b"><span class="k">签名</span><h4>在联署上签名</h4><p>《超级智能声明》要求：在获得“可以安全做到”的科学共识、并且有公众的认可之前，禁止开发超级智能。签名只要一分钟，而签名的人数本身就是它的全部分量。<a class="ref" href="#s2">2</a></p></div>
+        <div class="ddc o"><span class="k">选择</span><h4>只用那些认真对待安全的实验室的产品</h4><p>你是这些公司的付费客户。优先选择那些公开评估结果、按与能力投入相称的比例给安全拨款、并且真的守住自家扩展承诺的公司，并且告诉它们你正是因此才选了它们。营收是每一家实验室都会仔细读的信号。<a class="ref" href="#s15">15</a></p></div>
       </div>
     </div>
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">研究者</span><h3>研究者应该做什么</h3></div>
+      <p>离这些系统最近的人，在公众面前拥有最可信的声音，在真正做决定的那些办公室里也拥有最大的分量。<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a></p>
+      <div class="ddgrid two rv" style="margin-top:14px">
+        <div class="ddc b"><span class="k">讲清楚</span><h4>让公众看见安全在哪里失效</h4><p>用平实的语言说清楚，今天的技术能接住什么，又各自在哪里失灵。外界没法拿一套从没有人向他们描述过的标准去要求实验室或政府，所以在研究者把它说出口之前，这个缺口一直是隐形的。</p></div>
+        <div class="ddc r"><span class="k">拒绝</span><h4>对制造危险的活说不</h4><p>被要求把那个具体东西造出来的人是你。对越过红线的要求说不，把它写下来，并且和同事一起说，这是任何监管机构或外部行动都无法代你施加的压力。</p></div>
+        <div class="ddc o"><span class="k">争取</span><h4>为安全预算据理力争</h4><p>安全研究大约只占全部 AI 研究的 2%，而正是这个比例决定了这些技术能否及时到位。<a class="ref" href="#s46">46</a>研究者们一起、公开地要求一个明确的投入比例，是这种数字唯一会动起来的方式。</p></div>
+        <div class="ddc g"><span class="k">继续做</span><h4>继续发明新的安全技术</h4><p>让可解释性扩展到前沿规模、做出模型骗不过去的测试、在系统逐渐甩开监督者时仍然兜得住的控制手段，以及精确到能拿行为逐条核对的目标，这些都还没有解决。</p></div>
+      </div>
+      <p style="margin-top:14px">ARENA 与 MATS 能在几个月内把扎实的技术背景带进已发表的安全研究，而 80,000 Hours 的问题简报，是选定发力方向时通常的起点。<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
+    </div>
+
+    <div class="cando-block">
+      <div class="cando-h"><span class="ch-n">各家实验室</span><h3>实验室应该做什么</h3></div>
+      <div class="cando-cols">
+        <div class="ddc g"><span class="k">节奏</span><h4>放慢速度，把责任担起来</h4><p>悬崖底下没有奖品。所有人的性命都握在这里的几百个人手上，二十年后仍然有人用的实验室，会是那些照这个分量行事的公司，因为这种信任建立在事故发生之前，事故之后能做的只剩道歉。<a class="ref" href="#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">公开</span><h4>把你们发现的危险公开出来</h4><p>公布评估结果和失败分析，包括那些让你们难堪的，并且把它们写成开放问题，细节要足够让外面的人接手去做。一个只有你们团队知道的危险，就只有你们一个团队在解。<a class="ref" href="#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">协作</span><h4>和竞争对手一起建一个安全联合体</h4><p>在能力上竞争、同时共担安全问题，今天就做得到。一个由每一家主要实验室出钱出人、真有预算的常设机构，能把一场谁都退不出的竞赛，变成所有人同时在解的一道题。<a class="ref" href="#s56">56</a></p></div>
+      </div>
+    </div>
+
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">各国政府</span><h3>政府应该做什么</h3><span class="ch-w">选择一个辖区</span></div>
       <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
@@ -3769,27 +3792,6 @@ div.endc{cursor:default}
           <div class="jur-ask"><span class="k">我们的诉求</span><h4>赶上 2026 年的期限</h4><p>这个期限已经在倒计时。它指向的日期是 2026 年底，而它所说的那份协议目前还不存在。</p></div>
         </div>
       <p class="asof" data-asof="2026-09">本节内容更新于 2026 年 9 月。上面每一条论断都链接到它的来源。</p>
-    </div>
-
-    <div class="cando-block">
-      <div class="cando-h"><span class="ch-n">各家实验室</span><h3>实验室应该做什么</h3></div>
-      <div class="cando-cols">
-        <div class="ddc g"><span class="k">立刻</span><h4>发布前就公开测试结果</h4><p><strong>在部署之前公布评估结果，而不是在之后。</strong> <strong>按与能力投入相称的比例为安全工作拨款，并说明这个比例究竟是多少。</strong> <strong>哪怕遵守自家扩展政策意味着错过一次发布，也仍然要遵守。</strong>一项从未产生过约束的承诺，也就从未被检验过。<a class="ref" href="#s16">16</a></p></div>
-        <div class="ddc b"><span class="k">近期</span><h4>向外部审计者开放</h4><p><strong>给外部审计者足够的访问权限去核对这些说法</strong>，也就是内部评估记录，以及在适当管控下的模型本身。<strong>支持公司之外的人也能自己运行的工具。</strong>一个只有你能核验的安全论证，等于没有人核验过。<a class="ref" href="#s15">15</a></p></div>
-        <div class="ddc r"><span class="k">红线</span><h4>先把这几条设为红线</h4><p><strong>未经外部签字，不得构建能够实质自我改进的系统。</strong> <strong>不得构建会自我复制的系统。</strong> <strong>任何一旦察觉自己正被测试就表现不同的模型，都先扣下</strong>，直到你弄清为什么。任何建立在模型能糊弄的测试之上的安全论断，都带着同一个毛病。<a class="ref" href="#s43">43</a><a class="ref" href="#s56">56</a></p></div>
-      </div>
-    </div>
-
-    <div class="cando-block">
-      <div class="cando-h"><span class="ch-n">研究者</span><h3>研究者应该做什么</h3></div>
-      <p>这个领域自己给出的清单高度重合，共四个问题，而入行的路径比多数人以为的短。<a class="ref" href="#s14">14</a><a class="ref" href="#s1">1</a></p>
-    <div class="ddgrid two rv" style="margin-top:14px">
-      <div class="ddc b"><span class="k">开放问题</span><h4>让可解释性扩展到前沿规模</h4><p>读出模型内部的计算，在小模型上已经可行，还得在最大的模型上继续可行。</p></div>
-      <div class="ddc o"><span class="k">开放问题</span><h4>做出模型骗不过去的测试</h4><p>一个能察觉自己正在被测试的系统会改变行为，而测试也必须依然有效。</p></div>
-      <div class="ddc r"><span class="k">开放问题</span><h4>让控制随能力一起生效</h4><p>当系统越来越领先于监督它的系统时，围堵手段必须继续兜得住。</p></div>
-      <div class="ddc g"><span class="k">开放问题</span><h4>把目标写到能核验</h4><p>目标必须精确到行为可以逐条对照，而不是只能拿来争论。</p></div>
-    </div>
-      <p style="margin-top:14px">ARENA 与 MATS 能在几个月内把扎实的技术背景带进已发表的安全研究，而 80,000 Hours 的问题简报，是选定发力方向时通常的起点。<a class="ref" href="#s6">6</a><a class="ref" href="#s8">8</a><a class="ref" href="#s27">27</a></p>
     </div>
 
     <div class="keyline rv"><span class="kk">这一节的分量</span><p>这里没有一条要求你相信最坏的情况一定会发生，只要求你承认那是可能的，而这正是建造这些系统的人已经在公开场合持有的立场。</p></div>
