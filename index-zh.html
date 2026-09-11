@@ -1538,6 +1538,16 @@ div.endc{cursor:default}
 .ddc .share button,.ddc .share a{padding:9px 13px;font-size:10.5px;border-color:var(--ink-3);color:var(--ink-2)}
 .ddc .share button:hover,.ddc .share a:hover{border-color:var(--ink);color:var(--ink)}
 .cando-foot{font-size:14px;color:var(--ink-3);margin:14px 0 0;max-width:72ch}
+.nav-extra{margin-left:auto;display:flex;gap:4px}
+.nav-xbtn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;white-space:nowrap;
+  font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);background:transparent;border:1px solid var(--rule-soft);border-radius:999px;
+  padding:7px 13px;transition:.15s}
+.nav-xbtn:hover{border-color:var(--ink);color:var(--ink);background:var(--panel)}
+.nav-xbtn .ico{width:13px;height:13px;stroke-width:2.2;fill:none;stroke:currentColor;
+  stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+@media(max-width:900px){.nav-extra{margin-left:0;width:100%;margin-top:4px}
+  .nav-xbtn{font-size:10.5px;padding:6px 11px}}
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -1707,10 +1717,7 @@ div.endc{cursor:default}
       <button type="button" class="hbtn hbtn-share" id="hdr-share">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>分享</span></button>
       <a class="hbtn hbtn-act" href="#ask"><span>立即行动</span></a>
-      <a class="hbtn hbtn-comic" href="/comics/">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>读漫画</span></a>
-      <a class="hbtn header-game" href="https://game.safeagi.ca/" target="_blank" rel="noopener">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>玩游戏，轻松入门 AGI 与 ASI 安全</span></a>
+      
     </div>
   </div>
   <nav class="chapters" id="chapters" aria-label="Contents">
@@ -1753,6 +1760,10 @@ div.endc{cursor:default}
           <li><a href="/reference-zh#resources">课程与资源目录</a></li>
           <li><a href="/reference-zh#sources">全部来源</a></li>
         </ul>
+      </li>
+          <li class="nav-extra">
+        <a class="nav-xbtn" href="/comics/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>读漫画</span></a>
+        <a class="nav-xbtn" href="https://game.safeagi.ca/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>玩安全游戏</span></a>
       </li>
     </ul>
     </nav>
@@ -2634,7 +2645,7 @@ div.endc{cursor:default}
     <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">缺失的两块</span></div>
     <div class="sec-head rv">
       <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
-      <h2>AI 照字面办事，而我们想要的从来不在字面里</h2>
+      <h2>AI 照字面办事，而我们想要的不在字面里</h2>
       <p class="stand">假设我们真的就“想要什么”达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息，危险恰恰藏在这些丢失之处。</p>
     </div>
     <div class="body rv">
