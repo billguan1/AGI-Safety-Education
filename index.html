@@ -626,10 +626,10 @@ html{overflow-x:hidden}
 .rail-f .rf-t{display:block;font-family:var(--mono);font-size:9px;color:#857d74;margin-top:9px;
   padding-top:9px;border-top:1px solid #443f3a}
 .rail:hover .rail-h,.rail:hover .rail-f,.rail:hover a.rl .rt,.rail:hover .grp,
-.rail.wide .rail-h,.rail.wide .rail-f,.rail.wide a.rl .rt,.rail.wide .grp{opacity:1}
+.rail.wide .rail-h, .rail.wide .rail-f, .rail.wide a.rl .rt, .rail.wide .grp, .rail.wide .part{opacity:1}
 .rail:hover li.now .subs,.rail.wide li.now .subs{max-height:460px}
 @media(min-width:1200px){
-  .rail .rail-h,.rail .rail-f,.rail a.rl .rt,.rail .grp{opacity:1}
+.rail .rail-h, .rail .rail-f, .rail a.rl .rt, .rail .grp, .rail .part{opacity:1}
   .rail li.now .subs{max-height:460px}}
 @media(min-width:1024px){body{padding-left:64px}}
 @media(min-width:1200px){body{padding-left:262px}}
@@ -680,15 +680,15 @@ html{overflow-x:hidden}
 @media(max-width:1359px){.rail:not(.pinned) .rail-toggle svg{transform:none}}
 /* pinned: stay expanded at any width */
 .rail.pinned{width:312px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
-.rail.pinned .rail-h,.rail.pinned .rail-f,.rail.pinned a.rl .rt,.rail.pinned a.rl .rm,.rail.pinned .grp{opacity:1}
+.rail.pinned .rail-h, .rail.pinned .rail-f, .rail.pinned a.rl .rt, .rail.pinned a.rl .rm, .rail.pinned .grp, .rail.pinned .part{opacity:1}
 .rail.pinned li.now .subs{max-height:420px}
 /* minimised: stay narrow even on wide screens, still expands on hover */
 @media(min-width:1200px){
   .rail.mini{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
-  .rail.mini .rail-h,.rail.mini .rail-f,.rail.mini a.rl .rt,.rail.mini a.rl .rm,.rail.mini .grp{opacity:0}
+.rail.mini .rail-h, .rail.mini .rail-f, .rail.mini a.rl .rt, .rail.mini a.rl .rm, .rail.mini .grp, .rail.mini .part{opacity:0}
   .rail.mini li.now .subs{max-height:0}
   .rail.mini:hover{width:312px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
-  .rail.mini:hover .rail-h,.rail.mini:hover .rail-f,.rail.mini:hover a.rl .rt,.rail.mini:hover a.rl .rm,.rail.mini:hover .grp{opacity:1}
+.rail.mini:hover .rail-h, .rail.mini:hover .rail-f, .rail.mini:hover a.rl .rt, .rail.mini:hover a.rl .rm, .rail.mini:hover .grp, .rail.mini:hover .part{opacity:1}
   .rail.mini:hover li.now .subs{max-height:420px}
   body.rail-mini{padding-left:64px}
   /* After clicking Minimise the pointer is still inside the rail, so the hover
@@ -697,7 +697,7 @@ html{overflow-x:hidden}
   .rail.mini.nohover:hover{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
   .rail.mini.nohover:hover .rail-h,.rail.mini.nohover:hover .rail-f,
   .rail.mini.nohover:hover a.rl .rt,.rail.mini.nohover:hover a.rl .rm,
-  .rail.mini.nohover:hover .grp{opacity:0}
+.rail.mini.nohover:hover .grp, .rail.mini.nohover:hover .part{opacity:0}
   .rail.mini.nohover:hover li.now .subs{max-height:0}
 }
 /* ---------- mobile outline button + panel ---------- */
