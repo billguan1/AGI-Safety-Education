@@ -27,15 +27,15 @@
   --c-risk:#ff8a6b; --t-risk:#2e1a15; --d-risk:#8f2c18;
   --c-act:#9cc48a;  --t-act:#1a2418;
   --glow-r:#ff6a45; --glow-b:#6d84ff; --glow-t:#3fd0c9;
-  --display:"Archivo",system-ui,sans-serif;
-  --body:"Newsreader",Georgia,serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --display:"Archivo","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --body:"Newsreader","Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
+  --mono:"IBM Plex Mono","PingFang SC","Microsoft YaHei",ui-monospace,monospace;
   --gut:clamp(18px,4.6vw,60px); --maxw:1220px; --r:4px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
-  font-size:clamp(16.5px,1rem + .2vw,18.5px);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  font-size:clamp(16.5px,1rem + .2vw,18.5px);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 svg{display:block}
 a{color:var(--c-dev);text-underline-offset:.18em;text-decoration-thickness:1px}
 a:hover{color:var(--ink)}
@@ -92,23 +92,23 @@ p{margin:0 0 1em}
   cursor:pointer;border:1.5px solid #fbfcfc;background:#fbfcfc;color:#12161a;padding:7px 13px;
   transition:background .15s,color .15s,transform .15s}
 .hbtn .ico{width:12px;height:12px;stroke-width:2.2}
-.hbtn:hover{background:var(--panel);color:var(--paper);transform:translateY(-1px)}
+.hbtn:hover{background:var(--panel);color:var(--ink);transform:translateY(-1px)}
 .hbtn-act{background:#fbfcfc;border-color:#fbfcfc;color:#12161a}
 .hbtn-lang{font-weight:700}
-.hbtn-act:hover{background:var(--panel);color:var(--paper)}
+.hbtn-act:hover{background:var(--panel);color:var(--ink)}
 .header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;color:#12161a;background:#fbfcfc;
   border:1.5px solid #fbfcfc;padding:7px 12px;
   border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
 .header-game .ico{width:12px;height:12px;stroke-width:2.4}
-.header-game:hover{background:var(--panel);color:var(--paper);transform:translateY(-1px)}
+.header-game:hover{background:var(--panel);color:var(--ink);transform:translateY(-1px)}
 @media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
 .switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
 .switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   padding:8px 11px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
 .switch button+button{border-left:1.5px solid var(--ink)}
 .switch button:hover{background:var(--t-dev)}
-.switch button.on{background:var(--panel);color:var(--paper)}
+.switch button.on{background:var(--panel);color:var(--ink)}
 .switch-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
 @media(max-width:760px){.brand{display:none}.bar-in{flex-wrap:wrap;gap:10px}.bar-actions{width:100%;justify-content:flex-start}.bar-in{padding-left:14px;padding-right:14px}}
 
@@ -132,7 +132,7 @@ p{margin:0 0 1em}
 .cta .primary{background:var(--c-risk);color:#fff}
 .cta .primary:hover{background:var(--d-risk);color:#fff;transform:translateY(-2px)}
 .cta .ghost{border-color:var(--ink);color:var(--ink)}
-.cta .ghost:hover{background:var(--panel);color:var(--paper)}
+.cta .ghost:hover{background:var(--panel);color:var(--ink)}
 .gapfig{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);padding:16px 16px 12px;margin:0}
 .gapfig figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.5;color:var(--ink-3);margin-top:8px}
 .draw{stroke-dasharray:620;stroke-dashoffset:620;animation:draw 2.1s ease .4s forwards}
@@ -363,9 +363,9 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
   color:var(--ink-2);background:transparent;border:1px solid transparent;border-radius:999px;padding:7px 13px;
   cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .ng-top:hover{border-color:var(--rule);color:var(--ink)}
-.ng.active .ng-top{background:var(--panel);color:var(--paper)}
+.ng.active .ng-top{background:var(--panel);color:var(--ink)}
 .ng-caret{font-size:12px;transition:transform .18s;display:inline-block}
-.ng.open .ng-top{background:var(--panel);color:var(--paper);border-color:var(--ink)}
+.ng.open .ng-top{background:var(--panel);color:var(--ink);border-color:var(--ink)}
 .ng.open .ng-caret{transform:rotate(90deg)}
 .ng-menu{list-style:none;margin:0;padding:6px;position:absolute;top:calc(100% + 6px);left:0;min-width:210px;
   background:var(--white);border:1px solid var(--rule);border-radius:var(--r);box-shadow:0 12px 34px rgba(18,22,26,.16);
@@ -376,6 +376,12 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ng-menu a{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.05em;
   color:var(--ink-2);text-decoration:none;padding:9px 12px;border-radius:3px;white-space:normal;line-height:1.35;transition:background .12s,color .12s}
 .ng-menu a:hover{background:rgba(255,255,255,.05);color:var(--ink)}
+.ng-grp{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;
+  color:var(--ink-3);padding:11px 12px 5px 12px;margin-top:4px;pointer-events:none;
+  border-top:1px solid #232b31;position:relative}
+.ng-grp::before{content:"";position:absolute;left:0;top:11px;width:2px;height:9px;border-radius:1px;background:var(--ga,#8a959c)}
+.ng-menu > .ng-grp:first-child{margin-top:0;border-top:0;padding-top:4px}
+.ng-menu a{padding-left:22px}
 .ng-menu a.on{background:var(--t-dev);color:var(--c-dev)}
 @media(max-width:640px){
   .nav-groups{padding-left:14px;padding-right:14px;gap:3px}
@@ -1268,7 +1274,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .fbtn,.pbtn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 12px;
   border:1.5px solid var(--rule);background:var(--white);color:var(--ink-2);border-radius:999px;cursor:pointer;transition:.15s}
 .fbtn:hover,.pbtn:hover{border-color:var(--ink)}
-.fbtn.on,.pbtn.on{background:var(--panel);border-color:var(--ink);color:var(--paper)}
+.fbtn.on,.pbtn.on{background:var(--panel);border-color:var(--ink);color:var(--ink)}
 
 /* ---------- quiz answer states ---------- */
 /* 颜色不是唯一线索：按钮同时带对勾或叉号，下方回应也以“答对了”或“还差一点”开头。 */
@@ -1283,11 +1289,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .card.gone{display:none}
 
 /* ---------- slab ---------- */
-.slab{background:var(--panel);color:var(--paper);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
+.slab{background:var(--panel);color:var(--ink);border-radius:var(--r);padding:clamp(26px,4.6vw,50px);position:relative;overflow:hidden}
 .slab::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;
   background:radial-gradient(circle,rgba(189,58,32,.55),rgba(189,58,32,0) 68%)}
 .slab>*{position:relative;z-index:1}
-.slab h2{color:var(--paper);margin-bottom:14px;font-size:clamp(28px,5vw,46px)}
+.slab h2{color:var(--ink);margin-bottom:14px;font-size:clamp(28px,5vw,46px)}
 .slab p{color:#b6c0c6;max-width:54ch}
 .slab .eyebrow{color:#8a959c}.slab .eyebrow::after{background:#39434a}
 .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;
@@ -1329,7 +1335,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .share button,.share a{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
   padding:11px 15px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:2px;cursor:pointer;text-decoration:none;transition:.15s}
-.share button:hover,.share a:hover{background:var(--panel);color:var(--paper)}
+.share button:hover,.share a:hover{background:var(--panel);color:var(--ink)}
 
 #sources ol{font-family:var(--mono);font-size:12.5px;line-height:1.55;padding-left:2.4em;margin:0 0 22px}
 #sources .src-cat{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-dev);margin:0 0 8px}
@@ -1343,7 +1349,7 @@ footer{border-top:1.5px solid var(--ink);padding:32px 0 56px;font-family:var(--m
 footer p{max-width:82ch;margin:0}
 
 #toast{position:fixed;left:50%;bottom:16px;transform:translateX(-50%) translateY(24px);z-index:70;
-  background:var(--panel);color:var(--paper);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
+  background:var(--panel);color:var(--ink);border:1px solid #3b454c;border-radius:999px;padding:11px 18px;
   font-family:var(--mono);font-size:11.5px;line-height:1.4;letter-spacing:.04em;box-shadow:0 10px 34px rgba(0,0,0,.4);
   opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
   max-width:calc(100vw - 28px);display:flex;gap:14px;align-items:center;justify-content:center;text-align:left}
@@ -1394,7 +1400,8 @@ footer p{max-width:82ch;margin:0}
   text-transform:uppercase;color:#fff;background:var(--acc,var(--ink));
   padding:11px 13px;border-radius:5px;margin:30px 0 10px}
 .outline-inner ol > li.opart:first-child{margin-top:4px}
-.tcard .textra{display:none}
+.tcard .textra{display:none;font-size:13px;line-height:1.5;color:var(--ink-3);margin:0;
+  border-top:1px solid var(--rule-soft);padding-top:9px}
 .tcard.on .textra{display:block}
 /* ---------- the three claims, illustrated ---------- */
 .care3.slim{grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,18px);margin-top:clamp(8px,1.2vw,14px)}
@@ -1477,6 +1484,10 @@ footer p{max-width:82ch;margin:0}
 .mh-care{margin-top:clamp(52px,7vw,88px)}
 .ddc figure{margin:14px 0 0}
 .ddc figure svg{width:100%;height:auto;display:block}
+
+/* CJK: the Latin label tracking spreads Chinese characters apart */
+.mh-h span,.rail .part,.rail .grp,.chapno,.eyebrow,.k,.gd-n,.pd-n,.ek,.kk{letter-spacing:.04em}
+.ng-grp{letter-spacing:.04em}
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -1657,27 +1668,28 @@ footer p{max-width:82ch;margin:0}
         <button type="button" class="ng-top" aria-expanded="false">我们为什么该在意 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
           <li><a href="#crossroads">现状，一页说完</a></li>
-          <li class="ng-grp" style="--ga:#ff8a6b">1 · 我们押上一切的十年</li>
-          <li><a href="#why-irresistible">1 · 千亿美元的盲区</a></li>
-          <li class="ng-grp" style="--ga:#3fd0c9">2 · 岔路口</li>
+          <li class="ng-grp" style="--ga:#ff8a6b">第 1 章 · 我们押上一切的十年</li>
+          <li><a href="#why-irresistible">1.1 · 千亿美元的盲区</a></li>
+          <li class="ng-grp" style="--ga:#3fd0c9">第 2 章 · 岔路口</li>
           <li><a href="#why-upside">2.1 · 丰裕的时代</a></li>
           <li><a href="#why-it-ends-badly">2.2 · 故事的终点</a></li>
           <li><a href="#why-one-try">2.3 · 无法重来的实验</a></li>
-          <li class="ng-grp" style="--ga:#8d9dff">3.1 · 我们自己的麻烦</li>
-          <li><a href="#why-race">3.1.1 · 没有刹车的竞赛</a></li>
-          <li><a href="#why-human-misalignment">3.1.2 · 没人达成一致的愿望</a></li>
-          <li class="ng-grp" style="--ga:#e8c98a">3.2 · 缺失的两块</li>
-          <li><a href="#why-translation">3.2.1 · 神灯问题</a></li>
-          <li><a href="#why-safety-hard">3.2.2 · 黑箱</a></li>
+          <li class="ng-grp" style="--ga:#8d9dff">第 3 章 · 我们自己的麻烦</li>
+          <li><a href="#why-race">3.1 · 没有刹车的竞赛</a></li>
+          <li><a href="#why-human-misalignment">3.2 · 没人达成一致的愿望</a></li>
+          <li class="ng-grp" style="--ga:#e8c98a">第 4 章 · 缺失的两块</li>
+          <li><a href="#why-translation">4.1 · 神灯问题</a></li>
+          <li><a href="#why-safety-hard">4.2 · 黑箱</a></li>
         </ul>
       </li>
       <li class="ng">
         <button type="button" class="ng-top" aria-expanded="false">能做些什么 <span class="ng-caret" aria-hidden="true">›</span></button>
         <ul class="ng-menu">
-          <li><a href="#response">A · 防线</a></li>
-          <li><a href="#response-gaps">B · 裂缝</a></li>
-          <li><a href="#ask">C · 航向修正</a></li>
-          <li><a href="#do">D · 轮到你了</a></li>
+          <li class="ng-grp" style="--ga:#6f8a63">第 5 章 · 应对</li>
+          <li><a href="#response">5.1 · 防线</a></li>
+          <li><a href="#response-gaps">5.2 · 裂缝</a></li>
+          <li><a href="#ask">5.3 · 航向修正</a></li>
+          <li><a href="#do">5.4 · 轮到你了</a></li>
         </ul>
       </li>
       <li class="ng">
@@ -1964,7 +1976,7 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#ff8a6b"><span class="gd-n">1</span><span class="gd-t">我们押上一切的十年</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 1 章 <b class="rt-min">2 分钟</b></span>
+      <span class="chapno">第 1.1 节 <b class="rt-min">2 分钟</b></span>
       <h2>巨额资金流向建造 AI，只有一丝流向检验它是否安全</h2>
       <p class="stand">光看清危险并不足以阻止它。因为建造的回报是即时的、巨大的，而且全部归于捷足先登者。这一点，让资源的引力难以抗拒。</p>
     </div>
@@ -2050,7 +2062,7 @@ footer p{max-width:82ch;margin:0}
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">岔路口</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 2.1 章 <b class="rt-min">1 分钟</b></span>
+      <span class="chapno">第 2.1 节 <b class="rt-min">1 分钟</b></span>
       <h2>AI 可以治愈疾病，终结物资匮乏</h2>
       <p class="stand">通用人工智能有望创造巨大的财富，解决人类今天解决不了的问题，一直到物质上近乎无限的丰裕。</p>
     </div>
@@ -2081,7 +2093,7 @@ footer p{max-width:82ch;margin:0}
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 2.2 章 <b class="rt-min">2 分钟</b></span>
+      <span class="chapno">第 2.2 节 <b class="rt-min">2 分钟</b></span>
       <h2>同一个 AI 也可能终结文明</h2>
       <p class="stand">人们期待 AGI 带来巨大的财富，解决今天人类解决不了的问题，直到物质丰裕几乎没有上限。</p>
     </div>
@@ -2161,7 +2173,6 @@ footer p{max-width:82ch;margin:0}
       </svg>
     </figure>
     <div class="core" style="margin-top:clamp(18px,2.6vw,24px)">
-<p class="breaks"><b>何种情况可推翻此论</b>我们造出有能力的谋划者，而它们对「被关掉」可靠地无动于衷。这是一个正在进行的研究课题，而这种特性并不会凭空得到。<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p>
     </div>
 <div class="ddgrid rv" style="grid-template-columns:1fr;margin-top:clamp(20px,3vw,30px)">
       <div class="ddc o">
@@ -2210,7 +2221,7 @@ footer p{max-width:82ch;margin:0}
 <section id="why-one-try" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 2.3 章 <b class="rt-min">3 分钟</b></span>
+      <span class="chapno">第 2.3 节 <b class="rt-min">3 分钟</b></span>
       <h2>我们只有一次机会</h2>
       <p class="stand">不必想象“突然觉醒”。现实中的路径是渐进的：智能体运行得越来越久、写下越来越多的代码、受到的核查却越来越少，直到监督早已名存实亡而无人察觉。汽车、飞机、核电，我们都是先做错再修好才做对的，这既需要失误可以幸存，也需要有时间反应，而随着那个循环收紧，这两个前提都在削弱。</p>
     </div>
@@ -2369,7 +2380,7 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 3: the race -->
 <section id="why-race" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">3.1</span><span class="gd-t">我们自己的麻烦</span></div>
+    <div class="grp-div" style="--gd-acc:#8d9dff"><span class="gd-n">3</span><span class="gd-t">我们自己的麻烦</span></div>
       <div class="pillars">
         <p class="pil-lead">在进入各章之前，先看清这道难题的形状。研究者依据<em>究竟由谁怀有恶意</em>来划分 AI 风险。本页采用 Google DeepMind 的四分法；《国际人工智能安全报告》则用三分法（滥用、失灵、系统性风险）。<a class="ref" href="#s42">42</a><a class="ref" href="#s1">1</a></p>
         <div class="pil-grid">
@@ -2380,7 +2391,7 @@ footer p{max-width:82ch;margin:0}
         </div>
       </div>
     <div class="sec-head rv">
-      <span class="chapno">第 3.1.1 章 <b class="rt-min">2 分钟</b></span>
+      <span class="chapno">第 3.1 节 <b class="rt-min">2 分钟</b></span>
       <h2>谁先慢下来谁就输，于是没有人慢下来</h2>
       <p class="stand">即便每个参与者都想要安全，竞赛的结构也会逼他们偷工减料。这不是一场普通的竞赛：以不安全的方式冲过终点线，产生的只会是所有人共担的浩劫，而没有赢家。</p>
     </div>
@@ -2514,7 +2525,7 @@ footer p{max-width:82ch;margin:0}
 <section id="why-human-misalignment" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 3.1.2 章 <b class="rt-min">2 分钟</b></span>
+      <span class="chapno">第 3.2 节 <b class="rt-min">2 分钟</b></span>
       <h2>人类从未就机器该遵循谁的价值达成一致</h2>
       <p class="stand">在让机器对齐人类价值之前，我们得先回答一个更难的问题：谁的价值？怎么达成一致？人类是一块由相互竞争的利益拼凑而成的百衲衣，这种裂痕让目标本身摇摆不定。</p>
     </div>
@@ -2638,9 +2649,9 @@ footer p{max-width:82ch;margin:0}
 <!-- DEEP DIVE 5: translation gap -->
 <section id="why-translation" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#a98a4b"><span class="gd-n">3.2</span><span class="gd-t">缺失的两块</span></div>
+    <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">缺失的两块</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 3.2.1 章 <b class="rt-min">5 分钟</b></span>
+      <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
       <h2>AI 照着我们写下的做，而那很少是我们真正的意思</h2>
       <p class="stand">假设我们真的就“想要什么”达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息，危险恰恰藏在这些丢失之处。</p>
     </div>
@@ -2650,13 +2661,11 @@ footer p{max-width:82ch;margin:0}
 <span class="ck">它实际上是怎么运作的</span>
 <h4>这些系统是“长”出来的，不是我们写出来的。</h4>
 <p>它们的行为是通过一场对高分的盲目搜索“长”出来的，所以我们得到的，是任何得分最高的东西，哪怕它偏离了我们的本意。 想象用零食训练一只狗，只不过你从没决定要它学什么把戏。你在它“表现好”时给零食，它会尝试成千上万种花样，找出最能换到零食的那种。</p>
-<p class="breaks"><b>何种情况可推翻此论</b>我们获得直接指定行为的能力，或能检查并手写系统所看重的价值，而不再靠搜索把它“长”出来。</p>
 </div>
       <div class="core">
 <span class="ck">它实际上是怎么运作的</span>
 <h4>我们能写下的目标，从来不是真正想要的那个。</h4>
 <p>人类价值不是一个数字。我们写下的任何东西都只是一个替身，只在我们想到过的情形里才与我们的意图吻合。按每只鞋付钱给工厂，你会得到鞋；如果不小心按每只左脚的鞋付钱，你就会得到满满一仓库的左脚鞋。足够用力的搜索总能找到这道缝隙。</p>
-<p class="breaks"><b>何种情况可推翻此论</b>有人写出一份人类价值的规范，能经受住任意强度的优化压力。这仍是一个悬而未决的难题。<a class="ref" href="#s35">35</a></p>
 </div>
       <div class="ghwrap">
             <p class="ghlead">实时演示：把压力往上拖，看着两条线分道扬镳。</p>
@@ -2845,7 +2854,7 @@ footer p{max-width:82ch;margin:0}
 <section id="why-safety-hard" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 3.2.2 章 <b class="rt-min">3 分钟</b></span>
+      <span class="chapno">第 4.2 节 <b class="rt-min">3 分钟</b></span>
       <h2>没有人能检验一个 AI 真正想要什么</h2>
       <p class="stand">安全不是“凭良心建造”。它是一个截然不同、在深层意义上更难的技术问题。你要在一个浩瀚到无法穷尽测试的情境空间中，证明系统会如何行事，而对手还可能正在主动绕过你的测试。</p>
     </div>
@@ -3339,7 +3348,6 @@ footer p{max-width:82ch;margin:0}
 <span class="ck">它实际上是怎么回事</span>
 <h4>我们还无法验证自己造出的东西。</h4>
 <p>检验一个系统是否真正持有我们所设想的目标，比训练它更难。我们无法可靠地读出它的推理，而测试只能显示它在测试条件下所展现的东西。一个真正安全的系统，与一个只是学会了“自己正被监视”的系统，从外部看给出的分数一模一样。</p>
-<p class="breaks"><b>何种情况可推翻此论</b>可解释性成熟到足以认证一个系统的目标，或者评估变得足以应对一个知道自己正在被评估的系统。<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p>
 </div>
   </div>
 </section>
@@ -3348,9 +3356,9 @@ footer p{max-width:82ch;margin:0}
 <section id="response">
   <div class="wrap">
     <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">第二部分</span><span class="pd-t">能做些什么</span></div>
-    <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">A</span><span class="gd-t">防线</span></div>
+    <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">5</span><span class="gd-t">应对</span></div>
     <div class="sec-head rv">
-      <p class="eyebrow">应对 <b class="rt-min">7 分钟</b></p>
+      <p class="eyebrow">第 5.1 节 · 应对 <b class="rt-min">7 分钟</b></p>
       <h2>安全研究到底在做些什么</h2>
       <p class="lede">确实有实打实的工作在推进，而与投向能力的力量相比，它小得可怜。共四层：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，再让它具有约束力。第四层，才是让前三层长出牙齿的那一层。<a class="ref" href="#s14">14</a></p>
     </div>
@@ -3620,9 +3628,9 @@ footer p{max-width:82ch;margin:0}
 <!-- WHAT CAN BE DONE, B: where it still falls short -->
 <section id="response-gaps" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#b5654d"><span class="gd-n">B</span><span class="gd-t">裂缝</span></div>
+    
     <div class="sec-head rv">
-      <p class="eyebrow">它到底管不管用 <b class="rt-min">2 分钟</b></p>
+      <p class="eyebrow">第 5.2 节 · 它到底管不管用 <b class="rt-min">2 分钟</b></p>
       <h2>我们最好的防护把失败率压了下来，却没有把它关上</h2>
       <p class="lede">上面每一项技术都有用。真正的问题是它们加起来等于什么，所以这里放两样东西：已发表的最好结果实际达到的数字，以及在最要紧的三种情形下，每一道防护会变成什么样。</p>
     </div>
@@ -3739,8 +3747,8 @@ footer p{max-width:82ch;margin:0}
 
 <section id="ask" class="cross">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">C</span><span class="gd-t">航向修正</span></div>
-    <p class="eyebrow">立即行动 <b class="rt-min">1 分钟</b></p>
+    
+    <p class="eyebrow">第 5.3 节 · 立即行动 <b class="rt-min">1 分钟</b></p>
     <h2 class="big">有两件事必须改变，第二件是<em>彻底停手</em>的意愿。</h2>
     <div class="firsts" style="grid-template-columns:1fr 1fr">
       <div class="first">
@@ -3763,9 +3771,9 @@ footer p{max-width:82ch;margin:0}
 <!-- WHAT CAN BE DONE -->
 <section id="do" class="dd">
   <div class="wrap">
-    <div class="grp-div" style="--gd-acc:#d9a445"><span class="gd-n">D</span><span class="gd-t">轮到你了</span></div>
+    
     <div class="sec-head">
-      <p class="eyebrow">可以做什么 <b class="rt-min">6 分钟</b></p>
+      <p class="eyebrow">第 5.4 节 · 可以做什么 <b class="rt-min">6 分钟</b></p>
       <h2>光是知道这些，本身什么也改变不了。下面才是能改变的东西。</h2>
       <p class="stand cando-lead">有四类人能推动这件事：政府、正在建造这些系统的实验室、研究这个问题的研究者，以及其他所有人。下面每一项诉求都是具体的。凡是描述某国政府立场的地方，写的都是公开记录目前的说法，并且标注了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
     </div>
@@ -4494,9 +4502,9 @@ var SITE_CONFIG = {
   (function(){
     var META = window.__GAP_META || [];
     if(!META.length) return;
-    var G = {"crossroads": "", "why-irresistible": "1 · 我们押上一切的十年", "why-upside": "2 · 岔路口", "why-it-ends-badly": "2 · 岔路口", "why-one-try": "2 · 岔路口", "why-race": "3.1 · 我们自己的麻烦", "why-human-misalignment": "3.1 · 我们自己的麻烦", "why-translation": "3.2 · 缺失的两块", "why-safety-hard": "3.2 · 缺失的两块", "response": "", "response-gaps": "", "ask": "", "do": ""};
+    var G = {"crossroads": "", "why-irresistible": "第 1 章 · 我们押上一切的十年", "why-upside": "第 2 章 · 岔路口", "why-it-ends-badly": "第 2 章 · 岔路口", "why-one-try": "第 2 章 · 岔路口", "why-race": "第 3 章 · 我们自己的麻烦", "why-human-misalignment": "第 3 章 · 我们自己的麻烦", "why-translation": "第 4 章 · 缺失的两块", "why-safety-hard": "第 4 章 · 缺失的两块", "response": "第 5 章 · 应对", "response-gaps": "第 5 章 · 应对", "ask": "第 5 章 · 应对", "do": "第 5 章 · 应对"};
     var P = {"crossroads": "我们为什么该在意", "why-irresistible": "我们为什么该在意", "why-upside": "我们为什么该在意", "why-it-ends-badly": "我们为什么该在意", "why-one-try": "我们为什么该在意", "why-race": "我们为什么该在意", "why-human-misalignment": "我们为什么该在意", "why-translation": "我们为什么该在意", "why-safety-hard": "我们为什么该在意", "response": "能做些什么", "response-gaps": "能做些什么", "ask": "能做些什么", "do": "能做些什么"};
-    var NUM = {"crossroads": "·", "why-irresistible": "1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1.1", "why-human-misalignment": "3.1.2", "why-translation": "3.2.1", "why-safety-hard": "3.2.2", "response": "A", "response-gaps": "B", "ask": "C", "do": "D"};
+    var NUM = {"crossroads": "·", "why-irresistible": "1.1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1", "why-human-misalignment": "3.2", "why-translation": "4.1", "why-safety-hard": "4.2", "response": "5.1", "response-gaps": "5.2", "ask": "5.3", "do": "5.4"};
     var PART_PAL = {"我们为什么该在意":["#b5654d","#f6ece7"],"能做些什么":["#6f8a63","#eef3ec"],"参考":["#a98a4b","#f8f2e6"]};
     var S = {"left": "还剩 {m} 分钟", "panelS": "第 {i} 章 / 共 {n} 章 · 还剩 {m} 分钟", "refGroup": "参考", "refs": [{"id": "change-my-mind", "label": "什么会推翻这个论点"}, {"id": "faq", "label": "人们最先提出的质疑"}, {"id": "resources", "label": "课程与资源目录"}], "footLabel": "本章剩余分钟", "footTotal": "全文还剩 {m} 分钟"};
     var chapters = META.filter(function(m){ return m.end || m.act; });
