@@ -4123,10 +4123,15 @@ div.endc{cursor:default}
       <p class="jnote">大约每月一封。你的邮箱只用于这份通讯，不作他用。</p>
       </div>
         <ol class="beats compact rv" style="counter-reset:b;list-style:none;margin:18px 0 0">
-        <li><h3>玩一玩 AGI 与 ASI 安全游戏</h3><p>遏制系统的活交给你来干，那些权衡立刻就不再抽象。<a href="https://game.safeagi.ca/" target="_blank" rel="noopener">点此开玩</a>，十分钟。</p></li>
-        <li><h3>上那门两小时的课</h3><p>BlueDot 的 <a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Future of AI</a>，上完后你会成为大多数场合里对此了解最多的人。<a class="ref" href="#s3">3</a></p></li>
-      
-        <li><h3>署上你的名字</h3><p>在<a href="https://superintelligence-statement.org" target="_blank" rel="noopener">《超级智能声明》</a>上签名。<a class="ref" href="#s2">2</a></p></li></ol>
+        <li><h3>把这个页面分享出去</h3><p>发给一个会认真对待它的人。每多一位读者，人类面对有害 AGI 的免疫力就强一分。</p>
+          <div class="share">
+            <button type="button" id="sh-copy">复制链接</button>
+            <a id="sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">LinkedIn</a>
+            <a id="sh-x" href="https://twitter.com/intent/tweet?text=%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E8%83%BD%E5%8A%9B%E6%AD%A3%E5%9C%A8%E7%94%A9%E5%BC%80%E6%88%91%E4%BB%AC%E6%A3%80%E9%AA%8C%E5%AE%83%E7%9A%84%E8%83%BD%E5%8A%9B%E3%80%82&amp;url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">X</a>
+            <a id="sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </li>
+        <li><h3>在联署上签名</h3><p>在<a href="https://superintelligence-statement.org" target="_blank" rel="noopener">《超级智能声明》</a>上签名。<a class="ref" href="#s2">2</a></p></li></ol>
       </div>
       <div class="anthem-poem">
         <p class="eyebrow">写在最后 · 一点微茫的希望</p>
@@ -4291,7 +4296,7 @@ var SITE_CONFIG = {
     var cp = $("#sh-copy");
     if(cp){
       cp.addEventListener("click", function(){
-        var done = function(){ var o = cp.textContent; cp.textContent = "Copied"; setTimeout(function(){ cp.textContent = o; }, 1600); };
+        var done = function(){ var o = cp.textContent; cp.textContent = "已复制"; setTimeout(function(){ cp.textContent = o; }, 1600); };
         if(navigator.clipboard && navigator.clipboard.writeText){
           navigator.clipboard.writeText(url).then(done, function(){ window.prompt("Copy this link:", url); });
         } else { window.prompt("Copy this link:", url); }
