@@ -552,7 +552,7 @@ html{overflow-x:hidden}
 @media(min-width:1200px){.rail{width:262px}}
 .rail{cursor:pointer}
 .rail.pinned,.rail:hover{cursor:auto}
-.rail:hover,.rail.pinned{width:268px;box-shadow:0 18px 56px rgba(18,22,26,.13)}
+.rail:hover,.rail.pinned{width:312px;box-shadow:0 18px 56px rgba(18,22,26,.13)}
 .rail-h{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:#a9a49c;margin:0 0 10px;padding-left:20px;opacity:0;transition:opacity .18s}
 .rail ol{list-style:none;margin:0;padding:0 10px 0 0;position:relative}
@@ -562,7 +562,7 @@ html{overflow-x:hidden}
   transition:transform .38s cubic-bezier(.34,1.2,.36,1),height .38s cubic-bezier(.34,1.2,.36,1),background .3s;
   pointer-events:none;z-index:3}
 /* act headings: quiet, lettered, with a soft rule in the act tone */
-.rail .grp{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
+.rail .grp{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.01em;color:var(--ink-2);opacity:0;padding:13px 10px 5px 24px;margin:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:8px}
 .rail .grp::after{content:"";flex:1;height:1px;background:var(--acc);opacity:.28}
 /* chapter rows */
 .rail a.rl{padding-left:36px}
@@ -649,7 +649,7 @@ html{overflow-x:hidden}
 .rail.pinned .rail-toggle svg,.rail:not(.mini) .rail-toggle svg{transform:rotate(180deg)}
 @media(max-width:1359px){.rail:not(.pinned) .rail-toggle svg{transform:none}}
 /* pinned: stay expanded at any width */
-.rail.pinned{width:268px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
+.rail.pinned{width:312px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
 .rail.pinned .rail-h,.rail.pinned .rail-f,.rail.pinned a.rl .rt,.rail.pinned a.rl .rm,.rail.pinned .grp{opacity:1}
 .rail.pinned li.now .subs{max-height:420px}
 /* minimised: stay narrow even on wide screens, still expands on hover */
@@ -657,7 +657,7 @@ html{overflow-x:hidden}
   .rail.mini{width:64px;background:rgba(255,255,255,.55);box-shadow:none}
   .rail.mini .rail-h,.rail.mini .rail-f,.rail.mini a.rl .rt,.rail.mini a.rl .rm,.rail.mini .grp{opacity:0}
   .rail.mini li.now .subs{max-height:0}
-  .rail.mini:hover{width:268px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
+  .rail.mini:hover{width:312px;background:var(--paper);box-shadow:1px 0 0 var(--rule-soft),8px 0 26px rgba(18,22,26,.07)}
   .rail.mini:hover .rail-h,.rail.mini:hover .rail-f,.rail.mini:hover a.rl .rt,.rail.mini:hover a.rl .rm,.rail.mini:hover .grp{opacity:1}
   .rail.mini:hover li.now .subs{max-height:420px}
   body.rail-mini{padding-left:64px}
@@ -1391,7 +1391,7 @@ footer p{max-width:82ch;margin:0}
 .care-c a.ref{color:#9cc48a}
 .care-c .term{border-bottom-color:#6e7981}
 /* part headings: the top level, loudest thing in the rail */
-.rail .part{font-family:var(--display);font-size:11.5px;font-weight:800;letter-spacing:.02em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
+.rail .part{font-family:var(--display);font-size:12.5px;font-weight:800;letter-spacing:.01em;color:var(--acc);padding:26px 10px 5px 14px;margin:0;opacity:0;transition:opacity .18s;white-space:normal;line-height:1.3;display:flex;align-items:center;gap:9px}
 .rail .part::before{content:"";width:14px;height:2px;background:var(--acc);border-radius:2px;flex:0 0 auto}
 /* group headings, filled with the act colour */
 .outline-inner .opart{font-family:var(--mono);font-size:11px;font-weight:800;letter-spacing:.16em;
@@ -4443,7 +4443,7 @@ var SITE_CONFIG = {
     var P = {"crossroads": "我们为什么该在意", "why-irresistible": "我们为什么该在意", "why-upside": "我们为什么该在意", "why-it-ends-badly": "我们为什么该在意", "why-one-try": "我们为什么该在意", "why-race": "我们为什么该在意", "why-human-misalignment": "我们为什么该在意", "why-translation": "我们为什么该在意", "why-safety-hard": "我们为什么该在意", "response": "能做些什么", "response-gaps": "能做些什么", "ask": "能做些什么", "do": "能做些什么"};
     var NUM = {"crossroads": "·", "why-irresistible": "1.1", "why-upside": "2.1", "why-it-ends-badly": "2.2", "why-one-try": "2.3", "why-race": "3.1", "why-human-misalignment": "3.2", "why-translation": "4.1", "why-safety-hard": "4.2", "response": "5.1", "response-gaps": "5.2", "ask": "5.3", "do": "5.4"};
     var PART_PAL = {"我们为什么该在意":["#b5654d","#f6ece7"],"能做些什么":["#6f8a63","#eef3ec"],"参考":["#a98a4b","#f8f2e6"]};
-    var S = {"left": "还剩 {m} 分钟", "panelS": "第 {i} 章 / 共 {n} 章 · 还剩 {m} 分钟", "refGroup": "参考", "refs": [{"id": "change-my-mind", "label": "什么会推翻这个论点"}, {"id": "faq", "label": "人们最先提出的质疑"}, {"id": "resources", "label": "课程与资源目录"}], "footLabel": "本章剩余分钟", "footTotal": "全文还剩 {m} 分钟"};
+    var S = {"left": "还剩 {m} 分钟", "panelS": "第 {i} 章 / 共 {n} 章 · 还剩 {m} 分钟", "refGroup": "参考", "refs": [{"id": "change-my-mind", "num": "6.1", "label": "什么会推翻这个论点"}, {"id": "faq", "num": "6.2", "label": "人们最先提出的质疑"}, {"id": "resources", "num": "6.3", "label": "课程与资源目录"}], "footLabel": "本章剩余分钟", "footTotal": "全文还剩 {m} 分钟"};
     var chapters = META.filter(function(m){ return m.end || m.act; });
 
     function isOff(m){
@@ -4554,7 +4554,7 @@ var SITE_CONFIG = {
       // reference group: not timed, not tracked
       var rg = document.createElement("li");
       rg.className = "part";
-      rg.textContent = S.refGroup;
+      rg.innerHTML = '<a href="#' + (S.refs[0] ? S.refs[0].id : "top") + '">' + S.refGroup + '</a>';
       rg.style.setProperty("--acc", PALETTE[3][0]);
       railList.appendChild(rg);
       var refPal = PALETTE[3];
@@ -4566,7 +4566,7 @@ var SITE_CONFIG = {
         var a = document.createElement("a");
         a.className = "rl static";
         a.setAttribute("href", "#" + r.id);
-        a.innerHTML = '<span class="rn">\u00b7</span><span class="rt">' + r.label + '</span>';
+        a.innerHTML = '<span class="rn">' + (r.num || '\u00b7') + '</span><span class="rt">' + r.label + '</span>';
         li.appendChild(a); railList.appendChild(li);
       });
     }
