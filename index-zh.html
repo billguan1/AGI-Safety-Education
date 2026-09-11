@@ -752,9 +752,9 @@ html{overflow-x:hidden}
 .xmore-btn:hover{opacity:.7}
 .tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
 /* ---------- section figures ---------- */
-.secfig{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px;border:1px solid var(--rule-soft);border-radius:var(--r);
+.secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
   background:var(--white);padding:clamp(16px,2.4vw,22px)}
-.figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1040px;margin:clamp(22px,3.4vw,32px) 0;align-items:start}
+.figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:clamp(22px,3.4vw,32px) 0;align-items:start}
 .figpair .secfig{margin:0;max-width:none}
 .secfig svg{display:block;width:100%;height:auto}
 .secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:76ch}
@@ -871,7 +871,7 @@ html{overflow-x:hidden}
 .first.teal .fk{color:#3fd0c9}
 
 /* the cliff figure */
-.cliff{margin:clamp(24px,4vw,40px) 0;max-width:1040px}
+.cliff{margin:clamp(24px,4vw,40px) 0}
 .cliff svg{width:100%;height:auto;display:block;border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.02)}
 .cliff figcaption{font-family:var(--mono);font-size:11px;line-height:1.6;color:#8a959c;margin-top:12px;max-width:64ch}
 
@@ -1463,7 +1463,7 @@ footer p{max-width:82ch;margin:0}
 .rail .grp a:hover{color:var(--ink)}
 
 /* four-route block, ported with the markup */
-.ends{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px}
+.ends{margin:clamp(22px,3.4vw,32px) 0}
 .ends-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   color:#8a959c;margin:0 0 14px}
 .ends-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -1525,7 +1525,7 @@ div.endc{cursor:default}
 @media(max-width:820px){.cl-halves{grid-template-columns:1fr}}
 .refjump{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;text-decoration:none;
   border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.035);
-  padding:16px clamp(16px,2.2vw,22px);margin:clamp(22px,3.2vw,32px) 0;max-width:1040px;
+  padding:16px clamp(16px,2.2vw,22px);margin:clamp(22px,3.2vw,32px) 0;
   transition:border-color .2s,background .2s}
 .refjump:hover{border-color:var(--ink-3);background:rgba(255,255,255,.06)}
 .refjump .rj-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;
@@ -2150,7 +2150,7 @@ div.endc{cursor:default}
       <h2>AI 能治愈疾病，也能终结匮乏</h2>
       <p class="stand">通用人工智能有望创造巨大的财富，解决人类今天无法解决的问题，乃至带来近乎无限的物质丰裕。</p>
     </div>
-    <figure class="secfig rv" style="max-width:820px">
+    <figure class="secfig rv">
       <svg viewBox="0 0 720 170" role="img" aria-label="两根柱：二十年后，按每年百分之三的增速，世界经济是今天的一点八倍；按每年百分之三十，是今天的一百九十倍。">
         <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">二十年后的世界经济</text>
         <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">今天 = 1</text>
@@ -2195,7 +2195,7 @@ div.endc{cursor:default}
       <p class="ends-foot">其中只有一条需要一个人类作恶者，而有两条根本不需要任何人有意造成伤害。这个四分法出自 Google DeepMind。<a class="ref" href="/reference-zh#s42">42</a><a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s34">34</a></p>
     </div>
 
-    <figure class="secfig dark rv" style="max-width:900px" id="route-two">
+    <figure class="secfig dark rv" id="route-two">
       <svg viewBox="0 0 720 300" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".04em" fill="#98a2a8">路径二的内部：任何目标都会衍生出的子目标</text>
         <text x="0" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">只要认真去追求几乎任何目标，这五条都会随之而来。</text>
@@ -2370,7 +2370,7 @@ div.endc{cursor:default}
     </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">一旦它开始自我改进，差距拉开的速度会超过我们追赶的速度</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">一旦推理质量变得相当，“时钟速度”的差距就决定了这个循环转得多快——我们与系统之间的距离，将以月为单位拉开，而非以世代为单位；越过超级智能之后，就再没有追上的余地。它所依赖的三样东西同样不构成障碍：技术升级能解锁更多能源，芯片是设计出来的，算法是优化出来的。</p>
-    <figure class="secfig rv" style="max-width:820px">
+    <figure class="secfig rv">
       <svg viewBox="0 0 720 218" role="img" aria-label="并排两组柱状对比。左：生物神经元约 200 赫兹，处理器在 5 吉赫以上。右：人类一个世纪的科学进展，在机器速度下约合两周。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">速度差距，以及它对日历做了什么</text>
         <path d="M360,34 L360,190" stroke="#2b343b"/>
@@ -2394,7 +2394,7 @@ div.endc{cursor:default}
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">这是对“质量追平后快一千万倍”的示意，而不是一项预测。</text>
       </svg>
     </figure>
-    <figure class="secfig dark rv" style="max-width:900px">
+    <figure class="secfig dark rv">
       <svg viewBox="0 0 720 302" role="img" aria-label="三层结构：底层是能源，中层是芯片，顶层是算法。每一层都是智能可以介入的设计问题，而物理定律并未规定它们改进的速度。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">AI 的进步依赖三个层面，从第一性原理看都不存在硬瓶颈</text>
         <polygon points="144,52 276,52 294,104 126,104" fill="#8d9dff" fill-opacity=".13" stroke="#8d9dff" stroke-width="1.5"/>

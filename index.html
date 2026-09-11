@@ -194,7 +194,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .demo-embed .demo{background:var(--panel)}
 
 /* ---------- goodhart interactive (dark panel in light section) ---------- */
-.ghwrap{margin:18px 0 6px;padding:clamp(14px,2vw,20px);border-radius:var(--r);background:var(--panel);color:#e2e8ec;max-width:820px}
+.ghwrap{margin:18px 0 6px;padding:clamp(14px,2vw,20px);border-radius:var(--r);background:var(--panel);color:#e2e8ec}
 .ghlead{font-family:var(--body);font-weight:300;font-size:clamp(14.5px,1.4vw,16px);line-height:1.45;color:#fff;margin:0 0 14px;max-width:66ch}
 .ghwrap .gh{display:block}
 .gh-ctrl label{color:#8a959c}
@@ -819,10 +819,10 @@ html{overflow-x:hidden}
 .xmore-btn:hover{opacity:.7}
 .tcard.on{border-color:var(--acc);box-shadow:0 6px 22px rgba(18,22,26,.07)}
 /* ---------- section figures ---------- */
-.figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:1040px;margin:clamp(22px,3.4vw,32px) 0;align-items:start}
+.figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:clamp(22px,3.4vw,32px) 0;align-items:start}
 .figpair .secfig{margin:0;max-width:none}
 @media(max-width:820px){.figpair{grid-template-columns:1fr}}
-.secfig{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px;border:1px solid var(--rule-soft);border-radius:var(--r);
+.secfig{margin:clamp(22px,3.4vw,32px) 0;border:1px solid var(--rule-soft);border-radius:var(--r);
   background:var(--white);padding:clamp(16px,2.4vw,22px)}
 .secfig svg{display:block;width:100%;height:auto}
 .secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:76ch}
@@ -1012,7 +1012,7 @@ html{overflow-x:hidden}
 .first.teal .fk{color:#3fd0c9}
 
 /* the cliff figure */
-.cliff{margin:clamp(24px,4vw,40px) 0;max-width:1040px}
+.cliff{margin:clamp(24px,4vw,40px) 0}
 .cliff svg{width:100%;height:auto;display:block;border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.02)}
 .cliff figcaption{font-family:var(--mono);font-size:11px;line-height:1.6;color:#8a959c;margin-top:12px;max-width:64ch}
 
@@ -1479,7 +1479,7 @@ footer p{max-width:82ch;margin:0}
 .ddc figure svg{width:100%;height:auto;display:block}
 
 /* ---------- the four ways it ends, merged from the risk taxonomy ---------- */
-.ends{margin:clamp(22px,3.4vw,32px) 0;max-width:1040px}
+.ends{margin:clamp(22px,3.4vw,32px) 0}
 .ends-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   color:#8a959c;margin:0 0 14px}
 .ends-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -1524,7 +1524,7 @@ div.endc{cursor:default}
 .rail .grp a:hover{color:var(--ink)}
 .refjump{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;text-decoration:none;
   border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.035);
-  padding:16px clamp(16px,2.2vw,22px);margin:clamp(22px,3.2vw,32px) 0;max-width:1040px;
+  padding:16px clamp(16px,2.2vw,22px);margin:clamp(22px,3.2vw,32px) 0;
   transition:border-color .2s,background .2s}
 .refjump:hover{border-color:var(--ink-3);background:rgba(255,255,255,.06)}
 .refjump .rj-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;
@@ -2151,7 +2151,7 @@ div.endc{cursor:default}
       <h2>AI could cure diseases and end scarcity</h2>
       <p class="stand">AGI is expected to create extreme wealth and solve problems humanity cannot solve today, up to unlimited material abundance.</p>
     </div>
-    <figure class="secfig rv" style="max-width:820px">
+    <figure class="secfig rv">
       <svg viewBox="0 0 720 170" role="img" aria-label="Two bars: after twenty years the world economy is 1.8 times today at three percent growth, and 190 times today at thirty percent.">
         <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">THE WORLD ECONOMY AFTER TWENTY YEARS</text>
         <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">today = 1</text>
@@ -2196,7 +2196,7 @@ div.endc{cursor:default}
       <p class="ends-foot">Just one of these needs a human villain, and two of them need nobody to intend any harm at all. The four-part split is Google DeepMind&rsquo;s.<a class="ref" href="/reference#s42">42</a><a class="ref" href="/reference#s1">1</a><a class="ref" href="/reference#s34">34</a></p>
     </div>
 
-    <figure class="secfig dark rv" style="max-width:900px" id="route-two">
+    <figure class="secfig dark rv" id="route-two">
       <svg viewBox="0 0 720 300" role="img" aria-label="Five subgoals follow from almost any objective, and the fifth, taking resources, means taking the electricity, land, materials and matter humans need to stay alive.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".05em" fill="#98a2a8">INSIDE ROUTE TWO: THE SUBGOALS ANY GOAL PRODUCES</text>
         <text x="0" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">Pursue almost any objective well and these five come with it.</text>
@@ -2372,7 +2372,7 @@ div.endc{cursor:default}
     </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Once it improves itself, the gap opens faster than we can close it</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Once reasoning quality is comparable, the clock-speed gap sets how fast the loop turns, so the distance between us and the system opens in months rather than generations, and past superintelligence there is no catching up. The three things it runs on are no barrier either: better technology unlocks more energy, chips are designed, and algorithms are optimised.</p>
-    <figure class="secfig rv" style="max-width:820px">
+    <figure class="secfig rv">
       <svg viewBox="0 0 720 218" role="img" aria-label="Two bar comparisons side by side. Left: a biological neuron fires at about 200 hertz while a processor runs above 5 gigahertz. Right: a century of human scientific progress becomes about two weeks at machine speed.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SPEED GAP, AND WHAT IT DOES TO THE CALENDAR</text>
         <path d="M360,34 L360,190" stroke="#2b343b"/>
@@ -2396,7 +2396,7 @@ div.endc{cursor:default}
         <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">An illustration of a ten-million-fold speed advantage once quality is matched, rather than a forecast.</text>
       </svg>
     </figure>
-    <figure class="secfig dark rv" style="max-width:900px">
+    <figure class="secfig dark rv">
       <svg viewBox="0 0 720 302" role="img" aria-label="Three stacked layers: energy at the base, chips in the middle, algorithms on top. Each is a design problem intelligence can work on, and nothing in physics fixes how fast they improve.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHAT AI PROGRESS RUNS ON IS NOT A PROGRESS BLOCKER FROM FIRST PRINCIPLES</text>
         <polygon points="144,52 276,52 294,104 126,104" fill="#8d9dff" fill-opacity=".13" stroke="#8d9dff" stroke-width="1.5"/>
