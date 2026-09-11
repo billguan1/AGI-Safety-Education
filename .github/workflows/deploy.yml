@@ -36,7 +36,7 @@ jobs:
           mkdir -p _site
           # index-v2.html is tracked only on the v2-draft branch, so it ships to
           # that preview and is simply skipped on main.
-          for f in index.html index-zh.html index-v2.html 404.html og-image.png robots.txt sitemap.xml _redirects 093566f72edfb4fd08d60739fb3d790e.txt; do
+          for f in index.html index-zh.html reference.html reference-zh.html index-v2.html 404.html og-image.png robots.txt sitemap.xml _redirects 093566f72edfb4fd08d60739fb3d790e.txt; do
             [ -f "$f" ] && cp "$f" _site/ || echo "skip missing $f"
           done
           [ -d functions ] && cp -R functions _site/functions
