@@ -1491,6 +1491,45 @@ footer p{max-width:82ch;margin:0}
 .rail .part a,.rail .grp a{color:inherit;text-decoration:none;display:block;flex:1}
 .rail .part a:hover{color:var(--ink)}
 .rail .grp a:hover{color:var(--ink)}
+
+/* four-route block, ported with the markup */
+.ends{margin:clamp(22px,3.4vw,32px) 0}
+.ends-k{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#8a959c;margin:0 0 14px}
+.ends-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.endc{display:block;text-decoration:none;border:1px solid #2b343b;border-top:3px solid var(--e,#8a959c);
+  border-radius:var(--r);background:rgba(255,255,255,.035);padding:16px 16px 18px;
+  transition:border-color .18s,background .18s,transform .18s}
+a.endc:hover{background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.endc{scroll-margin-top:84px}
+div.endc{cursor:default}
+.endc .ek{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--e,#8a959c);margin-bottom:8px}
+.endc h4{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.015em;color:#fff;margin:0 0 8px}
+.endc p{font-size:14px;line-height:1.5;color:#aeb9c0;margin:0}
+.ends-arrows{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0}
+.ends-arrows span{display:block;text-align:center;font-family:var(--mono);font-size:15px;color:#4a545c;line-height:1.4}
+.ends-out{border:1px solid #bd3a20;border-radius:var(--r);background:rgba(189,58,32,.12);
+  padding:16px;text-align:center;font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(17px,1rem + .7vw,23px);color:#ff8a6b}
+.endc-icons{display:flex;flex-wrap:wrap;gap:12px 14px;margin-top:14px;padding-top:12px;
+  border-top:1px dashed #2b343b}
+.endc-icons .ei{display:flex;flex-direction:column;align-items:center;gap:5px;width:62px;text-align:center}
+.endc-icons .ei svg{width:24px;height:24px;color:var(--e,#8a959c)}
+.endc-icons .ei i{font-style:normal;font-family:var(--mono);font-size:8.5px;line-height:1.3;color:#8a959c}
+.ends-out{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.ends-out .eo-k{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(16px,1rem + .6vw,21px);color:#ff8a6b}
+.ends-out .eo-ways{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 26px}
+.ends-out .eo-w{display:flex;flex-direction:column;align-items:center;gap:6px;width:104px}
+.ends-out .eo-w svg{width:26px;height:26px;color:#ff8a6b}
+.ends-out .eo-w i{font-style:normal;font-family:var(--mono);font-size:9.5px;line-height:1.35;color:#c9836c}
+.ends-foot{font-family:var(--mono);font-size:9.5px;line-height:1.6;color:#8a959c;margin:12px 0 0}
+.endc-how{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed #2b343b;
+  font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--e,#8a959c)}
+@media(max-width:900px){.ends-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.ends-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.ends-arrows{display:none}}
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
