@@ -1516,18 +1516,24 @@ div.endc{cursor:default}
 .rail .part a,.rail .grp a{color:inherit;text-decoration:none;display:block;flex:1}
 .rail .part a:hover{color:var(--ink)}
 .rail .grp a:hover{color:var(--ink)}
-.refjump{display:block;text-decoration:none;border:1px solid #2b343b;border-radius:var(--r);
-  background:rgba(255,255,255,.035);padding:clamp(20px,3vw,30px);margin:clamp(26px,4vw,40px) 0;
-  max-width:1040px;transition:border-color .2s,background .2s}
+.refjump{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;text-decoration:none;
+  border:1px solid #2b343b;border-radius:var(--r);background:rgba(255,255,255,.035);
+  padding:16px clamp(16px,2.2vw,22px);margin:clamp(22px,3.2vw,32px) 0;max-width:1040px;
+  transition:border-color .2s,background .2s}
 .refjump:hover{border-color:var(--ink-3);background:rgba(255,255,255,.06)}
 .refjump .rj-k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--c-dev);display:block;margin-bottom:10px}
-.refjump .rj-h{font-family:var(--display);font-weight:800;letter-spacing:-.02em;
-  font-size:clamp(20px,2.8vw,27px);margin:0 0 8px;color:var(--ink)}
-.refjump p{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:0;max-width:68ch}
-.refjump .rj-go{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:11px;
-  font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+  text-transform:uppercase;color:var(--c-dev)}
+.refjump .rj-h{font-family:var(--display);font-weight:700;font-size:clamp(15px,1.8vw,17.5px);color:var(--ink);flex:1}
+.refjump .rj-go{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
 .refjump:hover .rj-go{color:var(--c-dev)}
+.ddc .jform{margin-top:12px}
+.ddc .jform input[type=email]{width:100%}
+.ddc .jmsg{font-size:12.5px;margin-top:8px}
+.ddc .share{margin-top:12px}
+.ddc .share button,.ddc .share a{padding:9px 13px;font-size:10.5px;border-color:var(--ink-3);color:var(--ink-2)}
+.ddc .share button:hover,.ddc .share a:hover{border-color:var(--ink);color:var(--ink)}
+.cando-foot{font-size:14px;color:var(--ink-3);margin:14px 0 0;max-width:72ch}
 </style>
   <link rel="canonical" href="https://safeagi.ca/">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -3759,10 +3765,25 @@ refusal training</text>
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">You</span><h3>What you can do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">Join</span><h4>Join the community</h4><p>The sign-up at the bottom of this page exists so there is somewhere to reach you when a bill, a treaty or an incident makes public pressure count. One person acting alone on a quiet Tuesday changes little, and several thousand acting in the same week changes what a politician thinks is safe to ignore.</p></div>
-        <div class="ddc t"><span class="k">Share</span><h4>Share this with your network</h4><p>The biggest bottleneck in this whole field is that most people have never heard the argument in a form they can judge for themselves. Send this page to one person who would take it seriously, then to as many as you can. Every reader strengthens the human immune system against harmful AGI.</p></div>
-        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition on developing superintelligence until there is scientific consensus that it can be done safely, with public buy-in behind it. It takes a minute, and the size of the count is the whole point of it.<a class="ref" href="/reference#s2">2</a></p></div>
-        <div class="ddc o"><span class="k">Choose</span><h4>Buy from the labs that take this seriously</h4><p>You are a paying customer of these companies. Prefer the ones that publish their evaluations, fund safety work in proportion to capability work, and keep their own scaling commitments, and tell them that is why you chose them. Revenue is the one signal every lab reads closely.<a class="ref" href="/reference#s15">15</a></p></div>
+        <div class="ddc g"><span class="k">Join</span><h4>Join the community</h4><p>One email when a bill, a treaty or an incident makes public pressure count.</p>
+          <form class="jform jform-c" data-bad="That does not look like an email address." data-sending="Sending…" data-ok="You are on the list. Check your inbox to confirm." data-err="That did not go through. Try again shortly." action="/subscribe" method="post" novalidate>
+            <label class="skip" for="do-email">Email address</label>
+            <input type="email" id="do-email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <input type="text" name="company" class="skip" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAEqvuqlQqKjyA-Da" data-size="flexible"></div>
+            <button type="submit">Join</button>
+          </form>
+          <p class="jmsg" role="status" aria-live="polite"></p></div>
+        <div class="ddc t"><span class="k">Share</span><h4>Share it with your network</h4><p>Most people have never heard the argument in a form they can judge. Every reader strengthens the human immune system against harmful AGI.</p>
+          <div class="share">
+            <button type="button" class="js-sh-copy">Copy link</button>
+            <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="js-sh-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">X</a>
+            <a class="js-sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">WhatsApp</a>
+          </div></div>
+        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition until there is scientific consensus it can be done safely. One minute, and the count is the point.<a class="ref" href="/reference#s2">2</a></p>
+          <div class="share"><a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Add your name</a></div></div>
+        <div class="ddc o"><span class="k">Choose</span><h4>Buy from labs that take this seriously</h4><p>Prefer the ones that publish their evaluations and fund safety in proportion to capability, and tell them that is why you chose them.<a class="ref" href="/reference#s15">15</a></p></div>
       </div>
     </div>
 
@@ -3770,30 +3791,29 @@ refusal training</text>
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">Researchers</span><h3>What researchers should do</h3></div>
-      <p>The people closest to these systems carry the most credible voice in public and the most leverage inside the buildings where the decisions actually get made.<a class="ref" href="/reference#s14">14</a><a class="ref" href="/reference#s1">1</a></p>
-      <div class="ddgrid two rv" style="margin-top:14px">
-        <div class="ddc b"><span class="k">Explain</span><h4>Show the public where safety stops</h4><p>Say in plain language what today&rsquo;s techniques catch and where each one gives out. Nobody outside the field can hold a lab or a government to a standard that has never been described to them, so the gap stays invisible until a researcher describes it.</p></div>
-        <div class="ddc r"><span class="k">Refuse</span><h4>Push back on the work that builds danger</h4><p>You are the one being asked to build the specific thing. Declining the asks that cross a red line, in writing and alongside colleagues, is pressure that no regulator or outside campaign can apply on your behalf.</p></div>
-        <div class="ddc o"><span class="k">Press</span><h4>Argue for a bigger safety budget</h4><p>Safety research is roughly 2% of all AI research, which is the ratio that decides whether the techniques arrive in time.<a class="ref" href="/reference#s46">46</a> Researchers asking together and in public for a stated split is how a number like that moves.</p></div>
-        <div class="ddc g"><span class="k">Build</span><h4>Keep inventing the techniques</h4><p>Interpretability at frontier scale, tests a model cannot game, control that holds as the system pulls ahead of its supervisor, and goals precise enough to measure behaviour against are all still open.</p></div>
+      <div class="ddgrid two rv">
+        <div class="ddc b"><span class="k">Explain</span><h4>Show the public where safety stops</h4><p>Say in plain terms what today&rsquo;s techniques catch and where each one gives out. The gap stays invisible until someone inside describes it.</p></div>
+        <div class="ddc r"><span class="k">Refuse</span><h4>Push back on the work that builds danger</h4><p>You are the one being asked to build it. Declining, in writing and alongside colleagues, is pressure nobody outside can apply.</p></div>
+        <div class="ddc o"><span class="k">Press</span><h4>Argue for a bigger safety budget</h4><p>Safety is roughly 2% of AI research.<a class="ref" href="/reference#s46">46</a> Researchers asking together and in public for a stated split is how that number moves.</p></div>
+        <div class="ddc g"><span class="k">Build</span><h4>Keep inventing the techniques</h4><p>Interpretability at frontier scale, tests a model cannot game, control that holds as the system pulls ahead, and goals precise enough to measure against.</p></div>
       </div>
-      <p style="margin-top:14px">ARENA and MATS take strong technical backgrounds into published safety work in months, and the 80,000 Hours problem profile is the usual starting point for choosing where to aim.<a class="ref" href="/reference#s6">6</a><a class="ref" href="/reference#s8">8</a><a class="ref" href="/reference#s27">27</a></p>
+      <p class="cando-foot">ARENA and MATS take strong technical backgrounds into published safety work in months.<a class="ref" href="/reference#s6">6</a><a class="ref" href="/reference#s8">8</a><a class="ref" href="/reference#s27">27</a></p>
     </div>
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">The labs</span><h3>What the labs should do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">Pace</span><h4>Slow down and carry the responsibility</h4><p>There is no prize waiting at the bottom of a cliff. Everybody&rsquo;s lives sit in the hands of a few hundred people here, and the labs still being used in twenty years will be the ones that behaved accordingly, because trust of that kind gets built before the accident rather than apologised for after it.<a class="ref" href="/reference#s16">16</a></p></div>
-        <div class="ddc b"><span class="k">Publish</span><h4>Publish what you learn about the dangers</h4><p>Release the evaluation results and the failure analyses, including the ones that embarrass you, and write them up as open problems with enough detail that outsiders can work on them. A danger only your team knows about has only your team working on it.<a class="ref" href="/reference#s15">15</a></p></div>
-        <div class="ddc r"><span class="k">Together</span><h4>Build a joint safety effort with your rivals</h4><p>Competing on capability while sharing the safety problem is available today. A standing body funded and staffed by every major lab, with real money behind it, turns a race nobody can leave into a problem everybody is working on at once.<a class="ref" href="/reference#s56">56</a></p></div>
-        <div class="ddc o"><span class="k">Commit</span><h4>Put a fixed share of revenue into safety</h4><p>Self-regulation counts for something once it costs you something. Name the percentage of revenue that goes to alignment, interpretability and evaluation, publish the figure, and hold it through the quarter where holding it hurts. A voluntary commitment with a number attached is one anybody outside the company can check.</p></div>
+        <div class="ddc g"><span class="k">Pace</span><h4>Slow down and carry the responsibility</h4><p>There is no prize at the bottom of a cliff. The labs still standing in twenty years will be the ones that acted like everybody&rsquo;s lives were in their hands.<a class="ref" href="/reference#s16">16</a></p></div>
+        <div class="ddc b"><span class="k">Publish</span><h4>Publish what you learn about the dangers</h4><p>Release the evaluations and the failure analyses, including the embarrassing ones, written up as open problems outsiders can work on.<a class="ref" href="/reference#s15">15</a></p></div>
+        <div class="ddc r"><span class="k">Together</span><h4>Build a joint safety effort with your rivals</h4><p>Compete on capability and share the safety problem. A standing body funded and staffed by every major lab.<a class="ref" href="/reference#s56">56</a></p></div>
+        <div class="ddc o"><span class="k">Commit</span><h4>Put a fixed share of revenue into safety</h4><p>Name the percentage, publish it, and hold it through the quarter where holding it hurts. A commitment with a number is one anyone can check.</p></div>
       </div>
     </div>
 
     <div class="cando-block">
       <div class="cando-h"><span class="ch-n">Governments</span><h3>What governments should do</h3><span class="ch-w">Pick a jurisdiction</span></div>
       <div class="ddgrid rv" style="margin-bottom:16px">
-        <div class="ddc b"><span class="k">Everywhere</span><h4>Build a regulator with real power and real expertise</h4><p>A body that can compel testing before release needs people who can read an evaluation sitting alongside people who answer to voters, because either group on its own gets captured or outrun. Keeping it independent takes specific things: public funding rather than industry levies, published records of every meeting with a lab, cooling-off periods on the revolving door in both directions, and declared holdings for everyone on staff. A regulator staffed by the industry it regulates produces paperwork rather than safety.</p></div>
+        <div class="ddc b"><span class="k">Everywhere</span><h4>Build a regulator with real power and real expertise</h4><p>One that can compel testing before release, holding people who can read an evaluation alongside people who answer to voters. Keeping it independent takes public funding, published meetings with labs, cooling-off periods both ways, and declared holdings.</p></div>
       </div>
       <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
           <button type="button" class="pbtn on" data-j="us" role="tab" id="jtab-us" aria-selected="true" aria-controls="jpanel-us" tabindex="0">United States</button>
@@ -3840,9 +3860,8 @@ refusal training</text>
   <div class="wrap">
     <a class="refjump" href="/reference">
       <span class="rj-k">Reference</span>
-      <h2 class="rj-h">Sources, objections and further reading</h2>
-      <p>Every claim on this page links to a numbered source. The sources themselves, the findings that would weaken the case, the objections people raise first, and the courses worth taking now live on one page of their own.</p>
-      <span class="rj-go">Open the reference page</span>
+      <span class="rj-h">Sources, objections and further reading</span>
+      <span class="rj-go">Open</span>
     </a>
   </div>
 </section>
@@ -3869,10 +3888,10 @@ refusal training</text>
         <ol class="beats compact rv" style="counter-reset:b;list-style:none;margin:18px 0 0">
           <li><h3>Share this site</h3><p>Send it to one person who would take it seriously. Every reader strengthens the human immune system against harmful AGI.</p>
             <div class="share">
-              <button type="button" id="sh-copy">Copy link</button>
-              <a id="sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
-              <a id="sh-x" href="https://twitter.com/intent/tweet?text=AI%20capability%20is%20outrunning%20our%20ability%20to%20check%20it.%20A%20sourced%20map%20of%20the%20AGI%20safety%20problem%3A&amp;url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">X</a>
-              <a id="sh-wa" href="https://api.whatsapp.com/send?text=AI%20capability%20is%20outrunning%20our%20ability%20to%20check%20it.%20A%20sourced%20map%20of%20the%20AGI%20safety%20problem%3A%20https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">WhatsApp</a>
+              <button type="button" id="sh-copy" class="js-sh-copy">Copy link</button>
+              <a id="sh-li" class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
+              <a id="sh-x" class="js-sh-x" href="https://twitter.com/intent/tweet?text=AI%20capability%20is%20outrunning%20our%20ability%20to%20check%20it.%20A%20sourced%20map%20of%20the%20AGI%20safety%20problem%3A&amp;url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">X</a>
+              <a id="sh-wa" class="js-sh-wa" href="https://api.whatsapp.com/send?text=AI%20capability%20is%20outrunning%20our%20ability%20to%20check%20it.%20A%20sourced%20map%20of%20the%20AGI%20safety%20problem%3A%20https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">WhatsApp</a>
             </div>
           </li>
           <li><h3>Sign the petition</h3><p>Add your name to the <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Statement on Superintelligence</a>.<a class="ref" href="/reference#s2">2</a></p></li>
@@ -4032,20 +4051,19 @@ var SITE_CONFIG = {
     var url = location.origin + location.pathname;
     var text = "AI capability is outrunning our ability to check it. A sourced map of the AGI safety problem:";
     var enc = encodeURIComponent(url), et = encodeURIComponent(text);
-    function set(id, href){ var el = $(id); if(el) el.setAttribute("href", href); }
-    set("#sh-x",  "https://twitter.com/intent/tweet?text=" + et + "&url=" + enc);
-    set("#sh-fb", "https://www.facebook.com/sharer/sharer.php?u=" + enc);
-    set("#sh-li", "https://www.linkedin.com/sharing/share-offsite/?url=" + enc);
-    set("#sh-wa", "https://api.whatsapp.com/send?text=" + et + "%20" + enc);
-    var cp = $("#sh-copy");
-    if(cp){
+    function set(sel, href){ $$(sel).forEach(function(el){ el.setAttribute("href", href); }); }
+    set(".js-sh-x",  "https://twitter.com/intent/tweet?text=" + et + "&url=" + enc);
+    set(".js-sh-fb", "https://www.facebook.com/sharer/sharer.php?u=" + enc);
+    set(".js-sh-li", "https://www.linkedin.com/sharing/share-offsite/?url=" + enc);
+    set(".js-sh-wa", "https://api.whatsapp.com/send?text=" + et + "%20" + enc);
+    $$(".js-sh-copy").forEach(function(cp){
       cp.addEventListener("click", function(){
         var done = function(){ var o = cp.textContent; cp.textContent = "Copied"; setTimeout(function(){ cp.textContent = o; }, 1600); };
         if(navigator.clipboard && navigator.clipboard.writeText){
           navigator.clipboard.writeText(url).then(done, function(){ window.prompt("Copy this link:", url); });
         } else { window.prompt("Copy this link:", url); }
       });
-    }
+    });
   })();
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
@@ -4976,8 +4994,8 @@ var SITE_CONFIG = {
 
   /* ---------- newsletter signup ---------- */
   (function(){
-    var f = $("#join-form"), msg = $("#join-msg");
-    if(!f) return;
+    $$(".jform").forEach(function(f){
+    var msg = f.parentNode.querySelector(".jmsg") || $("#join-msg");
     var input = f.querySelector("input[type=email]");
     f.addEventListener("submit", function(e){
       e.preventDefault();
@@ -5000,6 +5018,7 @@ var SITE_CONFIG = {
         msg.textContent = f.getAttribute("data-err") || "That did not go through. Try again shortly.";
       });
     });
+  });
   })();
 
   /* ---------- SHARE ---------- */
