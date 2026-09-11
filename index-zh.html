@@ -96,16 +96,19 @@ p{margin:0 0 1em}
   transition:background .15s,color .15s,transform .15s}
 .hbtn .ico{width:12px;height:12px;stroke-width:2.2}
 .hbtn:hover{background:var(--panel);color:var(--ink);transform:translateY(-1px)}
-.hbtn-act{background:#fbfcfc;border-color:#fbfcfc;color:#12161a}
+.hbtn-act{background:var(--c-act);border-color:var(--c-act);color:#0d1114;font-weight:700;
+  box-shadow:0 0 0 3px rgba(156,196,138,.18)}
 .hbtn-lang{font-weight:700}
-.hbtn-act:hover{background:var(--panel);color:var(--ink)}
+.hbtn-act:hover{background:#b2d6a0;border-color:#b2d6a0;color:#0d1114;
+  box-shadow:0 0 0 4px rgba(156,196,138,.28)}
 .header-game{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.08em;text-transform:uppercase;color:#12161a;background:#fbfcfc;
   border:1.5px solid #fbfcfc;padding:7px 12px;
   border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,transform .15s}
 .header-game .ico{width:12px;height:12px;stroke-width:2.4}
 .header-game:hover{background:var(--panel);color:var(--ink);transform:translateY(-1px)}
-@media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn .ico{width:15px;height:15px}}
+@media(max-width:520px){.hbtn span{display:none}.hbtn{padding:8px 10px}.hbtn-act span{display:inline}.hbtn .ico{width:15px;height:15px}}
+#what-you-can-do{scroll-margin-top:clamp(96px,12vh,132px)}
 .switch{display:flex;border:1.5px solid var(--ink);border-radius:2px;overflow:hidden;flex-shrink:0}
 .switch button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   padding:8px 11px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
@@ -1714,9 +1717,7 @@ div.endc{cursor:default}
     <a class="brand" href="#top">通用人工智能与超级智能安全 <b>·</b> 入门读本</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="/" hreflang="en">EN</a>
-      <button type="button" class="hbtn hbtn-share" id="hdr-share">
-        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M12 3v13M8 7l4-4 4 4"/></svg><span>分享</span></button>
-      <a class="hbtn hbtn-act" href="#ask"><span>立即行动</span></a>
+      <a class="hbtn hbtn-act" href="#what-you-can-do"><span>立即行动</span></a>
       
     </div>
   </div>
@@ -3756,7 +3757,7 @@ div.endc{cursor:default}
       <h2>光是知道这些，本身什么也改变不了。下面才是能改变的东西。</h2>
       <p class="stand cando-lead">有四类人能推动这件事，而你就是第一类。下面每一项诉求都是具体的。凡涉及各国政府立场之处，依据的都是公开记录，并注明了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
     </div>
-    <div class="cando-block">
+    <div class="cando-block" id="what-you-can-do">
       <div class="cando-h"><span class="ch-n">你</span><h3>你可以做什么</h3></div>
       <div class="ddgrid two rv">
         <div class="ddc g"><span class="k">加入</span><h4>加入这个社区</h4><p>当某项法案、某个条约或某起事故让公众压力真正管用时，给你发一封邮件。</p>
@@ -4013,26 +4014,7 @@ var SITE_CONFIG = {
     el.classList.remove("flashed");
     void el.offsetWidth;
     el.classList.add("flashed");
-    setTimeout(function(){ el.classList.remove("flashed"); }, 1700);
-  }
-
-  // audience toggle removed: single version now
-
-  /* ---------- HEADER SHARE BUTTON ---------- */
-  (function(){
-    var b = $("#hdr-share");
-    if(!b) return;
-    var url = location.origin + location.pathname;
-    var title = document.title;
-    b.addEventListener("click", function(){
-      if(navigator.share){
-        navigator.share({title: title, url: url})["catch"](function(){});
-      } else if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(url).then(function(){
-          var s = b.querySelector("span"); if(!s) return;
-          var o = s.textContent; s.textContent = "Copied"; setTimeout(function(){ s.textContent = o; }, 1500);
-        }, function(){ window.prompt("Copy this link:", url); });
-      } else { window.prompt("Copy this link:", url); }
+    setTimeout(function(){ el.classList.remove("flashed"); }, 1else { window.prompt("Copy this link:", url); }
     });
   })();
 
