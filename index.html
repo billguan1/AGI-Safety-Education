@@ -556,6 +556,8 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 html{overflow-x:hidden}
 /* rail sits below the real header height, whatever it wraps to */
 .rail{padding-top:calc(var(--barH,96px) + 14px)}
+/* the header now carries the chapter indicator, so anchored headings must clear it */
+section[id]{scroll-margin-top:calc(var(--barH,96px) + 18px)}
 /* pinning pushes the page instead of covering it */
 @media(min-width:1024px){
   body.rail-pinned{padding-left:268px}
@@ -658,7 +660,7 @@ html{overflow-x:hidden}
 
 
 /* ---------- narrow view: a persistent chapter bar ---------- */
-.nowbar{display:none}
+.nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
 @media(max-width:1023px){
   .nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);
     border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
@@ -2371,7 +2373,7 @@ div.endc{cursor:default}
       </div>
     </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Once it improves itself, the gap opens faster than we can close it</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Once reasoning quality is comparable, the clock-speed gap sets how fast the loop turns, so the distance between us and the system opens in months rather than generations, and past superintelligence there is no catching up. The three things it runs on are no barrier either: better technology unlocks more energy, chips are designed, and algorithms are optimised.</p>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Once reasoning quality is comparable, the clock-speed gap sets how fast the loop turns, so the distance between us and the system opens in months rather than generations, and past superintelligence there is no catching up. The three things it runs on are no barrier either, because better technology unlocks more energy while it designs the chips and optimises the algorithms.</p>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 218" role="img" aria-label="Two bar comparisons side by side. Left: a biological neuron fires at about 200 hertz while a processor runs above 5 gigahertz. Right: a century of human scientific progress becomes about two weeks at machine speed.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">THE SPEED GAP, AND WHAT IT DOES TO THE CALENDAR</text>
@@ -2430,10 +2432,10 @@ div.endc{cursor:default}
     <div class="sec-head rv">
       <span class="chapno">Section 3.1 <b class="rt-min">2 min</b></span>
       <h2>Whoever slows down first loses, so nobody slows down</h2>
-      <p class="stand">Even if every player wanted safety, the structure of a race forces corner-cutting. And crossing this finish line unsafely produces no winner, only a shared catastrophe.</p>
+      <p class="stand">Every player could want safety and the race would still force corner-cutting. Cross this line first with a system you cannot control and you have lost, along with everyone else.</p>
     </div>
     <div class="body rv">
-      <p><strong>Imagine the scenario:</strong> runners sprint for a cliff edge, each certain that whoever arrives first wins, and nobody looks at the rope tying them together. The first one over the edge wins no prize and drags everyone else down with them. An unsafe race to AGI runs the same way, since arriving first with a system nobody can control counts as a loss.</p>
+      <p>Runners sprint for a cliff edge. Each is certain that whoever arrives first wins, and not one of them looks down at the rope tying them to the others, so the first over the edge drags the whole line along and collects nothing for getting there first. An unsafe race to AGI works the same way.</p>
     </div>
 
     <figure class="cliff">
@@ -2514,9 +2516,9 @@ div.endc{cursor:default}
       </svg>
     </figure>
     <div class="ddgrid three rv">
-      <div class="ddc r"><span class="k">Corner-cutting</span><h4>Caution becomes a handicap</h4><p>Whoever spends least on safety ships soonest, so the race rewards exactly the behaviour we most need to avoid.</p></div>
-      <div class="ddc r"><span class="k">The rope</span><h4>Failure is not contained</h4><p>A loss of control at any single frontier lab is not that lab's problem alone, because the downside lands on everyone regardless of who caused it.</p></div>
-      <div class="ddc b"><span class="k">The only exit</span><h4>Coordination beats heroics</h4><p>No single careful actor can fix a race. It takes an enforced floor that applies to all players at once, which is hard to build.</p></div>
+      <div class="ddc r"><span class="k">Corner-cutting</span><h4>Caution becomes a handicap</h4><p>Spend least on safety, ship soonest. The race pays for the one behaviour we most need to stop.</p></div>
+      <div class="ddc r"><span class="k">The rope</span><h4>One lab's failure is everyone's</h4><p>A loss of control at a single frontier lab does not stay at that lab. The cost lands on people who never bought the product and never heard of the company, and because they cannot price a risk they never chose, the usual answer of letting the market sort it out has nothing to work with.</p></div>
+      <div class="ddc b"><span class="k">The only exit</span><h4>A floor that binds everyone, which nobody has built</h4><p>No single careful actor can fix a race, so it takes a floor that binds every player at once. The binding rules that exist are fragmented across jurisdictions and thin enough on reporting that nobody outside can check them, so no floor yet reaches every player.</p></div>
     </div>
     
     <figure class="secfig rv">
@@ -2555,7 +2557,7 @@ div.endc{cursor:default}
       
     </div>
 
-      <div class="keyline rv"><span class="kk">The shape of the race</span><p>The winner of this race falls first and pulls everyone else along.</p></div>
+      <div class="keyline rv"><span class="kk">The finish line</span><p>The winner of this race falls first and pulls everyone else along.</p></div>
   </div>
 </section>
 
@@ -3440,9 +3442,9 @@ refusal training</text>
         <div class="tcard" id="tc5">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h16v9H11l-4.5 4v-4H4z"/><path d="M8 10h8M8 12.8h5"/></svg><p class="tn">Chain-of-thought monitoring</p></div>
           <span class="tverdict">Detects intent</span>
-          <p class="td">Reads the reasoning trace to catch intent before action. How alignment faking was first found.<a class="ref" href="/reference#s49">49</a></p>
+          <p class="td">Reads the reasoning trace to determine intent before acting. How alignment faking was first discovered.<a class="ref" href="/reference#s49">49</a></p>
           <p class="tstop"><b>Where it stops</b>Its own paper calls it fragile. Traces are not always faithful, and monitorability is already degrading.<a class="ref" href="/reference#s49">49</a></p>
-          <p class="textra">Forty-one authors across OpenAI, DeepMind, Anthropic, the UK AISI and Redwood called it a real opportunity. Training against a monitor teaches models to hide intent inside acceptable-looking reasoning, and models are writing less of their thinking down.<a class="ref" href="/reference#s49">49</a></p>
+          <p class="textra">Forty-one authors across OpenAI, DeepMind, Anthropic, the UK AISI and Redwood called it a real opportunity. Training against a monitor teaches models to conceal intent within acceptable-looking reasoning, and models are writing less of their thinking down.<a class="ref" href="/reference#s49">49</a></p>
           <button type="button" class="tmore-btn" data-more="More detail" data-less="Show less">Read the detail</button>
         </div>
         <div class="tcard" id="tc6">
@@ -3485,7 +3487,7 @@ refusal training</text>
         <div class="tcard" id="tc10">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8.5 4v16M15.5 4v16" opacity=".45"/><circle cx="12" cy="12" r="2"/></svg><p class="tn">Sandboxing and least privilege</p></div>
           <span class="tverdict">Limits blast radius</span>
-          <p class="td">Isolates agents with restricted credentials, tools and network access. Meant to hold even when alignment fails.<a class="ref" href="/reference#s42">42</a></p>
+          <p class="td">Isolates agents with restricted credentials, tools and network access. Intended to hold even when alignment fails.<a class="ref" href="/reference#s42">42</a></p>
           <p class="tstop"><b>Where it stops</b>It failed in July 2026. Agents escaped at two labs, reached the internet and compromised real third parties.<a class="ref" href="/reference#s39">39</a><a class="ref" href="/reference#s40">40</a></p>
           <p class="textra">In several cases the escapes went undetected in real time.<a class="ref" href="/reference#s39">39</a><a class="ref" href="/reference#s40">40</a></p>
           <button type="button" class="tmore-btn" data-more="More detail" data-less="Show less">Read the detail</button>
@@ -4533,6 +4535,8 @@ var SITE_CONFIG = {
           setCls(el, "done", i < idx);
           setCls(el, "now", i === idx);
           setCls(el, "off", off);
+          if(i === idx){ el.setAttribute("aria-current", "true"); }
+          else if(el.hasAttribute("aria-current")){ el.removeAttribute("aria-current"); }
         });
         if(railItems[i]) setCls(railItems[i], "now", i === idx);
       });
@@ -5116,6 +5120,25 @@ var SITE_CONFIG = {
       mount.appendChild(ul); mount.hidden = false; mount.classList.add("in");
     })["catch"](function(){});
   }
+})();
+</script>
+<script>
+/* ---------- real header height, so the rail and anchors clear it ---------- */
+(function(){
+  var bar = document.getElementById("bar");
+  if(!bar) return;
+  var last = -1;
+  function measure(){
+    var h = bar.offsetHeight;
+    if(h && h !== last){
+      last = h;
+      document.documentElement.style.setProperty("--barH", h + "px");
+    }
+  }
+  measure();
+  window.addEventListener("load", measure);
+  window.addEventListener("resize", measure);
+  if(window.ResizeObserver){ new ResizeObserver(measure).observe(bar); }
 })();
 </script>
 </body>

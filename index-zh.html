@@ -507,6 +507,8 @@ text-wrap:balance;overflow-wrap:break-word}
 html{overflow-x:hidden}
 /* rail sits below the real header height, whatever it wraps to */
 .rail{padding-top:calc(var(--barH,96px) + 14px)}
+/* the header now carries the chapter indicator, so anchored headings must clear it */
+section[id]{scroll-margin-top:calc(var(--barH,96px) + 18px)}
 /* pinning pushes the page instead of covering it */
 @media(min-width:1024px){
   body.rail-pinned{padding-left:268px}
@@ -599,7 +601,7 @@ html{overflow-x:hidden}
 .ng.act2 .ng-menu a.on{background:rgba(141,157,255,.14);color:#8d9dff;box-shadow:inset 3px 0 0 #8d9dff}
 
 /* ---------- narrow view: a persistent chapter bar ---------- */
-.nowbar{display:none}
+.nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
 @media(max-width:1023px){
   .nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);
     border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
@@ -2369,7 +2371,7 @@ div.endc{cursor:default}
       </div>
     </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">一旦它开始自我改进，差距拉开的速度会超过我们追赶的速度</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">一旦推理质量变得相当，“时钟速度”的差距就决定了这个循环转得多快——我们与系统之间的距离，将以月为单位拉开，而非以世代为单位；越过超级智能之后，就再没有追上的余地。它所依赖的三样东西同样不构成障碍：技术升级能解锁更多能源，芯片是设计出来的，算法是优化出来的。</p>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">一旦推理质量变得相当，“时钟速度”的差距就决定了这个循环转得多快——我们与系统之间的距离，将以月为单位拉开，而非以世代为单位；越过超级智能之后，就再没有追上的余地。它所依赖的三样东西同样不构成障碍：技术升级在解锁更多能源的同时，也在设计芯片、优化算法。</p>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 218" role="img" aria-label="并排两组柱状对比。左：生物神经元约 200 赫兹，处理器在 5 吉赫以上。右：人类一个世纪的科学进展，在机器速度下约合两周。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">速度差距，以及它对日历做了什么</text>
@@ -4519,6 +4521,8 @@ var SITE_CONFIG = {
           setCls(el, "done", i < idx);
           setCls(el, "now", i === idx);
           setCls(el, "off", off);
+          if(i === idx){ el.setAttribute("aria-current", "true"); }
+          else if(el.hasAttribute("aria-current")){ el.removeAttribute("aria-current"); }
         });
         if(railItems[i]) setCls(railItems[i], "now", i === idx);
       });
@@ -5104,6 +5108,25 @@ var SITE_CONFIG = {
       mount.appendChild(ul); mount.hidden = false; mount.classList.add("in");
     })["catch"](function(){});
   }
+})();
+</script>
+<script>
+/* ---------- real header height, so the rail and anchors clear it ---------- */
+(function(){
+  var bar = document.getElementById("bar");
+  if(!bar) return;
+  var last = -1;
+  function measure(){
+    var h = bar.offsetHeight;
+    if(h && h !== last){
+      last = h;
+      document.documentElement.style.setProperty("--barH", h + "px");
+    }
+  }
+  measure();
+  window.addEventListener("load", measure);
+  window.addEventListener("resize", measure);
+  if(window.ResizeObserver){ new ResizeObserver(measure).observe(bar); }
 })();
 </script>
 </body>
