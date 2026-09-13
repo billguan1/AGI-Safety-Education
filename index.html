@@ -2041,7 +2041,7 @@ div.endc{cursor:default}
       <div class="claim c3" id="claim-3">
         <span class="cl-n">3</span>
         <h3><a href="#why-race">Nobody knows how to make superintelligence safe, and two problems block the way</a></h3>
-        <p class="cl-sub">Two separate problems underlie this. Both have to be solved, and neither is.</p>
+        <p class="cl-sub">Advanced AI safety requires solving coordination as well as technical alignment and monitorability. None of these are close to being solved.</p>
 
     <div class="cl-halves">
         <div class="cl-half" style="--half-acc:#8d9dff">
@@ -2513,7 +2513,7 @@ div.endc{cursor:default}
       <p class="stand">Because of first-mover advantage, every player could want safety and the race would still force corner-cutting for more speed. But reaching the cliff first with a system nobody can control means downside for all of humanity.</p>
     </div>
     <div class="body rv">
-      <p>We are currently in an unsafe race to AGI, similar to runners sprinting for a cliff edge. Each is certain that whoever arrives first will get the prize, without realizing their bodies are tied together by rope to every other runner. The first one over the edge drags all of humanity down with them.</p>
+      <p>We are in an unsafe race to AGI, like runners sprinting for a cliff edge, each certain that arriving first wins the prize, none of them noticing the rope tying their bodies to every other runner. The first one over drags all of humanity down with them.</p>
     </div>
 
     <figure class="cliff">
@@ -2594,7 +2594,7 @@ div.endc{cursor:default}
       </svg>
     </figure>
     <div class="ddgrid two rv">
-      <div class="ddc r"><span class="k">Corner-cutting</span><h4>Caution becomes a handicap</h4><p>Spend least on safety, ship soonest. The race pays for the one behaviour we most need to stop.</p></div>
+      <div class="ddc r"><span class="k">Corner-cutting</span><h4>Caution becomes a handicap</h4><p>You ship faster by focusing less on safety, so the winner is likely to be whoever paid it the least attention.</p></div>
       <div class="ddc r"><span class="k">The rope</span><h4>One lab's failure is everyone's</h4><p>A loss of control at a single frontier lab makes all of humanity pay, including people who never bought the product and never heard of the company.</p></div>
     </div>
     
@@ -2887,7 +2887,7 @@ div.endc{cursor:default}
       </div>
       <div class="example" style="border-left-color:var(--c-ctl)">
         <span class="ek" style="color:var(--c-ctl)">Why the current fix is not the fix</span>
-        <p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works, and it is why today’s assistants are usable. It also shapes the behaviour a model shows, while inner alignment is about the goal a model holds, and those come apart under pressure or under observation by a system able to model its observer. Guardrails tuned by human raters inherit the raters’ limits, which matters when the thing being rated reasons better than the rater.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
+        <p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works well enough to make today’s assistants usable, but it shapes the behaviour a model shows rather than the goal it holds, and the two can come apart under pressure or observation. Guardrails tuned by human raters also inherit the raters’ limits, which matters once the system being rated reasons better than the rater.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
       </div>
     </div>
     <figure class="secfig rv">
@@ -2918,7 +2918,7 @@ refusal training</text>
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">Neither requires the system to be hostile, or to have got the goal wrong in a way you could spot on paper.<a class="ref" href="/reference#s34">34</a></p>
       <div class="ddgrid two rv">
         <div class="ddc r"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, wiring the facial muscles is a solution. Asked to maximise a reward signal, seizing the reward channel is a better one.</p></div>
-        <div class="ddc o"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4><p>Nothing in the goal says when to stop. A system trying to accomplish a goal does better with more compute, more energy and more material, so it keeps converting the world into those things. The goal is satisfied more completely at every step, and there is no point at which it is finished.</p></div>
+        <div class="ddc o"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4><p>Nothing in the goal says when to stop. More compute, energy and material always help accomplish it, so the system keeps converting the world into those things, with no point at which it is finished.</p></div>
       </div>
 
   </div>
@@ -3428,7 +3428,7 @@ refusal training</text>
     <div class="sec-head rv">
       <p class="eyebrow">Section 5.1 · What safety experts are working on today <b class="rt-min">7 min</b></p>
       <h2>What techniques are safety experts working on today?</h2>
-      <p class="lede">The rest of this page is about the response, in three steps: what is already being done, where it still falls short, and what you can do about it. Start with the work itself, which is real and small next to the effort going into capability. It falls into four layers: fix the specification, check what you built, contain what you cannot check, and make the framework binding.<a class="ref" href="/reference#s14">14</a></p>
+      <p class="lede">The rest of this page is about the response, in three steps: what is already being done, where it still falls short, and what you can do about it. AI safety techniques fall into four layers: fix the specification, check what you built, contain what you cannot check, and make the framework binding.<a class="ref" href="/reference#s14">14</a></p>
     </div>
 
     <figure class="secfig rv">
@@ -3466,8 +3466,7 @@ refusal training</text>
     </figure>
 
     <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">Every technique in use today, and where each one stops</h3>
-    <p class="rv" style="max-width:66ch;color:var(--ink-2);margin-bottom:4px">What each method achieves, then the limitation its own researchers would name. Several are useful, and none of them is a solution.</p>
-<div class="tindex rv">
+    <div class="tindex rv">
       <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">Development</span></span></a>
       <a class="tix" href="#lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><span><span class="tix-n">02</span><span class="tix-t">Assessment</span></span></a>
       <a class="tix" href="#lay-ctl" style="--acc:#a98a4b;--acc-t:#f8f2e6"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#a98a4b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10v-6z"/><circle cx="12" cy="11" r="2.2"/><path d="M7.5 11c1.6-2.4 7.4-2.4 9 0"/></svg><span><span class="tix-n">03</span><span class="tix-t">Control</span></span></a>
@@ -3706,7 +3705,7 @@ refusal training</text>
     <div class="sec-head rv">
       <p class="eyebrow">Section 5.2 · How well it works <b class="rt-min">2 min</b></p>
       <h2>Where are existing safety techniques falling short?</h2>
-      <p class="lede">Every technique above helps. The question is what they add up to, so here are the numbers the best published results actually reached, and what happens to each safeguard under the three cases that matter most.</p>
+      <p class="lede">Every technique above helps. The question is what they are capable of and what happens to each safeguard.</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">Hard case one</span><h4>The model knows it is being tested</h4><p>Most of these safeguards are measured in evaluations. A system that can tell an evaluation from deployment can pass the first and behave differently in the second.</p></div>
@@ -3828,13 +3827,13 @@ refusal training</text>
     <div class="firsts two">
       <div class="first">
         <span class="fk">At the system level, first</span>
-        <h3>Treat safety as the priority it is</h3>
+        <h3>Treat safety as the top priority and steer us towards a well-aligned, monitored advanced AI system</h3>
         <p>Far more of the money, talent and compute now flowing into capability should go to alignment, interpretability and evaluation. Right now the harder problem gets the smaller share, which is backwards for something this consequential.</p>
       </div>
       <div class="first teal">
         <span class="fk">At the system level, second</span>
-        <h3>Be willing to stop, and mean it</h3>
-        <p><strong>Aligning a superintelligence may be impossible rather than merely hard.</strong> Nothing we know rules that out, because we cannot state our values precisely enough for a machine, and we cannot read a model&rsquo;s goals to check. If that is the world we are in, the only move left is the one nobody wants: stopping.</p>
+        <h3>Be willing to actually stop</h3>
+        <p><strong>If the problem proves to be intractable, we need to be willing to stop advanced AI development.</strong> We need to prioritize human survival over economic gains.</p>
       </div>
       
     </div>
@@ -3857,8 +3856,13 @@ refusal training</text>
     <div class="cando-block" id="what-you-can-do">
       <div class="cando-h"><span class="ch-n">You</span><h3>What you can do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">Learn</span><h4>Get to a view you can defend, in about two hours</h4><p>BlueDot&rsquo;s Future of AI course is free and interactive, and it takes roughly two hours. It is the fastest route from having read one argument to being able to judge the next one you meet.<a class="ref" href="/reference#s3">3</a></p>
-          <div class="share"><a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Start the course</a></div></div>
+        <div class="ddc t"><span class="k">Share</span><h4>Help your network understand AI safety</h4><p>Most people have never seen this argument in a form they can judge for themselves. Sending it to one person who will actually read it does more than posting it to a hundred who will not.</p>
+          <div class="share">
+            <button type="button" class="js-sh-copy">Copy link</button>
+            <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="js-sh-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">X</a>
+            <a class="js-sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">WhatsApp</a>
+          </div></div>
         <div class="ddc g"><span class="k">Join</span><h4>Join the community</h4><p>One email when a bill, a treaty or an incident is close enough that public attention changes the outcome.</p>
           <form class="jform jform-c" data-bad="That does not look like an email address." data-sending="Sending…" data-ok="You are on the list. Check your inbox to confirm." data-err="That did not go through. Try again shortly." action="/subscribe" method="post" novalidate>
             <label class="skip" for="do-email">Email address</label>
@@ -3868,13 +3872,6 @@ refusal training</text>
             <button type="submit">Join</button>
           </form>
           <p class="jmsg" role="status" aria-live="polite"></p></div>
-        <div class="ddc t"><span class="k">Share</span><h4>Share it with your network</h4><p>Most people have never seen this argument in a form they can judge for themselves. Sending it to one person who will actually read it does more than posting it to a hundred who will not.</p>
-          <div class="share">
-            <button type="button" class="js-sh-copy">Copy link</button>
-            <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="js-sh-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">X</a>
-            <a class="js-sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">WhatsApp</a>
-          </div></div>
         <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition until there is scientific consensus that it can be done safely. It takes a minute, and the list is public, which is the whole difference between signing and agreeing quietly.<a class="ref" href="/reference#s2">2</a></p>
           <div class="share"><a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Add your name</a></div></div>
         <div class="ddc o"><span class="k">Choose</span><h4>Buy from labs that take AI safety seriously</h4><p>Anthropic, OpenAI and DeepMind all publish safety frameworks, and the Future of Life Institute grades them against each other. Check the grade before you renew a subscription, and say why if you cancel one.<a class="ref" href="/reference#s15">15</a></p></div>

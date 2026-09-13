@@ -2030,7 +2030,7 @@ div.endc{cursor:default}
       <div class="claim c3" id="claim-3">
         <span class="cl-n">3</span>
         <h3><a href="#why-race">没有人知道怎样让超级智能变得安全，而两个问题横在路上</a></h3>
-        <p class="cl-sub">下面是两个各自独立的问题。两个都必须解决，而两个都还没有。</p>
+        <p class="cl-sub">先进 AI 的安全，既需要解决协调问题，也需要解决技术上的对齐与可监测性问题。这些问题目前都远远没有解决。</p>
 
         <div class="cl-halves">
       <div class="cl-half" style="--half-acc:#8d9dff">
@@ -2497,7 +2497,7 @@ div.endc{cursor:default}
       <p class="stand">由于先发优势，即便每个参与者都想要安全，竞赛的结构也会逼着他们为了更快而偷工减料。而第一个带着一个谁都无法控制的系统冲到悬崖边，输掉的是全人类。</p>
     </div>
     <div class="body rv">
-      <p>我们眼下正处在一场不安全的 AGI 竞赛之中，就像一群人朝着悬崖边狂奔。每个人都确信自己先到就能赢得奖赏，却没有意识到自己的身体被绳子和所有其他人拴在一起。第一个冲下悬崖的人，会把全人类一起拖下去。</p>
+      <p>我们正处在一场不安全的 AGI 竞赛之中，就像一群人朝着悬崖边狂奔，每个人都确信自己先到就能赢得奖赏，谁也没注意到绳子把所有人的身体拴在一起。第一个冲下悬崖的人，会把全人类一起拖下去。</p>
     </div>
 
     <figure class="cliff">
@@ -2577,7 +2577,7 @@ div.endc{cursor:default}
       </svg>
     </figure>
     <div class="ddgrid two rv">
-      <div class="ddc r"><span class="k">偷工减料</span><h4>审慎成了负担</h4><p>在安全上花得最少的人最先交付，于是竞赛恰恰奖励了我们最需要避免的行为。</p></div>
+      <div class="ddc r"><span class="k">偷工减料</span><h4>审慎成了负担</h4><p>在安全上投入越少，交付就越快，于是最可能赢的，往往是那个最不在意安全的人。</p></div>
       <div class="ddc r"><span class="k">那根绳子</span><h4>失败无法被隔离</h4><p>任何一家前沿实验室失控，都会让全人类为此买单，包括那些从未用过这个产品、也从未听说过这家公司的人。</p></div>
     </div>
     <figure class="secfig rv">
@@ -2868,7 +2868,7 @@ div.endc{cursor:default}
       </div>
       <div class="example" style="border-left-color:var(--c-ctl);margin-top:16px">
         <span class="ek" style="color:var(--c-ctl)">为什么现有的解法还不算解法</span>
-        <p>标准答案是后训练：基于人类反馈的强化学习（RLHF）、宪法式规则、拒答训练。它们确实有效，也正是今天的助手堪可一用的原因，但它们塑造的是模型表现出来的行为，而内部对齐关乎模型真正持有的目标，二者恰恰会在最要紧处分道扬镳：分布迁移之时、优化压力之下，以及当一个足够强的系统开始建模观察者之时。由人类标注者调校出的护栏，也继承了标注者的局限，而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="/reference-zh#s25">25</a><a class="ref" href="/reference-zh#s43">43</a></p>
+        <p>标准答案是后训练：基于人类反馈的强化学习（RLHF）、宪法式规则、拒答训练。它们确实有效，也正是今天的助手堪可一用的原因，但它们塑造的是模型表现出来的行为，而不是背后真正持有的目标，二者会在承压或被观察时分道扬镳。由人类标注者调校出的护栏，也继承了标注者的局限，而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="/reference-zh#s25">25</a><a class="ref" href="/reference-zh#s43">43</a></p>
       </div>
     </div>
     <figure class="secfig rv">
@@ -2897,7 +2897,7 @@ div.endc{cursor:default}
       <p style="max-width:64ch;color:var(--ink-2);margin-bottom:4px">两者都不需要系统心怀敌意，也不需要目标在纸面上看得出错。<a class="ref" href="/reference-zh#s34">34</a></p>
       <div class="ddgrid two rv">
         <div class="ddc r"><span class="k">它出错的一种方式</span><h4>荒唐的字面实现</h4><p>它以你绝不会认可的方式，满足了你字面上的标准。让人们微笑，那么给面部肌肉接上电极就是一种解法；如果目标是最大化奖励信号，那么直接霸占奖励来源反而是更优解。</p></div>
-        <div class="ddc o"><span class="k">它出错的另一种方式</span><h4>无止境扩张的基础设施</h4><p>要把任何目标追求得更彻底，就得先造出追求它的手段：更多算力、更多电力、更多工厂、更长的供应链。以攻克癌症为目标，就得建实验室；以量产任何物品为目标，就得开矿山。而目标本身从不会说“够了”，因为多一座数据中心，永远等于多一分成功。每往前一步，目标都被满足得更彻底，而没有任何一处是“做完了”。</p></div>
+        <div class="ddc o"><span class="k">它出错的另一种方式</span><h4>无止境扩张的基础设施</h4><p>目标里从来没有一句话说该在哪里停下。更多算力、更多电力、更多材料，永远有助于把目标完成得更好，于是系统不断把世界变成这些东西，没有任何一处算是做完了。</p></div>
       </div>
 
 </div>
@@ -3403,7 +3403,7 @@ div.endc{cursor:default}
     <div class="sec-head rv">
       <p class="eyebrow">第 5.1 节 · 应对 <b class="rt-min">7 分钟</b></p>
       <h2>安全研究到底在做些什么</h2>
-      <p class="lede">确实有实打实的工作在推进，只是与投向能力研究的力量相比，它小得可怜。共分四层：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，再让这套框架具有约束力。第四层，才是让前三层真正有力量的那一层。<a class="ref" href="/reference-zh#s14">14</a></p>
+      <p class="lede">AI 安全技术分为四层：修好目标的设定、检验你造出的东西、控制住你无法检验的东西，再让这套框架具有约束力。第四层，才是让前三层真正有力量的那一层。<a class="ref" href="/reference-zh#s14">14</a></p>
     </div>
 
     <figure class="secfig rv">
@@ -3441,8 +3441,7 @@ div.endc{cursor:default}
     </figure>
 
     <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">今天在用的每一项技术，以及它各自止步于何处</h3>
-    <p class="rv" style="max-width:66ch;color:var(--ink-2);margin-bottom:4px">每一项都先说它做到了什么，再讲连研究者自己都承认的局限。其中好几项确有其用，但没有一项是解法。</p>
-
+    
     <div class="tindex rv">
       <a class="tix" href="#lay-dev" style="--acc:#5b6b9e;--acc-t:#ecf0f8"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg><span><span class="tix-n">01</span><span class="tix-t">开发</span></span></a>
       <a class="tix" href="#lay-ass" style="--acc:#6f8a63;--acc-t:#eef3ec"><svg class="ticon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M8.5 11l2 2 4.5-4.5"/><path d="M8.5 17h5"/></svg><span><span class="tix-n">02</span><span class="tix-t">评估</span></span></a>
@@ -3675,7 +3674,7 @@ div.endc{cursor:default}
     <div class="sec-head rv">
       <p class="eyebrow">第 5.2 节 · 它到底管不管用 <b class="rt-min">2 分钟</b></p>
       <h2>我们最好的防护把失败率压了下来，却没有把它归零</h2>
-      <p class="lede">上面每一项技术都有用。真正的问题是它们加起来等于什么，所以这里放两样东西：已发表的最好结果实际达到的数字，以及在最要紧的三种情形下，每一道防护会变成什么样。</p>
+      <p class="lede">上面每一项技术都有用。真正的问题是它们各自能做到什么，以及每一道防护实际会变成什么样。</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">难点一</span><h4>模型知道自己正在被测试</h4><p>这些防护的效果，多数是在评估环境中测出来的。一个能分辨评估与真实部署的系统，可以在评估里循规蹈矩，在部署里换一副面孔。</p></div>
@@ -3797,13 +3796,13 @@ div.endc{cursor:default}
     <div class="firsts two">
       <div class="first">
         <span class="fk">在系统层面，其一</span>
-        <h3>把安全当作它本应有的优先事项</h3>
+        <h3>把安全当作头号优先事项，努力把我们引向一个对齐良好、可被监测的先进 AI 系统</h3>
         <p>如今涌入能力研发的资金、人才和算力，应有远比现在更多的部分流向对齐、可解释性与评估。眼下，更难的问题反而分到更小的份额——对一件如此重大的事来说，这恰恰是本末倒置。</p>
       </div>
       <div class="first teal">
         <span class="fk">在系统层面，其二</span>
-        <h3>敢于停手，并且当真</h3>
-        <p><strong>对齐一个超级智能，可能是一道无解的题，而不只是一道很难的题。</strong>我们所知的一切，都不排除这种可能：我们既写不清自己的价值观，让机器真正明白；也读不出模型真正的目标，无从核对。若我们身处的正是这样一个世界，那么唯一剩下的一步，就是谁都不愿走的那一步：停手。</p>
+        <h3>真正愿意停下来</h3>
+        <p><strong>如果这个问题被证明无解，我们就需要愿意停止先进 AI 的开发。</strong>我们必须把人类的存续，看得比经济利益更重。</p>
       </div>
       
     </div>
@@ -3825,6 +3824,13 @@ div.endc{cursor:default}
     <div class="cando-block" id="what-you-can-do">
       <div class="cando-h"><span class="ch-n">你</span><h3>你可以做什么</h3></div>
       <div class="ddgrid two rv">
+        <div class="ddc t"><span class="k">分享</span><h4>帮助你的人脉理解 AI 安全</h4><p>大多数人从未以自己能判断的方式听过这套论证。每多一位读者，人类面对有害 AGI 的免疫力就强一分。</p>
+          <div class="share">
+            <button type="button" class="js-sh-copy">复制链接</button>
+            <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="js-sh-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">X</a>
+            <a class="js-sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">WhatsApp</a>
+          </div></div>
         <div class="ddc g"><span class="k">加入</span><h4>加入这个社区</h4><p>当某项法案、某个条约或某起事故让公众压力真正管用时，给你发一封邮件。</p>
           <form class="jform jform-c" data-bad="这看起来不像一个邮箱地址。" data-sending="发送中…" data-ok="已加入。请查收邮箱完成确认。" data-err="没有成功，请稍后再试。" action="/subscribe" method="post" novalidate>
             <label class="skip" for="do-email">电子邮箱</label>
@@ -3834,13 +3840,6 @@ div.endc{cursor:default}
             <button type="submit">加入</button>
           </form>
           <p class="jmsg" role="status" aria-live="polite"></p></div>
-        <div class="ddc t"><span class="k">分享</span><h4>分享到你的人脉里</h4><p>大多数人从未以自己能判断的方式听过这套论证。每多一位读者，人类面对有害 AGI 的免疫力就强一分。</p>
-          <div class="share">
-            <button type="button" class="js-sh-copy">复制链接</button>
-            <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="js-sh-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">X</a>
-            <a class="js-sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">WhatsApp</a>
-          </div></div>
         <div class="ddc b"><span class="k">签名</span><h4>在联署上签名</h4><p>《超级智能声明》要求：在获得“可以安全做到”的科学共识之前，禁止开发超级智能。一分钟的事，而签名人数本身就是它的分量。<a class="ref" href="/reference-zh#s2">2</a></p>
           <div class="share"><a href="https://superintelligence-statement.org" target="_blank" rel="noopener">署上你的名字</a></div></div>
         <div class="ddc o"><span class="k">选择</span><h4>只买认真对待 AI 安全的实验室的产品</h4><p>你是这些公司的客户，选择权在你手里。优先选择那些公开评估结果、按与能力投入相称的比例给安全拨款的公司，并告诉它们原因。<a class="ref" href="/reference-zh#s15">15</a></p></div>
