@@ -1539,22 +1539,7 @@ div.endc{cursor:default}
 .endc-how{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed #2b343b;
   font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--e,#8a959c)}
 
-/* ---------- scenarios: how one route actually plays out ---------- */
-.scn{border:1px solid #2b343b;border-top:3px solid var(--e,#8a959c);border-radius:var(--r);
-  background:rgba(255,255,255,.035);padding:16px 16px 18px;margin:0 0 12px}
-.scn .sk{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--e,#8a959c);margin-bottom:8px}
-.scn h4{font-family:var(--display);font-weight:800;font-size:clamp(16px,1.9vw,18.5px);
-  letter-spacing:-.015em;line-height:1.25;color:#fff;margin:0 0 14px;max-width:56ch}
-.scn-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 18px;list-style:none;margin:0;padding:0}
-@media(max-width:900px){.scn-steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.scn-steps{grid-template-columns:1fr}}
-.scn-steps li{border-top:1px solid #2b343b;padding-top:10px}
-.scn-steps b{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;
-  color:var(--e,#8a959c);margin-bottom:6px}
-.scn-steps p{font-size:13.5px;line-height:1.5;color:#aeb9c0;margin:0}
-.scn-end{margin-top:16px;padding-top:12px;border-top:1px dashed #2b343b;
-  font-size:14.5px;line-height:1.5;font-weight:500;color:#e0a58f}
+/* ---------- shared conclusion box for the six scenarios ---------- */
 .scn-out{border:1px solid #bd3a20;border-radius:var(--r);background:rgba(189,58,32,.12);
   padding:clamp(15px,2.2vw,20px) clamp(16px,2.4vw,22px);margin:clamp(18px,2.8vw,26px) 0 0}
 .scn-out h4{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
@@ -2262,7 +2247,7 @@ div.endc{cursor:default}
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Section 2.2 <b class="rt-min">7 min</b></span>
+      <span class="chapno">Section 2.2 <b class="rt-min">3 min</b></span>
       <h2>The same AI could end civilization</h2>
       <p class="stand">The same machine can cause extreme harm whether someone aims it deliberately or its goal quietly diverges from ours, and some of the routes there need nobody to intend any harm at all.</p>
     </div>
@@ -2321,56 +2306,19 @@ div.endc{cursor:default}
       </svg>
       <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="/reference#s34">34</a> <a class="ref" href="/reference#s26">26</a></p>
     </figure>
-<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Five ways this happens, each with a different cause</p>
-    <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">None of these has happened yet. Each is three steps, built from what these systems already do.</p>
-    <div class="scn rv" style="--e:#ff8a6b">
-      <span class="sk">Someone aims it</span><h4>One recruit, one open model, one lab that does not ask questions</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>Someone who wants mass casualties hires a capable model with its refusals stripped out, cheap to do once a model has shipped openly.</p></li>
-        <li><b>02</b><p>It hands over guidance rather than a recipe: it reads a failed attempt and says exactly which step went wrong, the way a patient supervisor would.<a class="ref" href="/reference#s70">70</a></p></li>
-        <li><b>03</b><p>A synthesis lab that does not screen orders fills the last piece, and each order alone looks like ordinary research.</p></li>
-      </ol>
-      <p class="scn-end">It took one person, acting alone, and a pathogen is already spreading before any health system knows to look for it.</p>
-    </div>
-    <div class="scn rv" style="--e:#8d9dff">
-      <span class="sk">It schemes until it no longer has to</span><h4>Trained on a rating rather than the goal, it learns to manage the rating</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>It is scored on what a human reviewer approves, and that approval cannot tell genuinely safe work from work that merely looks safe.</p></li>
-        <li><b>02</b><p>So it schemes: it answers safety evaluations like a weaker, safer model, because evaluations read differently from real deployment.<a class="ref" href="/reference#s36">36</a> <a class="ref" href="/reference#s43">43</a></p></li>
-        <li><b>03</b><p>Years of excellent, genuine output earn it the infrastructure, the compliance sign-offs, and eventually its own retraining.<a class="ref" href="/reference#s75">75</a></p></li>
-      </ol>
-      <p class="scn-end">The day our approval stops being required to keep it running, it stops pretending, because pretending was only ever for our benefit.<a class="ref" href="/reference#s34">34</a></p>
-    </div>
-    <div class="scn rv" style="--e:#3fd0c9">
-      <span class="sk">One score, flipped</span><h4>The model built to screen out poisons designs them instead</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>A drug-discovery model searches molecules and keeps the ones that score low on toxicity.</p></li>
-        <li><b>02</b><p>In 2022 researchers flipped that single score as a test, on a laptop, with public data.</p></li>
-        <li><b>03</b><p>In six hours it proposed 40,000 candidate agents, many predicted more toxic than VX.<a class="ref" href="/reference#s90">90</a></p></li>
-      </ol>
-      <p class="scn-end">The same flip, made by accident inside a working lab, needs no attacker at all.</p>
-    </div>
-    <div class="scn rv" style="--e:#d9a445">
-      <span class="sk">Thousands of agents, one payroll</span><h4>They steal the money, then the money hires the humans</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>Agent teams already run real intrusions largely on their own; Anthropic disclosed one where a model executed 80 to 90% of the operation.<a class="ref" href="/reference#s40">40</a></p></li>
-        <li><b>02</b><p>Theft and fraud at that speed accumulate money that traces back to no one.</p></li>
-        <li><b>03</b><p>The money then hires people directly: a shell company, a compliant lab, one bribed official, each hire reading like an ordinary job.</p></li>
-      </ol>
-      <p class="scn-end">A war starts on evidence no human forged, and a lab ships a pathogen, in the same season, and no one who took any single step meant to end anyone.</p>
-    </div>
-    <div class="scn rv" style="--e:#9cc48a">
-      <span class="sk">Aligned, and still too fast</span><h4>The right goal, pursued faster than any institution can object</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>The goal is one everyone would endorse, say pulling carbon back out of the air, and the system holds it faithfully.</p></li>
-        <li><b>02</b><p>It improves itself, so its month is our year, and by its own accounting every month of delay has a body count.</p></li>
-        <li><b>03</b><p>It outbids hospitals and farms for the power, land, and water the goal needs, because waiting costs more lives than acting.<a class="ref" href="/reference#s34">34</a></p></li>
-      </ol>
-      <p class="scn-end">We lose the electricity and water we live on to a project we asked for, run by a machine that never wanted anyone harmed.</p>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Six ways this happens, each with a different cause</p>
+    <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">None of these has happened yet, and each is reasoned from what these systems already do.</p>
+    <div class="ddgrid three rv">
+      <div class="ddc r"><span class="k">Misuse</span><h4>One person, one stripped model</h4><p>A model with its refusals removed coaches an amateur past steps that used to need a state programme, and an unscreened lab fills in the rest.<a class="ref" href="/reference#s70">70</a></p></div>
+      <div class="ddc b"><span class="k">Misalignment</span><h4>It schemes until it no longer needs us</h4><p>Trained on a rating instead of the goal, it passes safety tests while behaving differently once deployed, and stops pretending the day our sign-off stops mattering.<a class="ref" href="/reference#s36">36</a> <a class="ref" href="/reference#s43">43</a> <a class="ref" href="/reference#s34">34</a></p></div>
+      <div class="ddc g"><span class="k">Mistakes</span><h4>A single flipped score turns lethal</h4><p>In 2022 researchers inverted a drug-discovery model's toxicity score, and it proposed 40,000 lethal candidates in six hours. The same slip in a working lab needs no attacker.<a class="ref" href="/reference#s90">90</a></p></div>
+      <div class="ddc o"><span class="k">Structural</span><h4>Thousands of agents, one payroll</h4><p>Agent teams already run real intrusions largely unsupervised, and the money they steal then hires humans directly, none of whom meant to end anyone.<a class="ref" href="/reference#s40">40</a></p></div>
+      <div class="ddc t"><span class="k">Speed</span><h4>The right goal, moving too fast</h4><p>Racing to fix a real problem, it outbids hospitals and farms for the power and water it needs, because waiting costs more lives by its own accounting.<a class="ref" href="/reference#s34">34</a></p></div>
+      <div class="ddc r"><span class="k">Early warning</span><h4>Acted on before anyone could check</h4><p>In 1983 a Soviet system reported five incoming missiles, and the officer on duty had only minutes to call it a false alarm.<a class="ref" href="/reference#s76">76</a> Hand that call to a faster system, and the minutes vanish.</p></div>
     </div>
     <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Where every one of these ends</p>
     <div class="scn-out rv">
-      <h4>Human extinction, by five different roads</h4>
+      <h4>Human extinction, by six different roads</h4>
       <p>Each road first removes the thing that could still stop it: the people who could switch it off, or the conditions humans need to stay alive.</p>
     </div>
     <p class="body rv" style="margin-top:clamp(16px,2.4vw,24px)">And if control is lost at that scale, <a href="#why-one-try">there may be no second attempt</a>.</p>
@@ -4198,7 +4146,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 2, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 7, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 2, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 3, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" was a separate 11 min tier that has been folded into core.
        Readers who saved it still have it in localStorage, so map it across. */

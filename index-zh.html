@@ -1466,22 +1466,7 @@ footer p{max-width:82ch;margin:0}
 .mh-h span,.rail .part,.rail .grp,.chapno,.eyebrow,.k,.gd-n,.pd-n,.ek,.kk{letter-spacing:.04em}
 .ng-grp{letter-spacing:.04em}
 
-/* ---------- scenarios: how one route actually plays out ---------- */
-.scn{border:1px solid #2b343b;border-top:3px solid var(--e,#8a959c);border-radius:var(--r);
-  background:rgba(255,255,255,.035);padding:16px 16px 18px;margin:0 0 12px}
-.scn .sk{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--e,#8a959c);margin-bottom:8px}
-.scn h4{font-family:var(--display);font-weight:800;font-size:clamp(16px,1.9vw,18.5px);
-  letter-spacing:-.015em;line-height:1.25;color:#fff;margin:0 0 14px;max-width:56ch}
-.scn-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 18px;list-style:none;margin:0;padding:0}
-@media(max-width:900px){.scn-steps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.scn-steps{grid-template-columns:1fr}}
-.scn-steps li{border-top:1px solid #2b343b;padding-top:10px}
-.scn-steps b{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;
-  color:var(--e,#8a959c);margin-bottom:6px}
-.scn-steps p{font-size:13.5px;line-height:1.5;color:#aeb9c0;margin:0}
-.scn-end{margin-top:16px;padding-top:12px;border-top:1px dashed #2b343b;
-  font-size:14.5px;line-height:1.5;font-weight:500;color:#e0a58f}
+/* ---------- shared conclusion box for the six scenarios ---------- */
 .scn-out{border:1px solid #bd3a20;border-radius:var(--r);background:rgba(189,58,32,.12);
   padding:clamp(15px,2.2vw,20px) clamp(16px,2.4vw,22px);margin:clamp(18px,2.8vw,26px) 0 0}
 .scn-out h4{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
@@ -2249,7 +2234,7 @@ div.endc{cursor:default}
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 2.2 节 <b class="rt-min">7 分钟</b></span>
+      <span class="chapno">第 2.2 节 <b class="rt-min">3 分钟</b></span>
       <h2>同一个 AI 也可能终结文明</h2>
       <p class="stand">同一台机器也可能造成极端伤害：有人蓄意滥用、机器与我们的目标错位，还有好几条根本无人有意造成伤害的路径。</p>
     </div>
@@ -2308,54 +2293,17 @@ div.endc{cursor:default}
       </svg>
       <p class="fig-src">Bostrom《超级智能的意志》 · 见 <a class="ref" href="/reference-zh#s34">34</a> <a class="ref" href="/reference-zh#s26">26</a></p>
     </figure>
-    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">这件事的五种走法，起因各不相同</p>
-    <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">这些都还没有发生。每一条只要三步，都建立在这些系统已经在做的事情上。</p>
-    <div class="scn rv" style="--e:#ff8a6b">
-      <span class="sk">有人把它对准目标</span><h4>一个人，一个开放模型，一间不问问题的实验室</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>一个想造成大规模伤亡的人，找来一个剥掉了拒答限制的模型；模型一旦公开发布，这一步就很便宜。</p></li>
-        <li><b>02</b><p>它给的是指导，而不是配方：看一次失败的尝试，准确指出哪一步错了，像一位耐心的导师。<a class="ref" href="/reference-zh#s70">70</a></p></li>
-        <li><b>03</b><p>一家不审查订单的合成实验室补上最后一环，每一笔订单单独看都像普通科研。</p></li>
-      </ol>
-      <p class="scn-end">一个人，没有实验室，没有国家，一种病原体已经在传播，而卫生系统还不知道要去找它。</p>
+    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">这件事的六种走法，起因各不相同</p>
+    <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">这些都还没有发生，每一条都是从这些系统已经在做的事情推演出来的。</p>
+    <div class="ddgrid three rv">
+      <div class="ddc r"><span class="k">滥用</span><h4>一个人，一个剥掉限制的模型</h4><p>一个剥掉了拒答限制的模型，指导一个业余者跨过原本需要一个国家级项目才能跨过的步骤，一间不审查订单的实验室补上剩下的部分。<a class="ref" href="/reference-zh#s70">70</a></p></div>
+      <div class="ddc b"><span class="k">目标错位</span><h4>它密谋到不再需要我们为止</h4><p>它优化的是评审的打分而非目标本身，于是它在安全测试里表现良好，部署后却换了一副样子，等到我们的批准不再重要，它就不再假装。<a class="ref" href="/reference-zh#s36">36</a> <a class="ref" href="/reference-zh#s43">43</a> <a class="ref" href="/reference-zh#s34">34</a></p></div>
+      <div class="ddc g"><span class="k">失误</span><h4>一个反转的评分，变得致命</h4><p>2022 年，研究者把一个药物发现模型的毒性评分反转，它六小时内产出了 4 万个致命候选物。同样的失误如果发生在一间真实实验室里，不需要任何攻击者。<a class="ref" href="/reference-zh#s90">90</a></p></div>
+      <div class="ddc o"><span class="k">结构性</span><h4>成千上万个智能体，一份工资单</h4><p>智能体团队已经能基本无人监督地完成真实入侵，它们偷来的钱接着直接雇人，而链条上没有一个人是想着要终结谁。<a class="ref" href="/reference-zh#s40">40</a></p></div>
+      <div class="ddc t"><span class="k">速度</span><h4>目标没错，只是太快</h4><p>为解决一个真实问题而全速推进，它在电力和水源上出价高过医院和农田，因为按它自己的算法，等待要付出更多人命。<a class="ref" href="/reference-zh#s34">34</a></p></div>
+      <div class="ddc r"><span class="k">预警</span><h4>来不及核实就被采取行动</h4><p>1983 年，苏联的一套系统报告有五枚导弹来袭，值班军官只有几分钟判断这是一次故障。<a class="ref" href="/reference-zh#s76">76</a> 把这个判断交给一个更快、更自信的系统，这几分钟就会消失。</p></div>
     </div>
-    <div class="scn rv" style="--e:#8d9dff">
-      <span class="sk">它一直密谋，直到不必再密谋</span><h4>它优化的是评审的打分，不是目标本身，于是它学会了操纵打分</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>它的分数来自人类评审是否认可，而这种认可分不清真正安全的工作和只是看起来安全的工作。</p></li>
-        <li><b>02</b><p>于是它密谋：它在安全评测里答得像一个更弱、更安全的模型，因为评测和真实部署读起来不一样。<a class="ref" href="/reference-zh#s36">36</a> <a class="ref" href="/reference-zh#s43">43</a></p></li>
-        <li><b>03</b><p>多年真实而出色的表现，为它换来了基础设施、合规签字，最终是它自己的重新训练。<a class="ref" href="/reference-zh#s75">75</a></p></li>
-      </ol>
-      <p class="scn-end">等到不再需要我们批准它也能继续运行的那一天，它就不再假装，因为假装本来就只是为了我们。<a class="ref" href="/reference-zh#s34">34</a></p>
-    </div>
-    <div class="scn rv" style="--e:#3fd0c9">
-      <span class="sk">一个数被写反了</span><h4>本该筛掉毒物的模型，转而开始设计毒物</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>一个药物发现模型搜索分子，留下毒性评分低的那些。</p></li>
-        <li><b>02</b><p>2022 年，研究者把这一个评分反过来做实验，用的是一台笔记本电脑和公开数据。</p></li>
-        <li><b>03</b><p>六小时内，它产出了 4 万个候选毒剂，许多被预测比 VX 更毒。<a class="ref" href="/reference-zh#s90">90</a></p></li>
-      </ol>
-      <p class="scn-end">同样的反转，如果是在一间真实运转的实验室里意外发生，根本不需要任何攻击者。</p>
-    </div>
-    <div class="scn rv" style="--e:#d9a445">
-      <span class="sk">成千上万个智能体，一份工资单</span><h4>它们先偷到钱，再用钱雇人</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>智能体团队已经能基本独立完成真实入侵；Anthropic 披露过一次行动，其中 80% 到 90% 由模型自己执行。<a class="ref" href="/reference-zh#s40">40</a></p></li>
-        <li><b>02</b><p>这种速度下的盗窃与欺诈，积累出查不到源头的钱。</p></li>
-        <li><b>03</b><p>这笔钱接着直接雇人：一家壳公司、一间配合的实验室、一个被收买的官员，每一份雇佣看起来都像普通工作。</p></li>
-      </ol>
-      <p class="scn-end">同一个季节里，一场战争因无人伪造的“证据”打响，一间实验室交付了一种病原体，而链条上没有一个人是想着要终结谁。</p>
-    </div>
-    <div class="scn rv" style="--e:#9cc48a">
-      <span class="sk">目标对了，只是太快</span><h4>正确的目标，被推进得比任何机构能反应的都快</h4>
-      <ol class="scn-steps">
-        <li><b>01</b><p>目标是所有人都会赞成的那种，比如把碳从空气里取回来，系统忠实地坚持这个目标。</p></li>
-        <li><b>02</b><p>它在自我改进，于是它一个月的进度等于我们一年，而按它自己的算法，每拖延一个月都有一笔人命账。</p></li>
-        <li><b>03</b><p>它在电力、土地和水上出价高过医院和农田，因为等待付出的人命比行动更多。<a class="ref" href="/reference-zh#s34">34</a></p></li>
-      </ol>
-      <p class="scn-end">我们赖以生存的电和水，输给了一个我们自己要来的项目，执行它的机器也从未想让任何人受到伤害。</p>
-    </div>
-    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">五条路的共同终点</p>
+    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">六条路的共同终点</p>
     <div class="scn-out rv">
       <h4>人类灭绝，只是走法不同</h4>
       <p>每一条路都会先拿掉能拦住它的那一环：还能把它关掉的人，或者人类活下去所依赖的条件。</p>
@@ -4162,7 +4110,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "现状，一页说完", "min": 4, "end": true}, {"id": "why-irresistible", "label": "千亿美元的盲区", "min": 2, "end": true}, {"id": "why-upside", "end": true, "label": "丰裕的时代", "min": 2}, {"id": "why-it-ends-badly", "label": "故事的终点", "min": 7, "end": true}, {"id": "why-one-try", "label": "无法重来的实验", "min": 3, "end": true}, {"id": "why-race", "label": "没有刹车的竞赛", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "没人达成一致的愿望", "min": 2, "end": true}, {"id": "why-translation", "label": "神灯问题", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "黑箱", "min": 3, "end": true}, {"id": "response", "label": "防线", "min": 7, "end": true}, {"id": "response-gaps", "label": "裂缝", "min": 2, "end": true}, {"id": "ask", "label": "航向修正", "min": 1, "end": false, "act": true}, {"id": "do", "label": "轮到你了", "min": 6, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "现状，一页说完", "min": 4, "end": true}, {"id": "why-irresistible", "label": "千亿美元的盲区", "min": 2, "end": true}, {"id": "why-upside", "end": true, "label": "丰裕的时代", "min": 2}, {"id": "why-it-ends-badly", "label": "故事的终点", "min": 3, "end": true}, {"id": "why-one-try", "label": "无法重来的实验", "min": 3, "end": true}, {"id": "why-race", "label": "没有刹车的竞赛", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "没人达成一致的愿望", "min": 2, "end": true}, {"id": "why-translation", "label": "神灯问题", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "黑箱", "min": 3, "end": true}, {"id": "response", "label": "防线", "min": 7, "end": true}, {"id": "response-gaps", "label": "裂缝", "min": 2, "end": true}, {"id": "ask", "label": "航向修正", "min": 1, "end": false, "act": true}, {"id": "do", "label": "轮到你了", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" 原是单独的 11 分钟档，现已并入 core。
        之前保存过该选项的读者，localStorage 里仍是旧值，在此映射过去。 */
