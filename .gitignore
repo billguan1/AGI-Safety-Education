@@ -14,6 +14,12 @@ Skills/
 # version them publicly.
 comics/
 
+# FINDINGS story treatments: drafts, not site content. Same reasoning as comics/.
+stories-findings/
+
+# SABLE comic scripts and their specs: drafts, not site content.
+comics-sable/
+
 # Internal notes and drafts. README.md is deliberately public and tracked.
 /notes/
 /tasks/

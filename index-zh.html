@@ -4495,7 +4495,10 @@ var SITE_CONFIG = {
       });
       var saved = null;
       try{ saved = localStorage.getItem(KEY); }catch(e){}
-      apply(saved === "pinned" || saved === "mini" ? saved : "mini", false);
+      /* no saved preference: match whatever plain CSS already painted (wide()
+         is the same check the base @media default uses), so this doesn't
+         yank body's padding-left right after first paint and cause a CLS hit */
+      apply(saved === "pinned" || saved === "mini" ? saved : (wide() ? "" : "mini"), false);
       window.addEventListener("resize", function(){
         if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
       });

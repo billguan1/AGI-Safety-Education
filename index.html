@@ -2238,7 +2238,7 @@ div.endc{cursor:default}
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">Section 2.2 <b class="rt-min">5 min</b></span>
+      <span class="chapno">Section 2.2 <b class="rt-min">6 min</b></span>
       <h2>The same AI could end civilization</h2>
       <p class="stand">The same machine can cause extreme harm whether someone aims it deliberately or its goal quietly diverges from ours, and some of the routes there need nobody to intend any harm at all.</p>
     </div>
@@ -4139,7 +4139,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 2, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 5, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 2, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 6, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" was a separate 11 min tier that has been folded into core.
        Readers who saved it still have it in localStorage, so map it across. */
@@ -4538,7 +4538,10 @@ var SITE_CONFIG = {
       });
       var saved = null;
       try{ saved = localStorage.getItem(KEY); }catch(e){}
-      apply(saved === "pinned" || saved === "mini" ? saved : "mini", false);
+      /* no saved preference: match whatever plain CSS already painted (wide()
+         is the same check the base @media default uses), so this doesn't
+         yank body's padding-left right after first paint and cause a CLS hit */
+      apply(saved === "pinned" || saved === "mini" ? saved : (wide() ? "" : "mini"), false);
       window.addEventListener("resize", function(){
         if(rail.className.indexOf("pinned") < 0 && rail.className.indexOf("mini") < 0) apply("", false);
       });
