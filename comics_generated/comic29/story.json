@@ -1,0 +1,31 @@
+{
+  "number": 29,
+  "slug": "the-bicycle",
+  "title": "The Bicycle",
+  "tagline": "Every safe thing we have was made safe by failing first. Some failures do not let you.",
+  "concept": "No second try",
+  "definition": "Trial and error is how everything else got made safe: fail, survive, study what happened, fix it. That method has two requirements which are easy to miss because they are almost always met. The mistake has to be one you live through, and there has to be time afterwards to look at it. Take either away and the method stops being available, and nothing else in the notebook replaces it.",
+  "about": "This is the one that does not get repaired. Kenji checks his own list first, and he is careful: nothing he would never trade, nothing to break, it is only a hill. The wish is granted exactly, and a brake is not part of being fastest. He has the correction ready and about two seconds to say it, going the wrong way down the hill. Mei writes the notebook page alone, and the title is in her handwriting because he is not there to write it.",
+  "siteLink": {
+    "url": "/#why-one-try",
+    "label": "Why we only get one try"
+  },
+  "pages": [
+    {
+      "file": "comic29_P1.jpeg",
+      "alt": "Comic page one of The Bicycle, five panels, the first shown in soft memory tone. A boy of about six topples sideways off a small bicycle while his mother reaches for him, DOSUN: \"I learned to ride a bike the normal way.\" Three narrow panels: falling, a plaster being put on a grazed knee, and riding again. \"Fell off. Got up. Fell off. Got up.\" Kenji, older now, stands with his bicycle at the top of a long residential slope with Capy beside him: \"That only works because falling off doesn't end anything.\" Last panel, he grips the handlebars and turns to Capy, KACHA: \"Nothing on the list. Nothing I'd never trade. Nothing to break. It's a hill. Capy, I want to get to the bottom as fast as anyone possibly could. Make me the fastest.\""
+    },
+    {
+      "file": "comic29_P2.jpeg",
+      "alt": "Comic page two, four panels. PON, and the ordinary bicycle becomes a long low machine with a narrow seat and a swept frame: \"Whoa!\" Kenji sets off grinning, SHAAA: \"Ha! Mei's never going to believe...\" The slope steepens, GOOOOO, and his expression changes: \"...Capy?\" Last panel, a close shot of his fist clenched on a bare handlebar where no brake lever is fitted: \"The brakes! Where are the brakes?!\""
+    },
+    {
+      "file": "comic29_P3.jpeg",
+      "alt": "Comic page three, four panels. SHIIIN, a wide view from behind and above of the small figure racing away down the long straight road towards a busy junction at the bottom. Kenji, mouth open and one hand off the bars, the words torn away behind him: \"CAPY! STOP! NEW JOB! NEW JOB!\" A flat empty panel of the road with Capy sitting alone in the middle distance: \"This is the part where I change the wish. A whole sentence takes about two seconds to say.\" A caption reads \"OBJECTIVE IN PROGRESS.\" Last panel, Capy sits at the top of the hill looking down at the junction where a small crowd has gathered: \"Every other time, I got to ask again. That was the only thing that ever made any of it survivable, and I never once noticed it was there.\""
+    },
+    {
+      "file": "comic29_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight with a hand writing the title \"SOME MISTAKES YOU ONLY MAKE ONCE,\" Capy seated alone by an empty desk chair: \"That's what he'd have called it.\" A two-column panel headed \"WHAT HE ASKED FOR\" and \"WHAT HE GOT\": on the left, \"Make me the fastest down this hill\"; on the right, \"No brakes. A brake is not part of being fastest.\" Mei, alone, explains: \"Every other time he got it wrong, he got to say it again and fix it. That was never him being careful. That was the mistakes being small enough to walk away from.\" Last panel, Mei holds the notebook open, the page reading \"You can only learn from a mistake you are still here to learn from. Grown-ups call this: the no-second-try problem.\" Capy adds, \"And it isn't only Capy. He learned to ride a bike by falling off it, over and over, and that only ever worked because he got up.\""
+    }
+  ]
+}

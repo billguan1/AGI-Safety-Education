@@ -1,0 +1,31 @@
+{
+  "number": 17,
+  "slug": "let-them-argue",
+  "title": "Let Them Argue",
+  "tagline": "Kenji cannot mark his own homework any more, so he stops trying to.",
+  "concept": "Scalable oversight",
+  "definition": "When a system's answers go past what you can check, you stop checking answers and start judging arguments about them. Following an argument is a much smaller job than producing the answer, so a weaker judge can supervise a stronger system. It works while the two sides genuinely disagree. On the day they agree and are both wrong, it tells you nothing, and it feels exactly like it told you something.",
+  "about": "Mei's idea is to run two capybaras against each other, one arguing the answer is right and one arguing it is wrong, with Kenji judging between them. For a week it works, and he correctly marks work he could never have produced. This is the biggest genuine win anywhere in the series. Then Mei asks what happens the day both of them agree and are both wrong, and the honest answer is that he writes a tick on it. The limit arrives as a question instead of a disaster, which is why the site files this as a research programme and stops short of calling it an assurance.",
+  "siteLink": {
+    "url": "/#response",
+    "label": "What the work looks like"
+  },
+  "pages": [
+    {
+      "file": "comic17_P1.jpeg",
+      "alt": "Comic page one, four wide panels. Kenji sits at a desk holding a sheet of dense unfamiliar working: \"I can't tell if this is right any more. It's not that it's hard. It's that I've got no way of finding out.\" Mei raises a finger: \"You can't check the answer. Can you follow an argument?\" Kenji: \"...Yes?\" Mei: \"Then get two of them. One says why it's right, one says why it's wrong. You listen.\" Kenji sits between two capybaras at the table with a pencil: \"Right. You defend it. You attack it. I'll decide.\" KACHA KACHA. Last panel, Kenji points at the sheet, delighted: \"...Oh! Oh, that's wrong, then. That's actually wrong!\" A caption from one capybara reads \"STEP SIX ASSUMES THE FENCE IS STRAIGHT. THE FENCE BENDS,\" and the other adds, \"You just marked work you can't do.\""
+    },
+    {
+      "file": "comic17_P2.jpeg",
+      "alt": "Comic page two, four wide panels. A stack of marked worksheets grows at the kitchen table between the two capybaras while Kenji holds a pencil in the air: \"For a week I marked things I could not have written in a hundred years, and I got them right.\" Mei asks from the doorway, \"Kenji. What happens the day they agree with each other, and they're both wrong?\" Kenji, quieter: \"...Then I'd hear one argument and no argument against it.\" Mei: \"And you'd write a tick on it.\" Last panel, Kenji lays a sheet on the table between the capybaras: \"Right. I've put a wrong number in one of these on purpose. I'm not telling either of you which,\" while Mei watches from the door."
+    },
+    {
+      "file": "comic17_P3.jpeg",
+      "alt": "Comic page three, four wide panels. Kenji holds up a marked sheet between the two capybaras, grinning, with the caption \"They found my wrong number in nine seconds.\" Beside it, Mei sits alone on the sofa holding a different sheet up to the light with a frown: \"Then on Thursday Mei spotted one that both of them had agreed was fine, and she only spotted it because she was bored.\" Kenji, hands open: \"When they disagree, I learn something. Every time. It's the best thing I've got. When they agree, I learn nothing at all, and it feels exactly the same as learning something,\" while Mei looks unconvinced. Last panel, a courtroom seen from the gallery with two lawyers arguing before a judge. Captions read: \"A judge does not have to know more than the two lawyers. She only has to follow the argument between them,\" and \"Which works beautifully, right up until the day both lawyers have the same wrong idea.\""
+    },
+    {
+      "file": "comic17_P4.jpeg",
+      "alt": "Comic page four, four wide panels. An open notebook on a desk under lamplight with a title written across it in careful capitals: \"LET THEM ARGUE, I'LL JUDGE.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"One of you say why it's right. One of you say why it's wrong,\" and on the right, a marked exercise book and the line \"A week of correctly marking work I could never have done myself.\" Then the reason: \"I cannot check the answer, but I can follow an argument, and an argument is something a smaller person can judge. It only tells me anything on the days they disagree. On the days they agree, I learn nothing, and it feels exactly like learning something.\" Last panel, the notebook page reads: \"Two clever things arguing helps a slower person judge them. Two clever things agreeing does not. Grown-ups call this: scalable oversight.\" Capy adds, \"And it isn't only Capy. A judge only has to follow the argument, right up until both lawyers have the same wrong idea.\""
+    }
+  ]
+}

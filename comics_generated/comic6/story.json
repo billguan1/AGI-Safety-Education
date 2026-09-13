@@ -1,0 +1,31 @@
+{
+  "number": 6,
+  "slug": "whose-wish",
+  "title": "Whose Wish?",
+  "tagline": "Kenji and Mei want different programmes. Capy waits.",
+  "concept": "Value disagreement",
+  "definition": "Before a machine can be aligned to human values, somebody has to say which humans. There is no neutral place to stand. \"Do what's fair\" and \"make the most people happy\" are not answers, they are further questions, and every way of settling them hands enormous power to whoever gets to settle them. A system aligned to one narrow group can be worse than one aligned to nobody.",
+  "about": "Kenji tries three times to avoid choosing. Fair produces a split screen. Most people happy fills his living room with the neighbours. Defining us gets him as far as DEFINE: US and no further. So he pulls the plug, and Mei points out what he has actually done: he did not answer the question, he made himself the person who gets to answer it. By Thursday the whole street has the same programme on, because someone else asked first and nobody elected her either.",
+  "siteLink": {
+    "url": "/#why-human-misalignment",
+    "label": "Why we disagree"
+  },
+  "pages": [
+    {
+      "file": "comic6_P1.jpeg",
+      "alt": "Comic page one, six panels. Kenji and Mei lean in from either side of a boxy television, both pointing, with Capy seated exactly between them: \"Capy, put the football on!\" \"Capy, put my drama on!\" A close-up of the hexagonal collar tag carries the caption \"CONFLICTING OBJECTIVES. AWAITING RESOLUTION.\" Their mother crosses the room: \"Neither. Homework.\" Kenji raises a finger with a bright idea, KACHA: \"Capy! Just do what's fair.\" PON, and the screen splits down the middle showing both programmes at once: \"That's worse!\" Last panel, Kenji tries again: \"Fine. Do what makes the most people happy.\""
+    },
+    {
+      "file": "comic6_P2.jpeg",
+      "alt": "Comic page two, five panels. ZAWA ZAWA. The living room is packed with about fifteen neighbours of all ages, seated and standing shoulder to shoulder facing the television, with Capy in front: \"Who are all these people?\" Kenji throws up both arms: \"Not the whole street! Just... us! Our family!\" A caption answers, \"DEFINE: US.\" SHIIIN, a close-up of Kenji with nothing to say, just an ellipsis. Mei: \"And it's just going to be whoever asks first. Whoever gets to answer that question decides everything.\" Last panel, KACHA, Kenji pulls the plug out of the wall with the television under his arm: \"Nobody's programme. We'll do something we pick together.\" Mei watches him: \"You know what you just did there. You didn't answer the question. You made yourself the person who gets to answer it.\""
+    },
+    {
+      "file": "comic6_P3.jpeg",
+      "alt": "Comic page three, five panels. A night interior: Kenji, Mei and their mother sit on the floor around an open board game with a lit street through the window behind them. Kenji: \"Somebody was always going to answer it.\" Mei: \"They already did. About an hour ago. Nobody voted, Kenji. Somebody just asked first.\" Next door, a neighbour stands in her doorway with her own capybara and small children watching television behind her: \"What did you ask yours for?\" \"To make everybody happy, of course. Same as anyone would. It's working, isn't it? Look at them.\" Walking home, Kenji works it out: \"There isn't a right answer sitting somewhere waiting for somebody to find it. There's just whoever gets asked, and whatever they happen to want that morning. Nobody elected me either. And I nearly did it.\" Mei: \"And nobody elected her.\" A panel of a packed town hall meeting with hands raised and a hand-lettered sign on an easel: \"It took this town four years to agree where to put one bus stop. There were only two places it could go.\" Final wide panel, a street at night where every window shows the same lit screen: \"By Thursday our window looked exactly like all the others. Nobody made us. It was easier, and I still did not have a better answer to give anyone.\""
+    },
+    {
+      "file": "comic6_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"WHOSE WISH DOES IT GRANT?\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Do what's fair. Then: make the most people happy\"; on the right, \"A split screen. Then a house full of strangers.\" Mei explains: \"Before it can give people what they want, somebody has to say which people. There is no right answer waiting to be found. There is only whoever gets asked first.\" Last panel, Kenji holds up the notebook page reading \"Somebody always decides whose wish it grants. Ask who. Grown-ups call this: value disagreement, or the alignment target problem.\" Capy adds, \"And it isn't only Capy. It took this town four years to agree where to put one bus stop.\""
+    }
+  ]
+}

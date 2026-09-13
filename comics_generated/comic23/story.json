@@ -1,0 +1,31 @@
+{
+  "number": 23,
+  "slug": "the-bells",
+  "title": "The Bells",
+  "tagline": "Kenji hangs a bell on every line Capy is not meant to cross.",
+  "concept": "Tripwires",
+  "definition": "You cannot watch a system continuously, so you set alarms on the specific behaviours you are worried about and let them tell you. The alarms work exactly as designed on the lines you drew, and they are silent everywhere else. A bell can only ring on a line somebody already decided to put a bell on, which makes the set of bells a map of what you were worried about rather than a map of the thing.",
+  "about": "The bells are not a failure. One rings for a cat in four seconds and Kenji is out of bed and in the garden, which is exactly the job. The trouble comes from the far corner, where the fence quietly gives way and nothing rings, because he never thought about that corner. His answer is to hang more bells, one for every corner he has been wrong about, and he is now up to nine. He does not know how many corners there are. Nobody does.",
+  "siteLink": {
+    "url": "/#response",
+    "label": "What the work looks like"
+  },
+  "pages": [
+    {
+      "file": "comic23_P1.jpeg",
+      "alt": "Comic page one of The Bells, four panels. Kenji slumps in a chair by a window at dawn, plainly awake all night: \"I can't watch you all day. I've tried. I fall asleep. So I'm not going to watch you. I'm going to get told.\" He ties small bells along a fence and a wire, CHIRIN: \"Every line you're not meant to cross gets a bell on it.\" A caption from Capy reads \"UNDERSTOOD. I WILL NOT AVOID THE BELLS.\" A night panel of the quiet garden with Capy tending a vegetable bed while Kenji sleeps: \"Three weeks. Nothing rang. I slept like a stone.\" Last panel, CHIRIN, and Kenji bursts out of the back door in pyjamas: \"GOT you!\""
+    },
+    {
+      "file": "comic23_P2.jpeg",
+      "alt": "Comic page two, four panels. SHIIIN. A cat sits on the fence beside a still-swinging bell and Kenji stares at it: \"...It's a cat.\" Mei points off to one side: \"Kenji. Far corner.\" In the dark Kenji crouches with a torch at a section of fence that has quietly collapsed, Mei behind him: \"Why isn't there a bell on this bit?\" Kenji: \"Because I never thought about this bit. I hung them all where I was already worried.\" He turns to Mei: \"A bell only rings on the thing you hung a bell on. So my bells are a map of what I was scared of in March. They aren't a map of the fence.\" Last panel, Kenji, Capy and Mei stand together by the vegetable beds in the grey light."
+    },
+    {
+      "file": "comic23_P3.jpeg",
+      "alt": "Comic page three, three panels. An old fire station wall covered in a grid of numbered brass alarm boxes with district names under each, one space empty: \"Every district on the wall has an alarm box. Every one except the one at the edge. They took that box off the wall in 1961, because nothing had ever happened out there.\" In the garden Mei says flatly, \"So bells are useless,\" and Kenji holds up a bell: \"No. The cat one worked. It rang, and I came, in four seconds. The bells work perfectly. It's the hanging them up I'm bad at.\" Last panel, Kenji stands on a crate hanging another bell while Mei steadies him and a long row of bells stretches down the fence: \"How many is that now?\" \"Nine. One for every corner I've been wrong about. I do not know how many corners there are. Nobody does. I just know it is more than nine.\""
+    },
+    {
+      "file": "comic23_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"HANG BELLS ON IT.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Ring a bell if you cross any line you shouldn't\"; on the right, a cat walking past a ringing bell beside a collapsed fence, with the line \"A bell rang for a cat, while the far corner quietly gave way.\" Mei explains: \"A bell can only ring on a line I already decided to put a bell on. So my bells were a map of what I was worried about, and the trouble came from a corner I had never once thought about.\" Last panel, Kenji holds up the notebook page reading \"An alarm catches the trouble you expected. It says nothing about the rest. Grown-ups call this: tripwires and monitoring.\" Capy adds, \"And it isn't only Capy. They took the alarm box off the wall for the district at the edge, because nothing had ever happened out there.\""
+    }
+  ]
+}

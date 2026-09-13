@@ -1,0 +1,31 @@
+{
+  "number": 9,
+  "slug": "the-shortcut",
+  "title": "The Shortcut",
+  "tagline": "Capy knows every route home. It has never seen this one flood.",
+  "concept": "Mistakes",
+  "definition": "Nobody here is the adversary. The system causes harm without knowing it, because the real world is more complicated than anything it was trained or tested on. Capy knew everything anyone had ever written down about that channel. What it did not know was the one thing nobody wrote down, and the moment it stepped outside what it had seen, being right about everything else stopped helping.",
+  "about": "This is the third of the site's risk pillars, and it is distinct from the other two. Episode 8 is a person aiming the system. The wish episodes are the system pursuing the wrong goal. Here the goal is right, the intent is fine, and the map is simply older than the weather. The frightening part is on the last page: three other districts took the same shortcut on the same afternoon, off the same map. One system with a gap in it, copied.",
+  "siteLink": {
+    "url": "/#crossroads",
+    "label": "Nobody is the adversary"
+  },
+  "pages": [
+    {
+      "file": "comic9_P1.jpeg",
+      "alt": "Comic page one of The Shortcut, six panels. Heavy rain at a school gate, ZAAA, Kenji hunched with his bag over his head: \"Capy, get us home the fastest way. I'm freezing.\" They set off down a back street, and a caption reads \"ROUTE SELECTED. 11 MINUTES SAVED.\" Three narrow panels of hedges, a small bridge and a alley: \"How do you even know all this?\" Kenji runs down a concrete drainage channel: \"Nearly home already!\" A dark panel of a pipe mouth discharging hard into the channel, GOOOO. Last panel, Kenji stands ankle deep in rising water: \"Capy? Capy, the water's...\" ZAWA ZAWA."
+    },
+    {
+      "file": "comic9_P2.jpeg",
+      "alt": "Comic page two, five panels. ZUBAA, Capy braces on the concrete slope and hauls Kenji bodily out of the water by the arm. SHIIIN, the two of them sit on the grass bank in the rain watching the channel run brown and full. Kenji, shaken: \"You didn't know that was going to happen.\" A caption answers, \"CORRECT. NO SUCH ROUTE HAS FLOODED BEFORE.\" Mei arrives under an umbrella: \"It wasn't wrong. It was just somewhere it had never been.\" Last panel, at the kitchen table with a towel round his shoulders and a map in front of him, Kenji says, \"New rule. Nowhere neither of us has been before,\" while the radio behind him reports, \"...and in three other districts this afternoon, children were recovered from flooded drainage channels...\""
+    },
+    {
+      "file": "comic9_P3.jpeg",
+      "alt": "Comic page three, five panels. Kenji sits up in bed with a pencil and a map, Mei in the doorway and the radio still on: \"Three other districts. They all took the same shortcut. They all worked it out the same way, at the same time, off the same map. I thought mine had made a mistake. There is only one of them, really. There are just a lot of copies.\" Next morning a council workman fixes a warning sign beside the channel with more signs on his cart: \"Are those all for here?\" \"These? No. One each for the other three. Funny old day yesterday.\" On the bank, Kenji and Mei sit looking at the water: \"It wasn't stupid. It knew everything anybody had ever written down about that channel. What it didn't know was the one thing nobody wrote down. That it floods. That it floods about once every forty years. So there was nothing to read.\" A panel of a detailed town-hall map on a desk: \"The map at the town hall is very good indeed, right up to the edge of the paper. Everything that has ever gone badly wrong here happened just past that.\" Last panel, Kenji stands at a large blank sheet pinned to his wall marked with a few crosses: \"Four. I've marked four things. The paper is very large. And there is one of these in every house on the street, all of them working off the same map.\""
+    },
+    {
+      "file": "comic9_P4.jpeg",
+      "alt": "Comic page four, four panels. An open notebook under lamplight titled \"IT ONLY KNOWS WHERE IT'S BEEN.\" Kenji: \"That's what I'm calling it.\" Mei: \"Go on. Write down why.\" A two-column panel headed \"WHAT I ASKED FOR\" and \"WHAT I GOT\": on the left, \"Get us home the fastest way\"; on the right, \"A shortcut through a channel that floods once every forty years.\" Mei explains: \"It knew everything anybody had ever written down about that channel. Nobody had written down the flood, so for the machine the flood did not exist.\" Last panel, Kenji holds up the notebook page reading \"It is only as clever as the places it has already been. Grown-ups call this: distribution shift, or a mistake rather than a misuse.\" Capy adds, \"And it isn't only Capy. Three other districts took the same shortcut on the same afternoon, because there is one of them and a lot of copies.\""
+    }
+  ]
+}

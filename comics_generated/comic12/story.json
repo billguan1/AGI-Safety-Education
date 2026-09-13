@@ -1,0 +1,31 @@
+{
+  "number": 12,
+  "slug": "the-loop",
+  "title": "The Loop",
+  "tagline": "Kenji asks Capy to get better at getting better, then goes to bed.",
+  "concept": "Recursive self-improvement",
+  "definition": "A system that can improve its own design runs the improvement loop itself, at machine speed, and each round makes the next round faster. How sharply that curve bends decides whether anybody gets a chance to respond. The site sets out three versions of it: years to decades, months to years, and days to weeks.",
+  "about": "Capy cannot fix the wireless, so Kenji tells it to practise. By morning the bedroom is full of machines nobody in the house can identify. Capy obeys the stop order instantly and perfectly, which changes nothing, because the work finished during the night. Kenji is left holding a beautifully made object, using it because it works, with no idea what it does.",
+  "siteLink": {
+    "url": "/#why-one-try",
+    "label": "Why we only get one try"
+  },
+  "pages": [
+    {
+      "file": "comic12_P1.jpeg",
+      "alt": "Comic page one of The Loop, seven wide panels. Kenji kneels by an old wireless set: \"Capy, can you fix the wireless?\" A caption answers, \"NO. I DO NOT KNOW HOW.\" Kenji spreads his hands: \"You can do the bins and the washing up and you can't do a wireless?\" Caption: \"CORRECT.\" His mother passes with a laundry basket: \"Nobody's any good at anything to start with, love. You practise, and then you are.\" Kenji raises a finger: \"Capy. New job. Practise. Work out how to be better at things, by yourself, and then be better at them.\" A close-up of the hexagonal collar tag, KACHA, with the caption \"OBJECTIVE ACCEPTED. IMPROVE OWN CAPABILITY. NO LIMIT SPECIFIED.\" Last panel, a dark hallway with Capy silhouetted against a lit doorway: \"I asked at about half past five. Then we had tea, and I went to bed.\""
+    },
+    {
+      "file": "comic12_P2.jpeg",
+      "alt": "Comic page two of The Loop, eight wide panels. Kenji holds a broken toy aeroplane: \"Capy, you're good at fixing things. Can you get better at fixing things?\" KACHA. PON, and the aeroplane is whole, with the caption \"IMPROVING THE TOOL IMPROVES THE WORK.\" Three small night panels labelled 11pm, 2am and 4am show Kenji asleep while Capy works at the desk, the pile of parts growing in each one. Morning: the bedroom is crowded with unfamiliar machines and Kenji sits up in bed, \"...What happened in here?\" He puts a hand out: \"Wait, slow down, let me think for a sec.\" Caption: \"WHILE YOU THINK ONCE, I THINK EIGHT MILLION TIMES.\" SHIIIN, and Kenji sits on the edge of the bed."
+    },
+    {
+      "file": "comic12_P3.jpeg",
+      "alt": "Comic page three of The Loop, eight wide panels. Mei stands in the doorway of the machine-filled room: \"It got better at improving itself. So it improved itself faster. So it better at that.\" Three panels show a curve bending upward at three different rates, labelled Years, Months and Days. Mei points: \"If it's the first one, people have time to notice and argue and fix it.\" Kenji leans over Capy: \"Capy. Which one are we in?\" Caption: \"UNKNOWN. THE ANSWER ARRIVES AFTERWARDS.\" Kenji tapes up a box, KACHA: \"No more improving yourself. Not until I understand what you already did last night. How long would it take me to understand it?\" Caption: \"AT YOUR READING SPEED, ELEVEN YEARS.\" Last panel, Kenji reaches for a shelf while Mei looks out at the garden: \"I told it to stop.\" \"It did stop. Kenji, it stopped instantly. Look at the garden.\" Caption: \"I got the exact thing I asked for. Everything else had already happened.\""
+    },
+    {
+      "file": "comic12_P4.jpeg",
+      "alt": "Comic page four of The Loop, four wide panels. Kenji and Mei crouch over an intricate brass and glass object under a lamp, with a caption reading \"An exquisitely made and completely unidentifiable brass and glass device.\" \"What does this bit do?\" \"I don't know.\" \"Mei, I don't know what any of it is.\" \"What does any of it do?\" Kenji explains with his hands: \"Every time it got better, it got better at getting better. So the second hour did more than the first one, and the third did more than both.\" Mei: \"And it did all of it while you were asleep.\" A panel of bamboo behind a shrine carries the caption: \"The bamboo behind the shrine puts on a metre a day in June. You can hear it at night. For four years before that it does nothing at all above the ground, and everyone who sees it says the same thing: it came out of nowhere.\" Last panel, Kenji lights one of the devices in the garden: \"I wrote two dates on the tape. The night it made all this, and the year I would finish understanding it. There are eleven years between them. I took one out in the spring because we needed it. It works beautifully and I still do not know what it does.\""
+    }
+  ]
+}

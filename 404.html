@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404: a page is missing</title>
+<meta name="description" content="That page does not exist. A broken link is the kind of failure you survive. This site is about the kind you may not.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="404: a page is missing">
+<meta property="og:description" content="A broken link is the kind of failure you survive. This site is about the kind you may not.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://safeagi.ca/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12161a; --paper:#e6e9eb;
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --gut:clamp(18px,4.6vw,60px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:#e2e8ec;font-family:var(--body);font-weight:300;
+  font-size:clamp(16.5px,1rem + .2vw,18.5px);line-height:1.6;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column}
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(900px 420px at 82% 8%,rgba(189,58,32,.20),transparent 65%),
+             radial-gradient(700px 380px at 8% 92%,rgba(34,51,204,.20),transparent 65%)}
+.wrap{position:relative;z-index:1;width:100%;max-width:760px;margin:0 auto;
+  padding:clamp(48px,10vh,110px) var(--gut) clamp(40px,8vh,80px)}
+main{flex:1}
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:#7d8890;display:flex;align-items:center;gap:12px;margin:0 0 22px}
+.eyebrow::after{content:"";flex:1;height:1px;background:#333d44}
+h1{font-family:var(--display);font-weight:900;letter-spacing:-.03em;line-height:1.08;
+  font-size:clamp(30px,6vw,52px);color:#fff;margin:0 0 26px;max-width:16ch}
+p{margin:0 0 18px;max-width:58ch}
+.lede{font-size:clamp(17.5px,2.2vw,20px);color:#cdd6dc}
+.turn{font-family:var(--display);font-weight:600;letter-spacing:-.018em;line-height:1.34;
+  font-size:clamp(18px,2.5vw,23px);color:#fff;margin:30px 0 0;max-width:36ch}
+figure{margin:36px 0 30px}
+figure svg{width:100%;height:auto}
+figcaption{font-family:var(--mono);font-size:10.5px;line-height:1.55;color:#8a959c;margin-top:12px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+a.go{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  text-decoration:none;padding:11px 16px;border-radius:999px;border:1.5px solid #3a444c;color:#cdd6dc;
+  transition:.15s;white-space:nowrap}
+a.go:hover{border-color:#fff;color:#fff}
+a.go.primary{background:#fbfcfc;border-color:#fbfcfc;color:#12161a}
+a.go.primary:hover{background:#fff;border-color:#fff}
+:focus-visible{outline:2.5px solid #6d84ff;outline-offset:3px;border-radius:2px}
+.langbar{position:relative;z-index:1;max-width:760px;margin:0 auto;width:100%;
+  padding:18px var(--gut) 0;display:flex;justify-content:flex-end;gap:8px}
+.langbar button{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;background:transparent;border:1.5px solid #333d44;color:#8a959c;
+  padding:6px 11px;border-radius:999px;cursor:pointer;transition:.15s}
+.langbar button:hover{border-color:#8a959c;color:#cdd6dc}
+.langbar button[aria-pressed="true"]{background:#e2e8ec;border-color:#e2e8ec;color:#12161a}
+[hidden]{display:none !important}
+:lang(zh-Hans) h1{letter-spacing:-.01em;max-width:20ch}
+:lang(zh-Hans) p,:lang(zh-Hans) .turn{max-width:34em}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<div class="langbar">
+  <button type="button" id="to-en" aria-pressed="true">English</button>
+  <button type="button" id="to-zh" aria-pressed="false">中文</button>
+</div>
+
+<main>
+<div class="wrap">
+
+  <!-- ENGLISH -->
+  <section id="en" lang="en">
+    <p class="eyebrow">Error 404</p>
+    <h1>A page is missing. Nothing else is.</h1>
+
+    <p class="lede">You asked for an address that is not here. Press back, or start again from the top, and this mistake costs you the few seconds it took to read this line.</p>
+
+    <p>That is what a safe failure looks like. It is cheap, it is obvious the moment it happens, and it leaves you free to try again.</p>
+
+    <p>Every technology we have made safe, we made safe that way. Seatbelts came after crashes. Aviation built an entire discipline out of investigating wreckage. Each one worked because the failure was survivable, local, and slow enough to study.</p>
+
+    <figure>
+      <svg viewBox="0 0 720 168" role="img" aria-label="Two rows. A missing page loops back to where you started. A first serious loss of control runs one way into a wall, with no return path.">
+        <defs>
+          <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7fc98a"/></marker>
+          <marker id="oneway" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker>
+        </defs>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">TWO KINDS OF MISTAKE</text>
+
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8a959c">This page</text>
+        <circle cx="150" cy="52" r="5.5" fill="#7fc98a"/>
+        <path d="M158,54 L236,54 Q272,54 272,38 Q272,22 236,22 L172,22" fill="none" stroke="#7fc98a" stroke-width="2" marker-end="url(#back)"/>
+        <text x="300" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7fc98a">you go back, nothing is lost</text>
+
+        <line x1="0" y1="88" x2="720" y2="88" stroke="#2b343b"/>
+
+        <text x="0" y="128" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b9c2c8">A first serious loss of control</text>
+        <circle cx="150" cy="124" r="5.5" fill="#ff8a6b"/>
+        <path d="M158,124 L470,124" stroke="#ff8a6b" stroke-width="2.4" marker-end="url(#oneway)"/>
+        <rect x="486" y="102" width="9" height="44" rx="2.5" fill="#e2e8ec"/>
+        <text x="510" y="128" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#ff8a6b">no return path</text>
+        <text x="0" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">Trial and error needs the top row. It is the only method we have ever had.</text>
+      </svg>
+      <figcaption>The top row is why the web is forgiving. The bottom row is the case this site argues we are walking toward, and it is the one where the method runs out.</figcaption>
+    </figure>
+
+    <p class="turn">A broken link is the good kind of mistake. Not every mistake gets to be that kind.</p>
+
+    <div class="links">
+      <a class="go primary" href="/">Start at the beginning</a>
+      <a class="go" href="/#brief">The argument in 90 seconds</a>
+      <a class="go" href="/#why-one-try">Why we only get one try</a>
+    </div>
+  </section>
+
+  <!-- 简体中文 -->
+  <section id="zh" lang="zh-Hans" hidden>
+    <p class="eyebrow">错误 404</p>
+    <h1>少了一个页面。别的什么都没少。</h1>
+
+    <p class="lede">你要的地址不在这里。按下返回，或者从头开始，这个错误的代价，不过是你读完这行字的几秒钟。</p>
+
+    <p>安全的失败就是这个样子：代价很低，发生的那一刻就看得见，而且留下了再试一次的余地。</p>
+
+    <p>我们把每一项技术变安全，走的都是这条路。安全带出现在车祸之后。航空业把调查残骸做成了一整门学科。它们之所以奏效，是因为那些失败可以幸存、影响局部，而且慢到来得及研究。</p>
+
+    <figure>
+      <svg viewBox="0 0 720 168" role="img" aria-label="两行对比。找不到的页面会绕回起点。而第一次严重的失控是一条单向路径，尽头是一堵墙，没有回头路。">
+        <defs>
+          <marker id="back-zh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7fc98a"/></marker>
+          <marker id="oneway-zh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker>
+        </defs>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#7d8890">两种错误</text>
+
+        <text x="0" y="56" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8a959c">这个页面</text>
+        <circle cx="150" cy="52" r="5.5" fill="#7fc98a"/>
+        <path d="M158,54 L236,54 Q272,54 272,38 Q272,22 236,22 L172,22" fill="none" stroke="#7fc98a" stroke-width="2" marker-end="url(#back-zh)"/>
+        <text x="300" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#7fc98a">退回去，什么都没丢</text>
+
+        <line x1="0" y1="88" x2="720" y2="88" stroke="#2b343b"/>
+
+        <text x="0" y="128" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b9c2c8">第一次严重的失控</text>
+        <circle cx="150" cy="124" r="5.5" fill="#ff8a6b"/>
+        <path d="M158,124 L470,124" stroke="#ff8a6b" stroke-width="2.4" marker-end="url(#oneway-zh)"/>
+        <rect x="486" y="102" width="9" height="44" rx="2.5" fill="#e2e8ec"/>
+        <text x="510" y="128" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#ff8a6b">没有回头路</text>
+        <text x="0" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">试错需要上面那一行。而它是我们唯一用过的方法。</text>
+      </svg>
+      <figcaption>上面一行，是网络之所以宽容的原因。下面一行，是这个网站认为我们正走向的处境，也是试错这套方法失效的地方。</figcaption>
+    </figure>
+
+    <p class="turn">链接失效是那种好的错误。并不是每个错误，都有机会属于这一类。</p>
+
+    <div class="links">
+      <a class="go primary" href="/index-zh.html">从头开始</a>
+      <a class="go" href="/index-zh.html#brief">90 秒读懂这个论证</a>
+      <a class="go" href="/index-zh.html#why-one-try">为什么我们只有一次机会</a>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var en = document.getElementById("en"), zh = document.getElementById("zh"),
+      bEn = document.getElementById("to-en"), bZh = document.getElementById("to-zh");
+  function show(lang){
+    var isZh = lang === "zh";
+    if(isZh){ zh.removeAttribute("hidden"); en.setAttribute("hidden",""); }
+    else    { en.removeAttribute("hidden"); zh.setAttribute("hidden",""); }
+    bZh.setAttribute("aria-pressed", isZh ? "true" : "false");
+    bEn.setAttribute("aria-pressed", isZh ? "false" : "true");
+    document.documentElement.setAttribute("lang", isZh ? "zh-Hans" : "en");
+    document.title = isZh ? "404：少了一个页面" : "404: a page is missing";
+  }
+  /* Follow the reader in from whichever language they were reading, then fall
+     back to the browser's own preference. */
+  var ref = document.referrer || "", path = location.pathname || "";
+  var wantsZh = /index-zh/.test(ref) || /index-zh|[/-]zh\b/.test(path) ||
+                /^zh/i.test(navigator.language || "");
+  show(wantsZh ? "zh" : "en");
+  bEn.addEventListener("click", function(){ show("en"); });
+  bZh.addEventListener("click", function(){ show("zh"); });
+})();
+</script>
+</body>
+</html>
