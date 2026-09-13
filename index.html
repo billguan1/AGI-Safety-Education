@@ -18,6 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
+/* Metric-matched fallbacks. Measured from the real font files with fontTools:
+   size-adjust = target xAvgCharWidth/upem over fallback xAvgCharWidth/upem;
+   the ascent/descent overrides are divided by that scale because they apply
+   after it. Keeps display:swap from moving layout while the webfont loads. */
+@font-face{font-family:"Archivo Fallback";src:local("Arial");size-adjust:119.62%;ascent-override:73.40%;descent-override:17.56%;line-gap-override:0%}
+@font-face{font-family:"Newsreader Fallback";src:local("Georgia");size-adjust:123.54%;ascent-override:59.50%;descent-override:21.45%;line-gap-override:0%}
+@font-face{font-family:"IBM Plex Mono Fallback";src:local("Courier New");size-adjust:99.98%;ascent-override:102.52%;descent-override:27.50%;line-gap-override:0%}
 :root{
   /* Dark throughout. --ink is the primary TEXT colour; --panel is the colour
      of blocks that were already dark by design, kept darker than the page so
@@ -31,9 +38,9 @@
   --c-risk:#ff8a6b; --t-risk:#2e1a15; --d-risk:#8f2c18;
   --c-act:#9cc48a;  --t-act:#1a2418;
   --glow-r:#ff6a45; --glow-b:#6d84ff; --glow-t:#3fd0c9;
-  --display:"Archivo",system-ui,sans-serif;
-  --body:"Newsreader",Georgia,serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --display:"Archivo","Archivo Fallback",system-ui,sans-serif;
+  --body:"Newsreader","Newsreader Fallback",Georgia,serif;
+  --mono:"IBM Plex Mono","IBM Plex Mono Fallback",ui-monospace,monospace;
   --gut:clamp(18px,4.6vw,60px); --maxw:1220px; --r:4px;
 }
 *{box-sizing:border-box}
@@ -660,7 +667,7 @@ section[id]{scroll-margin-top:calc(var(--barH,96px) + 18px)}
 
 
 /* ---------- narrow view: a persistent chapter bar ---------- */
-.nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
+.nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0;min-height:40px}
 @media(max-width:1023px){
   .nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);
     border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
@@ -1418,6 +1425,18 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 /* ---------- what can be done ---------- */
 .cando-lead{max-width:70ch;margin-bottom:clamp(20px,3vw,28px)}
 .cando-block{margin:clamp(28px,4vw,44px) 0 0}
+/* The public asks lead. The other three groups carry the same content at a
+   lower visual weight, because they are not the person reading. */
+#what-you-can-do .cando-h h3{font-size:clamp(22px,3vw,30px)}
+#what-you-can-do .ddc h4{font-size:clamp(16px,1.9vw,18.5px)}
+#what-you-can-do .ddc p{font-size:15.5px}
+.cando-block.secondary{margin-top:clamp(18px,2.6vw,26px)}
+.cando-block.secondary .cando-h{margin-bottom:10px;padding-bottom:7px}
+.cando-block.secondary .cando-h h3{font-size:clamp(15px,1.8vw,18px);color:var(--ink-2)}
+.cando-block.secondary .ddc{padding:14px 15px}
+.cando-block.secondary .ddc h4{font-size:14.5px}
+.cando-block.secondary .ddc p{font-size:13px}
+.cando-block.secondary .ddc .k{font-size:9px}
 .cando-h{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft)}
 .cando-h .ch-n{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c-act)}
 .cando-h h3{margin:0;font-size:clamp(19px,2.5vw,24px)}
@@ -1771,7 +1790,7 @@ div.endc{cursor:default}
       </li>
     </ul>
     </nav>
-  <div class="nowbar" id="nowbar" aria-live="off"></div>
+  <div class="nowbar" id="nowbar" aria-live="off"><span class="nb-t">The situation, in one page</span></div>
 </div>
 
 <div class="chapnum" id="chapnum" aria-hidden="true"></div>
@@ -2149,7 +2168,7 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">The fork in the road</span></div>
     <div class="sec-head rv">
-      <span class="chapno">Section 2.1 <b class="rt-min">1 min</b></span>
+      <span class="chapno">Section 2.1 <b class="rt-min">2 min</b></span>
       <h2>AI could cure diseases and end scarcity</h2>
       <p class="stand">AGI is expected to create extreme wealth and solve problems humanity cannot solve today, up to unlimited material abundance.</p>
     </div>
@@ -2171,6 +2190,8 @@ div.endc{cursor:default}
       <div class="ddc t"><span class="k">Health</span><h4>Significantly longer, healthier lives</h4><p>Roughly a doubled healthy lifespan, with most cancer eliminated and most infectious disease prevented or treated, because the limit on that research is how many trained biologists exist rather than what is knowable.<a class="ref" href="/reference#s67">67</a></p></div>
       <div class="ddc g"><span class="k">Abundance</span><h4>Material goods stop being scarce</h4><p>Things cost what they cost because making them takes skilled human time, and that is the constraint this removes. The curve above is what that looks like as a number; at household level it is goods that were rationed by price becoming ordinary.<a class="ref" href="/reference#s66">66</a></p></div>
       <div class="ddc b"><span class="k">Work</span><h4>Mental drudgery handed over</h4><p>The output still arrives, without the hours. That is the version of automation people actually want, and it comes from the same capability that makes everything after this hard.<a class="ref" href="/reference#s1">1</a></p></div>
+        <div class="ddc t"><span class="k">Discovery</span><h4>Problems that were closed are open now</h4><p>AlphaFold predicted structures for more than 200 million proteins and put every one of them in a free public database, work that took the 2024 Nobel Prize in Chemistry. Over two million people across 190 countries have used it. This is the part of the upside that has already happened, which is what makes the rest of it credible.<a class="ref" href="/reference#s68">68</a></p></div>
+        <div class="ddc o"><span class="k">Forecasting</span><h4>Earlier warning, at a fraction of the cost</h4><p>GraphCast beat the European Centre&rsquo;s operational forecast on 89.3% of the 2,760 variables it was tested against, and it turns a ten-day forecast from hours on a supercomputer into under a minute. Cyclone tracks are among what it predicts.<a class="ref" href="/reference#s69">69</a></p></div>
     </div>
 
   </div>
@@ -3773,14 +3794,16 @@ refusal training</text>
     
     <div class="sec-head">
       <p class="eyebrow">Section 5.4 · Who does what <b class="rt-min">6 min</b></p>
-      <h2>Knowing all of this changes nothing on its own. Here is what would.</h2>
+      <h2>What you can do this week, and what has to change above you.</h2>
       <p class="stand cando-lead">Four groups can move this, and you are the first of them. Each ask below is specific, and positions attributed to a government are what the public record says, dated, because a stale summary here is worse than none.</p>
     </div>
 
     <div class="cando-block" id="what-you-can-do">
       <div class="cando-h"><span class="ch-n">You</span><h3>What you can do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">Join</span><h4>Join the community</h4><p>One email when a bill, a treaty or an incident makes public pressure count.</p>
+        <div class="ddc g"><span class="k">Learn</span><h4>Get to a view you can defend, in about two hours</h4><p>BlueDot&rsquo;s Future of AI course is free and interactive, and it takes roughly two hours. It is the fastest route from having read one argument to being able to judge the next one you meet.<a class="ref" href="/reference#s3">3</a></p>
+          <div class="share"><a href="https://bluedot.org/courses/future-of-ai" target="_blank" rel="noopener">Start the course</a></div></div>
+        <div class="ddc g"><span class="k">Join</span><h4>Join the community</h4><p>One email when a bill, a treaty or an incident is close enough that public attention changes the outcome.</p>
           <form class="jform jform-c" data-bad="That does not look like an email address." data-sending="Sending…" data-ok="You are on the list. Check your inbox to confirm." data-err="That did not go through. Try again shortly." action="/subscribe" method="post" novalidate>
             <label class="skip" for="do-email">Email address</label>
             <input type="email" id="do-email" name="email" placeholder="you@example.com" required autocomplete="email">
@@ -3789,22 +3812,22 @@ refusal training</text>
             <button type="submit">Join</button>
           </form>
           <p class="jmsg" role="status" aria-live="polite"></p></div>
-        <div class="ddc t"><span class="k">Share</span><h4>Share it with your network</h4><p>Most people have never heard the argument in a form they can judge. Every reader strengthens the human immune system against harmful AGI.</p>
+        <div class="ddc t"><span class="k">Share</span><h4>Share it with your network</h4><p>Most people have never seen this argument in a form they can judge for themselves. Sending it to one person who will actually read it does more than posting it to a hundred who will not.</p>
           <div class="share">
             <button type="button" class="js-sh-copy">Copy link</button>
             <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
             <a class="js-sh-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">X</a>
             <a class="js-sh-wa" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">WhatsApp</a>
           </div></div>
-        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition until there is scientific consensus it can be done safely. One minute, and the count is the point.<a class="ref" href="/reference#s2">2</a></p>
+        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition until there is scientific consensus that it can be done safely. It takes a minute, and the list is public, which is the whole difference between signing and agreeing quietly.<a class="ref" href="/reference#s2">2</a></p>
           <div class="share"><a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Add your name</a></div></div>
-        <div class="ddc o"><span class="k">Choose</span><h4>Buy from labs that take AI safety seriously</h4><p>Prefer the ones that publish their evaluations and fund safety in proportion to capability, and tell them that is why you chose them.<a class="ref" href="/reference#s15">15</a></p></div>
+        <div class="ddc o"><span class="k">Choose</span><h4>Buy from labs that take AI safety seriously</h4><p>Anthropic, OpenAI and DeepMind all publish safety frameworks, and the Future of Life Institute grades them against each other. Check the grade before you renew a subscription, and say why if you cancel one.<a class="ref" href="/reference#s15">15</a></p></div>
       </div>
     </div>
 
     
 
-    <div class="cando-block">
+    <div class="cando-block secondary">
       <div class="cando-h"><span class="ch-n">Researchers</span><h3>What researchers should do</h3></div>
       <div class="ddgrid two rv">
         <div class="ddc b"><span class="k">Explain</span><h4>Show the public where safety stops</h4><p>Say in plain terms what today&rsquo;s techniques catch and where each one gives out. The gap stays invisible until someone inside describes it.</p></div>
@@ -3815,7 +3838,7 @@ refusal training</text>
       <p class="cando-foot">ARENA and MATS take strong technical backgrounds into published safety work in months.<a class="ref" href="/reference#s6">6</a><a class="ref" href="/reference#s8">8</a><a class="ref" href="/reference#s27">27</a></p>
     </div>
 
-    <div class="cando-block">
+    <div class="cando-block secondary">
       <div class="cando-h"><span class="ch-n">The labs</span><h3>What the labs should do</h3></div>
       <div class="ddgrid two rv">
         <div class="ddc g"><span class="k">Pace</span><h4>Slow down and carry the responsibility</h4><p>There is no prize at the bottom of a cliff. The labs still standing in twenty years will be the ones that acted like everybody&rsquo;s lives were in their hands.<a class="ref" href="/reference#s16">16</a></p></div>
@@ -3825,7 +3848,7 @@ refusal training</text>
       </div>
     </div>
 
-    <div class="cando-block">
+    <div class="cando-block secondary">
       <div class="cando-h"><span class="ch-n">Governments</span><h3>What governments should do</h3><span class="ch-w">Pick a jurisdiction</span></div>
       <div class="ddgrid rv" style="margin-bottom:16px">
         <div class="ddc b"><span class="k">Everywhere</span><h4>Build a regulator with real power and real expertise</h4><p>One that can compel testing before release, holding people who can read an evaluation alongside people who answer to voters. Keeping it independent takes public funding, published meetings with labs, cooling-off periods both ways, and declared holdings.</p></div>
@@ -4063,7 +4086,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 1, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 2, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 2, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 2, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" was a separate 11 min tier that has been folded into core.
        Readers who saved it still have it in localStorage, so map it across. */

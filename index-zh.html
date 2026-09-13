@@ -18,6 +18,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
+/* Metric-matched fallbacks. Measured from the real font files with fontTools:
+   size-adjust = target xAvgCharWidth/upem over fallback xAvgCharWidth/upem;
+   the ascent/descent overrides are divided by that scale because they apply
+   after it. Keeps display:swap from moving layout while the webfont loads. */
+@font-face{font-family:"Archivo Fallback";src:local("Arial");size-adjust:119.62%;ascent-override:73.40%;descent-override:17.56%;line-gap-override:0%}
+@font-face{font-family:"Newsreader Fallback";src:local("Georgia");size-adjust:123.54%;ascent-override:59.50%;descent-override:21.45%;line-gap-override:0%}
+@font-face{font-family:"IBM Plex Mono Fallback";src:local("Courier New");size-adjust:99.98%;ascent-override:102.52%;descent-override:27.50%;line-gap-override:0%}
 :root{
   /* 全站深色。--ink 是正文文字色；--panel 是原本就按深色设计的区块底色，
      比页面底色更深，所以仍然读得出是另一层表面。 */
@@ -30,9 +37,9 @@
   --c-risk:#ff8a6b; --t-risk:#2e1a15; --d-risk:#8f2c18;
   --c-act:#9cc48a;  --t-act:#1a2418;
   --glow-r:#ff6a45; --glow-b:#6d84ff; --glow-t:#3fd0c9;
-  --display:"Archivo","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
-  --body:"Newsreader","Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
-  --mono:"IBM Plex Mono","PingFang SC","Microsoft YaHei",ui-monospace,monospace;
+  --display:"Archivo","Archivo Fallback","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  --body:"Newsreader","Newsreader Fallback","Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
+  --mono:"IBM Plex Mono","IBM Plex Mono Fallback","PingFang SC","Microsoft YaHei",ui-monospace,monospace;
   --gut:clamp(18px,4.6vw,60px); --maxw:1220px; --r:4px;
 }
 *{box-sizing:border-box}
@@ -601,7 +608,7 @@ section[id]{scroll-margin-top:calc(var(--barH,96px) + 18px)}
 .ng.act2 .ng-menu a.on{background:rgba(141,157,255,.14);color:#8d9dff;box-shadow:inset 3px 0 0 #8d9dff}
 
 /* ---------- narrow view: a persistent chapter bar ---------- */
-.nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
+.nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0;min-height:40px}
 @media(max-width:1023px){
   .nowbar{display:flex;align-items:center;gap:10px;padding:8px var(--gut);
     border-top:1px solid var(--rule-soft);background:var(--paper);min-width:0}
@@ -1770,7 +1777,7 @@ div.endc{cursor:default}
       </li>
     </ul>
     </nav>
-  <div class="nowbar" id="nowbar" aria-live="off"></div>
+  <div class="nowbar" id="nowbar" aria-live="off"><span class="nb-t">现状，一页说完</span></div>
 </div>
 
 <div class="chapnum" id="chapnum" aria-hidden="true"></div>
