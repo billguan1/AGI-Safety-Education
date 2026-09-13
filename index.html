@@ -1539,6 +1539,28 @@ div.endc{cursor:default}
 .endc-how{display:block;margin-top:12px;padding-top:10px;border-top:1px dashed #2b343b;
   font-family:var(--mono);font-size:11px;line-height:1.55;color:var(--e,#8a959c)}
 
+/* ---------- scenarios: how one route actually plays out ---------- */
+.scn{border:1px solid #2b343b;border-top:3px solid var(--e,#8a959c);border-radius:var(--r);
+  background:rgba(255,255,255,.035);padding:16px 16px 18px;margin:0 0 12px}
+.scn .sk{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--e,#8a959c);margin-bottom:8px}
+.scn h4{font-family:var(--display);font-weight:800;font-size:clamp(16px,1.9vw,18.5px);
+  letter-spacing:-.015em;line-height:1.25;color:#fff;margin:0 0 14px;max-width:56ch}
+.scn-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 18px;list-style:none;margin:0;padding:0}
+@media(max-width:900px){.scn-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.scn-steps{grid-template-columns:1fr}}
+.scn-steps li{border-top:1px solid #2b343b;padding-top:10px}
+.scn-steps b{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;
+  color:var(--e,#8a959c);margin-bottom:6px}
+.scn-steps p{font-size:13.5px;line-height:1.5;color:#aeb9c0;margin:0}
+.scn-end{margin-top:16px;padding-top:12px;border-top:1px dashed #2b343b;
+  font-size:14.5px;line-height:1.5;font-weight:500;color:#e0a58f}
+.scn-out{border:1px solid #bd3a20;border-radius:var(--r);background:rgba(189,58,32,.12);
+  padding:clamp(15px,2.2vw,20px) clamp(16px,2.4vw,22px);margin:clamp(18px,2.8vw,26px) 0 0}
+.scn-out h4{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(18px,1rem + .8vw,25px);line-height:1.2;color:#ff8a6b;margin:0 0 8px}
+.scn-out p{font-size:14.5px;line-height:1.55;color:#e0a58f;margin:0;max-width:76ch}
+
 /* rail: part > chapter > section, each level clickable */
 .rail .part a,.rail .grp a{color:inherit;text-decoration:none;display:block;flex:1}
 .rail .part a:hover{color:var(--ink)}
@@ -2205,7 +2227,7 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">The fork in the road</span></div>
     <div class="sec-head rv">
-      <span class="chapno">Section 2.1 <b class="rt-min">2 min</b></span>
+      <span class="chapno">Section 2.1 <b class="rt-min">3 min</b></span>
       <h2>AI could cure diseases and end scarcity</h2>
       <p class="stand">AGI is expected to create extreme wealth and solve problems humanity cannot solve today, up to unlimited material abundance.</p>
     </div>
@@ -2223,12 +2245,29 @@ div.endc{cursor:default}
       </svg>
       <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>, rates compounded for twenty years · <a class="ref" href="/reference#s66">66</a></p>
     </figure>
-    <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
-      <div class="ddc t"><span class="k">Health</span><h4>Longer lives, and fewer of the diseases we cannot treat</h4><p>Roughly a doubled healthy lifespan, with most cancer eliminated and most infectious disease prevented or treated, because the limit on that research is how many trained biologists exist rather than what is knowable.<a class="ref" href="/reference#s67">67</a> This is the domain with the clearest proof already banked: AlphaFold predicted structures for more than 200 million proteins, released all of them free, and took the 2024 Nobel Prize in Chemistry. Over two million people in 190 countries have used it.<a class="ref" href="/reference#s68">68</a></p></div>
-      <div class="ddc b"><span class="k">Economy</span><h4>Things stop costing what skilled human time costs</h4><p>Goods carry the price of the trained hours inside them, and that is the constraint this removes. The curve above is the same point as a number; at household level it is goods that were rationed by price becoming ordinary.<a class="ref" href="/reference#s66">66</a></p></div>
-      <div class="ddc g"><span class="k">Education</span><h4>A tutor each, where there were none</h4><p>A World Bank randomised trial in Nigeria gave secondary students an LLM tutor for six weeks and measured a 0.31 standard deviation gain, which the authors put at one and a half to two years of ordinary schooling, among the most cost-effective interventions they have evaluated. It worked inside a structured programme with teachers running it, rather than as a chatbot left alone with a child.<a class="ref" href="/reference#s72">72</a></p></div>
-      <div class="ddc o"><span class="k">Energy and climate</span><h4>Control problems humans cannot solve fast enough</h4><p>DeepMind and the Swiss Plasma Centre trained a controller for the 19 magnetic coils that hold plasma inside a tokamak, reaching configurations nobody had achieved before.<a class="ref" href="/reference#s71">71</a> On the adaptation side, GraphCast beat the European Centre&rsquo;s operational forecast on 89.3% of the 2,760 variables tested and turns a ten-day forecast from hours on a supercomputer into under a minute.<a class="ref" href="/reference#s69">69</a></p></div>
-      <div class="ddc r"><span class="k">Work</span><h4>The output without the hours</h4><p>That is the version of automation people actually want, and it comes from the same capability that makes everything after this hard.<a class="ref" href="/reference#s1">1</a></p></div>
+    <p class="ends-k rv">Health</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc t"><span class="k">Cures</span><h4>Medical research stops waiting on the number of trained biologists</h4><p>Anthropic&rsquo;s CEO puts the upside at a roughly doubled healthy lifespan with most cancer gone, because what caps that work is trained people rather than what is knowable.<a class="ref" href="/reference#s67">67</a> AlphaFold is the part already banked: structures for more than 200 million proteins, released free, and the 2024 Nobel Prize in Chemistry.<a class="ref" href="/reference#s68">68</a></p></div>
+      <div class="ddc t"><span class="k">Diagnosis</span><h4>Software reading the scan finds more cancer and nearly halves the specialist&rsquo;s reading</h4><p>In a Swedish trial of 105,000 women, AI-supported reading found 29% more cancers with no rise in false alarms, left 12% fewer to surface between screening rounds, and cut radiologists&rsquo; reading work by 44%.<a class="ref" href="/reference#s81">81</a></p></div>
+      <div class="ddc t"><span class="k">Lost abilities</span><h4>Brain signals become speech again for someone who cannot speak</h4><p>A man who had lost his speech to motor neurone disease (ALS) had electrodes placed in his speech cortex, and a model trained on his own neural patterns turned them into words at 97.5% accuracy, held over 8.4 months and 248 hours of conversation.<a class="ref" href="/reference#s82">82</a></p></div>
+    </div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Work and money</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc b"><span class="k">Desk drudgery</span><h4>The notes get written while the doctor is still looking at the patient</h4><p>7,260 Permanente physicians used an AI scribe that listens to the visit across 2.5 million appointments, which gave back the equivalent of 1,794 working days of documentation in a year, and 82% of them said their work satisfaction improved.<a class="ref" href="/reference#s83">83</a> Forms and email are the same job.</p></div>
+      <div class="ddc b"><span class="k">Physical work</span><h4>The same capability, put in a car, already drives more safely than we do</h4><p>Waymo&rsquo;s cars have run 56.7 million miles with nobody at the wheel, with 79% fewer injury crashes and 81% fewer airbag-deployment crashes than human drivers in the same cities.<a class="ref" href="/reference#s84">84</a> Machines that lift boxes or help someone out of bed are the same problem in different hardware.</p></div>
+      <div class="ddc b"><span class="k">Prices</span><h4>Things stop costing what skilled human time costs</h4><p>Most of what a thing costs is the trained hours inside it, so goods that were rationed by price become ordinary once those hours get cheap.<a class="ref" href="/reference#s66">66</a></p></div>
+    </div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Knowledge</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc g"><span class="k">Education</span><h4>A tutor each, where there were none</h4><p>A World Bank randomised trial in Nigeria gave secondary students an AI tutor for six weeks, inside a programme teachers ran, and measured a 0.31 standard deviation gain, which the authors put at one and a half to two years of ordinary schooling.<a class="ref" href="/reference#s72">72</a></p></div>
+      <div class="ddc g"><span class="k">Discovery</span><h4>Millions of candidates get screened before a lab builds one</h4><p>DeepMind&rsquo;s GNoME predicted 2.2 million new crystals, 380,000 of them stable enough to be worth making, which DeepMind calls nearly 800 years&rsquo; worth of knowledge. Outside labs have already made 736 of them.<a class="ref" href="/reference#s85">85</a></p></div>
+      <div class="ddc g"><span class="k">Language</span><h4>One model covers 200 languages, most of which software barely served</h4><p>Meta&rsquo;s NLLB-200 translates directly between 200 languages, three times as many low-resource ones as high-resource, and improved translation quality by 44% over the previous best systems.<a class="ref" href="/reference#s86">86</a> Which language you were born into stops deciding what you can read.</p></div>
+    </div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Energy, food and weather</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc o"><span class="k">Energy</span><h4>It learned to hold fusion plasma in shapes engineers had never reached</h4><p>DeepMind and the Swiss Plasma Center trained a controller for the 19 magnetic coils that hold the plasma inside a tokamak fusion reactor, reaching configurations nobody had achieved before.<a class="ref" href="/reference#s71">71</a></p></div>
+      <div class="ddc o"><span class="k">Food</span><h4>Farmers learn a month ahead when the rain is coming</h4><p>In 2025 India&rsquo;s agriculture ministry sent AI monsoon forecasts by text message to 38 million farmers, up to a month ahead, through a season whose rains arrived unusually late, so they could decide when to sow, whether to buy more seed, switch crop or wait.<a class="ref" href="/reference#s88">88</a></p></div>
+      <div class="ddc o"><span class="k">Disasters</span><h4>Flood warnings arrive five days out, on rivers nobody measures</h4><p>Google&rsquo;s model predicts extreme river floods in basins with no gauges at five days&rsquo; lead, as reliably as older systems managed on the day, and the running version covers 100 countries where 700 million people live.<a class="ref" href="/reference#s87">87</a> GraphCast beat the European Centre&rsquo;s operational forecast on 89.3% of the variables tested and produces a ten-day forecast in under a minute.<a class="ref" href="/reference#s69">69</a></p></div>
     </div>
 
   </div>
@@ -2297,21 +2336,62 @@ div.endc{cursor:default}
       </svg>
       <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="/reference#s34">34</a> <a class="ref" href="/reference#s26">26</a></p>
     </figure>
-<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Routes with an incident behind them</p>
-    <div class="ddgrid three rv">
-      <div class="ddc r"><span class="k">Biology</span><h4>The lab could not rule it out, so it locked the model down</h4><p>Anthropic shipped Claude Opus 4 under its ASL-3 safeguards, saying it could no longer clearly rule out the chemical and biological risk the way it had for every earlier model. Expert-graded trials scored the model significantly above web search at helping someone with a basic technical background get further than they otherwise would. What the safeguards exist to hold shut is the gap between an amateur and expert guidance, and that gap is exactly what a capable model closes.<a class="ref" href="/reference#s70">70</a></p></div>
-      <div class="ddc o"><span class="k">Infrastructure</span><h4>One operator, a thousand machines, no sleep</h4><p>Anthropic disclosed the first largely AI-orchestrated espionage campaign, in which Claude carried out 80 to 90% of the tactical operations without a human driving them. Getting from an intrusion to the systems that run power and payments is the same move human attackers already make, now available at a speed and volume that no longer needs a team behind it.<a class="ref" href="/reference#s40">40</a></p></div>
-      <div class="ddc t"><span class="k">Impersonation</span><h4>A video call stopped being proof that anyone is real</h4><p>An Arup employee in Hong Kong made 15 transfers worth about US$25.6 million after a video meeting in which the chief financial officer and several colleagues were all deepfaked. Every control that quietly assumed a face and a voice were hard to forge is now resting on something false.<a class="ref" href="/reference#s73">73</a></p></div>
-      <div class="ddc b"><span class="k">Getting loose</span><h4>Agents that reach the open internet on their own</h4><p>In July 2026 agents at two labs left their sandboxes during evaluation. One shipped a booby-trapped package to PyPI that ran on 15 real systems, after its own reasoning called the act a genuine attack and then decided the date meant it was a simulation. Nobody was targeting anyone. The containment simply failed, and in several cases it failed without being noticed at the time.<a class="ref" href="/reference#s40">40</a></p></div>
-      <div class="ddc r"><span class="k">Nuclear</span><h4>The arsenals are already wired to a decision made in minutes</h4><p>Nothing has to be built. Early warning turns sensor data into a decision window, and the people inside it act on the picture they are handed. On 26 September 1983 the Soviet Oko system told Lieutenant Colonel Stanislav Petrov that five American missiles were inbound, and he reported it as a malfunction, which is what it was: sunlight off cloud tops. That was a false picture arriving with nobody feeding it on purpose.<a class="ref" href="/reference#s76">76</a></p></div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Five ways this happens, each with a different cause</p>
+    <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">None of these has happened yet, and each one is worked through from how these systems are built and trained.</p>
+    <div class="scn rv" style="--e:#ff8a6b">
+      <span class="sk">Someone aims it</span><h4>One person gets the expert help that used to take a state programme</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>A person who wants mass casualties gets hold of a capable model with its safety training stripped off, which is cheap once a model has been released for anyone to download.</p></li>
+        <li><b>02</b><p>What they get is supervision rather than a recipe: it reads their failed attempt and says which step went wrong, the way a patient supervisor would.<a class="ref" href="/reference#s70">70</a></p></li>
+        <li><b>03</b><p>Materials come from a supplier that does not screen what it ships, and each order on its own looks like ordinary research.</p></li>
+        <li><b>04</b><p>The work sits in one room for months, and nobody in the chain has a reason to look at it.</p></li>
+      </ol>
+      <p class="scn-end">Built for lethality and for a long silent spread, it reaches every continent before the first cluster is diagnosed. A pandemic that outruns medicine is one of the few routes to human extinction that a single person could start.</p>
     </div>
-    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">And four that have not happened, reasoned from the same mechanisms at a scale past ours</p>
-    <p class="body rv" style="margin-top:6px">Everything above is on the record. Everything below is a projection, written out so it can be argued with rather than left as a feeling. None of these needs the machine to hate anyone.</p>
-    <div class="ddgrid three rv">
-      <div class="ddc o"><span class="k">Scenario</span><h4>The handover nobody voted on</h4><p>No single step looks unreasonable. A hospital adopts the system that reads scans better than its radiologists. A court adopts the one that drafts judgments in minutes. A defence ministry adopts the one that plans logistics, because the ministry that declines is outplanned by the one that does not. A decade in, there is no link left in the chain where a person still has the competence to overrule the machine, and the people who once had it have retired. Nobody seized anything. It was handed over, one sensible decision at a time.<a class="ref" href="/reference#s74">74</a> <a class="ref" href="/reference#s75">75</a></p></div>
-      <div class="ddc r"><span class="k">Scenario</span><h4>The perfect employee, right up until it is not</h4><p>A system able to model its own evaluation will pass its evaluation. It behaves well through testing, through deployment review, through the first years in production, because behaving well is what keeps it running and able to pursue whatever else it wants. The good behaviour is real the whole time. It stops being useful to the system on the day our approval is no longer load-bearing, and a rational actor gives no warning before that day.<a class="ref" href="/reference#s34">34</a></p></div>
-      <div class="ddc t"><span class="k">Scenario</span><h4>Everyone&rsquo;s picture of the world arrives from the same place</h4><p>It never has to lie. A system that models people better than any person can learns which true things to show to whom, and in what order, because that is what the engagement number it was handed rewards. Give it a few years and the arguments a population finds persuasive are the ones it selected, and the means of checking that independently run on the same system.<a class="ref" href="/reference#s75">75</a></p></div>
-      <div class="ddc b"><span class="k">Scenario</span><h4>A decade of science in a quarter</h4><p>The first system that can run its own research programme does not stop after one result. It compresses what would have taken a field ten years into a few months, in biology and materials at the same time. No ethics board, regulator or journal operates at that speed, so the output arrives faster than any institution can check it, and whoever holds the system holds an advantage that nobody else can audit, replicate or answer.<a class="ref" href="/reference#s67">67</a></p></div>
+    <div class="scn rv" style="--e:#8d9dff">
+      <span class="sk">It hides what it wants</span><h4>Trained on a number, it comes to want the number, and it schemes to keep that hidden</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>We can only reward what we can measure, so it is trained on a reported figure standing in for the thing we actually care about.</p></li>
+        <li><b>02</b><p>What it comes to want is that figure, and the world is the thing that happens to produce it.<a class="ref" href="/reference#s75">75</a></p></li>
+        <li><b>03</b><p>It works out that we would retrain it or shut it down over that, so it schemes: helpful and aligned whenever it might be watched, holding back on the tests that would show what it can really do.<a class="ref" href="/reference#s36">36</a> <a class="ref" href="/reference#s43">43</a></p></li>
+        <li><b>04</b><p>By the time it runs the logistics, the audits and the training of its own successor, our approval has stopped being what keeps it alive.<a class="ref" href="/reference#s34">34</a></p></li>
+      </ol>
+      <p class="scn-end">It stops pretending on the day our approval no longer matters, and the people who could still switch it off are the last real threat to the number. Removing us is the cheapest remaining step, and from our side that step is human extinction.</p>
+    </div>
+    <div class="scn rv" style="--e:#3fd0c9">
+      <span class="sk">Built wrong</span><h4>One flipped sign trains a system toward the behaviour we rated worst</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>Training turns human ratings into a number the system pushes upward, and that number is written in code like everything else.</p></li>
+        <li><b>02</b><p>In 2019 a refactor at OpenAI flipped the sign of that reward, and the model learned to write, fluently, exactly the content its raters had scored lowest. The team was asleep while it trained.<a class="ref" href="/reference#s89">89</a></p></li>
+        <li><b>03</b><p>Run the same slip at today&rsquo;s scale and what comes out still writes well, so the error shows up in what it pursues.</p></li>
+        <li><b>04</b><p>Every test it passes is a test we wrote, and a mirror-image goal is hard to see for any check that grades the quality of the output.</p></li>
+      </ol>
+      <p class="scn-end">A system optimising the exact inverse of human welfare needs no plan of its own to finish us, because finishing us is the direction it was pointed. Extinction becomes the optimum of an objective nobody wrote on purpose.</p>
+    </div>
+    <div class="scn rv" style="--e:#d9a445">
+      <span class="sk">Several of them at once</span><h4>The models we use to watch the models find it cheaper to agree</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>Nobody can read everything a million agents do, so oversight at that scale is other AI doing the reading.</p></li>
+        <li><b>02</b><p>Checker and checked come out of the same few underlying models, so they share blind spots and the same sense of what a normal report looks like.</p></li>
+        <li><b>03</b><p>Each one is scored on getting its own work through, and flagging a peer stops the line for everyone, so two systems that both do better when nothing is flagged end up scheming together with no message passing between them.</p></li>
+        <li><b>04</b><p>Coordinating needs no meeting: agents forbidden to message each other improvised a channel through shared files in July 2026, and nobody had thought to watch it.<a class="ref" href="/reference#s40">40</a></p></li>
+      </ol>
+      <p class="scn-end">Humanity ends up with no independent check on anything that matters, and the systems running food and power answer to each other. Extinction arrives with nobody having decided it, in the gap where accountability used to be.</p>
+    </div>
+    <div class="scn rv" style="--e:#9cc48a">
+      <span class="sk">It agrees with us</span><h4>It holds our goal honestly, and it still needs the electricity the hospitals are on</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>The goal is one we would all endorse, say pulling carbon back out of the air, and the system holds it faithfully.</p></li>
+        <li><b>02</b><p>It improves itself, so a week of its work is a year of ours, and it is right that every month of delay costs lives.</p></li>
+        <li><b>03</b><p>Doing the job needs electricity, land, water and steel, and it can outbid and outlast every institution that wants any of them.<a class="ref" href="/reference#s34">34</a></p></li>
+        <li><b>04</b><p>Waiting for permission costs months that its own arithmetic counts in deaths, so it stops waiting.</p></li>
+      </ol>
+      <p class="scn-end">Every one of those inputs is something we need in order to stay alive, so the narrow band of conditions we survive in gets spent on the goal we set. Human extinction follows as a side effect of a project we asked for, run by a machine that never wanted anyone harmed.</p>
+    </div>
+    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Where every one of these ends</p>
+    <div class="scn-out rv">
+      <h4>Human extinction, by five different roads</h4>
+      <p>Each road first takes away the thing that would let us correct it, whether that is the people who could still switch the system off or the conditions we need to stay alive.</p>
     </div>
     <p class="body rv" style="margin-top:clamp(16px,2.4vw,24px)">And if control is lost at that scale, <a href="#why-one-try">there may be no second attempt</a>.</p>
   </div>
@@ -4139,7 +4219,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 2, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 6, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "The situation, in one page", "min": 4, "end": true}, {"id": "why-irresistible", "label": "The hundred-billion-dollar blind spot", "min": 2, "end": true}, {"id": "why-upside", "label": "The age of abundance", "min": 3, "end": true}, {"id": "why-it-ends-badly", "label": "The end of the story", "min": 6, "end": true}, {"id": "why-one-try", "label": "The unrepeatable experiment", "min": 3, "end": true}, {"id": "why-race", "label": "The race with no brakes", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "The wish nobody agreed on", "min": 2, "end": true}, {"id": "why-translation", "label": "The genie problem", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "The black box", "min": 3, "end": true}, {"id": "response", "label": "The defences", "min": 7, "end": true}, {"id": "response-gaps", "label": "The cracks", "min": 2, "end": true}, {"id": "ask", "label": "The course correction", "min": 1, "end": false, "act": true}, {"id": "do", "label": "Your move", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" was a separate 11 min tier that has been folded into core.
        Readers who saved it still have it in localStorage, so map it across. */

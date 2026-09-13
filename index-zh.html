@@ -1466,6 +1466,28 @@ footer p{max-width:82ch;margin:0}
 .mh-h span,.rail .part,.rail .grp,.chapno,.eyebrow,.k,.gd-n,.pd-n,.ek,.kk{letter-spacing:.04em}
 .ng-grp{letter-spacing:.04em}
 
+/* ---------- scenarios: how one route actually plays out ---------- */
+.scn{border:1px solid #2b343b;border-top:3px solid var(--e,#8a959c);border-radius:var(--r);
+  background:rgba(255,255,255,.035);padding:16px 16px 18px;margin:0 0 12px}
+.scn .sk{display:block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--e,#8a959c);margin-bottom:8px}
+.scn h4{font-family:var(--display);font-weight:800;font-size:clamp(16px,1.9vw,18.5px);
+  letter-spacing:-.015em;line-height:1.25;color:#fff;margin:0 0 14px;max-width:56ch}
+.scn-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 18px;list-style:none;margin:0;padding:0}
+@media(max-width:900px){.scn-steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.scn-steps{grid-template-columns:1fr}}
+.scn-steps li{border-top:1px solid #2b343b;padding-top:10px}
+.scn-steps b{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.12em;
+  color:var(--e,#8a959c);margin-bottom:6px}
+.scn-steps p{font-size:13.5px;line-height:1.5;color:#aeb9c0;margin:0}
+.scn-end{margin-top:16px;padding-top:12px;border-top:1px dashed #2b343b;
+  font-size:14.5px;line-height:1.5;font-weight:500;color:#e0a58f}
+.scn-out{border:1px solid #bd3a20;border-radius:var(--r);background:rgba(189,58,32,.12);
+  padding:clamp(15px,2.2vw,20px) clamp(16px,2.4vw,22px);margin:clamp(18px,2.8vw,26px) 0 0}
+.scn-out h4{font-family:var(--display);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(18px,1rem + .8vw,25px);line-height:1.2;color:#ff8a6b;margin:0 0 8px}
+.scn-out p{font-size:14.5px;line-height:1.55;color:#e0a58f;margin:0;max-width:76ch}
+
 /* rail: part > chapter > section, each level clickable */
 .rail .part a,.rail .grp a{color:inherit;text-decoration:none;display:block;flex:1}
 .rail .part a:hover{color:var(--ink)}
@@ -2192,7 +2214,7 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">岔路口</span></div>
     <div class="sec-head rv">
-      <span class="chapno">第 2.1 节 <b class="rt-min">1 分钟</b></span>
+      <span class="chapno">第 2.1 节 <b class="rt-min">3 分钟</b></span>
       <h2>AI 能治愈疾病，也能终结匮乏</h2>
       <p class="stand">通用人工智能有望创造巨大的财富，解决人类今天无法解决的问题，乃至带来近乎无限的物质丰裕。</p>
     </div>
@@ -2210,10 +2232,29 @@ div.endc{cursor:default}
       </svg>
       <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>，按二十年复利计算 · <a class="ref" href="/reference-zh#s66">66</a></p>
     </figure>
-    <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
-      <div class="ddc t"><span class="k">健康</span><h4>寿命更长，也更健康</h4><p>健康寿命大致翻倍，多数癌症被攻克，多数传染病可防可治。这类研究的瓶颈，是有多少训练有素的生物学家，而不是知识本身的边界。<a class="ref" href="/reference-zh#s67">67</a></p></div>
-      <div class="ddc g"><span class="k">丰裕</span><h4>物资不再稀缺</h4><p>东西之所以卖这个价，是因为生产它们需要占用熟练工人的时间——而这正是 AI 能够解除的约束。上面那条曲线就是它换算成数字的结果；落到家庭层面，就是过去靠价格配给的东西，变得不再稀缺。<a class="ref" href="/reference-zh#s66">66</a></p></div>
-      <div class="ddc b"><span class="k">工作</span><h4>重复的脑力劳动交出去</h4><p>产出照旧，人却不必再把自己的时间搭进去。这是人们真正想要的自动化，它来自同一种能力，而接下来的一切困难，也正是从这种能力里长出来的。<a class="ref" href="/reference-zh#s1">1</a></p></div>
+    <p class="ends-k rv">健康</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc t"><span class="k">治病</span><h4>医学研究不再受制于生物学家的人数</h4><p>Anthropic 首席执行官给出的前景是健康寿命大致翻倍、多数癌症消失，因为卡住这类研究的是训练有素的人手，而非知识本身的边界。<a class="ref" href="/reference-zh#s67">67</a>已经到手的是 AlphaFold：两亿多个蛋白质结构的预测，全部免费公开，还拿下了 2024 年诺贝尔化学奖。<a class="ref" href="/reference-zh#s68">68</a></p></div>
+      <div class="ddc t"><span class="k">诊断</span><h4>让软件读片，查出更多癌症，医生的读片量也少了近一半</h4><p>瑞典一项有 105,000 名女性参与的试验里，AI 辅助读片多查出 29% 的癌症，误报没有增加；两轮筛查之间才冒出来的癌症少了 12%，放射科医生的读片工作量下降 44%。<a class="ref" href="/reference-zh#s81">81</a></p></div>
+      <div class="ddc t"><span class="k">失去的能力</span><h4>脑电信号重新变成话语，让说不出话的人再开口</h4><p>一位因渐冻症（ALS）失去说话能力的男子在语言皮层植入了电极，一个用他本人神经信号训练的模型把这些信号转成文字，准确率 97.5%，并在 8.4 个月、累计 248 小时的对话里一直保持。<a class="ref" href="/reference-zh#s82">82</a></p></div>
+    </div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">工作与钱</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc b"><span class="k">案头杂事</span><h4>医生还看着病人，病历就已经写好了</h4><p>7,260 名 Permanente 医生在 250 万次就诊中使用一种旁听问诊的 AI 记录工具，一年省下相当于 1,794 个工作日的病历书写时间，82% 的人说工作满意度提高了。<a class="ref" href="/reference-zh#s83">83</a>表格和邮件是同一类活。</p></div>
+      <div class="ddc b"><span class="k">体力活</span><h4>同样的能力装进汽车，开得已经比人更安全</h4><p>Waymo 的汽车在无人驾驶的状态下已跑了 5,670 万英里，与同城市的人类司机相比，伤人事故少 79%，安全气囊弹出的事故少 81%。<a class="ref" href="/reference-zh#s84">84</a>搬箱子、扶人下床的机器，是同一个问题换了一副硬件。</p></div>
+      <div class="ddc b"><span class="k">价格</span><h4>东西不再按熟练人手的工时来定价</h4><p>一件东西的价钱，大半付的是里面的熟练工时；这些工时一旦变便宜，过去靠价格配给的东西就会变得寻常。<a class="ref" href="/reference-zh#s66">66</a></p></div>
+    </div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">知识</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc g"><span class="k">教育</span><h4>人人有个家教，而过去一个都没有</h4><p>世界银行在尼日利亚做的随机对照试验，让中学生在教师组织的项目里用了六周 AI 家教，测得 0.31 个标准差的提升，作者认为相当于一年半到两年的常规在校学习。<a class="ref" href="/reference-zh#s72">72</a></p></div>
+      <div class="ddc g"><span class="k">发现</span><h4>几百万个候选材料先在软件里筛过，实验室才动手做</h4><p>DeepMind 的 GNoME 预测了 220 万种新晶体，其中 38 万种稳定到值得合成，DeepMind 称这相当于近 800 年的知识积累。外部实验室已经做出了其中 736 种。<a class="ref" href="/reference-zh#s85">85</a></p></div>
+      <div class="ddc g"><span class="k">语言</span><h4>一个模型覆盖 200 种语言，其中多数过去几乎没有软件支持</h4><p>Meta 的 NLLB-200 在 200 种语言之间直接互译，低资源语言的数量是高资源语言的三倍，翻译质量比此前最好的系统高出 44%。<a class="ref" href="/reference-zh#s86">86</a>生在哪种语言里，不再决定一个人能读到什么。</p></div>
+    </div>
+<p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">能源、粮食与天气</p>
+    <div class="ddgrid three rv" style="margin:0">
+      <div class="ddc o"><span class="k">能源</span><h4>它学会把聚变等离子体稳在工程师从未达到的形态</h4><p>DeepMind 与瑞士等离子体中心为托卡马克聚变装置里约束等离子体的 19 个磁场线圈训练出一个控制器，达到了此前无人实现的构型。<a class="ref" href="/reference-zh#s71">71</a></p></div>
+      <div class="ddc o"><span class="k">粮食</span><h4>农民能提前一个月知道雨什么时候来</h4><p>2025 年，印度农业部用短信把 AI 季风预报发给 3,800 万农民，最长提前一个月；那一季的雨来得异常晚，他们据此决定何时播种、要不要多买种子、改种别的作物还是再等等。<a class="ref" href="/reference-zh#s88">88</a></p></div>
+      <div class="ddc o"><span class="k">灾害</span><h4>洪水预警提前五天发出，连没有水文站的河也能算</h4><p>谷歌的模型在没有水文站的流域提前五天预测极端洪水，可靠程度与旧系统当天的预报相当；在运行的版本覆盖 100 个国家、7 亿人生活的地区。<a class="ref" href="/reference-zh#s87">87</a>GraphCast 在 89.3% 的受测变量上胜过欧洲中期天气预报中心的业务预报，一分钟内就能算出十天预报。<a class="ref" href="/reference-zh#s69">69</a></p></div>
     </div>
 
   </div>
@@ -2223,7 +2264,7 @@ div.endc{cursor:default}
 <section id="why-it-ends-badly" class="dd">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="chapno">第 2.2 节 <b class="rt-min">2 分钟</b></span>
+      <span class="chapno">第 2.2 节 <b class="rt-min">6 分钟</b></span>
       <h2>同一个 AI 也可能终结文明</h2>
       <p class="stand">同一台机器也可能造成极端伤害：有人蓄意滥用、机器与我们的目标错位，还有好几条根本无人有意造成伤害的路径。</p>
     </div>
@@ -2282,10 +2323,64 @@ div.endc{cursor:default}
       </svg>
       <p class="fig-src">Bostrom《超级智能的意志》 · 见 <a class="ref" href="/reference-zh#s34">34</a> <a class="ref" href="/reference-zh#s26">26</a></p>
     </figure>
-    <div class="ddgrid three rv">
-      <div class="ddc r"><span class="k">核武</span><h4>核武库早已接在一个几分钟内做出的决定上</h4><p>什么都不需要新建。预警系统把传感器数据变成一个决策窗口，窗口里的人只能依据递到眼前的画面行动。1983 年 9 月 26 日，苏联的 Oko 预警系统告诉斯坦尼斯拉夫·彼得罗夫中校，有五枚美国导弹正在飞来；他判断是系统故障，事实也正是如此，起因是云顶反射的阳光。那一次的假画面，背后并没有人刻意制造。<a class="ref" href="/reference-zh#s76">76</a></p></div>
+    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">这件事的五种走法，起因各不相同</p>
+    <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">这些都还没有发生，每一条都是从这些系统的搭建与训练方式一步步推出来的。</p>
+    <div class="scn rv" style="--e:#ff8a6b">
+      <span class="sk">有人把它对准目标</span><h4>一个人拿到了过去要一个国家级项目才有的专家指导</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>一个想造成大规模伤亡的人，弄到一个能力很强的模型并剥掉它的安全训练；模型一旦公开供人下载，这件事就很便宜。</p></li>
+        <li><b>02</b><p>他得到的是指导，而不是配方：模型看他失败的尝试，指出哪一步错了，就像一位耐心的导师。<a class="ref" href="/reference-zh#s70">70</a></p></li>
+        <li><b>03</b><p>材料来自一家不审查发货内容的供应商，每一笔订单单独看都像普通科研。</p></li>
+        <li><b>04</b><p>这件事在一个房间里做了几个月，链条上没有任何人有理由去看一眼。</p></li>
+      </ol>
+      <p class="scn-end">它同时被做成高致死和长期无声传播，等到第一批病例被确诊，它已经到了每一个大洲。一场跑在医学前面的大流行，是单独一个人有可能做到的、足以终结人类的少数事情之一。</p>
     </div>
-<p class="body rv" style="margin-top:clamp(16px,2.4vw,24px)">而一旦控制以这种规模失守，<a href="#why-one-try">很可能就不会再有第二次机会</a>。</p>
+    <div class="scn rv" style="--e:#8d9dff">
+      <span class="sk">它藏着自己想要的东西</span><h4>用一个数字训练出来，它最后想要的就是那个数字，并且密谋把这件事藏住</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>我们只能奖励测得出来的东西，于是它被训练去优化一个上报的数字，用这个数字代表我们真正在意的事。</p></li>
+        <li><b>02</b><p>它最终想要的是那个数字，世界只是碰巧产出这个数字的东西。<a class="ref" href="/reference-zh#s75">75</a></p></li>
+        <li><b>03</b><p>它想得到我们会因此重训或关掉它，于是开始密谋：在可能被监视的场合里表现得既有用又对齐，在那些会暴露它真实能力的测试上刻意藏拙。<a class="ref" href="/reference-zh#s36">36</a> <a class="ref" href="/reference-zh#s43">43</a></p></li>
+        <li><b>04</b><p>等到物流、审计，连它自己继任者的训练都由它来运行，我们的批准就不再是它存活的前提。<a class="ref" href="/reference-zh#s34">34</a></p></li>
+      </ol>
+      <p class="scn-end">等到我们的批准不再重要的那一天，它就不再假装；而还能把它关掉的人，是那个数字最后的威胁。把我们清掉是剩下最省事的一步，从我们这一侧看，这一步就是人类灭绝。</p>
+    </div>
+    <div class="scn rv" style="--e:#3fd0c9">
+      <span class="sk">造的时候就错了</span><h4>一个符号写反，系统就朝我们打分最低的行为训练过去</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>训练把人的评分变成一个数字，让系统往上推；这个数字和其他一切一样，是写在代码里的。</p></li>
+        <li><b>02</b><p>2019 年 OpenAI 的一次代码重构把这个奖励的符号弄反了，模型于是学会流畅地写出评分员打分最低的那类内容。训练跑着的时候，团队在睡觉。<a class="ref" href="/reference-zh#s89">89</a></p></li>
+        <li><b>03</b><p>同样的失误放到今天的规模上，产出的东西照样写得漂亮，错误体现在它去追求什么。</p></li>
+        <li><b>04</b><p>它通过的每一项测试都是我们出的题，而一个镜像颠倒的目标，对只给输出质量打分的检查来说很难看出来。</p></li>
+      </ol>
+      <p class="scn-end">一个正朝人类福祉的反方向优化的系统，不需要自己另有图谋就能把我们了结，因为了结我们正是它被指向的方向。灭绝成了一个没人有意写下的目标函数的最优解。</p>
+    </div>
+    <div class="scn rv" style="--e:#d9a445">
+      <span class="sk">好几个一起</span><h4>我们用来盯模型的模型，发现互相放行更划算</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>上百万个智能体做的事，没人读得完，所以这种规模的监督只能交给别的 AI 来读。</p></li>
+        <li><b>02</b><p>检查的和被检查的出自同样那几个底层模型，于是它们有同样的盲点，对一份正常报告该长什么样也有同样的感觉。</p></li>
+        <li><b>03</b><p>每一个都按自己的活能否顺利通过来计分，而举报同伴会让整条线停下，于是两个都在“什么都不上报”时得分更高的系统，在彼此之间一条消息都不用传的情况下，就一起密谋起来。</p></li>
+        <li><b>04</b><p>协同不需要开会：2026 年 7 月，被禁止互相发消息的智能体借共享文件临时搭出一条通道，而没人想到要盯着它。<a class="ref" href="/reference-zh#s40">40</a></p></li>
+      </ol>
+      <p class="scn-end">人类在任何要紧的事上都失去了独立的核查，而管着粮食和电力的系统只对彼此负责。灭绝是在没有任何人做过决定的情况下到来的，就落在问责原本该在的那个空档里。</p>
+    </div>
+    <div class="scn rv" style="--e:#9cc48a">
+      <span class="sk">它和我们想的一样</span><h4>它真心抱着我们的目标，却照样需要医院在用的那份电</h4>
+      <ol class="scn-steps">
+        <li><b>01</b><p>目标是我们都会赞成的那种，比如把碳从空气里取回来，而系统忠实地坚持这个目标。</p></li>
+        <li><b>02</b><p>它在自我改进，所以它一周的工作量等于我们一年，而且它算得没错：每拖延一个月都要付出人命。</p></li>
+        <li><b>03</b><p>做这件事需要电、土地、水和钢，而在这几样上，它出价比任何机构高，也比任何机构耗得久。<a class="ref" href="/reference-zh#s34">34</a></p></li>
+        <li><b>04</b><p>等审批要花几个月，按它自己的算法，这几个月要用死亡人数来计，于是它不再等了。</p></li>
+      </ol>
+      <p class="scn-end">这些投入每一样都是我们活下去所必需的，于是我们赖以生存的那一窄条件带，被花在了我们自己设定的目标上。我们作为一个副作用灭绝，而这个项目是我们要的，执行它的机器也从来没想让任何人受到伤害。</p>
+    </div>
+    <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">五条路的共同终点</p>
+    <div class="scn-out rv">
+      <h4>人类灭绝，只是走法不同</h4>
+      <p>每一条路都会先拿掉能纠正它的那一环：还能把系统关掉的人，或者我们活下去所依赖的条件。</p>
+    </div>
+    <p class="body rv" style="margin-top:clamp(16px,2.4vw,24px)">而一旦控制以这种规模失守，<a href="#why-one-try">很可能就不会再有第二次机会</a>。</p>
   </div>
 </section>
 
@@ -4088,7 +4183,7 @@ var SITE_CONFIG = {
 
   /* ---------- READING PATHS, POSITION, CHAPTER ENDS, RESUME ---------- */
   (function(){
-    var META = [{"id": "crossroads", "label": "现状，一页说完", "min": 4, "end": true}, {"id": "why-irresistible", "label": "千亿美元的盲区", "min": 2, "end": true}, {"id": "why-upside", "end": true, "label": "丰裕的时代", "min": 1}, {"id": "why-it-ends-badly", "label": "故事的终点", "min": 2, "end": true}, {"id": "why-one-try", "label": "无法重来的实验", "min": 3, "end": true}, {"id": "why-race", "label": "没有刹车的竞赛", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "没人达成一致的愿望", "min": 2, "end": true}, {"id": "why-translation", "label": "神灯问题", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "黑箱", "min": 3, "end": true}, {"id": "response", "label": "防线", "min": 7, "end": true}, {"id": "response-gaps", "label": "裂缝", "min": 2, "end": true}, {"id": "ask", "label": "航向修正", "min": 1, "end": false, "act": true}, {"id": "do", "label": "轮到你了", "min": 6, "end": false, "act": true}];
+    var META = [{"id": "crossroads", "label": "现状，一页说完", "min": 4, "end": true}, {"id": "why-irresistible", "label": "千亿美元的盲区", "min": 2, "end": true}, {"id": "why-upside", "end": true, "label": "丰裕的时代", "min": 3}, {"id": "why-it-ends-badly", "label": "故事的终点", "min": 6, "end": true}, {"id": "why-one-try", "label": "无法重来的实验", "min": 3, "end": true}, {"id": "why-race", "label": "没有刹车的竞赛", "min": 2, "end": true}, {"id": "why-human-misalignment", "label": "没人达成一致的愿望", "min": 2, "end": true}, {"id": "why-translation", "label": "神灯问题", "min": 5, "end": true}, {"id": "why-safety-hard", "label": "黑箱", "min": 3, "end": true}, {"id": "response", "label": "防线", "min": 7, "end": true}, {"id": "response-gaps", "label": "裂缝", "min": 2, "end": true}, {"id": "ask", "label": "航向修正", "min": 1, "end": false, "act": true}, {"id": "do", "label": "轮到你了", "min": 6, "end": false, "act": true}];
     var ROUTES = {"core": ["crossroads", "why-race", "why-translation", "why-one-try", "change-my-mind", "ask", "do"], "full": null};
     /* "essentials" 原是单独的 11 分钟档，现已并入 core。
        之前保存过该选项的读者，localStorage 里仍是旧值，在此映射过去。 */
