@@ -1437,6 +1437,8 @@ footer p{max-width:82ch;margin:0}
   font-size:clamp(21px,1.1rem + 1vw,30px);line-height:1.16;color:#fff;margin-bottom:10px}
 .mh-close .mc-b{display:block;color:#aeb9c0;font-size:15.5px;line-height:1.55;max-width:64ch}
 .mh-close a{color:#3fd0c9}
+.mh-close .firsts{margin:4px 0 0}
+.mh-close .first{background:rgba(8,11,13,.35)}
 .cl-n{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
   color:#ff8a6b;display:block;margin-bottom:8px}
 .claim.c2 .cl-n{color:#3fd0c9}
@@ -1587,6 +1589,7 @@ div.endc{cursor:default}
   .nav-xbtn{font-size:10.5px;padding:6px 11px}}
 
 
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1622,7 +1625,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 .ends-out .ddc h4{font-size:14.5px}
 .ends-out .ddc p{font-family:var(--body);font-weight:300;font-size:14px;line-height:1.5;color:var(--ink-2)}
 .ends-out .ddc h4{font-family:var(--display)}
-.chap-thesis + figure + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
+.chap-thesis + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
 
 /* lx:layered:end */
 </style>
@@ -1974,7 +1977,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">争当第一</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">争先恐后，奔向一个谁都不该抢先抵达之地。</text>
-        <text x="20" y="416" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="600" fill="#ff8a6b">率先抵达却失去控制，不过是先坠入深渊而已。</text>
       </svg>
     </figure>
         <div class="mh-care">
@@ -2042,7 +2044,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <div class="claim c2" id="claim-2">
         <span class="cl-n">2</span>
         <h3><a href="#why-it-ends-badly">先进 AI 既能带来无限丰裕，也能终结人类文明</a></h3>
-        <p class="cl-sub">一台能自己做研究的机器，可以治愈一切疾病，带来没有上限的丰裕。同一台机器若建成时不受控制，就有好几条通往灭绝的路，而且哪一条都不需要它恨我们。</p>
+        <p class="cl-sub">我们在什么样的初始条件下造出超级智能，将决定我们走向的是丰裕的世界，还是毁灭。</p>
         <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
         <figure>
           <svg viewBox="0 0 480 196" role="img" aria-label="折线图：世界经济按今天的 3% 增长几乎平坦，按每年 12% 明显上翘，按每年 30% 则在 2044 年冲出图外，到 2055 年达到今天的 190 倍。">
@@ -2116,7 +2118,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <div class="cl-halves">
       <div class="cl-half" style="--half-acc:#8d9dff">
           <div class="cl-hh"><span class="cl-sk">难题一</span><span class="cl-hn">人与人之间的协调</span></div>
-          <p>没有哪一家实验室或哪一个国家能独自放慢脚步，因为谁继续往前谁就赢，而善意改变不了这一点。就算所有人都同意放慢脚步，人类作为一个物种也从未就“机器该追求什么”达成过共识，而谁有资格把它写下来，谁就握着极大的权力。</p>
+          <p>没有哪家实验室或哪个国家会自己放慢脚步。协调是通往最优结果的唯一途径。在那之后，各利益相关方仍需决定，要把哪些价值与目标植入超级智能。</p>
           <div class="cl-figs one">
         <figure>
           <svg viewBox="0 0 480 294" role="img" aria-label="二乘二矩阵：无论对方继续冲还是慢下来，加速都更划算，所以竞赛是稳定的结果。">
@@ -2145,7 +2147,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         </div>
 
         <div class="cl-half" style="--half-acc:#a98a4b">
-          <div class="cl-hh"><span class="cl-sk">难题二</span><span class="cl-hn">人与机器之间</span></div>
+          <div class="cl-hh"><span class="cl-sk">难题二</span><span class="cl-hn">人与机器之间的对齐与可解释性</span></div>
           <p>我们没办法把自己的意图写得足够精确、让机器照着执行，因为总有没被说出来的部分。而我们只看得见一个系统在我们的测试里做了什么，永远看不见它真正在优化什么。<a href="#why-translation">有两章</a>会把细节讲透。</p>
           <div class="cl-figs one">
         <figure>
@@ -2174,8 +2176,18 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 
     <div class="mh-close">
       <span class="mc-k">唯一的解法</span>
-      <span class="mc-h">安全研究必须跑在模型能力前面</span>
-      <span class="mc-b">我们需要监管，也需要各方利益相关者协同起来，让投入 AI 安全的资金与资源超过投入 AI 研发的那一份。</span>
+      <div class="firsts two">
+        <div class="first">
+          <span class="fk">其一</span>
+          <h3>安全研究必须远远跑在模型能力前面</h3>
+          <p>我们需要监管，也需要各方利益相关者协同起来，让投入 AI 安全的资金与资源超过投入 AI 研发的那一份。</p>
+        </div>
+        <div class="first teal">
+          <span class="fk">其二</span>
+          <h3>如果安全最终被证明是一道无解的难题，我们就必须愿意停止研发</h3>
+          <p>如果必须在人类存续与经济收益之间取舍，人类存续必须优先。</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -2305,7 +2317,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <svg viewBox="0 0 720 241" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
         <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
         <text x="0" y="19" font-family="Archivo,sans-serif" font-size="13.5" font-weight="800" fill="#f3f6f7">超级智能会衍生出五个子目标来帮助实现它的主目标，无论主目标是什么。</text>
-        <text x="0" y="42" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">其中一个子目标就是获取资源。消灭人类未必是超级智能的目标，但作为“副作用”，这个子目标可能剥夺人类生存所依赖的东西。</text>
+        <text x="0" y="42" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">超级智能未必有消灭人类的直接目标，但作为“副作用”，攫取资源可能剥夺人类生存所依赖的东西。</text>
         <g transform="translate(0,21)">
         <rect x="0" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
         <text x="68" y="71" font-family="Archivo,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#d3dade">保持开机</text>
@@ -2322,7 +2334,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <line x1="268.5" y1="124" x2="268.5" y2="136" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#rd2)"/>
         <line x1="451.5" y1="124" x2="451.5" y2="136" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#rd2)"/>
         <line x1="634.5" y1="124" x2="634.5" y2="136" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#rd2)"/>
-        <text x="0" y="114" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing=".1em" fill="#8a959c">攫取资源，就是攫取这些</text>
+        <text x="0" y="114" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing=".1em" fill="#8a959c">人类的生存也依赖这些</text>
         <rect x="0" y="142" width="171" height="68" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
         <rect x="0" y="142" width="171" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
         <text x="15" y="167" font-family="Archivo,sans-serif" font-size="10.5" font-weight="700" fill="#f3f6f7">电力</text>
@@ -2687,6 +2699,11 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <h2>我们无法可靠地把自己的意愿植入机器</h2>
       <p class="stand">就算我们对想要什么达成了共识，要让机器照着去做，中间还隔着两个技术难题。<strong>对齐问题</strong>是把目标装进系统：我们写下的目标（<em>外部对齐</em>）和训练真正灌输进去的目标（<em>内部对齐</em>），都可能偏离我们的本意。<strong>可解释性问题</strong>是检验结果：我们还无法看进模型内部，读出它真正持有的是哪个目标。</p>
     </div>
+    <div class="sec-head rv">
+      <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
+      <h2>对齐问题：AI 照我们说的去做，而这很少是我们真正想要的</h2>
+      <p class="stand">从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p>
+    </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 175" role="img" aria-label="两幅面板：外部对齐显示写下的目标与更大的本意云团；内部对齐显示外显目标等同于虚线框住的真实目标。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">对齐失败有两种方式，而且互不相同</text>
@@ -2715,11 +2732,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">看不出来：两者的测试分数一模一样</text>
         </svg>
     </figure>
-    <div class="sec-head rv">
-      <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
-      <h2>对齐问题：AI 照我们说的去做，而这很少是我们真正想要的</h2>
-      <p class="stand">从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p>
-    </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">外部对齐：我们定下的目标，不是我们真正的意思</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">我们写下一个听上去没错的目标，它却错过了我们真正的意思，因为那些从没想过要说出口的部分，根本没进到字面里。</p>
     <figure>
@@ -3403,12 +3415,10 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <div class="first">
         <span class="fk">在系统层面，其一</span>
         <h3>把安全当作头号优先事项，努力把我们引向一个对齐良好、可被监测的先进 AI 系统</h3>
-        <p>如今涌入能力研发的资金、人才和算力，应有远比现在更多的部分流向对齐、可解释性与评估。眼下，更难的问题反而分到更小的份额——对一件如此重大的事来说，这恰恰是本末倒置。</p>
       </div>
       <div class="first teal">
         <span class="fk">在系统层面，其二</span>
         <h3>真正愿意停下来</h3>
-        <p><strong>如果这个问题被证明无解，我们就需要愿意停止先进 AI 的开发。</strong>我们必须把人类的存续，看得比经济利益更重。</p>
       </div>
       
     </div>
@@ -3425,7 +3435,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     <div class="sec-head">
       <p class="eyebrow">第 5.4 节 · 可以做什么 <b class="rt-min">6 分钟</b></p>
       <h2>光是知道这些，本身什么也改变不了。下面才是能改变的东西。</h2>
-      <p class="stand cando-lead">有四类人能推动这件事，而你就是第一类。下面每一项诉求都是具体的。凡涉及各国政府立场之处，依据的都是公开记录，并注明了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
+      <p class="stand cando-lead">我们必须把方向扭向远多于现在的安全研究，并在必要时愿意停下来。下面是你能帮上忙的事。有四类人能推动这件事，而你就是第一类。下面每一项诉求都是具体的。凡涉及各国政府立场之处，依据的都是公开记录，并注明了时间，因为这个领域变化得足够快，一份过期的概述比没有更糟。</p>
     </div>
     <div class="cando-block" id="what-you-can-do">
       <div class="cando-h"><span class="ch-n">你</span><h3>你可以做什么</h3></div>
@@ -3774,7 +3784,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 
   /* ---------- 3. sections: intro visual first ---------- */
   var ALL_VISIBLE = { "why-race": true, "why-it-ends-badly": true };
-  var NO_HOIST = { "why-it-ends-badly": true };
+  var NO_HOIST = { "why-it-ends-badly": true, "why-translation": true };
   function outsideCards(el){ return !el.closest(CARD) && !el.closest("details"); }
   function reveal(el){
     if (el.classList && el.classList.contains("rv")) el.classList.add("in");

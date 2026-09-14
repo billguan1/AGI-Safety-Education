@@ -997,6 +997,8 @@ section[id]{scroll-margin-top:calc(var(--barH,96px) + 18px)}
   font-size:clamp(21px,1.1rem + 1vw,30px);line-height:1.16;color:#fff;margin-bottom:10px}
 .mh-close .mc-b{display:block;color:#aeb9c0;font-size:15.5px;line-height:1.55;max-width:64ch}
 .mh-close a{color:#3fd0c9}
+.mh-close .firsts{margin:4px 0 0}
+.mh-close .first{background:rgba(8,11,13,.35)}
 .cl-n{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
   color:#ff8a6b;display:block;margin-bottom:8px}
 .claim.c2 .cl-n{color:#3fd0c9}
@@ -1598,6 +1600,7 @@ div.endc{cursor:default}
   .nav-xbtn{font-size:10.5px;padding:6px 11px}}
 
 
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1633,7 +1636,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 .ends-out .ddc h4{font-size:14.5px}
 .ends-out .ddc p{font-family:var(--body);font-weight:300;font-size:14px;line-height:1.5;color:var(--ink-2)}
 .ends-out .ddc h4{font-family:var(--display)}
-.chap-thesis + figure + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
+.chap-thesis + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
 
 /* lx:layered:end */
 </style>
@@ -1989,7 +1992,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">Racing to be first</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">to a place nobody should reach first.</text>
-        <text x="20" y="416" font-family="IBM Plex Mono,monospace" font-size="11.5" font-weight="600" fill="#ff8a6b">Arriving first without control just means falling first.</text>
       </svg>
     </figure>
     <div class="mh-care">
@@ -2056,7 +2058,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <div class="claim c2" id="claim-2">
         <span class="cl-n">2</span>
         <h3><a href="#why-it-ends-badly">Advanced AI can create unlimited abundance or end civilization</a></h3>
-        <p class="cl-sub">A machine that does its own research could cure every disease and deliver abundance without limit. Built without control, the same machine has several routes to ending us, and none of them requires it to hate us.</p>
+        <p class="cl-sub">The initial conditions under which we create superintelligence will determine whether we reach a world of abundance or destruction.</p>
         <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
         <figure>
           <svg viewBox="0 0 480 196" role="img" aria-label="Line chart: the world economy stays nearly flat at today's three percent growth, bends sharply upward at twelve percent a year, and at thirty percent a year runs off the top of the chart by 2044, on its way to 190 times today's size by 2055.">
@@ -2130,7 +2132,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     <div class="cl-halves">
         <div class="cl-half" style="--half-acc:#8d9dff">
           <div class="cl-hh"><span class="cl-sk">Problem one</span><span class="cl-hn">Coordination, between people</span></div>
-          <p>No lab or country can slow down on its own, because whoever keeps going wins, and good intentions do not change that. Even if everyone agreed to slow down, we have never agreed as a species on what a machine should want, and whoever gets to write that down holds enormous power.</p>
+          <p>No labs or countries will slow down on their own. Coordination is the only way towards an optimal result. After that, interested parties still need to determine which values and goals to embed in the superintelligence.</p>
           <div class="cl-figs one">
         <figure>
           <svg viewBox="0 0 480 294" role="img" aria-label="Two-by-two grid: whether the other side keeps going or slows down, going faster pays, so the racing outcome is the stable one.">
@@ -2159,7 +2161,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         </div>
 
         <div class="cl-half" style="--half-acc:#a98a4b">
-          <div class="cl-hh"><span class="cl-sk">Problem two</span><span class="cl-hn">Technical, between us and the machine</span></div>
+          <div class="cl-hh"><span class="cl-sk">Problem two</span><span class="cl-hn">Alignment and interpretability, between us and the machine</span></div>
           <p>We cannot write down what we mean precisely enough for a machine to follow it, because something always gets left out. And we can only see what a system does on our tests, never what it is actually optimising for. <a href="#why-translation">Two chapters</a> go through the detail.</p>
           <div class="cl-figs one">
         <figure>
@@ -2189,8 +2191,18 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 
     <div class="mh-close">
       <span class="mc-k">The only solution</span>
-      <span class="mc-h">Safety research has to run ahead of model capability</span>
-      <span class="mc-b">We need regulation, and coordination between all interest groups, to drive more funding and resources to AI safety than to AI development.</span>
+      <div class="firsts two">
+        <div class="first">
+          <span class="fk">First</span>
+          <h3>Safety research has to run ahead of model capability by a large margin</h3>
+          <p>We need regulation, and coordination between all interest groups, to drive more funding and resources to AI safety than to AI development.</p>
+        </div>
+        <div class="first teal">
+          <span class="fk">Second</span>
+          <h3>If safety turns out to be an intractable problem, we must be willing to stop development</h3>
+          <p>If a tradeoff has to be made between human survival and economic gains, human survival must take precedence.</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -2320,10 +2332,10 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     <figure class="secfig dark rv" id="route-two">
       <svg viewBox="0 0 720 273" role="img" aria-label="Five subgoals follow from almost any objective, and the fifth, taking resources, means taking the electricity, land, materials and matter humans need to stay alive.">
         <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-        <text x="0" y="19" font-family="Archivo,sans-serif" font-size="13.5" font-weight="800" fill="#f3f6f7">A superintelligence will create five subgoals to help achieve its main goal, whatever it</text>
-        <text x="0" y="37" font-family="Archivo,sans-serif" font-size="13.5" font-weight="800" fill="#f3f6f7">is.</text>
-        <text x="0" y="60" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">One of these subgoals is to obtain resources. It may not be a goal for the superintelligence to eliminate humans, but as a</text>
-        <text x="0" y="74" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">“side effect” that subgoal can deprive us of what human life depends on.</text>
+        <text x="0" y="19" font-family="Archivo,sans-serif" font-size="13.5" font-weight="800" fill="#f3f6f7">A superintelligence will create five subgoals</text>
+        <text x="0" y="37" font-family="Archivo,sans-serif" font-size="13.5" font-weight="800" fill="#f3f6f7">to help achieve its main goal, whatever it is.</text>
+        <text x="0" y="60" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">A superintelligence may not have a direct goal to eliminate humans, but as a “side effect” taking resources can deprive us of</text>
+        <text x="0" y="74" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">what human life depends on.</text>
         <g transform="translate(0,53)">
         <rect x="0" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
         <text x="68" y="71" font-family="Archivo,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#d3dade">Stay switched on</text>
@@ -2340,7 +2352,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <line x1="268.5" y1="124" x2="268.5" y2="136" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#rd2)"/>
         <line x1="451.5" y1="124" x2="451.5" y2="136" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#rd2)"/>
         <line x1="634.5" y1="124" x2="634.5" y2="136" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#rd2)"/>
-        <text x="0" y="114" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing=".1em" fill="#8a959c">TAKING RESOURCES MEANS TAKING THESE</text>
+        <text x="0" y="114" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" letter-spacing=".1em" fill="#8a959c">HUMAN LIVES ALSO DEPEND ON THESE</text>
         <rect x="0" y="142" width="171" height="68" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
         <rect x="0" y="142" width="171" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
         <text x="15" y="167" font-family="Archivo,sans-serif" font-size="10.5" font-weight="700" fill="#f3f6f7">Electricity</text>
@@ -2710,6 +2722,11 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <h2>We cannot reliably embed our desires into a machine</h2>
       <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds.</p>
     </div>
+    <div class="sec-head rv">
+      <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
+      <h2>The alignment problem: AI does what we asked it to, which is rarely what we meant</h2>
+      <p class="stand">The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
+    </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 175" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL DIFFERENTLY</text>
@@ -2738,11 +2755,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
         </svg>
     </figure>
-    <div class="sec-head rv">
-      <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
-      <h2>The alignment problem: AI does what we asked it to, which is rarely what we meant</h2>
-      <p class="stand">The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
-    </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Outer alignment: the target we established is not the one we mean</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">We state an objective that sounds right and misses what we meant, because the part we never thought to say out loud does not make it into the words.</p>
     <figure>
@@ -3436,12 +3448,10 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <div class="first">
         <span class="fk">At the system level, first</span>
         <h3>Treat safety as the top priority and steer us towards a well-aligned, monitored advanced AI system</h3>
-        <p>Far more of the money, talent and compute now flowing into capability should go to alignment, interpretability and evaluation. Right now the harder problem gets the smaller share, which is backwards for something this consequential.</p>
       </div>
       <div class="first teal">
         <span class="fk">At the system level, second</span>
         <h3>Be willing to actually stop</h3>
-        <p><strong>If the problem proves to be intractable, we need to be willing to stop advanced AI development.</strong> We need to prioritize human survival over economic gains.</p>
       </div>
       
     </div>
@@ -3458,7 +3468,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     <div class="sec-head">
       <p class="eyebrow">Section 5.4 · Who does what <b class="rt-min">6 min</b></p>
       <h2>What you can do this week, and what has to change above you.</h2>
-      <p class="stand cando-lead">Four groups can move this, and you are the first of them. Each ask below is specific, and positions attributed to a government are what the public record says, dated, because a stale summary here is worse than none.</p>
+      <p class="stand cando-lead">We must steer towards far more safety research, and be willing to stop if needed. Here is what you can do to help. Four groups can move this, and you are the first of them. Each ask below is specific, and positions attributed to a government are what the public record says, dated, because a stale summary here is worse than none.</p>
     </div>
 
     <div class="cando-block" id="what-you-can-do">
@@ -3809,7 +3819,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 
   /* ---------- 3. sections: intro visual first ---------- */
   var ALL_VISIBLE = { "why-race": true, "why-it-ends-badly": true };
-  var NO_HOIST = { "why-it-ends-badly": true };
+  var NO_HOIST = { "why-it-ends-badly": true, "why-translation": true };
   function outsideCards(el){ return !el.closest(CARD) && !el.closest("details"); }
   function reveal(el){
     if (el.classList && el.classList.contains("rv")) el.classList.add("in");
