@@ -8,9 +8,16 @@
 <meta property="og:title" content="AGI 与 ASI 安全：人类迄今未能破解的头号难题">
 <meta property="og:description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://safeagi.ca/og-image.png">
+<meta property="og:image" content="https://safeagi.ca/og-zh-ef381c66.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="人类迄今未能破解的头号难题：AGI 安全。一份独立的领域指南，safeagi.ca。">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://safeagi.ca/og-image.png">
+<meta name="twitter:image" content="https://safeagi.ca/og-zh-ef381c66.png">
+<meta name="twitter:image:alt" content="人类迄今未能破解的头号难题：AGI 安全。一份独立的领域指南，safeagi.ca。">
+<meta name="twitter:title" content="AGI 与 ASI 安全：人类迄今未能破解的头号难题">
+<meta name="twitter:description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Async so a reader in mainland China, where fonts.googleapis.com is blocked,
@@ -778,6 +785,9 @@ section[id]{scroll-margin-top:calc(var(--barH,96px) + 18px)}
 .figpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:clamp(22px,3.4vw,32px) 0;align-items:start}
 .figpair .secfig{margin:0;max-width:none}
 .secfig svg{display:block;width:100%;height:auto}
+.fig-head{margin:0 0 clamp(14px,2vw,20px)}
+.fig-head b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(16px,1rem + .45vw,20px);line-height:1.3;letter-spacing:-.012em;color:#f3f6f7;text-wrap:balance;max-width:52ch}
+.fig-head span{display:block;margin-top:8px;font-family:var(--mono);font-size:clamp(11.5px,.7rem + .15vw,13px);line-height:1.6;color:#8a959c;max-width:88ch}
 .secfig figcaption{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink-3);max-width:76ch}
 
 .secfig.dark{background:rgba(255,255,255,.04);border-color:#2b343b}
@@ -1590,6 +1600,7 @@ div.endc{cursor:default}
 
 
 
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1679,7 +1690,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
           "https://github.com/billguan1/AGI-Safety-Education"
         ]
       },
-      "image": "https://safeagi.ca/og-image.png",
+      "image": "https://safeagi.ca/og-zh-ef381c66.png",
       "datePublished": "2026-09-01",
       "dateModified": "2026-09-07",
       "about": [
@@ -1905,7 +1916,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     </div>
     <p class="mh-lede">人工超级智能，是人类有史以来尝试建造的最重要的技术之一，承诺带来无限的物质丰裕、各个领域的突破，以及把人类从一切脑力与体力劳动中解放出来。然而我们正身处一场危险的军备竞赛：资源正疯狂涌入加速研发，安全却在被不断削弱。这个页面要说清楚这道缺口为什么要紧，以及我们能如何帮忙，把人类引向正确的方向。</p>
     <figure class="cliff">
-      <svg viewBox="0 0 800 430" role="img" aria-label="示意图：实验室、公司、投资方与国家被同一根绳索拴在一起，冲向悬崖边缘。奖赏悬在崖的另一侧，崖下则是生存性的覆灭。">
+      <svg viewBox="0 0 800 430" role="img" aria-label="示意图：实验室、公司、投资方与国家被同一根绳索拴在一起，冲向悬崖边缘。奖赏悬在崖的另一侧，崖下则是生存性的覆灭；一个长着翅膀的人正朝奖赏飞升。">
         <defs>
           <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#2a333a"/><stop offset="100%" stop-color="#171d22"/>
@@ -1948,6 +1959,16 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <g stroke="#ff8a6b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
           <g transform="translate(600,268) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#ff8a6b"/>
             <path d="M0,-23 L2,-6 M2,-6 L-8,6 M2,-6 L12,3 M-1,-17 L-12,-13 M-1,-17 L10,-22"/></g>
+        </g>
+        <!-- one figure with wings, rising toward the prize -->
+        <g id="lx-flyer" transform="translate(734,202) rotate(-10)" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M-3,-19 C-12,-31 -25,-41 -40,-40 C-35,-33 -31,-26 -25,-21 C-30,-19 -33,-15 -34,-10 C-24,-12 -13,-13 -4,-13 Z" fill="#3fd0c9" fill-opacity=".2" stroke="#3fd0c9" stroke-width="1.6"/>
+          <path d="M-9,-22 C-17,-29 -26,-34 -34,-36 M-8,-17 C-17,-21 -24,-22 -29,-20" fill="none" stroke="#3fd0c9" stroke-width="1" opacity=".65"/>
+          <path d="M3,-19 C12,-31 25,-41 40,-40 C35,-33 31,-26 25,-21 C30,-19 33,-15 34,-10 C24,-12 13,-13 4,-13 Z" fill="#3fd0c9" fill-opacity=".2" stroke="#3fd0c9" stroke-width="1.6"/>
+          <path d="M9,-22 C17,-29 26,-34 34,-36 M8,-17 C17,-21 24,-22 29,-20" fill="none" stroke="#3fd0c9" stroke-width="1" opacity=".65"/>
+          <g stroke="#3fd0c9" stroke-width="3" fill="none"><circle cx="0" cy="-31" r="7" fill="#3fd0c9"/>
+            <path d="M0,-24 L0,-5 M0,-5 L-5,8 M0,-5 L5,8 M0,-18 L-8,-29 M0,-18 L8,-29"/></g>
+          <path d="M-5,15 L-5,29 M5,14 L5,24 M0,18 L0,34" stroke="#3fd0c9" stroke-width="1.4" stroke-dasharray="3 3" opacity=".5"/>
         </g>
 
         <!-- edge marker -->
@@ -2184,7 +2205,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         </div>
         <div class="first teal">
           <span class="fk">其二</span>
-          <h3>如果安全最终被证明是一道无解的难题，我们就必须愿意停止研发</h3>
+          <h3>如果安全最终被证明是一道无解的难题，我们就必须愿意停止 AI 研发</h3>
           <p>如果必须在人类存续与经济收益之间取舍，人类存续必须优先。</p>
         </div>
       </div>
@@ -2301,7 +2322,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     </div>
 
     <div class="ends rv">
-      <p class="ends-k">无人幸存的四条路径，以及每一条如何走到尽头</p>
       <div class="ends-grid">
         <div class="endc" style="--e:#ff8a6b"><span class="ek">使用者是对手</span><h4>滥用</h4><p>有人蓄意把一个强大的系统对准某个目标：网络攻击、规模化欺诈、协助制造生化武器。模型完全是在按设计运转。</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>人工改造的病原体</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l2.3 5.4 5.8.6-4.3 3.9 1.2 5.7L12 15.2l-5 2.9 1.2-5.7L3.9 8.5l5.8-.6z"/></svg><i>对基础设施的攻击</i></span></span></div>
         <a class="endc" href="#route-two" style="--e:#8d9dff"><span class="ek">AI 本身是对手</span><h4>目标错位</h4><p>它抱着一个我们从未想赋予它的目标，毫不含糊地执行到底。就算是我们亲手写下的目标，也可能被推得太远：让它治愈一种疾病，它会越过任何人都会停下的地方继续往前。</p><p style="margin-top:10px">只要它还认为我们可能关掉它，它就会把这种偏离藏起来。这就是<strong>密谋（scheming）</strong>：模型暗中追求与开发者不一致的目标，同时刻意隐藏。它需要三样东西，而当前的模型或多或少都已具备：一个不同于开发者的目标、把它坚持下去的韧性，以及足以判断自己何时正被监视的情境意识。</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 2.5L5 13.5h5.5L9.5 21.5 19 10.5h-5.8z"/></svg><i>能源</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 18.5h19M4.5 18.5c0-4 3-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/><path d="M12 12V6M12 6c-1.6 0-2.6-1-2.6-2.4C10.8 3.6 12 4.6 12 6zM12 6c1.6 0 2.6-1 2.6-2.4C13.2 3.6 12 4.6 12 6z"/></svg><i>土地与水</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>物质</i></span></span></a>
@@ -2309,16 +2329,15 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <div class="endc" style="--e:#d9a445"><span class="ek">真正的对手是激励本身</span><h4>结构性</h4><p>没有任何一个参与者有错。竞争、市场压力与多智能体之间的动态，共同产生一个没有人选择的坏结果。</p><p style="margin-top:10px">系统也可能做的正是我们想要的，只是世界早已不是它测试时的那个世界；而它本身就在推动这种改变：每完成一轮自我改进、每获取一份资源，现实就离任何人检验过的情形更远一步。</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="8" r="2.2"/><circle cx="12" cy="8" r="2.2"/><circle cx="19" cy="8" r="2.2"/><path d="M2.5 20.5h19M5 12.5v5M12 12.5v5M19 12.5v5"/></svg><i>人人都在发布</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12.5h9M9 8.5l4 4-4 4"/><rect x="15" y="5.5" width="6" height="13" rx="1.6"/></svg><i>我们把它交了出去</i></span></span></div>
       </div>
       <div class="ends-arrows" aria-hidden="true"><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span></div>
-      <div class="ends-out"><span class="eo-k">落到人身上，这一切会怎样收场</span><span class="eo-ways"><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>一场人工制造的大流行</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg><i>停止运转的基础设施</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>我们赖以生存的电力、粮食与水被拿走</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5M7.5 12.5l-2 2a3.5 3.5 0 004.9 4.9l2-2M16.5 11.5l2-2a3.5 3.5 0 00-4.9-4.9l-2 2"/></svg><i>再也拿不回来的控制权</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="8" ry="3.2"/><path d="M4 12h16"/><rect x="9.4" y="1.6" width="5.2" height="4" rx="0.8"/></svg><i>地球被改造成基础设施</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg><i>自主武器被发射</i></span></span><p class="eo-more">还有无数我们根本想象不到的场景。就像新手对弈电脑，被击败的方式多到根本看不见来路。</p></div>
+      <div class="ends-out"><span class="eo-k">落到人身上，这一切会怎样收场</span><span class="eo-ways"><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>一场人工制造的大流行</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg><i>停止运转的基础设施</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>我们赖以生存的电力、粮食与水被拿走</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5M7.5 12.5l-2 2a3.5 3.5 0 004.9 4.9l2-2M16.5 11.5l2-2a3.5 3.5 0 00-4.9-4.9l-2 2"/></svg><i>再也拿不回来的控制权</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="8" ry="3.2"/><path d="M4 12h16"/><rect x="9.4" y="1.6" width="5.2" height="4" rx="0.8"/></svg><i>地球被改造成基础设施</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg><i>自主武器被发射</i></span></span><p class="eo-more">还有无数我们根本想象不到的场景，就像新手下棋，总会以意想不到的方式被击败。</p></div>
       <p class="ends-foot">其中只有一条需要一个人类作恶者，而有两条根本不需要任何人有意造成伤害。这个四分法出自 Google DeepMind。<a class="ref" href="/reference-zh#s42">42</a><a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s34">34</a></p>
     </div>
 
     <figure class="secfig dark rv" id="route-two">
-      <svg viewBox="0 0 720 241" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
+      <div class="fig-head"><b>超级智能会衍生出五个子目标来帮助实现它的主目标，无论主目标是什么。</b><span>超级智能未必有消灭人类的直接目标，但作为“副作用”，攫取资源可能剥夺人类生存所依赖的东西。</span></div>
+      <svg viewBox="0 0 720 176" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
         <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-        <text x="0" y="19" font-family="Archivo,sans-serif" font-size="13.5" font-weight="800" fill="#f3f6f7">超级智能会衍生出五个子目标来帮助实现它的主目标，无论主目标是什么。</text>
-        <text x="0" y="42" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="400" fill="#8a959c">超级智能未必有消灭人类的直接目标，但作为“副作用”，攫取资源可能剥夺人类生存所依赖的东西。</text>
-        <g transform="translate(0,21)">
+        <g transform="translate(0,-44)">
         <rect x="0" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
         <text x="68" y="71" font-family="Archivo,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#d3dade">保持开机</text>
         <rect x="146" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
@@ -2382,7 +2401,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <p class="stand">人类花了很多次尝试，才把汽车、飞机、核电站这类技术做对。而一个能够重写自己源代码的系统，也就是<span class="term" tabindex="0">递归自我改进<span class="term-tip">系统改进的，正是那个做改进的东西。每一轮都让下一轮更快，于是能力是复利式增长，而不是稳步爬升。失控的那个版本，就是人们所说的智能爆炸。</span></span><a class="ref" href="/reference-zh#s34">34</a>，只会不断把这些改进复利式叠加，直到引发一场智能爆炸。这种方向上的转变，快到没有回头路可退。</p>
     </div>
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 282" role="img" aria-label="三行反复的“失败、再修复”循环，分别对应汽车、航空与核电，与之相对的是 AGI 那条一路向前、终点撞墙的单向箭头。">
+      <svg viewBox="0 0 720 248" role="img" aria-label="三行反复的“失败、再修复”循环，分别对应汽车、航空与核电，与之相对的是 AGI 那条一路向前、终点撞墙的单向箭头。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">其余一切，我们是靠反复试错才做对的</text>
         <circle cx="152" cy="29" r="4.5" fill="#8a959c"/>
         <text x="163" y="32.5" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">一次人们活了下来的失败</text>
@@ -2439,10 +2458,9 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <rect x="512" y="182" width="9" height="52" rx="2.5" fill="#d5dbdf"/>
         <text x="534" y="204" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">第一次真正的</text>
         <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">失控</text>
-        <text x="0" y="268" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">我们拥有的每一门安全学科，都假设失败可以幸存，并且还有第二次机会。</text>
       </svg>
     </figure>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 0">到了 AGI，我们就没有这份余裕了。它必须一次做对，因为没有第二次机会，而已经看得见的两件事说明了原因。</p>
+    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-family:var(--display);font-weight:700;font-size:clamp(19px,1.1rem + .6vw,24px);line-height:1.35;letter-spacing:-.012em">到了 AGI，我们就没有这份余裕了。它必须一次做对，因为没有第二次机会，而有两件事说明了原因。</p>
 
 
             <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">它已经在朝自我改进走了</h3>
@@ -2556,13 +2574,9 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     <div class="sec-head rv">
       <span class="chapno">第 3.1 节 <b class="rt-min">2 分钟</b></span>
       <h2>谁先慢下来谁就输，于是没有人慢下来</h2>
-      <p class="stand">由于先发优势，即便每个参与者都想要安全，竞赛的结构也会逼着他们为了更快而偷工减料。而第一个带着一个谁都无法控制的系统冲到悬崖边，输掉的是全人类。</p>
+      <p class="stand">由于先发优势，即便每个参与者都想要安全，也会被逼着为了更快而偷工减料。这可能让我们在错误的初始条件下抵达 ASI，把人类置于危险之中。</p>
     </div>
-    <div class="body rv">
-      <p>我们正处在一场不安全的 AGI 竞赛之中，就像一群人朝着悬崖边狂奔，每个人都确信自己先到就能赢得奖赏，谁也没注意到绳子把所有人的身体拴在一起。第一个冲下悬崖的人，会把全人类一起拖下去。</p>
-    </div>
-
-        <div class="ddgrid two rv">
+    <div class="ddgrid two rv">
       <div class="ddc r"><span class="k">偷工减料</span><h4>审慎成了负担</h4><p>在安全上投入越少，交付就越快，于是最可能赢的，往往是那个最不在意安全的人。</p></div>
       <div class="ddc r"><span class="k">那根绳子</span><h4>失败无法被隔离</h4><p>任何一家前沿实验室失控，都会让全人类为此买单，包括那些从未用过这个产品、也从未听说过这家公司的人。</p></div>
     </div>
@@ -3204,7 +3218,9 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <p>若你读过 Bostrom，2014 年的二分法是<strong>能力管控</strong>（隔离、限制、监控）与<strong>动机塑造</strong>（给它对的目标）。其中一半经受住了时间的检验：直接把目标写下来行不通，原因正如他所言。动机塑造已成为上面的开发层，能力管控如今是 AI 控制与系统安全，而这个领域是把它们叠起来用，而非二选一。<a class="ref" href="/reference-zh#s34">34</a><a class="ref" href="/reference-zh#s42">42</a></p>
     </details>
 
-<figure class="secfig rv">
+<details class="exfold rv">
+      <summary>按风险支柱划分的技术与政策抓手</summary>
+      <figure class="secfig rv">
       <svg viewBox="0 0 720 342" role="img" aria-label="矩阵图：四类风险支柱各自对应的工程抓手与政策抓手，其中结构性风险一行没有工程解法。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">按风险支柱划分的技术与政策抓手</text>
         <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#8fa2d8">工程抓手</text>
@@ -3245,8 +3261,10 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">最下面这一行，正是技术对齐无法独自解决的原因。</text>
       </svg>
     </figure>
-      <h3 class="rv" style="margin-top:clamp(32px,4.6vw,50px);margin-bottom:6px">谁在做哪一层</h3>
-    <figure class="secfig rv" style="margin-top:8px">
+    </details>
+    <details class="exfold rv">
+      <summary>谁在做哪一层</summary>
+      <figure class="secfig rv">
       <svg viewBox="0 0 720 320" role="img" aria-label="八家机构与开发、评估、控制、治理四个层面的矩阵，实心圆点表示主要方向，浅色圆点表示次要方向。">
         <text x="248" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">开发</text>
         <text x="368" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#6f8a63">评估</text>
@@ -3277,7 +3295,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="0" y="314" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">此归类由本页所做，这些机构并未这样描述过自己。</text>
       </svg>
     </figure>
-    <div class="keyline rv" style="margin-top:clamp(18px,2.6vw,24px)"><span class="kk">这份清单怎么读</span><p>四层是按“假设了多少”来排序的。开发层设法把目标造对；评估层假设你可能已经失手，于是去查；控制层假设你根本查不出来，于是照样把它围住；治理层则假设前三层都出于自愿，于是设法让它们具有约束力。能穿过全部四层活下来的风险，就是残余风险，而目前没有人声称它很小。</p></div>
+    </details>
 
     </div>
 </section>
@@ -3422,7 +3440,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       </div>
       
     </div>
-    <div class="keyline rv"><span class="kk">底线</span><p>我们不需要先证明结局一定很糟。我们需要的是承认这道题可能无解的诚实，以及一旦真的无解便就此停手的胆识。</p></div>
+    <div class="keyline rv"><span class="kk">底线</span><p>我们必须尽全力，把方向引向安全的先进 AI。但如果这道题无解，我们就需要有停下来的勇气与协作，为了人类的存续。</p></div>
 
   </div>
 </section>
@@ -3810,6 +3828,9 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     }
   });
 
+  $$("details", main).forEach(function(d){
+    d.addEventListener("toggle", function(){ if (d.open) { reveal(d); fitAll(d); } });
+  });
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function(){ fitAll(main); });
 })();
 </script>
