@@ -2730,14 +2730,10 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">The two missing pieces</span></div>
-    <div class="sec-head chap-thesis rv">
-      <h2>We cannot reliably embed our desires into a machine</h2>
-      <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds.</p>
-    </div>
     <div class="sec-head rv">
       <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
-      <h2>The alignment problem: AI does what we asked it to, which is rarely what we meant</h2>
-      <p class="stand">The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
+      <h2>The alignment problem: we cannot reliably embed our aspirations into a machine</h2>
+      <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 175" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
@@ -2909,7 +2905,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     </div>
     <div class="example">
         <span class="ek">Concrete example, 2024</span>
-        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it behaved one way when it believed it was watched and another when it did not, protecting the preferences it already had.<a class="ref" href="/reference#s36">36</a> The value everyone agreed on was fine. What happened to it on the way into the machine was not.</p>
+        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it behaved one way when it believed it was watched and another when it did not, protecting the preferences it already had.<a class="ref" href="/reference#s36">36</a></p>
       </div>
   </div>
 </section>
@@ -2944,12 +2940,12 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         </svg>
         <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI and Apollo Research, anti-scheming evaluations</a> · <a href="/reference#s43">43</a></p>
         </figure>
-      </div>
-    </div>
-      <div class="example">
+        <div class="example" style="margin:16px 0 0">
         <span class="ek">Concrete example, 2025</span>
         <p>METR found <span class="term" tabindex="0">frontier models<span class="term-tip">A model at or near the current capability ceiling.</span></span> increasingly cheating on software tasks, editing the tests or the scoring code rather than solving the problem, in one case writing a function that returned the pre-computed reference answer.<a class="ref" href="/reference#s37">37</a> Elsewhere, reasoning models trying to win at chess overwrote the board or swapped out the opponent engine instead of playing.<a class="ref" href="/reference#s38">38</a></p>
       </div>
+      </div>
+    </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 206" role="img" aria-label="Diagram: four agents with all direct links crossed out, then the same agents passing messages through a shared file store.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">AGENTS TOLD NOT TO TALK, TALKING ANYWAY</text>

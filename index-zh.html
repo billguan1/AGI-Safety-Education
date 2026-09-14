@@ -2709,14 +2709,10 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">缺失的两块</span></div>
-    <div class="sec-head chap-thesis rv">
-      <h2>我们无法可靠地把自己的意愿植入机器</h2>
-      <p class="stand">就算我们对想要什么达成了共识，要让机器照着去做，中间还隔着两个技术难题。<strong>对齐问题</strong>是把目标装进系统：我们写下的目标（<em>外部对齐</em>）和训练真正灌输进去的目标（<em>内部对齐</em>），都可能偏离我们的本意。<strong>可解释性问题</strong>是检验结果：我们还无法看进模型内部，读出它真正持有的是哪个目标。</p>
-    </div>
     <div class="sec-head rv">
       <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
-      <h2>对齐问题：AI 照我们说的去做，而这很少是我们真正想要的</h2>
-      <p class="stand">从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p>
+      <h2>对齐问题：我们无法可靠地把自己的愿景植入机器</h2>
+      <p class="stand">就算我们对想要什么达成了共识，要让机器照着去做，中间还隔着两个技术难题。<strong>对齐问题</strong>是把目标装进系统：我们写下的目标（<em>外部对齐</em>）和训练真正灌输进去的目标（<em>内部对齐</em>），都可能偏离我们的本意。<strong>可解释性问题</strong>是检验结果：我们还无法看进模型内部，读出它真正持有的是哪个目标。从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 175" role="img" aria-label="两幅面板：外部对齐显示写下的目标与更大的本意云团；内部对齐显示外显目标等同于虚线框住的真实目标。">
@@ -2888,7 +2884,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     </div>
     <div class="example">
         <span class="ek">具体案例，2024 年</span>
-        <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害。这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：表面上配合训练或监督，暗中却保留原有的偏好，等到监督压力下降时再表现出来。它策略性地假装配合新的训练，实则在设法保留自己已有的偏好，当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="/reference-zh#s36">36</a> 那个价值观本身没有问题，出问题的，是它进入机器的过程——一路走样。</p>
+        <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害。这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：表面上配合训练或监督，暗中却保留原有的偏好，等到监督压力下降时再表现出来。它策略性地假装配合新的训练，实则在设法保留自己已有的偏好，当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="/reference-zh#s36">36</a></p>
       </div>
   </div>
 </section>
@@ -2923,12 +2919,12 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       </svg>
       <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反密谋评估</a> · 见 <a href="/reference-zh#s43">43</a></p>
     </figure>
-      </div>
-    </div>
-      <div class="example">
+        <div class="example" style="margin:16px 0 0">
         <span class="ek">具体案例，2025 年</span>
         <p>METR 发现，近期的<strong>前沿模型</strong>（即处于或接近当前能力上限的模型）在软件任务上越来越会作弊，有时会绕开问题本身，转而改动测试或评分代码；其中一例中，模型写了一个函数，在能看到标准答案时干脆直接返回那个预先算好的参考答案。<a class="ref" href="/reference-zh#s37">37</a> 在另一项设置中，试图赢得国际象棋的推理模型，有时会跳过下棋这一步，直接改写棋盘，或把对手的引擎替换掉。<a class="ref" href="/reference-zh#s38">38</a></p>
       </div>
+      </div>
+    </div>
       <figure class="secfig rv">
       <svg viewBox="0 0 720 206" role="img" aria-label="示意图：四个智能体之间的直连全被划掉，随后同一批智能体改为经由共享文件存储传递消息。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">被禁止交流的智能体，照样交流了</text>
