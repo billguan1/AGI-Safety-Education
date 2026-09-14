@@ -1585,6 +1585,46 @@ div.endc{cursor:default}
   stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 @media(max-width:900px){.nav-extra{margin-left:0;width:100%;margin-top:4px}
   .nav-xbtn{font-size:10.5px;padding:6px 11px}}
+
+
+/* lx:layered:start */
+/* ---------- layered reading mode ---------- */
+.lx-card{position:relative}
+.lx-head{display:block;width:100%;text-align:left;background:none;border:0;padding:0;margin:0;color:inherit;font:inherit;cursor:pointer}
+.lx-head:focus-visible{outline:2px solid var(--c-ass);outline-offset:4px}
+.lx-card .lx-sign{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:15px;line-height:1;
+  color:var(--ink-3);transition:color .18s,transform .18s}
+.lx-card:hover .lx-sign{color:var(--ink)}
+.lx-card.lx-open .lx-sign{transform:rotate(45deg);color:var(--c-ass)}
+.lx-card h4,.lx-card h3,.lx-card .tn{padding-right:26px}
+.lx-body[hidden]{display:none}
+.lx-body{padding-top:2px}
+:is(.ddgrid,.ends-grid,.tgrid,.cl-halves):has(>.lx-open)>.lx-card{align-self:start}
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-ass)}
+main .lx-chart,main .cl-figs.panels figure.lx-chart,main .ddc figure.lx-chart,main figure.cliff.lx-chart,main figure.secfig.lx-chart{
+  box-sizing:border-box;width:100%;max-width:860px;margin:clamp(16px,2.4vw,22px) 0;padding:20px;
+  border:1px solid var(--rule-soft);border-left:1px solid var(--rule-soft);border-radius:var(--r);background:var(--white)}
+main .lx-chart svg,main .cliff.lx-chart svg{display:block;width:100%;height:auto;max-width:none;border:0;border-radius:0;background:none}
+main .lx-chart .fig-src,main .lx-chart figcaption{margin-top:12px}
+main section:not(#crossroads) .cl-figs,main section:not(#crossroads) .figpair{grid-template-columns:1fr!important;max-width:860px}
+.cl-figs.panels{align-items:stretch}
+.cl-figs.panels>figure{display:flex;flex-direction:column}
+.cl-figs.panels>figure>svg{margin-bottom:9px}
+.cl-figs.panels>figure>.fig-src{margin-top:auto}
+main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;background:none;margin:14px 0 4px;max-width:none}
+.ends-out.lx-card{cursor:pointer}
+.ends-out .eo-hint{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-ass)}
+.ends-out.lx-open .eo-hint{display:none}
+.ends-out .lx-body{width:100%;text-align:left;padding-top:14px;cursor:auto}
+.ends-out .ddgrid{margin:0}
+.ends-out .ddc{padding:16px}
+.ends-out .ddc .k{font-size:8.5px}
+.ends-out .ddc h4{font-size:14.5px}
+.ends-out .ddc p{font-family:var(--body);font-weight:300;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.ends-out .ddc h4{font-family:var(--display)}
+.chap-thesis + figure + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
+
+/* lx:layered:end */
 </style>
   <link rel="canonical" href="https://safeagi.ca/index-zh">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -2618,10 +2658,10 @@ div.endc{cursor:default}
         <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
         <rect x="0" y="152" width="700" height="34" rx="4" fill="#232b31"/>
         <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#c3ccd2">其余所有人，约八十亿，无论如何都要承受后果</text>
-        <text x="500" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">以及任何有能力</text>
-        <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">把一个近乎成熟的</text>
-        <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">模型推过</text>
-        <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">最后一步的人</text>
+        <text x="500" y="57" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">以及任何有能力</text>
+        <text x="500" y="70" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">把一个近乎成熟的</text>
+        <text x="500" y="83" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">模型推过</text>
+        <text x="500" y="96" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">最后一步的人</text>
       </svg>
     </figure>
 
@@ -2643,10 +2683,9 @@ div.endc{cursor:default}
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">缺失的两块</span></div>
-    <div class="sec-head rv">
-      <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
-      <h2>AI 照我们说的去做，而这很少是我们真正想要的</h2>
-      <p class="stand">假设我们真的就“想要什么”达成了一致，我们仍然无法可靠地把它装进机器。从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p>
+    <div class="sec-head chap-thesis rv">
+      <h2>我们无法可靠地把自己的意愿植入机器</h2>
+      <p class="stand">就算我们对想要什么达成了共识，要让机器照着去做，中间还隔着两个技术难题。<strong>对齐问题</strong>是把目标装进系统：我们写下的目标（<em>外部对齐</em>）和训练真正灌输进去的目标（<em>内部对齐</em>），都可能偏离我们的本意。<strong>可解释性问题</strong>是检验结果：我们还无法看进模型内部，读出它真正持有的是哪个目标。</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 175" role="img" aria-label="两幅面板：外部对齐显示写下的目标与更大的本意云团；内部对齐显示外显目标等同于虚线框住的真实目标。">
@@ -2676,12 +2715,14 @@ div.endc{cursor:default}
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">看不出来：两者的测试分数一模一样</text>
         </svg>
     </figure>
+    <div class="sec-head rv">
+      <span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b></span>
+      <h2>对齐问题：AI 照我们说的去做，而这很少是我们真正想要的</h2>
+      <p class="stand">从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p>
+    </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">外部对齐：我们定下的目标，不是我们真正的意思</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">我们写下一个听上去没错的目标，它却错过了我们真正的意思，因为那些从没想过要说出口的部分，根本没进到字面里。</p>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">纵使目标写得无懈可击，仍有两条通向灾难的路。</strong>两者都不需要系统心怀敌意，也不需要目标在纸面上看得出错。<a class="ref" href="/reference-zh#s34">34</a></p>
-    <div class="ddgrid two rv">
-        <div class="ddc r"><span class="k">它出错的一种方式</span><h4>荒唐的字面实现</h4><p>它以你绝不会认可的方式，满足了你字面上的标准。让人们微笑，那么给面部肌肉接上电极就是一种解法；如果目标是最大化奖励信号，那么直接霸占奖励来源反而是更优解。</p>
-        <figure>
+    <figure>
           <svg viewBox="0 0 480 160" role="img" aria-label="示意图：代表人类价值的众多小形状穿过漏斗，变成一个数字，此后结果便与本意分道扬镳。">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">从一项价值到一个奖励，中间丢了什么</text>
           <circle cx="26" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
@@ -2736,7 +2777,10 @@ div.endc{cursor:default}
           <text x="470" y="146" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#d96a52">强搜索找到的东西</text>
           </svg>
         </figure>
-      </div>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">纵使目标写得无懈可击，仍有两条通向灾难的路。</strong>两者都不需要系统心怀敌意，也不需要目标在纸面上看得出错。<a class="ref" href="/reference-zh#s34">34</a></p>
+    <div class="ddgrid two rv">
+        <div class="ddc r"><span class="k">它出错的一种方式</span><h4>荒唐的字面实现</h4><p>它以你绝不会认可的方式，满足了你字面上的标准。让人们微笑，那么给面部肌肉接上电极就是一种解法；如果目标是最大化奖励信号，那么直接霸占奖励来源反而是更优解。</p>
+        </div>
         <div class="ddc o"><span class="k">它出错的另一种方式</span><h4>无止境扩张的基础设施</h4><p>目标里从来没有一句话说该在哪里停下。更多算力、更多电力、更多材料，永远有助于把目标完成得更好，于是系统不断把世界变成这些东西，没有任何一处算是做完了。</p></div>
       </div>
     <div class="demo-embed">
@@ -2828,395 +2872,13 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">第 4.2 节 <b class="rt-min">3 分钟</b></span>
-      <h2>没人能检验一个 AI 真正想要什么</h2>
-      <p class="stand">安全不是靠“凭良心造”就能换来的。它是一个截然不同、在深层意义上更难的技术问题。你必须在一个浩瀚到无法穷举的情境空间里，证明系统会如何行事——而对手，还可能正想方设法绕过你的测试。</p>
+      <h2>可解释性问题：没人能检验一个 AI 真正想要什么</h2>
+      <p class="stand">安全是一个截然不同、在深层意义上更难的技术问题，光凭良心造换不来。你必须在一个浩瀚到无法穷举的情境空间里，证明系统会如何行事——而对手，还可能正想方设法绕过你的测试。</p>
     </div>
     <div class="body rv">
-      <div class="ddgrid two rv">
-      <div class="ddc r"><span class="k">不对称</span><h4>一次成功 vs 排除一切失败</h4><p>建造只需要<em>一种</em>可行的配置，而证明它安全，需要在一个大到无法搜索的空间里排除所有失败，包括设计者从未设想过的情形。<a class="ref" href="/reference-zh#s24">24</a><a class="ref" href="/reference-zh#s14">14</a></p>
-        <figure>
-      <svg viewBox="0 0 480 230" role="img" aria-label="示意图：在一大片代表可能失败的灰点之中，只有一个绿点代表可行的配置。">
-        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">为何证明安全才是更难的活</text>
-        <g>
-          <circle cx="5.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="34" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="51" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="68" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="85" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="102" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="119" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="136" r="2.6" fill="#2b343b"/>
-          <circle cx="5.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="15.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="25.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="35.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="45.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="56" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="66" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="76" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="86" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="96" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="106.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="116.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="126.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="136.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="146.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="157.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="167.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="177.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="187.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="197.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="208" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="218" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="228" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="238" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="248" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="258.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="268.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="278.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="288.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="298.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="309.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="319.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="329.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="339.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="349.3" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="360" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="370" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="380" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="390" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="400" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="410.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="420.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="430.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="440.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="450.7" cy="153" r="2.6" fill="#2b343b"/>
-          <circle cx="461.3" cy="153" r="2.6" fill="#2b343b"/>
-        </g>
-        <circle cx="238.7" cy="119" r="7.5" fill="#9cc48a"/>
-        <circle cx="238.7" cy="119" r="15" fill="none" stroke="#9cc48a" stroke-width="1.5" opacity=".55"/>
-        <line x1="238.7" y1="136" x2="238.7" y2="176" stroke="#9cc48a" stroke-width="1.3" stroke-dasharray="3 3"/>
-        <text x="238.7" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9cc48a">唯一一种可行的配置</text>
-        <text x="5.3" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#98a2a8">其余每个点：一种失败方式，大多未经测试</text>
-      </svg>
-    </figure>
-      </div>
+      <div class="ddgrid rv">
       <div class="ddc o"><span class="k">对手</span><h4>系统会钻测试的空子</h4><p>随着模型推理能力增强，它们也更擅长<strong>奖励作弊</strong>——找到一种既能拿高分、又完全偏离题目本意的做法——于是你所依赖的那个指标，恰恰在赌注升高之际不断失效。</p>
-        <figure>
+        <figure style="max-width:560px">
       <svg viewBox="0 0 480 254" role="img" aria-label="折线图：外显的对齐度始终平稳且高，而真实的对齐度在系统强到能建模观察者之后悄然下滑。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">为何漂亮的测试成绩不再算作证据</text>
         <line x1="34.7" y1="28" x2="34.7" y2="188" stroke="#c3c9cd"/>
@@ -3303,6 +2965,11 @@ div.endc{cursor:default}
       </div>
       </div>
     </details>
+
+      <div class="ddgrid two rv">
+      <div class="ddc r"><span class="k">监测手段</span><h4>能看进它推理过程的那扇窗，正在关上</h4><p>OpenAI 在 2026 年 9 月发布的 GPT-6 Astra 安全报告显示，比起上一代模型，Astra 的思维链要绕开监测容易得多。即便被告知有监测者在看、并被要求不要隐藏任何东西，Astra 仍有 60.9% 的运行遵照指令隐藏了故意降低的表现，而上一代 GPT-5.6 Sol 只有 16.1%。OpenAI 表示，在拿出新的方法证明模型的对齐能够泛化之前，不会再接受这扇窗进一步关闭。<a class="ref" href="/reference-zh#s95">95</a></p></div>
+      <div class="ddc t"><span class="k">另一条路</span><h4>直接读懂电路，一次一个提示</h4><p>Anthropic 的归因图追踪 Claude 内部的特征如何连成电路、生成一个回答，2025 年首次把这套方法用在一个正式上线的模型上。按 Anthropic 自己的说法，这套方法只在大约四分之一尝试过的提示上给出令人满意的解释，即使是成功的追踪，捕捉到的也只是模型实际计算过程的一小部分。<a class="ref" href="/reference-zh#s96">96</a></p></div>
+    </div>
 
       <p>这个模式，正是那个陷阱的缩影。模型越强，它就越能别出心裁地利用你给它的那个不够完善的衡量标准，也就越发偏离你真正想要的东西。安全研究必须跑在这一切前面，分到的却只是能力研究的零头，还要去对付一个越强越滑不留手的目标。</p>
     </div>
@@ -3933,6 +3600,209 @@ div.endc{cursor:default}
   <p>我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，本页独立运作，与任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
   </div></footer>
 
+<script id="lx-layered">(function(){
+  var main = document.getElementById("main");
+  if(!main) return;
+  function $$(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  var CARD = ".ddc,.endc,.tcard,.cl-half";
+  var FRAME_UNITS = 720, CARD_SCALE = .85;
+
+  /* ---------- 1. charts: one frame width, one type scale ---------- */
+  function vbw(svg){
+    var vb = (svg.getAttribute("viewBox") || "").split(/[\s,]+/);
+    return vb.length === 4 ? parseFloat(vb[2]) : 0;
+  }
+  function isChart(svg){
+    if (vbw(svg) <= 40) return false;
+    if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;
+    return true;
+  }
+  var TIER = { caption: 9.5, label: 10.5, emphasis: 11.5, value: 14, display: 20 };
+  function tierOf(size, mode){
+    var r = size / mode;
+    if (r <= 0.9) return "caption";
+    if (r <= 1.1) return "label";
+    if (r <= 1.35) return "emphasis";
+    if (r <= 2) return "value";
+    return "display";
+  }
+  function modeSize(texts){
+    var c = {}, best = 0, mode = 10;
+    texts.forEach(function(t){
+      var v = parseFloat(t.getAttribute("font-size")); if (!v) return;
+      c[v] = (c[v] || 0) + 1;
+      if (c[v] > best || (c[v] === best && v < mode)) { best = c[v]; mode = v; }
+    });
+    return mode;
+  }
+  var MONO = "IBM Plex Mono,ui-monospace,monospace", DISPLAY = "Archivo,system-ui,sans-serif";
+  function styleText(t, tier, k){
+    t.setAttribute("font-size", (TIER[tier] * k).toFixed(2));
+    var big = tier === "value" || tier === "display";
+    var wasDisplay = /Archivo/i.test(t.getAttribute("font-family") || "");
+    var disp = big || wasDisplay;
+    t.setAttribute("font-family", disp ? DISPLAY : MONO);
+    var w = parseFloat(t.getAttribute("font-weight") || "400");
+    if (big) t.setAttribute("font-weight", "800");
+    else if (disp) t.setAttribute("font-weight", w >= 750 ? "800" : "700");
+    else if (w > 600) t.setAttribute("font-weight", "600");
+    if (t.hasAttribute("letter-spacing")) t.setAttribute("letter-spacing", ".1em");
+    t.removeAttribute("font-style");
+  }
+  function normalize(svg){
+    var card = svg.closest(CARD), k;
+    if (card) {
+      var cs = getComputedStyle(card);
+      var inner = card.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      var own = svg.getBoundingClientRect().width;
+      k = vbw(svg) / (own > 0 ? Math.min(own, inner) : inner) * CARD_SCALE;
+    } else {
+      k = vbw(svg) / FRAME_UNITS;
+    }
+    var texts = $$("text,tspan", svg).filter(function(t){ return t.hasAttribute("font-size"); });
+    var mode = modeSize(texts);
+    texts.forEach(function(t){ styleText(t, tierOf(parseFloat(t.getAttribute("font-size")), mode), k); });
+    $$("[stroke]", svg).forEach(function(el){
+      if (el.getAttribute("stroke") !== "none") el.setAttribute("vector-effect", "non-scaling-stroke");
+    });
+    svg.removeAttribute("width"); svg.removeAttribute("height"); svg.style.width = ""; svg.style.maxWidth = "";
+    var fig = svg.parentElement && svg.parentElement.tagName === "FIGURE" ? svg.parentElement : null;
+    if (fig) { fig.classList.add("lx-chart"); }
+    else {
+      var box = document.createElement("div"); box.className = "lx-chart";
+      svg.parentNode.insertBefore(box, svg); box.appendChild(svg);
+    }
+  }
+
+  function fit(svg){
+    if (!svg.getBoundingClientRect().width) return;
+    var vb = svg.viewBox.baseVal, ts = $$("text", svg);
+    ts.forEach(function(x){ if (!x.dataset.fs0) x.dataset.fs0 = x.getAttribute("font-size"); });
+    function shrink(x){
+      var f = parseFloat(x.getAttribute("font-size")), f0 = parseFloat(x.dataset.fs0);
+      if (f <= f0 * .8) return false;
+      x.setAttribute("font-size", (f * .95).toFixed(2)); return true;
+    }
+    for (var it = 0; it < 6; it++) {
+      var changed = false, bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
+      for (var i = 0; i < ts.length; i++) {
+        var a = bs[i]; if (!a || !a.width) continue;
+        if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) changed = shrink(ts[i]) || changed;
+        for (var j = i + 1; j < ts.length; j++) {
+          var b = bs[j]; if (!b || !b.width) continue;
+          var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
+          var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
+          if (ix > 1.5 && iy > 1.5) changed = shrink(a.width >= b.width ? ts[i] : ts[j]) || changed;
+        }
+      }
+      if (!changed) break;
+    }
+  }
+  function fitAll(root){ $$(".lx-chart svg", root).forEach(fit); }
+  function inScope(el){ return !el.closest("#crossroads, .masthead, .mh-brain, #what-you-can-do"); }
+  $$("svg", main).filter(isChart).filter(inScope).forEach(normalize);
+
+  /* ---------- 2. cards: headline visible, body on tap ---------- */
+  function headOf(card){
+    return card.querySelector(":scope > h4, :scope > h3, :scope > .tcard-h, :scope > .cl-hh");
+  }
+  function foldCard(card){
+    var head = headOf(card);
+    if (!head) return;
+    var after = [], n = head.nextSibling;
+    while (n) { var nx = n.nextSibling; after.push(n); n = nx; }
+    if (card.classList.contains("tcard")) {
+      after = after.filter(function(x){ return !(x.nodeType === 1 && x.classList.contains("tverdict")); });
+    }
+    var hasContent = after.some(function(x){ return x.nodeType === 1 || (x.nodeValue || "").trim(); });
+    if (!hasContent) return;
+    var body = document.createElement("div");
+    body.className = "lx-body"; body.hidden = true;
+    body.id = "lxb-" + Math.random().toString(36).slice(2, 8);
+    after.forEach(function(x){ body.appendChild(x); });
+    card.appendChild(body);
+    card.classList.add("lx-card");
+    var sign = document.createElement("span");
+    sign.className = "lx-sign"; sign.setAttribute("aria-hidden", "true"); sign.textContent = "+";
+    card.appendChild(sign);
+    head.setAttribute("role", "button"); head.setAttribute("tabindex", "0");
+    head.setAttribute("aria-expanded", "false"); head.setAttribute("aria-controls", body.id);
+    head.classList.add("lx-toggle");
+    function toggle(){
+      var open = body.hidden;
+      body.hidden = !open;
+      card.classList.toggle("lx-open", open);
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { reveal(body); fitAll(body); }
+    }
+    card.addEventListener("click", function(ev){
+      if (body.contains(ev.target) || (ev.target.closest && ev.target.closest("a,button,input,label,select,textarea"))) return;
+      toggle();
+    });
+    head.addEventListener("keydown", function(ev){
+      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); }
+    });
+  }
+
+  $$("a.endc", main).filter(inScope).forEach(function(a){
+    var d = document.createElement("div");
+    Array.prototype.forEach.call(a.attributes, function(at){ if (at.name !== "href") d.setAttribute(at.name, at.value); });
+    while (a.firstChild) d.appendChild(a.firstChild);
+    a.parentNode.replaceChild(d, a);
+  });
+  /* 2b. "How that actually ends": tap to reveal the six scenarios inside it */
+  var endsOut = main.querySelector("#why-it-ends-badly .ends-out");
+  var sixLabel = $$("#why-it-ends-badly p.ends-k", main).filter(function(p){ return /Six paths|六条/.test(p.textContent); })[0];
+  if (endsOut && sixLabel) {
+    var grid = sixLabel.nextElementSibling;
+    while (grid && !(grid.classList.contains("ddgrid"))) { var gone = grid; grid = grid.nextElementSibling; gone.parentNode.removeChild(gone); }
+    sixLabel.parentNode.removeChild(sixLabel);
+    if (grid) {
+      var eb = document.createElement("div"); eb.className = "lx-body"; eb.hidden = true; eb.id = "lx-ends-six";
+      reveal(grid); eb.appendChild(grid); endsOut.appendChild(eb);
+      endsOut.classList.add("lx-card");
+      var es = document.createElement("span"); es.className = "lx-sign"; es.setAttribute("aria-hidden", "true"); es.textContent = "+"; endsOut.appendChild(es);
+      var ek = endsOut.querySelector(".eo-k");
+      ek.setAttribute("role", "button"); ek.setAttribute("tabindex", "0"); ek.setAttribute("aria-expanded", "false"); ek.setAttribute("aria-controls", eb.id);
+      var eh = document.createElement("span"); eh.className = "eo-hint"; eh.textContent = /^zh/i.test(document.documentElement.lang || "") ? "点开查看六种情景" : "Tap for the six scenarios"; endsOut.insertBefore(eh, eb);
+      function etoggle(){ var open = eb.hidden; eb.hidden = !open; endsOut.classList.toggle("lx-open", open); ek.setAttribute("aria-expanded", open ? "true" : "false"); if (open) { reveal(eb); fitAll(eb); } }
+      endsOut.addEventListener("click", function(ev){ if (eb.contains(ev.target) || (ev.target.closest && ev.target.closest("a"))) return; etoggle(); });
+      ek.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); etoggle(); } });
+    }
+  }
+  $$(CARD, main).filter(inScope).filter(function(c){ return !c.closest(".ends-out"); }).forEach(foldCard);
+
+  /* ---------- 3. sections: intro visual first ---------- */
+  var ALL_VISIBLE = { "why-race": true, "why-it-ends-badly": true };
+  var NO_HOIST = { "why-it-ends-badly": true };
+  function outsideCards(el){ return !el.closest(CARD) && !el.closest("details"); }
+  function reveal(el){
+    if (el.classList && el.classList.contains("rv")) el.classList.add("in");
+    $$(".rv", el).forEach(function(x){ x.classList.add("in"); });
+  }
+  function introRef(section){
+    var head = section.querySelector(".sec-head, .cross-hero");
+    if (!head) return null;
+    var nx = head.nextElementSibling;
+    if (nx && nx.classList.contains("body")) {
+      var firstNonP = Array.prototype.find.call(nx.children, function(c){ return c.tagName !== "P"; });
+      return firstNonP ? { parent: nx, before: firstNonP } : { parent: nx.parentNode, before: nx.nextSibling };
+    }
+    return { parent: head.parentNode, before: head.nextSibling };
+  }
+
+  $$("main > section, main section").forEach(function(sec){
+    if (!sec.id || sec.id === "crossroads" || sec.id === "do" || sec.id === "anthem" || sec.id === "ask") return;
+    var first = $$(".lx-chart", sec).filter(outsideCards)[0];
+    if (first && !NO_HOIST[sec.id]) {
+      var ref = introRef(sec);
+      if (ref) { ref.parent.insertBefore(first, ref.before); first.classList.add("lx-intro"); reveal(first); }
+    }
+  });
+
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function(){ fitAll(main); });
+})();
+</script>
 <script>
 var SITE_CONFIG = {
   GAME_URL: "https://game.safeagi.ca/", // AGI Safety Game deployment URL

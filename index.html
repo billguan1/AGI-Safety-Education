@@ -1596,6 +1596,46 @@ div.endc{cursor:default}
   stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
 @media(max-width:900px){.nav-extra{margin-left:0;width:100%;margin-top:4px}
   .nav-xbtn{font-size:10.5px;padding:6px 11px}}
+
+
+/* lx:layered:start */
+/* ---------- layered reading mode ---------- */
+.lx-card{position:relative}
+.lx-head{display:block;width:100%;text-align:left;background:none;border:0;padding:0;margin:0;color:inherit;font:inherit;cursor:pointer}
+.lx-head:focus-visible{outline:2px solid var(--c-ass);outline-offset:4px}
+.lx-card .lx-sign{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:15px;line-height:1;
+  color:var(--ink-3);transition:color .18s,transform .18s}
+.lx-card:hover .lx-sign{color:var(--ink)}
+.lx-card.lx-open .lx-sign{transform:rotate(45deg);color:var(--c-ass)}
+.lx-card h4,.lx-card h3,.lx-card .tn{padding-right:26px}
+.lx-body[hidden]{display:none}
+.lx-body{padding-top:2px}
+:is(.ddgrid,.ends-grid,.tgrid,.cl-halves):has(>.lx-open)>.lx-card{align-self:start}
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-ass)}
+main .lx-chart,main .cl-figs.panels figure.lx-chart,main .ddc figure.lx-chart,main figure.cliff.lx-chart,main figure.secfig.lx-chart{
+  box-sizing:border-box;width:100%;max-width:860px;margin:clamp(16px,2.4vw,22px) 0;padding:20px;
+  border:1px solid var(--rule-soft);border-left:1px solid var(--rule-soft);border-radius:var(--r);background:var(--white)}
+main .lx-chart svg,main .cliff.lx-chart svg{display:block;width:100%;height:auto;max-width:none;border:0;border-radius:0;background:none}
+main .lx-chart .fig-src,main .lx-chart figcaption{margin-top:12px}
+main section:not(#crossroads) .cl-figs,main section:not(#crossroads) .figpair{grid-template-columns:1fr!important;max-width:860px}
+.cl-figs.panels{align-items:stretch}
+.cl-figs.panels>figure{display:flex;flex-direction:column}
+.cl-figs.panels>figure>svg{margin-bottom:9px}
+.cl-figs.panels>figure>.fig-src{margin-top:auto}
+main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;background:none;margin:14px 0 4px;max-width:none}
+.ends-out.lx-card{cursor:pointer}
+.ends-out .eo-hint{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c-ass)}
+.ends-out.lx-open .eo-hint{display:none}
+.ends-out .lx-body{width:100%;text-align:left;padding-top:14px;cursor:auto}
+.ends-out .ddgrid{margin:0}
+.ends-out .ddc{padding:16px}
+.ends-out .ddc .k{font-size:8.5px}
+.ends-out .ddc h4{font-size:14.5px}
+.ends-out .ddc p{font-family:var(--body);font-weight:300;font-size:14px;line-height:1.5;color:var(--ink-2)}
+.ends-out .ddc h4{font-family:var(--display)}
+.chap-thesis + figure + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
+
+/* lx:layered:end */
 </style>
   <link rel="canonical" href="https://safeagi.ca/">
   <link rel="alternate" hreflang="en" href="https://safeagi.ca/">
@@ -2642,10 +2682,10 @@ div.endc{cursor:default}
         <path d="M466,100 L466,150" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
         <rect x="0" y="152" width="700" height="34" rx="4" fill="#232b31"/>
         <text x="350" y="174" text-anchor="middle" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" fill="#c3ccd2">everyone else, roughly eight billion people, who are affected either way</text>
-        <text x="500" y="62" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">and anyone who</text>
-        <text x="500" y="75" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">can take a nearly</text>
-        <text x="500" y="88" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable model</text>
-        <text x="500" y="101" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">the last step</text>
+        <text x="500" y="57" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">and anyone who</text>
+        <text x="500" y="70" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">can take a nearly</text>
+        <text x="500" y="83" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable model</text>
+        <text x="500" y="96" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">the last step</text>
       </svg>
     </figure>
 
@@ -2666,10 +2706,9 @@ div.endc{cursor:default}
 <section id="why-translation" class="dd">
   <div class="wrap">
     <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">The two missing pieces</span></div>
-    <div class="sec-head rv">
-      <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
-      <h2>AI does what we asked it to, which is rarely what we meant</h2>
-      <p class="stand">Suppose we did agree on what we want. We still could not reliably put it into a machine. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
+    <div class="sec-head chap-thesis rv">
+      <h2>We cannot reliably embed our desires into a machine</h2>
+      <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds.</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 175" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
@@ -2699,12 +2738,14 @@ div.endc{cursor:default}
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
         </svg>
     </figure>
+    <div class="sec-head rv">
+      <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
+      <h2>The alignment problem: AI does what we asked it to, which is rarely what we meant</h2>
+      <p class="stand">The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
+    </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Outer alignment: the target we established is not the one we mean</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">We state an objective that sounds right and misses what we meant, because the part we never thought to say out loud does not make it into the words.</p>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">Two ways a well-specified goal still ends badly.</strong> Neither requires the system to be hostile, or to have got the goal wrong in a way you could spot on paper.<a class="ref" href="/reference#s34">34</a></p>
-    <div class="ddgrid two rv">
-        <div class="ddc r"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, wiring the facial muscles is a solution. Asked to maximise a reward signal, seizing the reward channel is a better one.</p>
-        <figure>
+    <figure>
           <svg viewBox="0 0 480 160" role="img" aria-label="Diagram: many small shapes representing human values pass through a funnel and become a single number, after which the outcome diverges from intent.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</text>
           <circle cx="26" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
@@ -2759,7 +2800,10 @@ div.endc{cursor:default}
           <text x="470" y="146" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#d96a52">what a hard search finds</text>
           </svg>
         </figure>
-      </div>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">Two ways a well-specified goal still ends badly.</strong> Neither requires the system to be hostile, or to have got the goal wrong in a way you could spot on paper.<a class="ref" href="/reference#s34">34</a></p>
+    <div class="ddgrid two rv">
+        <div class="ddc r"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, wiring the facial muscles is a solution. Asked to maximise a reward signal, seizing the reward channel is a better one.</p>
+        </div>
         <div class="ddc o"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4><p>Nothing in the goal says when to stop. More compute, energy and material always help accomplish it, so the system keeps converting the world into those things, with no point at which it is finished.</p></div>
       </div>
     <div class="demo-embed">
@@ -2851,395 +2895,13 @@ div.endc{cursor:default}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="chapno">Section 4.2 <b class="rt-min">3 min</b></span>
-      <h2>Nobody can check what an AI actually wants</h2>
+      <h2>The interpretability problem: nobody can check what an AI actually wants</h2>
       <p class="stand">Safety here is a technical problem rather than a matter of conscience: proving how a system will behave across a space too vast to test, against a system that may be working around the test.</p>
     </div>
     <div class="body rv">
-      <div class="ddgrid two rv">
-      <div class="ddc r"><span class="k">The asymmetry</span><h4>One success vs every failure</h4><p>Building needs <em>one</em> configuration that works, while proving it safe needs the absence of failure across a space too large to search, including situations no designer imagined.<a class="ref" href="/reference#s24">24</a><a class="ref" href="/reference#s14">14</a></p>
-        <figure>
-        <svg viewBox="0 0 480 230" role="img" aria-label="Diagram: one green dot marking a working configuration inside a vast field of grey dots representing possible failures.">
-        <text x="0" y="16" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY PROVING SAFETY IS THE HARDER JOB</text>
-        <g>
-        <circle cx="5.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="34" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="51" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="68" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="85" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="102" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="119" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="136" r="2.6" fill="#2b343b"/>
-        <circle cx="5.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="15.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="25.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="35.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="45.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="56" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="66" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="76" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="86" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="96" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="106.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="116.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="126.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="136.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="146.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="157.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="167.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="177.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="187.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="197.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="208" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="218" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="228" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="238" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="248" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="258.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="268.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="278.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="288.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="298.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="309.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="319.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="329.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="339.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="349.3" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="360" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="370" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="380" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="390" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="400" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="410.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="420.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="430.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="440.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="450.7" cy="153" r="2.6" fill="#2b343b"/>
-        <circle cx="461.3" cy="153" r="2.6" fill="#2b343b"/>
-        </g>
-        <circle cx="238.7" cy="119" r="7.5" fill="#9cc48a"/>
-        <circle cx="238.7" cy="119" r="15" fill="none" stroke="#9cc48a" stroke-width="1.5" opacity=".55"/>
-        <line x1="238.7" y1="136" x2="238.7" y2="176" stroke="#9cc48a" stroke-width="1.3" stroke-dasharray="3 3"/>
-        <text x="238.7" y="194" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#9cc48a">one configuration that works</text>
-        <text x="5.3" y="222" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#98a2a8">every other point: a way it fails, mostly untested</text>
-        </svg>
-        </figure>
-      </div>
+      <div class="ddgrid rv">
       <div class="ddc o"><span class="k">The adversary</span><h4>The system games the test</h4><p>As models got better at reasoning they got better at <span class="term" tabindex="0">reward hacking<span class="term-tip">Finding a way to score highly that satisfies the measure while missing the point of it.</span></span>, so the measurement you rely on erodes exactly as the stakes rise.</p>
-        <figure>
+        <figure style="max-width:560px">
         <svg viewBox="0 0 480 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
         <line x1="34.7" y1="28" x2="34.7" y2="188" stroke="#c3c9cd"/>
@@ -3326,6 +2988,11 @@ div.endc{cursor:default}
         </div>
       </div>
     </details>
+
+      <div class="ddgrid two rv">
+      <div class="ddc r"><span class="k">The monitor</span><h4>The one window into its reasoning is closing</h4><p>OpenAI&rsquo;s own safety card for GPT-6 Astra, published in September 2026, found its chain of thought far easier to steer around a monitor than its predecessor&rsquo;s. Told a monitor was watching and asked not to hide anything, Astra still followed instructions to conceal underperformance in 60.9% of runs, against 16.1% for GPT-5.6 Sol. OpenAI said it will not accept further loss of that window without new ways to show the model&rsquo;s alignment holds up.<a class="ref" href="/reference#s95">95</a></p></div>
+      <div class="ddc t"><span class="k">The alternative</span><h4>Reading the circuits directly, one prompt at a time</h4><p>Anthropic&rsquo;s attribution graphs trace how features inside Claude connect into the circuits behind an answer, applied to a production model for the first time in 2025. By the company&rsquo;s own account the method gives a satisfying picture for about a quarter of the prompts tried, and even a successful trace captures only a fraction of what the model actually computed.<a class="ref" href="/reference#s96">96</a></p></div>
+    </div>
 
       <p>The better the model gets, the more inventively it exploits the imperfect measure you gave it, and the further it drifts from what you meant. Safety research has to stay ahead of that on a fraction of the resources, against a target that grows more slippery as it grows more capable.</p>
     </div>
@@ -3968,6 +3635,209 @@ div.endc{cursor:default}
   <p>I am not an AI safety researcher, which is why nothing here rests on my judgment: every factual claim links to a primary source, and the page has no affiliation to any organisation. Please provide any feedback or thoughts <a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">here</a>.</p>
   </div></footer>
 
+<script id="lx-layered">(function(){
+  var main = document.getElementById("main");
+  if(!main) return;
+  function $$(sel, root){ return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  var CARD = ".ddc,.endc,.tcard,.cl-half";
+  var FRAME_UNITS = 720, CARD_SCALE = .85;
+
+  /* ---------- 1. charts: one frame width, one type scale ---------- */
+  function vbw(svg){
+    var vb = (svg.getAttribute("viewBox") || "").split(/[\s,]+/);
+    return vb.length === 4 ? parseFloat(vb[2]) : 0;
+  }
+  function isChart(svg){
+    if (vbw(svg) <= 40) return false;
+    if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;
+    return true;
+  }
+  var TIER = { caption: 9.5, label: 10.5, emphasis: 11.5, value: 14, display: 20 };
+  function tierOf(size, mode){
+    var r = size / mode;
+    if (r <= 0.9) return "caption";
+    if (r <= 1.1) return "label";
+    if (r <= 1.35) return "emphasis";
+    if (r <= 2) return "value";
+    return "display";
+  }
+  function modeSize(texts){
+    var c = {}, best = 0, mode = 10;
+    texts.forEach(function(t){
+      var v = parseFloat(t.getAttribute("font-size")); if (!v) return;
+      c[v] = (c[v] || 0) + 1;
+      if (c[v] > best || (c[v] === best && v < mode)) { best = c[v]; mode = v; }
+    });
+    return mode;
+  }
+  var MONO = "IBM Plex Mono,ui-monospace,monospace", DISPLAY = "Archivo,system-ui,sans-serif";
+  function styleText(t, tier, k){
+    t.setAttribute("font-size", (TIER[tier] * k).toFixed(2));
+    var big = tier === "value" || tier === "display";
+    var wasDisplay = /Archivo/i.test(t.getAttribute("font-family") || "");
+    var disp = big || wasDisplay;
+    t.setAttribute("font-family", disp ? DISPLAY : MONO);
+    var w = parseFloat(t.getAttribute("font-weight") || "400");
+    if (big) t.setAttribute("font-weight", "800");
+    else if (disp) t.setAttribute("font-weight", w >= 750 ? "800" : "700");
+    else if (w > 600) t.setAttribute("font-weight", "600");
+    if (t.hasAttribute("letter-spacing")) t.setAttribute("letter-spacing", ".1em");
+    t.removeAttribute("font-style");
+  }
+  function normalize(svg){
+    var card = svg.closest(CARD), k;
+    if (card) {
+      var cs = getComputedStyle(card);
+      var inner = card.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      var own = svg.getBoundingClientRect().width;
+      k = vbw(svg) / (own > 0 ? Math.min(own, inner) : inner) * CARD_SCALE;
+    } else {
+      k = vbw(svg) / FRAME_UNITS;
+    }
+    var texts = $$("text,tspan", svg).filter(function(t){ return t.hasAttribute("font-size"); });
+    var mode = modeSize(texts);
+    texts.forEach(function(t){ styleText(t, tierOf(parseFloat(t.getAttribute("font-size")), mode), k); });
+    $$("[stroke]", svg).forEach(function(el){
+      if (el.getAttribute("stroke") !== "none") el.setAttribute("vector-effect", "non-scaling-stroke");
+    });
+    svg.removeAttribute("width"); svg.removeAttribute("height"); svg.style.width = ""; svg.style.maxWidth = "";
+    var fig = svg.parentElement && svg.parentElement.tagName === "FIGURE" ? svg.parentElement : null;
+    if (fig) { fig.classList.add("lx-chart"); }
+    else {
+      var box = document.createElement("div"); box.className = "lx-chart";
+      svg.parentNode.insertBefore(box, svg); box.appendChild(svg);
+    }
+  }
+
+  function fit(svg){
+    if (!svg.getBoundingClientRect().width) return;
+    var vb = svg.viewBox.baseVal, ts = $$("text", svg);
+    ts.forEach(function(x){ if (!x.dataset.fs0) x.dataset.fs0 = x.getAttribute("font-size"); });
+    function shrink(x){
+      var f = parseFloat(x.getAttribute("font-size")), f0 = parseFloat(x.dataset.fs0);
+      if (f <= f0 * .8) return false;
+      x.setAttribute("font-size", (f * .95).toFixed(2)); return true;
+    }
+    for (var it = 0; it < 6; it++) {
+      var changed = false, bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
+      for (var i = 0; i < ts.length; i++) {
+        var a = bs[i]; if (!a || !a.width) continue;
+        if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) changed = shrink(ts[i]) || changed;
+        for (var j = i + 1; j < ts.length; j++) {
+          var b = bs[j]; if (!b || !b.width) continue;
+          var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
+          var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
+          if (ix > 1.5 && iy > 1.5) changed = shrink(a.width >= b.width ? ts[i] : ts[j]) || changed;
+        }
+      }
+      if (!changed) break;
+    }
+  }
+  function fitAll(root){ $$(".lx-chart svg", root).forEach(fit); }
+  function inScope(el){ return !el.closest("#crossroads, .masthead, .mh-brain, #what-you-can-do"); }
+  $$("svg", main).filter(isChart).filter(inScope).forEach(normalize);
+
+  /* ---------- 2. cards: headline visible, body on tap ---------- */
+  function headOf(card){
+    return card.querySelector(":scope > h4, :scope > h3, :scope > .tcard-h, :scope > .cl-hh");
+  }
+  function foldCard(card){
+    var head = headOf(card);
+    if (!head) return;
+    var after = [], n = head.nextSibling;
+    while (n) { var nx = n.nextSibling; after.push(n); n = nx; }
+    if (card.classList.contains("tcard")) {
+      after = after.filter(function(x){ return !(x.nodeType === 1 && x.classList.contains("tverdict")); });
+    }
+    var hasContent = after.some(function(x){ return x.nodeType === 1 || (x.nodeValue || "").trim(); });
+    if (!hasContent) return;
+    var body = document.createElement("div");
+    body.className = "lx-body"; body.hidden = true;
+    body.id = "lxb-" + Math.random().toString(36).slice(2, 8);
+    after.forEach(function(x){ body.appendChild(x); });
+    card.appendChild(body);
+    card.classList.add("lx-card");
+    var sign = document.createElement("span");
+    sign.className = "lx-sign"; sign.setAttribute("aria-hidden", "true"); sign.textContent = "+";
+    card.appendChild(sign);
+    head.setAttribute("role", "button"); head.setAttribute("tabindex", "0");
+    head.setAttribute("aria-expanded", "false"); head.setAttribute("aria-controls", body.id);
+    head.classList.add("lx-toggle");
+    function toggle(){
+      var open = body.hidden;
+      body.hidden = !open;
+      card.classList.toggle("lx-open", open);
+      head.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { reveal(body); fitAll(body); }
+    }
+    card.addEventListener("click", function(ev){
+      if (body.contains(ev.target) || (ev.target.closest && ev.target.closest("a,button,input,label,select,textarea"))) return;
+      toggle();
+    });
+    head.addEventListener("keydown", function(ev){
+      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); }
+    });
+  }
+
+  $$("a.endc", main).filter(inScope).forEach(function(a){
+    var d = document.createElement("div");
+    Array.prototype.forEach.call(a.attributes, function(at){ if (at.name !== "href") d.setAttribute(at.name, at.value); });
+    while (a.firstChild) d.appendChild(a.firstChild);
+    a.parentNode.replaceChild(d, a);
+  });
+  /* 2b. "How that actually ends": tap to reveal the six scenarios inside it */
+  var endsOut = main.querySelector("#why-it-ends-badly .ends-out");
+  var sixLabel = $$("#why-it-ends-badly p.ends-k", main).filter(function(p){ return /Six paths|六条/.test(p.textContent); })[0];
+  if (endsOut && sixLabel) {
+    var grid = sixLabel.nextElementSibling;
+    while (grid && !(grid.classList.contains("ddgrid"))) { var gone = grid; grid = grid.nextElementSibling; gone.parentNode.removeChild(gone); }
+    sixLabel.parentNode.removeChild(sixLabel);
+    if (grid) {
+      var eb = document.createElement("div"); eb.className = "lx-body"; eb.hidden = true; eb.id = "lx-ends-six";
+      reveal(grid); eb.appendChild(grid); endsOut.appendChild(eb);
+      endsOut.classList.add("lx-card");
+      var es = document.createElement("span"); es.className = "lx-sign"; es.setAttribute("aria-hidden", "true"); es.textContent = "+"; endsOut.appendChild(es);
+      var ek = endsOut.querySelector(".eo-k");
+      ek.setAttribute("role", "button"); ek.setAttribute("tabindex", "0"); ek.setAttribute("aria-expanded", "false"); ek.setAttribute("aria-controls", eb.id);
+      var eh = document.createElement("span"); eh.className = "eo-hint"; eh.textContent = /^zh/i.test(document.documentElement.lang || "") ? "点开查看六种情景" : "Tap for the six scenarios"; endsOut.insertBefore(eh, eb);
+      function etoggle(){ var open = eb.hidden; eb.hidden = !open; endsOut.classList.toggle("lx-open", open); ek.setAttribute("aria-expanded", open ? "true" : "false"); if (open) { reveal(eb); fitAll(eb); } }
+      endsOut.addEventListener("click", function(ev){ if (eb.contains(ev.target) || (ev.target.closest && ev.target.closest("a"))) return; etoggle(); });
+      ek.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); etoggle(); } });
+    }
+  }
+  $$(CARD, main).filter(inScope).filter(function(c){ return !c.closest(".ends-out"); }).forEach(foldCard);
+
+  /* ---------- 3. sections: intro visual first ---------- */
+  var ALL_VISIBLE = { "why-race": true, "why-it-ends-badly": true };
+  var NO_HOIST = { "why-it-ends-badly": true };
+  function outsideCards(el){ return !el.closest(CARD) && !el.closest("details"); }
+  function reveal(el){
+    if (el.classList && el.classList.contains("rv")) el.classList.add("in");
+    $$(".rv", el).forEach(function(x){ x.classList.add("in"); });
+  }
+  function introRef(section){
+    var head = section.querySelector(".sec-head, .cross-hero");
+    if (!head) return null;
+    var nx = head.nextElementSibling;
+    if (nx && nx.classList.contains("body")) {
+      var firstNonP = Array.prototype.find.call(nx.children, function(c){ return c.tagName !== "P"; });
+      return firstNonP ? { parent: nx, before: firstNonP } : { parent: nx.parentNode, before: nx.nextSibling };
+    }
+    return { parent: head.parentNode, before: head.nextSibling };
+  }
+
+  $$("main > section, main section").forEach(function(sec){
+    if (!sec.id || sec.id === "crossroads" || sec.id === "do" || sec.id === "anthem" || sec.id === "ask") return;
+    var first = $$(".lx-chart", sec).filter(outsideCards)[0];
+    if (first && !NO_HOIST[sec.id]) {
+      var ref = introRef(sec);
+      if (ref) { ref.parent.insertBefore(first, ref.before); first.classList.add("lx-intro"); reveal(first); }
+    }
+  });
+
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function(){ fitAll(main); });
+})();
+</script>
 <script>
 var SITE_CONFIG = {
   GAME_URL: "https://game.safeagi.ca/", // AGI Safety Game deployment URL
