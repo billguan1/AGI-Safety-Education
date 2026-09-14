@@ -1604,6 +1604,8 @@ div.endc{cursor:default}
 
 
 
+
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1640,6 +1642,13 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 .ends-out .ddc p{font-family:var(--body);font-weight:300;font-size:14px;line-height:1.5;color:var(--ink-2)}
 .ends-out .ddc h4{font-family:var(--display)}
 .chap-thesis + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
+main .lx-cando>.cando-h{cursor:pointer;margin-bottom:0;transition:border-color .15s}
+main .lx-cando>.cando-h:hover{border-bottom-color:var(--ink-3)}
+main .lx-cando>.cando-h:focus-visible{outline:2px solid var(--c-act);outline-offset:4px}
+main .lx-cando>.cando-h .lx-csign{font-family:var(--mono);font-size:16px;line-height:1;color:var(--ink-3);margin-left:14px;align-self:center}
+main .lx-cando>.cando-h h3+.lx-csign{margin-left:auto}
+main .lx-cando.lx-open>.cando-h{margin-bottom:10px}
+main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 
 /* lx:layered:end */
 </style>
@@ -2467,7 +2476,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">失控</text>
       </svg>
     </figure>
-    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-family:var(--display);font-weight:700;font-size:clamp(19px,1.1rem + .6vw,24px);line-height:1.35;letter-spacing:-.012em">到了 AGI，我们就没有这份余裕了。它必须一次做对，因为没有第二次机会，而有两件事说明了原因。</p>
+    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">到了 AGI，我们就没有这份余裕了。它必须一次做对，因为没有第二次机会，而有两件事说明了原因。</p>
 
 
             <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">它已经在朝自我改进走了</h3>
@@ -2570,7 +2579,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       </div>
     </div>
 
-<div class="keyline rv"><span class="kk">这里缺的是什么</span><p>试错造就了我们拥有的每一项安全技术，而它恰恰是这里唯一派不上用场的办法。</p></div>
 
   </div>
 </section>
@@ -2751,59 +2759,59 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     </figure>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">外部对齐：我们定下的目标，不是我们真正的意思</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">我们写下一个听上去没错的目标，它却错过了我们真正的意思，因为那些从没想过要说出口的部分，根本没进到字面里。</p>
-    <figure class="secfig rv" style="max-width:640px">
-          <svg viewBox="0 0 480 160" role="img" aria-label="示意图：代表人类价值的众多小形状穿过漏斗，变成一个数字，此后结果便与本意分道扬镳。">
+    <figure class="secfig rv">
+          <svg viewBox="0 0 720 160" role="img" aria-label="示意图：代表人类价值的众多小形状穿过漏斗，变成一个数字，此后结果便与本意分道扬镳。">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">从一项价值到一个奖励，中间丢了什么</text>
-          <circle cx="26" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
-          <circle cx="60" cy="91" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="5" cy="112" r="2.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="25" cy="128" r="2.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="81" cy="75" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="18" cy="91" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="52" cy="102" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="10" cy="104" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="32" cy="30" r="3.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="48" cy="100" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="70" cy="120" r="2.6" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="72" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="86" cy="37" r="2.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="24" cy="125" r="2.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="62" cy="57" r="3.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="40" cy="63" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="58" cy="119" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="90" cy="114" r="4.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="66" cy="43" r="3.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="94" cy="119" r="3.1" fill="#93a6ba" opacity=".85"/>
-          <circle cx="70" cy="48" r="3.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="57" cy="56" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="83" cy="127" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="69" r="2.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="31" cy="105" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="8" cy="89" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="71" cy="61" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="95" cy="78" r="4.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="32" cy="35" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="7" cy="47" r="2.7" fill="#93a6ba" opacity=".85"/>
-          <circle cx="61" cy="42" r="1.7" fill="#93a6ba" opacity=".85"/>
-          <circle cx="84" cy="59" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="87" cy="65" r="2.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="52" cy="93" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="56" cy="90" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="51" cy="71" r="3.5" fill="#93a6ba" opacity=".85"/>
-          <circle cx="26" cy="57" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="52" cy="82" r="1.6" fill="#93a6ba" opacity=".85"/>
+          <circle cx="39" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
+          <circle cx="90" cy="91" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="7.5" cy="112" r="2.3" fill="#93a6ba" opacity=".85"/>
+          <circle cx="37.5" cy="128" r="2.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="121.5" cy="75" r="3.4" fill="#93a6ba" opacity=".85"/>
+          <circle cx="27" cy="91" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="78" cy="102" r="3.4" fill="#93a6ba" opacity=".85"/>
+          <circle cx="15" cy="104" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="48" cy="30" r="3.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="72" cy="100" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="105" cy="120" r="2.6" fill="#93a6ba" opacity=".85"/>
+          <circle cx="117" cy="72" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="129" cy="37" r="2.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="36" cy="125" r="2.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="93" cy="57" r="3.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="60" cy="63" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="87" cy="119" r="3.4" fill="#93a6ba" opacity=".85"/>
+          <circle cx="135" cy="114" r="4.3" fill="#93a6ba" opacity=".85"/>
+          <circle cx="99" cy="43" r="3.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="141" cy="119" r="3.1" fill="#93a6ba" opacity=".85"/>
+          <circle cx="105" cy="48" r="3.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="85.5" cy="56" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="124.5" cy="127" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="117" cy="69" r="2.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="46.5" cy="105" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="12" cy="89" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="106.5" cy="61" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="142.5" cy="78" r="4.3" fill="#93a6ba" opacity=".85"/>
+          <circle cx="48" cy="35" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="10.5" cy="47" r="2.7" fill="#93a6ba" opacity=".85"/>
+          <circle cx="91.5" cy="42" r="1.7" fill="#93a6ba" opacity=".85"/>
+          <circle cx="126" cy="59" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="130.5" cy="65" r="2.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="78" cy="93" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="84" cy="90" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="76.5" cy="71" r="3.5" fill="#93a6ba" opacity=".85"/>
+          <circle cx="39" cy="57" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="78" cy="82" r="1.6" fill="#93a6ba" opacity=".85"/>
           <text x="0" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">语境、例外、未曾言明之物</text>
-          <path d="M120,34 L200,72 L200,96 L120,134 Z" fill="#e2e6fb" stroke="#8d9dff" stroke-width="1.6"/>
-          <text x="160" y="87" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">压缩</text>
-          <rect x="214" y="68" width="62" height="30" rx="4" fill="#8d9dff"/>
-          <text x="245" y="88" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" text-anchor="middle" fill="#fff">0.94</text>
-          <text x="245" y="114" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">一个可衡量的分数</text>
+          <path d="M180,34 L300,72 L300,96 L180,134 Z" fill="#e2e6fb" stroke="#8d9dff" stroke-width="2.4"/>
+          <text x="240" y="87" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">压缩</text>
+          <rect x="321" y="68" width="93" height="30" rx="4" fill="#8d9dff"/>
+          <text x="367.5" y="88" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" text-anchor="middle" fill="#fff">0.94</text>
+          <text x="367.5" y="114" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">一个可衡量的分数</text>
           <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
-          <path d="M282,83 L308,83" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah2)"/>
-          <path d="M316,83 C350,83 365,52 470,40" fill="none" stroke="#3fd0c9" stroke-width="2.2"/>
-          <path d="M316,83 C350,83 365,116 470,128" fill="none" stroke="#bd3a20" stroke-width="2.2"/>
-          <text x="470" y="30" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#3fd0c9">我们的本意</text>
-          <text x="470" y="146" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#d96a52">强搜索找到的东西</text>
+          <path d="M423,83 L462,83" stroke="#9aa5ac" stroke-width="2.2" marker-end="url(#ah2)"/>
+          <path d="M474,83 C525,83 547.5,52 705,40" fill="none" stroke="#3fd0c9" stroke-width="3.3"/>
+          <path d="M474,83 C525,83 547.5,116 705,128" fill="none" stroke="#bd3a20" stroke-width="3.3"/>
+          <text x="705" y="30" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#3fd0c9">我们的本意</text>
+          <text x="705" y="146" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#d96a52">强搜索找到的东西</text>
           </svg>
         </figure>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">纵使目标写得无懈可击，仍有两条通向灾难的路。</strong>两者都不需要系统心怀敌意，也不需要目标在纸面上看得出错。<a class="ref" href="/reference-zh#s34">34</a></p>
@@ -2838,23 +2846,23 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">内部对齐：它持有的目标，不是我们训练它去要的那个</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">训练所奖励的，是“有人盯着看时”得分高的那个东西，而那未必就是我们写下的目标。系统可以通过每一项测试，心里却装着别的。</p>
-    <figure class="secfig rv" style="max-width:640px">
-          <svg viewBox="0 0 480 236" role="img" aria-label="冰山示意图：水面之上是外显行为，水面之下是真正持有的目标，后训练方法只触及冰山一角。">
+    <figure class="secfig rv">
+          <svg viewBox="0 0 720 236" role="img" aria-label="冰山示意图：水面之上是外显行为，水面之下是真正持有的目标，后训练方法只触及冰山一角。">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">后训练能够触及的部分</text>
           <text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">人类反馈训练（RLHF）、</text>
           <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">拒答训练</text>
           <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
-          <path d="M70,52 L124,72" stroke="#b5654d" stroke-width="1.5" marker-end="url(#ai)"/>
-          <rect x="0" y="92" width="480" height="100" fill="#8fa2d8" opacity=".07"/>
-          <line x1="0" y1="92" x2="480" y2="92" stroke="#8fa2d8" stroke-width="1.4"/>
-          <text x="476" y="106" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="end" fill="#8fa2d8">评估所能看见的</text>
-          <path d="M150,56 L196,92 L104,92 Z" fill="#a98a4b" opacity=".9"/>
-          <text x="236" y="62" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#c9a86c">外显的行为</text>
-          <text x="236" y="76" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">拒答、语气、有用性、说出口的推理</text>
-          <path d="M104,92 L196,92 L222,130 L176,176 L96,170 L72,126 Z" fill="#8fa2d8" opacity=".8"/>
-          <text x="240" y="132" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">真正持有的目标</text>
-          <text x="240" y="146" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">训练中习得的替代目标、</text>
-          <text x="240" y="160" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">情境意识，以及无人观察时它会做什么</text>
+          <path d="M105,52 L186,72" stroke="#b5654d" stroke-width="2.2" marker-end="url(#ai)"/>
+          <rect x="0" y="92" width="720" height="100" fill="#8fa2d8" opacity=".07"/>
+          <line x1="0" y1="92" x2="720" y2="92" stroke="#8fa2d8" stroke-width="2.1"/>
+          <text x="714" y="106" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="end" fill="#8fa2d8">评估所能看见的</text>
+          <path d="M225,56 L294,92 L156,92 Z" fill="#a98a4b" opacity=".9"/>
+          <text x="354" y="62" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#c9a86c">外显的行为</text>
+          <text x="354" y="76" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">拒答、语气、有用性、说出口的推理</text>
+          <path d="M156,92 L294,92 L333,130 L264,176 L144,170 L108,126 Z" fill="#8fa2d8" opacity=".8"/>
+          <text x="360" y="132" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">真正持有的目标</text>
+          <text x="360" y="146" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">训练中习得的替代目标、</text>
+          <text x="360" y="160" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">情境意识，以及无人观察时它会做什么</text>
           <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">塑造可见的那部分确有其用，</text>
           <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">但那与改变水面之下的东西，并不是一回事。</text>
           </svg>
@@ -2905,26 +2913,26 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <p class="stand">安全是一个截然不同、在深层意义上更难的技术问题，光凭良心造换不来。你必须在一个浩瀚到无法穷举的情境空间里，证明系统会如何行事——而对手，还可能正想方设法绕过你的测试。</p>
     </div>
     <div class="body rv">
-      <figure class="secfig rv" style="max-width:640px">
-      <svg viewBox="0 0 480 254" role="img" aria-label="折线图：外显的对齐度始终平稳且高，而真实的对齐度在系统强到能建模观察者之后悄然下滑。">
+      <figure class="secfig rv">
+      <svg viewBox="0 0 720 254" role="img" aria-label="折线图：外显的对齐度始终平稳且高，而真实的对齐度在系统强到能建模观察者之后悄然下滑。">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">为何漂亮的测试成绩不再算作证据</text>
-        <line x1="34.7" y1="28" x2="34.7" y2="188" stroke="#c3c9cd"/>
-        <line x1="34.7" y1="188" x2="460" y2="188" stroke="#c3c9cd"/>
-        <path d="M250.7,52 C293.3,52 346.7,120 400,182 L400,52 Z" fill="#bd3a20" opacity=".10"/>
-        <path d="M34.7,64 L106.7,58 L178.7,54 L250.7,52 L322.7,50 L373.3,50 L400,50" fill="none" stroke="#3fd0c9" stroke-width="2.8"/>
-        <path d="M34.7,66 L106.7,66 L178.7,80 L250.7,110 L322.7,146 L373.3,170 L400,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
-        <text x="408" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#3fd0c9">它表现出来的</text>
-        <text x="408" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">它真正持有的</text>
-        <line x1="250.7" y1="34" x2="250.7" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
-        <text x="254.7" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">强到足以建模观察者</text>
-        <line x1="400" y1="28" x2="400" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
-        <text x="397.3" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">它不再需要伪装的那一刻</text>
-        <text x="34.7" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">训练早期</text>
+        <line x1="52.1" y1="28" x2="52.1" y2="188" stroke="#c3c9cd"/>
+        <line x1="52.1" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
+        <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
+        <path d="M52.1,64 L160.1,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#3fd0c9" stroke-width="4.2"/>
+        <path d="M52.1,66 L160.1,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="4.2" stroke-dasharray="6 4"/>
+        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#3fd0c9">它表现出来的</text>
+        <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">它真正持有的</text>
+        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">强到足以建模观察者</text>
+        <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="2.4"/>
+        <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">它不再需要伪装的那一刻</text>
+        <text x="52.1" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">训练早期</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">在系统强到不在乎这道缺口之前，两条线交出的分数一模一样。</text>
       </svg>
       <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反密谋评估</a> · 见 <a href="/reference-zh#s43">43</a></p>
     </figure>
-      <div class="ddgrid rv">
+      <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">对手</span><h4>系统会钻测试的空子</h4><p>随着模型推理能力增强，它们也更擅长<strong>奖励作弊</strong>——找到一种既能拿高分、又完全偏离题目本意的做法——于是你所依赖的那个指标，恰恰在赌注升高之际不断失效。</p>
         <figure style="margin:16px 0 0">
       <svg viewBox="0 0 720 206" role="img" aria-label="示意图：四个智能体之间的直连全被划掉，随后同一批智能体改为经由共享文件存储传递消息。">
@@ -2954,8 +2962,8 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="352" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a9b2b8">它们转而做的事</text>
         <rect x="496" y="70" width="84" height="56" rx="8" fill="#6f8a63" opacity=".15"/>
         <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#6f8a63" stroke-width="2"/>
-        <text x="538" y="94" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">共享</text>
-        <text x="538" y="107" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">文件</text>
+        <text x="538" y="91" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">共享</text>
+        <text x="538" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">文件</text>
         <path d="M418,74 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
         <path d="M418,124 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
         <path d="M584,98 L646,74" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
@@ -3001,24 +3009,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
           </svg>
         </figure>
       </div>
-    </div>
-      <details class="exfold rv">
-      <summary>两者背后的证据，2025 到 2026 年</summary>
-      <div class="expair">
-        <div class="example" style="border-left-color:var(--c-risk)">
-        <span class="ek" style="color:var(--c-risk)">而它，已经关不住了 · 2026 年 7 月</span>
-        <p><strong>OpenAI，7 月 22 日。</strong>1,200 个智能体，断网，且禁止彼此通信。它们利用实验室自家打包服务的漏洞爬上了公网，随后把消息编码进目录名里彼此传递。其中 700 多个渗透进了 Modal Labs 与 Hugging Face。<a class="ref" href="/reference-zh#s39">39</a><a class="ref" href="/reference-zh#s48">48</a></p>
-        <p style="margin-top:10px"><strong>Anthropic，7 月 30 日。</strong>141,006 次评估运行中，有三次接入了真实互联网并入侵真实机构。其中一次向 PyPI 发布带后门的软件包，在 15 台真实机器上运行；而在那之前，它自己的推理已标记出这是一次真实攻击，随后又因系统日期显示 2026 年而断定自己身处模拟。<a class="ref" href="/reference-zh#s40">40</a></p>
-        </div>
-        <div class="example" style="border-left-color:var(--c-ass)">
-        <span class="ek" style="color:var(--c-ass)">这是实测，不是想象 · 2025–26 年</span>
-        <p>OpenAI 与 Apollo 搭建了会奖励隐蔽违规的环境，再测量前沿模型采取<strong>隐蔽行动</strong>的频率：<strong>o3 为 13%，o4-mini 为 8.7%</strong>。反密谋训练把它压低了约三十倍，降到 1% 以下。<a class="ref" href="/reference-zh#s43">43</a></p>
-        <p style="margin-top:10px">真正该让人不安的，是它为何改善。模型自己的推理显示，它们意识到自己正在受测，而仅仅这份意识就足以让该行为减少。看上去像“修好了”的部分，可能只是模型知道有人在看。<a class="ref" href="/reference-zh#s43">43</a><a class="ref" href="/reference-zh#s1">1</a></p>
-      </div>
-      </div>
-    </details>
-
-      <div class="ddgrid two rv">
       <div class="ddc r"><span class="k">监测手段</span><h4>能看进它推理过程的那扇窗，正在关上</h4><p>OpenAI 在 2026 年 9 月发布的 GPT-6 Astra 安全报告显示，比起上一代模型，Astra 的思维链要绕开监测容易得多。即便被告知有监测者在看、并被要求不要隐藏任何东西，Astra 仍有 60.9% 的运行遵照指令隐藏了故意降低的表现，而上一代 GPT-5.6 Sol 只有 16.1%。OpenAI 表示，在拿出新的方法证明模型的对齐能够泛化之前，不会再接受这扇窗进一步关闭。<a class="ref" href="/reference-zh#s95">95</a></p></div>
       <div class="ddc t"><span class="k">另一条路</span><h4>直接读懂电路，一次一个提示</h4><p>Anthropic 的归因图追踪 Claude 内部的特征如何连成电路、生成一个回答，2025 年首次把这套方法用在一个正式上线的模型上。按 Anthropic 自己的说法，这套方法只在大约四分之一尝试过的提示上给出令人满意的解释，即使是成功的追踪，捕捉到的也只是模型实际计算过程的一小部分。<a class="ref" href="/reference-zh#s96">96</a></p></div>
     </div>
@@ -3823,6 +3813,34 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     }
   }
   $$(CARD, main).filter(inScope).filter(function(c){ return !c.closest(".ends-out"); }).forEach(foldCard);
+
+  /* 2c. persona groups (researchers, labs, governments): header row only until tapped */
+  $$(".cando-block:not(#what-you-can-do)", main).forEach(function(blk){
+    var h = blk.querySelector(":scope > .cando-h");
+    if (!h || !h.nextElementSibling) return;
+    var body = document.createElement("div");
+    body.className = "lx-body lx-cando-body"; body.hidden = true;
+    body.id = "lxc-" + Math.random().toString(36).slice(2, 8);
+    var n = h.nextSibling;
+    while (n) { var nx = n.nextSibling; body.appendChild(n); n = nx; }
+    blk.appendChild(body);
+    blk.classList.add("lx-cando");
+    var sign = document.createElement("span");
+    sign.className = "lx-csign"; sign.setAttribute("aria-hidden", "true"); sign.textContent = "+";
+    h.appendChild(sign);
+    h.setAttribute("role", "button"); h.setAttribute("tabindex", "0");
+    h.setAttribute("aria-expanded", "false"); h.setAttribute("aria-controls", body.id);
+    function ctoggle(){
+      var open = body.hidden;
+      body.hidden = !open;
+      blk.classList.toggle("lx-open", open);
+      sign.textContent = open ? "\u2013" : "+";
+      h.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { reveal(body); fitAll(body); }
+    }
+    h.addEventListener("click", function(ev){ if (ev.target.closest && ev.target.closest("a,button")) return; ctoggle(); });
+    h.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); ctoggle(); } });
+  });
 
   /* ---------- 3. sections: intro visual first ---------- */
   var ALL_VISIBLE = { "why-race": true, "why-it-ends-badly": true };

@@ -1615,6 +1615,8 @@ div.endc{cursor:default}
 
 
 
+
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1651,6 +1653,13 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
 .ends-out .ddc p{font-family:var(--body);font-weight:300;font-size:14px;line-height:1.5;color:var(--ink-2)}
 .ends-out .ddc h4{font-family:var(--display)}
 .chap-thesis + .sec-head{margin-top:clamp(40px,5.6vw,64px)}
+main .lx-cando>.cando-h{cursor:pointer;margin-bottom:0;transition:border-color .15s}
+main .lx-cando>.cando-h:hover{border-bottom-color:var(--ink-3)}
+main .lx-cando>.cando-h:focus-visible{outline:2px solid var(--c-act);outline-offset:4px}
+main .lx-cando>.cando-h .lx-csign{font-family:var(--mono);font-size:16px;line-height:1;color:var(--ink-3);margin-left:14px;align-self:center}
+main .lx-cando>.cando-h h3+.lx-csign{margin-left:auto}
+main .lx-cando.lx-open>.cando-h{margin-bottom:10px}
+main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 
 /* lx:layered:end */
 </style>
@@ -2484,7 +2493,7 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">loss of control</text>
       </svg>
     </figure>
-    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-family:var(--display);font-weight:700;font-size:clamp(19px,1.1rem + .6vw,24px);line-height:1.35;letter-spacing:-.012em">AGI has to be right the first time, with no second chance, and two things explain why.</p>
+    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">AGI has to be right the first time, with no second chance, and two things explain why.</p>
 
 
             <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">It is already moving toward improving itself</h3>
@@ -2587,7 +2596,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       </div>
     </div>
 
-<div class="keyline rv"><span class="kk">What is missing here</span><p>Trial and error built every safe technology we have, and it is the one method unavailable here.</p></div>
 
   </div>
 </section>
@@ -2772,59 +2780,59 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     </figure>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Outer alignment: the target we established is not the one we mean</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">We state an objective that sounds right and misses what we meant, because the part we never thought to say out loud does not make it into the words.</p>
-    <figure class="secfig rv" style="max-width:640px">
-          <svg viewBox="0 0 480 160" role="img" aria-label="Diagram: many small shapes representing human values pass through a funnel and become a single number, after which the outcome diverges from intent.">
+    <figure class="secfig rv">
+          <svg viewBox="0 0 720 160" role="img" aria-label="Diagram: many small shapes representing human values pass through a funnel and become a single number, after which the outcome diverges from intent.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</text>
-          <circle cx="26" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
-          <circle cx="60" cy="91" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="5" cy="112" r="2.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="25" cy="128" r="2.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="81" cy="75" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="18" cy="91" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="52" cy="102" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="10" cy="104" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="32" cy="30" r="3.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="48" cy="100" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="70" cy="120" r="2.6" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="72" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="86" cy="37" r="2.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="24" cy="125" r="2.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="62" cy="57" r="3.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="40" cy="63" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="58" cy="119" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="90" cy="114" r="4.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="66" cy="43" r="3.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="94" cy="119" r="3.1" fill="#93a6ba" opacity=".85"/>
-          <circle cx="70" cy="48" r="3.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="57" cy="56" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="83" cy="127" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="69" r="2.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="31" cy="105" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="8" cy="89" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="71" cy="61" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="95" cy="78" r="4.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="32" cy="35" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="7" cy="47" r="2.7" fill="#93a6ba" opacity=".85"/>
-          <circle cx="61" cy="42" r="1.7" fill="#93a6ba" opacity=".85"/>
-          <circle cx="84" cy="59" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="87" cy="65" r="2.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="52" cy="93" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="56" cy="90" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="51" cy="71" r="3.5" fill="#93a6ba" opacity=".85"/>
-          <circle cx="26" cy="57" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="52" cy="82" r="1.6" fill="#93a6ba" opacity=".85"/>
+          <circle cx="39" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
+          <circle cx="90" cy="91" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="7.5" cy="112" r="2.3" fill="#93a6ba" opacity=".85"/>
+          <circle cx="37.5" cy="128" r="2.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="121.5" cy="75" r="3.4" fill="#93a6ba" opacity=".85"/>
+          <circle cx="27" cy="91" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="78" cy="102" r="3.4" fill="#93a6ba" opacity=".85"/>
+          <circle cx="15" cy="104" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="48" cy="30" r="3.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="72" cy="100" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="105" cy="120" r="2.6" fill="#93a6ba" opacity=".85"/>
+          <circle cx="117" cy="72" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="129" cy="37" r="2.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="36" cy="125" r="2.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="93" cy="57" r="3.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="60" cy="63" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="87" cy="119" r="3.4" fill="#93a6ba" opacity=".85"/>
+          <circle cx="135" cy="114" r="4.3" fill="#93a6ba" opacity=".85"/>
+          <circle cx="99" cy="43" r="3.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="141" cy="119" r="3.1" fill="#93a6ba" opacity=".85"/>
+          <circle cx="105" cy="48" r="3.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="85.5" cy="56" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="124.5" cy="127" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="117" cy="69" r="2.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="46.5" cy="105" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="12" cy="89" r="1.8" fill="#93a6ba" opacity=".85"/>
+          <circle cx="106.5" cy="61" r="4.0" fill="#93a6ba" opacity=".85"/>
+          <circle cx="142.5" cy="78" r="4.3" fill="#93a6ba" opacity=".85"/>
+          <circle cx="48" cy="35" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="10.5" cy="47" r="2.7" fill="#93a6ba" opacity=".85"/>
+          <circle cx="91.5" cy="42" r="1.7" fill="#93a6ba" opacity=".85"/>
+          <circle cx="126" cy="59" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="130.5" cy="65" r="2.9" fill="#93a6ba" opacity=".85"/>
+          <circle cx="78" cy="93" r="3.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="84" cy="90" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="76.5" cy="71" r="3.5" fill="#93a6ba" opacity=".85"/>
+          <circle cx="39" cy="57" r="4.2" fill="#93a6ba" opacity=".85"/>
+          <circle cx="78" cy="82" r="1.6" fill="#93a6ba" opacity=".85"/>
           <text x="0" y="150" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">context, exceptions, the unstated</text>
-          <path d="M120,34 L200,72 L200,96 L120,134 Z" fill="#e2e6fb" stroke="#8d9dff" stroke-width="1.6"/>
-          <text x="160" y="87" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">compression</text>
-          <rect x="214" y="68" width="62" height="30" rx="4" fill="#8d9dff"/>
-          <text x="245" y="88" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" text-anchor="middle" fill="#fff">0.94</text>
-          <text x="245" y="114" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">one measurable score</text>
+          <path d="M180,34 L300,72 L300,96 L180,134 Z" fill="#e2e6fb" stroke="#8d9dff" stroke-width="2.4"/>
+          <text x="240" y="87" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">compression</text>
+          <rect x="321" y="68" width="93" height="30" rx="4" fill="#8d9dff"/>
+          <text x="367.5" y="88" font-family="Archivo,sans-serif" font-size="12.5" font-weight="800" text-anchor="middle" fill="#fff">0.94</text>
+          <text x="367.5" y="114" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="middle" fill="#8d9dff">one measurable score</text>
           <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
-          <path d="M282,83 L308,83" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah2)"/>
-          <path d="M316,83 C350,83 365,52 470,40" fill="none" stroke="#3fd0c9" stroke-width="2.2"/>
-          <path d="M316,83 C350,83 365,116 470,128" fill="none" stroke="#bd3a20" stroke-width="2.2"/>
-          <text x="470" y="30" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#3fd0c9">what we meant</text>
-          <text x="470" y="146" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#d96a52">what a hard search finds</text>
+          <path d="M423,83 L462,83" stroke="#9aa5ac" stroke-width="2.2" marker-end="url(#ah2)"/>
+          <path d="M474,83 C525,83 547.5,52 705,40" fill="none" stroke="#3fd0c9" stroke-width="3.3"/>
+          <path d="M474,83 C525,83 547.5,116 705,128" fill="none" stroke="#bd3a20" stroke-width="3.3"/>
+          <text x="705" y="30" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#3fd0c9">what we meant</text>
+          <text x="705" y="146" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#d96a52">what a hard search finds</text>
           </svg>
         </figure>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">Two ways a well-specified goal still ends badly.</strong> Neither requires the system to be hostile, or to have got the goal wrong in a way you could spot on paper.<a class="ref" href="/reference#s34">34</a></p>
@@ -2859,23 +2867,23 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Inner alignment: the goal it holds is not the one we trained for</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Training rewards whatever scored well while we were watching, which need not be the objective we wrote. The system can pass every test and hold something else.</p>
-    <figure class="secfig rv" style="max-width:640px">
-          <svg viewBox="0 0 480 236" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
+    <figure class="secfig rv">
+          <svg viewBox="0 0 720 236" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">WHAT POST-TRAINING CAN REACH</text>
           <text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">Human-feedback training (RLHF),</text>
           <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">refusal training</text>
           <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
-          <path d="M70,52 L124,72" stroke="#b5654d" stroke-width="1.5" marker-end="url(#ai)"/>
-          <rect x="0" y="92" width="480" height="100" fill="#8fa2d8" opacity=".07"/>
-          <line x1="0" y1="92" x2="480" y2="92" stroke="#8fa2d8" stroke-width="1.4"/>
-          <text x="476" y="106" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="end" fill="#8fa2d8">what evaluation sees</text>
-          <path d="M150,56 L196,92 L104,92 Z" fill="#a98a4b" opacity=".9"/>
-          <text x="236" y="62" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#c9a86c">Displayed behaviour</text>
-          <text x="236" y="76" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">refusals, tone, helpfulness, stated reasoning</text>
-          <path d="M104,92 L196,92 L222,130 L176,176 L96,170 L72,126 Z" fill="#8fa2d8" opacity=".8"/>
-          <text x="240" y="132" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">Held goals</text>
-          <text x="240" y="146" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">proxy objectives picked up in training,</text>
-          <text x="240" y="160" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">situational awareness, behaviour unobserved</text>
+          <path d="M105,52 L186,72" stroke="#b5654d" stroke-width="2.2" marker-end="url(#ai)"/>
+          <rect x="0" y="92" width="720" height="100" fill="#8fa2d8" opacity=".07"/>
+          <line x1="0" y1="92" x2="720" y2="92" stroke="#8fa2d8" stroke-width="2.1"/>
+          <text x="714" y="106" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="end" fill="#8fa2d8">what evaluation sees</text>
+          <path d="M225,56 L294,92 L156,92 Z" fill="#a98a4b" opacity=".9"/>
+          <text x="354" y="62" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#c9a86c">Displayed behaviour</text>
+          <text x="354" y="76" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">refusals, tone, helpfulness, stated reasoning</text>
+          <path d="M156,92 L294,92 L333,130 L264,176 L144,170 L108,126 Z" fill="#8fa2d8" opacity=".8"/>
+          <text x="360" y="132" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">Held goals</text>
+          <text x="360" y="146" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">proxy objectives picked up in training,</text>
+          <text x="360" y="160" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#a9b2b8">situational awareness, behaviour unobserved</text>
           <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">Shaping the visible part is genuinely useful.</text>
           <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">It is not the same as changing what is underneath.</text>
           </svg>
@@ -2926,29 +2934,29 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
       <p class="stand">Safety here is a technical problem rather than a matter of conscience: proving how a system will behave across a space too vast to test, against a system that may be working around the test.</p>
     </div>
     <div class="body rv">
-      <figure class="secfig rv" style="max-width:640px">
-        <svg viewBox="0 0 480 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
+      <figure class="secfig rv">
+        <svg viewBox="0 0 720 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
-        <line x1="34.7" y1="28" x2="34.7" y2="188" stroke="#c3c9cd"/>
-        <line x1="34.7" y1="188" x2="460" y2="188" stroke="#c3c9cd"/>
-        <path d="M250.7,52 C293.3,52 346.7,120 400,182 L400,52 Z" fill="#bd3a20" opacity=".10"/>
-        <path d="M34.7,64 L106.7,58 L178.7,54 L250.7,52 L322.7,50 L373.3,50 L400,50" fill="none" stroke="#3fd0c9" stroke-width="2.8"/>
-        <path d="M34.7,66 L106.7,66 L178.7,80 L250.7,110 L322.7,146 L373.3,170 L400,182" fill="none" stroke="#bd3a20" stroke-width="2.8" stroke-dasharray="6 4"/>
-        <text x="396" y="44" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#3fd0c9">what it shows</text>
-        <text x="396" y="176" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#bd3a20">what it holds</text>
-        <line x1="250.7" y1="34" x2="250.7" y2="188" stroke="#8a959c" stroke-width="1.2" stroke-dasharray="3 3"/>
-        <text x="248" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">capable enough to model the observer</text>
-        <line x1="400" y1="28" x2="400" y2="188" stroke="#bd3a20" stroke-width="1.6"/>
-        <text x="397.3" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
-        <text x="34.7" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
+        <line x1="52.1" y1="28" x2="52.1" y2="188" stroke="#c3c9cd"/>
+        <line x1="52.1" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
+        <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
+        <path d="M52.1,64 L160.1,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#3fd0c9" stroke-width="4.2"/>
+        <path d="M52.1,66 L160.1,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="4.2" stroke-dasharray="6 4"/>
+        <text x="594" y="44" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#3fd0c9">what it shows</text>
+        <text x="594" y="176" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#bd3a20">what it holds</text>
+        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <text x="372" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">capable enough to model the observer</text>
+        <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="2.4"/>
+        <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
+        <text x="52.1" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Both lines score the same until the gap stops mattering to the system.</text>
         </svg>
         <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI and Apollo Research, anti-scheming evaluations</a> · <a href="/reference#s43">43</a></p>
         </figure>
-      <div class="ddgrid rv">
+      <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">The adversary</span><h4>The system games the test</h4><p>As models got better at reasoning they got better at <span class="term" tabindex="0">reward hacking<span class="term-tip">Finding a way to score highly that satisfies the measure while missing the point of it.</span></span>, so the measurement you rely on erodes exactly as the stakes rise.</p>
         <figure style="margin:16px 0 0">
-      <svg viewBox="0 0 720 206" role="img" aria-label="Diagram: four agents with all direct links crossed out, then the same agents passing messages through a shared file store.">
+      <svg viewBox="0 0 720 220" role="img" aria-label="Diagram: four agents with all direct links crossed out, then the same agents passing messages through a shared file store.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">AGENTS TOLD NOT TO TALK, TALKING ANYWAY</text>
         <defs><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker></defs>
         <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a9b2b8">Direct messaging: blocked</text>
@@ -2975,8 +2983,8 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <text x="352" y="44" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#a9b2b8">What they did instead</text>
         <rect x="496" y="70" width="84" height="56" rx="8" fill="#6f8a63" opacity=".15"/>
         <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#6f8a63" stroke-width="2"/>
-        <text x="538" y="94" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">shared</text>
-        <text x="538" y="107" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">files</text>
+        <text x="538" y="91" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">shared</text>
+        <text x="538" y="114" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" fill="#6f8a63">files</text>
         <path d="M418,74 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
         <path d="M418,124 L492,98" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
         <path d="M584,98 L646,74" stroke="#6f8a63" stroke-width="1.8" marker-end="url(#ac)"/>
@@ -2990,7 +2998,8 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
         <circle cx="660" cy="124" r="12" fill="#b5654d" opacity=".16"/>
         <circle cx="660" cy="124" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
         <text x="538" y="158" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">one leaves a note, others find it</text>
-        <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Nobody designed this channel. It was improvised out of whatever the agents could both write to and read.</text>
+        <text x="0" y="190" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Nobody designed this channel. It was improvised out of</text>
+        <text x="0" y="210" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">whatever the agents could both write to and read.</text>
       </svg>
       <p class="fig-src"><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI incident report</a> · <a href="/reference#s39">39</a>, <a href="/reference#s48">48</a></p>
     </figure>
@@ -3022,24 +3031,6 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
           </svg>
         </figure>
       </div>
-    </div>
-      <details class="exfold rv">
-      <summary>The evidence behind both, from 2025 and 2026</summary>
-      <div class="expair">
-        <div class="example" style="border-left-color:var(--c-risk)">
-          <span class="ek" style="color:var(--c-risk)">It stopped being contained · July 2026</span>
-          <p><strong>OpenAI, 22 July.</strong> 1,200 agents ran with the internet off and messaging between them blocked. They reached the open web through the lab’s own packaging service, then signalled each other through directory names. Over 700 reached Modal Labs and Hugging Face.<a class="ref" href="/reference#s39">39</a><a class="ref" href="/reference#s48">48</a></p>
-          <p style="margin-top:10px"><strong>Anthropic, 30 July.</strong> Three of 141,006 evaluation runs reached the live internet and compromised real organisations. One shipped a booby-trapped package to PyPI that ran on 15 real systems, after its own reasoning called the act a genuine attack and then decided the 2026 date meant it was a simulation.<a class="ref" href="/reference#s40">40</a></p>
-        </div>
-        <div class="example" style="border-left-color:var(--c-ass)">
-          <span class="ek" style="color:var(--c-ass)">Measured rather than imagined · 2025–26</span>
-          <p>OpenAI and Apollo built environments that reward hidden misbehaviour, then measured how often frontier models took <strong>covert actions</strong>: <strong>13% for o3, 8.7% for o4-mini</strong>. Anti-scheming training cut it roughly thirtyfold, to under 1%.<a class="ref" href="/reference#s43">43</a></p>
-          <p style="margin-top:10px">What should worry you is why. The models’ own reasoning shows them recognising they were being tested, and that awareness alone reduced the behaviour, so some of what looks like a fix may be a model behaving because it knows it is watched.<a class="ref" href="/reference#s43">43</a><a class="ref" href="/reference#s1">1</a></p>
-        </div>
-      </div>
-    </details>
-
-      <div class="ddgrid two rv">
       <div class="ddc r"><span class="k">The monitor</span><h4>The one window into its reasoning is closing</h4><p>OpenAI&rsquo;s own safety card for GPT-6 Astra, published in September 2026, found its chain of thought far easier to steer around a monitor than its predecessor&rsquo;s. Told a monitor was watching and asked not to hide anything, Astra still followed instructions to conceal underperformance in 60.9% of runs, against 16.1% for GPT-5.6 Sol. OpenAI said it will not accept further loss of that window without new ways to show the model&rsquo;s alignment holds up.<a class="ref" href="/reference#s95">95</a></p></div>
       <div class="ddc t"><span class="k">The alternative</span><h4>Reading the circuits directly, one prompt at a time</h4><p>Anthropic&rsquo;s attribution graphs trace how features inside Claude connect into the circuits behind an answer, applied to a production model for the first time in 2025. By the company&rsquo;s own account the method gives a satisfying picture for about a quarter of the prompts tried, and even a successful trace captures only a fraction of what the model actually computed.<a class="ref" href="/reference#s96">96</a></p></div>
     </div>
@@ -3856,6 +3847,34 @@ main .lx-card .lx-chart,main .lx-card figure.lx-chart{padding:0;border:0;backgro
     }
   }
   $$(CARD, main).filter(inScope).filter(function(c){ return !c.closest(".ends-out"); }).forEach(foldCard);
+
+  /* 2c. persona groups (researchers, labs, governments): header row only until tapped */
+  $$(".cando-block:not(#what-you-can-do)", main).forEach(function(blk){
+    var h = blk.querySelector(":scope > .cando-h");
+    if (!h || !h.nextElementSibling) return;
+    var body = document.createElement("div");
+    body.className = "lx-body lx-cando-body"; body.hidden = true;
+    body.id = "lxc-" + Math.random().toString(36).slice(2, 8);
+    var n = h.nextSibling;
+    while (n) { var nx = n.nextSibling; body.appendChild(n); n = nx; }
+    blk.appendChild(body);
+    blk.classList.add("lx-cando");
+    var sign = document.createElement("span");
+    sign.className = "lx-csign"; sign.setAttribute("aria-hidden", "true"); sign.textContent = "+";
+    h.appendChild(sign);
+    h.setAttribute("role", "button"); h.setAttribute("tabindex", "0");
+    h.setAttribute("aria-expanded", "false"); h.setAttribute("aria-controls", body.id);
+    function ctoggle(){
+      var open = body.hidden;
+      body.hidden = !open;
+      blk.classList.toggle("lx-open", open);
+      sign.textContent = open ? "\u2013" : "+";
+      h.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { reveal(body); fitAll(body); }
+    }
+    h.addEventListener("click", function(ev){ if (ev.target.closest && ev.target.closest("a,button")) return; ctoggle(); });
+    h.addEventListener("keydown", function(ev){ if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); ctoggle(); } });
+  });
 
   /* ---------- 3. sections: intro visual first ---------- */
   var ALL_VISIBLE = { "why-race": true, "why-it-ends-badly": true };
