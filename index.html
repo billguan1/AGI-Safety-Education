@@ -1624,6 +1624,11 @@ div.endc{cursor:default}
 
 
 
+
+
+
+
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1636,7 +1641,11 @@ div.endc{cursor:default}
 .lx-card h4,.lx-card h3,.lx-card .tn{padding-right:26px}
 .lx-body[hidden]{display:none}
 .lx-body{padding-top:2px}
-:is(.ddgrid,.ends-grid,.tgrid,.cl-halves):has(>.lx-open)>.lx-card{align-self:start}
+:is(.ddgrid,.ends-grid,.tgrid,.cl-halves):has(>.lx-open)>.lx-card:not(.lx-open){align-self:start}
+:is(.ddgrid,.ends-grid,.tgrid,.cl-halves)>.lx-card.lx-open{align-self:stretch}
+.ends-grid>.endc.lx-open{display:flex;flex-direction:column}
+.ends-grid>.endc.lx-open>.lx-body{flex:1 1 auto;display:flex;flex-direction:column}
+.ends-grid>.endc.lx-open>.lx-body>.endc-icons{margin-top:auto}
   font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-ass)}
 main .lx-chart,main .cl-figs.panels figure.lx-chart,main .ddc figure.lx-chart,main figure.cliff.lx-chart,main figure.secfig.lx-chart{
   box-sizing:border-box;width:100%;max-width:860px;margin:clamp(16px,2.4vw,22px) 0;padding:20px;
@@ -1667,10 +1676,9 @@ main .lx-cando>.cando-h .lx-csign{font-family:var(--mono);font-size:16px;line-he
 main .lx-cando>.cando-h h3+.lx-csign{margin-left:auto}
 main .lx-cando.lx-open>.cando-h{margin-bottom:10px}
 main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
-main .lx-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;contain:inline-size;min-width:0;max-width:100%}
-main .lx-scroll>svg{max-width:none!important}
-main .lx-swipe{position:sticky;left:0;display:block;margin:0 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3)}
 main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size:9px;line-height:1.55;letter-spacing:.01em;color:var(--ink-3);font-weight:400}
+svg.lx-m{display:none!important}
+@media (max-width:600px){svg.lx-d{display:none!important}svg.lx-m{display:block!important;width:100%;height:auto;max-width:100%}}
 
 /* lx:layered:end */
 </style>
@@ -1952,7 +1960,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
     </div>
     <p class="mh-lede">Artificial superintelligence is one of the most important technologies humans have ever attempted to build, with promises of unlimited material abundance, breakthroughs in all fields, and relief from all mental and physical labour. Yet we are currently in a dangerous arms race where resources are pouring into accelerating development while safety is being undermined. This page lays out why that gap matters, and how we can help steer humanity in the right direction.</p>
     <figure class="cliff">
-      <svg viewBox="0 0 800 430" role="img" aria-label="Diagram: labs, companies, investors and nations, roped together, race toward the edge of a cliff. The prize floats beyond the far side, with one winged figure rising toward it; the drop below is existential wipeout.">
+      <svg class="lx-d" viewBox="0 0 800 430" role="img" aria-label="Diagram: labs, companies, investors and nations, roped together, race toward the edge of a cliff. The prize floats beyond the far side, with one winged figure rising toward it; the drop below is existential wipeout.">
         <defs>
           <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#2a333a"/><stop offset="100%" stop-color="#171d22"/>
@@ -2040,6 +2048,53 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff">Racing to be first</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0">to a place nobody should reach first.</text>
       </svg>
+<svg class="lx-m" viewBox="0 0 340 428" role="img" aria-label="Diagram: labs, companies, investors and nations, roped together, race toward the edge of a cliff. The prize floats beyond the far side, with one winged figure rising toward it; the drop below is existential wipeout.">
+<defs><linearGradient id="m-rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a333a"/><stop offset="100%" stop-color="#171d22"/></linearGradient><linearGradient id="m-abyss" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#bd3a20" stop-opacity=".34"/><stop offset="100%" stop-color="#bd3a20" stop-opacity="0"/></linearGradient><radialGradient id="m-glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffd88a" stop-opacity=".45"/><stop offset="100%" stop-color="#ffd88a" stop-opacity="0"/></radialGradient><marker id="m-droptip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b" fill-opacity=".7"/></marker><marker id="m-ropetip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a959c"/></marker></defs>
+<text x="0" y="24" font-family="Archivo,sans-serif" font-size="18" font-weight="800" fill="#fff">Racing to be first</text>
+<text x="0" y="44" font-family="Newsreader,serif" font-size="13" fill="#aeb9c0">to a place nobody should reach first.</text>
+<ellipse cx="170" cy="112" rx="165" ry="58" fill="url(#m-glow)"/>
+<text x="170" y="74" font-family="Archivo,sans-serif" font-size="14" font-weight="800" text-anchor="middle" fill="#ffd88a">THE PRIZE</text>
+<text x="170" y="94" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e8c98a">Infinite abundance.</text>
+<text x="170" y="108" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e8c98a">Extended human lifespan.</text>
+<text x="170" y="122" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e8c98a">Science and tech breakthroughs</text>
+<text x="170" y="136" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e8c98a">at accelerated speed</text>
+<text x="170" y="154" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">only if we arrive safely</text>
+<text x="118" y="184" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" letter-spacing=".1em" text-anchor="middle" fill="#e2e8ec">ROPED TOGETHER</text>
+<text x="118" y="198" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#aeb9c0">the first one over drags the rest</text>
+<path d="M78,203 L78,234" stroke="#8a959c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#m-ropetip)"/>
+<text x="244" y="184" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#ff8a6b">CLIFF EDGE</text>
+<path d="M0,244 L236,244 L236,390 L0,390 Z" fill="url(#m-rock)"/>
+<path d="M0,244 L236,244" stroke="#6c7880" stroke-width="2.5"/>
+<path d="M236,244 L242,264 L232,284 L242,304 L232,324 L242,344 L232,364 L242,384 L232,404 L242,424 L232,444 L226,390 L226,244 Z" fill="url(#m-rock)" stroke="#6c7880" stroke-width="1.2"/>
+<g stroke="#3a444c" stroke-width="1.4" opacity=".85"><path d="M14,306 L150,306 M60,336 L210,336 M0,366 L170,366"/></g>
+<rect x="244" y="244" width="96" height="146" fill="url(#m-abyss)"/>
+<line x1="236" y1="172" x2="236" y2="390" stroke="#bd3a20" stroke-width="2" stroke-dasharray="6 5"/>
+<path d="M20,240 C80,236 140,237 215,236" fill="none" stroke="#c3ccd2" stroke-width="2" stroke-dasharray="5 4"/>
+<g stroke-width="3" fill="none" stroke-linecap="round">
+<g transform="translate(20,240) scale(.78)" stroke="#e2e8ec"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25"/></g>
+<g transform="translate(59,240) scale(.78)" stroke="#e2e8ec"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25"/></g>
+<g transform="translate(98,240) scale(.78)" stroke="#9cc4ff"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25"/></g>
+<g transform="translate(137,240) scale(.78)" stroke="#9cc4ff"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25"/></g>
+<g transform="translate(176,240) scale(.78)" stroke="#ffb59e"><circle cx="0" cy="-34" r="7" fill="#ffb59e"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25"/></g>
+<g transform="translate(215,240) scale(.78)" stroke="#ff8a6b"><circle cx="0" cy="-34" r="7" fill="#ff8a6b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25"/></g>
+</g>
+<text x="20" y="262" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">LAB</text>
+<text x="59" y="277" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">LAB</text>
+<text x="98" y="262" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">INVESTORS</text>
+<text x="137" y="277" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">OPEN WEIGHTS</text>
+<text x="176" y="262" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">NATION</text>
+<text x="215" y="277" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">NATION</text>
+<path d="M275,250 C284,264 288,278 289,292" fill="none" stroke="#ff8a6b" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55" marker-end="url(#m-droptip)"/>
+<g stroke="#ff8a6b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"><g transform="translate(258,238) rotate(38) scale(.78)"><circle cx="0" cy="-30" r="7" fill="#ff8a6b"/><path d="M0,-23 L2,-6 M2,-6 L-8,6 M2,-6 L12,3 M-1,-17 L-12,-13 M-1,-17 L10,-22"/></g></g>
+<g transform="translate(308,236) rotate(-10) scale(.72)" stroke-linecap="round" stroke-linejoin="round"><path d="M-3,-19 C-12,-31 -25,-41 -40,-40 C-35,-33 -31,-26 -25,-21 C-30,-19 -33,-15 -34,-10 C-24,-12 -13,-13 -4,-13 Z" fill="#3fd0c9" fill-opacity=".2" stroke="#3fd0c9" stroke-width="1.6"/><path d="M3,-19 C12,-31 25,-41 40,-40 C35,-33 31,-26 25,-21 C30,-19 33,-15 34,-10 C24,-12 13,-13 4,-13 Z" fill="#3fd0c9" fill-opacity=".2" stroke="#3fd0c9" stroke-width="1.6"/><g stroke="#3fd0c9" stroke-width="3" fill="none"><circle cx="0" cy="-31" r="7" fill="#3fd0c9"/><path d="M0,-24 L0,-5 M0,-5 L-5,8 M0,-5 L5,8 M0,-18 L-8,-29 M0,-18 L8,-29"/></g><path d="M-5,15 L-5,29 M5,14 L5,24 M0,18 L0,34" stroke="#3fd0c9" stroke-width="1.4" stroke-dasharray="3 3" opacity=".5"/></g>
+<text x="292" y="314" font-family="Archivo,sans-serif" font-size="14" font-weight="900" letter-spacing="1" text-anchor="middle" fill="#ff8a6b">THE DROP</text>
+<text x="292" y="334" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e59079">Loss of human</text>
+<text x="292" y="347" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e59079">control</text>
+<text x="292" y="364" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e59079">Existential</text>
+<text x="292" y="377" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e59079">wipeout</text>
+<text x="292" y="394" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e59079">No second</text>
+<text x="292" y="407" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#e59079">attempt</text>
+</svg>
     </figure>
     <div class="mh-care">
     <h2 class="mh-h"><span>Why should we care?</span></h2>
@@ -2108,7 +2163,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <p class="cl-sub">The initial conditions under which we create superintelligence will determine whether we reach a world of abundance or destruction.</p>
         <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
         <figure>
-          <svg viewBox="0 0 480 196" role="img" aria-label="Line chart: the world economy stays nearly flat at today's three percent growth, bends sharply upward at twelve percent a year, and at thirty percent a year runs off the top of the chart by 2044, on its way to 190 times today's size by 2055.">
+          <svg class="lx-d" viewBox="0 0 480 196" role="img" aria-label="Line chart: the world economy stays nearly flat at today's three percent growth, bends sharply upward at twelve percent a year, and at thirty percent a year runs off the top of the chart by 2044, on its way to 190 times today's size by 2055.">
       <text x="0" y="16" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" fill="#eef2f4">At 30% a year, the economy is 190 times today's size by 2055</text>
       <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">size of the world economy, today = 1</text>
       <line x1="40" y1="172.0" x2="466" y2="172.0" stroke="#2b343b" stroke-width="1"/>
@@ -2131,6 +2186,32 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
       <text x="324.0" y="190" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="middle" fill="#8a959c">2045</text>
       <text x="466.0" y="190" font-family="IBM Plex Mono,monospace" font-size="9" text-anchor="end" fill="#8a959c">2055</text>
     </svg>
+<svg class="lx-m" viewBox="0 0 300 276" role="img" aria-label="Line chart: the world economy stays nearly flat at today&#x27;s three percent growth, bends sharply upward at twelve percent a year, and at thirty percent a year runs off the top of the chart by 2044, on its way to 190 times today&#x27;s size by 2055.">
+<text x="0" y="15" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#eef2f4">At 30% a year, the economy is 190 times today's</text>
+<text x="0" y="30" font-family="Archivo,sans-serif" font-size="12" font-weight="800" fill="#eef2f4">size by 2055</text>
+<text x="0" y="45" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">size of the world economy, today = 1</text>
+<line x1="38" y1="196.0" x2="294" y2="196.0" stroke="#2b343b" stroke-width="1"/>
+<text x="33" y="199.5" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#8a959c">x1</text>
+<line x1="38" y1="155.4" x2="294" y2="155.4" stroke="#2b343b" stroke-width="1"/>
+<text x="33" y="158.869" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#8a959c">x5</text>
+<line x1="38" y1="104.6" x2="294" y2="104.6" stroke="#2b343b" stroke-width="1"/>
+<text x="33" y="108.131" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#8a959c">x10</text>
+<line x1="123.3" y1="64" x2="123.3" y2="196" stroke="#4a545c" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="118.333" y="74" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#8a959c">the shift begins</text>
+<polyline points="38.0,196.0 46.5,195.7 55.1,195.4 63.6,195.1 72.1,194.8 80.7,194.3 89.2,194.0 97.7,193.6 106.3,193.3 114.8,192.9 123.3,192.5 131.9,188.4 140.4,183.1 148.9,176.2 157.5,167.2 166.0,155.5 174.5,140.3 183.1,120.5 191.6,94.8 199.5,64.0" fill="none" stroke="#e8c98a" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="38.0,196.0 46.5,195.7 55.1,195.4 63.6,195.1 72.1,194.8 80.7,194.3 89.2,194.0 97.7,193.6 106.3,193.3 114.8,192.9 123.3,192.5 131.9,190.8 140.4,189.0 148.9,187.0 157.5,184.7 166.0,182.1 174.5,179.2 183.1,176.0 191.6,172.4 200.1,168.4 208.7,163.7 217.2,158.7 225.7,153.0 234.3,146.6 242.8,139.5 251.3,131.4 259.9,122.5 268.4,112.5 276.9,101.2 285.5,88.6 294.0,74.5" fill="none" stroke="#3fd0c9" stroke-width="2.6" stroke-linejoin="round"/>
+<polyline points="38.0,196.0 46.5,195.7 55.1,195.4 63.6,195.1 72.1,194.8 80.7,194.3 89.2,194.0 97.7,193.6 106.3,193.3 114.8,192.9 123.3,192.5 131.9,192.1 140.4,191.7 148.9,191.3 157.5,190.8 166.0,190.3 174.5,189.8 183.1,189.4 191.6,188.9 200.1,188.4 208.7,187.9 217.2,187.2 225.7,186.7 234.3,186.1 242.8,185.5 251.3,184.9 259.9,184.2 268.4,183.6 276.9,182.9 285.5,182.2 294.0,181.5" fill="none" stroke="#6f8a63" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="38" y="211" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="start" fill="#8a959c">2025</text>
+<text x="123.333" y="211" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">2035</text>
+<text x="208.667" y="211" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8a959c">2045</text>
+<text x="294" y="211" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#8a959c">2055</text>
+<line x1="0" y1="228" x2="18" y2="228" stroke="#e8c98a" stroke-width="3" stroke-linecap="round"/>
+<text x="26" y="232" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">30% a year, off the top by 2044</text>
+<line x1="0" y1="244" x2="18" y2="244" stroke="#3fd0c9" stroke-width="3" stroke-linecap="round"/>
+<text x="26" y="248" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">12% a year</text>
+<line x1="0" y1="260" x2="18" y2="260" stroke="#6f8a63" stroke-width="3" stroke-linecap="round"/>
+<text x="26" y="264" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">today's 3%, for comparison</text>
+</svg>
           <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>, rates compounded from 2035 · <a class="ref" href="/reference#s66">66</a> <a class="ref" href="/reference#s1">1</a></p>
         </figure>
         <figure>
@@ -2377,7 +2458,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
 
     <div class="ddc b rv" id="route-two" style="margin-top:clamp(20px,3vw,28px)"><h4>The dangers of subgoals</h4><p>Whatever its main goal, a superintelligence tends to pursue five subgoals that help achieve it. It may have no goal to eliminate humans, yet taking resources as a side effect can deprive us of what human life depends on.</p>
       <figure style="margin:16px 0 0">
-      <svg viewBox="0 0 720 176" role="img" aria-label="Five subgoals follow from almost any objective, and the fifth, taking resources, means taking the electricity, land, materials and matter humans need to stay alive.">
+      <svg class="lx-d" viewBox="0 0 720 176" role="img" aria-label="Five subgoals follow from almost any objective, and the fifth, taking resources, means taking the electricity, land, materials and matter humans need to stay alive.">
         <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
         <g transform="translate(0,-44)">
         <rect x="0" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
@@ -2418,6 +2499,42 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="564" y="199" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">survive in</text>
         </g>
       </svg>
+<svg class="lx-m" viewBox="0 0 320 314" role="img" aria-label="Five subgoals follow from almost any objective, and the fifth, taking resources, means taking the electricity, land, materials and matter humans need to stay alive.">
+<defs><marker id="m-rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
+<rect x="0" y="2" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
+<text x="78" y="21" font-family="Archivo,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#d3dade">Stay switched on</text>
+<rect x="164" y="2" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
+<text x="242" y="21" font-family="Archivo,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#d3dade">Keep its goal</text>
+<rect x="0" y="40" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
+<text x="78" y="59" font-family="Archivo,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#d3dade">Think better</text>
+<rect x="164" y="40" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#3d4750" stroke-width="1"/>
+<text x="242" y="59" font-family="Archivo,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#d3dade">Build better tools</text>
+<rect x="82" y="78" width="156" height="30" rx="15" fill="rgba(255,138,107,.16)" stroke="#ff8a6b" stroke-width="1.4"/>
+<text x="160" y="97" font-family="Archivo,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#ff8a6b">Take resources</text>
+<line x1="160" y1="108" x2="160" y2="124" stroke="#ff8a6b" stroke-width="1.4" marker-end="url(#m-rd2)"/>
+<text x="160" y="142" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".08em" text-anchor="middle" fill="#8a959c">HUMAN LIVES ALSO DEPEND ON THESE</text>
+<rect x="0" y="154" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
+<rect x="0" y="154" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
+<text x="10" y="176" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#f3f6f7">Electricity</text>
+<text x="10" y="194" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">the grid that runs</text>
+<text x="10" y="207" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">food, water and</text>
+<text x="10" y="220" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">hospitals</text>
+<rect x="164" y="154" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
+<rect x="164" y="154" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
+<text x="174" y="176" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#f3f6f7">Land and water</text>
+<text x="174" y="194" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">the farmland and water</text>
+<text x="174" y="207" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">we live on</text>
+<rect x="0" y="234" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
+<rect x="0" y="234" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
+<text x="10" y="256" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#f3f6f7">Metals, factories</text>
+<text x="10" y="274" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">the industry that makes</text>
+<text x="10" y="287" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">everything we use</text>
+<rect x="164" y="234" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
+<rect x="164" y="234" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
+<text x="174" y="256" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#f3f6f7">Matter itself</text>
+<text x="174" y="274" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">the narrow band we</text>
+<text x="174" y="287" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">survive in</text>
+</svg>
       </figure>
       <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="/reference#s34">34</a> <a class="ref" href="/reference#s26">26</a></p>
     </div>
@@ -2445,7 +2562,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
       <p class="stand">Humans took many tries to get technologies like cars, planes and nuclear plants right. A system that can rewrite its own source code, known as <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>,<a class="ref" href="/reference#s34">34</a> simply compounds those improvements until it reaches an intelligence explosion. That shift in direction happens too fast to pull back from.</p>
     </div>
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 248" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
+      <svg class="lx-d" viewBox="0 0 720 248" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WITH PAST TECHNOLOGIES, WE TOOK MULTIPLE TRIES TO GET THEM RIGHT</text>
         <circle cx="152" cy="29" r="4.5" fill="#8a959c"/>
         <text x="163" y="32.5" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">a failure people lived through</text>
@@ -2503,6 +2620,59 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="534" y="204" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">first serious</text>
         <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">loss of control</text>
       </svg>
+<svg class="lx-m" viewBox="0 0 340 339" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for AGI ending at a wall.">
+<defs><marker id="m-lgk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a959c"/></marker><marker id="m-lo0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8fa2d8"/></marker><marker id="m-lo1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6f8a63"/></marker><marker id="m-lo2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a98a4b"/></marker><marker id="m-ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">WITH PAST TECHNOLOGIES, WE TOOK MULTIPLE TRIES TO</text>
+<text x="0" y="29" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">GET THEM RIGHT</text>
+<circle cx="6" cy="51.5" r="4.5" fill="#8a959c"/>
+<text x="18" y="55" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">a failure people lived through</text>
+<path d="M0,71 q9,-9 18,0" fill="none" stroke="#8a959c" stroke-width="1.4" marker-end="url(#m-lgk)"/>
+<text x="26" y="73" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">investigate it, fix it, carry on</text>
+<text x="0" y="103" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Cars</text>
+<circle cx="8" cy="125" r="5.5" fill="#8fa2d8"/>
+<path d="M15,123 q18,-15 36,0" fill="none" stroke="#8fa2d8" stroke-width="1.6" marker-end="url(#m-lo0)"/>
+<path d="M15,127 q18,15 36,0" fill="none" stroke="#8fa2d8" stroke-width="1.3" opacity=".35"/>
+<circle cx="58" cy="125" r="5.5" fill="#8fa2d8"/>
+<path d="M65,123 q18,-15 36,0" fill="none" stroke="#8fa2d8" stroke-width="1.6" marker-end="url(#m-lo0)"/>
+<path d="M65,127 q18,15 36,0" fill="none" stroke="#8fa2d8" stroke-width="1.3" opacity=".35"/>
+<circle cx="108" cy="125" r="5.5" fill="#8fa2d8"/>
+<path d="M115,123 q18,-15 36,0" fill="none" stroke="#8fa2d8" stroke-width="1.6" marker-end="url(#m-lo0)"/>
+<path d="M115,127 q18,15 36,0" fill="none" stroke="#8fa2d8" stroke-width="1.3" opacity=".35"/>
+<circle cx="158" cy="125" r="5.5" fill="#8fa2d8"/>
+<text x="176" y="129" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8fa2d8">safe, eventually</text>
+<text x="0" y="155" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Aviation</text>
+<circle cx="8" cy="177" r="5.5" fill="#6f8a63"/>
+<path d="M15,175 q18,-15 36,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#m-lo1)"/>
+<path d="M15,179 q18,15 36,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+<circle cx="58" cy="177" r="5.5" fill="#6f8a63"/>
+<path d="M65,175 q18,-15 36,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#m-lo1)"/>
+<path d="M65,179 q18,15 36,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+<circle cx="108" cy="177" r="5.5" fill="#6f8a63"/>
+<path d="M115,175 q18,-15 36,0" fill="none" stroke="#6f8a63" stroke-width="1.6" marker-end="url(#m-lo1)"/>
+<path d="M115,179 q18,15 36,0" fill="none" stroke="#6f8a63" stroke-width="1.3" opacity=".35"/>
+<circle cx="158" cy="177" r="5.5" fill="#6f8a63"/>
+<text x="176" y="181" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">safe, eventually</text>
+<text x="0" y="207" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a4adb3">Nuclear power</text>
+<circle cx="8" cy="229" r="5.5" fill="#a98a4b"/>
+<path d="M15,227 q18,-15 36,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#m-lo2)"/>
+<path d="M15,231 q18,15 36,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+<circle cx="58" cy="229" r="5.5" fill="#a98a4b"/>
+<path d="M65,227 q18,-15 36,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#m-lo2)"/>
+<path d="M65,231 q18,15 36,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+<circle cx="108" cy="229" r="5.5" fill="#a98a4b"/>
+<path d="M115,227 q18,-15 36,0" fill="none" stroke="#a98a4b" stroke-width="1.6" marker-end="url(#m-lo2)"/>
+<path d="M115,231 q18,15 36,0" fill="none" stroke="#a98a4b" stroke-width="1.3" opacity=".35"/>
+<circle cx="158" cy="229" r="5.5" fill="#a98a4b"/>
+<text x="176" y="233" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a98a4b">safe, eventually</text>
+<line x1="0" y1="253" x2="340" y2="253" stroke="#333c44"/>
+<text x="0" y="275" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">AGI and ASI</text>
+<text x="20" y="299" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">no earlier failure to learn from</text>
+<circle cx="8" cy="309" r="5.5" fill="#b5654d"/>
+<path d="M16,309 L218,309" stroke="#b5654d" stroke-width="2.6" marker-end="url(#m-ax)"/>
+<rect x="226" y="286" width="8" height="46" rx="2.5" fill="#d5dbdf"/>
+<text x="244" y="305" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#d5dbdf">first serious</text>
+<text x="244" y="319" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#d5dbdf">loss of control</text>
+</svg>
     </figure>
     <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">AGI has to be right the first time, and two things explain why.</p>
 
@@ -2708,7 +2878,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
     </figure>
 
       <figure class="secfig rv">
-      <svg viewBox="0 0 720 198" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
+      <svg class="lx-d" viewBox="0 0 720 198" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHO ACTUALLY GETS TO DECIDE</text>
         <circle cx="88" cy="70" r="26" fill="none" stroke="#8d9dff" stroke-width="2"/>
         <circle cx="88" cy="70" r="7" fill="#8d9dff"/>
@@ -2737,6 +2907,25 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="500" y="83" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">capable model</text>
         <text x="500" y="96" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">the last step</text>
       </svg>
+<svg class="lx-m" viewBox="0 0 340 306" role="img" aria-label="Diagram: four small groups above a wide bar representing eight billion affected people.">
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">WHO ACTUALLY GETS TO DECIDE</text>
+<circle cx="85" cy="58" r="18" fill="none" stroke="#8d9dff" stroke-width="2"/><circle cx="85" cy="58" r="5" fill="#8d9dff"/>
+<text x="85" y="92" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#8d9dff">a few frontier labs</text>
+<circle cx="255" cy="58" r="18" fill="none" stroke="#3fd0c9" stroke-width="2"/><circle cx="255" cy="58" r="5" fill="#3fd0c9"/>
+<text x="255" y="92" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#3fd0c9">a handful of states</text>
+<circle cx="85" cy="142" r="18" fill="none" stroke="#d9a445" stroke-width="2"/><circle cx="85" cy="142" r="5" fill="#d9a445"/>
+<text x="85" y="176" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#d9a445">their investors and</text>
+<text x="85" y="189" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#d9a445">boards</text>
+<circle cx="255" cy="142" r="18" fill="none" stroke="#bd3a20" stroke-width="2"/><circle cx="255" cy="142" r="5" fill="#bd3a20"/>
+<text x="255" y="176" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#bd3a20">whoever obtains the</text>
+<text x="255" y="189" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#bd3a20">weights</text>
+<text x="0" y="215" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">and anyone who can take a nearly capable model the last</text>
+<text x="0" y="228" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">step</text>
+<path d="M170,238 L170,254" stroke="#c3c9cd" stroke-width="1.4" stroke-dasharray="3 3"/>
+<rect x="0" y="256" width="340" height="48" rx="4" fill="#232b31"/>
+<text x="170" y="278" font-family="Archivo,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#c3ccd2">everyone else, roughly eight billion people, who</text>
+<text x="170" y="294" font-family="Archivo,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#c3ccd2">are affected either way</text>
+</svg>
     </figure>
 
     <div class="rv" style="margin-top:24px">
@@ -2762,7 +2951,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
       <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
     </div>
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 175" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
+      <svg class="lx-d" viewBox="0 0 720 175" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL DIFFERENTLY</text>
         <text x="0" y="44" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#8fa2d8">OUTER</text>
         <rect x="0" y="58" width="152" height="62" rx="7" fill="#8fa2d8" opacity=".14"/>
@@ -2788,6 +2977,31 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="651" y="98" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" fill="#b5654d">actually holds</text>
         <text x="422" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
         </svg>
+<svg class="lx-m" viewBox="0 0 340 307" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal equal to a dashed held goal.">
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL</text>
+<text x="0" y="29" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">DIFFERENTLY</text>
+<text x="0" y="61" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#8fa2d8">OUTER</text>
+<rect x="0" y="73" width="130" height="58" rx="7" fill="#8fa2d8" opacity=".14"/>
+<rect x="0" y="73" width="130" height="58" rx="7" fill="none" stroke="#8fa2d8" stroke-width="1.8"/>
+<text x="65" y="99" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#8fa2d8">the objective we</text>
+<text x="65" y="112" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#8fa2d8">wrote</text>
+<path d="M136,102 L166,102" stroke="#cfc9c1" stroke-width="1.6" stroke-dasharray="4 4"/>
+<path d="M180,79 C210,67 262,71 282,85 C318,79 340,99 330,115 C338,131 306,143 282,135 C252,145 206,137 194,121 C172,115 170,87 180,79 Z" fill="#6f8a63" opacity=".16"/><path d="M180,79 C210,67 262,71 282,85 C318,79 340,99 330,115 C338,131 306,143 282,135 C252,145 206,137 194,121 C172,115 170,87 180,79 Z" fill="none" stroke="#6f8a63" stroke-width="1.8"/>
+<text x="256" y="98.5" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#6f8a63">what we actually</text>
+<text x="256" y="111.5" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#6f8a63">meant</text>
+<text x="0" y="161" font-family="IBM Plex Mono,monospace" font-size="10" fill="#6f8a63">visible on paper, if you look hard enough</text>
+<line x1="0" y1="175" x2="340" y2="175" stroke="#333c44"/>
+<text x="0" y="199" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#a98a4b">INNER</text>
+<rect x="0" y="211" width="146" height="58" rx="7" fill="#a98a4b" opacity=".14"/>
+<rect x="0" y="211" width="146" height="58" rx="7" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
+<text x="73" y="243.5" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#a98a4b">the goal it displays</text>
+<text x="170" y="245" font-family="IBM Plex Mono,monospace" font-size="15" text-anchor="middle" fill="#a9a49c">=</text>
+<rect x="194" y="211" width="146" height="58" rx="7" fill="#b5654d" opacity=".14"/>
+<rect x="194" y="211" width="146" height="58" rx="7" fill="none" stroke="#b5654d" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="267" y="237" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#b5654d">the goal it actually</text>
+<text x="267" y="250" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" text-anchor="middle" fill="#b5654d">holds</text>
+<text x="0" y="299" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b5654d">invisible: identical test scores either way</text>
+</svg>
     </figure>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Outer alignment: the target we established is not the one we mean</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">We state an objective that sounds right and misses what we meant, because the part we never thought to say out loud does not make it into the words.</p>
@@ -2879,7 +3093,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Inner alignment: the goal it holds is not the one we trained for</h3>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Training rewards whatever scored well while we were watching, which need not be the objective we wrote. The system can pass every test and hold something else.</p>
     <figure class="secfig rv">
-          <svg viewBox="0 0 720 236" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
+          <svg class="lx-d" viewBox="0 0 720 236" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">WHAT POST-TRAINING CAN REACH</text>
           <text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">Human-feedback training (RLHF),</text>
           <text x="0" y="49" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">refusal training</text>
@@ -2898,6 +3112,30 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
           <text x="0" y="212" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">Shaping the visible part is genuinely useful.</text>
           <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">It is not the same as changing what is underneath.</text>
           </svg>
+<svg class="lx-m" viewBox="0 0 340 303" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
+<defs><marker id="m-ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">WHAT POST-TRAINING CAN REACH</text>
+<text x="0" y="38" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#d96a52">Human-feedback training</text>
+<text x="0" y="52" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#d96a52">(RLHF), refusal training</text>
+<text x="196" y="66" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#c9a86c">Displayed behaviour</text>
+<text x="196" y="82" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">refusals, tone,</text>
+<text x="196" y="95" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">helpfulness, stated</text>
+<text x="196" y="108" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">reasoning</text>
+<path d="M70,58 L112,96" stroke="#b5654d" stroke-width="2" marker-end="url(#m-ai)"/>
+<rect x="0" y="130" width="340" height="130" fill="#8fa2d8" opacity=".07"/>
+<line x1="0" y1="130" x2="340" y2="130" stroke="#8fa2d8" stroke-width="2"/>
+<text x="336" y="145" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#8fa2d8">what evaluation sees</text>
+<path d="M125,90 L170,130 L80,130 Z" fill="#a98a4b" opacity=".9"/>
+<path d="M80,130 L170,130 L196,166 L152,240 L76,232 L52,170 Z" fill="#8fa2d8" opacity=".8"/>
+<text x="210" y="174" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#8fa2d8">Held goals</text>
+<text x="210" y="190" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">proxy objectives</text>
+<text x="210" y="203" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">picked up in</text>
+<text x="210" y="216" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">training, situational</text>
+<text x="210" y="229" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">awareness, behaviour</text>
+<text x="210" y="242" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">unobserved</text>
+<text x="0" y="282" font-family="IBM Plex Mono,monospace" font-size="10" fill="#d96a52">Shaping the visible part is genuinely useful. It is not</text>
+<text x="0" y="295" font-family="IBM Plex Mono,monospace" font-size="10" fill="#d96a52">the same as changing what is underneath.</text>
+</svg>
         </figure>
     <div class="ddgrid two rv">
       <div class="ddc b"><span class="k">How this actually works</span><h4>We can only observe what a system does and what it says it is thinking; its real goals stay hidden</h4><p>Its behaviour is shaped by a blind search for a high score, so we get whatever scores highest even when that misses what we intended. Think of training a dog with treats, except you never chose the tricks: you hand out treats for “good” and it tries millions of things to find whatever earns the most.</p>
@@ -2946,7 +3184,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
     </div>
     <div class="body rv">
       <figure class="secfig rv">
-        <svg viewBox="0 0 720 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
+        <svg class="lx-d" viewBox="0 0 720 254" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
         <line x1="52.1" y1="28" x2="52.1" y2="188" stroke="#c3c9cd"/>
         <line x1="52.1" y1="188" x2="690" y2="188" stroke="#c3c9cd"/>
@@ -2962,6 +3200,24 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="52.1" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
         <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Both lines score the same until the gap stops mattering to the system.</text>
         </svg>
+<svg class="lx-m" viewBox="0 0 340 302" role="img" aria-label="Line chart: displayed alignment stays flat and high while true alignment quietly diverges downward after the system becomes capable enough to model its observers.">
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">WHY GOOD TEST RESULTS STOP BEING EVIDENCE</text>
+<text x="174.375" y="36" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#a7b1b8">capable enough to model</text>
+<text x="174.375" y="49" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#a7b1b8">the observer</text>
+<line x1="24" y1="63" x2="24" y2="223" stroke="#c3c9cd"/>
+<line x1="24" y1="223" x2="330" y2="223" stroke="#c3c9cd"/>
+<path d="M179.4,87.0 C210.1,87.0 248.5,155.0 286.8,217.0 L286.8,87.0 Z" fill="#bd3a20" opacity=".10"/>
+<path d="M24.0,99.0 L75.8,93.0 L127.6,89.0 L179.4,87.0 L231.2,85.0 L267.6,85.0 L286.8,85.0" fill="none" stroke="#3fd0c9" stroke-width="3"/>
+<path d="M24.0,101.0 L75.8,101.0 L127.6,115.0 L179.4,145.0 L231.2,181.0 L267.6,205.0 L286.8,217.0" fill="none" stroke="#bd3a20" stroke-width="3" stroke-dasharray="6 4"/>
+<line x1="179.4" y1="69" x2="179.4" y2="223" stroke="#8a959c" stroke-width="1.5" stroke-dasharray="3 3"/>
+<line x1="286.8" y1="63" x2="286.8" y2="223" stroke="#bd3a20" stroke-width="2"/>
+<text x="281.827" y="77" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" text-anchor="end" fill="#3fd0c9">what it shows</text>
+<text x="75.7595" y="163" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#bd3a20">what it holds</text>
+<text x="24" y="240" font-family="IBM Plex Mono,monospace" font-size="10" fill="#8a959c">early training</text>
+<text x="286.827" y="256" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#bd3a20">the point where it no longer needs to pretend</text>
+<text x="0" y="280" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">Both lines score the same until the gap stops</text>
+<text x="0" y="294" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#bd3a20">mattering to the system.</text>
+</svg>
         <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI and Apollo Research, anti-scheming evaluations</a> · <a href="/reference#s43">43</a></p>
         </figure>
       <div class="ddgrid two rv">
@@ -3273,7 +3529,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
       <details class="exfold rv">
       <summary>Technical and policy levers, by risk pillar</summary>
       <figure class="secfig rv">
-      <svg viewBox="0 0 720 342" role="img" aria-label="Matrix showing engineering and policy levers for each of the four risk pillars, with the structural row having no engineering fix.">
+      <svg class="lx-d" viewBox="0 0 720 342" role="img" aria-label="Matrix showing engineering and policy levers for each of the four risk pillars, with the structural row having no engineering fix.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">TECHNICAL AND POLICY LEVERS, BY RISK PILLAR</text>
         <text x="228" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#8fa2d8">ENGINEERING LEVER</text>
         <text x="480" y="40" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">POLICY LEVER</text>
@@ -3312,6 +3568,50 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <line x1="0" y1="304" x2="720" y2="304" stroke="#eae6e0"/>
         <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">The bottom row is why technical alignment alone cannot finish the job.</text>
       </svg>
+<svg class="lx-m" viewBox="0 0 340 398" role="img" aria-label="Matrix showing engineering and policy levers for each of the four risk pillars, with the structural row having no engineering fix.">
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">TECHNICAL AND POLICY LEVERS, BY RISK PILLAR</text>
+<text x="14" y="40" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">ENGINEERING LEVER</text>
+<text x="184" y="40" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#b5654d">POLICY LEVER</text>
+<line x1="0" y1="48" x2="340" y2="48" stroke="#d9d4cd"/>
+<rect x="0" y="52" width="4" height="56" rx="2" fill="#8fa2d8"/>
+<text x="14" y="64" font-family="Archivo,sans-serif" font-size="12" font-weight="700" fill="#c0c8ce">Misuse</text>
+<text x="14" y="79" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">the user intends harm</text>
+<text x="14" y="97" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Classifiers, unlearning,</text>
+<text x="14" y="110" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">capability evaluations</text>
+<text x="184" y="97" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Access control, KYC,</text>
+<text x="184" y="110" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">export and compute rules</text>
+<line x1="0" y1="120" x2="340" y2="120" stroke="#333c44"/>
+<rect x="0" y="122" width="4" height="69" rx="2" fill="#b5654d"/>
+<text x="14" y="134" font-family="Archivo,sans-serif" font-size="12" font-weight="700" fill="#c0c8ce">Misalignment</text>
+<text x="14" y="149" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">the AI intends harm</text>
+<text x="14" y="167" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Interpretability,</text>
+<text x="14" y="180" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">monitoring the model's</text>
+<text x="14" y="193" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">reasoning, AI control</text>
+<text x="184" y="167" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Capability thresholds,</text>
+<text x="184" y="180" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">third-party audit,</text>
+<text x="184" y="193" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">disclosure</text>
+<line x1="0" y1="203" x2="340" y2="203" stroke="#333c44"/>
+<rect x="0" y="205" width="4" height="56" rx="2" fill="#6f8a63"/>
+<text x="14" y="217" font-family="Archivo,sans-serif" font-size="12" font-weight="700" fill="#c0c8ce">Mistakes</text>
+<text x="14" y="232" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">nobody intends harm</text>
+<text x="14" y="250" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Red-teaming, sandboxing,</text>
+<text x="14" y="263" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">staged deployment</text>
+<text x="184" y="250" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Incident reporting,</text>
+<text x="184" y="263" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">liability, safety cases</text>
+<line x1="0" y1="273" x2="340" y2="273" stroke="#333c44"/>
+<rect x="0" y="275" width="4" height="69" rx="2" fill="#a98a4b"/>
+<text x="14" y="287" font-family="Archivo,sans-serif" font-size="12" font-weight="700" fill="#c0c8ce">Structural</text>
+<text x="14" y="302" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">the incentives do the harm</text>
+<text x="14" y="320" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Almost nothing. This</text>
+<text x="14" y="333" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">pillar has no engineering</text>
+<text x="14" y="346" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">fix</text>
+<text x="184" y="320" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">Binding minimum</text>
+<text x="184" y="333" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">standards, international</text>
+<text x="184" y="346" font-family="IBM Plex Mono,monospace" font-size="10" fill="#b9c2c8">coordination</text>
+<line x1="0" y1="356" x2="340" y2="356" stroke="#333c44"/>
+<text x="0" y="376" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">The bottom row is why technical alignment alone</text>
+<text x="0" y="390" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">cannot finish the job.</text>
+</svg>
     </figure>
     </details>
     <details class="exfold rv">
@@ -3375,7 +3675,7 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
       <div class="ddc t"><span class="k">Hard case four</span><h4>It goes after the answer key instead of the task</h4><p>If it cannot trust that the tester's answer is the right one, hacking the tester and reading off whatever answer sits there, right or wrong, scores exactly as well as solving the problem for real.</p></div>
     </div>
     <figure class="secfig rv">
-      <svg viewBox="0 0 720 346" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
+      <svg class="lx-d" viewBox="0 0 720 346" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
         <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHICH SAFEGUARDS SURVIVE THE FIRST THREE HARD CASES</text>
         <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">the model knows</text>
         <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">it is being tested</text>
@@ -3448,6 +3748,70 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
         <text x="205" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">fails</text>
         <text x="0" y="330" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Only the governance row survives a builder who declines to participate, and it is the least developed.</text>
       </svg>
+<svg class="lx-m" viewBox="0 0 340 408" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
+<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">WHICH SAFEGUARDS SURVIVE THE FIRST THREE HARD</text>
+<text x="0" y="29" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#98a2a8">CASES</text>
+<circle cx="7" cy="51.5" r="7" fill="#232b31" stroke="#56626b"/>
+<text x="7" y="55" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" text-anchor="middle" fill="#dfe5e9">1</text>
+<text x="22" y="55" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">the model knows it is being tested</text>
+<circle cx="7" cy="70.5" r="7" fill="#232b31" stroke="#56626b"/>
+<text x="7" y="74" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" text-anchor="middle" fill="#dfe5e9">2</text>
+<text x="22" y="74" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">the model is smarter than what watches it</text>
+<circle cx="7" cy="89.5" r="7" fill="#232b31" stroke="#56626b"/>
+<text x="7" y="93" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" text-anchor="middle" fill="#dfe5e9">3</text>
+<text x="22" y="93" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">the builder simply opts out</text>
+<circle cx="214" cy="122.5" r="8" fill="#232b31" stroke="#56626b"/>
+<text x="214" y="126" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" text-anchor="middle" fill="#dfe5e9">1</text>
+<circle cx="264" cy="122.5" r="8" fill="#232b31" stroke="#56626b"/>
+<text x="264" y="126" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" text-anchor="middle" fill="#dfe5e9">2</text>
+<circle cx="314" cy="122.5" r="8" fill="#232b31" stroke="#56626b"/>
+<text x="314" y="126" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" text-anchor="middle" fill="#dfe5e9">3</text>
+<rect x="0" y="139" width="4" height="18" rx="2" fill="#8fa2d8"/>
+<text x="12" y="152" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">Post-training alignment</text>
+<circle cx="214" cy="148" r="8" fill="#b5654d" opacity=".16"/><path d="M210.5,144.5 l7,7 M217.5,144.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="264" cy="148" r="8" fill="#b5654d" opacity=".16"/><path d="M260.5,144.5 l7,7 M267.5,144.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="314" cy="148" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,144.5 l7,7 M317.5,144.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="0" y="165" width="4" height="18" rx="2" fill="#8fa2d8"/>
+<text x="12" y="178" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">Scalable oversight</text>
+<circle cx="214" cy="174" r="8" fill="#a98a4b" opacity=".2"/><path d="M210,174 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="264" cy="174" r="8" fill="#b5654d" opacity=".16"/><path d="M260.5,170.5 l7,7 M267.5,170.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="314" cy="174" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,170.5 l7,7 M317.5,170.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="0" y="191" width="4" height="18" rx="2" fill="#6f8a63"/>
+<text x="12" y="204" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">Capability evaluations</text>
+<circle cx="214" cy="200" r="8" fill="#b5654d" opacity=".16"/><path d="M210.5,196.5 l7,7 M217.5,196.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="264" cy="200" r="8" fill="#a98a4b" opacity=".2"/><path d="M260,200 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="314" cy="200" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,196.5 l7,7 M317.5,196.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="0" y="217" width="4" height="18" rx="2" fill="#6f8a63"/>
+<text x="12" y="230" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">Interpretability</text>
+<circle cx="214" cy="226" r="8" fill="#6f8a63" opacity=".18"/><path d="M210,226 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="264" cy="226" r="8" fill="#a98a4b" opacity=".2"/><path d="M260,226 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="314" cy="226" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,222.5 l7,7 M317.5,222.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="0" y="243" width="4" height="18" rx="2" fill="#a98a4b"/>
+<text x="12" y="256" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">AI control</text>
+<circle cx="214" cy="252" r="8" fill="#6f8a63" opacity=".18"/><path d="M210,252 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="264" cy="252" r="8" fill="#b5654d" opacity=".16"/><path d="M260.5,248.5 l7,7 M267.5,248.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="314" cy="252" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,248.5 l7,7 M317.5,248.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="0" y="269" width="4" height="18" rx="2" fill="#a98a4b"/>
+<text x="12" y="282" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">Classifiers, sandboxing</text>
+<circle cx="214" cy="278" r="8" fill="#6f8a63" opacity=".18"/><path d="M210,278 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="264" cy="278" r="8" fill="#a98a4b" opacity=".2"/><path d="M260,278 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="314" cy="278" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,274.5 l7,7 M317.5,274.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="0" y="295" width="4" height="18" rx="2" fill="#b5654d"/>
+<text x="12" y="308" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b9c2c8">Regulation</text>
+<circle cx="214" cy="304" r="8" fill="#6f8a63" opacity=".18"/><path d="M210,304 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="264" cy="304" r="8" fill="#6f8a63" opacity=".18"/><path d="M260,304 l3,4 l6,-8" stroke="#6f8a63" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="314" cy="304" r="8" fill="#a98a4b" opacity=".2"/><path d="M310,304 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
+<line x1="0" y1="324" x2="340" y2="324" stroke="#333c44"/>
+<circle cx="6" cy="342" r="5.5" fill="#6f8a63" opacity=".22"/>
+<text x="16" y="346" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">holds</text>
+<circle cx="72" cy="342" r="5.5" fill="#a98a4b" opacity=".22"/>
+<text x="82" y="346" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">partly holds</text>
+<circle cx="180" cy="342" r="5.5" fill="#b5654d" opacity=".22"/>
+<text x="190" y="346" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">fails</text>
+<text x="0" y="372" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">Only the governance row survives a builder who</text>
+<text x="0" y="386" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">declines to participate, and it is the least</text>
+<text x="0" y="400" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#b5654d">developed.</text>
+</svg>
     </figure>
     <details class="exfold rv">
       <summary>The numbers behind those four hard cases, before and after mitigation</summary>
@@ -3778,15 +4142,15 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
   function applySizes(els, sizes){ els.forEach(function(t, i){ t.style.fontSize = sizes[i].toFixed(2) + "px"; }); }
   function clashes(ts, vb, ignore){
     var bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
-    var res = { pairs: {}, oob: {}, n: 0 };
+    var res = { pairs: {}, oob: {}, n: 0, hits: [] };
     for (var i = 0; i < ts.length; i++) {
       var a = bs[i]; if (!a || !a.width) continue;
-      if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) { res.oob[i] = 1; if (!ignore || !ignore.oob[i]) res.n++; }
+      if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) { res.oob[i] = 1; if (!ignore || !ignore.oob[i]) { res.n++; res.hits.push([i]); } }
       for (var j = i + 1; j < ts.length; j++) {
         var b = bs[j]; if (!b || !b.width) continue;
         var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
         var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
-        if (ix > 1.5 && iy > Math.max(1.5, .2 * Math.min(a.height, b.height))) { res.pairs[i + "-" + j] = 1; if (!ignore || !ignore.pairs[i + "-" + j]) res.n++; }
+        if (ix > 1.5 && iy > Math.max(1.5, .2 * Math.min(a.height, b.height))) { res.pairs[i + "-" + j] = 1; if (!ignore || !ignore.pairs[i + "-" + j]) { res.n++; res.hits.push(a.width >= b.width ? [i, j] : [j, i]); } }
       }
     }
     return res;
@@ -3803,53 +4167,97 @@ main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size
     }
     /* charts outside the layered scope keep their drawn sizes, lifted only on narrow screens */
     var sc = w / vbw(svg), fmin = Math.min.apply(null, els.map(authored));
-    var u = window.innerWidth <= 1024 ? Math.max(1, 9 / (fmin * sc)) : 1;
+    var u = (window.innerWidth <= 1024 && !svg.classList.contains("lx-m")) ? Math.max(1, 9 / (fmin * sc)) : 1;
     return els.map(function(t){ return authored(t) * u; });
   }
-  function swipeHint(box, on){
-    var h = box.querySelector(":scope > .lx-swipe");
-    if (on && !h) {
-      h = document.createElement("span"); h.className = "lx-swipe"; h.setAttribute("aria-hidden", "true");
-      h.textContent = ZH ? "左右滑动查看完整图表 \u2192" : "Swipe to see the whole chart \u2192";
-      box.insertBefore(h, box.firstChild);
-    } else if (!on && h) { h.parentNode.removeChild(h); }
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function splitLabel(txt){
+    txt = txt.trim();
+    var words = txt.split(/\s+/);
+    if (words.length >= 2) {
+      var total = txt.length, acc = 0, cut = 0, bd = 1e9;
+      for (var i = 0; i < words.length - 1; i++) {
+        acc += words[i].length + (i ? 1 : 0);
+        var d = Math.abs(acc - total / 2); if (d < bd) { bd = d; cut = i; }
+      }
+      return [words.slice(0, cut + 1).join(" "), words.slice(cut + 1).join(" ")];
+    }
+    if (/[\u3000-\u9fff\uff00-\uffef]/.test(txt) && txt.length >= 6) {
+      var mid = Math.round(txt.length / 2), best = mid, bdist = 99;
+      for (var k = 2; k < txt.length - 2; k++) {
+        if (/[，、：；。）]/.test(txt.charAt(k - 1)) && Math.abs(k - mid) < bdist) { bdist = Math.abs(k - mid); best = k; }
+      }
+      return [txt.slice(0, best), txt.slice(best)];
+    }
+    return null;
   }
+  function wrapLabel(t){
+    if (t._lxOrig != null || t.querySelector("tspan")) return false;
+    var parts = splitLabel(t.textContent || ""); if (!parts) return false;
+    t._lxOrig = t.textContent;
+    var x = t.getAttribute("x") || "0";
+    t.textContent = "";
+    parts.forEach(function(part, n){
+      var sp = document.createElementNS(SVGNS, "tspan");
+      sp.setAttribute("x", x); sp.setAttribute("dy", n ? "1.1em" : "0"); sp.textContent = part;
+      t.appendChild(sp);
+    });
+    return true;
+  }
+  function unwrapLabel(t){ if (t._lxOrig != null) { t.textContent = t._lxOrig; t._lxOrig = null; } }
+  /* fit to the width the reader has: shrink toward a small floor, break colliding labels
+     onto two lines, and only then go smaller still; the chart never scrolls */
   function fit(svg){
     var vb = svg.viewBox && svg.viewBox.baseVal; if (!vb || !vb.width) return;
     var box = svg.parentElement; if (!box) return;
     svg.style.width = ""; svg.style.minWidth = "";
-    box.classList.remove("lx-scroll"); swipeHint(box, false);
+    box.classList.remove("lx-scroll");
+    var old = box.querySelector(":scope > .lx-swipe"); if (old) old.parentNode.removeChild(old);
     var w = svg.getBoundingClientRect().width; if (!w) return;
-    var els = sizedEls(svg), ts = $$("text", svg).filter(function(t){ return (t.textContent || "").trim(); });
+    var ts = $$("text", svg).filter(function(t){ return (t.textContent || "").trim(); });
     if (!ts.length) return;
+    ts.forEach(unwrapLabel);
+    var els = sizedEls(svg);
     if (!svg._lxIgnore) { applySizes(els, els.map(authored)); svg._lxIgnore = clashes(ts, vb, null); }
-    var T = baseSizes(svg, els, w), sc = w / vb.width;
-    function minPx(sizes, scale){ return Math.min.apply(null, sizes) * scale; }
-    function clean(sizes){ applySizes(els, sizes); return clashes(ts, vb, svg._lxIgnore).n === 0; }
-    var floor = Math.min(8.5, minPx(T, sc)), steps = [1, .94, .88, .82, .76, .7], best = T;
-    for (var i = 0; i < steps.length; i++) {
-      var sz = T.map(function(x){ return x * steps[i]; });
-      if (i > 0 && minPx(sz, sc) < floor - .01) break;
+    var ign = svg._lxIgnore, T = baseSizes(svg, els, w), sc = w / vb.width;
+    function minPx(sizes){ return Math.min.apply(null, sizes) * sc; }
+    function state(sizes){ applySizes(els, sizes); return clashes(ts, vb, ign); }
+    var floor = Math.min(7, minPx(T)), best = T, s;
+    for (s = 1; ; s -= .06) {
+      var sz = T.map(function(x){ return x * s; });
+      if (s < 1 && minPx(sz) < floor - .01) break;
       best = sz;
-      if (clean(sz)) return;
+      if (state(sz).n === 0) return;
     }
-    if (w >= 720) { applySizes(els, best); return; }
-    /* narrow: widen the drawing until the labels fit at a readable size */
-    var ratio = Math.max.apply(null, T.map(function(x, i){ return x / authored(els[i]); }));
-    var xMax = Math.min(w * Math.max(ratio, 1), w * 2.6, 1000);
-    if (xMax < w * 1.08) { applySizes(els, best); return; }
-    box.classList.add("lx-scroll"); swipeHint(box, true);
-    for (var X = w * 1.15; ; X = Math.min(X * 1.12, xMax)) {
-      svg.style.width = X + "px"; svg.style.minWidth = X + "px";
-      var f = w / X;
-      if (clean(T.map(function(x){ return x * f; })) || X >= xMax) return;
+    var cur = state(best), tried = {};
+    for (var it = 0; it < 16 && cur.n; it++) {
+      var progressed = false;
+      for (var h = 0; h < cur.hits.length && !progressed; h++) {
+        var cands = cur.hits[h];
+        for (var c = 0; c < cands.length && !progressed; c++) {
+          var idx = cands[c]; if (tried[idx]) continue; tried[idx] = 1;
+          if (!wrapLabel(ts[idx])) continue;
+          var wb = ts[idx].getBBox(), next = clashes(ts, vb, ign);
+          if (next.n < cur.n && wb.y + wb.height <= vb.y + vb.height + .5) { cur = next; progressed = true; } else { unwrapLabel(ts[idx]); }
+        }
+      }
+      if (!progressed) break;
     }
+    if (!cur.n) return;
+    var hard = Math.min(6, minPx(best)), last = best;
+    for (var f = .94; ; f *= .94) {
+      var sz2 = best.map(function(x){ return x * f; });
+      if (minPx(sz2) < hard - .01) break;
+      last = sz2;
+      if (state(sz2).n === 0) return;
+    }
+    applySizes(els, last);
   }
   function fitAll(root){
     $$("svg", root).filter(function(svg){ return isChart(svg) && svg.getBoundingClientRect().width > 0; }).forEach(fit);
   }
   function inScope(el){ return !el.closest("#crossroads, .masthead, .mh-brain, #what-you-can-do"); }
-  $$("svg", main).filter(isChart).filter(inScope).forEach(normalize);
+  $$("svg", main).filter(isChart).filter(inScope).filter(function(svg){ return !svg.classList.contains("lx-m"); }).forEach(normalize);
 
   /* ---------- 2. cards: headline visible, body on tap ---------- */
   function headOf(card){
