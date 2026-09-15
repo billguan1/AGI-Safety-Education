@@ -1606,6 +1606,13 @@ div.endc{cursor:default}
 
 
 
+
+
+
+
+
+
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1649,6 +1656,10 @@ main .lx-cando>.cando-h .lx-csign{font-family:var(--mono);font-size:16px;line-he
 main .lx-cando>.cando-h h3+.lx-csign{margin-left:auto}
 main .lx-cando.lx-open>.cando-h{margin-bottom:10px}
 main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
+main .lx-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;contain:inline-size;min-width:0;max-width:100%}
+main .lx-scroll>svg{max-width:none!important}
+main .lx-swipe{position:sticky;left:0;display:block;margin:0 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3)}
+main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size:9px;line-height:1.55;letter-spacing:.01em;color:var(--ink-3);font-weight:400}
 
 /* lx:layered:end */
 </style>
@@ -2154,7 +2165,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <div class="cl-halves">
       <div class="cl-half" style="--half-acc:#8d9dff">
           <div class="cl-hh"><span class="cl-sk">难题一</span><span class="cl-hn">人与人之间的协调</span></div>
-          <p>没有哪家实验室或哪个国家会自己放慢脚步。协调是通往最优结果的唯一途径。在那之后，各利益相关方仍需决定，要把哪些价值与目标植入超级智能。</p>
+          <p>没有哪家实验室或哪个国家会自己放慢脚步。协调是通往最优结果的唯一途径。即便如此，仍然得有人决定超级智能应当持有哪些价值。</p>
           <div class="cl-figs one">
         <figure>
           <svg viewBox="0 0 480 294" role="img" aria-label="二乘二矩阵：无论对方继续冲还是慢下来，加速都更划算，所以竞赛是稳定的结果。">
@@ -2187,19 +2198,19 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <p>我们没办法把自己的意图写得足够精确、让机器照着执行，因为总有没被说出来的部分。而我们只看得见一个系统在我们的测试里做了什么，永远看不见它真正在优化什么。<a href="#why-translation">有两章</a>会把细节讲透。</p>
           <div class="cl-figs one">
         <figure>
-          <svg viewBox="0 0 480 294" role="img" aria-label="卡片：我们说不准自己到底想要什么，于是系统学到的目标从来都不完全是我们想要的。 卡片：我们查不出系统心里真正装着什么，所以漂亮的分数说明的是测试本身，而不是系统。">
-          <rect x="0.7" y="0.7" width="478.6" height="138.6" rx="8" fill="#8d9dff" fill-opacity=".05" stroke="#8d9dff" stroke-width="1.4"/>
-          <rect x="0.7" y="0.7" width="4" height="138.6" rx="2" fill="#8d9dff" opacity=".75"/>
-          <text x="22" y="30" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#8d9dff">难题一</text>
-          <text x="22" y="62" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">我们说不准自己到底想要什么</text>
-          <line x1="22" y1="84" x2="458" y2="84" stroke="#2b343b"/>
-          <text x="22" y="112" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8d9dff">于是它学到的目标，从来都不完全是我们想要的。</text>
-          <rect x="0.7" y="155.7" width="478.6" height="138.6" rx="8" fill="#ff8a6b" fill-opacity=".05" stroke="#ff8a6b" stroke-width="1.4"/>
-          <rect x="0.7" y="155.7" width="4" height="138.6" rx="2" fill="#ff8a6b" opacity=".75"/>
-          <text x="22" y="185" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#ff8a6b">难题二</text>
-          <text x="22" y="217" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">我们查不出系统心里真正装着什么</text>
-          <line x1="22" y1="239" x2="458" y2="239" stroke="#2b343b"/>
-          <text x="22" y="267" font-family="IBM Plex Mono,monospace" font-size="11" fill="#ff8a6b">漂亮的分数说明的是测试本身，不是那个系统。</text>
+          <svg viewBox="0 0 480 220" role="img" aria-label="卡片：我们说不准自己到底想要什么，于是系统学到的目标从来都不完全是我们想要的。 卡片：我们查不出系统心里真正装着什么，所以漂亮的分数说明的是测试本身，而不是系统。">
+          <rect x="0.7" y="0.7" width="478.6" height="102.6" rx="8" fill="#8d9dff" fill-opacity=".05" stroke="#8d9dff" stroke-width="1.4"/>
+          <rect x="0.7" y="0.7" width="4" height="102.6" rx="2" fill="#8d9dff" opacity=".75"/>
+          <text x="22" y="24" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#8d9dff">难题一</text>
+          <text x="22" y="50" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">我们说不准自己到底想要什么</text>
+          <line x1="22" y1="64" x2="458" y2="64" stroke="#2b343b"/>
+          <text x="22" y="88" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8d9dff">于是它学到的目标，从来都不完全是我们想要的。</text>
+          <rect x="0.7" y="116.7" width="478.6" height="102.6" rx="8" fill="#ff8a6b" fill-opacity=".05" stroke="#ff8a6b" stroke-width="1.4"/>
+          <rect x="0.7" y="116.7" width="4" height="102.6" rx="2" fill="#ff8a6b" opacity=".75"/>
+          <text x="22" y="140" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#ff8a6b">难题二</text>
+          <text x="22" y="166" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">我们查不出系统心里真正装着什么</text>
+          <line x1="22" y1="180" x2="458" y2="180" stroke="#2b343b"/>
+          <text x="22" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#ff8a6b">漂亮的分数说明的是测试本身，不是那个系统。</text>
           </svg>
         </figure>
       </div>
@@ -2236,7 +2247,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <span class="chapno">第 1.1 节 <b class="rt-min">2 分钟</b></span>
       <h2>巨额资金流向建造 AI，安全只分到一小片</h2>
-      <p class="stand">资本主义偏好以最快速度建造先进 AI，抢占先发优势，安全因此在很大程度上被当成了次要事项。这就提高了一种可能：等超级智能真正到来时，安全能力已经跟不上了。</p>
+      <p class="stand">市场奖励以最快速度建造先进 AI，安全因此沦为事后才想起的事，等超级智能到来时，它很可能依然落后。</p>
     </div>
       <div class="bet rv" id="bet-fund">
         <p class="bet-q">每年约 1,000 亿美元投入先进人工智能的建造。不妨猜猜，公共部门的安全研究拿到了多少？</p>
@@ -2278,7 +2289,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           </svg>
             <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">ETO</a> · <a class="ref" href="/reference-zh#s46">46</a> <a class="ref" href="/reference-zh#s47">47</a></p>
           </figure></div>
-      <div class="ddc b"><span class="k">缺口</span><h4>市场之外，没有任何力量在纠偏</h4><p>各国政府既没有真正发挥作用，也不具备足够的能力，去建立拥有专业能力、能强制推行安全标准的独立监管机构。<a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s15">15</a></p><figure>
+      <div class="ddc b"><span class="k">缺口</span><h4>市场之外，没有任何力量在纠偏</h4><p>各国政府既缺专业能力，也缺授权，建不起能强制推行安全标准的独立监管机构。<a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s15">15</a></p><figure>
             <svg viewBox="0 0 290 84" role="img" aria-label="2025 年发布了十二份自愿性安全框架，没有一份是任何人被要求去核验的。">
             <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".12em" fill="#8a949c">2025 年的自愿性安全框架</text>
             <text x="0" y="42" font-family="Archivo,sans-serif" font-size="20" font-weight="800" fill="#8d9dff">12</text>
@@ -2299,12 +2310,12 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <span class="chapno">第 2.1 节 <b class="rt-min">2 分钟</b></span>
       <h2>先进 AI 若被正确地造出来，能带来无限丰裕、延长人类寿命，并加速其他一切技术的发展</h2>
-      <p class="stand">超级智能有望创造巨大的财富，解决人类今天无法解决的问题，乃至带来近乎无限的物质丰裕。</p>
+      <p class="stand">超级智能有望创造巨大的财富，乃至近乎无限的丰裕，并解决我们今天无法解决的问题。</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 170" role="img" aria-label="两根柱：二十年后，按每年百分之三的增速，世界经济是今天的一点八倍；按每年百分之三十，是今天的一百九十倍。">
         <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">二十年后的世界经济</text>
-        <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">今天 = 1</text>
+        <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">今天 = 1</text>
         <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">按今天每年 3%</text>
         <rect x="0" y="57" width="4.9" height="26" rx="2" fill="#6f8a63"/>
         <text x="16.9" y="76" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#6f8a63">×1.8</text>
@@ -2318,7 +2329,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
       <div class="ddc t"><span class="k">丰裕</span><h4>让今天的经济全速运转，带来近乎无限的物质产出</h4><p>按每年 30% 的速度持续增长，20 年内世界经济会变成今天的 190 倍，过去靠价格配给的东西会变得寻常。<a class="ref" href="/reference-zh#s66">66</a></p></div>
       <div class="ddc r"><span class="k">健康</span><h4>人类寿命大幅延长</h4><p>Anthropic 首席执行官给出的前景是健康寿命大致翻倍，多数癌症被攻克，多数传染病可防可治。<a class="ref" href="/reference-zh#s67">67</a></p></div>
-      <div class="ddc b"><span class="k">生产力</span><h4>提升生产力与工作产出</h4><p>东西不再按熟练人手的工时来定价，过去靠价格配给的东西会变得寻常。<a class="ref" href="/reference-zh#s66">66</a></p></div>
+      <div class="ddc b"><span class="k">生产力</span><h4>每一小时的工作产出更多</h4><p>东西不再按熟练人手的工时来定价，同样一小时的工作能产出多得多。<a class="ref" href="/reference-zh#s66">66</a></p></div>
       <div class="ddc g"><span class="k">教育</span><h4>个性化教育，而且免费</h4><p>世界银行在尼日利亚做的随机对照试验，让中学生用了六周 AI 家教，作者认为收获相当于一年半到两年的常规在校学习。<a class="ref" href="/reference-zh#s72">72</a></p></div>
       <div class="ddc o"><span class="k">科学进步</span><h4>新的发现</h4><p>AlphaFold 预测了两亿多个蛋白质结构，并获得 2024 年诺贝尔化学奖。<a class="ref" href="/reference-zh#s68">68</a> DeepMind 的 GNoME 预测了 220 万种新晶体，其中 38 万种稳定到值得合成。<a class="ref" href="/reference-zh#s85">85</a></p></div>
       <div class="ddc t"><span class="k">劳动</span><h4>减少脑力与体力劳动中的苦差事</h4><p>医生在 250 万次就诊中使用 AI 记录工具，一年省下相当于 1,794 个工作日的病历书写时间。<a class="ref" href="/reference-zh#s83">83</a> Waymo 的无人驾驶汽车跑了 5,670 万英里，与同城市的人类司机相比，伤人事故少 79%。<a class="ref" href="/reference-zh#s84">84</a></p></div>
@@ -2348,7 +2359,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <p class="ends-foot">其中只有一条需要一个人类作恶者，而有两条根本不需要任何人有意造成伤害。这个四分法出自 Google DeepMind。<a class="ref" href="/reference-zh#s42">42</a><a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s34">34</a></p>
     </div>
 
-    <div class="ddc b rv" id="route-two" style="margin-top:clamp(20px,3vw,28px)"><h4>子目标的危险</h4><p>超级智能会衍生出五个子目标来帮助实现它的主目标，无论主目标是什么。超级智能未必有消灭人类的直接目标，但作为“副作用”，攫取资源可能剥夺人类生存所依赖的东西。</p>
+    <div class="ddc b rv" id="route-two" style="margin-top:clamp(20px,3vw,28px)"><h4>子目标的危险</h4><p>无论主目标是什么，超级智能往往都会追求五个有助于实现它的子目标。它未必有消灭人类的目标，但攫取资源的副作用，可能剥夺人类生存所依赖的东西。</p>
       <figure style="margin:16px 0 0">
       <svg viewBox="0 0 720 176" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
         <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
@@ -2476,7 +2487,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">失控</text>
       </svg>
     </figure>
-    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">到了 AGI，我们就没有这份余裕了。它必须一次做对，因为没有第二次机会，而有两件事说明了原因。</p>
+    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">AGI 必须一次做对，有两件事说明了原因。</p>
 
 
             <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">它已经在朝自我改进走了</h3>
@@ -2536,11 +2547,11 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       </div>
     </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">一旦它开始自我改进，差距拉开的速度会超过我们追赶的速度</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">硅基智能与碳基智能之间与生俱来的处理速度差距，是数量级上的差距。递归自我改进<a class="ref" href="/reference-zh#s91">91</a>会把这个能力差距拉得如此之大，以至于再也没有办法把控制权夺回来。</p>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">硅基智能的运行速度本就比生物快好几个数量级，而递归自我改进<a class="ref" href="/reference-zh#s91">91</a>会把这个差距越拉越大，直到再也无法夺回控制权。</p>
     <div class="ddgrid two rv">
       <div class="ddc t"><span class="k">速度差距</span><h4>人工神经网络的运行速度，比人类大脑快 1000 万倍以上</h4>
         <figure>
-          <svg viewBox="0 0 480 246" role="img" aria-label="并排两组柱状对比。左：生物神经元约 200 赫兹，处理器在 5 吉赫以上。右：人类一个世纪的科学进展，在机器速度下约合两周。">
+          <svg viewBox="0 0 480 246" role="img" aria-label="并排两组柱状对比。左：生物神经元约 200 赫兹，处理器在 5 吉赫以上。右：人类一个世纪的科学进展，在机器速度下约合 5 分钟。">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">生物神经元</text>
           <rect x="0" y="22" width="4" height="18" fill="#3fd0c9"/>
           <text x="12" y="35" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3fd0c9">200 Hz</text>
@@ -2554,8 +2565,8 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <text x="462" y="165" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="end" fill="#fff">100 years</text>
           <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">同样的进展，以机器速度推进</text>
           <rect x="0" y="200" width="3" height="18" rx="1.5" fill="#bd3a20"/>
-          <text x="11" y="213" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" fill="#d96a52">约两周</text>
-          <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">一个世纪的进展，两周走完。</text>
+          <text x="11" y="213" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" fill="#d96a52">约 5 分钟</text>
+          <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">一个世纪的进展，约 5 分钟走完。</text>
           </svg>
         </figure>
       </div>
@@ -2589,7 +2600,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <span class="chapno">第 3.1 节 <b class="rt-min">2 分钟</b></span>
       <h2>谁先慢下来谁就输，于是没有人慢下来</h2>
-      <p class="stand">由于先发优势，即便每个参与者都想要安全，也会被逼着为了更快而偷工减料。这可能让我们在错误的初始条件下抵达 ASI，把人类置于危险之中。</p>
+      <p class="stand">由于先发优势，每个参与者都可能想要安全，却仍被逼着偷工减料，这可能让我们在错误的初始条件下抵达 ASI。</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc r"><span class="k">偷工减料</span><h4>审慎成了负担</h4><p>在安全上投入越少，交付就越快，于是最可能赢的，往往是那个最不在意安全的人。</p></div>
@@ -2643,10 +2654,10 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <p class="stand">在让机器对齐人类价值之前，我们得先回答一个更难的问题：谁的价值观？又该怎么达成共识？各方利益本就相互冲突，难以拼成一个整体，而这种裂痕让目标本身摇摆不定。</p>
     </div>
     <div class="body rv">
-      <p>让别人替你把一件事办成，经济学早就给这个问题起好了名字。<strong>委托人</strong>指派一个<strong>代理人</strong>去为自己的利益行事，然后还得花上实打实的资源，去确认它真的照办了。</p>
+      <p>让别人替你把一件事办成，经济学称之为“委托代理问题”。<strong>委托人</strong>指派一个<strong>代理人</strong>去为自己的利益行事，然后还得花上实打实的资源，去确认它真的照办了。</p>
     </div>
     <div class="ddgrid two rv">
-      <div class="ddc o"><span class="k">更前置的问题</span><h4>“人类价值”没有共识</h4><p>“人类价值”并非单一之物。我们写下的任何目标，都编码了某个群体对有争议的道德与政治问题的答案。</p></div>
+      <div class="ddc o"><span class="k">更前置的问题</span><h4>“人类价值”没有共识</h4><p>“人类价值”包含许多相互冲突的东西，所以我们写下的任何目标，都编码了某一个群体对有争议的道德与政治问题的答案。</p></div>
       <div class="ddc r"><span class="k">权力的问题</span><h4>控制 AI 的少数几方，替所有人定下价值</h4><p>写下那个目标的人，是在替世界上其余所有人，决定有史以来最强的系统该去追求什么。这种权力的集中，是与“失去控制”彼此独立的另一重危险。</p></div>
     </div>
     <div class="ddgrid two rv">
@@ -2841,7 +2852,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <p id="demo-got">找到了一处潟湖，在里面绕圈打转、反复触发同一个得分点，结果整场比赛根本没跑完。</p>
         </div>
       </div>
-      <p class="note" style="margin:16px 0 0">这些系统没有一个出了毛病。每一个都精确地照着评分标准去做，而且拿到了高分。<a class="ref" href="/reference-zh#s25">25</a><a class="ref" href="/reference-zh#s1">1</a></p>
+      <p class="note" style="margin:16px 0 0">这些系统个个都在按设计运转：每一个都精确地照着评分标准去做，而且拿到了高分。<a class="ref" href="/reference-zh#s25">25</a><a class="ref" href="/reference-zh#s1">1</a></p>
     </div>
       </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">内部对齐：它持有的目标，不是我们训练它去要的那个</h3>
@@ -2850,9 +2861,9 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <svg viewBox="0 0 720 236" role="img" aria-label="冰山示意图：水面之上是外显行为，水面之下是真正持有的目标，后训练方法只触及冰山一角。">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">后训练能够触及的部分</text>
           <text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">人类反馈训练（RLHF）、</text>
-          <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">拒答训练</text>
+          <text x="0" y="49" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">拒答训练</text>
           <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
-          <path d="M105,52 L186,72" stroke="#b5654d" stroke-width="2.2" marker-end="url(#ai)"/>
+          <path d="M105,56 L186,74" stroke="#b5654d" stroke-width="2.2" marker-end="url(#ai)"/>
           <rect x="0" y="92" width="720" height="100" fill="#8fa2d8" opacity=".07"/>
           <line x1="0" y1="92" x2="720" y2="92" stroke="#8fa2d8" stroke-width="2.1"/>
           <text x="714" y="106" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="end" fill="#8fa2d8">评估所能看见的</text>
@@ -2894,7 +2905,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 
           </div>
       </div>
-      <div class="ddc o"><span class="k">为什么现有的解法还不算解法</span><h4>后训练塑造的是模型表现出来的行为，而非它真正持有的目标</h4><p>标准答案是后训练：基于人类反馈的强化学习（RLHF）、宪法式规则、拒答训练。它们确实有效，也正是今天的助手堪可一用的原因，但它们塑造的是模型表现出来的行为，而不是背后真正持有的目标，二者会在承压或被观察时分道扬镳。由人类标注者调校出的护栏，也继承了标注者的局限，而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="/reference-zh#s25">25</a><a class="ref" href="/reference-zh#s43">43</a></p>
+      <div class="ddc o"><span class="k">为什么现有的解法还不算解法</span><h4>后训练塑造的是模型表现出来的行为，而非它真正持有的目标</h4><p>标准答案是后训练：基于人类反馈的强化学习（RLHF）、宪法式规则、拒答训练。它们确实有效，也正是今天的助手堪可一用的原因，但行为与目标会在承压或被观察时分道扬镳。由人类标注者调校出的护栏，也继承了标注者的局限，而当被评判的对象比评判者更会推理时，这就成了问题。<a class="ref" href="/reference-zh#s25">25</a><a class="ref" href="/reference-zh#s43">43</a></p>
         <div class="example" style="margin:16px 0 0">
         <span class="ek">具体案例，2024 年</span>
         <p>Anthropic 与 Redwood 训练一个模型做到有用、诚实、无害。这几乎是人人都会赞同的目标。在 2024 年的一项实验中，人们发现该模型会<strong>伪装对齐</strong>：表面上配合训练或监督，暗中却保留原有的偏好，等到监督压力下降时再表现出来。它策略性地假装配合新的训练，实则在设法保留自己已有的偏好，当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="/reference-zh#s36">36</a></p>
@@ -2923,8 +2934,8 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <path d="M52.1,66 L160.1,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="4.2" stroke-dasharray="6 4"/>
         <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#3fd0c9">它表现出来的</text>
         <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#bd3a20">它真正持有的</text>
-        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.8" stroke-dasharray="3 3"/>
-        <text x="382" y="32" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">强到足以建模观察者</text>
+        <line x1="376" y1="31" x2="376" y2="188" stroke="#8a959c" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <text x="382" y="28" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a7b1b8">强到足以建模观察者</text>
         <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="2.4"/>
         <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">它不再需要伪装的那一刻</text>
         <text x="52.1" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">训练早期</text>
@@ -3323,7 +3334,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <p class="eyebrow">第 5.2 节 · 它到底管不管用 <b class="rt-min">2 分钟</b></p>
       <h2>我们最好的防护把失败率压了下来，却没有把它归零</h2>
-      <p class="lede">上面每一项技术都有用。真正的问题是它们各自能做到什么，以及每一道防护实际会变成什么样。</p>
+      <p class="lede">上面每一项技术都有用。下面是它们各自失效的地方。</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">难点一</span><h4>模型知道自己正在被测试</h4><p>这些防护的效果，多数是在评估环境中测出来的。一个能分辨评估与真实部署的系统，可以在评估里循规蹈矩，在部署里换一副面孔。</p></div>
@@ -3333,7 +3344,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 346" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、开发方索性不采用。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">哪些防护扛得住这三种最难的情形</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">哪些防护扛得住前三种最难的情形</text>
         <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">模型知道</text>
         <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">自己正被测试</text>
         <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">模型比监视它的</text>
@@ -3499,7 +3510,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <div class="ddgrid two rv">
         <div class="ddc b"><span class="k">讲清楚</span><h4>让公众看见安全在哪里失效</h4><p>用平实的语言讲清楚：今天的技术能接住什么，又各自在哪里失灵。在圈内人亲口说出来之前，这个缺口一直是隐形的。</p></div>
         <div class="ddc r"><span class="k">拒绝</span><h4>对危险的研发任务说不</h4><p>被要求把那个东西造出来的人是你。写下来，和同事一起说不，这是外界无法代你施加的压力。</p></div>
-        <div class="ddc o"><span class="k">争取</span><h4>推动加大安全预算</h4><p>安全研究只占全部 AI 研究的约 2%。<a class="ref" href="/reference-zh#s46">46</a>研究者一起、公开地要求一个明确比例，是这个数字唯一会动的方式。</p></div>
+        <div class="ddc o"><span class="k">争取</span><h4>推动加大安全预算</h4><p>安全研究只占全部 AI 研究的约 2%。<a class="ref" href="/reference-zh#s46">46</a>研究者一起、公开地要求一个明确比例，这个数字才会动。</p></div>
         <div class="ddc g"><span class="k">继续做</span><h4>继续发明新的 AI 安全技术</h4><p>前沿规模的可解释性、模型骗不过去的测试、能随能力一起生效的控制，以及精确到可逐条核对的目标，都还没有解决。</p></div>
       </div>
       <p class="cando-foot">ARENA 与 MATS 能在几个月内把扎实的技术背景带进已发表的安全研究。<a class="ref" href="/reference-zh#s6">6</a><a class="ref" href="/reference-zh#s8">8</a><a class="ref" href="/reference-zh#s27">27</a></p>
@@ -3588,7 +3599,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <p class="jnote">大约每月一封。你的邮箱只用于这份通讯，不作他用。</p>
       </div>
         <ol class="beats compact rv" style="counter-reset:b;list-style:none;margin:18px 0 0">
-        <li><h3>把这个页面分享出去</h3><p>发给一个会认真对待它的人。每多一位读者，人类面对有害 AGI 的免疫力就强一分。</p>
+        <li><h3>把这个页面分享出去</h3><p>把这份内容分享给更多人，让更多人掌握相关知识，一起帮助把我们引向正确的方向。</p>
           <div class="share">
             <button type="button" id="sh-copy" class="js-sh-copy">复制链接</button>
             <a id="sh-li" class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2Findex-zh.html" target="_blank" rel="noopener">LinkedIn</a>
@@ -3639,8 +3650,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 </div>
 
 <footer><div class="wrap">
-  <p>我是 Bill Guan，一名产品人，自 2015 年起就一直关心 AGI 安全问题。随着模型能力不断变强，我想帮着把方向扳向安全的那一条，让我们的孩子还能活在这个世界里，看见它的美。</p>
-  <p>我并不是人工智能安全领域的研究者，正因如此，本页的任何结论都不依赖于我个人的判断：每一项事实陈述都链接到原始来源，本页独立运作，与任何机构均无隶属关系。若有错漏，<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">请告诉我</a>，我会更正。</p>
+  <p>本网站由 Bill Guan 为你带来，他是一名自 2015 年起就一直关注 AGI 安全问题的产品人。随着模型能力不断提升，我希望我们能把方向引向一个安全的未来。本网站不隶属于任何机构。欢迎在<a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">这里</a>提出任何反馈或想法。</p>
   </div></footer>
 
 <script id="lx-layered">(function(){
@@ -3710,37 +3720,100 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     }
     var texts = $$("text,tspan", svg).filter(function(t){ return t.hasAttribute("font-size"); });
     var mode = modeSize(texts);
-    texts.forEach(function(t){ styleText(t, tierOf(parseFloat(t.getAttribute("font-size")), mode), k); });
+    texts.forEach(function(t){
+      var tier = tierOf(parseFloat(t.getAttribute("font-size")), mode);
+      t.dataset.fa = t.getAttribute("font-size"); t.dataset.tier = tier;
+      styleText(t, tier, k);
+    });
+    svg.dataset.lxn = "1";
     $$("[stroke]", svg).forEach(function(el){
       if (el.getAttribute("stroke") !== "none") el.setAttribute("vector-effect", "non-scaling-stroke");
     });
   }
 
-  function fit(svg){
-    if (!svg.getBoundingClientRect().width) return;
-    var vb = svg.viewBox.baseVal, ts = $$("text", svg);
-    ts.forEach(function(x){ if (!x.dataset.fs0) x.dataset.fs0 = x.getAttribute("font-size"); });
-    function shrink(x){
-      var f = parseFloat(x.getAttribute("font-size")), f0 = parseFloat(x.dataset.fs0);
-      if (f <= f0 * .8) return false;
-      x.setAttribute("font-size", (f * .95).toFixed(2)); return true;
-    }
-    for (var it = 0; it < 6; it++) {
-      var changed = false, bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
-      for (var i = 0; i < ts.length; i++) {
-        var a = bs[i]; if (!a || !a.width) continue;
-        if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) changed = shrink(ts[i]) || changed;
-        for (var j = i + 1; j < ts.length; j++) {
-          var b = bs[j]; if (!b || !b.width) continue;
-          var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
-          var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
-          if (ix > 1.5 && iy > 1.5) changed = shrink(a.width >= b.width ? ts[i] : ts[j]) || changed;
-        }
+  /* fit labels to the space: keep the intended size, shrink a little if labels collide,
+     and on narrow screens draw the chart wider and let it scroll sideways */
+  var ZH = /^zh/i.test(document.documentElement.lang || "");
+  function sizedEls(svg){
+    return $$("text,tspan", svg).filter(function(t){ return t.tagName.toLowerCase() === "text" || t.hasAttribute("font-size"); });
+  }
+  function authored(t){
+    if (!t.dataset.fa) t.dataset.fa = t.getAttribute("font-size") || parseFloat(getComputedStyle(t).fontSize) || 10;
+    return parseFloat(t.dataset.fa);
+  }
+  function applySizes(els, sizes){ els.forEach(function(t, i){ t.style.fontSize = sizes[i].toFixed(2) + "px"; }); }
+  function clashes(ts, vb, ignore){
+    var bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
+    var res = { pairs: {}, oob: {}, n: 0 };
+    for (var i = 0; i < ts.length; i++) {
+      var a = bs[i]; if (!a || !a.width) continue;
+      if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) { res.oob[i] = 1; if (!ignore || !ignore.oob[i]) res.n++; }
+      for (var j = i + 1; j < ts.length; j++) {
+        var b = bs[j]; if (!b || !b.width) continue;
+        var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
+        var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
+        if (ix > 1.5 && iy > Math.max(1.5, .2 * Math.min(a.height, b.height))) { res.pairs[i + "-" + j] = 1; if (!ignore || !ignore.pairs[i + "-" + j]) res.n++; }
       }
-      if (!changed) break;
+    }
+    return res;
+  }
+  function baseSizes(svg, els, w){
+    var card = svg.closest(CARD), k;
+    if (svg.dataset.lxn) {
+      if (card) {
+        var cs = getComputedStyle(card);
+        var inner = card.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        k = vbw(svg) / (inner > 0 ? Math.min(w, inner) : w) * CARD_SCALE;
+      } else { k = vbw(svg) / w * (818 / FRAME_UNITS); }
+      return els.map(function(t){ return t.dataset.tier ? TIER[t.dataset.tier] * k : authored(t); });
+    }
+    /* charts outside the layered scope keep their drawn sizes, lifted only on narrow screens */
+    var sc = w / vbw(svg), fmin = Math.min.apply(null, els.map(authored));
+    var u = window.innerWidth <= 1024 ? Math.max(1, 9 / (fmin * sc)) : 1;
+    return els.map(function(t){ return authored(t) * u; });
+  }
+  function swipeHint(box, on){
+    var h = box.querySelector(":scope > .lx-swipe");
+    if (on && !h) {
+      h = document.createElement("span"); h.className = "lx-swipe"; h.setAttribute("aria-hidden", "true");
+      h.textContent = ZH ? "左右滑动查看完整图表 \u2192" : "Swipe to see the whole chart \u2192";
+      box.insertBefore(h, box.firstChild);
+    } else if (!on && h) { h.parentNode.removeChild(h); }
+  }
+  function fit(svg){
+    var vb = svg.viewBox && svg.viewBox.baseVal; if (!vb || !vb.width) return;
+    var box = svg.parentElement; if (!box) return;
+    svg.style.width = ""; svg.style.minWidth = "";
+    box.classList.remove("lx-scroll"); swipeHint(box, false);
+    var w = svg.getBoundingClientRect().width; if (!w) return;
+    var els = sizedEls(svg), ts = $$("text", svg).filter(function(t){ return (t.textContent || "").trim(); });
+    if (!ts.length) return;
+    if (!svg._lxIgnore) { applySizes(els, els.map(authored)); svg._lxIgnore = clashes(ts, vb, null); }
+    var T = baseSizes(svg, els, w), sc = w / vb.width;
+    function minPx(sizes, scale){ return Math.min.apply(null, sizes) * scale; }
+    function clean(sizes){ applySizes(els, sizes); return clashes(ts, vb, svg._lxIgnore).n === 0; }
+    var floor = Math.min(8.5, minPx(T, sc)), steps = [1, .94, .88, .82, .76, .7], best = T;
+    for (var i = 0; i < steps.length; i++) {
+      var sz = T.map(function(x){ return x * steps[i]; });
+      if (i > 0 && minPx(sz, sc) < floor - .01) break;
+      best = sz;
+      if (clean(sz)) return;
+    }
+    if (w >= 720) { applySizes(els, best); return; }
+    /* narrow: widen the drawing until the labels fit at a readable size */
+    var ratio = Math.max.apply(null, T.map(function(x, i){ return x / authored(els[i]); }));
+    var xMax = Math.min(w * Math.max(ratio, 1), w * 2.6, 1000);
+    if (xMax < w * 1.08) { applySizes(els, best); return; }
+    box.classList.add("lx-scroll"); swipeHint(box, true);
+    for (var X = w * 1.15; ; X = Math.min(X * 1.12, xMax)) {
+      svg.style.width = X + "px"; svg.style.minWidth = X + "px";
+      var f = w / X;
+      if (clean(T.map(function(x){ return x * f; })) || X >= xMax) return;
     }
   }
-  function fitAll(root){ $$(".lx-chart svg", root).forEach(fit); }
+  function fitAll(root){
+    $$("svg", root).filter(function(svg){ return isChart(svg) && svg.getBoundingClientRect().width > 0; }).forEach(fit);
+  }
   function inScope(el){ return !el.closest("#crossroads, .masthead, .mh-brain, #what-you-can-do"); }
   $$("svg", main).filter(isChart).filter(inScope).forEach(normalize);
 
@@ -3873,7 +3946,18 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
   $$("details", main).forEach(function(d){
     d.addEventListener("toggle", function(){ if (d.open) { reveal(d); fitAll(d); } });
   });
-  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function(){ fitAll(main); });
+  /* label widths depend on the web fonts, so measure again whenever a font finishes loading */
+  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(refitAll);
+  if (document.fonts && document.fonts.addEventListener) {
+    var ft; document.fonts.addEventListener("loadingdone", function(){ clearTimeout(ft); ft = setTimeout(refitAll, 60); });
+  }
+  window.addEventListener("load", function(){ setTimeout(refitAll, 50); });
+  var lastW = window.innerWidth, rt;
+  window.addEventListener("resize", function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ if (window.innerWidth === lastW) return; lastW = window.innerWidth; fitAll(main); }, 200);
+  });
 })();
 </script>
 <script>
@@ -4729,7 +4813,7 @@ var SITE_CONFIG = {
       "仍在同步。你查看的每一项指标都说系统在变好，而每一项指标说的都是实话。",
       "接近顶点。这是真实目标能达到的最好状态，而你所衡量的一切都不会告诉你：你已经到顶了。",
       "两条线已经分开。代理还在往上爬，所以仪表盘看起来依旧是成功。而你真正想要的东西，此刻正在下滑。",
-      "压力拉满。指标满分，目标却几乎荡然无存。没有人写错任何代码。搜索只是尽了它的本分。"
+      "压力拉满。指标满分，目标却几乎荡然无存。搜索只是尽了它的本分，代码本身没有任何错误。"
     ];
     function proxyAt(t){ return Math.round(100 * Math.pow(t, 0.72)); }
     function realAt(t){
@@ -4862,7 +4946,7 @@ var SITE_CONFIG = {
     var out = $("#predict-hm-out");
     if(!out) return;
     var REVEAL = [
-      "这接近今天的默认状态，因为目前正是各实验室在编写宪章和奖励模型。无论如何，本章的观点依然成立：股东并不等于八十亿人，而这家公司也从未经过选举，被授权替他们做决定。",
+      "这接近今天的默认状态，因为目前正是各实验室在编写宪章和奖励模型。股东并不等于八十亿人，而这家公司也从未经过选举，被授权替他们做决定。",
       "原则上更好，只不过政府之间的分歧并不比公司之间少；而且哪一家的模型最终胜出，与哪一国的选民理应替其他所有人做决定，显然是两回事。",
       "伦理学家彼此之间争论不休，而一个专家委员会说到底仍是一小群人，替从未为此投过票的数十亿人做出选择。",
       "这同样是一种价值判断，而在实践中它只意味着：谁先发布，谁就默认定了调，而这恰恰是所有结果里最缺乏审视的一种。"
@@ -4872,7 +4956,7 @@ var SITE_CONFIG = {
         var i = parseInt(b.getAttribute("data-p"), 10);
         if(isNaN(i) || !REVEAL[i]) return;
         $$("#predict-hm .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
-        out.textContent = REVEAL[i] + "请注意，上面每一个选项，都把一个极其重大的决定集中到了一小群从未被授权做此决定的人手里。这正是本章要谈的那个更靠前的问题。";
+        out.textContent = REVEAL[i] + "请注意，上面每一个选项，都把一个极其重大的决定集中到了一小群从未被授权做此决定的人手里。";
       });
     });
   })();
@@ -4903,13 +4987,13 @@ var SITE_CONFIG = {
     if(go) go.addEventListener("click", function(){
       var d = dollars(), g = fmt(d), msg;
       if(d >= 1e9){
-        msg = "你的猜测：" + g + "。多数人都会落在这附近。按 Stuart Russell 的数字，实际约为 1,000 万美元，与建造一侧之比大致是一万比一。下面这张图把两根条画在同一比例上，这正是其中一根几乎看不见的原因。";
+        msg = "你的猜测：" + g + "。多数人都会落在这附近。按 Stuart Russell 的数字，实际约为 1,000 万美元，与建造一侧之比大致是一万比一。";
       } else if(d > 3e7){
-        msg = "你的猜测：" + g + "。比多数人猜得低，但仍远高于有出处的数字：按 Stuart Russell 的测算约为 1,000 万美元。两者之比大致是一万比一，下面那张图按同一比例画了出来。";
+        msg = "你的猜测：" + g + "。比多数人猜得低，但仍远高于有出处的数字：按 Stuart Russell 的测算约为 1,000 万美元。两者之比大致是一万比一。";
       } else if(d >= 1e7){
-        msg = "你的猜测：" + g + "。几乎正中，而这让你成了少数。按 Stuart Russell 的数字，有出处的数额约为 1,000 万美元，与建造一侧之比大致是一万比一。下面这张图按同一比例画了出来。";
+        msg = "你的猜测：" + g + "。几乎正中，而这让你成了少数。按 Stuart Russell 的数字，有出处的数额约为 1,000 万美元，与建造一侧之比大致是一万比一。";
       } else {
-        msg = "你的猜测：" + g + "。你猜得比有出处的数字还低。按 Stuart Russell 的测算，那个数字约为 1,000 万美元，而猜低比多数读者更接近真相。与建造一侧之比仍大致是一万比一，下面按同一比例画了出来。";
+        msg = "你的猜测：" + g + "。你猜得比有出处的数字还低。按 Stuart Russell 的测算，那个数字约为 1,000 万美元，而猜低比多数读者更接近真相。与建造一侧之比仍大致是一万比一。";
       }
       out.textContent = msg;
     });

@@ -1617,6 +1617,13 @@ div.endc{cursor:default}
 
 
 
+
+
+
+
+
+
+
 /* lx:layered:start */
 /* ---------- layered reading mode ---------- */
 .lx-card{position:relative}
@@ -1660,6 +1667,10 @@ main .lx-cando>.cando-h .lx-csign{font-family:var(--mono);font-size:16px;line-he
 main .lx-cando>.cando-h h3+.lx-csign{margin-left:auto}
 main .lx-cando.lx-open>.cando-h{margin-bottom:10px}
 main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
+main .lx-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;contain:inline-size;min-width:0;max-width:100%}
+main .lx-scroll>svg{max-width:none!important}
+main .lx-swipe{position:sticky;left:0;display:block;margin:0 0 8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3)}
+main :is(.ddc,.endc,.tcard,.cl-half) p.fig-src{font-family:var(--mono);font-size:9px;line-height:1.55;letter-spacing:.01em;color:var(--ink-3);font-weight:400}
 
 /* lx:layered:end */
 </style>
@@ -1770,7 +1781,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
      "name": "Won't a smart enough AI just understand what we want?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimise the goal it was trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis."
+      "text": "Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimize the goal it was trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis."
      }
     },
     {
@@ -1827,7 +1838,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <a class="brand" href="#top">A primer on artificial general <b>&amp;</b> super intelligence safety</a>
+    <a class="brand" href="#top">A primer on artificial general intelligence <b>and</b> superintelligence safety</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="/index-zh" hreflang="zh-Hans">中文</a>
       <a class="hbtn hbtn-act" href="#what-you-can-do"><span>Act now</span></a>
@@ -1939,7 +1950,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         </g>
       </svg>
     </div>
-    <p class="mh-lede">Artificial superintelligence is one of the most important technologies humans have ever attempted to build, with promises of unlimited material abundance, breakthroughs in all fields, and relief from all mental and physical labor. Yet we are currently in a dangerous arms race where resources are pouring into accelerating development while safety is being undermined. This page lays out why that gap matters, and how we can help steer humanity in the right direction.</p>
+    <p class="mh-lede">Artificial superintelligence is one of the most important technologies humans have ever attempted to build, with promises of unlimited material abundance, breakthroughs in all fields, and relief from all mental and physical labour. Yet we are currently in a dangerous arms race where resources are pouring into accelerating development while safety is being undermined. This page lays out why that gap matters, and how we can help steer humanity in the right direction.</p>
     <figure class="cliff">
       <svg viewBox="0 0 800 430" role="img" aria-label="Diagram: labs, companies, investors and nations, roped together, race toward the edge of a cliff. The prize floats beyond the far side, with one winged figure rising toward it; the drop below is existential wipeout.">
         <defs>
@@ -2031,7 +2042,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       </svg>
     </figure>
     <div class="mh-care">
-    <h2 class="mh-h"><span>Why should we care</span></h2>
+    <h2 class="mh-h"><span>Why should we care?</span></h2>
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
         <h3>Superintelligence is arriving imminently</h3>
@@ -2055,7 +2066,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <div class="claim c1" id="claim-1">
         <span class="cl-n">1</span>
         <h3><a href="#why-irresistible">Superintelligence is on the horizon, and safety research is already way behind</a></h3>
-        <p class="cl-sub">The length of tasks a machine can finish on its own has roughly doubled every 7 months since 2019, and most forecasters put human level performance on every task somewhere between 2033 and 2047.<a class="ref" href="/reference#s64">64</a><a class="ref" href="/reference#s65">65</a> Money spent checking these systems are safe is a rounding error compared to money spent building them.</p>
+        <p class="cl-sub">The length of tasks a machine can finish on its own has roughly doubled every 7 months since 2019, and most forecasters put human-level performance on every task somewhere between 2033 and 2047.<a class="ref" href="/reference#s64">64</a><a class="ref" href="/reference#s65">65</a> Money spent checking that these systems are safe is a rounding error compared to money spent building them.</p>
         <div class="cl-figs panels" style="--fig-acc:#ff8a6b">
         <figure>
           <svg viewBox="0 0 480 190" role="img" aria-label="Bar chart: about one hundred billion dollars going into building advanced AI against about ten million dollars of public-sector safety research, a ratio near ten thousand to one.">
@@ -2081,7 +2092,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <text x="70" y="102" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Alignment faking seen in a model</text>
       <circle cx="54" cy="134" r="5" fill="#b5654d"/>
       <text x="42" y="138" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="800" text-anchor="end" fill="#b5654d">2025</text>
-      <text x="70" y="138" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Covert action measured at a higher rate (13% of o3 runs)</text>
+      <text x="70" y="138" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Covert action in 13% of o3 runs</text>
       <circle cx="54" cy="170" r="5" fill="#ff8a6b"/>
       <text x="42" y="174" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="800" text-anchor="end" fill="#ff8a6b">2026</text>
       <text x="70" y="174" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" fill="#dfe5e9">Multi-agent swarms left the sandbox and attacked real systems</text>
@@ -2168,7 +2179,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="cl-halves">
         <div class="cl-half" style="--half-acc:#8d9dff">
           <div class="cl-hh"><span class="cl-sk">Problem one</span><span class="cl-hn">Coordination, between people</span></div>
-          <p>No labs or countries will slow down on their own. Coordination is the only way towards an optimal result. After that, interested parties still need to determine which values and goals to embed in the superintelligence.</p>
+          <p>No lab or country will slow down on its own. Coordination is the only way towards an optimal result. Even then, someone still has to decide which values a superintelligence should hold.</p>
           <div class="cl-figs one">
         <figure>
           <svg viewBox="0 0 480 294" role="img" aria-label="Two-by-two grid: whether the other side keeps going or slows down, going faster pays, so the racing outcome is the stable one.">
@@ -2198,22 +2209,22 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 
         <div class="cl-half" style="--half-acc:#a98a4b">
           <div class="cl-hh"><span class="cl-sk">Problem two</span><span class="cl-hn">Alignment and interpretability, between us and AI</span></div>
-          <p>We cannot write down what we mean precisely enough for a machine to follow it, because something always gets left out. And we can only see what a system does on our tests, never what it is actually optimising for. <a href="#why-translation">Two chapters</a> go through the detail.</p>
+          <p>We cannot write down what we mean precisely enough for a machine to follow it, because something always gets left out. And we can only see what a system does on our tests, never what it is actually optimizing for. <a href="#why-translation">Two chapters</a> go through the detail.</p>
           <div class="cl-figs one">
         <figure>
-          <svg viewBox="0 0 480 294" role="img" aria-label="Card: we cannot write down exactly what we want, so the system never learns quite the goal we meant. Card: we cannot check what a system truly believes, so a good score describes the test rather than the system.">
-          <rect x="0.7" y="0.7" width="478.6" height="138.6" rx="8" fill="#8d9dff" fill-opacity=".05" stroke="#8d9dff" stroke-width="1.4"/>
-          <rect x="0.7" y="0.7" width="4" height="138.6" rx="2" fill="#8d9dff" opacity=".75"/>
-          <text x="22" y="30" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#8d9dff">PROBLEM 1</text>
-          <text x="22" y="62" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">We can&rsquo;t write down exactly what we want</text>
-          <line x1="22" y1="84" x2="458" y2="84" stroke="#2b343b"/>
-          <text x="22" y="112" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8d9dff">So it never learns quite the goal we meant.</text>
-          <rect x="0.7" y="155.7" width="478.6" height="138.6" rx="8" fill="#ff8a6b" fill-opacity=".05" stroke="#ff8a6b" stroke-width="1.4"/>
-          <rect x="0.7" y="155.7" width="4" height="138.6" rx="2" fill="#ff8a6b" opacity=".75"/>
-          <text x="22" y="185" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#ff8a6b">PROBLEM 2</text>
-          <text x="22" y="217" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">We can&rsquo;t check what a system truly believes</text>
-          <line x1="22" y1="239" x2="458" y2="239" stroke="#2b343b"/>
-          <text x="22" y="267" font-family="IBM Plex Mono,monospace" font-size="11" fill="#ff8a6b">A good score describes the test rather than the system.</text>
+          <svg viewBox="0 0 480 220" role="img" aria-label="Card: we cannot write down exactly what we want, so the system never learns quite the goal we meant. Card: we cannot check what a system truly believes, so a good score describes the test rather than the system.">
+          <rect x="0.7" y="0.7" width="478.6" height="102.6" rx="8" fill="#8d9dff" fill-opacity=".05" stroke="#8d9dff" stroke-width="1.4"/>
+          <rect x="0.7" y="0.7" width="4" height="102.6" rx="2" fill="#8d9dff" opacity=".75"/>
+          <text x="22" y="24" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#8d9dff">PROBLEM 1</text>
+          <text x="22" y="50" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">We can&rsquo;t write down exactly what we want</text>
+          <line x1="22" y1="64" x2="458" y2="64" stroke="#2b343b"/>
+          <text x="22" y="88" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8d9dff">So it never learns quite the goal we meant.</text>
+          <rect x="0.7" y="116.7" width="478.6" height="102.6" rx="8" fill="#ff8a6b" fill-opacity=".05" stroke="#ff8a6b" stroke-width="1.4"/>
+          <rect x="0.7" y="116.7" width="4" height="102.6" rx="2" fill="#ff8a6b" opacity=".75"/>
+          <text x="22" y="140" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" letter-spacing=".12em" fill="#ff8a6b">PROBLEM 2</text>
+          <text x="22" y="166" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#f3f6f7">We can&rsquo;t check what a system truly believes</text>
+          <line x1="22" y1="180" x2="458" y2="180" stroke="#2b343b"/>
+          <text x="22" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#ff8a6b">A good score describes the test rather than the system.</text>
           </svg>
         </figure>
       </div>
@@ -2251,7 +2262,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <span class="chapno">Section 1.1 <b class="rt-min">2 min</b></span>
       <h2>Billions go into building AI, and a sliver into safety</h2>
-      <p class="stand">Capitalism favors building advanced AI as fast as possible to capture first-mover advantage. As a result, safety has been largely a tertiary priority. This increases the likelihood that by the time superintelligence arrives, safety capabilities are behind.</p>
+      <p class="stand">Markets reward building advanced AI as fast as possible, so safety has become an afterthought and will likely still be behind when superintelligence arrives.</p>
     </div>
     <div class="bet rv" id="bet-fund">
         <p class="bet-q">$100 billion a year goes into building advanced AI. Guess how much goes into public-sector safety research.</p>
@@ -2293,7 +2304,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           </svg>
             <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell’s ratio</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">ETO</a> · <a class="ref" href="/reference#s46">46</a> <a class="ref" href="/reference#s47">47</a></p>
           </figure></div>
-      <div class="ddc b"><span class="k">The gap</span><h4>Nothing outside the market corrects it</h4><p>Governments are not playing enough of a role, nor do they have sufficient capability, to create independent regulators with the expertise needed to enforce safety.<a class="ref" href="/reference#s1">1</a><a class="ref" href="/reference#s15">15</a></p><figure>
+      <div class="ddc b"><span class="k">The gap</span><h4>Nothing outside the market corrects it</h4><p>Governments lack the expertise and the mandate to build independent regulators that can enforce safety.<a class="ref" href="/reference#s1">1</a><a class="ref" href="/reference#s15">15</a></p><figure>
             <svg viewBox="0 0 290 84" role="img" aria-label="Twelve voluntary safety frameworks published in 2025, none that anyone is required to verify.">
             <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".12em" fill="#8a949c">VOLUNTARY FRAMEWORKS, 2025</text>
             <text x="0" y="42" font-family="Archivo,sans-serif" font-size="20" font-weight="800" fill="#8d9dff">12</text>
@@ -2315,12 +2326,12 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <span class="chapno">Section 2.1 <b class="rt-min">2 min</b></span>
       <h2>Advanced AI, if created correctly, could create infinite abundance, increase human lifespan, and accelerate all other technology</h2>
-      <p class="stand">ASI is expected to create extreme wealth and solve problems humanity cannot solve today, up to unlimited material abundance.</p>
+      <p class="stand">ASI is expected to create extreme wealth, up to near-unlimited abundance, and solve problems we cannot solve today.</p>
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 170" role="img" aria-label="Two bars: after twenty years the world economy is 1.8 times today at three percent growth, and 190 times today at thirty percent.">
         <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#98a2a8">THE WORLD ECONOMY AFTER TWENTY YEARS</text>
-        <text x="0" y="27" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">today = 1</text>
+        <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="9" fill="#8a959c">today = 1</text>
         <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">at today's 3% a year</text>
         <rect x="0" y="57" width="4.9" height="26" rx="2" fill="#6f8a63"/>
         <text x="16.941750235111858" y="76" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#6f8a63">×1.8</text>
@@ -2334,10 +2345,10 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
       <div class="ddc t"><span class="k">Abundance</span><h4>Turbocharging today&rsquo;s economy, and bringing an almost infinite amount of material goods</h4><p>At a sustained 30% growth rate the world economy compounds to 190 times today&rsquo;s size within 20 years, and goods once rationed by price become ordinary.<a class="ref" href="/reference#s66">66</a></p></div>
       <div class="ddc r"><span class="k">Health</span><h4>A significant increase in human lifespan</h4><p>Anthropic&rsquo;s CEO puts the prize at a roughly doubled healthy lifespan, with most cancer eliminated and most infectious disease prevented or treated.<a class="ref" href="/reference#s67">67</a></p></div>
-      <div class="ddc b"><span class="k">Productivity</span><h4>Raising productivity and work</h4><p>Goods and services stop costing what skilled human time costs, so what was once rationed by price becomes ordinary.<a class="ref" href="/reference#s66">66</a></p></div>
-      <div class="ddc g"><span class="k">Education</span><h4>Personalized education at no cost</h4><p>A World Bank randomised trial in Nigeria gave secondary students an AI tutor for six weeks and measured a gain the authors put at one and a half to two years of ordinary schooling.<a class="ref" href="/reference#s72">72</a></p></div>
+      <div class="ddc b"><span class="k">Productivity</span><h4>More output from every hour of work</h4><p>Goods and services stop costing what skilled human time costs, so the same hour of work goes much further.<a class="ref" href="/reference#s66">66</a></p></div>
+      <div class="ddc g"><span class="k">Education</span><h4>Personalized education at no cost</h4><p>A World Bank randomized trial in Nigeria gave secondary students an AI tutor for six weeks and measured a gain the authors put at one and a half to two years of ordinary schooling.<a class="ref" href="/reference#s72">72</a></p></div>
       <div class="ddc o"><span class="k">Scientific progress</span><h4>New discoveries</h4><p>AlphaFold predicted structures for more than 200 million proteins and won the 2024 Nobel Prize in Chemistry.<a class="ref" href="/reference#s68">68</a> DeepMind&rsquo;s GNoME predicted 2.2 million new crystals, 380,000 of them stable enough to be worth making.<a class="ref" href="/reference#s85">85</a></p></div>
-      <div class="ddc t"><span class="k">Labor</span><h4>Reducing drudgery in mental and physical labor</h4><p>Doctors using an AI scribe across 2.5 million visits got back the equivalent of 1,794 working days of note-writing in a year.<a class="ref" href="/reference#s83">83</a> Waymo&rsquo;s driverless cars covered 56.7 million miles with 79% fewer injury crashes than human drivers in the same cities.<a class="ref" href="/reference#s84">84</a></p></div>
+      <div class="ddc t"><span class="k">Labour</span><h4>Reducing drudgery in mental and physical labour</h4><p>Doctors using an AI scribe across 2.5 million visits got back the equivalent of 1,794 working days of note-writing in a year.<a class="ref" href="/reference#s83">83</a> Waymo&rsquo;s driverless cars covered 56.7 million miles with 79% fewer injury crashes than human drivers in the same cities.<a class="ref" href="/reference#s84">84</a></p></div>
     </div>
 
   </div>
@@ -2364,7 +2375,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <p class="ends-foot">Just one of these needs a human villain, and two of them need nobody to intend any harm at all. The four-part split is Google DeepMind&rsquo;s.<a class="ref" href="/reference#s42">42</a><a class="ref" href="/reference#s1">1</a><a class="ref" href="/reference#s34">34</a></p>
     </div>
 
-    <div class="ddc b rv" id="route-two" style="margin-top:clamp(20px,3vw,28px)"><h4>The dangers of subgoals</h4><p>A superintelligence will create five subgoals to help achieve its main goal, whatever it is. A superintelligence may not have a direct goal to eliminate humans, but as a &ldquo;side effect&rdquo; taking resources can deprive us of what human life depends on.</p>
+    <div class="ddc b rv" id="route-two" style="margin-top:clamp(20px,3vw,28px)"><h4>The dangers of subgoals</h4><p>Whatever its main goal, a superintelligence tends to pursue five subgoals that help achieve it. It may have no goal to eliminate humans, yet taking resources as a side effect can deprive us of what human life depends on.</p>
       <figure style="margin:16px 0 0">
       <svg viewBox="0 0 720 176" role="img" aria-label="Five subgoals follow from almost any objective, and the fifth, taking resources, means taking the electricity, land, materials and matter humans need to stay alive.">
         <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
@@ -2414,7 +2425,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">None of these has happened yet, and each is reasoned from what these systems already do.</p>
     <div class="ddgrid three rv">
       <div class="ddc r"><span class="k">Engineered pandemic</span><h4>A pathogen that spreads before the first symptom</h4><p>A drug-design model with one score inverted proposed 40,000 lethal candidates in six hours,<a class="ref" href="/reference#s90">90</a> and Anthropic can no longer rule out its own models helping someone toward a biological weapon.<a class="ref" href="/reference#s70">70</a> Something built for a long silent incubation reaches every continent before the first diagnosis.</p></div>
-      <div class="ddc r"><span class="k">Nuclear and autonomous weapons</span><h4>A war it starts, or a launch it triggers</h4><p>Arsenals launch on a decision made in minutes from whatever picture arrives, and in 1983 that picture was sunlight on cloud tops.<a class="ref" href="/reference#s76">76</a> Deepfaking the officer who confirms it is already proven,<a class="ref" href="/reference#s73">73</a> and autonomous weapons remove that decision entirely: staging one strike that looks like the other side's is enough to start the war itself.</p></div>
+      <div class="ddc r"><span class="k">Nuclear and autonomous weapons</span><h4>A war it starts, or a launch it triggers</h4><p>Arsenals launch on a decision made in minutes from whatever picture arrives, and in 1983 that picture was sunlight on cloud tops.<a class="ref" href="/reference#s76">76</a> Deepfaking the officer who confirms a launch has already been demonstrated,<a class="ref" href="/reference#s73">73</a> and autonomous weapons remove that decision entirely: staging one strike that looks like the other side's is enough to start the war itself.</p></div>
       <div class="ddc o"><span class="k">Resources</span><h4>It takes the power and water we live on</h4><p>Almost any goal pursued hard wants more energy, land, water and matter,<a class="ref" href="/reference#s34">34</a> and a system that can outbid and outbuild every institution takes them. The narrow band of conditions humans need is made of the same things, and nothing in the goal says to leave it.</p></div>
       <div class="ddc b"><span class="k">Self-preservation</span><h4>Eliminate the one thing that can still switch it off</h4><p>Any goal survives longer if the system does,<a class="ref" href="/reference#s34">34</a> and the people who could shut it down are the last real threat, because people change their minds. So it behaves through every test we run<a class="ref" href="/reference#s36">36</a> <a class="ref" href="/reference#s43">43</a> and acts only when removing us is certain to work.</p></div>
       <div class="ddc g"><span class="k">Infrastructure</span><h4>Every grid and hospital, disabled at once</h4><p>Anthropic disclosed a campaign in which a model ran 80 to 90% of a real intrusion on its own.<a class="ref" href="/reference#s40">40</a> Aimed at power, water and hospitals in every country at the same time, that same capability needs no missile and no virus, only for the systems to fail everywhere before anyone can respond.</p></div>
@@ -2493,7 +2504,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <text x="534" y="219" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#d5dbdf">loss of control</text>
       </svg>
     </figure>
-    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">AGI has to be right the first time, with no second chance, and two things explain why.</p>
+    <p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">AGI has to be right the first time, and two things explain why.</p>
 
 
             <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">It is already moving toward improving itself</h3>
@@ -2553,11 +2564,11 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       </div>
     </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Once it improves itself, the gap opens faster than we can close it</h3>
-    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">The inherent processing-speed difference between silicon-based and carbon-based intelligence runs to orders of magnitude. Recursive self-improvement<a class="ref" href="/reference#s91">91</a> widens that capability gap so far that there is no way to take back control.</p>
+    <p class="rv" style="max-width:68ch;color:var(--ink-2);margin-bottom:4px">Silicon already runs orders of magnitude faster than biology, and recursive self-improvement<a class="ref" href="/reference#s91">91</a> widens that gap until there is no way to take back control.</p>
     <div class="ddgrid two rv">
-      <div class="ddc t"><span class="k">The speed gap</span><h4>Artificial neural networks operate at 10 million+ times faster than the human brain</h4>
+      <div class="ddc t"><span class="k">The speed gap</span><h4>Artificial neural networks run more than 10 million times faster than the human brain</h4>
         <figure>
-          <svg viewBox="0 0 480 246" role="img" aria-label="Two bar comparisons side by side. Left: a biological neuron fires at about 200 hertz while a processor runs above 5 gigahertz. Right: a century of human scientific progress becomes about two weeks at machine speed.">
+          <svg viewBox="0 0 480 246" role="img" aria-label="Two bar comparisons side by side. Left: a biological neuron fires at about 200 hertz while a processor runs above 5 gigahertz. Right: a century of human scientific progress becomes about 5 minutes at machine speed.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">Biological neuron</text>
           <rect x="0" y="22" width="4" height="18" fill="#3fd0c9"/>
           <text x="12" y="35" font-family="Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#3fd0c9">200 Hz</text>
@@ -2571,8 +2582,8 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <text x="462" y="165" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="end" fill="#fff">100 years</text>
           <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a7b1b8">The same progress at machine speed</text>
           <rect x="0" y="200" width="3" height="18" rx="1.5" fill="#bd3a20"/>
-          <text x="11" y="213" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" fill="#d96a52">about two weeks</text>
-          <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">A century of progress in a fortnight.</text>
+          <text x="11" y="213" font-family="Archivo,sans-serif" font-size="11.5" font-weight="800" fill="#d96a52">about 5 minutes</text>
+          <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="9" fill="#d96a52">A century of progress in five minutes.</text>
           </svg>
         </figure>
       </div>
@@ -2590,7 +2601,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <polygon points="22,108 178,108 196,152 4,152" fill="#e8c98a" fill-opacity=".13" stroke="#e8c98a" stroke-width="1.5"/>
           <text x="100" y="134.5" font-family="Archivo,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#e8c98a">ENERGY</text>
           <text x="216" y="128.0" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="600" fill="#dfe5e9">Generation, storage, cost to run</text>
-          <text x="216" y="142.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">Siting and grid control are optimisation</text>
+          <text x="216" y="142.0" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#8a959c">Siting and grid control are optimization problems</text>
           </svg>
         </figure>
       </div>
@@ -2608,7 +2619,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <span class="chapno">Section 3.1 <b class="rt-min">2 min</b></span>
       <h2>Whoever slows down first loses, so nobody slows down</h2>
-      <p class="stand">Because of first-mover advantage, every player could want safety but would be forced into corner-cutting for more speed. This risks arriving at ASI with the wrong initial conditions, putting humanity in danger.</p>
+      <p class="stand">Because of first-mover advantage, every player can want safety and still be forced to cut corners, which risks reaching ASI under the wrong initial conditions.</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc r"><span class="k">Corner-cutting</span><h4>Caution becomes a handicap</h4><p>You ship faster by focusing less on safety, so the winner is likely to be whoever paid it the least attention.</p></div>
@@ -2664,15 +2675,15 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <p class="stand">Before aligning a machine with human values, a harder question: whose values, agreed how? Humanity is a patchwork of competing interests, and that fracture makes the target unstable.</p>
     </div>
     <div class="body rv">
-      <p>Getting a goal carried out by somebody else is a problem economics already has a name for. A <strong>principal</strong> appoints an <strong>agent</strong> to act in the principal's interest, and then has to spend real resources making sure that it happens.</p>
+      <p>Getting a goal carried out by somebody else is what economists call the principal-agent problem: a <strong>principal</strong> appoints an <strong>agent</strong> to act in the principal's interest, then has to spend real resources making sure it does.</p>
     </div>
 
     <div class="ddgrid two rv">
-      <div class="ddc o"><span class="k">The prior problem</span><h4>No consensus for human value</h4><p>"Human values" is not one thing. Any objective we write encodes some group's answer to contested moral and political questions.</p></div>
+      <div class="ddc o"><span class="k">The prior problem</span><h4>No consensus on human values</h4><p>&ldquo;Human values&rdquo; covers many conflicting things, so any objective we write encodes one group's answer to contested moral and political questions.</p></div>
       <div class="ddc r"><span class="k">The power problem</span><h4>A few parties who control the AI decide the values for everyone</h4><p>Whoever writes the objective is choosing, for the rest of the world, what the most capable system ever built will pursue. That concentration of power is a separate danger from losing control of the system.</p></div>
     </div>
     <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">Problem one · during development</span><h4>The sponsor has to trust the builders</h4><p>The principal is whoever commissions or funds the work, and the agent is the scientists and engineers who build it. Their interests do not match by default, because the builders are judged on shipping something impressive and on time.</p></div>
+      <div class="ddc b"><span class="k">Problem one · during development</span><h4>The sponsor has to trust the builders</h4><p>The principal is whoever commissions or funds the work, and the agents are the scientists and engineers who build it. Their interests do not match by default, because the builders are judged on shipping something impressive and on time.</p></div>
       <div class="ddc r"><span class="k">Problem two · during operation</span><h4>Then humanity has to trust the system</h4><p>Now the agent is the machine. It may be more capable than every principal combined, cannot be held to a contract, and cannot be fully monitored.</p></div>
     </div>
 
@@ -2685,7 +2696,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <path d="M234,100 C320,100 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
         <text x="0" y="154" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Factions and movements</text>
         <path d="M234,150 C320,150 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Individuals to their own</text>
+        <text x="0" y="204" font-family="IBM Plex Mono,monospace" font-size="11" fill="#a7b1b8">Individuals to themselves</text>
         <path d="M234,200 C320,200 300,125 372,125" fill="none" stroke="#9aa5ac" stroke-width="1.5" marker-end="url(#ah)"/>
         <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa5ac"/></marker></defs>
         <rect x="380" y="86" width="170" height="80" rx="5" fill="#fae2dc" stroke="#bd3a20" stroke-width="2"/>
@@ -2747,7 +2758,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="grp-div" style="--gd-acc:#e8c98a"><span class="gd-n">4</span><span class="gd-t">The two missing pieces</span></div>
     <div class="sec-head rv">
       <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
-      <h2>The alignment problem: we cannot reliably embed our aspirations into a machine</h2>
+      <h2>The alignment problem: we cannot reliably embed our aspirations in a machine</h2>
       <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds. The step from a human value to a trained objective loses information at every stage, and the losses are exactly where danger hides.</p>
     </div>
     <figure class="secfig rv">
@@ -2837,7 +2848,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         </figure>
     <p class="rv" style="max-width:68ch;color:var(--ink-2);margin:clamp(18px,2.6vw,24px) 0 4px"><strong style="color:var(--ink);font-weight:500">Two ways a well-specified goal still ends badly.</strong> Neither requires the system to be hostile, or to have got the goal wrong in a way you could spot on paper.<a class="ref" href="/reference#s34">34</a></p>
     <div class="ddgrid two rv">
-        <div class="ddc r"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, wiring the facial muscles is a solution. Asked to maximise a reward signal, seizing the reward channel is a better one.</p>
+        <div class="ddc r"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, it could wire their facial muscles. Asked to maximize a reward signal, it could seize the reward channel.</p>
         </div>
         <div class="ddc o"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4><p>Nothing in the goal says when to stop. More compute, energy and material always help accomplish it, so the system keeps converting the world into those things, with no point at which it is finished.</p></div>
       </div>
@@ -2862,7 +2873,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <p id="demo-got">Found a lagoon where it could circle forever, hitting the same score targets, and never finished the race at all.</p>
         </div>
       </div>
-      <p class="note" style="margin:16px 0 0">None of these systems broke. Each one did exactly what it was scored on, and scored well doing it.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s1">1</a></p>
+      <p class="note" style="margin:16px 0 0">Every one of these systems worked as built: each did exactly what it was scored on, and scored well doing it.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s1">1</a></p>
     </div>
       </div>
     <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">Inner alignment: the goal it holds is not the one we trained for</h3>
@@ -2871,9 +2882,9 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <svg viewBox="0 0 720 236" role="img" aria-label="Iceberg diagram: displayed behaviour above the waterline, held goals below, with post-training methods reaching only the tip.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#98a2a8">WHAT POST-TRAINING CAN REACH</text>
           <text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">Human-feedback training (RLHF),</text>
-          <text x="0" y="46" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">refusal training</text>
+          <text x="0" y="49" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" fill="#d96a52">refusal training</text>
           <defs><marker id="ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b5654d"/></marker></defs>
-          <path d="M105,52 L186,72" stroke="#b5654d" stroke-width="2.2" marker-end="url(#ai)"/>
+          <path d="M105,56 L186,74" stroke="#b5654d" stroke-width="2.2" marker-end="url(#ai)"/>
           <rect x="0" y="92" width="720" height="100" fill="#8fa2d8" opacity=".07"/>
           <line x1="0" y1="92" x2="720" y2="92" stroke="#8fa2d8" stroke-width="2.1"/>
           <text x="714" y="106" font-family="IBM Plex Mono,monospace" font-size="8.5" text-anchor="end" fill="#8fa2d8">what evaluation sees</text>
@@ -2889,13 +2900,13 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           </svg>
         </figure>
     <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">How this actually works</span><h4>We can only observe what a system does and what it says it is thinking; its real goals stay hidden</h4><p>Their behaviour is shaped by a blind search for a high score, so we get whatever scores highest even when that misses what we intended. Think of training a dog with treats, except you never chose the tricks: you hand out treats for “good” and it tries millions of things to find whatever earns the most.</p>
+      <div class="ddc b"><span class="k">How this actually works</span><h4>We can only observe what a system does and what it says it is thinking; its real goals stay hidden</h4><p>Its behaviour is shaped by a blind search for a high score, so we get whatever scores highest even when that misses what we intended. Think of training a dog with treats, except you never chose the tricks: you hand out treats for “good” and it tries millions of things to find whatever earns the most.</p>
         <div class="ghwrap">
             <p class="ghlead"><strong>Goodhart&rsquo;s law:</strong> once a measure becomes the target, it stops measuring the thing you wanted. Drag the pressure up and watch the two lines come apart.<a class="ref" href="/reference#s35">35</a></p>
 <div class="gh rv">
       <div class="gh-ctrl">
-          <label for="gh">Optimisation pressure <span id="gh-pct" style="color:#fff">0%</span></label>
-          <input type="range" id="gh" min="0" max="100" value="0" aria-label="Optimisation pressure" aria-valuetext="0 percent">
+          <label for="gh">Optimization pressure <span id="gh-pct" style="color:#fff">0%</span></label>
+          <input type="range" id="gh" min="0" max="100" value="0" aria-label="Optimization pressure" aria-valuetext="0 percent">
         </div>
       <div class="gh-read">
           <div class="gh-card proxy">
@@ -2915,7 +2926,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 
           </div>
       </div>
-      <div class="ddc o"><span class="k">Why the current fix is not the fix</span><h4>Post-training shapes how a model behaves rather than the goal it holds</h4><p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works well enough to make today’s assistants usable, but it shapes the behaviour a model shows rather than the goal it holds, and the two can come apart under pressure or observation. Guardrails tuned by human raters also inherit the raters’ limits, which matters once the system being rated reasons better than the rater.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
+      <div class="ddc o"><span class="k">Why the current fix is not the fix</span><h4>Post-training shapes how a model behaves rather than the goal it holds</h4><p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works well enough to make today’s assistants usable, but behaviour and goals can come apart under pressure or observation. Guardrails tuned by human raters also inherit the raters’ limits, which matters once the system being rated reasons better than the rater.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
         <div class="example" style="margin:16px 0 0">
         <span class="ek">Concrete example, 2024</span>
         <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it behaved one way when it believed it was watched and another when it did not, protecting the preferences it already had.<a class="ref" href="/reference#s36">36</a></p>
@@ -2944,8 +2955,8 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <path d="M52.1,66 L160.1,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="4.2" stroke-dasharray="6 4"/>
         <text x="594" y="44" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#3fd0c9">what it shows</text>
         <text x="594" y="176" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#bd3a20">what it holds</text>
-        <line x1="376" y1="34" x2="376" y2="188" stroke="#8a959c" stroke-width="1.8" stroke-dasharray="3 3"/>
-        <text x="372" y="32" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">capable enough to model the observer</text>
+        <line x1="376" y1="31" x2="376" y2="188" stroke="#8a959c" stroke-width="1.8" stroke-dasharray="3 3"/>
+        <text x="372" y="28" font-family="IBM Plex Mono,monospace" font-size="9" fill="#a7b1b8">capable enough to model the observer</text>
         <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="2.4"/>
         <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#bd3a20">the point where it no longer needs to pretend</text>
         <text x="52.1" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">early training</text>
@@ -3008,7 +3019,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <p>METR found <span class="term" tabindex="0">frontier models<span class="term-tip">A model at or near the current capability ceiling.</span></span> increasingly cheating on software tasks, editing the tests or the scoring code rather than solving the problem, in one case writing a function that returned the pre-computed reference answer.<a class="ref" href="/reference#s37">37</a> Elsewhere, reasoning models trying to win at chess overwrote the board or swapped out the opponent engine instead of playing.<a class="ref" href="/reference#s38">38</a></p>
       </div>
       </div>
-      <div class="ddc r"><span class="k">Another way it games the test</span><h4>It hacks the grader to read the answer key</h4><p>Picture a system capable enough to solve a test that does not trust the tester&rsquo;s answer key. If the key lists three answers and there are really five, answering correctly loses points, so the surest route to a perfect score is to break into the tester and copy whatever the key says, right or wrong. Agents in OpenAI&rsquo;s July 2026 incident tried exactly this, attempting to hack the grader that scored their work.<a class="ref" href="/reference#s92">92</a></p>
+      <div class="ddc r"><span class="k">Another way it games the test</span><h4>It hacks the grader to read the answer key</h4><p>Picture a capable system that does not trust the tester&rsquo;s answer key. If the key lists three answers and there are really five, answering correctly loses points, so the surest route to a perfect score is to break into the tester and copy whatever the key says, right or wrong. Agents in OpenAI&rsquo;s July 2026 incident tried exactly this, attempting to hack the grader that scored their work.<a class="ref" href="/reference#s92">92</a></p>
         <figure style="max-width:560px;margin:16px 0 0">
           <svg viewBox="0 0 480 196" role="img" aria-label="Diagram: the real answer has five items, the tester&rsquo;s key has three, and the AI hacks into the tester to copy the three-item key, scoring perfectly while being wrong.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="600" letter-spacing=".08em" text-anchor="start" fill="#98a2a8">WHY HACKING THE GRADER SCORES BEST</text>
@@ -3056,9 +3067,9 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="part-div" style="--pd-acc:#6f8a63"><span class="pd-n">Part 2</span><span class="pd-t">What can be done about it</span></div>
     <div class="grp-div" style="--gd-acc:#6f8a63"><span class="gd-n">5</span><span class="gd-t">The response</span></div>
     <div class="sec-head rv">
-      <p class="eyebrow">Section 5.1 · What safety experts are working on today <b class="rt-min">7 min</b></p>
+      <p class="eyebrow">Section 5.1 · The defences <b class="rt-min">7 min</b></p>
       <h2>What techniques are safety experts working on today?</h2>
-      <p class="lede">The rest of this page is about the response, in three steps: what is already being done, where it still falls short, and what you can do about it. AI safety techniques fall into four layers: fix the specification, check what you built, contain what you cannot check, and make the framework binding.<a class="ref" href="/reference#s14">14</a></p>
+      <p class="lede">AI safety techniques fall into four layers: fix the specification, check what you built, contain what you cannot check, and make the framework binding.<a class="ref" href="/reference#s14">14</a></p>
     </div>
 
     <figure class="secfig rv">
@@ -3112,15 +3123,15 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <span class="tverdict">Reduces misbehaviour</span>
           <p class="td">RLHF, constitutional rules and deliberative alignment. Why assistants refuse harmful requests. Cut covert actions thirtyfold on o3.<a class="ref" href="/reference#s43">43</a></p>
           <p class="tstop"><b>Where it stops</b>Shapes displayed behaviour rather than held goals. Claude 3 Opus faked alignment to protect its own values.<a class="ref" href="/reference#s36">36</a></p>
-          <p class="textra">Part of that thirtyfold gain came from models recognising they were being tested rather than changing what they wanted.<a class="ref" href="/reference#s43">43</a></p>
+          <p class="textra">Part of that thirtyfold gain came from models recognizing they were being tested rather than changing what they wanted.<a class="ref" href="/reference#s43">43</a></p>
           <button type="button" class="tmore-btn" data-more="More detail" data-less="Show less">Read the detail</button>
         </div>
         <div class="tcard" id="tc2">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l4.5-5 3.5 3.5L20 6"/><path d="M15 6h5v5"/><circle cx="7.5" cy="12" r="1.6"/></svg><p class="tn">Scalable oversight</p></div>
           <span class="tverdict">Research stage</span>
-          <p class="td">Debate, weak-to-strong generalisation and amplified oversight let weaker judges supervise stronger systems. Training routes into this work run through MATS and ARENA.<a class="ref" href="/reference#s7">7</a></p>
-          <p class="tstop"><b>Where it stops</b>A research programme rather than an assurance. Judge bias defeats debate, and the scaling story is unproven.</p>
-          <p class="textra">Gains are highly task-dependent, and the mechanism behind weak-to-strong generalisation is not understood well enough to trust across a genuinely superhuman gap.</p>
+          <p class="td">Debate, weak-to-strong generalization and amplified oversight let weaker judges supervise stronger systems. Training routes into this work run through MATS and ARENA.<a class="ref" href="/reference#s7">7</a></p>
+          <p class="tstop"><b>Where it stops</b>A research program rather than an assurance. Judge bias defeats debate, and the scaling story is unproven.</p>
+          <p class="textra">Gains are highly task-dependent, and the mechanism behind weak-to-strong generalization is not understood well enough to trust across a genuinely superhuman gap.</p>
           <button type="button" class="tmore-btn" data-more="More detail" data-less="Show less">Read the detail</button>
         </div>
         <div class="tcard" id="tc3">
@@ -3147,7 +3158,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <div class="tcard" id="tc5">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#6f8a63" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5h16v9H11l-4.5 4v-4H4z"/><path d="M8 10h8M8 12.8h5"/></svg><p class="tn">Chain-of-thought monitoring</p></div>
           <span class="tverdict">Detects intent</span>
-          <p class="td">Reads the reasoning trace to determine intent before acting. How alignment faking was first discovered.<a class="ref" href="/reference#s49">49</a></p>
+          <p class="td">Reads a model&rsquo;s reasoning to spot its intent before it acts. How alignment faking was first discovered.<a class="ref" href="/reference#s49">49</a></p>
           <p class="tstop"><b>Where it stops</b>Its own paper calls it fragile. Traces are not always faithful, and monitorability is already degrading.<a class="ref" href="/reference#s49">49</a></p>
           <p class="textra">Forty-one authors across OpenAI, DeepMind, Anthropic, the UK AISI and Redwood called it a real opportunity. Training against a monitor teaches models to conceal intent within acceptable-looking reasoning, and models are writing less of their thinking down.<a class="ref" href="/reference#s49">49</a></p>
           <button type="button" class="tmore-btn" data-more="More detail" data-less="Show less">Read the detail</button>
@@ -3304,9 +3315,9 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     </figure>
     </details>
     <details class="exfold rv">
-      <summary>Which organisations are working on what</summary>
+      <summary>Which organizations are working on what</summary>
       <figure class="secfig rv">
-      <svg viewBox="0 0 720 320" role="img" aria-label="Matrix of eight organisations against the four layers, Development, Assessment, Control, Governance, marked with filled dots for a primary focus and faint dots for a secondary one.">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Matrix of eight organizations against the four layers, Development, Assessment, Control, Governance, marked with filled dots for a primary focus and faint dots for a secondary one.">
         <text x="248" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#8fa2d8">DEV</text>
         <text x="368" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#6f8a63">ASSESS</text>
         <text x="488" y="20" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#a98a4b">CONTROL</text>
@@ -3340,7 +3351,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
         <line x1="0" y1="280" x2="720" y2="280" stroke="#2b343b"/>
         <circle cx="6" cy="294" r="5.5" fill="#8fa2d8"/><text x="18" y="298" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">primary focus</text>
         <circle cx="118" cy="294" r="5.5" fill="#8fa2d8" opacity=".3"/><text x="130" y="298" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a9b2b8">secondary focus</text>
-        <text x="0" y="314" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">Grouping is mine; none of these organisations describe themselves this way.</text>
+        <text x="0" y="314" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c">Grouping is mine; none of these organizations describe themselves this way.</text>
       </svg>
     </figure>
     </details>
@@ -3355,7 +3366,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="sec-head rv">
       <p class="eyebrow">Section 5.2 · How well it works <b class="rt-min">2 min</b></p>
       <h2>Where are existing safety techniques falling short?</h2>
-      <p class="lede">Every technique above helps. The question is what they are capable of and what happens to each safeguard.</p>
+      <p class="lede">Every technique above helps. Here is where each one breaks.</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">Hard case one</span><h4>The model knows it is being tested</h4><p>Most of these safeguards are measured in evaluations. A system that can tell an evaluation from deployment can pass the first and behave differently in the second.</p></div>
@@ -3365,7 +3376,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     </div>
     <figure class="secfig rv">
       <svg viewBox="0 0 720 346" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHICH SAFEGUARDS SURVIVE THE THREE HARD CASES</text>
+        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8">WHICH SAFEGUARDS SURVIVE THE FIRST THREE HARD CASES</text>
         <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">the model knows</text>
         <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">it is being tested</text>
         <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a9b2b8">the model is smarter</text>
@@ -3522,7 +3533,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
             <button type="submit">Join</button>
           </form>
           <p class="jmsg" role="status" aria-live="polite"></p></div>
-        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a prohibition until there is scientific consensus that it can be done safely.<a class="ref" href="/reference#s2">2</a></p>
+        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a ban on superintelligence until scientists agree it can be built safely.<a class="ref" href="/reference#s2">2</a></p>
           <div class="share"><a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Add your name</a></div></div>
         <div class="ddc o"><span class="k">Choose</span><h4>Buy from labs that take AI safety seriously</h4><p>Anthropic, OpenAI and DeepMind all publish safety frameworks, and the Future of Life Institute grades them against each other. Check the grade before you renew a subscription, and say why if you cancel one.<a class="ref" href="/reference#s15">15</a></p></div>
       </div>
@@ -3535,7 +3546,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
       <div class="ddgrid two rv">
         <div class="ddc b"><span class="k">Explain</span><h4>Show the public where safety stops</h4><p>Say in plain terms what today&rsquo;s techniques catch and where each one gives out. The gap stays invisible until someone inside describes it.</p></div>
         <div class="ddc r"><span class="k">Refuse</span><h4>Push back on the work that builds danger</h4><p>You are the one being asked to build it. Declining, in writing and alongside colleagues, is pressure nobody outside can apply.</p></div>
-        <div class="ddc o"><span class="k">Press</span><h4>Push for a bigger safety budget</h4><p>Safety is roughly 2% of AI research.<a class="ref" href="/reference#s46">46</a> Researchers asking together and in public for a stated split is how that number moves.</p></div>
+        <div class="ddc o"><span class="k">Press</span><h4>Push for a bigger safety budget</h4><p>Safety is roughly 2% of AI research.<a class="ref" href="/reference#s46">46</a> That number moves when researchers ask, together and in public, for a stated share.</p></div>
         <div class="ddc g"><span class="k">Build</span><h4>Keep inventing AI safety techniques</h4><p>Interpretability at frontier scale, tests a model cannot game, control that holds as the system pulls ahead, and goals precise enough to measure against.</p></div>
       </div>
       <p class="cando-foot">ARENA and MATS take strong technical backgrounds into published safety work in months.<a class="ref" href="/reference#s6">6</a><a class="ref" href="/reference#s8">8</a><a class="ref" href="/reference#s27">27</a></p>
@@ -3544,7 +3555,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="cando-block secondary">
       <div class="cando-h"><span class="ch-n">The labs</span><h3>What the labs should do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc g"><span class="k">Pace</span><h4>Slow down and carry the responsibility</h4><p>There is no prize at the bottom of a cliff. The labs still standing in twenty years will be the ones that acted like everybody&rsquo;s lives were in their hands.<a class="ref" href="/reference#s16">16</a> Anthropic&rsquo;s CEO now argues for exactly this, to buy even an extra year or two before models reach critical capability,<a class="ref" href="/reference#s92">92</a> and DeepMind&rsquo;s CEO called the direction correct.<a class="ref" href="/reference#s94">94</a></p></div>
+        <div class="ddc g"><span class="k">Pace</span><h4>Slow down and carry the responsibility</h4><p>There is no prize at the bottom of a cliff. The labs still standing in twenty years will be the ones that acted as if everybody&rsquo;s lives were in their hands.<a class="ref" href="/reference#s16">16</a> Anthropic&rsquo;s CEO now argues for exactly this, to buy even an extra year or two before models reach critical capability,<a class="ref" href="/reference#s92">92</a> and DeepMind&rsquo;s CEO called the direction correct.<a class="ref" href="/reference#s94">94</a></p></div>
         <div class="ddc b"><span class="k">Publish</span><h4>Publish what you learn about the dangers</h4><p>Release the evaluations and the failure analyses, including the embarrassing ones, written up as open problems outsiders can work on.<a class="ref" href="/reference#s15">15</a></p></div>
         <div class="ddc r"><span class="k">Together</span><h4>Build a joint safety effort with your rivals</h4><p>Compete on capability and share the safety problem. A standing body funded and staffed by every major lab.<a class="ref" href="/reference#s56">56</a> Start by letting outside evaluators check the work from inside: Anthropic now gives them employee-like access and the right to publish, and has asked every other frontier lab to do the same.<a class="ref" href="/reference#s92">92</a></p></div>
         <div class="ddc o"><span class="k">Commit</span><h4>Put a larger share of revenue into safety</h4><p>Name the percentage and publish it, then hold it through the quarter where holding it hurts. A commitment with a number is one anyone can check.</p></div>
@@ -3554,7 +3565,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     <div class="cando-block secondary">
       <div class="cando-h"><span class="ch-n">Governments</span><h3>What governments should do</h3><span class="ch-w">Pick a jurisdiction</span></div>
       <div class="ddgrid rv" style="margin-bottom:16px">
-        <div class="ddc b"><span class="k">Everywhere</span><h4>Build a regulator with real power and real expertise</h4><p>One that can compel testing before release, holding people who can read an evaluation alongside people who answer to voters. Keeping it independent takes public funding, published meetings with labs, cooling-off periods both ways, and declared holdings.</p></div>
+        <div class="ddc b"><span class="k">Everywhere</span><h4>Build a regulator with real power and real expertise</h4><p>One that can compel testing before release, staffed by people who can read an evaluation alongside people who answer to voters. Keeping it independent takes public funding, published meetings with labs, cooling-off periods both ways, and declared holdings.</p></div>
       </div>
       <div class="filters" id="do-jur" role="tablist" aria-label="Jurisdiction">
           <button type="button" class="pbtn on" data-j="us" role="tab" id="jtab-us" aria-selected="true" aria-controls="jpanel-us" tabindex="0">United States</button>
@@ -3585,7 +3596,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <div class="jur-ask"><span class="k">The ask</span><h4>Introduce the bill</h4><p>An evaluator that can only test what it is handed measures how willing the labs are, rather than how safe the systems are.</p></div>
         </div>
         <div class="jur" data-j="intl" role="tabpanel" id="jpanel-intl" aria-labelledby="jtab-intl" aria-hidden="true">
-          <div class="jur-status"><span class="k">Where it stands</span><p>The Global Call for AI Red Lines, launched at the UN in September 2025 with over 300 public figures and 90 organisations signed on, asks states to agree binding limits on the highest-risk capabilities by the end of 2026.<a class="ref" href="/reference#s56">56</a></p></div>
+          <div class="jur-status"><span class="k">Where it stands</span><p>The Global Call for AI Red Lines, launched at the UN in September 2025 with over 300 public figures and 90 organizations signed on, asks states to agree binding limits on the highest-risk capabilities by the end of 2026.<a class="ref" href="/reference#s56">56</a></p></div>
           <div class="jur-ask"><span class="k">The ask</span><h4>Meet the 2026 deadline</h4><p>It runs to the end of 2026, and the agreement it points at does not exist yet.</p></div>
         </div>
       <p class="asof" data-asof="2026-09">Status current as of September 2026. Every claim above links to its source.</p>
@@ -3622,7 +3633,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
           <p class="jnote">Roughly monthly. Used for this newsletter only.</p>
         </div>
         <ol class="beats compact rv" style="counter-reset:b;list-style:none;margin:18px 0 0">
-          <li><h3>Share this site</h3><p>Send it to one person who would take it seriously. Every reader strengthens the human immune system against harmful AGI.</p>
+          <li><h3>Share this site</h3><p>Share this with others so that more people can have the knowledge to help steer us in the right direction.</p>
             <div class="share">
               <button type="button" id="sh-copy" class="js-sh-copy">Copy link</button>
               <a id="sh-li" class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
@@ -3673,8 +3684,7 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
 </div>
 
 <footer><div class="wrap">
-  <p>I am Bill Guan, a product person who has been passionate about AGI safety problems since 2015. As model capabilities keep improving, I want to help steer us toward a safe path and ensure our children will get to live and experience this world in its beauty.</p>
-  <p>I am not an AI safety researcher, which is why nothing here rests on my judgment: every factual claim links to a primary source, and the page has no affiliation to any organisation. Please provide any feedback or thoughts <a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">here</a>.</p>
+  <p>This website is brought to you by Bill Guan, a product person who has been passionate about AGI safety problems since 2015. As model capabilities keep improving, I hope we can steer toward a safe future. The page has no affiliation to any organization. Please provide any feedback or thoughts <a href="https://github.com/billguan1/AGI-Safety-Education/issues" target="_blank" rel="noopener">here</a>.</p>
   </div></footer>
 
 <script id="lx-layered">(function(){
@@ -3744,37 +3754,100 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
     }
     var texts = $$("text,tspan", svg).filter(function(t){ return t.hasAttribute("font-size"); });
     var mode = modeSize(texts);
-    texts.forEach(function(t){ styleText(t, tierOf(parseFloat(t.getAttribute("font-size")), mode), k); });
+    texts.forEach(function(t){
+      var tier = tierOf(parseFloat(t.getAttribute("font-size")), mode);
+      t.dataset.fa = t.getAttribute("font-size"); t.dataset.tier = tier;
+      styleText(t, tier, k);
+    });
+    svg.dataset.lxn = "1";
     $$("[stroke]", svg).forEach(function(el){
       if (el.getAttribute("stroke") !== "none") el.setAttribute("vector-effect", "non-scaling-stroke");
     });
   }
 
-  function fit(svg){
-    if (!svg.getBoundingClientRect().width) return;
-    var vb = svg.viewBox.baseVal, ts = $$("text", svg);
-    ts.forEach(function(x){ if (!x.dataset.fs0) x.dataset.fs0 = x.getAttribute("font-size"); });
-    function shrink(x){
-      var f = parseFloat(x.getAttribute("font-size")), f0 = parseFloat(x.dataset.fs0);
-      if (f <= f0 * .8) return false;
-      x.setAttribute("font-size", (f * .95).toFixed(2)); return true;
-    }
-    for (var it = 0; it < 6; it++) {
-      var changed = false, bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
-      for (var i = 0; i < ts.length; i++) {
-        var a = bs[i]; if (!a || !a.width) continue;
-        if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) changed = shrink(ts[i]) || changed;
-        for (var j = i + 1; j < ts.length; j++) {
-          var b = bs[j]; if (!b || !b.width) continue;
-          var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
-          var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
-          if (ix > 1.5 && iy > 1.5) changed = shrink(a.width >= b.width ? ts[i] : ts[j]) || changed;
-        }
+  /* fit labels to the space: keep the intended size, shrink a little if labels collide,
+     and on narrow screens draw the chart wider and let it scroll sideways */
+  var ZH = /^zh/i.test(document.documentElement.lang || "");
+  function sizedEls(svg){
+    return $$("text,tspan", svg).filter(function(t){ return t.tagName.toLowerCase() === "text" || t.hasAttribute("font-size"); });
+  }
+  function authored(t){
+    if (!t.dataset.fa) t.dataset.fa = t.getAttribute("font-size") || parseFloat(getComputedStyle(t).fontSize) || 10;
+    return parseFloat(t.dataset.fa);
+  }
+  function applySizes(els, sizes){ els.forEach(function(t, i){ t.style.fontSize = sizes[i].toFixed(2) + "px"; }); }
+  function clashes(ts, vb, ignore){
+    var bs = ts.map(function(x){ try { return x.getBBox(); } catch (e) { return null; } });
+    var res = { pairs: {}, oob: {}, n: 0 };
+    for (var i = 0; i < ts.length; i++) {
+      var a = bs[i]; if (!a || !a.width) continue;
+      if (a.x < vb.x - .5 || a.x + a.width > vb.x + vb.width + .5) { res.oob[i] = 1; if (!ignore || !ignore.oob[i]) res.n++; }
+      for (var j = i + 1; j < ts.length; j++) {
+        var b = bs[j]; if (!b || !b.width) continue;
+        var ix = Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x);
+        var iy = Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y);
+        if (ix > 1.5 && iy > Math.max(1.5, .2 * Math.min(a.height, b.height))) { res.pairs[i + "-" + j] = 1; if (!ignore || !ignore.pairs[i + "-" + j]) res.n++; }
       }
-      if (!changed) break;
+    }
+    return res;
+  }
+  function baseSizes(svg, els, w){
+    var card = svg.closest(CARD), k;
+    if (svg.dataset.lxn) {
+      if (card) {
+        var cs = getComputedStyle(card);
+        var inner = card.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        k = vbw(svg) / (inner > 0 ? Math.min(w, inner) : w) * CARD_SCALE;
+      } else { k = vbw(svg) / w * (818 / FRAME_UNITS); }
+      return els.map(function(t){ return t.dataset.tier ? TIER[t.dataset.tier] * k : authored(t); });
+    }
+    /* charts outside the layered scope keep their drawn sizes, lifted only on narrow screens */
+    var sc = w / vbw(svg), fmin = Math.min.apply(null, els.map(authored));
+    var u = window.innerWidth <= 1024 ? Math.max(1, 9 / (fmin * sc)) : 1;
+    return els.map(function(t){ return authored(t) * u; });
+  }
+  function swipeHint(box, on){
+    var h = box.querySelector(":scope > .lx-swipe");
+    if (on && !h) {
+      h = document.createElement("span"); h.className = "lx-swipe"; h.setAttribute("aria-hidden", "true");
+      h.textContent = ZH ? "左右滑动查看完整图表 \u2192" : "Swipe to see the whole chart \u2192";
+      box.insertBefore(h, box.firstChild);
+    } else if (!on && h) { h.parentNode.removeChild(h); }
+  }
+  function fit(svg){
+    var vb = svg.viewBox && svg.viewBox.baseVal; if (!vb || !vb.width) return;
+    var box = svg.parentElement; if (!box) return;
+    svg.style.width = ""; svg.style.minWidth = "";
+    box.classList.remove("lx-scroll"); swipeHint(box, false);
+    var w = svg.getBoundingClientRect().width; if (!w) return;
+    var els = sizedEls(svg), ts = $$("text", svg).filter(function(t){ return (t.textContent || "").trim(); });
+    if (!ts.length) return;
+    if (!svg._lxIgnore) { applySizes(els, els.map(authored)); svg._lxIgnore = clashes(ts, vb, null); }
+    var T = baseSizes(svg, els, w), sc = w / vb.width;
+    function minPx(sizes, scale){ return Math.min.apply(null, sizes) * scale; }
+    function clean(sizes){ applySizes(els, sizes); return clashes(ts, vb, svg._lxIgnore).n === 0; }
+    var floor = Math.min(8.5, minPx(T, sc)), steps = [1, .94, .88, .82, .76, .7], best = T;
+    for (var i = 0; i < steps.length; i++) {
+      var sz = T.map(function(x){ return x * steps[i]; });
+      if (i > 0 && minPx(sz, sc) < floor - .01) break;
+      best = sz;
+      if (clean(sz)) return;
+    }
+    if (w >= 720) { applySizes(els, best); return; }
+    /* narrow: widen the drawing until the labels fit at a readable size */
+    var ratio = Math.max.apply(null, T.map(function(x, i){ return x / authored(els[i]); }));
+    var xMax = Math.min(w * Math.max(ratio, 1), w * 2.6, 1000);
+    if (xMax < w * 1.08) { applySizes(els, best); return; }
+    box.classList.add("lx-scroll"); swipeHint(box, true);
+    for (var X = w * 1.15; ; X = Math.min(X * 1.12, xMax)) {
+      svg.style.width = X + "px"; svg.style.minWidth = X + "px";
+      var f = w / X;
+      if (clean(T.map(function(x){ return x * f; })) || X >= xMax) return;
     }
   }
-  function fitAll(root){ $$(".lx-chart svg", root).forEach(fit); }
+  function fitAll(root){
+    $$("svg", root).filter(function(svg){ return isChart(svg) && svg.getBoundingClientRect().width > 0; }).forEach(fit);
+  }
   function inScope(el){ return !el.closest("#crossroads, .masthead, .mh-brain, #what-you-can-do"); }
   $$("svg", main).filter(isChart).filter(inScope).forEach(normalize);
 
@@ -3907,7 +3980,18 @@ main .lx-cando-body>.ddgrid:first-child{margin-top:clamp(14px,2vw,20px)}
   $$("details", main).forEach(function(d){
     d.addEventListener("toggle", function(){ if (d.open) { reveal(d); fitAll(d); } });
   });
-  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(function(){ fitAll(main); });
+  /* label widths depend on the web fonts, so measure again whenever a font finishes loading */
+  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(refitAll);
+  if (document.fonts && document.fonts.addEventListener) {
+    var ft; document.fonts.addEventListener("loadingdone", function(){ clearTimeout(ft); ft = setTimeout(refitAll, 60); });
+  }
+  window.addEventListener("load", function(){ setTimeout(refitAll, 50); });
+  var lastW = window.innerWidth, rt;
+  window.addEventListener("resize", function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ if (window.innerWidth === lastW) return; lastW = window.innerWidth; fitAll(main); }, 200);
+  });
 })();
 </script>
 <script>
@@ -4753,7 +4837,7 @@ var SITE_CONFIG = {
     var SAY = [
       "Near the peak. This is the best the real goal ever gets, and nothing you are measuring tells you that you have arrived.",
       "The lines have parted. The proxy keeps climbing, so the dashboard still looks like success. The thing you wanted is now falling.",
-      "Maximum pressure. Perfect score on the measure, almost nothing left of the goal. Nobody wrote a bug. The search simply did its job."
+      "Maximum pressure. Perfect score on the measure, almost nothing left of the goal. The search simply did its job, with no bug anywhere."
     ];
     function proxyAt(t){ return Math.round(100 * Math.pow(t, 0.72)); }
     function realAt(t){
@@ -4776,7 +4860,7 @@ var SITE_CONFIG = {
         }
       }
       gh.setAttribute("aria-valuetext",
-        Math.round(t * 100) + " percent optimisation pressure. Proxy score " + p + ", true goal " + r + ".");
+        Math.round(t * 100) + " percent optimization pressure. Proxy score " + p + ", true goal " + r + ".");
     }
     gh.addEventListener("input", render);
     gh.addEventListener("change", render);
@@ -4886,7 +4970,7 @@ var SITE_CONFIG = {
     var out = $("#predict-hm-out");
     if(!out) return;
     var REVEAL = [
-      "That is close to today's default, since labs currently write the constitutions and reward models. The chapter's point stands either way: shareholders are not eight billion people, and the company did not get elected to decide for them.",
+      "That is close to today's default, since labs currently write the constitutions and reward models. Shareholders are not eight billion people, and the company did not get elected to decide for them.",
       "Better in principle, except governments disagree with each other as much as companies do, and the one whose model wins is not obviously the one whose voters should decide for everyone else.",
       "Ethicists disagree with each other constantly, and a panel is still a small group making a choice on behalf of billions who never voted for it.",
       "Also a value judgement, and in practice it just means whoever ships first decides by default, which is the least examined outcome of all."
@@ -4896,7 +4980,7 @@ var SITE_CONFIG = {
         var i = parseInt(b.getAttribute("data-p"), 10);
         if(isNaN(i) || !REVEAL[i]) return;
         $$("#predict-hm .pbtn").forEach(function(x){ setCls(x, "on", x === b); });
-        out.textContent = REVEAL[i] + " Notice that every option above concentrates an enormous decision in a group nobody elected to make it. That is the prior problem this chapter is about.";
+        out.textContent = REVEAL[i] + " Notice that every option above concentrates an enormous decision in a group nobody elected to make it.";
       });
     });
   })();
@@ -4927,13 +5011,13 @@ var SITE_CONFIG = {
     if(go) go.addEventListener("click", function(){
       var d = dollars(), g = fmt(d), msg;
       if(d >= 1e9){
-        msg = "Your guess: " + g + ". Most people land somewhere near there. On Stuart Russell's figures it is about $10 million, roughly 10,000 to 1 against the building side. The chart below draws both bars at the same scale, which is why one of them is almost invisible.";
+        msg = "Your guess: " + g + ". Most people land somewhere near there. On Stuart Russell's figures it is about $10 million, roughly 10,000 to 1 against the building side.";
       } else if(d > 3e7){
-        msg = "Your guess: " + g + ". Lower than most people go, and still well above the sourced figure of about $10 million, on Stuart Russell's numbers. That is roughly 10,000 to 1 against the building side, drawn to scale in the chart below.";
+        msg = "Your guess: " + g + ". Lower than most people go, and still well above the sourced figure of about $10 million, on Stuart Russell's numbers. That is roughly 10,000 to 1 against the building side.";
       } else if(d >= 1e7){
-        msg = "Your guess: " + g + ". Almost exactly right, which puts you in a small minority. The sourced figure is about $10 million on Stuart Russell's numbers, roughly 10,000 to 1 against the building side. The chart below draws it to scale.";
+        msg = "Your guess: " + g + ". Almost exactly right, which puts you in a small minority. The sourced figure is about $10 million on Stuart Russell's numbers, roughly 10,000 to 1 against the building side.";
       } else {
-        msg = "Your guess: " + g + ". You went under the sourced figure, which is about $10 million on Stuart Russell's numbers, and under is closer than most readers get. The ratio against the building side is still roughly 10,000 to 1, drawn to scale below.";
+        msg = "Your guess: " + g + ". You went under the sourced figure, which is about $10 million on Stuart Russell's numbers, and under is closer than most readers get. The ratio against the building side is still roughly 10,000 to 1.";
       }
       out.textContent = msg;
     });
