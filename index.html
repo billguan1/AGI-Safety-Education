@@ -8,14 +8,14 @@
 <meta property="og:title" content="AGI &amp; ASI Safety: the hardest problem humanity has yet to solve">
 <meta property="og:description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://safeagi.ca/og-en-10704945.png">
+<meta property="og:image" content="https://safeagi.ca/og-en-0293ba50.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="The hardest problem humanity has yet to solve: AGI Safety. Labs, investors and nations roped together race toward a cliff edge, with the prize beyond it and the drop below.">
+<meta property="og:image:alt" content="The hardest problem humanity has yet to solve: ASI Safety. Labs, investors and nations roped together race toward a cliff edge, with the prize beyond it and the drop below.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://safeagi.ca/og-en-10704945.png">
-<meta name="twitter:image:alt" content="The hardest problem humanity has yet to solve: AGI Safety. Labs, investors and nations roped together race toward a cliff edge, with the prize beyond it and the drop below.">
+<meta name="twitter:image" content="https://safeagi.ca/og-en-0293ba50.png">
+<meta name="twitter:image:alt" content="The hardest problem humanity has yet to solve: ASI Safety. Labs, investors and nations roped together race toward a cliff edge, with the prize beyond it and the drop below.">
 <meta name="twitter:title" content="AGI &amp; ASI Safety: the hardest problem humanity has yet to solve">
 <meta name="twitter:description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -220,12 +220,14 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 
 
 /* ---------- goodhart interactive (dark panel in light section) ---------- */
-.ghwrap{margin:18px 0 6px;padding:clamp(14px,2vw,20px);border-radius:var(--r);background:var(--panel);color:#e2e8ec}
+.ghwrap{margin:18px 0 6px;padding:clamp(18px,2.4vw,24px);border-radius:var(--r);background:var(--panel);color:#e2e8ec}
 .ghlead{font-family:var(--body);font-weight:300;font-size:clamp(14.5px,1.4vw,16px);line-height:1.45;color:#fff;margin:0 0 14px;max-width:66ch}
 .ghwrap .gh{display:block}
 .gh-ctrl label{color:#8a959c}
 .gh-say{margin-top:16px;font-family:var(--body);font-weight:300;font-size:clamp(15px,1.9vw,17px);line-height:1.55;
   color:#c3ccd2;min-height:3em;border-left:3px solid var(--glow-r);padding-left:16px}
+.ghwrap .gh-say{margin:18px 0 0}
+.ghwrap .gh-read{margin-top:12px}
 .cf-turnstile{margin-top:12px}
 /* ---------- join the community ---------- */
 .joinbig{background:var(--panel);color:#fff;border-radius:var(--r);padding:clamp(24px,3.6vw,36px);
@@ -1738,7 +1740,7 @@ svg.lx-m{display:none!important}
      "https://github.com/billguan1/AGI-Safety-Education"
     ]
    },
-   "image": "https://safeagi.ca/og-en-10704945.png",
+   "image": "https://safeagi.ca/og-en-0293ba50.png",
    "datePublished": "2026-09-01",
    "dateModified": "2026-09-07",
    "about": [
@@ -5662,6 +5664,7 @@ var SITE_CONFIG = {
     var ghPct = $("#gh-pct"), ghP = $("#gh-proxy"), ghR = $("#gh-real"),
         ghPB = $("#gh-proxy-bar"), ghRB = $("#gh-real-bar"),
         ghSay = $("#gh-say");
+    var LOW = ghSay ? ghSay.textContent : "";
     var SAY = [
       "Near the peak. This is the best the real goal ever gets, and nothing you are measuring tells you that you have arrived.",
       "The lines have parted. The proxy keeps climbing, so the dashboard still looks like success. The thing you wanted is now falling.",
@@ -5681,10 +5684,10 @@ var SITE_CONFIG = {
       if(ghPB) ghPB.style.width = p + "%";
       if(ghRB) ghRB.style.width = r + "%";
       if(ghSay){
-        var idx = t < 0.58 ? 0 : t < 0.85 ? 1 : 2;
+        var idx = t < 0.42 ? -1 : t < 0.58 ? 0 : t < 0.85 ? 1 : 2;
         if(ghSay.getAttribute("data-i") !== String(idx)){
           ghSay.setAttribute("data-i", String(idx));
-          ghSay.textContent = SAY[idx];
+          ghSay.textContent = idx < 0 ? LOW : SAY[idx];
         }
       }
       gh.setAttribute("aria-valuetext",
