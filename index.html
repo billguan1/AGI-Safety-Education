@@ -31,8 +31,16 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/newsreader/v26/cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBAbNJYQ5ayZC.woff2">
 <!-- Async so first paint never waits on the font host. Matters most in
      mainland China, where fonts.googleapis.com is blocked outright. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<!-- Newsreader is split out on display=optional. It sets the lede and the care
+     cards, and is the only face whose arrival moved layout; below about 700kbps
+     the preload cannot win the race to first paint, and swap then reflowed the
+     masthead by 153px. optional keeps the fallback for that one pageview instead
+     of shifting, and the file still downloads and caches, so the next visit gets
+     the real face. Archivo and IBM Plex Mono never moved layout, so they stay on
+     swap. -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500&display=optional" rel="stylesheet"></noscript>
 <style>
 /* Metric-matched fallbacks. Measured from the real font files with fontTools:
    size-adjust = target xAvgCharWidth/upem over fallback xAvgCharWidth/upem;
