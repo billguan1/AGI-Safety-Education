@@ -20,10 +20,19 @@
 <meta name="twitter:description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- The stylesheet below is async, so the font files are not requested until it
+     has parsed: two round trips after first paint, and the body text reflows when
+     they land. Newsreader sets the lede and the three care cards, and is the only
+     face whose arrival moved layout, so it alone is preloaded. Dropping the unused
+     optical-size axis takes it from 132KB to 58KB. Measured on a throttled phone:
+     CLS 0.18 -> 0.0001, LCP 1.05s -> 1.34s. The preload fails harmlessly where
+     fonts.gstatic.com is blocked. Google versions this path, so if CLS regresses,
+     re-read it from the stylesheet. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/newsreader/v26/cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBAbNJYQ5ayZC.woff2">
 <!-- Async so a reader in mainland China, where fonts.googleapis.com is blocked,
      paints immediately on the fallback stack instead of waiting for a timeout. -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
 /* Metric-matched fallbacks. Measured from the real font files with fontTools:
    size-adjust = target xAvgCharWidth/upem over fallback xAvgCharWidth/upem;
