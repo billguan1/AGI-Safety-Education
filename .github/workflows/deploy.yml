@@ -41,6 +41,9 @@ jobs:
           done
           [ -d functions ] && cp -R functions _site/functions
           if [ -d comic-site ]; then cp -R comic-site _site/comics; fi
+          # game2/ is THE WISH. Unlinked from the site on purpose; reachable only
+          # by its URL. Nothing in index.html points at it.
+          if [ -d game2 ]; then cp -R game2 _site/game2; fi
           echo "--- publishing ---"
           find _site -type f | sort
 

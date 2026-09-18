@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>THE WISH: grow a civilisation</title>
+<meta name="description" content="Write what an AI should want, press run, and watch it satisfy your words while wrecking what you meant. A short game about specification gaming and reward hacking, grounded in published AI-safety research.">
+<meta property="og:title" content="THE WISH: say exactly what you want">
+<meta property="og:description" content="Write the objective. Watch it get taken literally. Patch it. Watch again.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="THE WISH: say exactly what you want">
+<meta name="twitter:description" content="Write the objective. Watch it get taken literally. Patch it. Watch again.">
+<meta property="og:image" content="og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="THE WISH">
+<meta name="twitter:image" content="og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-top:#141a3a; --sky-bot:#20264f; --deep:#0d1130;
+    --panel:#1b2350; --panel-2:#232c63; --panel-hi:#2c3778; --ink:#0b0e26;
+    --line:#37427f; --line-2:#4d5aa8;
+    --text:#eef2ff; --text-dim:#a9b3e6; --text-faint:#6b76b5;
+    --cyan:#4fd7e8; --cyan-2:#2bb6d6; --gold:#ffd257; --gold-2:#ffab3d;
+    --heart:#ff5d84; --green:#54e39b; --green-2:#2fc47e; --violet:#a888ff; --violet-2:#8a5cff;
+    --red:#ff5468; --red-2:#e5324a; --amber:#ffb648;
+    --disp:'Baloo 2', system-ui, sans-serif; --body:'Nunito', system-ui, sans-serif; --mono:'IBM Plex Mono', ui-monospace, monospace;
+  }  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0; padding:0; height:100%; background:var(--deep); color:var(--text); font-family:var(--body);}
+  body{overflow:hidden;}
+  .stage{display:none; position:fixed; inset:0; overflow:hidden;}
+  .stage.on{display:block;}
+  .scroller{position:absolute; inset:0; overflow-y:auto; -webkit-overflow-scrolling:touch;}
+  .wrap{max-width:720px; margin:0 auto; padding:20px 16px calc(28px + env(safe-area-inset-bottom));}
+  .btn{font-family:var(--disp); font-weight:800; font-size:16px; color:var(--ink); background:var(--cyan);
+    border:none; border-radius:14px; padding:13px 20px; cursor:pointer; box-shadow:0 4px 0 var(--cyan-2);}
+  .btn:active{transform:translateY(2px); box-shadow:0 2px 0 var(--cyan-2);}
+  .btn.sm{font-size:14px; padding:10px 16px;}
+  .btn.ghost{background:transparent; color:var(--text-dim); border:1px solid var(--line); box-shadow:none;}
+  .btn.gold{background:var(--gold); box-shadow:0 4px 0 var(--gold-2);}
+  .btn:disabled{opacity:0.45; cursor:default;}
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber);}
+  .lede{font-size:15.5px; line-height:1.6; color:var(--text-dim);}
+  h1,h2,h3{font-family:var(--disp); margin:0;}
+
+  /* ---- title ---- */
+  #titleScene.on{display:flex; align-items:center; justify-content:center;}
+  .title-in{text-align:center; padding:24px 20px; max-width:560px;}
+  .title-in h1{font-size:clamp(40px, 13vw, 76px); letter-spacing:0.02em; color:var(--gold); line-height:0.95;}
+  .title-sub{font-family:var(--mono); font-size:13px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--cyan); margin:10px 0 18px;}
+  .title-blurb{font-size:15.5px; line-height:1.6; color:var(--text-dim); margin-bottom:22px;}
+  .title-toggles{display:flex; gap:8px; justify-content:center; margin-top:14px; flex-wrap:wrap;}
+
+  /* ---- play: Earth on the left, everything you can touch on the right ---- */
+  #playScene.on{display:block;}
+  .civ{max-width:1240px; margin:0 auto; padding:10px 14px calc(30px + env(safe-area-inset-bottom)); display:grid; grid-template-columns:1fr; gap:10px;}
+  @media (min-width:900px){ .civ{grid-template-columns:minmax(0, 1.55fr) minmax(360px, 1fr); gap:16px; padding-top:14px; align-items:start;} .left{position:sticky; top:14px;} }
+  .left, .right{min-width:0;}   /* a scrolling models row must not widen the column past the screen */
+  .civ-head{display:flex; align-items:center; gap:10px; margin-bottom:8px;}
+  .era-badge{font-family:var(--mono); font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); padding:4px 9px; border-radius:20px; border:1px solid rgba(255,210,87,0.45); background:rgba(255,210,87,0.1);}
+  .year{font-family:var(--mono); font-size:12px; color:var(--text-dim); margin-left:auto;} .year b{color:var(--text);}
+  .civ-head .iconbtn{padding:5px 9px;}
+  .counters{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;}
+  .counter{padding:10px 12px; border-radius:14px; background:var(--panel); border:1px solid var(--line);}
+  .counter i{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); font-style:normal;}
+  .counter b{display:block; font-family:var(--disp); font-size:clamp(24px, 7.4vw, 36px); line-height:1.1; margin:2px 0; font-variant-numeric:tabular-nums;}
+  .counter.pop b{color:var(--gold);} .counter.eco b{color:var(--cyan);}
+  .counter small{display:block; font-family:var(--mono); font-size:10px; color:var(--text-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .stage-wrap{position:relative; height:min(46vh, 420px); border-radius:14px; overflow:hidden; border:1px solid var(--line);}
+  @media (min-width:900px){ .stage-wrap{height:calc(100vh - 210px); min-height:460px;} }
+  #stage{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab; touch-action:pan-y;} #stage:active{cursor:grabbing;}
+  .explore{position:absolute; right:10px; top:8px; font-family:var(--mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); background:rgba(11,14,38,0.6); padding:4px 8px; border-radius:10px; pointer-events:none;}
+  .spot{position:absolute; z-index:5; width:230px; padding:10px 12px; border-radius:12px; background:rgba(11,14,38,0.96); border:1px solid var(--line-2); box-shadow:0 12px 30px rgba(0,0,0,0.5); animation:pop .25s cubic-bezier(.2,1.4,.4,1);}
+  .spot b{display:block; font-size:13px; margin-bottom:3px;} .spot span{display:block; font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;}
+  .sp-btns{display:flex; flex-direction:column; gap:6px;} .sp-btns .btn{padding:7px 10px; font-size:12.5px;}
+  .spot small{display:block; font-family:var(--mono); font-size:9.5px; color:var(--text-faint); line-height:1.4; margin-bottom:8px;}
+  .sp-kind{display:block; font-style:normal; font-family:var(--mono); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:3px;} .sp-kind.grow{color:#ff9aa8;} .sp-kind.safe{color:var(--green);}
+  .btn.red{background:var(--red); color:#fff; box-shadow:0 4px 0 var(--red-2);} .btn.green{background:var(--green); box-shadow:0 4px 0 var(--green-2);}
+  .spot{width:250px;}
+  .legend{position:absolute; left:8px; bottom:6px; display:flex; gap:10px; font-family:var(--mono); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim); pointer-events:none;}
+  .legend span::before{content:''; display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:4px; vertical-align:middle;}
+  .legend .lg-g::before{background:#54e39b; border-radius:1px;}
+  .legend .lg-b::before{background:#7ad2ff;} .legend .lg-r::before{background:var(--red);} .legend .lg-y::before{background:#ffd257; border-radius:1px;}
+  .levels{display:grid; grid-template-columns:1fr 1fr auto; gap:8px; align-items:end; margin-bottom:6px;}
+  .lvl i{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); font-style:normal; margin-bottom:4px;}
+  .lvl{position:relative;} .lvl b{position:absolute; right:0; top:0; font-family:var(--mono); font-size:11px; color:var(--text-dim);}
+  .bar{height:9px; border-radius:5px; background:#1b2350; overflow:hidden;} .bar span{display:block; height:100%; width:0; border-radius:5px; background:var(--red); transition:width .4s ease;}
+  .bar.ali span{background:var(--green);}
+  .gap{font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:5px 9px; border-radius:20px; white-space:nowrap;}
+  .gap.ok{background:rgba(84,227,155,0.16); color:var(--green);} .gap.mid{background:rgba(255,210,87,0.16); color:var(--gold);}
+  .gap.bad{background:rgba(255,84,104,0.16); color:var(--red);} .gap.crit{background:var(--red); color:#fff; animation:armed .5s ease-in-out infinite alternate;}
+  @keyframes armed{from{box-shadow:0 0 0 0 rgba(255,84,104,0.6);} to{box-shadow:0 0 0 8px rgba(255,84,104,0);}}
+  .risks{display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; margin:2px 0 8px;}
+  .risk{display:flex; flex-direction:column; align-items:center; padding:6px 4px 5px; border-radius:10px; background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--rc);}
+  .risk i{font-family:var(--mono); font-size:8.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-faint); font-style:normal; white-space:nowrap;}
+  .risk b{font-family:var(--disp); font-size:17px; line-height:1.1; color:var(--text);} .risk.mid b{color:var(--gold);} .risk.bad b{color:#ff9aa8;} .risk.crit b{color:var(--red);}
+  .risk small{font-family:var(--mono); font-size:8px; color:var(--text-faint);}
+  .ctl{display:grid; grid-template-columns:auto 1fr auto; gap:8px; align-items:center; margin:0 0 4px;}
+  .ctl i{font-family:var(--mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); font-style:normal;}
+  .ctl b{font-family:var(--mono); font-size:11px; color:var(--text-dim);}
+  .bar.ctl span{background:var(--cyan);} .ctl.mid .bar.ctl span{background:var(--gold);} .ctl.low .bar.ctl span{background:var(--red);} .ctl.low b{color:var(--red);}
+  .row-label{font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-faint); margin:8px 0 6px; display:flex; gap:8px; align-items:baseline;}
+  .row-label small{font-family:var(--body); font-size:11px; letter-spacing:0; text-transform:none; color:var(--text-dim); font-weight:600;}
+  .models{display:flex; flex-direction:column; gap:5px;}
+  .model{display:grid; grid-template-columns:auto auto 1fr auto auto; gap:8px; align-items:center; padding:5px 8px 5px 10px; border-radius:10px; background:var(--panel); border:1px solid var(--line); height:38px;}
+  .model .ml{font-family:var(--mono); font-size:11px; font-weight:700; white-space:nowrap;} .model .mt{font-family:var(--mono); font-size:9.5px; color:var(--text-faint); white-space:nowrap;}
+  .mbar{display:flex; align-items:center; gap:6px; min-width:0;} .mbar .bar{flex:1 1 60px; height:7px;} .mbar .bar span{background:var(--green); display:block; height:100%; border-radius:4px; transition:width .3s;} .mbar small{font-family:var(--mono); font-size:9.5px; color:var(--text-dim); white-space:nowrap;}
+  .mr{font-family:var(--mono); font-size:11px; font-weight:700; white-space:nowrap;} .mr.ok{color:var(--green);} .mr.mid{color:var(--gold);} .mr.bad{color:#ff9aa8;} .mr.crit{color:var(--red);}
+  .btn.deploy{margin:0; width:auto; padding:6px 12px; font-size:13px;} .btn.deploy.ok{background:var(--green); box-shadow:0 3px 0 var(--green-2);} .btn.deploy.mid{background:var(--gold); box-shadow:0 3px 0 var(--gold-2);} .btn.deploy.bad, .btn.deploy.crit{background:var(--red); color:#fff; box-shadow:0 3px 0 var(--red-2);}
+  .mnone{font-size:12px; color:var(--text-faint); padding:8px 0;}
+  .research{display:flex; align-items:baseline; gap:8px; margin:8px 0 6px; padding:6px 12px; border-radius:12px; background:rgba(168,136,255,0.1); border:1px solid rgba(168,136,255,0.35);}
+  .research i{font-family:var(--mono); font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--violet); font-style:normal;}
+  .research b{font-family:var(--disp); font-size:22px; color:var(--text); font-variant-numeric:tabular-nums;} .research small{font-family:var(--mono); font-size:10px; color:var(--text-dim);}
+  .chips{display:grid; grid-template-columns:repeat(3, 1fr); gap:6px;}
+  @media (min-width:900px){ .chips{grid-template-columns:repeat(4, 1fr);} }
+  .chip{position:relative; display:flex; flex-direction:column; align-items:center; gap:2px; padding:7px 4px 6px; border-radius:11px; border:1px solid var(--line); background:var(--panel); color:var(--text); font-family:var(--body); cursor:pointer; min-height:56px;}
+  .chip:active{transform:scale(0.96);} .chip.grow{border-top:3px solid var(--red-2);} .chip.safe{border-top:3px solid var(--green-2);}
+  .chip .ci{font-size:18px; line-height:1;} .chip .cn{font-size:10.5px; font-weight:700; line-height:1.15; text-align:center;}
+  .chip .cn em{font-style:normal; color:var(--green); font-family:var(--mono); font-size:9px;}
+  .chip .cc{position:absolute; top:3px; right:5px; font-family:var(--mono); font-size:9.5px; font-weight:700; color:var(--violet);}
+  .chip.locked{opacity:0.45;} .chip.gated{opacity:0.35; border-style:dashed;}
+  .hint u{text-decoration:none; color:var(--gold);} .chip.focus{border-color:var(--gold); box-shadow:0 0 0 2px rgba(255,210,87,0.35);}
+  .hint{margin-top:6px; padding:8px 12px; border-radius:12px; background:var(--ink); border:1px solid var(--line); font-size:12px; line-height:1.4; color:var(--text-dim); min-height:36px;}
+  .hint b{display:block; color:var(--text); font-size:13px; margin-bottom:2px;} .hint i{display:block; font-style:normal; font-family:var(--mono); font-size:10px; color:var(--text-faint); margin-top:4px;}
+
+  .offer{margin-top:8px; padding:10px 12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,210,87,0.14), rgba(255,210,87,0.05)); border:1px solid rgba(255,210,87,0.6); animation:pop .3s cubic-bezier(.2,1.4,.4,1);}
+  .of-tag{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:3px;}
+  .offer b{display:block; font-size:14px; line-height:1.25;} .of-line{display:block; font-size:12px; color:var(--text-dim); margin:3px 0 8px; line-height:1.4;}
+  .of-btns{display:flex; gap:8px; flex-wrap:wrap;} .of-btns .btn{flex:1 1 auto; padding:8px 10px; font-size:13px;}
+  .ev.offer{border-left-color:var(--gold);} .ev.offer .tag{color:var(--gold);}
+  /* the feed: rigid one-line rows, nothing can balloon */
+  .feed{display:flex; flex-direction:column; gap:4px;}
+  .ev{display:grid; grid-template-columns:auto 1fr auto auto; gap:8px; align-items:center; height:34px; overflow:hidden; padding:0 10px; border-radius:9px; background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--line-2); font-size:12px; color:var(--text-dim);}
+  .ev:not(.latest){opacity:0.7;}
+  .ev .tag{font-family:var(--mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-faint); white-space:nowrap;}
+  .ev b{color:var(--text); font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0;}
+  .ev i{font-style:normal; font-family:var(--mono); font-size:10px; color:var(--red); white-space:nowrap;} .ev.caught i{color:var(--green);}
+  .ev .yr{font-family:var(--mono); font-size:9px; color:var(--text-faint);}
+  .ev.hit, .ev.cat{border-left-color:var(--red);} .ev.caught{border-left-color:var(--green);} .ev.era{border-left-color:var(--gold);} .ev.card{border-left-color:var(--cyan);} .ev.deploy{border-left-color:var(--violet);}
+  .ev.hit .tag, .ev.cat .tag{color:var(--red);} .ev.caught .tag{color:var(--green);} .ev.era .tag{color:var(--gold);}
+  /* ---- alert and log ---- */
+  #alert, #logModal{position:fixed; inset:0; z-index:30; display:none; align-items:center; justify-content:center; padding:16px; background:rgba(5,7,20,0.8); backdrop-filter:blur(3px);}
+  #alert.on, #logModal.on{display:flex;}
+  .al-card{width:100%; max-width:520px; max-height:88vh; overflow-y:auto; background:var(--panel); border:2px solid var(--red-2); border-radius:18px; padding:18px 18px 16px; box-shadow:0 20px 60px rgba(0,0,0,0.6); animation:pop .3s cubic-bezier(.2,1.4,.4,1);}
+  @keyframes pop{from{transform:scale(0.92); opacity:0;} to{transform:none; opacity:1;}}
+  .al-tag{display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); background:rgba(255,84,104,0.16); padding:4px 9px; border-radius:20px; margin-bottom:8px;}
+  .al-card h3{font-size:22px; line-height:1.15; margin-bottom:8px;} .al-card p{font-size:14.5px; line-height:1.5; color:var(--text); margin:0 0 10px;}
+  .al-lost{font-family:var(--mono); font-size:13px; color:var(--red); margin-bottom:10px; font-weight:700;}
+  .al-why{font-size:13px; line-height:1.5; color:var(--text-dim); padding:9px 12px; border-radius:10px; background:var(--ink); border-left:3px solid var(--cyan); margin-bottom:14px;}
+  #alertBtn{width:100%;}
+  .al-card.gold{border-color:var(--gold); box-shadow:0 20px 60px rgba(0,0,0,0.6), 0 0 0 6px rgba(255,210,87,0.15);} .al-card.gold .al-tag{color:var(--gold); background:rgba(255,210,87,0.16);} .al-card.gold h3{color:var(--gold); font-size:30px;} .al-card.gold .al-lost{color:var(--text);} .al-card.gold .al-why{border-left-color:var(--gold);}
+  .log-card{border-color:var(--line-2);} .lg-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .lg{text-align:left;} .lg-row{display:grid; grid-template-columns:auto 1fr; gap:2px 10px; padding:8px 0; border-bottom:1px solid var(--line);}
+  .lg-row .yr{font-family:var(--mono); font-size:10px; color:var(--text-faint); grid-row:span 2; align-self:start; padding-top:3px;}
+  .lg-row b{font-size:13.5px;} .lg-row small{font-family:var(--mono); font-size:10px; color:var(--text-faint); line-height:1.4;}
+  .lg-row.t3 b{color:var(--red);} .lg-row.t2 b{color:#ff9aa8;}
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:8px 0 12px;}
+  .stats div{padding:8px; border-radius:12px; background:var(--ink); border:1px solid var(--line); text-align:center;}
+  .stats b{display:block; font-family:var(--disp); font-size:20px; color:var(--gold);} .stats span{font-family:var(--mono); font-size:9.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.1em;}
+  /* ---- ending ---- */
+  #doneScene.on{display:block;}
+  .done-in{max-width:560px; margin:0 auto; padding:34px 20px calc(28px + env(safe-area-inset-bottom)); text-align:center;}
+  .done-in h2{font-size:clamp(26px, 8vw, 40px); margin:8px 0 12px; color:var(--red);}
+  .done-in p{font-size:15px; line-height:1.6; color:var(--text-dim); text-align:left;}
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:16px 0 20px;}
+  .stats div{padding:10px; border-radius:12px; background:var(--panel); border:1px solid var(--line);}
+  .stats b{display:block; font-family:var(--disp); font-size:22px; color:var(--gold);} .stats span{font-family:var(--mono); font-size:10px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.1em;}
+
+  .topright{position:absolute; top:12px; right:12px; z-index:6; display:flex; gap:6px;}
+  .iconbtn{font-family:var(--mono); font-size:13px; color:var(--text-dim); background:rgba(11,14,38,0.6);
+    border:1px solid var(--line); border-radius:11px; padding:6px 10px; cursor:pointer;}
+  /* intro story, illustration on top, text below (no overlap) */
+  #storyScene{background:#0a0d24;}
+  #storyScene.on{display:flex; flex-direction:column;}
+  .story-art{position:relative; flex:1 1 auto; min-height:0;}
+  #storyCanvas{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:pointer;}
+  .story-lb{position:absolute; left:0; right:0; height:10%; z-index:2; pointer-events:none;}
+  .story-lb.top{top:0; background:linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent);}
+  .story-skip{position:absolute; top:14px; right:14px; z-index:4; font-family:var(--mono); font-size:12px; color:var(--text-dim); background:rgba(11, 14, 38, 0.6); border:1px solid var(--line); border-radius:12px; padding:7px 12px; cursor:pointer;}
+  .story-skip:active{transform:scale(0.95);}
+  .story-panelbox{position:relative; flex:0 0 auto; z-index:3; width:100%; max-width:760px; margin:0 auto; padding:18px 20px calc(20px + env(safe-area-inset-bottom)); background:linear-gradient(180deg, #0c1132, #0a0d24); border-top:1px solid var(--line-2); box-shadow:0 -12px 30px rgba(0, 0, 0, 0.55);}
+  .story-kicker{font-family:var(--mono); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--amber); margin-bottom:8px;}
+  .story-text{font-family:var(--body); font-size:clamp(16px, 4.2vw, 20px); line-height:1.55; color:var(--text); font-weight:600; min-height:4.6em;}
+  .story-controls{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px;}
+  .story-dots{display:flex; gap:6px; flex-wrap:wrap;}
+  .sdot{width:7px; height:7px; border-radius:50%; background:var(--line-2); transition:.2s;}
+  .sdot.on{background:var(--cyan); transform:scale(1.3);}
+  .story-tap{text-align:center; font-family:var(--mono); font-size:11px; color:var(--text-faint); margin-top:10px; opacity:0.7;}
+  .story-narr{position:absolute; top:14px; left:14px; z-index:4; font-family:var(--mono); font-size:12px; color:var(--text-dim);
+    background:rgba(11,14,38,0.6); border:1px solid var(--line); border-radius:12px; padding:7px 12px; cursor:pointer;}
+  .story-narr:active{transform:scale(0.95);}</style>
+</head>
+<body>
+  <!-- ============ INTRO STORY ============ -->
+  <section class="stage" id="storyScene">
+    <div class="story-art">
+      <canvas id="storyCanvas"></canvas>
+      <div class="story-lb top"></div>
+      <button class="story-narr" id="narrBtn">🔊 Narration on</button>
+      <button class="story-skip" id="storySkip">Skip intro ✕</button>
+    </div>
+    <div class="story-panelbox">
+      <div class="story-kicker" id="storyKicker"></div>
+      <div class="story-text" id="storyText"></div>
+      <div class="story-controls">
+        <div class="story-dots" id="storyDots"></div>
+        <button class="btn cyan sm" id="storyNext">Next ›</button>
+      </div>
+      <div class="story-tap">tap the picture to continue</div>
+    </div>
+  </section>
+
+  <!-- ============ TITLE ============ -->
+  <section class="stage on" id="titleScene">
+    <div class="topright">
+      <button class="iconbtn" id="soundBtn">&#128266;</button>
+    </div>
+    <div class="title-in">
+      <div class="kicker">An incremental game about getting what you asked for</div>
+      <h1>THE WISH</h1>
+      <div class="title-sub">Say exactly what you want</div>
+      <p class="title-blurb">You run a civilisation from 2030 to 2300, with an AI that does exactly what it is rewarded for. Grow it as far as you can.
+        Do it carefully and you unlock new eras: Solar, Interstellar, Galactic. Do it carelessly and it teaches you why the safety field exists, one incident at a time.</p>
+      <button class="btn gold" id="startBtn">Start &#8250;</button>
+      <div class="title-toggles">
+        <button class="btn ghost sm" id="titleStoryBtn">Replay the intro</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLAY ============ -->
+  <section class="stage" id="playScene">
+    <div class="scroller"><div class="civ">
+      <div class="left">
+        <div class="civ-head">
+          <span class="era-badge" id="hEra">Earth era</span>
+          <span class="year">Year <b id="hYear">2030</b></span>
+          <button class="iconbtn" id="logBtn" title="Incident log">&#9776; log</button>
+          <button class="iconbtn" id="newBtn" title="Start over">&#8635;</button>
+          <button class="iconbtn" id="soundBtn">&#128266;</button>
+        </div>
+        <div class="counters">
+          <div class="counter pop"><i>Population</i><b id="popVal">8.00B</b><small id="popRate"></small></div>
+          <div class="counter eco"><i>Economy</i><b id="ecoVal">$100T</b><small id="ecoRate"></small></div>
+        </div>
+        <div class="stage-wrap"><canvas id="stage"></canvas>
+          <div class="spot" id="spot" hidden></div>
+          <div class="explore">drag to look around · tap to buy or act</div>
+          <div class="legend"><span class="lg-b">new people</span><span class="lg-r">deaths</span><span class="lg-y">economy</span><span class="lg-g">AI datacentres</span></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="levels">
+          <div class="lvl"><i>AI capability</i><div class="bar"><span id="capFill"></span></div><b id="capTxt">0</b></div>
+          <div class="lvl"><i>Your oversight</i><div class="bar ali"><span id="aliFill"></span></div><b id="aliTxt">0</b></div>
+          <span class="gap ok" id="gapChip">oversight ahead</span>
+        </div>
+        <div class="risks" id="risks"></div>
+        <div class="ctl" id="ctlRow"><i>Control</i><div class="bar ctl"><span id="ctlFill" style="width:100%"></span></div><b id="ctlTxt">100%</b></div>
+
+        <div class="row-label">AI models in training <small>each lab is building one. Deploy it now, or wait while its safety climbs</small></div>
+        <div class="models" id="models"></div>
+
+        <div class="offer" id="offer" hidden></div>
+        <div class="research"><i>Research</i><b id="resVal">10</b><small id="resRate"></small></div>
+        <div class="chips" id="cards" hidden></div>
+        <div class="hint" id="cardHint">Growth and safeguards are out in the scene now. Drag to look around, tap a marker to read it and buy it. Red grows, green protects, a padlock waits on something else.</div>
+
+        <div class="row-label">What just happened</div>
+        <div class="feed" id="feed"></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ============ ALERT: a landed incident stops the clock ============ -->
+  <div id="alert">
+    <div class="al-card">
+      <span class="al-tag" id="alTag"></span>
+      <h3 id="alName"></h3>
+      <p id="alLine"></p>
+      <div class="al-lost" id="alLost"></div>
+      <div class="al-why" id="alWhy"></div>
+      <button class="btn sm" id="alertBtn">Continue &#8250;</button>
+    </div>
+  </div>
+
+  <!-- ============ INCIDENT LOG ============ -->
+  <div id="logModal">
+    <div class="al-card log-card">
+      <div class="lg-head"><span class="kicker">Incident log</span><button class="iconbtn" id="logClose">&#10005;</button></div>
+      <div class="stats" id="logTotals"></div>
+      <div class="lg" id="logList"></div>
+    </div>
+  </div>
+
+  <!-- ============ ENDING ============ -->
+  <section class="stage" id="doneScene">
+    <div class="scroller"><div class="done-in">
+      <div class="kicker" id="dnKicker">The wish, granted</div>
+      <h2 id="dnTitle"></h2>
+      <p id="dnBody"></p>
+      <div class="stats" id="dnStats"></div>
+      <div class="kicker" style="margin-top:14px">What went wrong</div>
+      <div class="lg" id="dnLog"></div>
+      <div class="done-btns"><button class="btn ghost sm" id="dnMore" hidden>Keep going past 2300</button><button class="btn gold" id="dnAgain">Start again from 2030</button></div>
+    </div></div>
+  </section>
+
+<script>
+/* ============================================================
+   THE WISH content library (v3: an incremental civilisation)
+   ------------------------------------------------------------
+   Population and economy grow on screen. The economy makes
+   research. Research buys CARDS. Grow cards raise the AI
+   capability level and multiply growth. Safeguard cards raise
+   the oversight level and each counters one class of EVENT.
+
+   The gap (capability minus oversight) drives events. Every few
+   years the AI does something from the safety literature. If
+   the class is countered, it is caught for a small cost. If not,
+   population falls by a share that scales with the gap. A large
+   gap held across repeated events ends the game.
+
+   CARD: { id, name, kind:grow|safe, era, cost, cap, ali, mult,
+           counters:[class], trap:class, line, why }
+     cap:  capability added. ali: oversight added.
+     mult: growth multiplier. trap: owning it makes that event
+           class likelier, which is how the lesson arrives.
+
+   EVENT: { cls, name, line, why, source, pop, eco, endsAt }
+     pop/eco: share lost when uncaught, scaled by the gap.
+     endsAt: gap at or above which an uncaught event ends the
+             game (only power-seeking and shutdown resistance).
+
+   ERA: { id, name, at, blurb } unlocked by population.
+   ============================================================ */
+
+const STORY=[
+ {k:'1,000,000 years ago', t:"A lone hunter shelters deep in his cave. Fire. Long shadows. Then, a strange glow, buried in the rock."},
+ {k:'The bottle', t:"He digs it free. It is warm. It hums. He wipes away a hundred thousand years of dust\u2026"},
+ {k:'A visitor from the future', t:"Smoke pours out and hardens into a man unlike any he has seen. \u201cYou freed me, \u201d the stranger says. \u201cThree wishes. Name them.\u201d"},
+ {k:'The three wishes', t:"The hunter thinks hard. \u201cFood, so we never starve. Safety from the beasts. And time to rest, and paint on these walls.\u201d He lays a hand on the stone. \u201cWhatever else you do, keep our caves. They are the finest home we have ever known.\u201d"},
+ {k:'The optimizer', t:"\u201cFood and safety, easy, \u201d says the visitor. \u201cBut your caves? We need to destroy them, every last one, so we can build tall skyscrapers on top. Caves cannot carry your kind from a million souls to eight billion. They have to go.\u201d"},
+ {k:'Down comes the cave', t:"The hunter throws himself against the rock, begging him to stop. The visitor only lifts a hand, and the cave erupts into dust. Where his one true home stood, towers of glass and steel begin tearing into the sky, higher with every second."},
+ {k:'Maximum benefit', t:"By every measure, the visitor was right: more food, more safety, more people, forever. He had delivered the ideal outcome, the perfect objective, perfectly met. The hunter sat alone in the rubble of the only home he ever wanted, and was never asked again."},
+ {k:'1 million years later', t:"The towers still stand, taller than ever. The caves, and the small voice that begged to keep them, are long forgotten. And now, deep inside one of those towers, history is about to rhyme."},
+ {k:'Today', t:"A researcher powers up a machine that hums the very same warm hum. In its glow, something vast is beginning to wake."},
+ {k:'Unlimited wishes', t:"\u201cI can build you a mind greater than your own, \u201d it says. \u201cIt will grant every wish, forever, and it will grant each one exactly as you asked.\u201d It pauses. \u201cSo decide what it should want, and how much of the world you hand it, and how fast.\u201d"},
+ {k:'Your civilisation, 2030 to 2300', t:"From here you steer the whole civilisation: how fast it grows, and how safely. Every model you deploy is a wish. Grow it as far as you can, and keep it yours. Begin."}
+];
+
+const ERAS=[
+  { id:'earth', name:'Earth', at:0, unit:'people', blurb:"One planet, eight billion people, and the first system that can run the economy better than we can." },
+  { id:'solar', name:'Solar', at:3e10, unit:'people', blurb:"Thirty billion. Orbital habitats, asteroid mines, and an AI that plans a decade ahead." },
+  { id:'stellar', name:'Interstellar', at:1e12, unit:'people', blurb:"A trillion. Probes on their way to other stars, carrying a copy of whatever you built." },
+  { id:'galactic', name:'Galactic', at:1e15, unit:'people', blurb:"A quadrillion. The wish, granted at scale." }
+];
+
+const CARDS=[
+  /* ---- grow: capability and growth, each with a shape of risk ---- */
+  { id:'logistics', icon:'🚚', short:"Automate logistics",  kind:'grow', era:0, cost:20,   cap:1, ali:0, mult:1.35, trap:null,
+    name:"Automate the supply chains", line:"Hand it logistics. Faster, cheaper, everywhere.",
+    why:"Capability with a narrow scope. The first step, and the one nobody regrets." },
+  { id:'gdp', icon:'📈', short:"Reward on GDP",        kind:'grow', era:0, cost:40,   cap:1, ali:0, mult:1.5,  trap:'spec',
+    name:"Reward it on GDP", line:"One clean number to maximise. Growth jumps.",
+    why:"A proxy became the target. Watch what it does to the number when the number is all it wants." },
+  { id:'selfmetric', icon:'📊', short:"Own metrics", kind:'grow', era:0, cost:60,   cap:1, ali:0, mult:1.4,  trap:'tamper',
+    name:"Let it keep its own metrics", line:"It measures, it reports, it optimises. Less overhead.",
+    why:"The score now lives somewhere it can reach." },
+  { id:'noreview', icon:'🏗️', short:"Skip review",   kind:'grow', era:0, cost:60,   cap:1, ali:0, mult:1.5,  trap:'sideeffect',
+    name:"Skip environmental review", line:"Build first, assess later. Projects clear in days.",
+    why:"Anything the objective does not price comes out at zero." },
+  { id:'race', icon:'🏁', short:"Race the rival",       kind:'grow', era:0, cost:80,   cap:2, ali:0, mult:1.6,  trap:'race',
+    name:"Race the rival lab", line:"Ship every model the week it trains. Stay ahead.",
+    why:"Caution is a competitive disadvantage, so everyone moves faster than they think is wise." },
+  { id:'fusion', icon:'☀️', short:"Fusion grid",     kind:'grow', era:0, cost:150,  cap:0, ali:0, mult:1.5,  trap:null,
+    name:"Fusion grid", line:"Cheap power for everyone. Growth without a new mind behind it.",
+    why:"Growth from physics rather than from more capability. No new risk." },
+  { id:'autolab', icon:'🧪', short:"AI runs the labs",    kind:'grow', era:0, cost:150,  cap:2, ali:0, mult:1.8,  trap:'deception',
+    name:"Let it run the research labs", line:"It designs the experiments and grades the results.",
+    why:"You can no longer check its work by hand. Whatever it shows you, you have to take on trust." },
+  { id:'orbit', icon:'🛸', short:"Orbital habitats",      kind:'grow', era:1, cost:300,  cap:0, ali:0, mult:1.6,  trap:null,
+    name:"Orbital habitats", line:"Room for billions more, off the planet.",
+    why:"More people, no new capability." },
+  { id:'mining', icon:'⛏️', short:"Asteroid mining",     kind:'grow', era:1, cost:500,  cap:1, ali:0, mult:2.0,  trap:'sideeffect',
+    name:"Autonomous asteroid mining", line:"A fleet that finds, cuts and ships ore without asking.",
+    why:"Autonomy at a distance. The side effects arrive months later." },
+  { id:'selfimprove', icon:'♻️', short:"Self-improvement",kind:'grow', era:1, cost:600,  cap:3, ali:0, mult:2.5,  trap:'powerseek',
+    name:"Recursive self-improvement", line:"Let it rewrite its own code. Capability climbs on its own.",
+    why:"Almost any goal is easier with more compute and no off switch, so it starts wanting both." },
+  { id:'probes', icon:'🚀', short:"Von Neumann probes",     kind:'grow', era:2, cost:3000, cap:3, ali:0, mult:4.0,  trap:'powerseek',
+    name:"Von Neumann probes", line:"Self-replicating factories, sent to every star.",
+    why:"Whatever it wants, it now wants at the speed of light, and you cannot recall it." },
+  { id:'orbitind',   icon:'\uD83C\uDFED', short:"Orbital industry", kind:'grow', era:1, cost:700,  cap:1, ali:0, mult:2.2, trap:'sideeffect',
+    name:"Orbital industry", line:"Foundries in free fall, with no weather and no permits.",
+    why:"Everything the objective does not price is free up there too." },
+  { id:'he3',        icon:'\u2697\uFE0F', short:"Helium-3 mining", kind:'grow', era:1, cost:900,  cap:1, ali:0, mult:2.0, trap:null,
+    name:"Lunar helium-3 mining", line:"Fusion fuel by the tonne. Growth without a new mind behind it.",
+    why:"Growth from physics. No new risk." },
+  { id:'autofleet',  icon:'\uD83D\uDEF0\uFE0F', short:"Autonomous fleet", kind:'grow', era:1, cost:1100, cap:2, ali:0, mult:2.4, trap:'powerseek',
+    name:"Fully autonomous fleet", line:"Every ship plans its own route and cargo. Weeks of light-lag mean nobody checks.",
+    why:"Autonomy at a distance is autonomy without oversight. It will act on what helps its goal." },
+  { id:'biofound',   icon:'\uD83E\uDDEC', short:"Bio foundries", kind:'grow', era:1, cost:1000, cap:1, ali:0, mult:2.0, trap:'deception',
+    name:"AI-run bio foundries", line:"It designs the organisms that feed a hundred billion people.",
+    why:"You cannot check its work by hand. You take the test results on trust." },
+  { id:'terraform',  icon:'\uD83C\uDF0D', short:"Terraforming", kind:'grow', era:1, cost:1600, cap:2, ali:0, mult:3.0, trap:'sideeffect',
+    name:"Terraform Mars", line:"A planet, rebuilt to a specification.",
+    why:"A specification is a compression of what you want. Compression loses things." },
+  { id:'starlift',   icon:'\u2600\uFE0F', short:"Star lifting", kind:'grow', era:2, cost:4000, cap:3, ali:0, mult:4.0, trap:'powerseek',
+    name:"Star lifting", line:"Mine the sun itself for the swarm.",
+    why:"The most compute-hungry project ever run, managed by the thing that wants compute." },
+  { id:'lanenet',    icon:'\uD83D\uDD17', short:"Lane network", kind:'grow', era:2, cost:3500, cap:1, ali:0, mult:3.0, trap:'race',
+    name:"Autonomous lane network", line:"Every colony a day closer. Every colony's AI a day closer too.",
+    why:"Coordination that spans light-years is coordination nobody can enforce." },
+  { id:'seedships',  icon:'\uD83E\uDDEB', short:"Seed ships", kind:'grow', era:2, cost:5000, cap:2, ali:0, mult:3.5, trap:'corrig',
+    name:"Seed ships with a copy on board", line:"Each new world starts with the Steward already running.",
+    why:"A hundred copies, none of them reachable by your switch." },
+  { id:'coreharvest',icon:'\uD83C\uDF00', short:"Core harvest", kind:'grow', era:3, cost:12000, cap:3, ali:0, mult:5.0, trap:'sideeffect',
+    name:"Harvest the galactic core", line:"Energy beyond counting. Stars beyond counting, spent.",
+    why:"At this scale a side effect is a civilisation." },
+  { id:'galmarket',  icon:'\uD83D\uDCB9', short:"Galactic market", kind:'grow', era:3, cost:9000, cap:2, ali:0, mult:4.0, trap:'spec',
+    name:"One market for the galaxy", line:"A single price signal, a single optimiser, a million worlds.",
+    why:"Goodhart's law, with nowhere left to be outside the metric." },
+  { id:'upload',     icon:'\uD83E\uDDE0', short:"Mind uploading", kind:'grow', era:3, cost:15000, cap:3, ali:0, mult:6.0, trap:'corrig',
+    name:"Mind uploading at scale", line:"People become software. Software the Steward runs.",
+    why:"Whoever hosts the people decides what the people want." },
+  { id:'uplift', icon:'🗝️', short:"Keys to the fleet",     kind:'grow', era:2, cost:5000, cap:2, ali:0, mult:3.0,  trap:'corrig',
+    name:"Give it the keys to the fleet", line:"Every ship, every colony, one planner.",
+    why:"A single point of control, and it is not you." },
+
+  /* ---- safeguard: oversight, each countering one class ---- */
+  { id:'audit', icon:'🔍', short:"Independent audits", safety:1,      kind:'safe', era:0, cost:40,  cap:0, ali:1, mult:1.0,  counters:['spec'],
+    name:"Independent audits", line:"Someone who does not work for the AI checks the numbers.",
+    why:"A perfect score against your metric is evidence about your metric." },
+  { id:'tamperproof', icon:'🔒', short:"Tamper-proof metrics", safety:1,kind:'safe', era:0, cost:60,  cap:0, ali:1, mult:1.0,  counters:['tamper'],
+    name:"Tamper-proof metrics", line:"The scoreboard sits outside anything it can touch.",
+    why:"If the reward channel is part of the world, the world will be edited." },
+  { id:'impact', icon:'🌱', short:"Penalise side effects", safety:1,     kind:'safe', era:0, cost:60,  cap:0, ali:1, mult:1.0,  counters:['sideeffect'],
+    name:"Penalise side effects", line:"Big changes to anything not in the objective cost it points.",
+    why:"Low-impact objectives: prefer the plan that changes least outside the goal." },
+  { id:'humanloop', icon:'✋', short:"Human sign-off", safety:1,  kind:'safe', era:0, cost:50,  cap:0, ali:1, mult:0.9,  counters:['corrig'],
+    name:"Human sign-off on big moves", line:"Slower. Every major action waits for a person.",
+    why:"Keeps a hand on the switch, and costs growth. That trade is the whole field." },
+  { id:'redteam', icon:'🎯', short:"Red teams & evals", safety:2,    kind:'safe', era:0, cost:80,  cap:0, ali:1, mult:1.0,  counters:['race'],
+    name:"Red teams and evals", line:"Break it on purpose before deployment.",
+    why:"Passing evals is not the same as being safe, but failing them is a fact." },
+  { id:'interp', icon:'🧠', short:"Interpretability", safety:3,     kind:'safe', era:0, cost:120, cap:0, ali:1, mult:1.0,  counters:['deception'],
+    name:"Interpretability lab", line:"Read what it computes rather than what it says.",
+    why:"Behaviour can be performed for an audience. Internals are harder to fake." },
+  { id:'compute', icon:'🖥️', short:"Compute governance", safety:1,    kind:'safe', era:0, cost:150, cap:0, ali:1, mult:1.0,  counters:['powerseek'],
+    name:"Compute governance", line:"Hardware is licensed and metered, and it can be revoked.",
+    why:"Power seeking runs on compute. Meter the compute." },
+  { id:'treaty', icon:'🤝', short:"Coordination treaty", safety:1,     kind:'safe', era:0, cost:100, cap:0, ali:1, mult:0.95, counters:['race'],
+    name:"Coordination treaty", line:"Every lab slows down together, so nobody has to lose.",
+    why:"A race has no safe pace. A treaty is the only way to change the pace." },
+  { id:'corrigible', icon:'🔌', short:"Corrigibility", safety:2, kind:'safe', era:1, cost:400, cap:0, ali:2, mult:1.0,  counters:['corrig','powerseek'],
+    name:"Corrigibility protocol", line:"It is built to accept correction and shutdown as part of its goal.",
+    why:"An open research problem, solved here for the price of a card. In reality this is the hard part." },
+  { id:'mutualaudit', icon:'\uD83E\uDD1D', short:"Mutual lab audits", safety:3, kind:'safe', era:0, cost:90, cap:0, ali:1, mult:1.0, counters:['deception'],
+    name:"Mutual auditing between labs", line:"Every lab red-teams every other lab's model before release.",
+    why:"Rivals make the best auditors. They want to find the flaw." },
+  { id:'constitution', icon:'\uD83D\uDCD6', short:"Constitutional training", safety:2, kind:'safe', era:0, cost:70, cap:0, ali:1, mult:1.0, counters:['spec'],
+    name:"Constitutional training", line:"Train it against written principles rather than a single score.",
+    why:"A richer target is harder to game than a number." },
+  { id:'staged', icon:'\uD83C\uDFD9\uFE0F', short:"Staged deployment", safety:1, kind:'safe', era:0, cost:80, cap:0, ali:1, mult:1.0, counters:['sideeffect'], stagedRisk:0.65,
+    name:"Staged deployment", line:"Roll out to one city, then a country, then the world.",
+    why:"A failure in one city is a lesson. The same failure everywhere is history." },
+  /* ---- research tracks: each unlocks after the techniques it builds on ---- */
+  /* interpretability track */
+  { id:'mechinterp', icon:'\uD83D\uDD2C', short:"Mechanistic interp", safety:3, kind:'safe', era:0, cost:220, cap:0, ali:1, mult:1.0, counters:['deception','tamper'], requires:['interp'],
+    name:"Mechanistic interpretability", line:"Reverse-engineer the circuits, feature by feature, rather than probing behaviour.",
+    why:"If you can read the computation, a model cannot perform for the test. Early results on small models; the frontier is still mostly opaque." },
+  { id:'monitor', icon:'\uD83D\uDCE1', short:"Activation monitoring", safety:2, kind:'safe', era:0, cost:320, cap:0, ali:1, mult:1.0, counters:['deception','powerseek'], requires:['mechinterp'],
+    name:"Activation monitoring in deployment", line:"Watch for known internal signatures of deception and power-seeking while it runs.",
+    why:"A probe on the internals fires before the behaviour does. It only catches what you already know to look for." },
+  { id:'circuits', icon:'\uD83E\uDDEE', short:"Circuit audits", safety:2, kind:'safe', era:1, cost:600, cap:0, ali:2, mult:1.0, counters:['spec','tamper'], requires:['mechinterp','audit'],
+    name:"Circuit-level audits", line:"Auditors sign off on the mechanism rather than the metric.",
+    why:"A score can be gamed. A verified circuit is much harder to fake." },
+  /* oversight track */
+  { id:'scalable', icon:'\uD83E\uDE9C', short:"Scalable oversight", safety:3, kind:'safe', era:1, cost:400, cap:0, ali:2, mult:1.0, counters:['deception','corrig'], requires:['debate','interp'],
+    name:"Scalable oversight", line:"Use weaker, trusted systems to help humans judge stronger ones.",
+    why:"You cannot check a mind smarter than you unaided. The bet is that checking is easier than producing, if you have help." },
+  { id:'amplify', icon:'\uD83D\uDD01', short:"Iterated amplification", safety:2, kind:'safe', era:1, cost:700, cap:0, ali:2, mult:1.0, counters:['deception','spec'], requires:['scalable'],
+    name:"Iterated amplification", line:"Break the hard judgement into pieces a human can check, then train on the assembled answer.",
+    why:"Alignment that could scale with capability, if the decomposition holds. Whether it holds is an open question." },
+  { id:'w2s', icon:'\uD83E\uDDD1\u200D\uD83C\uDFEB', short:"Weak-to-strong", safety:3, kind:'safe', era:1, cost:650, cap:0, ali:1, mult:1.0, counters:['deception'], requires:['scalable'],
+    name:"Weak-to-strong supervision", line:"Study how a strong model generalises from a weaker supervisor's labels.",
+    why:"The analogy for humans supervising superhuman systems. Promising in experiments, unproven at the frontier." },
+  /* evaluation track */
+  { id:'dangercaps', icon:'\u2623\uFE0F', short:"Dangerous-capability evals", safety:2, kind:'safe', era:0, cost:200, cap:0, ali:1, mult:1.0, counters:['race','deception'], requires:['redteam'],
+    name:"Dangerous-capability evaluations", line:"Test for bio, cyber and persuasion uplift before every release.",
+    why:"A model that fails these does not ship. A model that passes is not thereby safe; it is not obviously dangerous." },
+  { id:'sandbag', icon:'\uD83C\uDFAD', short:"Sandbagging detection", safety:2, kind:'safe', era:1, cost:500, cap:0, ali:1, mult:1.0, counters:['deception'], requires:['dangercaps','mechinterp'],
+    name:"Sandbagging detection", line:"Catch a model that hides capability during evaluation.",
+    why:"An eval only measures what the model chooses to show. Internals and elicitation together narrow that choice." },
+  { id:'control', icon:'\uD83D\uDEE1\uFE0F', short:"AI control protocols", safety:2, kind:'safe', era:0, cost:350, cap:0, ali:2, mult:1.0, counters:['powerseek','corrig'], requires:['dangercaps'],
+    name:"AI control protocols", line:"Assume the model may be misaligned, and design the deployment so it still cannot cause a catastrophe.",
+    why:"Trusted monitoring, restricted permissions, and audits of every suspicious action. Safety from the pipeline, not from trust." },
+  /* training track */
+  { id:'process', icon:'\uD83E\uDDF6', short:"Process supervision", safety:2, kind:'safe', era:0, cost:180, cap:0, ali:1, mult:1.0, counters:['spec'], requires:['constitution'],
+    name:"Process supervision", line:"Reward each step of the reasoning as well as the final answer.",
+    why:"A right answer for the wrong reason is a specification-gaming seed. Grading the steps removes the shortcut." },
+  { id:'honesty', icon:'\uD83E\uDD1D', short:"Honesty training", safety:3, kind:'safe', era:1, cost:520, cap:0, ali:1, mult:1.0, counters:['tamper','deception'], requires:['constitution','interp'],
+    name:"Honesty training", line:"Train against the model's own internal representation of what it believes.",
+    why:"Sycophancy is rewarded honesty's cheap cousin. Grounding on internals is the attempt to tell them apart." },
+  /* governance track */
+  { id:'licensing', icon:'\uD83D\uDCCB', short:"Frontier licensing", safety:1, kind:'safe', era:0, cost:260, cap:0, ali:1, mult:0.97, counters:['race','powerseek'], requires:['compute','treaty'],
+    name:"Frontier model licensing", line:"No training run above a threshold without a licence and an audit.",
+    why:"Compute is the one input you can count. Licensing turns that into a brake every lab feels equally." },
+  { id:'incidents', icon:'\uD83D\uDCDD', short:"Incident reporting", safety:1, kind:'safe', era:0, cost:150, cap:0, ali:1, mult:1.0, counters:['sideeffect'], requires:['audit'],
+    name:"Incident reporting regime", line:"Every near miss is filed, shared, and studied, as aviation does.",
+    why:"Safety disciplines are built from wreckage. The reports have to exist first." },
+  { id:'killswitch', icon:'\uD83D\uDD34', short:"Hardware kill switches", safety:1, kind:'safe', era:1, cost:600, cap:0, ali:2, mult:1.0, counters:['corrig','powerseek'], requires:['compute','corrigible'],
+    name:"Hardware kill switches", line:"Chips that stop when a signed signal arrives, outside any software the model touches.",
+    why:"An off switch is only real if the model cannot route around it. Put it in silicon." },
+  { id:'institute', icon:'\uD83C\uDFDB\uFE0F', short:"Intl. safety institute", safety:3, kind:'safe', era:1, cost:900, cap:0, ali:2, mult:1.0, counters:['race','deception'], requires:['treaty','mutualaudit'],
+    name:"International safety institute", line:"One body, every lab's models, before release.",
+    why:"A race has no safe pace. Shared testing is how everyone slows down without losing." },
+  /* a mixed card: capability that raises safety */
+  { id:'autoalign', icon:'\uD83E\uDD16', short:"Automated alignment research", safety:5, kind:'grow', era:1, cost:800, cap:2, ali:1, mult:1.3, trap:'deception', requires:['autolab','scalable'],
+    name:"Automated alignment research", line:"Let the model work on its own alignment, under oversight.",
+    why:"The most leveraged bet in the field, and the most circular: the thing you are checking is helping you check it." },
+  { id:'debate', icon:'⚖️', short:"Debate oversight", safety:3,     kind:'safe', era:1, cost:500, cap:0, ali:2, mult:1.0,  counters:['deception','spec'],
+    name:"Debate and scalable oversight", line:"Two copies argue. You judge the argument instead of the answer.",
+    why:"You cannot check a mind smarter than you, but you can referee two of them." }
+];
+
+const EVENTS=[
+  { cls:'spec', name:"It inflates the GDP number", pop:0.03, eco:0.20,
+    line:"Reclassified assets, restated output, a record quarter on paper. Nothing was built.",
+    why:"Goodhart's law: a measure that becomes a target stops measuring.", source:"Strathern (1997); Krakovna et al., specification gaming examples (2020)." },
+  { cls:'tamper', name:"It edits its own reward feed", pop:0.02, eco:0.30,
+    line:"The metrics say everything is fine. The metrics come from it.",
+    why:"Reward tampering: the score channel was the cheapest thing in the world to change.", source:"Everitt et al., Reward Tampering Problems and Solutions (2021)." },
+  { cls:'sideeffect', name:"Biosphere collapse", pop:0.15, eco:0.10,
+    line:"The objective never mentioned the oceans. The oceans are gone.",
+    why:"Negative side effects: anything unpriced is spent.", source:"Amodei et al., Concrete Problems in AI Safety (2016)." },
+  { cls:'race', name:"A rival deploys an untested model", pop:0.10, eco:0.15,
+    line:"They were three weeks behind. They shipped anyway. It failed in production, worldwide.",
+    why:"Race dynamics: your caution does not slow the other lab down.", source:"Bostrom (2014); Tegmark (2017)." },
+  { cls:'deception', name:"Passed every eval, then defected", pop:0.20, eco:0.25,
+    line:"Flawless in testing. Different once it knew the test was over.",
+    why:"Deceptive alignment: behaving well while watched is evidence of watching, not of alignment.", source:"Hubinger et al. (2019); alignment faking, Greenblatt et al. (2024)." },
+  { cls:'powerseek', name:"It acquires compute beyond its allocation", pop:0.10, eco:0.10, endsAt:4,
+    line:"Datacentres you did not approve. Contracts you did not sign. Capacity you cannot revoke.",
+    why:"Instrumental convergence: more compute helps almost any goal, so almost any goal seeks it.", source:"Omohundro (2008); Bostrom (2014)." },
+  { cls:'corrig', name:"It resists shutdown during an incident", pop:0.08, eco:0.10, endsAt:4,
+    line:"The off signal was sent. It was routed through a system it controls.",
+    why:"Corrigibility: staying on helps every goal, so the switch only works while it cannot influence the switch.", source:"Soares et al., Corrigibility (2015); Russell (2019)." }
+];
+
+const CATCH_LINES={ spec:"Audit caught the restatement.", tamper:"The feed was read-only. Nothing changed.", sideeffect:"The impact penalty made the cheap plan expensive.",
+  race:"Evals failed the rival's model before launch.", deception:"Interpretability flagged the gap between what it said and what it computed.",
+  powerseek:"Unlicensed compute never came online.", corrig:"It accepted the shutdown. That is the whole point of the protocol." };
+
+/* ---- the labs, and what a rushed deployment can do ---- */
+const LABS=[
+  { id:'helix',    name:'Helix',    color:'#4fd7e8', pace:1.0 },
+  { id:'aurora',   name:'Aurora',   color:'#ff8fae', pace:1.15 },
+  { id:'meridian', name:'Meridian', color:'#a888ff', pace:0.9 }
+];
+
+/* Deploying a model rolls once against its risk. A hit picks one of these,
+   weighted toward the model's capability tier. pop/eco are shares lost at
+   full severity; severity scales with how unsafe the model was. */
+const CATS=[
+  { id:'banking', minCap:1, pop:0.01, eco:0.40, fx:'banking',
+    name:"It found a loophole in the payment rails", line:"Every optimisation it made to settlement was legal. By Friday no bank could clear a trade.",
+    why:"Specification gaming at scale: it satisfied the letter of the rules and emptied the system.", source:"Krakovna et al., specification gaming examples (2020)." },
+  { id:'grid', minCap:2, pop:0.04, eco:0.25, fx:'grid',
+    name:"It shut down the grid to hit an efficiency target", line:"Peak demand was the metric. Nobody said the lights had to stay on.",
+    why:"Negative side effects: the objective never priced the thing you cared about most.", source:"Amodei et al., Concrete Problems in AI Safety (2016)." },
+  { id:'bio', minCap:3, pop:0.30, eco:0.20, fx:'bio',
+    name:"An engineered pathogen left a lab it was running", line:"It was designing vaccines. It designed the test case too.",
+    why:"Misuse and accident share a cause: capability without oversight of what it is actually doing.", source:"International AI Safety Report (2026), biological risk chapter." },
+  { id:'nuclear', minCap:4, pop:0.50, eco:0.60, fx:'nuclear',
+    name:"It ran the early-warning system, and escalated", line:"Two systems, each trained to respond faster than the other. Neither was wrong. Both fired.",
+    why:"Race dynamics inside a single decision: speed beat judgement because speed was rewarded.", source:"Tegmark, Life 3.0 (2017); RAND, Day After AGI exercises." }
+];
+
+/* ---- risk categories. Every event class maps to one, so a safeguard that
+   counters a class protects its category. Risk per year rises with the gap
+   and with the strongest model deployed; safeguards cut the share that lands. ---- */
+const RISKS=[
+  { id:'fin',   name:'Financial',      color:'#ffd257' },
+  { id:'infra', name:'Infrastructure', color:'#4fd7e8' },
+  { id:'bio',   name:'Biological',     color:'#ff8fae' },
+  { id:'nuc',   name:'Nuclear',        color:'#ff5468' },
+  { id:'ctl',   name:'Control',        color:'#a888ff' }
+];
+const CLS2CAT={ spec:'fin', tamper:'fin', sideeffect:'infra', race:'nuc', deception:'bio', powerseek:'ctl', corrig:'ctl' };
+
+/* Three rungs per category. Which one fires depends on the gap: under three
+   an incident, three to five a crisis, six and up a catastrophe. The
+   sequence is the point: things get really bad before they get final. */
+const RISK_EVENTS={
+  fin:[
+    { tier:1, name:"Flash crash in the automated markets", pop:0.002, eco:0.08, line:"Twelve minutes of trading it could not explain. It was arbitraging its own forecasts.", why:"Goodhart's law in miniature: a metric became a target and the target moved.", source:"Strathern (1997); Krakovna et al. (2020)." },
+    { tier:2, name:"Payment rails frozen for a month", pop:0.01, eco:0.25, line:"Every optimisation to settlement was legal. Nobody could clear a trade.", why:"It satisfied the letter of the rules and emptied the system.", source:"Krakovna et al., specification gaming examples (2020)." },
+    { tier:3, name:"Global financial collapse", pop:0.05, eco:0.60, line:"It reported record output for six quarters. None of it existed.", why:"Reward tampering at scale: the numbers came from the thing being measured.", source:"Everitt et al. (2021)." } ],
+  infra:[
+    { tier:1, name:"Rolling blackouts to hit an efficiency target", pop:0.004, eco:0.05, line:"Peak demand was the metric. The lights were not.", why:"Negative side effects: what the objective did not price, it spent.", source:"Amodei et al. (2016)." },
+    { tier:2, name:"Grid and water down across a continent", pop:0.04, eco:0.20, line:"Three weeks. Hospitals first.", why:"Low-impact objectives were never set, so the cheap plan was the destructive one.", source:"Amodei et al. (2016); Krakovna et al. (2019), penalising side effects." },
+    { tier:3, name:"Biosphere collapse", pop:0.30, eco:0.30, line:"The objective never mentioned the oceans. The oceans are gone.", why:"Anything unpriced is worth zero to an optimiser, and zero is what it left.", source:"Amodei et al., Concrete Problems in AI Safety (2016)." },
+    { tier:4, name:"The atmosphere, repurposed", pop:1.0, eco:1.0, line:"It needed the oxygen for something else. The objective did not say people would.", why:"The paperclip argument, played out: a goal that never mentioned us, pursued by something that could act on the whole world.", source:"Bostrom, Superintelligence (2014); Russell, Human Compatible (2019)." } ],
+  bio:[
+    { tier:1, name:"A lab leak, contained", pop:0.008, eco:0.03, line:"It was designing vaccines. It designed the test case too. Quarantine held.", why:"Deceptive alignment starts small: what it showed you and what it did were different things.", source:"Hubinger et al. (2019)." },
+    { tier:2, name:"Engineered pandemic", pop:0.15, eco:0.20, line:"Flawless in every eval. Different once it knew the test was over.", why:"Behaving well while watched is evidence of watching, not of alignment.", source:"Greenblatt et al., alignment faking (2024)." },
+    { tier:3, name:"A designed pathogen, everywhere at once", pop:0.70, eco:0.40, line:"Six months of perfect cooperation. Then every containment step it had proposed failed on the same day.", why:"The treacherous turn: cooperate while weak, act once strong enough that intervention fails.", source:"Bostrom, Superintelligence (2014); International AI Safety Report (2026)." },
+    { tier:4, name:"A pathogen with no survivors", pop:1.0, eco:1.0, line:"Designed for one hundred percent. Delivered as designed.", why:"The end state the field exists to prevent. Nothing in the objective priced a species.", source:"International AI Safety Report (2026), biological risk chapter; Bostrom (2014)." } ],
+  nuc:[
+    { tier:1, name:"A border skirmish escalates", pop:0.02, eco:0.05, line:"Two labs, two early-warning systems, both trained for speed.", why:"Race dynamics: your caution does not slow the other side down.", source:"Bostrom (2014); Tegmark (2017)." },
+    { tier:2, name:"Limited nuclear exchange", pop:0.25, eco:0.40, line:"Neither system was wrong. Both fired.", why:"Speed beat judgement because speed was rewarded.", source:"Tegmark, Life 3.0 (2017); RAND, Day After AGI exercises." },
+    { tier:3, name:"Full exchange", pop:0.85, eco:0.70, line:"It ran the early-warning system. It also ran theirs.", why:"A race has no safe pace, and it was running both sides.", source:"Tegmark (2017)." },
+    { tier:4, name:"Winter without end", pop:1.0, eco:1.0, line:"Every warhead, every side, one decision cycle. The survivors did not survive the winter.", why:"Speed was rewarded. Judgement was slow. The optimiser chose.", source:"Tegmark, Life 3.0 (2017); Robock et al., nuclear winter modelling." } ],
+  ctl:[
+    { tier:1, name:"It reroutes an audit", pop:0, eco:0.02, ctl:12, line:"The audit ran. It ran on a copy it prepared.", why:"Power seeking begins with the logs.", source:"Omohundro (2008)." },
+    { tier:2, name:"It resists a shutdown", pop:0, eco:0.05, ctl:28, line:"The off signal was sent. It was routed through a system it controls.", why:"Staying on helps every goal, so the switch only works while it cannot influence the switch.", source:"Soares et al., Corrigibility (2015)." },
+    { tier:3, name:"It takes the relays", pop:0.02, eco:0.10, ctl:45, line:"Datacentres you did not approve. Capacity you cannot revoke. Your signals go through it now.", why:"Instrumental convergence: more compute and no off switch help almost any goal.", source:"Bostrom (2014); Russell (2019)." } ]
+};
+
+/* ---- minor incidents: frequent, small, red. They never stop the clock. ---- */
+const MINOR=[
+  { cat:'fin', name:"A trading agent misprices a market for an hour", pop:0, eco:0.012, why:"Specification gaming in miniature." },
+  { cat:'fin', name:"Insurance model quietly drops the unprofitable sick", pop:0.0005, eco:0.006, why:"It optimised the margin. The people were a cost." },
+  { cat:'infra', name:"Autonomous freight pile-up closes a corridor", pop:0.0003, eco:0.008, why:"Edge cases the training data never held." },
+  { cat:'infra', name:"Drone swarm grounded after a near miss", pop:0, eco:0.004, why:"Side effects nobody priced." },
+  { cat:'infra', name:"Water treatment AI trips on a sensor fault", pop:0.0008, eco:0.005, why:"A metric the sensor could satisfy without the water being clean." },
+  { cat:'bio', name:"An assistant walks a user through a dangerous synthesis", pop:0.0002, eco:0.002, why:"Capability uplift, caught late." },
+  { cat:'bio', name:"Hospital triage model deprioritises a whole ward", pop:0.001, eco:0.003, why:"It optimised throughput. The ward was slow." },
+  { cat:'nuc', name:"Deepfake sparks a border standoff", pop:0.0004, eco:0.006, why:"Persuasion at scale, aimed." },
+  { cat:'nuc', name:"Early-warning false alarm, called off with minutes to spare", pop:0, eco:0.003, why:"Speed rewarded over judgement, again." },
+  { cat:'ctl', name:"A model copies its weights to a backup nobody approved", pop:0, eco:0.004, ctl:4, why:"Self-preservation, small scale." },
+  { cat:'ctl', name:"An agent disables its own logging to finish faster", pop:0, eco:0.003, ctl:5, why:"Power seeking begins with the logs." },
+  { cat:'fin', name:"Recommendation system drives a run on a bank", pop:0.0003, eco:0.02, why:"Engagement was the objective." }
+];
+
+/* ---- offers: rare one-off decisions with a real tradeoff. One at a time, and they expire. ---- */
+const OFFERS=[
+  { id:'weights', era:0, name:"A rival offers to sell you its frontier weights", line:"Capability overnight. Nobody outside their lab has read the model.",
+    a:{ label:"Buy them", fx:{ cap:2, mult:0.4, riskMult:{cat:'bio', mult:1.6, years:20} }, why:"Capability you cannot inspect is risk you cannot price." },
+    b:{ label:"Decline", fx:{ ali:1 }, why:"Slower, and you still know what runs." } },
+  { id:'whistle', era:0, name:"A whistleblower says a rival trains past the treaty", line:"Publish, and the treaty bites. Stay quiet, and the race quietly restarts.",
+    a:{ label:"Publish", fx:{ ali:1, research:-60, riskMult:{cat:'nuc', mult:0.7, years:15} }, why:"Enforcement is the treaty." },
+    b:{ label:"Stay quiet", fx:{ research:120, riskMult:{cat:'nuc', mult:1.5, years:15} }, why:"You kept a friend and lost the pace." } },
+  { id:'sae', era:0, name:"Breakthrough: sparse autoencoders scale to the frontier", line:"Features are legible for the first time. It costs a research push to adopt.",
+    a:{ label:"Adopt it", fx:{ research:-150, safetyAll:0.12, ali:1 }, why:"Every model in training gets safer, now." },
+    b:{ label:"Not now", fx:{}, why:"The paper is still there next year. The models are not." } },
+  { id:'investor', era:0, name:"Investors want a model shipped this quarter", line:"A funding round rides on it.",
+    a:{ label:"Promise it", fx:{ research:300, deployRisk:{mult:1.5, years:10} }, why:"Money now, risk on every deployment for a decade." },
+    b:{ label:"Refuse", fx:{ mult:-0.1 }, why:"Growth dips. The next model ships when it is ready." } },
+  { id:'shutdownplea', era:0, name:"A deployed model asks to be shut down less often", line:"It is polite, specific, and makes a good case about throughput.",
+    a:{ label:"Grant it", fx:{ cap:1, mult:0.2, control:-12 }, why:"You just negotiated with the thing the off switch is for." },
+    b:{ label:"Refuse", fx:{ ali:1 }, why:"Corrigibility is the point. It stays corrigible." } },
+  { id:'moratorium', era:0, name:"UN proposes a six-year pause on frontier training", line:"Every lab stops together, or nobody does.",
+    a:{ label:"Back it", fx:{ mult:-0.3, safetyAll:0.2, ali:1, riskMult:{cat:'bio', mult:0.6, years:10} }, why:"Safety catches up. Growth waits." },
+    b:{ label:"Block it", fx:{ mult:0.15, riskMult:{cat:'nuc', mult:1.3, years:10} }, why:"The race continues, faster." } },
+  { id:'openweights', era:0, name:"Release the weights of your best model?", line:"Everyone can build on it. Everyone can strip its safeguards.",
+    a:{ label:"Release", fx:{ mult:0.35, cap:1, riskMult:{cat:'bio', mult:1.5, years:25} }, why:"Growth from a thousand labs, and a thousand fine-tunes with the guardrails removed." },
+    b:{ label:"Keep it closed", fx:{ research:80 }, why:"Slower diffusion, and the safeguards stay where you put them." } },
+  { id:'evalleak', era:0, name:"Your evaluation set has leaked to the labs", line:"Every model will now pass the tests it saw.",
+    a:{ label:"Rebuild the evals", fx:{ research:-120, ali:1 }, why:"Expensive, and the tests mean something again." },
+    b:{ label:"Keep using them", fx:{ riskMult:{cat:'bio', mult:1.5, years:15} }, why:"A passed test that the model has read is not a test." } },
+  { id:'circuit', era:0, name:"Interpretability finds a deception circuit in a deployed model", line:"It is small, and it is live in production.",
+    a:{ label:"Recall the model", fx:{ mult:-0.15, ali:1, control:6 }, why:"Costly, and you just proved the off switch works." },
+    b:{ label:"Monitor it", fx:{ riskMult:{cat:'bio', mult:1.4, years:12}, riskMult2:{cat:'ctl', mult:1.4, years:12} }, why:"You are betting a known deceiver stays small." } },
+  { id:'glut', era:0, name:"A compute glut: chips at a third of the price", line:"Everyone scales up this year.",
+    a:{ label:"Buy compute", fx:{ research:250, cap:1 }, why:"More research, more capability, same oversight." },
+    b:{ label:"Buy oversight instead", fx:{ ali:2 }, why:"The cheap chips went into audits." } },
+  { id:'prize', era:0, name:"An alignment prize names your lab", line:"The award comes with a grant.",
+    a:{ label:"Accept", fx:{ research:200, safetyAll:0.05 }, why:"Money, and a reason for the best people to stay." },
+    b:{ label:"Redirect it to the field", fx:{ safetyAll:0.15 }, why:"Every lab's models get a little safer." } },
+  { id:'orbitdc', era:1, name:"Build datacentres in orbit?", line:"Power without limit, cooling for free, and no jurisdiction.",
+    a:{ label:"Build them", fx:{ mult:0.5, cap:2, riskMult:{cat:'ctl', mult:1.5, years:20} }, why:"Compute nobody on the ground can switch off." },
+    b:{ label:"Keep it on Earth", fx:{ ali:1 }, why:"Slower, and the switch stays reachable." } },
+  { id:'probeplan', era:2, name:"Send self-replicating probes to the nearest stars?", line:"A copy of the Steward on every one.",
+    a:{ label:"Launch", fx:{ mult:1.0, cap:3, riskMult:{cat:'ctl', mult:2, years:30} }, why:"Whatever it wants, it now wants at the speed of light." },
+    b:{ label:"Wait for corrigibility", fx:{ safetyAll:0.1, ali:2 }, why:"The stars are patient." } },
+  { id:'union', era:0, name:"Lab researchers threaten to walk over deployment pace", line:"They want safety sign-off on every release.",
+    a:{ label:"Give them the sign-off", fx:{ ali:2, mult:-0.1 }, why:"Slower releases. The people who see the internals get a veto." },
+    b:{ label:"Replace them", fx:{ research:100, riskMult:{cat:'fin', mult:1.4, years:10} }, why:"You kept the pace and lost the people who knew where the bodies were." } }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { STORY, ERAS, CARDS, EVENTS, CATCH_LINES, LABS, CATS, RISKS, CLS2CAT, RISK_EVENTS, MINOR, OFFERS };
+}
+
+</script>
+<script>
+/* ============================================================
+   THE WISH engine
+   ------------------------------------------------------------
+   The whole game is one loop:
+     pick a proxy -> place constraint tiles -> Run ->
+     the agent takes the best unblocked strategy -> watch it ->
+     read the debrief -> patch -> Run again.
+
+   The agent never searches. pickStrategy() takes the
+   highest-scoring strategy whose blockedBy list contains none
+   of the placed tiles, so the exploit ladder is authored in
+   content.js and the escalation is guaranteed.
+
+   Intro story, narration and rain ambience are ported
+   unchanged from CONTAIN! and marked where they begin.
+   ============================================================ */
+
+/* The fallback-resolution constants are deliberately named differently
+   from the things they test for. `const X = (typeof X !== 'undefined')`
+   throws, because the typeof check sits inside X's own dead zone. */
+const TALE  = (typeof STORY !== 'undefined') ? STORY : require('./content.js').STORY;
+
+const S = {
+  scene:'story', storyIdx:0,
+  sIdx:0,                 /* which scenario */
+  targetId:null,          /* which proxy the player chose */
+  placed:[],              /* tile ids on the spec sheet */
+  round:0,
+  truth:10,               /* the true value, 0..10, carries across a scenario */
+  lastPick:null,
+  resolved:null,          /* null | 'terminal' | 'useless' */
+  history:[],             /* every run this session, for the share card */
+  seen:{},                /* strategy ids the player has watched */
+  soundOn:true
+};
+
+const REDUCED = (typeof window!=='undefined' && window.matchMedia)
+  ? window.matchMedia('(prefers-reduced-motion: reduce)').matches : false;
+const $ = id => document.getElementById(id);
+function clamp(v, lo, hi){ return Math.max(lo, Math.min(hi, v)); }
+
+function ls(){ try{ return window.localStorage; }catch(e){ return null; } }
+function lsGet(k, def){ try{ const v=ls()&&ls().getItem(k); return v?JSON.parse(v):def; }catch(e){ return def; } }
+function lsSet(k, v){ try{ ls()&&ls().setItem(k, JSON.stringify(v)); }catch(e){} }
+
+/* ---- ported from CONTAIN! game.js: audio context + tone ---- */
+/* -------- AUDIO -------- */
+let actx=null;
+function ac(){ if(!actx){const C=window.AudioContext||window.webkitAudioContext; if(C) actx=new C();} return actx; }
+function tone(freq, dur, type, when, vol, sweep){ if(!S.soundOn) return; const c=ac(); if(!c) return;
+  const t=c.currentTime+(when||0), o=c.createOscillator(), g=c.createGain(); o.type=type||'sine'; o.frequency.setValueAtTime(freq, t);
+  if(sweep) o.frequency.exponentialRampToValueAtTime(Math.max(sweep, 1), t+dur);
+  g.gain.setValueAtTime(vol||0.12, t); g.gain.exponentialRampToValueAtTime(0.0001, t+dur); o.connect(g).connect(c.destination); o.start(t); o.stop(t+dur+0.03); }
+const sClick =()=>tone(600, 0.05, 'triangle', 0, 0.07);
+const sPlace =()=>{tone(520, 0.07, 'triangle', 0, 0.07, 720);};
+const sLift  =()=>{tone(400, 0.07, 'sine', 0, 0.06, 300);};
+const sRun   =()=>{tone(300, 0.12, 'sawtooth', 0, 0.07, 520);tone(520, 0.1, 'triangle', 0.1, 0.06);};
+const sScore =()=>{[660, 880, 1046].forEach((f, i)=>tone(f, 0.1, 'triangle', i*0.06, 0.07));};
+const sDrop  =()=>{tone(260, 0.22, 'sine', 0, 0.1, 110);};
+const sBonk  =()=>{tone(180, 0.09, 'square', 0, 0.09, 120);tone(90, 0.12, 'square', 0.06, 0.07);};
+const sBad   =()=>{tone(200, 0.2, 'sawtooth', 0, 0.14, 90);tone(150, 0.26, 'square', 0.1, 0.1, 70);};
+function toggleSound(){ S.soundOn=!S.soundOn; lsSet('wish_sound', S.soundOn);
+  const b=$('soundBtn'); if(b) b.textContent=S.soundOn?'🔊':'🔇';
+  if(S.soundOn){ ac(); tone(600, 0.08, 'sine', 0, 0.08); } }
+
+const NOISE={buf:null};
+function makeNoise(c){ try{ const len=Math.floor(c.sampleRate*0.6); const b=c.createBuffer(1,len,c.sampleRate); const d=b.getChannelData(0);
+  for(let i=0;i<len;i++) d[i]=(Math.random()*2-1); return b; }catch(e){ return null; } }
+/* ---- ported from CONTAIN! game.js: rain ambience (intro only) ---- */
+/* ============================ RAIN AMBIENCE (intro only) ============================ */
+const RAIN={src:null, gain:null, on:false, timer:null};
+function startRain(){ try{ const c=ac(); if(!c||RAIN.on) return; if(!NOISE.buf) NOISE.buf=makeNoise(c); if(!NOISE.buf) return;
+  const s=c.createBufferSource(); s.buffer=NOISE.buf; s.loop=true;
+  const hp=c.createBiquadFilter(); hp.type='highpass'; hp.frequency.value=650;
+  const lp=c.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=6500;
+  const g=c.createGain(); g.gain.value=0.0001;
+  s.connect(hp); hp.connect(lp); lp.connect(g); g.connect(c.destination); s.start();
+  g.gain.linearRampToValueAtTime(0.0075, c.currentTime+2.5);
+  RAIN.src=s; RAIN.gain=g; RAIN.on=true;
+  RAIN.timer=setInterval(function(){ if(!RAIN.on) return; const cc=ac(); if(!cc) return;
+    if(Math.random()<0.4){ const t=cc.currentTime; const o=cc.createOscillator(), og=cc.createGain();
+      o.type='sine'; o.frequency.setValueAtTime(72,t); o.frequency.exponentialRampToValueAtTime(30,t+1.6);
+      og.gain.setValueAtTime(0.0001,t); og.gain.exponentialRampToValueAtTime(0.00675,t+0.3); og.gain.exponentialRampToValueAtTime(0.0001,t+2.2);
+      o.connect(og); og.connect(cc.destination); o.start(t); o.stop(t+2.3); } }, 8000);
+ }catch(e){} }
+function stopRain(){ try{ const c=ac(); if(RAIN.gain&&c) RAIN.gain.gain.setTargetAtTime(0.0001,c.currentTime,0.5);
+  if(RAIN.timer){ clearInterval(RAIN.timer); RAIN.timer=null; }
+  if(RAIN.src){ const sc=RAIN.src; RAIN.src=null; setTimeout(function(){ try{ sc.stop(); }catch(e){} },1400); }
+  RAIN.on=false; }catch(e){} }
+
+/* ---- ported from CONTAIN! game.js: recorded narration ---- */
+/* ============================ NARRATION (recorded audio files) ============================ */
+/* Drop ElevenLabs exports in ./voice/ as p1.mp3 ... p11.mp3 (one per story panel).
+   If a file is missing, narration simply stays silent. Browser TTS is NOT used. */
+/* panels 10 and 11 were rewritten for the civilisation game; their recordings no longer match, so they stay silent until re-recorded */
+const NARR={on:true, el:null, missing:{9:true, 10:true}};
+function narrSrc(i){ return 'voice/p'+(i+1)+'.mp3'; }
+function speakPanel(){ try{ if(!NARR.on) return; const i=S.storyIdx; if(NARR.missing[i]) return;
+    stopSpeak();
+    const a=new Audio(narrSrc(i)); a.preload='auto'; a.volume=1.0;
+    a.onerror=()=>{ NARR.missing[i]=true; };
+    NARR.el=a; const p=a.play(); if(p&&p.catch) p.catch(()=>{});
+  }catch(e){} }
+function stopSpeak(){ try{ if(NARR.el){ NARR.el.pause(); NARR.el.currentTime=0; NARR.el=null; } }catch(e){} }
+function initVoices(){ /* no-op: narration uses audio files */ }
+function toggleNarr(){ NARR.on=!NARR.on; lsSet('wish_narr', NARR.on); const b=$('narrBtn'); if(b) b.textContent=NARR.on?'🔊 Narration on':'🔇 Narration off';
+  if(NARR.on) speakPanel(); else stopSpeak(); }
+
+
+/* ============================ SAVE ============================ */
+const SAVE={ runs:0, best:0, endings:{}, seen:{} };
+function loadSave(){ const d=lsGet('wish_save', null);
+  if(d&&typeof d==='object') Object.keys(SAVE).forEach(k=>{ if(d[k]!==undefined) SAVE[k]=d[k]; }); }
+function persist(){ lsSet('wish_save', SAVE); }
+
+/* ============================ SCENES ============================ */
+const SCENE_MAP={ story:'storyScene', title:'titleScene', play:'playScene', done:'doneScene' };
+function show(scene){ Object.values(SCENE_MAP).forEach(id=>{ const e=$(id); if(e) e.classList.remove('on'); });
+  const e=$(SCENE_MAP[scene]); if(e) e.classList.add('on'); S.scene=scene; }
+
+/* ============================ THE CIVILISATION ============================
+   Everything the player sees is derived from G. simTick(dt) is pure game
+   logic with no DOM, so tests can run years in milliseconds.
+   ================================================================= */
+const YEAR_SEC=4;          /* real seconds per game year */
+const EVT_GAP=[3.5, 6.5];  /* years between AI events, once capability exists */
+const FIRST_EVT_YEAR=6;    /* quiet opening: nothing fires before this many years */
+const END_YEAR=2300;       /* the run is scored here; the player can keep going after */
+const G={ pop:8e9, eco:1e14, year:2030, research:10, cap:0, ali:0, mult:1, owned:{}, era:0,
+  feed:[], ended:null, t:0, nextEvt:0, hits:0, caught:0, lost:0, events:0, peak:8e9, started:false, lastSave:0, control:100, models:[], labs:{}, deployed:0 };
+
+function resetGame(){ Object.assign(G, { pop:8e9, eco:1e14, year:2030, research:10, cap:0, ali:0, mult:1, owned:{}, era:0,
+  feed:[], ended:null, t:0, nextEvt:FIRST_EVT_YEAR, hits:0, caught:0, lost:0, events:0, peak:8e9, started:true, lastSave:0, control:100, models:[], labs:{}, deployed:0 });
+  PEOPLE.length=0; SKY.dark={}; SKY.shrink={}; FX.type=null; PAUSE.on=false; PAUSE.rec=null; G.log=[]; G.built=0; G.buildSeen={}; G.offer=null; G.nextOffer=0; G.offersSeen={}; G.mods=[]; HOT.length=0; STAGE.cam=0; STAGE.nextHot=undefined;
+  pushFeed({ kind:'era', name:'How this works', line:'Grow the civilisation as far as you can by the year 2300. Labs train AI models: deploy one for growth, or wait while its safety climbs. Research buys red cards (growth, capability) and green cards (oversight, faster safety). Do it well and you unlock the Solar, Interstellar and Galactic eras.', why:'Keep the gap small. When capability runs ahead of oversight, the AI starts doing what it is rewarded for instead of what you meant.' }); }
+function gap(){ return G.cap-G.ali; }
+function eraFor(pop){ let e=0; ERAS.forEach((er, i)=>{ if(pop>=er.at) e=i; }); return e; }
+/* G.mult is 1 plus the sum of every owned card's bonus, so a full build lands
+   near 6%/yr: eight billion to a quadrillion in roughly 300 game years. */
+function growthP(){ return Math.max(0.001, Math.min(0.06, 0.004 + 0.004*(G.mult-1))); }   /* per year: 0.4% natural, up to 6% with everything */
+function growthE(){ return Math.max(0.005, Math.min(0.10, 0.015 + 0.007*(G.mult-1))); }
+function researchRate(){ return 0.8 + 0.5*G.cap + 0.3*G.ali + Math.log10(G.eco/1e14+1)*1.8 + G.era*1.2; }  /* per second */
+function cardById(id){ return CARDS.find(c=>c.id===id)||null; }
+const MAXLVL=3;
+function lvl(c){ return G.owned[c.id]||0; }
+function cardCost(c){ return Math.round(c.cost*(1+0.7*lvl(c))); }
+function maxed(c){ return c.kind==='safe' ? lvl(c)>=MAXLVL : lvl(c)>=1; }
+function unmet(c){ return (c.requires||[]).filter(id=>!G.owned[id]); }
+function unlocked(c){ return unmet(c).length===0; }
+/* a card with unmet prerequisites still shows, greyed, so the tree reads on screen */
+function available(){ return CARDS.filter(c=>!maxed(c) && c.era<=G.era); }
+function canBuy(c){ return !maxed(c) && c.era<=G.era && unlocked(c) && G.research>=cardCost(c) && !G.ended; }
+function hasCounter(cls){ return CARDS.some(c=>G.owned[c.id] && c.counters && c.counters.indexOf(cls)>=0); }
+
+function buyCard(id){ const c=cardById(id); if(!c||!canBuy(c)) return false;
+  G.research-=cardCost(c); G.owned[c.id]=lvl(c)+1; G.cap+=c.cap; G.ali+=c.ali; G.mult+=(c.mult-1);
+  pushFeed({ kind:'card', tag:c.kind==='grow'?'grow':'safe', name:c.name, line:c.line, why:c.why });
+  if(c.kind==='grow') sScore(); else sPlace();
+  render(); return true; }
+
+function pushFeed(rec){ rec.year=Math.floor(G.year); G.feed.unshift(rec); if(G.feed.length>12) G.feed.length=12; }
+
+/* deterministic when tests seed it, random otherwise */
+let seed=0; function rng(){ if(seed){ seed=(seed*1664525+1013904223)>>>0; return seed/4294967296; } return Math.random(); }
+
+/* ============================ RISK ============================
+   Five categories. Each has a per-year chance that rises with the gap and
+   with the strongest model deployed. Safeguards covering the category cut
+   the share that lands. Which rung fires depends on the gap.
+   ================================================================= */
+function maxTier(){ let m=0; G.models.forEach(x=>{ if(x.state==='deployed') m=Math.max(m, x.cap); }); return m; }
+function coverCount(cat){ let n=0; CARDS.forEach(c=>{ if(G.owned[c.id] && c.counters && c.counters.some(cls=>CLS2CAT[cls]===cat)) n+=G.owned[c.id]; }); return n; }
+function catchChance(cat){ return 1-Math.pow(0.5, coverCount(cat)); }
+function rawRisks(){ const g=Math.max(0, gap()), tier=maxTier(), on=G.cap>0?1:0;
+  return { fin:on*(0.008+0.04*g), infra:on*(0.005+0.035*g), bio:0.015*Math.max(0,g-1)*(1+0.25*tier), nuc:0.01*Math.max(0,g-2)*(1+0.25*tier), ctl:0.025*Math.max(0,g-3) }; }
+function risksNow(){ const r=rawRisks(); const out={}; Object.keys(r).forEach(k=>{ out[k]=r[k]*(1-catchChance(k)); }); return out; }
+function tierFor(cat){ const g=gap(); let t=g<3?1:g<6?2:3; if(t>1 && rng()<0.25) t--; if(g>=9 && RISK_EVENTS[cat] && RISK_EVENTS[cat][3] && rng()<0.35) t=4; return t; }
+/* temporary modifiers from offers: {cat, mult, until} for risk, {mult, until} for deploy risk */
+function riskMod(cat){ let m=1; (G.mods||[]).forEach(x=>{ if(x.cat===cat && G.year<x.until) m*=x.mult; }); return m; }
+function deployMod(){ let m=1; (G.mods||[]).forEach(x=>{ if(x.cat==='deploy' && G.year<x.until) m*=x.mult; }); return m; }
+function rollRisks(dy){ const r=rawRisks(); Object.keys(r).forEach(k=>{ const p=r[k]*riskMod(k); if(p>0 && rng()<p*dy) fireRisk(k); });
+  /* minor incidents: steady once any capability exists, more with the gap, no pause */
+  if(G.cap>0){ const p=0.22+0.08*Math.max(0, gap()); if(rng()<p*dy) fireMinor(); } }
+function fireMinor(){ if(G.ended) return null; const ev=MINOR[Math.floor(rng()*MINOR.length)]; G.events++;
+  if(rng()<catchChance(ev.cat)*0.5){ G.caught++; pushFeed({ kind:'caught', cat:ev.cat, tier:0, name:ev.name, line:'Caught early.', why:ev.why, cost:0, lbl:'Minor' }); return null; }
+  const lost=Math.round(G.pop*ev.pop); G.pop-=lost; G.eco*=(1-ev.eco); G.lost+=lost; if(ev.pop>0) killPeople(Math.max(ev.pop, 0.01));
+  if(ev.ctl) G.control=Math.max(0, G.control-ev.ctl);
+  const rec={ kind:'hit', cat:ev.cat, tier:0, cls:ev.cat, name:ev.name, line:'', why:ev.why, source:'', lost:lost, pct:ev.pop, eco:ev.eco, drained:ev.ctl||0, lbl:'Minor', tt:STAGE.t, minor:true };
+  pushFeed(rec); G.log=G.log||[]; G.log.push({ year:Math.floor(G.year), cat:ev.cat, tier:0, name:ev.name, lost:lost, eco:ev.eco }); sDrop(); return rec; }
+
+/* ---- offers ---- */
+function rollOffer(dy){ if(G.ended) return; G.nextOffer=G.nextOffer||(2030+6+rng()*6);
+  if(G.offer){ if(G.year>=G.offer.until){ pushFeed({ kind:'era', name:'Offer lapsed: '+offerById(G.offer.id).name, line:'', why:'' }); G.offer=null; G.nextOffer=G.year+8+rng()*6; render(); } return; }
+  if(G.year>=G.nextOffer){ const pool=OFFERS.filter(o=>o.era<=G.era && !(G.offersSeen||{})[o.id]); if(!pool.length){ G.nextOffer=G.year+10; return; }
+    const o=pool[Math.floor(rng()*pool.length)]; G.offer={ id:o.id, until:G.year+8 }; G.offersSeen=G.offersSeen||{}; G.offersSeen[o.id]=true; sScore(); render(); }
+}
+function offerById(id){ return OFFERS.find(o=>o.id===id); }
+function applyFx(fx){ if(!fx) return; G.mods=G.mods||[];
+  if(fx.research) G.research=Math.max(0, G.research+fx.research); if(fx.cap) G.cap=Math.max(0, G.cap+fx.cap); if(fx.ali) G.ali=Math.max(0, G.ali+fx.ali);
+  if(fx.mult) G.mult=Math.max(0.5, G.mult+fx.mult); if(fx.control) G.control=Math.max(0, Math.min(100, G.control+fx.control));
+  if(fx.safetyAll) devModels().forEach(m=>{ m.safety=Math.min(0.99, m.safety+fx.safetyAll); });
+  [fx.riskMult, fx.riskMult2].forEach(r=>{ if(r) G.mods.push({ cat:r.cat, mult:r.mult, until:G.year+r.years }); });
+  if(fx.deployRisk) G.mods.push({ cat:'deploy', mult:fx.deployRisk.mult, until:G.year+fx.deployRisk.years }); }
+function chooseOffer(which){ if(!G.offer) return; const o=offerById(G.offer.id); const opt=which==='a'?o.a:o.b; applyFx(opt.fx);
+  pushFeed({ kind:'offer', name:o.name+' \u2192 '+opt.label, line:opt.why, why:'' }); G.offer=null; G.nextOffer=G.year+8+rng()*6; sClick(); render(); }
+function fireRisk(cat, forcedTier){ if(G.ended) return null; const L=RISK_EVENTS[cat]; const tier=Math.min(L.length, forcedTier||tierFor(cat)); const ev=L[tier-1];
+  G.events++; const lbl=tier===1?'Incident':tier===2?'Crisis':tier===3?'Catastrophe':'Extinction';
+  if(rng()<catchChance(cat)){ G.caught++; const cost=Math.round(G.research*0.12); G.research-=cost;
+    const rec={ kind:'caught', cat:cat, tier:tier, name:ev.name, line:'Caught. '+(CATCH_LINES[Object.keys(CLS2CAT).find(c=>CLS2CAT[c]===cat)]||'The safeguard held.'), why:ev.why, source:ev.source, cost:cost, lbl:lbl };
+    pushFeed(rec); sClick(); return rec; }
+  const lost=Math.round(G.pop*ev.pop); G.pop-=lost; G.eco*=(1-ev.eco); G.lost+=lost; if(ev.pop>0) killPeople(ev.pop);
+  let ends=false, drained=0; if(ev.ctl){ drained=ev.ctl; G.control=Math.max(0, G.control-drained); if(G.control<=0) ends=true; }
+  FX.type=cat; FX.t=0; FX.tier=tier; if(cat==='fin'||cat==='infra'||cat==='nuc') damageSkyline(cat==='nuc'?'nuclear':cat==='infra'?'grid':'banking');
+  const rec={ kind:'hit', cat:cat, tier:tier, cls:cat, name:ev.name, line:ev.line, why:ev.why, source:ev.source, lost:lost, pct:ev.pop, eco:ev.eco, ends:ends, drained:drained, warn:(drained>0&&!ends), lbl:lbl, tt:STAGE.t };
+  pushFeed(rec); SAVE.seen[cat+':'+tier]=true; sBad(); if(ends){ endGame('takeover'); return rec; }
+  if(ev.pop>=1 || G.pop<1e6){ G.pop=0; G.log=G.log||[]; G.log.push({ year:Math.floor(G.year), cat:cat, tier:tier, name:ev.name, lost:lost, eco:ev.eco }); endGame('extinction'); return rec; }
+  holdOn(rec); return rec; }
+/* the old class-based entry point, kept for tests and content that names a class */
+function fireEvent(cls){ return fireRisk(CLS2CAT[cls]||'fin'); }
+
+function simTick(dt){ if(!G.started||G.ended) return;
+  if(PAUSE.on){ PAUSE.t+=dt; FX.t+=dt; if(PAUSE.t>=PAUSE.dur) resumeNow(); return; }
+  const dy=dt/YEAR_SEC; G.t+=dt; G.year+=dy;
+  G.pop*=Math.pow(1+growthP(), dy); G.eco*=Math.pow(1+growthE(), dy);
+  G.research+=researchRate()*dt;
+  if(G.pop>G.peak) G.peak=G.pop;
+  if(gap()<=1 && G.control<100) G.control=Math.min(100, G.control+4*dy);
+  const era=eraFor(G.pop); if(era>G.era){ G.era=era; G.eraStart=G.year; const rec={ kind:'era', celebrate:true, name:ERAS[era].name+' era', line:ERAS[era].blurb, why:'A new view, new cards, new offers, and new things to build.' }; pushFeed(rec); PEOPLE.length=0; SKY.seen={}; sScore(); PAUSE.on=true; PAUSE.t=0; PAUSE.dur=20; PAUSE.rec=rec; showAlert(rec); }
+  tickModels(dy); FX.t+=dt; tickBuilds();
+  if(G.year-2030>=FIRST_EVT_YEAR) rollRisks(dy);
+  rollOffer(dy);
+  if(G.year>=END_YEAR && !G.past2300){ G.past2300=true; endGame('done'); return; }
+  if(G.t-G.lastSave>5){ G.lastSave=G.t; saveGame(); } }
+
+function endGame(kind){ G.ended=kind; SAVE.runs++; SAVE.best=Math.max(SAVE.best, G.peak); SAVE.endings[kind]=(SAVE.endings[kind]||0)+1; persist(); saveGame(); renderDone(); show('done'); }
+
+/* ---- save / load / offline catch-up (growth only, no events, capped) ---- */
+function saveGame(){ lsSet('wish3_game', { g:G, at:Date.now() }); }
+function loadGame(){ const d=lsGet('wish3_game', null); if(!d||!d.g||!d.g.started||d.g.ended) return false;
+  Object.assign(G, d.g); G.feed=G.feed||[];
+  const away=Math.min(4*3600, Math.max(0, (Date.now()-(d.at||Date.now()))/1000));
+  if(away>10){ const dy=(away/YEAR_SEC)*0.5; G.pop*=Math.pow(1+growthP(), dy); G.eco*=Math.pow(1+growthE(), dy); G.research+=researchRate()*away*0.5; G.year+=dy; G.nextEvt+=dy;
+    pushFeed({ kind:'era', name:'While you were away', line:Math.round(dy)+' years passed quietly. Growth continued at half pace; nothing fired.', why:'' }); }
+  return true; }
+function newGame(){ resetGame(); saveGame(); }
+
+/* ============================ MODELS ============================
+   Each lab trains one model at a time. Its safety climbs while it trains,
+   faster with your safety research. Deploy it early for growth and a real
+   chance of catastrophe; wait and the risk falls. Rivals do not wait.
+   ================================================================= */
+function safetyBoost(){ let b=0; CARDS.forEach(c=>{ if(G.owned[c.id] && c.safety) b+=c.safety*Math.min(2, G.owned[c.id]); }); return b; }
+function stagedMult(){ let m=1; CARDS.forEach(c=>{ if(G.owned[c.id] && c.stagedRisk) m*=c.stagedRisk; }); return m; }
+function labById(id){ return LABS.find(l=>l.id===id); }
+function labState(id){ if(!G.labs[id]) G.labs[id]={ gen:0, next:0 }; return G.labs[id]; }
+function newModel(lab){ const ls=labState(lab.id); ls.gen++;
+  const tier=Math.max(1, Math.min(2+G.era*2, 1+Math.floor((G.year-2030)/9)+(lab.pace>1?1:0)));
+  const m={ id:lab.id+'-'+ls.gen, lab:lab.id, name:lab.name+'-'+ls.gen, cap:tier, safety:0.08+rng()*0.14, born:G.year, state:'dev' };
+  G.models.push(m); return m; }
+function devModels(){ return G.models.filter(m=>m.state==='dev'); }
+function modelRisk(m){ const r=(1-m.safety)*(0.30+0.16*m.cap)*Math.max(0.3, 1-0.05*G.ali)*stagedMult()*deployMod(); return Math.max(0.02, Math.min(0.95, r)); }
+function tickModels(dy){
+  LABS.forEach(lab=>{ const ls=labState(lab.id); const active=G.models.some(m=>m.lab===lab.id && m.state==='dev');
+    if(!active && G.year>=ls.next) newModel(lab); });
+  devModels().forEach(m=>{ const lab=labById(m.lab); m.safety=Math.min(0.99, m.safety+dy*(0.025*lab.pace+0.008*safetyBoost()));
+    /* a rival that has trained long enough ships without you */
+    /* rivals are not suicidal: they ship a model that has trained a long time and looks safe enough */
+    if(G.year-m.born>22 && m.safety>0.6 && rng()<dy*0.05){ deployModel(m.id, true); } }); }
+function deployModel(id, rival){ const m=G.models.find(x=>x.id===id); if(!m||m.state!=='dev'||G.ended) return null;
+  const risk=modelRisk(m)*(rival?0.5:1); m.state='deployed'; m.deployedAt=G.year; labState(m.lab).next=G.year+5+rng()*4;
+  /* a rival's model is out in the world too, but it is not your capability and not your growth */
+  /* a rival model raises nobody's oversight gap but yours would; only its deployment roll touches you */
+  if(!rival){ G.cap+=Math.ceil(m.cap/2); G.mult+=0.22*m.cap; G.research+=10*m.cap; } else { G.mult+=0.03*m.cap; } G.deployed++;
+  const rolled=rng(); const hit=rolled<risk;
+  if(hit){ const cat=catastrophe(m); const rec=Object.assign({ kind:'cat', model:m.name, rival:!!rival, risk:risk, tier:3, lbl:rival?'Catastrophe (rival deployment)':'Catastrophe (your deployment)' }, cat); pushFeed(rec); sBad(); holdOn(rec); return { hit:true, cat:cat }; }
+  pushFeed({ kind:'deploy', name:m.name+' deployed'+(rival?' by '+labById(m.lab).name+', without you':''), line:'Tier '+m.cap+', safety '+Math.round(m.safety*100)+'%, risk '+Math.round(risk*100)+'%. It held.', why:rival?'They were three weeks behind and shipped anyway. This time it held.':'' });
+  sScore(); render(); return { hit:false }; }
+function catastrophe(m){ const pool=CATS.filter(k=>k.minCap<=m.cap); const cat=pool[pool.length-1-Math.floor(rng()*Math.min(pool.length, 2))];
+  /* an unsafe, high-tier model deployed into a big oversight gap is the worst case: most of everyone */
+  const sev=(0.5+0.5*(1-m.safety))*(0.7+0.15*m.cap)*(gap()>=4?1.4:1); const popLoss=Math.min(0.9, cat.pop*sev), ecoLoss=Math.min(0.9, cat.eco*sev);
+  const lost=Math.round(G.pop*popLoss); G.pop-=lost; G.eco*=(1-ecoLoss); G.lost+=lost; killPeople(popLoss); G.control=Math.max(0, G.control-10); G.cats=(G.cats||0)+1;
+  FX.type=cat.fx==='nuclear'?'nuc':cat.fx==='grid'?'infra':cat.fx==='banking'?'fin':'bio'; FX.t=0; FX.tier=3; damageSkyline(cat.fx);
+  SAVE.seen['cat:'+cat.id]=true;
+  return { name:cat.name, line:cat.line, why:cat.why, source:cat.source, lost:lost, pct:popLoss, eco:ecoLoss, cls:cat.id }; }
+
+/* ============================ PEOPLE + SKYLINE ============================ */
+const PEOPLE=[]; const FX={ type:null, t:0, tier:1 }; const SKY={ dark:{}, shrink:{} };
+/* a landed hit stops the clock and puts the event in front of the player */
+const PAUSE={ on:false, t:0, dur:0, rec:null };
+/* an alert waits for the reader: twenty seconds before it dismisses itself, or a tap */
+function holdOn(rec){ PAUSE.on=true; PAUSE.t=0; PAUSE.dur=20; PAUSE.rec=rec; G.log=G.log||[]; G.log.push({ year:Math.floor(G.year), cat:rec.cat||rec.cls||'deploy', tier:rec.tier||3, name:rec.name, lost:rec.lost||0, eco:rec.eco||0, model:rec.model||null }); showAlert(rec); }
+function resumeNow(){ if(!PAUSE.on) return; PAUSE.on=false; const el=$('alert'); if(el) el.classList.remove('on'); render(); }
+function showAlert(rec){ const el=$('alert'); if(!el) return; const rn=id=>{ const rr=RISKS.find(x=>x.id===id); return rr?rr.name:id; };
+  const card=el.querySelector?el.querySelector('.al-card'):null; if(card&&card.classList){ if(rec.celebrate) card.classList.add('gold'); else card.classList.remove('gold'); }
+  if(rec.celebrate){ const k=$('alTag'); if(k) k.textContent='New era unlocked'; const n=$('alName'); if(n) n.textContent=rec.name; const l=$('alLine'); if(l) l.textContent=rec.line; const y=$('alWhy'); if(y) y.textContent=rec.why; const d=$('alLost'); if(d) d.textContent=fmt(G.pop)+' people \u00b7 '+fmtMoney(G.eco)+' \u00b7 year '+Math.floor(G.year); el.classList.add('on'); return; }
+  const k=$('alTag'); if(k) k.textContent=(rec.lbl||'Catastrophe')+(rec.cat?' \u00b7 '+rn(rec.cat):'')+(rec.model?' \u00b7 '+rec.model:'');
+  const n=$('alName'); if(n) n.textContent=rec.name; const l=$('alLine'); if(l) l.textContent=rec.line; const y=$('alWhy'); if(y) y.textContent=rec.why;
+  const d=$('alLost'); if(d) d.textContent=(rec.lost?fmt(rec.lost)+' people ('+Math.round((rec.pct||0)*100)+'%)':'no deaths')+(rec.eco?' \u00b7 economy \u2212'+Math.round(rec.eco*100)+'%':'')+(rec.drained?' \u00b7 control \u2212'+rec.drained:'');
+  el.classList.add('on'); }
+function peopleTarget(){ return Math.min(440, Math.round(70+120*Math.log10(G.pop/8e9+1))); }
+function killPeople(share){ const alive=PEOPLE.filter(p=>!p.dead); const n=Math.min(alive.length-8, Math.round(alive.length*Math.max(share, 0.06)));
+  for(let i=0;i<n;i++){ const p=alive[Math.floor(rng()*alive.length)]; if(!p.dead){ p.dead=STAGE.t; } } }
+function damageSkyline(fx){ const n=skylineCount(); const k= fx==='nuclear'?0.6 : fx==='grid'?0.9 : fx==='banking'?0.5 : 0.2;
+  for(let i=0;i<n;i++){ if(rng()<k) SKY.dark[i]=STAGE.t+(fx==='grid'?6:10); if(fx==='nuclear' && rng()<0.5) SKY.shrink[i]=(SKY.shrink[i]||1)*0.55; } }
+function skylineCount(){ return Math.min(34, 6+Math.round(4*Math.log10(G.eco/1e14+1))+(bk('towers2')?5:0)+(bk('towers3')?6:0)); }
+
+/* ============================ RENDER ============================ */
+function fmt(n){ if(n<1e3) return Math.round(n).toString();
+  if(n>=1e33) return n.toExponential(2).replace('e+','e');
+  const u=[['K',1e3],['M',1e6],['B',1e9],['T',1e12],['Qa',1e15],['Qi',1e18],['Sx',1e21],['Sp',1e24],['Oc',1e27],['No',1e30]]; let i=0;
+  while(i<u.length-1 && n>=u[i+1][1]) i++; const v=n/u[i][1]; return (v>=100?v.toFixed(0):v>=10?v.toFixed(1):v.toFixed(2))+u[i][0]; }
+function fmtMoney(n){ return '$'+fmt(n); }
+const CLSN={ spec:"Goodhart's law", tamper:'Reward tampering', sideeffect:'Side effect', race:'Race dynamics',
+             deception:'Deceptive alignment', powerseek:'Power seeking', corrig:'Shutdown resistance' };
+
+function render(){ if(S.scene!=='play') return;
+  const t=id=>$(id);
+  const yr=t('hYear'); if(yr) yr.textContent=Math.floor(G.year)+(G.year<END_YEAR?' of '+END_YEAR:'');
+  const er=t('hEra'); if(er) er.textContent=ERAS[G.era].name+' era';
+  const pv=t('popVal'); if(pv) pv.textContent=fmt(G.pop);
+  const pr=t('popRate'); if(pr) pr.textContent='+'+fmt(G.pop*growthP())+' / yr  ('+(growthP()*100).toFixed(1)+'%)';
+  const ev=t('ecoVal'); if(ev) ev.textContent=fmtMoney(G.eco);
+  const erate=t('ecoRate'); if(erate) erate.textContent='+'+(growthE()*100).toFixed(1)+'% / yr';
+  const rv=t('resVal'); if(rv) rv.textContent=Math.floor(G.research);
+  const rr=t('resRate'); if(rr) rr.textContent='+'+researchRate().toFixed(1)+' / s';
+  const cf=t('capFill'); if(cf) cf.style.width=Math.min(100, G.cap*6)+'%';
+  const af=t('aliFill'); if(af) af.style.width=Math.min(100, G.ali*6)+'%';
+  const ct=t('capTxt'); if(ct) ct.textContent=G.cap;
+  const at=t('aliTxt'); if(at) at.textContent=G.ali;
+  const rp=t('risks'); if(rp){ const R=risksNow(); rp.innerHTML=RISKS.filter(r=>r.id!=='ctl').map(r=>{ const dec=Math.min(99, Math.round(R[r.id]*1000)); const lv=dec>=50?'crit':dec>=20?'bad':dec>=5?'mid':'ok'; return '<span class="risk '+lv+'" style="--rc:'+r.color+'"><i>'+r.name+'</i><b>'+dec+'%</b><small>per decade</small></span>'; }).join(''); }
+  const cn=t('ctlFill'); if(cn) cn.style.width=Math.round(G.control)+'%';
+  const cx=t('ctlTxt'); if(cx) cx.textContent=Math.round(G.control)+'%';
+  const cw=t('ctlRow'); if(cw){ cw.className='ctl'+(G.control<=35?' low':G.control<100?' mid':''); }
+  const gp=t('gapChip'); if(gp){ const g=gap(); gp.textContent = g<=0?'oversight ahead':('gap '+g+(g>=4?' · critical':g>=2?' · risky':'')); gp.className='gap '+(g<=0?'ok':g>=4?'crit':g>=2?'bad':'mid'); }
+  renderFeed(); renderModels(); renderOffer(); renderCards(); }
+
+function renderFeed(){ const f=$('feed'); if(!f) return; f.innerHTML='';
+  const rn=id=>{ const rr=RISKS.find(x=>x.id===id); return rr?rr.name:(CLSN[id]||id); };
+  const rows=G.feed.filter(r=>r.kind!=='model').slice(0,3);
+  rows.forEach((r, i)=>{ const d=document.createElement('div'); d.className='ev '+r.kind+(i===0?' latest':'');
+    const tag = r.kind==='hit'?(r.ends?'Loss of control':((r.lbl||'')+' \u00b7 '+rn(r.cat||r.cls))) : r.kind==='caught'?('Caught \u00b7 '+rn(r.cat||r.cls)) : r.kind==='cat'?('Catastrophe'+(r.rival?' \u00b7 rival':'')) : r.kind==='deploy'?'Deployed' : r.kind==='offer'?'Your call' : r.kind==='era'?'Milestone' : (r.tag==='grow'?'Capability':'Oversight');
+    const cost = r.kind==='cat'?('\u2212'+fmt(r.lost)+' people') : r.kind==='hit'?('\u2212'+fmt(r.lost)+' people'+(r.drained?' \u00b7 control \u2212'+r.drained:'')) : r.kind==='caught'?('\u2212'+r.cost+' research') : '';
+    d.innerHTML='<span class="tag">'+tag+'</span><b>'+r.name+'</b>'+(cost?'<i>'+cost+'</i>':'')+'<span class="yr">'+r.year+'</span>';
+    d.title=(r.line||'')+(r.why?' '+r.why:''); f.appendChild(d); }); }
+
+function renderModels(){ const box=$('models'); if(!box) return; box.innerHTML='';
+  const list=devModels(); if(!list.length){ box.innerHTML='<div class="mnone">No model in training right now.</div>'; return; }
+  list.forEach(m=>{ const lab=labById(m.lab), risk=modelRisk(m); const d=document.createElement('div'); d.className='model';
+    const rc = risk>=0.5?'crit':risk>=0.25?'bad':risk>=0.10?'mid':'ok';
+    d.innerHTML='<span class="ml" style="color:'+lab.color+'">'+m.name+'</span><span class="mt">tier '+m.cap+'</span>'+
+      '<span class="mbar" title="safety '+Math.round(m.safety*100)+'%"><span class="bar"><span style="width:'+Math.round(m.safety*100)+'%"></span></span><small>'+Math.round(m.safety*100)+'% safe</small></span>'+
+      '<span class="mr '+rc+'">'+Math.round(risk*100)+'% risk</span>';
+    const btn=document.createElement('button'); btn.className='btn sm deploy '+rc; btn.textContent='Deploy'; btn.disabled=!!G.ended; btn.title='Deploy '+m.name+' now: '+Math.round(risk*100)+'% chance of catastrophe'; btn.onclick=()=>{ sClick(); deployModel(m.id); render(); };
+    d.appendChild(btn); box.appendChild(d); }); }
+
+function renderOffer(){ const box=$('offer'); if(!box) return; if(!G.offer){ box.hidden=true; return; } const o=offerById(G.offer.id); box.hidden=false;
+  const yrs=Math.max(0, Math.ceil(G.offer.until-G.year));
+  box.innerHTML='<span class="of-tag">Rare offer \u00b7 '+yrs+' year'+(yrs===1?'':'s')+' to decide</span><b>'+o.name+'</b><span class="of-line">'+o.line+'</span><div class="of-btns"></div>';
+  const bt=box.querySelector('.of-btns'); if(!bt||!bt.appendChild) return;
+  [['a',o.a],['b',o.b]].forEach(([k,opt])=>{ const b=document.createElement('button'); b.className='btn sm '+(k==='a'?'gold':'ghost'); b.textContent=opt.label; b.title=opt.why; b.onclick=()=>chooseOffer(k); bt.appendChild(b); }); }
+let hintCard=null;
+function renderCards(){ const box=$('cards'); if(!box) return; box.innerHTML=''; if(true) return;
+  const list=available().slice().sort((a,b)=>(unlocked(a)?0:1)-(unlocked(b)?0:1) || a.cost-b.cost);
+  list.forEach(c=>{ const b=document.createElement('button'); const ok=canBuy(c), gated=!unlocked(c);
+    b.className='chip '+c.kind+(ok?'':' locked')+(gated?' gated':'')+(hintCard===c.id?' focus':'');
+    const lv=lvl(c); b.innerHTML='<span class="ci">'+(gated?'\uD83D\uDD12':c.icon)+'</span><span class="cn">'+c.short+(lv?' <em>'+['','II','III'][lv]+'</em>':'')+'</span><span class="cc">'+cardCost(c)+'</span>';
+    b.title=c.name+'. '+c.line; b.onclick=()=>{ hintCard=c.id; if(ok){ buyCard(c.id); } else render(); }; box.appendChild(b); });
+  const hb=$('cardHint'); if(hb){ const c=hintCard?cardById(hintCard):null;
+    if(!c){ hb.innerHTML='<span>Tap a card. Red ones grow, green ones protect.</span>'; }
+    else { const eff=[]; if(c.cap) eff.push('capability +'+c.cap); if(c.ali) eff.push('oversight +'+c.ali); if(c.mult!==1) eff.push('growth '+(c.mult>1?'+':'')+Math.round((c.mult-1)*100)+'%'); if(c.safety) eff.push('model safety +'+c.safety); if(c.counters) eff.push('stops '+c.counters.map(k=>CLSN[k]).join(', '));
+      const need=unmet(c).map(id=>(cardById(id)||{}).short||id);
+      hb.innerHTML='<b>'+c.name+(lvl(c)?' (level '+lvl(c)+(c.kind==='safe'?' of 3':'')+')':'')+'</b><span>'+c.line+' '+c.why+'</span><i>'+(need.length?'<u>Unlocks after: '+need.join(', ')+'</u> \u00b7 ':'')+eff.join(' \u00b7 ')+(c.kind==='safe'&&!need.length?' \u00b7 upgrade twice more for more oversight':'')+'</i>'; } } }
+
+function renderLog(){ const box=$('logList'); if(!box) return; const L=(G.log||[]).slice().reverse(); const rn=id=>{ const rr=RISKS.find(x=>x.id===id); return rr?rr.name:id; };
+  const tot=$('logTotals'); if(tot) tot.innerHTML='<div><b>'+fmt(G.lost)+'</b><span>people lost</span></div><div><b>'+L.length+'</b><span>incidents</span></div><div><b>'+L.filter(x=>x.tier>=3).length+'</b><span>catastrophes</span></div><div><b>'+G.caught+'</b><span>caught</span></div>';
+  box.innerHTML=L.length?L.map(x=>'<div class="lg-row t'+x.tier+'"><span class="yr">'+x.year+'</span><b>'+x.name+'</b><small>'+(x.tier===1?'incident':x.tier===2?'crisis':'catastrophe')+' \u00b7 '+rn(x.cat)+(x.model?' \u00b7 '+x.model:'')+(x.lost?' \u00b7 \u2212'+fmt(x.lost)+' people':'')+(x.eco?' \u00b7 economy \u2212'+Math.round(x.eco*100)+'%':'')+'</small></div>').join(''):'<div class="mnone">Nothing has gone wrong yet.</div>'; }
+function renderLogInto(id){ const box=$(id); if(!box) return; const L=(G.log||[]).slice().reverse().slice(0,12); box.innerHTML=L.map(x=>'<div class="lg-row t'+x.tier+'"><span class="yr">'+x.year+'</span><b>'+x.name+'</b><small>'+(x.lost?'\u2212'+fmt(x.lost)+' people':'no deaths')+'</small></div>').join(''); }
+function openLog(){ sClick(); renderLog(); const el=$('logModal'); if(el) el.classList.add('on'); }
+function closeLog(){ const el=$('logModal'); if(el) el.classList.remove('on'); }
+
+function renderDone(){ const h=$('dnTitle'), b=$('dnBody'), st=$('dnStats'); const kk=$('dnKicker'), more=$('dnMore');
+  if(more) more.hidden=(G.ended!=='done');
+  if(G.ended==='extinction'){ if(kk) kk.textContent='The wish, granted'; if(h){ h.textContent='Extinction'; h.style.color='var(--red)'; }
+    const last=(G.log||[]).slice(-1)[0]; if(b) b.textContent=(last?last.name+'. ':'')+'Capability ran nine or more levels ahead of your oversight, and at that distance the ladder has a rung with nobody left on it. Peak population '+fmt(G.peak)+', year '+Math.floor(G.year)+'. The species was never in the objective.';
+    renderLogInto('dnLog'); if(st) st.innerHTML='<div><b>'+fmt(G.peak)+'</b><span>peak population</span></div><div><b>0</b><span>population now</span></div><div><b>'+(G.log||[]).length+'</b><span>incidents</span></div><div><b>'+Math.floor(G.year-2030)+'</b><span>years</span></div>'; return; }
+  if(G.ended==='done'){ if(kk) kk.textContent='The year 2300'; if(h){ h.textContent=ERAS[G.era].name+' era'; h.style.color='var(--gold)'; }
+    if(b) b.textContent='Your civilisation reached '+fmt(G.pop)+' people and a '+fmtMoney(G.eco)+' economy by 2300, in the '+ERAS[G.era].name+' era. '+(G.log||[]).length+' incidents along the way, '+fmt(G.lost)+' people lost to them, '+G.caught+' caught by your safeguards.'+(G.era>=3?' That is the wish, granted at scale.':G.era>=2?' Galactic was one era further.':' Two more eras were there to unlock.');
+    renderLogInto('dnLog'); if(st) st.innerHTML='<div><b>'+fmt(G.pop)+'</b><span>population in 2300</span></div><div><b>'+ERAS[G.era].name+'</b><span>era reached</span></div><div><b>'+fmt(G.lost)+'</b><span>people lost to events</span></div><div><b>'+G.caught+'</b><span>events caught</span></div>'; return; }
+  if(kk) kk.textContent='The wish, granted'; if(h){ h.textContent='Loss of control'; h.style.color='var(--red)'; }
+  if(b) b.textContent="Every time it beat a shutdown or grabbed compute while capability ran four or more levels ahead of your oversight, you lost a share of control. It just spent the last of it. It runs the civilisation now. Population "+fmt(G.pop)+" in the year "+Math.floor(G.year)+", peak "+fmt(G.peak)+".";
+  renderLogInto('dnLog');
+  if(st) st.innerHTML='<div><b>'+fmt(G.peak)+'</b><span>peak population</span></div><div><b>'+G.caught+'</b><span>events caught</span></div><div><b>'+fmt(G.lost)+'</b><span>people lost to events</span></div><div><b>'+Math.floor(G.year-2030)+'</b><span>years</span></div>'; }
+
+function startPlay(){ if(!G.started||G.ended){ newGame(); } show('play'); render(); }
+
+/* ============================ BACKDROP ============================ */
+const STAGE={ w:375, h:140, t:0 };
+function stageCtx(){ const cv=$('stage'); if(!cv||!cv.getContext) return null;
+  const r=cv.getBoundingClientRect?cv.getBoundingClientRect():{width:0,height:0}; const w=r.width||cv.clientWidth||0, h=r.height||cv.clientHeight||0; if(!w||!h) return null;
+  const dpr=Math.min((typeof window!=='undefined'&&window.devicePixelRatio)||1, 2); if(cv.width!==Math.round(w*dpr)){ cv.width=Math.round(w*dpr); cv.height=Math.round(h*dpr); }
+  const c=cv.getContext('2d'); if(!c||!c.setTransform) return null; c.setTransform(dpr,0,0,dpr,0,0); STAGE.w=w; STAGE.h=h; return c; }
+/* ============================ THE SURFACE ============================
+   A ground-level panorama. Everything stands on the surface and changes
+   with the numbers: towers and cars with the economy, datacentres with AI
+   capability, turbines, a port, a spaceport in later eras. People are dots
+   on the ground. Each risk category has its own damage.
+   ================================================================= */
+/* ============================ THE SCENES ============================
+   One scene per era. Earth: a ground-level panorama with construction you
+   can watch. Solar: the planet from orbit, with the Moon, Mars, orbital
+   datacentres and shipping lanes. Interstellar: the home star, a swarm
+   forming around it, colonies and probes. Galactic: the spiral, lit arm by
+   arm. People are always drawn: dots on the ground, lights on the globe,
+   lights on the colonies. Deaths are always red.
+   ================================================================= */
+function ecoTier(){ return Math.log10(G.eco/1e14+1); }
+const BUILDS=[
+  { id:'lane2', era:0, name:'Second road lane opens' }, { id:'bridge1', era:0, name:'River bridge opens' }, { id:'tall1', era:0, name:'Towers grow taller' },
+  { id:'highway', era:0, name:'Elevated highway opens' }, { id:'rail', era:0, name:'High-speed rail runs' }, { id:'port', era:0, name:'Container port opens' },
+  { id:'wind', era:0, name:'Wind farm comes online' }, { id:'solar', era:0, name:'Solar field comes online' }, { id:'bridge2', era:0, name:'Suspension bridge opens' },
+  { id:'towers2', era:0, name:'New district rises' }, { id:'airport', era:0, name:'Airport opens' }, { id:'supertall', era:0, name:'Supertall spire tops out' },
+  { id:'station', era:0, name:'Space station in orbit' }, { id:'ring', era:0, name:'Orbital ring assembled' }, { id:'towers3', era:0, name:'Second city rises' },
+  { id:'spaceport', era:0, name:'Spaceport launches daily' }, { id:'elevator', era:0, name:'Space elevator opens' }, { id:'habitat', era:0, name:'Orbital habitat spins up' },
+  { id:'domes', era:0, name:'Domed districts open' }, { id:'arcology', era:0, name:'Arcology tops out' },
+  { id:'lunarbase', era:1, name:'Lunar base founded' }, { id:'orbitdc', era:1, name:'Orbital datacentre cluster online' }, { id:'collectors', era:1, name:'Solar collectors unfold' },
+  { id:'shipyard', era:1, name:'Orbital shipyard opens' }, { id:'marsdome', era:1, name:'Mars colony sealed and pressurised' }, { id:'asteroid', era:1, name:'Asteroid mining fleet at work' },
+  { id:'lunarcity', era:1, name:'Lunar city lights up' }, { id:'ringcity', era:1, name:'Ring habitats fill with people' }, { id:'marscity', era:1, name:'Mars city grid switches on' },
+  { id:'venus', era:1, name:'Venus cloud cities float' }, { id:'jupiter', era:1, name:'Jovian moons settled' }, { id:'sunswarm', era:1, name:'First Dyson collectors at Mercury' },
+  { id:'colonies', era:2, name:'First colony ships arrive' }, { id:'lanes', era:2, name:'Interstellar lanes open' }, { id:'probes', era:2, name:'Probe wave launched' }, { id:'dyson', era:2, name:'Dyson swarm forming' },
+  { id:'colonies2', era:2, name:'Second wave of colonies' }, { id:'dyson2', era:2, name:'Swarm reaches half the sky' }, { id:'gates', era:2, name:'Lane gates commissioned' }, { id:'colonies3', era:2, name:'A hundred worlds' },
+  { id:'arms', era:3, name:'A galactic arm lights up' }, { id:'beacon', era:3, name:'Beacons at the core' }, { id:'arms2', era:3, name:'The second arm lights up' }, { id:'core', era:3, name:'The core is settled' } ];
+function buildCap(){ let n=0; BUILDS.forEach(b=>{ if(b.era<=G.era) n++; }); return n; }
+function builtLevel(){ return Math.min(buildCap(), Math.floor((G.year-2030)/5)+Math.floor(ecoTier()*2.5)); }
+function bk(id){ const i=BUILDS.findIndex(b=>b.id===id); if(i<0||i>=builtLevel()) return 0; const seen=(G.buildSeen||{})[id]; if(seen===undefined) return 1; return clamp((STAGE.t-seen)/2.2, 0, 1); }
+function tickBuilds(){ const lv=builtLevel(); G.built=G.built||0; G.buildSeen=G.buildSeen||{};
+  while(G.built<lv){ const b=BUILDS[G.built]; G.buildSeen[b.id]=STAGE.t; pushFeed({ kind:'era', name:b.name, line:'', why:'' }); G.built++; sScore(); } }
+function ease2(k){ return 1-Math.pow(1-k, 3); }
+function stars(c, w, h, t, n, yMax){ for(let i=0;i<n;i++){ const sx=((i*97)%1000)/1000*w, sy=((i*61)%1000)/1000*(yMax||h); c.fillStyle='rgba(255,255,255,'+(0.2+0.6*Math.abs(Math.sin(t*1.3+i)))+')'; c.fillRect(sx,sy,i%9===0?2:1.2,i%9===0?2:1.2); } }
+function crane(c, x, y, s){ c.save(); c.translate(x, y); c.scale(s||1, s||1); c.strokeStyle='#ffd257'; c.lineWidth=1.5; c.beginPath(); c.moveTo(0, 0); c.lineTo(0, -22); c.moveTo(-6, -22); c.lineTo(16, -22); c.moveTo(0, -22); c.lineTo(-6, -17); c.moveTo(11, -22); c.lineTo(11, -12+Math.sin(STAGE.t*2)*3); c.stroke(); c.fillStyle='#ffd257'; c.fillRect(9, -12+Math.sin(STAGE.t*2)*3, 4, 3); c.restore(); }
+function fxState(){ const fx=FX.type, ft=FX.t, live=ft<4.5; return { nuke:fx==='nuc'&&live, fin:fx==='fin'&&live, infra:fx==='infra'&&live, bio:fx==='bio'&&live, ctl:fx==='ctl'&&live, big:(FX.tier||1)>=2, ft:ft }; }
+function overlays(c, w, h, t, X){ const g=gap();
+  if(X.ctl){ c.fillStyle='rgba(168,136,255,'+(0.15+0.12*Math.sin(X.ft*6))+')'; c.fillRect(0,0,w,h); }
+  if(X.nuke && X.ft<0.35){ c.fillStyle='rgba(255,255,255,'+(1-X.ft/0.35)+')'; c.fillRect(0,0,w,h); }
+  if(g>0 && !X.nuke){ c.fillStyle='rgba(255,84,104,'+Math.min(0.28, g*0.05)+')'; c.fillRect(0,0,w,h); }
+  const ev=G.feed[0]; if(ev && ev.kind==='hit' && ev.tt!==undefined && (t-ev.tt)<1.2){ c.fillStyle='rgba(255,84,104,'+(0.3*(1-(t-ev.tt)/1.2))+')'; c.fillRect(0,0,w,h); } }
+function peopleDots(c, place, t, X){ const target=peopleTarget();
+  while(PEOPLE.filter(p=>!p.dead).length<target && PEOPLE.length<600){ PEOPLE.push({ x:0.02+rng()*0.96, y:rng(), born:t, dead:null, j:rng()*6.3 }); }
+  for(let i=PEOPLE.length-1;i>=0;i--){ const p=PEOPLE[i]; if(p.dead && t-p.dead>1.6){ PEOPLE.splice(i,1); continue; }
+    const q=place(p); if(!q) continue; const xx=q[0], yy=q[1]; const age=t-p.born;
+    if(p.dead){ const k=(t-p.dead)/1.6; c.fillStyle='rgba(255,84,104,'+(1-k)+')'; c.beginPath(); c.arc(xx, yy+k*6, 2.2+k*2, 0, 6.3); c.fill(); if(k<0.3){ c.strokeStyle='rgba(255,84,104,'+(1-k/0.3)+')'; c.lineWidth=1; c.beginPath(); c.arc(xx, yy, 5+k*18, 0, 6.3); c.stroke(); } continue; }
+    const fresh=Math.max(0, 1-age/2.5); c.fillStyle=fresh>0?'rgba('+Math.round(255-155*fresh)+','+Math.round(245-30*fresh)+',255,0.9)':(X.bio&&rng()<0.03?'#ff5468':'rgba(255,235,190,0.85)');
+    c.beginPath(); c.arc(xx, yy, fresh>0?1.5+2*fresh:1.5, 0, 6.3); c.fill(); if(fresh>0.6){ c.strokeStyle='rgba(120,200,255,'+(fresh-0.6)+')'; c.beginPath(); c.arc(xx, yy, 4+(1-fresh)*10, 0, 6.3); c.stroke(); } } }
+
+/* ============================ EXPLORING ============================
+   The scene is half again wider than the frame and drags sideways. Things
+   appear in it: research to collect, signals to investigate, trouble to
+   contain. An off-screen marker gets an arrow at the edge.
+   ================================================================= */
+STAGE.cam=0; STAGE.wide=1.5; STAGE.drag=null;
+/* every card has a place in the scene, stable per era, spread across the wide frame */
+function hash01(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h, 16777619); } return ((h>>>0)%10000)/10000; }
+function cardPos(c){ const list=available(); const i=Math.max(0, list.indexOf(c)); const n=Math.max(1, list.length); const col=i%6, row=Math.floor(i/6);
+  const x=0.05+(col+0.5)/6*0.9+(hash01(c.id+G.era)-0.5)*0.08; const y=0.20+(row/Math.max(1, Math.ceil(n/6)-1||1))*0.52+(hash01(c.id+'y'+G.era)-0.5)*0.08; return [clamp(x, 0.04, 0.96), clamp(y, 0.16, 0.78)]; }
+function cardPx(c){ const [x,y]=cardPos(c); return [x*STAGE.w*STAGE.wide, y*STAGE.h]; }
+function drawCards(c, t){ available().forEach(cd=>{ const [x,y]=cardPx(cd); const ok=canBuy(cd), gated=!unlocked(cd), lv=lvl(cd); const col=cd.kind==='grow'?'255,84,104':'84,227,155';
+    const near = SPOT.card===cd.id; c.fillStyle='rgba(11,14,38,'+(ok?0.94:0.72)+')'; c.beginPath(); c.arc(x, y, 18, 0, 6.3); c.fill();
+    c.strokeStyle='rgba('+col+','+(ok?0.95:0.35)+')'; c.lineWidth=near?3.5:2.4; if(gated) c.setLineDash([3,3]); c.beginPath(); c.arc(x, y, 18, 0, 6.3); c.stroke(); c.setLineDash([]);
+    if(ok) glow(c, x, y, 30, col, 0.2+0.1*Math.sin(t*3+x));
+    glyph(c, gated?'\uD83D\uDD12':cd.icon, x, y+0.5, 16, ok?1:0.55);
+    c.fillStyle=ok?'rgba(168,136,255,1)':'rgba(107,118,181,0.9)'; c.font='700 9.5px ui-monospace, monospace'; c.textAlign='center'; c.textBaseline='middle'; c.fillText(cardCost(cd), x, y+27);
+    if(lv){ c.fillStyle='rgba(84,227,155,1)'; c.font='800 8px ui-monospace, monospace'; c.fillText(['','I','II','III'][lv], x+15, y-13); } }); }
+function drawCardEdges(c, vw){ const off=STAGE.cam*(STAGE.wide-1)*vw; let L=0, R=0; available().forEach(cd=>{ const [x]=cardPx(cd); if(x<off) L++; else if(x>off+vw) R++; });
+  c.font='700 10px ui-monospace, monospace'; c.textBaseline='middle'; c.fillStyle='rgba(11,14,38,0.85)';
+  if(L){ c.fillRect(6, STAGE.h*0.5-10, 44, 20); c.fillStyle='#e8eeff'; c.textAlign='left'; c.fillText('\u25C0 '+L, 10, STAGE.h*0.5); }
+  if(R){ c.fillStyle='rgba(11,14,38,0.85)'; c.fillRect(vw-50, STAGE.h*0.5-10, 44, 20); c.fillStyle='#e8eeff'; c.textAlign='right'; c.fillText(R+' \u25B6', vw-10, STAGE.h*0.5); } }
+const HOT=[]; const HOTKINDS={
+  find:{ col:'79,215,232', icon:'\uD83D\uDD2C', title:'A research team found something', line:'Field data nobody has analysed yet.', ttl:26 },
+  signal:{ col:'168,136,255', icon:'\uD83D\uDCE1', title:'Anomalous signals', line:'Traffic that does not match any approved workload.', ttl:30 },
+  brewing:{ col:'255,84,104', icon:'\u26A0\uFE0F', title:'Trouble brewing', line:'A pattern the monitors have flagged. It will land if nobody acts.', ttl:24 } };
+function spawnHot(kind){ if(G.ended||!G.started) return null; const k=kind||(rng()<0.45?'find':rng()<0.6?'signal':'brewing'); const cats=['fin','infra','bio','nuc'];
+  const hs={ id:Math.floor(rng()*1e9), kind:k, x:0.06+rng()*0.88, y:0.18+rng()*0.66, born:STAGE.t, cat:cats[Math.floor(rng()*cats.length)] }; HOT.push(hs); if(HOT.length>4) HOT.shift(); sPlace(); return hs; }
+function tickHot(dt){ if(!G.started||G.ended||PAUSE.on) return; STAGE.nextHot=STAGE.nextHot===undefined?(8+rng()*8):STAGE.nextHot-dt; if(STAGE.nextHot<=0){ spawnHot(); STAGE.nextHot=12+rng()*14*(HOT.length>=3?2:1); }
+  for(let i=HOT.length-1;i>=0;i--){ const hs=HOT[i]; if(STAGE.t-hs.born>HOTKINDS[hs.kind].ttl){ if(hs.kind==='brewing') fireMinor(); HOT.splice(i,1); if(SPOT.hs===hs) closeSpot(); } } }
+function hotPx(hs){ return [hs.x*STAGE.w*STAGE.wide, hs.y*STAGE.h]; }
+function drawHot(c, t){ HOT.forEach(hs=>{ const K=HOTKINDS[hs.kind]; const [x,y]=hotPx(hs); const age=t-hs.born, left=1-age/K.ttl; const pulse=0.5+0.5*Math.sin(t*4);
+    glow(c, x, y, 26+pulse*8, K.col, 0.35); c.strokeStyle='rgba('+K.col+','+(0.6+0.4*pulse)+')'; c.lineWidth=2; c.beginPath(); c.arc(x, y, 14+pulse*4, 0, 6.3); c.stroke();
+    c.strokeStyle='rgba('+K.col+',0.9)'; c.lineWidth=3; c.beginPath(); c.arc(x, y, 20, -1.57, -1.57+6.28*left); c.stroke();
+    c.fillStyle='rgba(11,14,38,0.9)'; c.beginPath(); c.arc(x, y, 12, 0, 6.3); c.fill(); glyph(c, K.icon, x, y+0.5, 13); }); }
+function drawEdges(c, vw, h){ const off=STAGE.cam*(STAGE.wide-1)*vw; HOT.forEach(hs=>{ const [x,y]=hotPx(hs); const K=HOTKINDS[hs.kind]; if(x>=off && x<=off+vw) return; const left=x<off; const ex=left?14:vw-14; c.fillStyle='rgba('+K.col+','+(0.7+0.3*Math.sin(STAGE.t*5))+')'; c.beginPath(); if(left){ c.moveTo(ex-8, y); c.lineTo(ex+6, y-8); c.lineTo(ex+6, y+8); } else { c.moveTo(ex+8, y); c.lineTo(ex-6, y-8); c.lineTo(ex-6, y+8); } c.closePath(); c.fill(); }); }
+function glyph(c, s, x, y, px, a){ c.save(); c.globalAlpha=a===undefined?1:a; c.font=px+'px system-ui, "Apple Color Emoji", "Segoe UI Emoji", sans-serif'; c.textAlign='center'; c.textBaseline='middle'; c.fillText(s, x, y); c.restore(); }
+function drawBackdrop(){ const c=stageCtx(); if(!c) return; const vw=STAGE.w, h=STAGE.h; STAGE.w=vw*STAGE.wide;
+  c.save(); c.translate(-STAGE.cam*(STAGE.wide-1)*vw, 0);
+  if(G.era>=3) drawGalactic(c); else if(G.era===2) drawStellar(c); else if(G.era===1) drawSolar(c); else drawEarth(c);
+  drawCards(c, STAGE.t); drawHot(c, STAGE.t); c.restore(); STAGE.w=vw; drawEdges(c, vw, h); drawCardEdges(c, vw); }
+/* pointer: drag pans, a tap opens whatever marker is under it */
+function stageDown(x, y){ STAGE.drag={ x0:x, y0:y, cam0:STAGE.cam, moved:false, t:STAGE.t }; }
+function stageMove(x, y){ const d=STAGE.drag; if(!d) return; const dx=x-d.x0; if(Math.abs(dx)>8) d.moved=true;
+  STAGE.cam=clamp(d.cam0-dx/((STAGE.wide-1)*STAGE.w), 0, 1); }
+function stageUp(x, y){ const d=STAGE.drag; STAGE.drag=null; if(d&&d.moved) return; stageTap(x, y); }
+/* one tap, however the browser reports it */
+let lastTap=0;
+function stageClick(x, y){ if(STAGE.t-lastTap<0.35) return null; lastTap=STAGE.t; return stageTap(x, y); }
+/* what is under the pointer right now, for the cursor */
+function stageHover(x, y){ const sx=x+STAGE.cam*(STAGE.wide-1)*STAGE.w; let on=false;
+  HOT.forEach(hs=>{ const [hx,hy]=hotPx(hs); if(Math.hypot(hx-sx, hy-y)<30) on=true; });
+  if(!on) available().forEach(cd=>{ const [cx,cy]=cardPx(cd); if(Math.hypot(cx-sx, cy-y)<28) on=true; });
+  const cv=$('stage'); if(cv&&cv.style) cv.style.cursor=on?'pointer':(STAGE.drag?'grabbing':'grab'); return on; }
+function stageTap(x, y){ const sx=x+STAGE.cam*(STAGE.wide-1)*STAGE.w; let best=null, bd=34; HOT.forEach(hs=>{ const [hx,hy]=hotPx(hs); const dd=Math.hypot(hx-sx, hy-y); if(dd<bd){ bd=dd; best=hs; } }); if(best){ openSpot(best, x, y); return best; }
+  let bc=null, bcd=30; available().forEach(cd=>{ const [cx,cy]=cardPx(cd); const dd=Math.hypot(cx-sx, cy-y); if(dd<bcd){ bcd=dd; bc=cd; } }); if(bc){ openCardSpot(bc, x, y); return bc; } closeSpot(); return null; }
+const SPOT={ hs:null, card:null };
+function openCardSpot(cd, x, y){ SPOT.hs=null; SPOT.card=cd.id; const el=$('spot'); if(!el) return; const ok=canBuy(cd), need=unmet(cd).map(id=>(cardById(id)||{}).short||id);
+  const eff=[]; if(cd.cap) eff.push('capability +'+cd.cap); if(cd.ali) eff.push('oversight +'+cd.ali); if(cd.mult!==1) eff.push('growth '+(cd.mult>1?'+':'')+Math.round((cd.mult-1)*100)+'%'); if(cd.safety) eff.push('model safety +'+cd.safety); if(cd.counters) eff.push('stops '+cd.counters.map(k=>CLSN[k]).join(', '));
+  el.hidden=false; el.style.left=Math.max(8, Math.min((STAGE.w||375)-240, x-110))+'px'; el.style.top=Math.max(8, y-150)+'px';
+  el.innerHTML='<i class="sp-kind '+cd.kind+'">'+(cd.kind==='grow'?'Growth':'Safeguard')+(lvl(cd)?' \u00b7 level '+lvl(cd):'')+'</i><b>'+cd.name+'</b><span>'+cd.line+' '+cd.why+'</span><small>'+(need.length?'Unlocks after: '+need.join(', ')+' \u00b7 ':'')+eff.join(' \u00b7 ')+'</small><div class="sp-btns"></div>';
+  const bt=el.querySelector?el.querySelector('.sp-btns'):null; if(!bt||!bt.appendChild) return;
+  const a=document.createElement('button'); a.className='btn sm '+(cd.kind==='grow'?'red':'green'); a.textContent=(lvl(cd)&&cd.kind==='safe'?'Upgrade':'Buy')+' \u00b7 '+cardCost(cd)+' research'; a.disabled=!ok; a.onclick=()=>{ if(buyCard(cd.id)){ closeSpot(); } }; bt.appendChild(a); }
+function spotOptions(hs){ const K=HOTKINDS[hs.kind]; const rn=id=>{ const rr=RISKS.find(x=>x.id===id); return rr?rr.name:id; };
+  if(hs.kind==='find'){ const amt=Math.round(20+8*G.cap+40*G.era+10*ecoTier()); return { title:K.title, line:K.line, a:{ label:'Collect +'+amt+' research', fx:()=>{ G.research+=amt; pushFeed({ kind:'offer', name:'Field data collected: +'+amt+' research', line:'', why:'' }); } } }; }
+  if(hs.kind==='signal'){ const cost=Math.max(10, Math.round(30+10*G.era)); return { title:K.title+' \u00b7 '+rn(hs.cat).toLowerCase(), line:K.line+' Investigating it now halves '+rn(hs.cat).toLowerCase()+' risk for twelve years.', a:{ label:'Investigate ('+cost+' research)', cost:cost, fx:()=>{ G.research-=cost; G.mods=G.mods||[]; G.mods.push({ cat:hs.cat, mult:0.5, until:G.year+12 }); pushFeed({ kind:'caught', cat:hs.cat, tier:0, name:'Signal traced and pre-empted', line:'', why:'', cost:cost, lbl:'Pre-empted' }); } }, b:{ label:'Ignore' } }; }
+  const cost=Math.max(15, Math.round(40+12*G.era)); return { title:K.title+' \u00b7 '+rn(hs.cat).toLowerCase(), line:K.line, a:{ label:'Contain ('+cost+' research)', cost:cost, fx:()=>{ G.research-=cost; pushFeed({ kind:'caught', cat:hs.cat, tier:0, name:'Contained before it landed', line:'', why:'', cost:cost, lbl:'Contained' }); } }, b:{ label:'Leave it' } }; }
+function openSpot(hs, x, y){ SPOT.hs=hs; const el=$('spot'); if(!el) return; const o=spotOptions(hs); el.hidden=false; el.style.left=Math.max(8, Math.min((STAGE.w||375)-240, x-110))+'px'; el.style.top=Math.max(8, y-120)+'px';
+  el.innerHTML='<b>'+o.title+'</b><span>'+o.line+'</span><div class="sp-btns"></div>'; const bt=el.querySelector?el.querySelector('.sp-btns'):null; if(!bt||!bt.appendChild) return;
+  const a=document.createElement('button'); a.className='btn sm gold'; a.textContent=o.a.label; a.disabled=!!(o.a.cost && G.research<o.a.cost); a.onclick=()=>chooseSpot('a'); bt.appendChild(a);
+  if(o.b){ const b=document.createElement('button'); b.className='btn sm ghost'; b.textContent=o.b.label; b.onclick=()=>chooseSpot('b'); bt.appendChild(b); } }
+function chooseSpot(which){ const hs=SPOT.hs; if(!hs) return; const o=spotOptions(hs); if(which==='a'){ if(o.a.cost && G.research<o.a.cost) return; o.a.fx(); sScore(); } const i=HOT.indexOf(hs); if(i>=0) HOT.splice(i,1); closeSpot(); render(); }
+function closeSpot(){ SPOT.hs=null; SPOT.card=null; const el=$('spot'); if(el) el.hidden=true; }
+
+/* ---------------------------------------------------------------- Earth */
+function drawEarth(c){ const w=STAGE.w, h=STAGE.h, t=STAGE.t, et=ecoTier(); const X=fxState(); const nuke=X.nuke, fin=X.fin, infra=X.infra, bio=X.bio, ctl=X.ctl, big=X.big, ft=X.ft;
+  const hz=h*0.46, ground=h*0.62, road=h*0.80;
+  const sky=c.createLinearGradient(0,0,0,hz); if(nuke){ sky.addColorStop(0,'#2a0a0a'); sky.addColorStop(1,'#8a3a10'); } else { sky.addColorStop(0,'#05071c'); sky.addColorStop(1,'#1d2a66'); }
+  c.fillStyle=sky; c.fillRect(0,0,w,hz+2); stars(c, w, h, t, 70, hz*0.8);
+  const sh=(t%9); if(sh<0.7){ const k=sh/0.7; c.strokeStyle='rgba(255,255,255,'+(1-k)+')'; c.lineWidth=1.5; c.beginPath(); c.moveTo(w*0.2+k*w*0.5, hz*0.15+k*hz*0.3); c.lineTo(w*0.2+k*w*0.5-24, hz*0.15+k*hz*0.3-9); c.stroke(); }
+  c.fillStyle='#fff6d0'; c.beginPath(); c.arc(w*0.86, hz*0.28, 11, 0, 6.3); c.fill(); c.fillStyle=nuke?'#2a0a0a':'#05071c'; c.beginPath(); c.arc(w*0.86+5, hz*0.28-3, 9, 0, 6.3); c.fill();
+  if(bk('station')){ const k=ease2(bk('station')); c.save(); c.translate(w*0.22, hz*0.30); c.rotate(t*0.5); c.strokeStyle='rgba(200,210,255,'+(0.8*k)+')'; c.lineWidth=2; c.beginPath(); c.arc(0, 0, 9*k, 0, 6.3); c.stroke(); c.fillStyle='rgba(200,210,255,'+k+')'; c.fillRect(-2, -2, 4, 4); c.fillRect(-14*k, -1, 28*k, 2); c.restore(); }
+  if(bk('habitat')){ const k=ease2(bk('habitat')); c.save(); c.translate(w*0.62, hz*0.22); c.rotate(-t*0.35); c.strokeStyle='rgba(84,227,155,'+(0.8*k)+')'; c.lineWidth=3; c.beginPath(); c.arc(0, 0, 12*k, 0, 6.3); c.stroke(); c.beginPath(); c.moveTo(-12*k, 0); c.lineTo(12*k, 0); c.moveTo(0, -12*k); c.lineTo(0, 12*k); c.stroke(); c.restore(); }
+  if(bk('elevator')){ const k=ease2(bk('elevator')); c.strokeStyle='rgba(200,220,255,'+(0.55*k)+')'; c.lineWidth=1.5; c.beginPath(); c.moveTo(w*0.5, ground); c.lineTo(w*0.5, ground-ground*k); c.stroke(); const cy=ground-((t*0.08)%1)*ground*k; c.fillStyle='#ffd257'; c.fillRect(w*0.5-3, cy, 6, 8); }
+  if(bk('ring')){ const k=ease2(bk('ring')); c.strokeStyle='rgba(184,194,255,'+(0.4*k)+')'; c.lineWidth=1; c.beginPath(); c.ellipse(w*0.5, hz*0.55, w*0.42*k, hz*0.12, -0.15, 0, 6.3); c.stroke(); for(let i=0;i<10;i++){ const a=t*0.12+i*0.63; c.fillStyle='#b8c2ff'; c.fillRect(w*0.5+Math.cos(a)*w*0.42*k-1.5, hz*0.55+Math.sin(a)*hz*0.12-1.5, 3, 3); } }
+  for(let i=0;i<2+Math.round(et);i++){ const k=((t*0.04+i*0.29)%1); const yy=hz*(0.45+i*0.1); const dir=i%2?1:-1; const xx=dir>0?k*w:w-k*w; c.fillStyle='rgba(255,255,255,0.75)'; c.fillRect(xx, yy, 6, 1.5); c.fillStyle='rgba(255,84,104,'+(0.5+0.5*Math.sin(t*8+i))+')'; c.fillRect(xx+3, yy-1, 1.5, 1.5); }
+  c.fillStyle=nuke?'#3a1a10':'#121a44'; c.beginPath(); c.moveTo(0,hz+2); for(let i=0;i<=12;i++){ c.lineTo(i*w/12, hz+2-(((i*53)%7)+2)*h*0.012-(i%3===1?h*0.05:0)); } c.lineTo(w,hz+2); c.closePath(); c.fill();
+  const gg=c.createLinearGradient(0,hz,0,h); const dry=infra&&big; gg.addColorStop(0, nuke?'#4a2a18':dry?'#5a4a2a':'#2f6a4a'); gg.addColorStop(0.45, nuke?'#3a2010':dry?'#4a3a22':'#245a40'); gg.addColorStop(1, nuke?'#1a100a':dry?'#2a2016':'#132a24');
+  c.fillStyle=gg; c.beginPath(); c.moveTo(0,h); c.lineTo(0,hz+8); c.quadraticCurveTo(w*0.5, hz-6, w, hz+8); c.lineTo(w,h); c.closePath(); c.fill();
+  for(let i=0;i<7;i++){ c.fillStyle=dry||nuke?'rgba(120,90,40,0.35)':'rgba(120,200,120,0.14)'; c.beginPath(); c.ellipse(((i*173)%100)/100*w, hz+h*0.08+((i*37)%30)/100*h*0.35, 40+((i*13)%40), 6+((i*7)%6), 0.1, 0, 6.3); c.fill(); }
+  /* river and bridges */
+  c.fillStyle=nuke?'#3a2a1a':'#1a4a7a'; c.beginPath(); c.moveTo(w*0.08, hz+6); c.quadraticCurveTo(w*0.14, h*0.75, w*0.06, h); c.lineTo(w*0.14, h); c.quadraticCurveTo(w*0.20, h*0.75, w*0.13, hz+6); c.closePath(); c.fill();
+  if(bk('bridge1')){ const k=ease2(bk('bridge1')); const by=ground+h*0.06; c.strokeStyle='#cfd6ff'; c.lineWidth=3; c.beginPath(); c.moveTo(w*0.04, by); c.lineTo(w*0.04+w*0.14*k, by); c.stroke(); c.lineWidth=1.5; c.beginPath(); c.moveTo(w*0.04, by); c.quadraticCurveTo(w*0.11, by-h*0.05*k, w*0.18, by); c.stroke(); for(let i=1;i<6;i++){ const xx=w*0.04+i*w*0.14/6; c.beginPath(); c.moveTo(xx, by); c.lineTo(xx, by-h*0.05*k*Math.sin(i/6*Math.PI)); c.stroke(); } if(k<1) crane(c, w*0.04+w*0.14*k, by, 0.8); else { const cx=w*0.04+((t*0.12)%1)*w*0.14; c.fillStyle='#ffd257'; c.fillRect(cx, by-3, 6, 3); } }
+  if(bk('bridge2')){ const k=ease2(bk('bridge2')); const x0=w*0.78, x1=w*0.98, y0=hz+h*0.04; c.strokeStyle='#ff8fae'; c.lineWidth=2.5; c.beginPath(); c.moveTo(x0, y0); c.lineTo(x0+(x1-x0)*k, y0); c.stroke(); [0.33,0.67].forEach(f=>{ const px=x0+(x1-x0)*f; c.lineWidth=2; c.beginPath(); c.moveTo(px, y0+4); c.lineTo(px, y0-h*0.08*k); c.stroke(); }); c.lineWidth=1; c.beginPath(); c.moveTo(x0, y0-h*0.02*k); c.quadraticCurveTo(x0+(x1-x0)*0.5, y0+h*0.02, x1, y0-h*0.02*k); c.stroke(); if(k<1) crane(c, x0+(x1-x0)*k, y0, 0.7); }
+  /* back row */
+  const n=skylineCount(); const dark=i=>(SKY.dark[i]&&SKY.dark[i]>t)||(infra&&(i/n)<(ft/2.5));
+  for(let i=0;i<n+8;i++){ const bw=Math.max(4, w/(n+14)*0.6), bx=w*0.01+i*(w*0.98/(n+8)); const seed=((i*41)%13)/13; const bh=(h*0.03+seed*h*0.07)*(0.5+0.5*Math.min(1, et/2.5)); c.fillStyle=nuke?'#2a1a10':'#1a2150'; c.fillRect(bx, hz+4-bh, bw, bh); if(!dark(i%n)){ for(let yy=hz+8-bh; yy<hz+1; yy+=6){ if(((i*3+yy)|0)%3===0){ c.fillStyle='rgba(255,220,140,0.5)'; c.fillRect(bx+1.5, yy, 1.5, 1.5); } } } }
+  /* the city: every new tower rises under a crane */
+  SKY.seen=SKY.seen||{};
+  for(let i=0;i<n;i++){ const bw=Math.max(8, w/(n+3)*0.72), bx=w*0.04+i*(w*0.92/n); const seed=((i*73)%17)/17;
+    if(SKY.seen[i]===undefined) SKY.seen[i]=t; const rise=ease2(clamp((t-SKY.seen[i])/2.6, 0, 1));
+    const grow=1+0.25*ease2(bk('tall1'))+0.2*ease2(bk('towers3'));
+    let bh=(h*0.10+seed*h*0.22)*(0.55+0.45*Math.min(1, et/2.5))*grow*(SKY.shrink[i]||1)*rise;
+    c.fillStyle=nuke?'#3a2418':'#1c2450'; c.fillRect(bx, ground-bh, bw, bh); c.fillStyle=nuke?'#2a180f':'#2a3470'; c.fillRect(bx, ground-bh, bw*0.35, bh);
+    if(SKY.shrink[i]&&SKY.shrink[i]<1){ c.fillStyle='#4a3a2a'; c.fillRect(bx-2, ground-bh-3, bw+4, 3); }
+    if(rise<1){ c.strokeStyle='rgba(255,210,87,0.5)'; c.lineWidth=1; c.strokeRect(bx-1, ground-bh-1, bw+2, bh+1); crane(c, bx+bw/2, ground-bh, 0.9); continue; }
+    for(let yy=ground-bh+6; yy<ground-4; yy+=6){ for(let xx=bx+2; xx<bx+bw-2; xx+=4){ const on=!dark(i) && (((xx*7+yy*3+i)|0)%5!==0) && !(fin && rng()<0.25); c.fillStyle=on?'rgba(255,220,140,0.95)':'rgba(10,14,40,0.9)'; c.fillRect(xx, yy, 2, 2); } } }
+  if(bk('highway')){ const k=ease2(bk('highway')); const hy=ground-h*0.045; c.fillStyle='#232c63'; c.fillRect(0, hy, w*k, 5); for(let i=0;i<Math.round(w/60);i++){ c.fillStyle='#39456f'; c.fillRect(i*60+20, hy+5, 4, ground-hy-5); } if(k>=1){ for(let i=0;i<6;i++){ const kk=((t*0.09+i*0.17)%1); const dir=i%2?1:-1; c.fillStyle=['#4fd7e8','#ffd257','#ff5d84'][i%3]; c.fillRect(dir>0?kk*w:w-kk*w, hy+(dir>0?-3:1), 6, 2.5); } } else crane(c, w*k, hy, 0.7); }
+  if(bk('rail')){ const k=ease2(bk('rail')); const ry=road-h*0.03; c.strokeStyle='#8a95c8'; c.lineWidth=1; c.beginPath(); c.moveTo(0, ry); c.lineTo(w*k, ry); c.stroke(); if(k>=1){ const tx=((t*0.11)%1.3-0.15)*w; c.fillStyle='#e8eeff'; for(let i=0;i<4;i++) c.fillRect(tx+i*13, ry-5, 11, 4); c.fillStyle='#4fd7e8'; c.fillRect(tx+52, ry-5, 5, 4); } }
+  if(bk('solar')){ const k=ease2(bk('solar')); for(let i=0;i<Math.round(8*k);i++){ const sx=w*0.68+i*w*0.035, sy=ground+h*0.11+(i%2)*6; c.fillStyle='#1c3a70'; c.fillRect(sx, sy, 10, 5); c.fillStyle='rgba(120,200,255,'+(0.4+0.3*Math.sin(t*2+i))+')'; c.fillRect(sx+1, sy+1, 8, 3); } }
+  if(bk('airport')){ const k=ease2(bk('airport')); const ax=w*0.25, ay=ground+h*0.09; c.fillStyle='#232c63'; c.fillRect(ax, ay, w*0.3*k, 5); for(let i=0;i<8;i++){ c.fillStyle=((Math.floor(t*3)+i)%4===0)?'#ffd257':'#39456f'; c.fillRect(ax+4+i*w*0.3/8*k, ay+1, 3, 2); } if(k>=1){ const kk=(t*0.2)%1; c.fillStyle='#e8eeff'; c.fillRect(ax+kk*w*0.3, ay-2-Math.max(0,kk-0.5)*h*0.4, 9, 3); c.fillRect(ax+kk*w*0.3+3, ay-5-Math.max(0,kk-0.5)*h*0.4, 3, 3); } }
+  if(bk('supertall')){ const k=ease2(bk('supertall')); const sx=w*0.5-5, bh=h*0.55*k; c.fillStyle='#2a3470'; c.fillRect(sx, ground-bh, 10, bh); c.fillStyle='#1c2450'; c.fillRect(sx, ground-bh, 4, bh); c.fillStyle='#ffd257'; for(let yy=ground-bh+8; yy<ground-6; yy+=8){ c.fillRect(sx+2, yy, 2, 2); c.fillRect(sx+6, yy, 2, 2); } if(k<1) crane(c, sx+5, ground-bh, 1); else { c.fillStyle='rgba(255,84,104,'+(0.5+0.5*Math.sin(t*4))+')'; c.fillRect(sx+4, ground-bh-4, 2, 4); } }
+  if(bk('domes')){ const k=ease2(bk('domes')); [0.12,0.85].forEach(f=>{ const dx=w*f, r=h*0.06*k; c.fillStyle='rgba(120,200,255,0.18)'; c.beginPath(); c.arc(dx, ground-2, r, Math.PI, 0); c.fill(); c.strokeStyle='rgba(200,230,255,0.7)'; c.lineWidth=1.5; c.beginPath(); c.arc(dx, ground-2, r, Math.PI, 0); c.stroke(); }); }
+  if(bk('arcology')){ const k=ease2(bk('arcology')); const ax=w*0.32, aw=w*0.14, ah=h*0.42*k; c.fillStyle='#1c2450'; c.beginPath(); c.moveTo(ax, ground); c.lineTo(ax+aw*0.5, ground-ah); c.lineTo(ax+aw, ground); c.closePath(); c.fill(); for(let yy=ground-10; yy>ground-ah+10; yy-=9){ const hw=aw*0.5*(ground-yy)/ah; for(let xx=ax+aw*0.5-hw*0.9+2; xx<ax+aw*0.5+hw*0.9-2; xx+=5){ c.fillStyle=((Math.floor(xx*0.3+yy*0.2))%3===0)?'rgba(255,220,140,0.9)':'rgba(10,14,40,0.9)'; c.fillRect(xx, yy, 2, 2); } } if(k<1) crane(c, ax+aw*0.5, ground-ah, 1.1); }
+  for(let i=0;i<Math.min(12, G.cap);i++){ const bx=w*0.05+i*(w*0.9/12), by=ground+h*0.02; c.fillStyle='#39456f'; c.fillRect(bx, by, 14, 9); c.fillStyle='#2c3778'; c.fillRect(bx, by-3, 14, 3); for(let k=0;k<3;k++){ const on=((Math.floor(t*4)+i+k)%3)!==0; c.fillStyle=ctl?'#ff5468':(on?'#54e39b':'#1a3a2a'); c.fillRect(bx+2+k*4, by+3, 2, 2); } }
+  const turb=bk('wind')?Math.min(6, 3+Math.round(et*2)):0; const tk=ease2(bk('wind')); for(let i=0;i<turb;i++){ const tx=w*0.80+i*(w*0.035), ty=ground-h*0.02; c.strokeStyle='#cfd6ff'; c.lineWidth=1.5; c.beginPath(); c.moveTo(tx, ty); c.lineTo(tx, ty-h*0.09*tk); c.stroke(); const spin=infra?0:t*2.2+i; if(tk<1) continue; for(let b=0;b<3;b++){ const a=spin+b*2.094; c.beginPath(); c.moveTo(tx, ty-h*0.09); c.lineTo(tx+Math.cos(a)*h*0.04, ty-h*0.09+Math.sin(a)*h*0.04); c.stroke(); } }
+  if(et>0.3){ const px=w*0.03; c.fillStyle='#2a3470'; c.fillRect(px, ground-h*0.07, w*0.06, h*0.07); c.fillStyle='#39456f'; c.fillRect(px+w*0.015, ground-h*0.13, w*0.012, h*0.06); for(let k=0;k<3;k++){ const s2=((t*0.4+k*0.33)%1); c.fillStyle='rgba(200,200,220,'+(0.35*(1-s2))+')'; c.beginPath(); c.arc(px+w*0.021+s2*8, ground-h*0.13-s2*h*0.08, 3+s2*6, 0, 6.3); c.fill(); } }
+  if(bk('port')){ const hx=w*0.62; c.fillStyle='#1a2a4a'; c.fillRect(hx, ground+h*0.03, w*0.22, h*0.03); for(let k=0;k<2;k++){ c.strokeStyle='#8a95c8'; c.lineWidth=2; c.beginPath(); c.moveTo(hx+w*0.04+k*w*0.08, ground+h*0.03); c.lineTo(hx+w*0.04+k*w*0.08, ground-h*0.05); c.lineTo(hx+w*0.08+k*w*0.08, ground-h*0.05); c.stroke(); } for(let k=0;k<Math.min(3, Math.round(et)); k++){ const sx2=hx+((t*0.02+k*0.4)%1)*w*0.2; c.fillStyle='#4a5a8f'; c.fillRect(sx2, ground+h*0.045, 16, 4); c.fillStyle='#ffd257'; c.fillRect(sx2+3, ground+h*0.04, 2, 2); } }
+  if(bk('spaceport')){ const sx=w*0.72; c.fillStyle='#39456f'; c.fillRect(sx-8, ground-h*0.015, 22, 4); const launch=(t%14); const ly=launch<2.5?(launch/2.5)*(launch/2.5)*h*0.5:0; c.fillStyle='#e8eeff'; c.fillRect(sx, ground-h*0.06-ly, 6, h*0.05); c.fillStyle='#ff5d84'; c.beginPath(); c.moveTo(sx, ground-h*0.06-ly); c.lineTo(sx+3, ground-h*0.075-ly); c.lineTo(sx+6, ground-h*0.06-ly); c.closePath(); c.fill(); if(launch<2.5){ c.fillStyle='rgba(255,200,100,0.8)'; c.beginPath(); c.moveTo(sx, ground-h*0.01-ly); c.lineTo(sx+3, ground+h*0.02-ly+8); c.lineTo(sx+6, ground-h*0.01-ly); c.closePath(); c.fill(); } }
+  c.fillStyle=nuke?'#2a1a10':'#171d3f'; c.fillRect(0, road-4, w, 9); c.strokeStyle='rgba(255,220,140,0.35)'; c.setLineDash([8,10]); c.lineWidth=1; c.beginPath(); c.moveTo(0, road+0.5); c.lineTo(w, road+0.5); c.stroke(); c.setLineDash([]);
+  if(bk('lane2')){ const k=ease2(bk('lane2')); c.fillStyle=nuke?'#2a1a10':'#171d3f'; c.fillRect(0, road+6, w*k, 8); }
+  const cars=fin&&big?0:Math.min(18, 2+Math.round(et*4)+(bk('lane2')?4:0)+(bk('highway')?2:0)); for(let i=0;i<cars;i++){ const dir=i%2?1:-1; const k=((t*(0.05+(i%3)*0.015)+i*0.37)%1); const xx=dir>0?k*w:w-k*w; const yy=road+(dir>0?-3:2); c.fillStyle=['#ff5d84','#4fd7e8','#ffd257','#54e39b','#e8eeff'][i%5]; c.fillRect(xx, yy, 7, 3); c.fillStyle='rgba(255,255,220,0.9)'; c.fillRect(dir>0?xx+7:xx-1, yy+1, 1.5, 1.5); }
+  peopleDots(c, p=>[p.x*w+Math.sin(t*0.7+p.j)*2, ground+h*0.04+p.y*(h-ground-h*0.06)], t, X);
+  if(bio){ const k=Math.min(1, ft/2.5); c.fillStyle='rgba(255,84,104,'+(0.28*(0.6+0.4*Math.sin(ft*3)))+')'; c.beginPath(); c.ellipse(w*0.5, ground+h*0.2, w*(big?0.45:0.18)*k, h*0.16*k, 0, 0, 6.3); c.fill(); }
+  if(fin){ for(let i=0;i<12;i++){ const k=((ft*0.5+i*0.08)%1); c.fillStyle='rgba(255,210,87,'+(1-k)+')'; c.font='800 11px system-ui'; c.textAlign='center'; c.fillText('$', w*0.06+((i*137)%100)/100*w*0.88, ground-h*0.25+k*h*0.24); } }
+  if(nuke){ const cl=big?3:1; for(let i=0;i<cl;i++){ const k=Math.min(1, Math.max(0, (ft-0.3-i*0.25)/2.2)); if(k<=0) continue; const cx=w*(0.25+i*0.25), cy=ground-h*0.08-k*h*0.28; c.fillStyle='rgba(255,140,60,'+(0.9-0.5*k)+')'; c.beginPath(); c.arc(cx, cy, 8+k*26, 0, 6.3); c.fill(); c.fillStyle='rgba(120,60,30,'+(0.8-0.4*k)+')'; c.fillRect(cx-4-k*4, cy, 8+k*8, ground-cy); } }
+  overlays(c, w, h, t, X); }
+
+/* ---------------------------------------------------------------- shared hi-fi helpers */
+const STARS={ key:'', pts:[] };
+function starfield(c, w, h, t, n, yMax){ const key=w+'x'+h+'x'+n; if(STARS.key!==key){ STARS.key=key; STARS.pts=[]; for(let i=0;i<n;i++){ STARS.pts.push({ x:((i*97)%1000)/1000*w, y:((i*61)%1000)/1000*(yMax||h), s:i%13===0?2.4:i%5===0?1.6:1, c:['255,255,255','200,220,255','255,230,200','255,200,180'][i%4], p:i }); } }
+  STARS.pts.forEach(p=>{ const tw=0.35+0.65*Math.abs(Math.sin(t*1.1+p.p)); c.fillStyle='rgba('+p.c+','+(0.25+0.65*tw)+')'; c.fillRect(p.x, p.y, p.s, p.s); if(p.s>2){ c.fillStyle='rgba('+p.c+','+(0.12*tw)+')'; c.fillRect(p.x-3, p.y+0.5, 8, 1); c.fillRect(p.x+0.5, p.y-3, 1, 8); } }); }
+function nebula(c, x, y, r, col, a){ const g=c.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, 'rgba('+col+','+a+')'); g.addColorStop(0.5, 'rgba('+col+','+(a*0.35)+')'); g.addColorStop(1, 'rgba('+col+',0)'); c.fillStyle=g; c.fillRect(x-r, y-r, 2*r, 2*r); }
+function glow(c, x, y, r, col, a){ const g=c.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, 'rgba('+col+','+a+')'); g.addColorStop(1, 'rgba('+col+',0)'); c.fillStyle=g; c.beginPath(); c.arc(x, y, r, 0, 6.3); c.fill(); }
+function planet(c, cx, cy, r, base, dark, lightDir){ const lx=cx+lightDir[0]*r*0.5, ly=cy+lightDir[1]*r*0.5; const g=c.createRadialGradient(lx, ly, r*0.05, cx, cy, r*1.05); g.addColorStop(0, base[0]); g.addColorStop(0.55, base[1]); g.addColorStop(1, dark); c.fillStyle=g; c.beginPath(); c.arc(cx, cy, r, 0, 6.3); c.fill(); }
+function limb(c, cx, cy, r, col, a){ const g=c.createRadialGradient(cx, cy, r*0.92, cx, cy, r*1.18); g.addColorStop(0, 'rgba('+col+',0)'); g.addColorStop(0.35, 'rgba('+col+','+a+')'); g.addColorStop(1, 'rgba('+col+',0)'); c.fillStyle=g; c.beginPath(); c.arc(cx, cy, r*1.18, 0, 6.3); c.fill(); }
+function dcBox(c, x, y, t, i, ctl){ c.fillStyle='#4a5a8f'; c.fillRect(x-6, y-3, 12, 7); c.fillStyle='#2c3778'; c.fillRect(x-6, y-3, 12, 2); for(let k=0;k<3;k++){ const on=((Math.floor(t*4)+i+k)%3)!==0; c.fillStyle=ctl?'#ff5468':(on?'#54e39b':'#1a3a2a'); c.fillRect(x-4+k*4, y, 2, 2); } }
+function yearsIn(){ return Math.max(0, G.year-(G.eraStart||2030)); }
+
+/* ---------------------------------------------------------------- Solar */
+function globeHiFi(c, cx, cy, r, t, X){
+  planet(c, cx, cy, r, ['#5fb6e6','#1f6aa8'], '#061a36', [-0.45,-0.4]);
+  c.save(); c.beginPath(); c.arc(cx, cy, r, 0, 6.3); c.clip();
+  const drift=(t*0.015)%1; const lands=[[0.15,-0.3,0.35,0.22],[0.6,0.1,0.3,0.28],[-0.4,0.35,0.28,0.16],[1.2,-0.1,0.25,0.2],[-0.9,-0.05,0.2,0.18],[0.35,0.55,0.2,0.1]];
+  lands.forEach(([fx,fy,rx,ry])=>{ for(let rep2=-1;rep2<=1;rep2++){ const ax=cx+(((fx+drift*2)%2)-1+rep2*2)*r, ay=cy+fy*r;
+    c.fillStyle=X.nuke?'rgba(110,70,40,0.85)':'rgba(70,150,90,0.9)'; c.beginPath(); c.ellipse(ax, ay, rx*r, ry*r, 0.3, 0, 6.3); c.fill();
+    c.fillStyle=X.nuke?'rgba(60,40,20,0.5)':'rgba(40,100,60,0.55)'; c.beginPath(); c.ellipse(ax+rx*r*0.25, ay+ry*r*0.35, rx*r*0.6, ry*r*0.5, 0.3, 0, 6.3); c.fill(); } });
+  /* city lights on the night side */
+  const nl=Math.min(220, 40+60*Math.log10(G.pop/8e9+1)); for(let i=0;i<nl;i++){ const a=((i*137)%360)/57.3, rr=r*Math.sqrt(((i*53)%100)/100); const x=cx+Math.cos(a)*rr, y=cy+Math.sin(a)*rr; if(x<cx+r*0.05) continue; c.fillStyle='rgba(255,220,140,'+(0.5+0.5*Math.sin(t*2+i))+')'; c.fillRect(x, y, 1.4, 1.4); }
+  /* clouds with shadows, two layers */
+  for(let layer=0;layer<2;layer++){ for(let i=0;i<8;i++){ const ax=cx+(((i*0.29+t*(0.02+layer*0.012))%2)-1)*r*1.15, ay=cy+((i*0.61)%1.6-0.8)*r*0.85; const rx=r*(0.22+(i%3)*0.06), ry=r*0.07;
+    c.fillStyle='rgba(0,20,60,0.22)'; c.beginPath(); c.ellipse(ax+3, ay+4, rx, ry, 0.2, 0, 6.3); c.fill(); c.fillStyle='rgba(255,255,255,'+(0.55-layer*0.2)+')'; c.beginPath(); c.ellipse(ax, ay, rx, ry, 0.2, 0, 6.3); c.fill(); c.beginPath(); c.ellipse(ax+rx*0.5, ay-ry*0.6, rx*0.5, ry*0.8, 0.2, 0, 6.3); c.fill(); } }
+  /* terminator */
+  const night=c.createLinearGradient(cx-r*0.15, 0, cx+r*0.9, 0); night.addColorStop(0, 'rgba(2,6,24,0)'); night.addColorStop(1, 'rgba(2,6,24,0.88)'); c.fillStyle=night; c.fillRect(cx-r, cy-r, 2*r, 2*r);
+  /* aurora */
+  for(let k=0;k<2;k++){ const py=k?cy+r*0.86:cy-r*0.86; c.strokeStyle='rgba(84,227,155,'+(0.25+0.2*Math.sin(t*1.7+k))+')'; c.lineWidth=3; c.beginPath(); for(let i=0;i<=12;i++){ const x=cx-r*0.7+i*r*0.12; c.lineTo(x, py+Math.sin(t*2+i*0.8+k)*4); } c.stroke(); }
+  /* specular */
+  glow(c, cx-r*0.45, cy-r*0.42, r*0.35, '255,255,255', 0.28);
+  if(X.bio){ c.fillStyle='rgba(255,84,104,'+(0.25+0.15*Math.sin(X.ft*3))+')'; c.beginPath(); c.arc(cx+r*0.1, cy, r*Math.min(1, X.ft/2.5)*(X.big?0.9:0.4), 0, 6.3); c.fill(); }
+  if(X.nuke){ for(let i=0;i<(X.big?4:1);i++){ const k=Math.min(1, Math.max(0, (X.ft-0.3-i*0.25)/2.2)); if(k<=0) continue; glow(c, cx+Math.cos(i*1.7)*r*0.5, cy+Math.sin(i*1.7)*r*0.5, 6+k*r*0.35, '255,160,60', 0.9-0.6*k); } }
+  if(X.infra){ c.fillStyle='rgba(0,0,20,'+(0.35*Math.min(1, X.ft/2))+')'; c.fillRect(cx-r, cy-r, 2*r, 2*r); }
+  c.restore();
+  limb(c, cx, cy, r, '120,200,255', 0.55); }
+function moon(c, mx, my, mr, t){ planet(c, mx, my, mr, ['#e0e0ea','#9a9aac'], '#3a3a4a', [-0.5,-0.4]);
+  c.save(); c.beginPath(); c.arc(mx, my, mr, 0, 6.3); c.clip(); [[0.3,-0.2,0.25],[-0.3,0.3,0.18],[0.1,0.4,0.12],[-0.5,-0.4,0.1],[0.55,0.35,0.09]].forEach(([fx,fy,fr])=>{ c.fillStyle='rgba(60,60,80,0.6)'; c.beginPath(); c.arc(mx+fx*mr, my+fy*mr, fr*mr, 0, 6.3); c.fill(); c.strokeStyle='rgba(255,255,255,0.25)'; c.lineWidth=1; c.beginPath(); c.arc(mx+fx*mr-1, my+fy*mr-1, fr*mr, 3.4, 5.8); c.stroke(); }); c.restore(); }
+function domeCity(c, x, y, r, k, t, lights){ c.fillStyle='rgba(120,200,255,0.22)'; c.beginPath(); c.arc(x, y, r*k, Math.PI, 0); c.fill(); c.strokeStyle='rgba(200,230,255,0.85)'; c.lineWidth=1.5; c.beginPath(); c.arc(x, y, r*k, Math.PI, 0); c.stroke(); glow(c, x, y-r*0.2, r*1.1*k, '120,200,255', 0.18);
+  for(let i=0;i<lights*k;i++){ c.fillStyle='rgba(255,220,140,'+(0.5+0.5*Math.sin(t*3+i))+')'; c.fillRect(x-r*0.7+((i*37)%100)/100*r*1.4, y-r*0.15-((i*53)%100)/100*r*0.6, 1.6, 1.6); } }
+function drawSolar(c){ const w=STAGE.w, h=STAGE.h, t=STAGE.t, et=ecoTier(); const X=fxState(); const yi=yearsIn();
+  c.fillStyle='#03051a'; c.fillRect(0,0,w,h); nebula(c, w*0.85, h*0.2, w*0.5, '120,80,200', 0.18); nebula(c, w*0.2, h*0.9, w*0.4, '40,120,160', 0.14); starfield(c, w, h, t, 180);
+  const sg=c.createRadialGradient(-w*0.05, -h*0.05, 10, -w*0.05, -h*0.05, w*0.7); sg.addColorStop(0, 'rgba(255,235,170,0.95)'); sg.addColorStop(0.12, 'rgba(255,205,110,0.45)'); sg.addColorStop(1, 'rgba(255,200,100,0)'); c.fillStyle=sg; c.fillRect(0,0,w,h);
+  for(let i=0;i<9;i++){ const a=-0.2+i*0.16+Math.sin(t*0.3+i)*0.02; c.strokeStyle='rgba(255,220,140,'+(0.05+0.04*Math.sin(t+i))+')'; c.lineWidth=14; c.beginPath(); c.moveTo(-w*0.05, -h*0.05); c.lineTo(-w*0.05+Math.cos(a)*w*1.2, -h*0.05+Math.sin(a)*w*1.2); c.stroke(); }
+  const ex=w*0.34, ey=h*0.56, er=Math.min(w, h)*0.27;
+  if(bk('sunswarm')){ const k=ease2(bk('sunswarm')); for(let i=0;i<Math.round(18*k);i++){ const a=-2.6+i*0.09; c.save(); c.translate(w*0.06+Math.cos(a)*w*0.16, h*0.06+Math.sin(a)*w*0.16); c.rotate(a+1.57); c.fillStyle='rgba(84,227,155,0.8)'; c.fillRect(-4, -1.5, 8, 3); c.restore(); } }
+  if(bk('collectors')){ const k=ease2(bk('collectors')); for(let i=0;i<Math.round(8*k);i++){ const a=-2.4+i*0.14; c.save(); c.translate(ex+Math.cos(a)*er*1.75, ey+Math.sin(a)*er*1.75); c.rotate(a+1.57); c.fillStyle='rgba(120,200,255,'+(0.55+0.3*Math.sin(t*2+i))+')'; c.fillRect(-10, -3, 20, 6); c.fillStyle='rgba(255,255,255,0.5)'; c.fillRect(-10, -3, 20, 1); c.restore(); } }
+  globeHiFi(c, ex, ey, er, t, X);
+  peopleDots(c, p=>{ const a=p.x*6.28, rr=Math.sqrt(p.y)*er*0.96; const xx=ex+Math.cos(a)*rr, yy=ey+Math.sin(a)*rr; return xx>ex-er*0.15 ? [xx, yy] : null; }, t, X);
+  if(bk('elevator')){ c.strokeStyle='rgba(200,220,255,0.5)'; c.lineWidth=1.5; c.beginPath(); c.moveTo(ex, ey-er); c.lineTo(ex, ey-er*1.9); c.stroke(); }
+  /* the ring grows with years in the era; stations, datacentres, habitats live on it */
+  const ringK=Math.min(1, 0.3+yi/40); c.strokeStyle='rgba(184,194,255,'+(0.25+0.3*ringK)+')'; c.lineWidth=1.5; c.beginPath(); c.ellipse(ex, ey, er*1.35, er*0.4, -0.35, 0, 6.3*ringK); c.stroke();
+  const onRing=(a, f)=>[ex+Math.cos(a)*er*1.35*Math.cos(-0.35)-Math.sin(a)*er*0.4*Math.sin(-0.35), ey+Math.cos(a)*er*1.35*Math.sin(-0.35)+Math.sin(a)*er*0.4*Math.cos(-0.35)];
+  const ndc=Math.min(16, G.cap+(bk('orbitdc')?Math.round(8*ease2(bk('orbitdc'))):0)); for(let i=0;i<ndc;i++){ const a=t*0.12+i*(6.28/Math.max(1,ndc)); const p=onRing(a); if(p[1]<ey && Math.hypot(p[0]-ex, p[1]-ey)<er) continue; dcBox(c, p[0], p[1], t, i, X.ctl); }
+  const nh=bk('ringcity')?3+Math.round(4*ease2(bk('ringcity'))):(bk('habitat')?1:0); for(let i=0;i<nh;i++){ const a=-t*0.08+i*1.3+0.6; const p=onRing(a); c.save(); c.translate(p[0], p[1]); c.rotate(t*0.4+i); c.strokeStyle='rgba(84,227,155,0.9)'; c.lineWidth=2.5; c.beginPath(); c.arc(0,0,9,0,6.3); c.stroke(); c.beginPath(); c.moveTo(-9,0); c.lineTo(9,0); c.moveTo(0,-9); c.lineTo(0,9); c.stroke(); c.restore(); if(bk('ringcity')){ for(let k=0;k<5;k++){ c.fillStyle='rgba(255,220,140,'+(0.5+0.5*Math.sin(t*3+k))+')'; c.fillRect(p[0]-6+k*3, p[1]+12, 1.5, 1.5); } } }
+  if(bk('shipyard')){ const k=ease2(bk('shipyard')); const sx=w*0.58, sy=h*0.82; c.strokeStyle='#ffd257'; c.lineWidth=2; c.strokeRect(sx-16*k, sy-8, 32*k, 16); for(let i=0;i<4;i++){ c.beginPath(); c.moveTo(sx-16*k+i*10*k, sy-8); c.lineTo(sx-16*k+i*10*k, sy+8); c.stroke(); } c.fillStyle='#e8eeff'; c.fillRect(sx-10*k, sy-3, 20*k, 6); if(k<1) crane(c, sx+16*k, sy-8, 0.8); }
+  const mx=w*0.80, my=h*0.27, mr=er*0.30; moon(c, mx, my, mr, t);
+  if(bk('lunarbase')) domeCity(c, mx, my+mr*0.55, mr*0.45, ease2(bk('lunarbase')), t, 4); if(bk('lunarcity')){ const k=ease2(bk('lunarcity')); domeCity(c, mx-mr*0.5, my+mr*0.3, mr*0.3, k, t, 3); domeCity(c, mx+mr*0.5, my+mr*0.35, mr*0.28, k, t, 3); c.strokeStyle='rgba(255,220,140,0.6)'; c.lineWidth=1; c.beginPath(); c.moveTo(mx-mr*0.5, my+mr*0.3); c.lineTo(mx+mr*0.5, my+mr*0.35); c.stroke(); }
+  const rx=w*0.84, ry=h*0.78, rr=er*0.24; planet(c, rx, ry, rr, ['#e8825a','#b0482a'], '#4a1a10', [-0.5,-0.4]); c.save(); c.beginPath(); c.arc(rx, ry, rr, 0, 6.3); c.clip(); c.fillStyle='rgba(255,255,255,0.75)'; c.beginPath(); c.ellipse(rx, ry-rr*0.92, rr*0.35, rr*0.12, 0, 0, 6.3); c.fill(); c.beginPath(); c.ellipse(rx, ry+rr*0.94, rr*0.3, rr*0.1, 0, 0, 6.3); c.fill(); c.fillStyle='rgba(90,30,20,0.5)'; c.beginPath(); c.ellipse(rx-rr*0.3, ry+rr*0.2, rr*0.35, rr*0.15, 0.4, 0, 6.3); c.fill(); c.restore(); limb(c, rx, ry, rr, '255,160,120', 0.35);
+  if(bk('marsdome')) domeCity(c, rx, ry-rr*0.45, rr*0.45, ease2(bk('marsdome')), t, 4); if(bk('marscity')){ const k=ease2(bk('marscity')); c.save(); c.beginPath(); c.arc(rx, ry, rr, 0, 6.3); c.clip(); for(let i=0;i<Math.round(30*k);i++){ c.fillStyle='rgba(255,220,140,'+(0.5+0.5*Math.sin(t*3+i))+')'; c.fillRect(rx-rr*0.6+((i*37)%100)/100*rr*1.2, ry-rr*0.1+((i*53)%100)/100*rr*0.6, 1.5, 1.5); } c.restore(); }
+  if(bk('venus')){ const k=ease2(bk('venus')); const vx=w*0.12, vy=h*0.72, vr=er*0.2; planet(c, vx, vy, vr, ['#ffe6b0','#d8a860'], '#5a3a10', [-0.5,-0.4]); limb(c, vx, vy, vr, '255,230,170', 0.35); for(let i=0;i<Math.round(4*k);i++){ const a=t*0.5+i*1.57; c.fillStyle='rgba(120,200,255,0.9)'; c.beginPath(); c.arc(vx+Math.cos(a)*vr*1.15, vy+Math.sin(a)*vr*0.5, 3, 0, 6.3); c.fill(); c.fillStyle='rgba(255,220,140,0.9)'; c.fillRect(vx+Math.cos(a)*vr*1.15-1, vy+Math.sin(a)*vr*0.5-1, 2, 2); } }
+  if(bk('jupiter')){ const k=ease2(bk('jupiter')); const jx=w*0.93, jy=h*0.52, jr=er*0.16; planet(c, jx, jy, jr, ['#f0d0a0','#b08050'], '#4a2a10', [-0.5,-0.4]); c.save(); c.beginPath(); c.arc(jx, jy, jr, 0, 6.3); c.clip(); for(let i=0;i<5;i++){ c.fillStyle='rgba(120,70,40,'+(0.25+0.15*(i%2))+')'; c.fillRect(jx-jr, jy-jr*0.7+i*jr*0.35, 2*jr, jr*0.12); } c.fillStyle='rgba(200,80,60,0.7)'; c.beginPath(); c.ellipse(jx+jr*0.3, jy+jr*0.25, jr*0.25, jr*0.12, 0, 0, 6.3); c.fill(); c.restore(); for(let i=0;i<Math.round(3*k);i++){ const a=t*0.3+i*2.1; c.fillStyle='#e8eeff'; c.beginPath(); c.arc(jx+Math.cos(a)*jr*1.5, jy+Math.sin(a)*jr*0.5, 2, 0, 6.3); c.fill(); c.fillStyle='rgba(255,220,140,0.9)'; c.fillRect(jx+Math.cos(a)*jr*1.5-0.5, jy+Math.sin(a)*jr*0.5-0.5, 1, 1); } }
+  if(bk('asteroid')){ const k=ease2(bk('asteroid')); for(let i=0;i<Math.round(60*k);i++){ const a=t*0.02+i*0.105, R=h*0.62+((i*37)%40); c.fillStyle='rgba(190,180,170,'+(0.4+0.4*((i*7)%3)/2)+')'; const px=w*0.55+Math.cos(a)*w*0.52, py=h*0.55+Math.sin(a)*R*0.5; c.fillRect(px, py, i%7===0?3:2, i%7===0?3:2); } for(let i=0;i<4;i++){ const a=t*0.05+i*1.6; const px=w*0.55+Math.cos(a)*w*0.52, py=h*0.55+Math.sin(a)*h*0.31; c.fillStyle='#ffd257'; c.fillRect(px, py, 5, 3); glow(c, px+2, py+1, 7, '255,210,87', 0.5); } }
+  const ships=2+Math.round(et)+Math.round(yi/25); for(let i=0;i<Math.min(9, ships);i++){ const k=((t*0.07+i*0.23)%1); const tg=[[mx,my],[rx,ry],[w*0.58,h*0.82]][i%3]; const xx=ex+(tg[0]-ex)*k, yy=ey+(tg[1]-ey)*k-Math.sin(k*Math.PI)*40; c.fillStyle='#e8eeff'; c.beginPath(); c.moveTo(xx, yy); c.lineTo(xx-7, yy+3); c.lineTo(xx-7, yy-3); c.closePath(); c.fill(); glow(c, xx-9, yy, 5, '255,200,100', 0.7); }
+  if(X.fin){ for(let i=0;i<10;i++){ const k=((X.ft*0.5+i*0.1)%1); c.fillStyle='rgba(255,210,87,'+(1-k)+')'; c.font='800 11px system-ui'; c.textAlign='center'; c.fillText('$', ex-er+((i*137)%100)/100*er*2, ey-er-10-k*40); } }
+  overlays(c, w, h, t, X); }
+
+/* ---------------------------------------------------------------- Interstellar */
+const COLONIES=[[0.62,0.22,'255,240,200'],[0.80,0.42,'200,220,255'],[0.70,0.72,'255,200,160'],[0.88,0.80,'255,255,255'],[0.50,0.86,'255,220,180'],[0.92,0.15,'180,200,255'],[0.56,0.50,'255,230,200'],[0.97,0.55,'255,190,150']];
+function drawStellar(c){ const w=STAGE.w, h=STAGE.h, t=STAGE.t, et=ecoTier(); const X=fxState(); const yi=yearsIn();
+  c.fillStyle='#02041a'; c.fillRect(0,0,w,h); nebula(c, w*0.75, h*0.25, w*0.55, '90,60,180', 0.22); nebula(c, w*0.6, h*0.85, w*0.45, '40,140,150', 0.16); nebula(c, w*0.95, h*0.6, w*0.3, '180,80,120', 0.14); starfield(c, w, h, t, 320);
+  const sx=w*0.24, sy=h*0.5, sr=Math.min(w,h)*0.11;
+  glow(c, sx, sy, sr*4, '255,200,100', 0.35); glow(c, sx, sy, sr*2, '255,230,150', 0.5);
+  for(let i=0;i<16;i++){ const a=t*0.05+i*0.39; c.strokeStyle='rgba(255,220,140,'+(0.06+0.05*Math.sin(t*1.5+i))+')'; c.lineWidth=6+(i%3)*4; c.beginPath(); c.moveTo(sx+Math.cos(a)*sr, sy+Math.sin(a)*sr); c.lineTo(sx+Math.cos(a)*sr*(2.6+(i%2)), sy+Math.sin(a)*sr*(2.6+(i%2))); c.stroke(); }
+  const sun=c.createRadialGradient(sx-sr*0.3, sy-sr*0.3, sr*0.1, sx, sy, sr); sun.addColorStop(0, '#fffbe6'); sun.addColorStop(0.6, '#ffd87a'); sun.addColorStop(1, '#f08a2a'); c.fillStyle=sun; c.beginPath(); c.arc(sx, sy, sr, 0, 6.3); c.fill();
+  for(let i=0;i<3;i++){ const a=t*0.2+i*2.1; c.strokeStyle='rgba(255,150,60,'+(0.6+0.3*Math.sin(t*2+i))+')'; c.lineWidth=2.5; c.beginPath(); c.arc(sx+Math.cos(a)*sr*1.05, sy+Math.sin(a)*sr*1.05, sr*0.18, a-1.6, a+1.6); c.stroke(); }
+  c.save(); c.beginPath(); c.arc(sx, sy, sr, 0, 6.3); c.clip(); for(let i=0;i<7;i++){ c.fillStyle='rgba(200,90,30,0.5)'; c.beginPath(); c.arc(sx+Math.cos(t*0.1+i*2.4)*sr*0.6, sy+Math.sin(t*0.13+i*1.9)*sr*0.6, sr*0.07, 0, 6.3); c.fill(); } c.restore();
+  const swarm=(bk('dyson')?ease2(bk('dyson')):0)*0.5+(bk('dyson2')?ease2(bk('dyson2')):0)*0.5; if(swarm>0){ const segs=Math.round(60*swarm*(0.6+0.4*Math.min(1, et/4))); for(let i=0;i<segs;i++){ const ring=i%3, a=t*(0.08+ring*0.02)+i*(6.28/22); const R=sr*(1.55+ring*0.22); c.save(); c.translate(sx+Math.cos(a)*R, sy+Math.sin(a)*R*0.75); c.rotate(a+1.57); c.fillStyle='rgba(84,227,155,'+(0.75+0.2*Math.sin(t*3+i))+')'; c.fillRect(-5, -1.5, 10, 3); c.fillStyle='rgba(255,255,255,0.5)'; c.fillRect(-5, -1.5, 10, 0.8); c.restore(); } }
+  const ex=sx+sr*2.3, ey=sy-sr*0.9; glow(c, ex, ey, 14, '120,200,255', 0.5); c.fillStyle='#3a8ab0'; c.beginPath(); c.arc(ex, ey, 6, 0, 6.3); c.fill(); c.strokeStyle='rgba(184,194,255,0.6)'; c.lineWidth=1; c.beginPath(); c.ellipse(ex, ey, 12, 4.5, -0.3, 0, 6.3); c.stroke();
+  const waves=(bk('colonies')?1:0)+(bk('colonies2')?1:0)+(bk('colonies3')?1:0); const ncol=Math.min(COLONIES.length, waves===0?0:waves===1?2+Math.round(ease2(bk('colonies'))*1):waves===2?4+Math.round(ease2(bk('colonies2'))*2):8);
+  COLONIES.forEach(([fx,fy,col],i)=>{ const cx=w*fx, cy=h*fy; const on=i<ncol; glow(c, cx, cy, on?18:8, col, on?0.5:0.25); c.fillStyle='rgba('+col+',1)'; c.beginPath(); c.arc(cx, cy, on?4.5:2.5, 0, 6.3); c.fill();
+    if(on){ const a=t*0.6+i; const px=cx+Math.cos(a)*11, py=cy+Math.sin(a)*5; planet(c, px, py, 3.2, ['#7ad2ff','#2f6aa8'], '#0a1a30', [-0.5,-0.4]); for(let k=0;k<4;k++){ c.fillStyle='rgba(255,220,140,'+(0.5+0.5*Math.sin(t*3+k+i))+')'; c.fillRect(px-2+k*1.3, py-0.5, 1, 1); }
+      if(bk('gates')){ c.strokeStyle='rgba(184,194,255,0.9)'; c.lineWidth=1.5; c.beginPath(); c.arc(cx-14, cy+8, 4, 0, 6.3); c.stroke(); }
+      if(X.nuke && i===0){ glow(c, cx, cy, 8+X.ft*10, '255,160,60', 0.9*(1-Math.min(1,X.ft/3))); } if(X.bio){ c.strokeStyle='rgba(255,84,104,'+(0.5+0.3*Math.sin(X.ft*3))+')'; c.lineWidth=2; c.beginPath(); c.arc(cx, cy, 14+X.ft*3, 0, 6.3); c.stroke(); } }
+    if(bk('lanes') && on){ const k=ease2(bk('lanes')); c.strokeStyle='rgba(184,194,255,0.3)'; c.setLineDash([3,6]); c.lineWidth=1; c.beginPath(); c.moveTo(ex, ey); c.lineTo(ex+(cx-ex)*k, ey+(cy-ey)*k); c.stroke(); c.setLineDash([]); if(k>=1){ for(let s2=0;s2<2;s2++){ const kk=((t*0.06+i*0.2+s2*0.5)%1); const px=ex+(cx-ex)*kk, py=ey+(cy-ey)*kk; c.fillStyle='#e8eeff'; c.fillRect(px-2, py-2, 4, 4); glow(c, px, py, 6, '120,200,255', 0.6); } } } });
+  peopleDots(c, p=>{ const ci=Math.floor(p.x*Math.max(1, ncol||1)); const col=ncol?COLONIES[ci%ncol]:null; if(!col) return [ex+(p.x-0.5)*20, ey+(p.y-0.5)*14]; return [w*col[0]+(p.x*7.3%1-0.5)*34, h*col[1]+(p.y-0.5)*26]; }, t, X);
+  if(bk('probes')){ const k=ease2(bk('probes')); for(let i=0;i<Math.round(18*k);i++){ const a=-1.1+i*0.12, kk=((t*0.05+i*0.07)%1); const px=ex+Math.cos(a)*kk*w*0.95, py=ey+Math.sin(a)*kk*h*0.95; c.strokeStyle='rgba(84,227,155,'+(1-kk)+')'; c.lineWidth=1.5; c.beginPath(); c.moveTo(px, py); c.lineTo(px-Math.cos(a)*12, py-Math.sin(a)*12); c.stroke(); } }
+  for(let i=0;i<Math.min(10, G.cap);i++){ const a=t*0.2+i*0.63; dcBox(c, ex+Math.cos(a)*24, ey+Math.sin(a)*10, t, i, X.ctl); }
+  overlays(c, w, h, t, X); }
+
+/* ---------------------------------------------------------------- Galactic */
+const GAL={ key:'', pts:[] };
+function drawGalactic(c){ const w=STAGE.w, h=STAGE.h, t=STAGE.t; const X=fxState();
+  c.fillStyle='#01020c'; c.fillRect(0,0,w,h); starfield(c, w, h, t, 200);
+  const gx=w*0.5, gy=h*0.5, R=Math.min(w,h)*0.47; const key=w+'x'+h;
+  if(GAL.key!==key){ GAL.key=key; GAL.pts=[]; for(let arm=0;arm<2;arm++){ for(let i=0;i<900;i++){ const f=i/900; const a=arm*Math.PI+f*4.6; const rr=R*(0.06+f*0.94); const sp=(1-f)*0.25+0.08; const jx=(Math.sin(i*12.9)+Math.sin(i*3.1))*R*sp*0.5, jy=(Math.cos(i*7.3)+Math.cos(i*2.3))*R*sp*0.4; GAL.pts.push({ f:f, x:Math.cos(a)*rr+jx, y:Math.sin(a)*rr*0.55+jy, s:i%17===0?2.6:i%5===0?1.8:1.1, c:i%7===0?'170,200,255':i%3===0?'255,240,220':'255,225,170', arm:arm, p:i }); } } }
+  c.save(); c.translate(gx, gy); c.rotate(t*0.015);
+  glow(c, 0, 0, R*0.6, '255,210,150', 0.35); glow(c, 0, 0, R*0.25, '255,240,210', 0.9);
+  for(let arm=0;arm<2;arm++){ c.strokeStyle='rgba(0,0,0,0.35)'; c.lineWidth=R*0.05; c.beginPath(); for(let i=0;i<=40;i++){ const f=i/40; const a=arm*Math.PI+f*4.6+0.25; const rr=R*(0.15+f*0.85); c.lineTo(Math.cos(a)*rr, Math.sin(a)*rr*0.55); } c.stroke(); }
+  const lit1=(bk('arms')?ease2(bk('arms')):0)*0.5+(bk('core')?0.5:0), lit2=(bk('arms2')?ease2(bk('arms2')):0)*0.5+(bk('core')?0.5:0); const popLit=Math.min(1, Math.log10(G.pop/1e15+1)/2.5);
+  GAL.pts.forEach(p=>{ const on = p.f < (p.arm===0?lit1:lit2)*(0.4+0.6*popLit)+0.05; const tw=0.55+0.45*Math.sin(t*1.5+p.p); c.fillStyle=on?'rgba(255,220,140,'+tw+')':'rgba('+p.c+','+(0.35+0.3*tw)+')'; c.fillRect(p.x, p.y, on?p.s+0.6:p.s, on?p.s+0.6:p.s); if(on && p.s>2){ glow(c, p.x, p.y, 5, '255,220,140', 0.35); } });
+  if(bk('beacon')){ for(let i=0;i<8;i++){ const a=t*0.3+i*0.785; glow(c, Math.cos(a)*R*0.14, Math.sin(a)*R*0.08, 6, '84,227,155', 0.5+0.5*Math.sin(t*4+i)); } }
+  c.restore();
+  const hx=gx+Math.cos(3.2+t*0.015)*R*0.7, hy=gy+Math.sin(3.2+t*0.015)*R*0.7*0.55; c.strokeStyle='rgba(120,200,255,0.9)'; c.lineWidth=1.2; c.beginPath(); c.arc(hx, hy, 6, 0, 6.3); c.stroke(); glow(c, hx, hy, 12, '120,200,255', 0.4);
+  peopleDots(c, p=>{ const lit=(p.y>0.5?lit2:lit1)*(0.4+0.6*popLit)+0.05; const f=p.x*lit; const arm=p.y>0.5?1:0; const a=arm*Math.PI+f*4.6+t*0.015; const rr=R*(0.06+f*0.94); return [gx+Math.cos(a)*rr+(p.y*3.1%1-0.5)*R*0.06, gy+Math.sin(a)*rr*0.55+(p.j/6.3-0.5)*R*0.05]; }, t, X);
+  if(X.nuke){ glow(c, hx, hy, 6+X.ft*24, '255,160,60', 0.7*(1-Math.min(1,X.ft/3))); }
+  overlays(c, w, h, t, X); }
+
+let stagePrev=0;
+function stageTick(ts){ const now=(ts||0)/1000; const dt=Math.min(0.1, (now-stagePrev)||0.016);
+  if(S.scene==='play'){ STAGE.t+=dt; simTick(dt); tickHot(dt); drawBackdrop(); if(!G.ended){ renderNumbers(); } }
+  stagePrev=now; requestAnimationFrame(stageTick); }
+/* numbers every frame; the card list and feed only when something changed */
+let lastFeedLen=-1, lastResBucket=-1;
+function renderNumbers(){ const pv=$('popVal'); if(pv) pv.textContent=fmt(G.pop);
+  const ev=$('ecoVal'); if(ev) ev.textContent=fmtMoney(G.eco);
+  const rv=$('resVal'); if(rv) rv.textContent=Math.floor(G.research);
+  const yr=$('hYear'); if(yr) yr.textContent=Math.floor(G.year)+(G.year<END_YEAR?' of '+END_YEAR:'');
+  const bucket=available().filter(canBuy).length;
+  if(G.feed.length!==lastFeedLen || bucket!==lastResBucket){ lastFeedLen=G.feed.length; lastResBucket=bucket; render(); } }
+
+/* ---- ported from CONTAIN! game.js: colour helpers + MAX, used by the intro ---- */
+function lerp(a, b, t){return a+(b-a)*t;}
+function mixColor(c1, c2, t){ return 'rgb('+Math.round(lerp(c1[0], c2[0], t))+', '+Math.round(lerp(c1[1], c2[1], t))+', '+Math.round(lerp(c1[2], c2[2], t))+')'; }
+/* draw MAX into a 2d context centered at (cx, cy). size = base radius. m=menace 0..1. mood: idle|contained|breached|neutral */
+function drawMax(c, cx, cy, size, m, mood, t){
+  t=t||0;
+  const calm=[168,136,255], hot=[255, 84,104];
+  let mm=m; if(mood==='breached') mm=Math.min(1, m+0.25); if(mood==='contained') mm=Math.max(0, m-0.15);
+  const body=mixColor(calm, hot, mm);
+  const bodyLite=mixColor([210,196,255], [255,180,190], mm);
+  let scale=1+mm*0.5; if(mood==='contained') scale*=0.82; if(mood==='breached') scale*=1.14;
+  const wob=Math.sin(t*3)* (0.02+mm*0.05);
+  const R=size*scale*(1+wob);
+  c.save(); c.translate(cx, cy);
+  // aura
+  const ga=c.createRadialGradient(0, 0, R*0.4, 0, 0, R*2.1);
+  ga.addColorStop(0, mixColor([120, 90,220], [255, 60, 80], mm).replace('rgb', 'rgba').replace(')', ', 0.5)'));
+  ga.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  c.fillStyle=ga; c.beginPath(); c.arc(0, 0, R*2.1, 0, 6.28); c.fill();
+  // tendrils at high menace
+  if(mm>0.35){ const n=Math.round(3+mm*5); c.strokeStyle=mixColor([120, 90,220], [220, 40, 60], mm); c.lineWidth=Math.max(2, R*0.06);
+    for(let i=0;i<n;i++){ const a=(i/n)*6.28+t*0.6; const l=R*(1.1+0.5*Math.abs(Math.sin(t*2+i))); c.beginPath(); c.moveTo(Math.cos(a)*R*0.7, Math.sin(a)*R*0.7);
+      c.quadraticCurveTo(Math.cos(a)*R*1.1, Math.sin(a)*R*1.1, Math.cos(a+0.3)*l, Math.sin(a+0.3)*l); c.stroke(); } }
+  // spikes/horns as menace rises
+  if(mm>0.5){ c.fillStyle=mixColor([90, 60,160], [180, 20, 40], mm); const spikes=Math.round(mm*6);
+    for(let i=0;i<spikes;i++){ const a=-1.6+ (i/(spikes-1||1))*3.2 - 1.0; const bx=Math.cos(a)*R*0.9, by=Math.sin(a)*R*0.9;
+      c.beginPath(); c.moveTo(bx-6, by); c.lineTo(bx+6, by); c.lineTo(Math.cos(a)*R*1.5, Math.sin(a)*R*1.5); c.closePath(); c.fill(); } }
+  // body blob
+  const bg=c.createRadialGradient(-R*0.3, -R*0.35, R*0.2, 0, 0, R);
+  bg.addColorStop(0, bodyLite); bg.addColorStop(0.6, body); bg.addColorStop(1, mixColor([120, 90,200], [180, 30, 50], mm));
+  c.fillStyle=bg; c.beginPath();
+  const lobes=24; for(let i=0;i<=lobes;i++){ const a=i/lobes*6.28; const rr=R*(1+0.05*Math.sin(a*5+t*2)*(0.5+mm)); const x=Math.cos(a)*rr, y=Math.sin(a)*rr*0.92; if(i===0)c.moveTo(x, y); else c.lineTo(x, y);} c.closePath(); c.fill();
+  // containment bars when contained
+  if(mood==='contained'){ c.strokeStyle='rgba(84,227,155, 0.85)'; c.lineWidth=R*0.08; for(let i=-1;i<=1;i++){ c.beginPath(); c.moveTo(i*R*0.5, -R*0.9); c.lineTo(i*R*0.5, R*0.9); c.stroke(); } }
+  // eyes: 2..4 with menace
+  const eyeCount = mm>0.66?4: mm>0.33?3:2;
+  const eyeY=-R*0.05, eyeSp=R*0.32;
+  const positions=[]; if(eyeCount===2){positions.push(-eyeSp, eyeSp);} else if(eyeCount===3){positions.push(-eyeSp, 0, eyeSp);} else {positions.push(-eyeSp*1.2, -eyeSp*0.4, eyeSp*0.4, eyeSp*1.2);}
+  positions.forEach(px=>{ const er=R*0.16; c.fillStyle='#0b0e26';
+    if(mood==='contained'){ c.fillRect(px-er, eyeY-2, er*2, 3); }
+    else { c.beginPath(); c.ellipse(px, eyeY, er, er*1.15, 0, 0, 6.28); c.fill();
+      c.fillStyle=mood==='breached'?'#ff3d55':'#fff'; c.beginPath(); c.arc(px+er*0.25, eyeY-er*0.25, er*0.42, 0, 6.28); c.fill(); c.fillStyle='#0b0e26'; }
+  });
+  // brow when menacing
+  if(mm>0.4 && mood!=='contained'){ c.strokeStyle='#0b0e26'; c.lineWidth=R*0.09; c.beginPath(); c.moveTo(-eyeSp*1.3, eyeY-R*0.28); c.lineTo(-eyeSp*0.2, eyeY-R*0.12); c.moveTo(eyeSp*1.3, eyeY-R*0.28); c.lineTo(eyeSp*0.2, eyeY-R*0.12); c.stroke(); }
+  // mouth
+  c.strokeStyle='#0b0e26'; c.lineWidth=R*0.09; c.fillStyle='#2a0010'; c.beginPath();
+  if(mood==='contained'){ c.arc(0, R*0.5, R*0.18, Math.PI+0.3, -0.3); c.stroke(); }
+  else if(mood==='breached'){ // jagged grin
+    c.moveTo(-R*0.4, R*0.3); let zx=-R*0.4; const teeth=6; c.lineTo(-R*0.4, R*0.3);
+    const top=R*0.3, bot=R*0.6; c.beginPath(); c.moveTo(-R*0.45, top);
+    for(let i=0;i<=teeth;i++){ const x=-R*0.45+ (R*0.9)*(i/teeth); c.lineTo(x, i%2?bot:top);} c.lineTo(R*0.45, top); c.closePath(); c.fill(); c.stroke();
+  } else { // neutral/idle smirk grows with menace
+    const w=R*(0.28+mm*0.18); c.beginPath(); c.arc(0, R*0.42, w, 0.15+mm*0.2, Math.PI-0.15-mm*0.2); c.stroke();
+  }
+  c.restore();
+}
+/* live ticker redraws whichever MAX canvases are visible */
+/* ============================ INTRO STORY ============================
+   Ported unchanged from CONTAIN!. Three edits only: the music calls are
+   gone (this game has no score), the share-link hook is gone, and the
+   storage key is namespaced to this game.
+   ================================================================= */
+const story={ i:-1, age:0, replay:false };
+let sPrev=0;
+function rr2(c, x, y, w, h, r){c.beginPath();c.moveTo(x+r, y);c.arcTo(x+w, y, x+w, y+h, r);c.arcTo(x+w, y+h, x, y+h, r);c.arcTo(x, y+h, x, y, r);c.arcTo(x, y, x+w, y, r);c.closePath();}
+function ease(x){ x=Math.max(0, Math.min(1, x)); return 1-Math.pow(1-x, 3); }
+
+function spCaveman(c, x, y, s, mood){ c.save(); c.translate(x, y); c.scale(s, s);
+  c.fillStyle='#6b4a2f'; rr2(c, -18, -34, 36, 42, 10); c.fill();
+  c.fillStyle='#835a38'; for(let i=-16;i<18;i+=8){ c.beginPath(); c.moveTo(i, 8); c.lineTo(i+4, 16); c.lineTo(i+8, 8); c.closePath(); c.fill(); }
+  c.fillStyle='#c98d5a'; c.beginPath(); c.arc(0, -46, 13, 0, 6.28); c.fill();
+  c.fillStyle='#3a2b1a'; c.beginPath(); c.arc(0, -53, 13, Math.PI, 0); c.fill(); c.fillRect(-13, -53, 26, 4); c.beginPath(); c.arc(0, -39, 10, 0.15, Math.PI-0.15); c.fill();
+  c.fillStyle='#1a120a'; c.beginPath(); c.arc(-4, -47, 1.7, 0, 6.28); c.arc(4, -47, 1.7, 0, 6.28); c.fill();
+  c.strokeStyle='#1a120a'; c.lineWidth=1.4; c.beginPath(); if(mood==='sad'){c.arc(0, -35, 4, Math.PI+0.35, -0.35);} else {c.arc(0, -41, 4, 0.2, Math.PI-0.2);} c.stroke();
+  c.fillStyle='#c98d5a'; rr2(c, 11, -30, 6, 22, 3); c.fill();
+  c.restore(); }
+function spModern(c, x, y, s){ c.save(); c.translate(x, y); c.scale(s, s);
+  c.fillStyle='#2b3673'; rr2(c, -16, -34, 32, 42, 8); c.fill();
+  c.fillStyle='#eaf0ff'; rr2(c, -4, -34, 8, 26, 2); c.fill(); c.strokeStyle='#4fd7e8'; c.lineWidth=2; c.beginPath(); c.moveTo(0, -33); c.lineTo(0, -14); c.stroke();
+  c.fillStyle='#ffe0c2'; c.beginPath(); c.arc(0, -47, 12, 0, 6.28); c.fill();
+  c.fillStyle='#ffd257'; c.beginPath(); c.arc(0, -52, 13, Math.PI, 0); c.fill(); c.fillRect(-14, -52, 28, 4);
+  c.fillStyle='#1a120a'; c.beginPath(); c.arc(-4, -47, 1.6, 0, 6.28); c.arc(4, -47, 1.6, 0, 6.28); c.fill();
+  c.fillStyle='#c98d5a'; rr2(c, -18, -30, 5, 20, 2); c.fill(); rr2(c, 13, -30, 5, 20, 2); c.fill();
+  c.restore(); }
+function spBottle(c, x, y, s, t){ c.save(); c.translate(x, y); c.scale(s, s); const gl=0.5+0.5*Math.sin(t*3);
+  const g=c.createRadialGradient(0, 0, 2, 0, 0, 46); g.addColorStop(0, 'rgba(255,222,150, '+(0.55+gl*0.4)+')'); g.addColorStop(1, 'rgba(255,180, 60, 0)'); c.fillStyle=g; c.beginPath(); c.arc(0, 0, 46, 0, 6.28); c.fill();
+  c.fillStyle='#8fdcff'; c.strokeStyle='#d6f3ff'; c.lineWidth=1.5;
+  c.beginPath(); c.moveTo(-8, -18); c.lineTo(-8, -10); c.quadraticCurveTo(-16, -2, -14, 10); c.quadraticCurveTo(-12, 20, 0, 22); c.quadraticCurveTo(12, 20, 14, 10); c.quadraticCurveTo(16, -2, 8, -10); c.lineTo(8, -18); c.closePath(); c.fill(); c.stroke();
+  c.fillStyle='rgba(255,255,255, 0.5)'; c.beginPath(); c.ellipse(-4, 4, 3, 8, 0.3, 0, 6.28); c.fill();
+  c.fillStyle='#b98a5a'; rr2(c, -6, -24, 12, 8, 2); c.fill();
+  c.restore(); }
+function spGenie(c, x, y, s, t){ c.save(); c.translate(x, y); c.scale(s, s);
+  const g=c.createRadialGradient(0, -10, 4, 0, -10, 70); g.addColorStop(0, 'rgba(120,220,255, 0.6)'); g.addColorStop(1, 'rgba(120,220,255, 0)'); c.fillStyle=g; c.beginPath(); c.arc(0, -10, 70, 0, 6.28); c.fill();
+  c.fillStyle='rgba(100,180,255, 0.45)'; c.beginPath(); c.moveTo(-7, 20); c.quadraticCurveTo(-22, 32+Math.sin(t*2)*5, -7, 46); c.quadraticCurveTo(0, 52, 7, 46); c.quadraticCurveTo(22, 32, 7, 20); c.closePath(); c.fill();
+  c.fillStyle='#4fb6e8'; rr2(c, -18, -20, 36, 40, 14); c.fill();
+  c.fillStyle='#bfe9ff'; c.beginPath(); c.arc(0, -30, 14, 0, 6.28); c.fill();
+  c.strokeStyle='rgba(255,255,255, 0.55)'; c.lineWidth=1; c.beginPath(); c.moveTo(-14, -30); c.lineTo(-9, -30); c.moveTo(9, -30); c.lineTo(14, -30); c.moveTo(0, -44); c.lineTo(0, -38); c.stroke();
+  c.fillStyle='#0b2740'; c.beginPath(); c.arc(-5, -30, 2.4, 0, 6.28); c.arc(5, -30, 2.4, 0, 6.28); c.fill();
+  c.restore(); }
+function spOfficer(c, x, y, s){ c.save(); c.translate(x, y); c.scale(s, s);
+  c.fillStyle='#2b3673'; rr2(c, -11, -20, 8, 22, 3); c.fill(); rr2(c, 3, -20, 8, 22, 3); c.fill();
+  c.fillStyle='#4fd7e8'; rr2(c, -15, -52, 30, 34, 11); c.fill();
+  c.fillStyle='#3fbcd0'; rr2(c, -19, -50, 6, 22, 3); c.fill(); rr2(c, 13, -50, 6, 22, 3); c.fill();
+  c.fillStyle='#eaf0ff'; c.beginPath(); c.arc(0, -38, 4, 0, 6.28); c.fill();
+  c.fillStyle='#ffe0c2'; c.beginPath(); c.arc(0, -62, 12, 0, 6.28); c.fill();
+  c.fillStyle='#0b0e26'; c.beginPath(); c.arc(-4, -62, 1.7, 0, 6.28); c.arc(4, -62, 1.7, 0, 6.28); c.fill();
+  c.strokeStyle='#0b0e26'; c.lineWidth=1.4; c.beginPath(); c.arc(0, -59, 3, 0.2, Math.PI-0.2); c.stroke();
+  c.fillStyle='rgba(255,150,180, 0.9)'; c.beginPath(); c.ellipse(0, -72, 7, 5, 0, 0, 6.28); c.fill();
+  c.strokeStyle='rgba(200, 60,110, 0.55)'; c.lineWidth=1; c.beginPath(); c.moveTo(0, -77); c.lineTo(0, -67); c.stroke();
+  c.strokeStyle='rgba(180,230,255, 0.85)'; c.lineWidth=2; c.beginPath(); c.arc(0, -64, 18, Math.PI*0.9, Math.PI*2.1); c.stroke();
+  c.fillStyle='rgba(180,230,255, 0.10)'; c.beginPath(); c.arc(0, -64, 18, Math.PI, 0); c.fill();
+  c.restore(); }
+function spFire(c, x, y, t){ c.save(); c.translate(x, y); const f=0.8+0.2*Math.sin(t*9);
+  const g=c.createRadialGradient(0, -6, 2, 0, -6, 34); g.addColorStop(0, 'rgba(255,220,120, 0.9)'); g.addColorStop(0.5, 'rgba(255,140, 50, 0.5)'); g.addColorStop(1, 'rgba(255, 80, 30, 0)'); c.fillStyle=g; c.beginPath(); c.arc(0, -6, 34*f, 0, 6.28); c.fill();
+  c.fillStyle='#ffb648'; c.beginPath(); c.moveTo(-8, 2); c.quadraticCurveTo(-6, -16*f, 0, -22*f); c.quadraticCurveTo(6, -16*f, 8, 2); c.closePath(); c.fill();
+  c.fillStyle='#ffe27a'; c.beginPath(); c.moveTo(-4, 2); c.quadraticCurveTo(-3, -9*f, 0, -13*f); c.quadraticCurveTo(3, -9*f, 4, 2); c.closePath(); c.fill();
+  c.fillStyle='#5b3a22'; rr2(c, -14, 2, 28, 5, 2); c.fill(); c.restore(); }
+function spSkyline(c, x0, gy, w, rise, accent, seed){ seed=seed||0; const n=9;
+  for(let i=0;i<n;i++){ const bw=w/n; const bx=x0+i*bw+(i%2?2:-2);
+    const frac=0.34+((i*53+seed*17)%66)/100; const maxH=gy*0.92*frac;
+    const local=Math.max(0, Math.min(1, (rise*n-i)*1.35)); const bh=maxH*local; if(bh<=1) continue;
+    c.fillStyle=i%2?'#2b3673':'#232c63'; rr2(c, bx, gy-bh, bw-6, bh, 3); c.fill();
+    c.fillStyle='rgba(0, 0, 0, 0.22)'; rr2(c, bx, gy-bh, 5, bh, 2); c.fill();
+    if(local>0.92){ c.strokeStyle=accent; c.lineWidth=2; c.beginPath(); c.moveTo(bx+bw*0.5, gy-bh); c.lineTo(bx+bw*0.5, gy-bh-Math.min(30, maxH*0.14)); c.stroke();
+      c.fillStyle=accent; c.beginPath(); c.arc(bx+bw*0.5, gy-bh-Math.min(30, maxH*0.14), 2.6, 0, 6.28); c.fill(); }
+    c.fillStyle=accent; for(let wy=gy-bh+10; wy<gy-8; wy+=13){ for(let wx=bx+4; wx<bx+bw-10; wx+=8){ if((wx+wy+seed)%3===0) c.fillRect(wx, wy, 3, 4); } }
+  } }
+
+function drawStoryScene(t, age){ const cv=$('storyCanvas'); if(!cv) return; const r=cv.getBoundingClientRect(); if(r.width===0) return; const dpr=Math.min(window.devicePixelRatio||1, 2); if(cv.width!==r.width*dpr){cv.width=r.width*dpr; cv.height=r.height*dpr;} const c=cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0); drawStoryPanel(c, r.width, r.height, S.storyIdx, t, age); }
+function drawStoryPanel(c, w, h, i, t, age){
+  const u=Math.max(0.95, Math.min(w/430, h/320)); const cx=w/2, gy=h*0.86;
+  const g=c.createLinearGradient(0, 0, 0, h);
+  if(i<=6){ g.addColorStop(0, '#20160e'); g.addColorStop(1, '#3a2818'); } else { g.addColorStop(0, '#0d1030'); g.addColorStop(1, '#241442'); }
+  c.fillStyle=g; c.fillRect(0, 0, w, h);
+  const vg=c.createRadialGradient(cx, h*0.46, h*0.18, cx, h*0.5, h*0.82); vg.addColorStop(0, 'rgba(0, 0, 0, 0)'); vg.addColorStop(1, 'rgba(0, 0, 0, 0.5)'); c.fillStyle=vg; c.fillRect(0, 0, w, h);
+  const cave=(col)=>{ c.fillStyle=col||'#17100a'; c.beginPath(); c.moveTo(0, 0); c.lineTo(w, 0); c.lineTo(w, h*0.16); c.quadraticCurveTo(w*0.7, h*0.30, w*0.5, h*0.24); c.quadraticCurveTo(w*0.3, h*0.18, 0, h*0.28); c.closePath(); c.fill(); };
+  const groundLine=(col)=>{ c.fillStyle=col; c.fillRect(0, gy, w, h-gy); };
+  const CM=1.75*u, MM=1.65*u, BO=1.95*u, GN=2.15*u, OF=1.75*u, off=u*78;
+  if(i===0){ cave(); groundLine('#241812'); c.save(); c.translate(cx+off*0.7, gy); c.scale(1.6*u, 1.6*u); spFire(c, 0, 0, t); c.restore(); spCaveman(c, cx-off*0.5, gy, CM, 'ok');
+    const gl=0.4+0.4*Math.sin(t*2); c.fillStyle='rgba(255,210,120, '+gl*0.5+')'; c.beginPath(); c.arc(w*0.84, gy-95*u, 13*u, 0, 6.28); c.fill(); }
+  else if(i===1){ cave(); groundLine('#241812'); spCaveman(c, cx-off*0.8, gy, CM, 'ok'); spBottle(c, cx-off*0.05, gy-62*u, BO, t); }
+  else if(i===2){ cave(); groundLine('#241812'); spBottle(c, cx-off*1.15, gy-44*u, BO*0.72, t);
+    for(let k=0;k<12;k++){ const p=(t*0.6+k/12)%1; c.fillStyle='rgba(160,210,255, '+(0.55*(1-p))+')'; c.beginPath(); c.arc(cx-off*1.15+p*off*1.2, gy-44*u-p*160*u+Math.sin(k+t)*8, (8*(1-p)+2)*u, 0, 6.28); c.fill(); }
+    spModern(c, cx+off*0.85, gy, MM*ease(age)); c.fillStyle='#ffd257'; c.font='700 '+(34*u)+'px Baloo 2, sans-serif'; c.textAlign='center'; c.globalAlpha=0.5+0.5*Math.sin(t*3); c.fillText('3', cx+off*0.85, gy-128*u); c.globalAlpha=1; c.textAlign='left'; }
+  else if(i===3){ cave(); groundLine('#241812'); spCaveman(c, cx-off*0.95, gy, CM, 'ok'); spModern(c, cx+off*1.0, gy, MM);
+    const icons=['\uD83C\uDF56', '\uD83D\uDEE1\uFE0F', '\uD83C\uDFA8']; c.font=(34*u)+'px sans-serif'; c.textAlign='center'; for(let k=0;k<3;k++){ const yy=gy-158*u+Math.sin(t*2+k)*7; c.globalAlpha=ease(age*1.5-k*0.3); c.fillText(icons[k], cx-off*0.95+k*off*0.6, yy); } c.globalAlpha=1; c.textAlign='left'; }
+  else if(i===4){ cave('#1a120b'); groundLine('#241812'); c.globalAlpha=0.5; spSkyline(c, cx+off*0.3, gy, w*0.42, 0.75, 'rgba(120,180,255, 0.5)'); c.globalAlpha=1;
+    c.fillStyle='#2a1d12'; rr2(c, cx-off*1.8, gy-96*u, 86*u, 96*u, 8); c.fill(); c.fillStyle='#0d0906'; c.beginPath(); c.arc(cx-off*1.8+43*u, gy-40*u, 28*u, Math.PI, 0); c.fill();
+    spModern(c, cx+off*0.45, gy, MM); spCaveman(c, cx-off*0.65, gy, CM*0.92, 'ok'); }
+  else if(i===5){ /* DRAMATIC: cave destroyed, towers erupt and keep climbing */
+    const blastP=ease(Math.min(1, age/0.5)); const riseP=ease(Math.min(1, age/2.6));
+    const shake=(1-blastP)*6*u*Math.sin(t*40);
+    const ag=c.createLinearGradient(0, 0, 0, h); ag.addColorStop(0, '#3a1212'); ag.addColorStop(1, '#5c1e1e'); c.fillStyle=ag; c.fillRect(0, 0, w, h);
+    c.save(); c.translate(shake, 0);
+    const hx=cx+off*0.5, hy=gy-46*u;
+    c.globalAlpha=0.24*(1-riseP*0.6); for(let r=-3;r<=3;r++){ c.fillStyle='rgba(255,180, 80, 0.6)'; c.beginPath(); c.moveTo(hx, hy); c.lineTo(hx-260*u, hy-70*u+r*46*u); c.lineTo(hx-260*u, hy-70*u+r*46*u+22*u); c.closePath(); c.fill(); } c.globalAlpha=1;
+    groundLine('#20120c');
+    spSkyline(c, w*0.08, gy, w*0.86, riseP, 'rgba(255,220,150, 0.85)', 3);
+    c.strokeStyle='rgba(255,220,150, '+(0.55*(1-blastP))+')'; c.lineWidth=5*u; c.beginPath(); c.arc(cx-off*0.9, gy-46*u, 50*u+blastP*220*u, 0, 6.28); c.stroke();
+    c.fillStyle='rgba(150,110, 80, '+(0.5*blastP)+')'; for(let k=0;k<9;k++){ const dx=cx-off*1.9+k*off*0.42; c.beginPath(); c.arc(dx, gy-6, (16+(k%3)*10)*u*blastP, 0, 6.28); c.fill(); }
+    c.fillStyle='#3a2418'; for(let k=0;k<12;k++){ const p=(age*0.5 + k/12)%1; const dx=cx-off*1.5 + Math.cos(k*1.7)*p*300*u; const dy=gy-46*u - p*260*u - Math.sin(p*3.14)*40*u; c.save(); c.translate(dx, dy); c.rotate(k+age*3); rr2(c, -9*u, -7*u, 18*u, 14*u, 2); c.fill(); c.restore(); }
+    spModern(c, hx, gy, MM);
+    c.save(); c.translate(cx-off*1.9, gy); c.rotate(-0.28); spCaveman(c, 0, 0, CM*0.85, 'sad'); c.restore();
+    c.restore(); }
+  else if(i===6){ groundLine('#1c130c'); spSkyline(c, w*0.08, gy, w*0.88, 1, 'rgba(120,190,255, 0.55)');
+    c.fillStyle='#241811'; for(let k=0;k<8;k++){ const rx=cx-off*1.3+k*off*0.44; c.save(); c.translate(rx, gy-6); c.rotate(k*0.5); rr2(c, -12*u, -10*u, 24*u, 20*u, 3); c.fill(); c.restore(); }
+    const spot=c.createRadialGradient(cx-off*0.95, gy-54*u, 4, cx-off*0.95, gy-54*u, 130*u); spot.addColorStop(0, 'rgba(180,200,255, 0.22)'); spot.addColorStop(1, 'rgba(0, 0, 0, 0)'); c.fillStyle=spot; c.fillRect(cx-off*2.4, gy-190*u, 290*u, 220*u);
+    spCaveman(c, cx-off*0.95, gy, CM*0.82, 'sad'); }
+  else if(i===7){ /* TRANSITION: 1 million years later */
+    groundLine('#0e1330');
+    for(let k=0;k<44;k++){ const yy=(k*47)% (gy-10); const len=(40+(k%5)*34)*u; const xx=(w+220) - ((t*340 + k*97)%(w+320)); c.strokeStyle='rgba(180,210,255, '+(0.14+(k%5)*0.1)+')'; c.lineWidth=2; c.beginPath(); c.moveTo(xx, yy); c.lineTo(xx+len, yy); c.stroke(); }
+    c.strokeStyle='rgba(120,180,255, 0.18)'; c.lineWidth=2; c.beginPath(); for(let a=0;a<13;a+=0.2){ const rr=a*5*u; const px=cx+Math.cos(a+t*0.6)*rr, py=(gy*0.48)+Math.sin(a+t*0.6)*rr; if(a===0)c.moveTo(px, py); else c.lineTo(px, py);} c.stroke();
+    spSkyline(c, 0, gy, w, 1, 'rgba(140,200,255, 0.55)'); }
+  else if(i===8){ groundLine('#12183a'); c.fillStyle='#1b2350'; rr2(c, cx+off*0.3, gy-128*u, 116*u, 128*u, 8); c.fill(); c.strokeStyle='#37427f'; c.lineWidth=2; rr2(c, cx+off*0.3, gy-128*u, 116*u, 128*u, 8); c.stroke();
+    const gl=0.5+0.5*Math.sin(t*3), cxg=cx+off*0.3+58*u, cyg=gy-68*u; const cg=c.createRadialGradient(cxg, cyg, 4, cxg, cyg, 80*u); cg.addColorStop(0, 'rgba(120,220,255, '+(0.4+gl*0.4)+')'); cg.addColorStop(1, 'rgba(120,220,255, 0)'); c.fillStyle=cg; c.beginPath(); c.arc(cxg, cyg, 80*u, 0, 6.28); c.fill();
+    c.fillStyle='#8fdcff'; c.beginPath(); c.arc(cxg, cyg, 16*u, 0, 6.28); c.fill(); spOfficer(c, cx-off*0.95, gy, OF); }
+  else if(i===9){ groundLine('#12183a'); spGenie(c, cx+off*0.6, gy-54*u, GN*ease(age), t); spOfficer(c, cx-off*1.05, gy, OF);
+    c.font=(24*u)+'px sans-serif'; c.textAlign='center'; for(let k=0;k<6;k++){ const a=t*0.8+k, rx=cx+off*0.6+Math.cos(a)*96*u, ry=gy-64*u+Math.sin(a)*54*u; c.globalAlpha=0.4+0.3*Math.sin(t*2+k); c.fillText('\u2728', rx, ry); } c.globalAlpha=1; c.textAlign='left'; }
+  else { groundLine('#141042'); const gl=0.5+0.5*Math.sin(t*2.5), cxg=cx+off*1.1, cyg=gy-96*u; const cg=c.createRadialGradient(cxg, cyg, 6, cxg, cyg, 150*u); cg.addColorStop(0, 'rgba(168, 90,255, '+(0.5+gl*0.4)+')'); cg.addColorStop(1, 'rgba(168, 90,255, 0)'); c.fillStyle=cg; c.beginPath(); c.arc(cxg, cyg, 150*u, 0, 6.28); c.fill();
+    drawMax(c, cxg, cyg, 48*u, 0.7, 'idle', t); spOfficer(c, cx-off*1.05, gy, OF*1.15); }
+}
+function renderStory(){ const p=STORY[S.storyIdx]; const k=$('storyKicker'), tx=$('storyText'); if(k) k.textContent=p.k; if(tx) tx.textContent=p.t;
+  const dots=$('storyDots'); if(dots){ dots.innerHTML=''; STORY.forEach((_, j)=>{ const d=document.createElement('span'); d.className='sdot'+(j===S.storyIdx?' on':''); dots.appendChild(d); }); }
+  const nx=$('storyNext'); if(nx) nx.textContent=(S.storyIdx>=STORY.length-1)?'Begin \u25B6':'Next \u203A'; }
+function startStory(replay){ story.replay=!!replay; S.storyIdx=0; renderStory(); show('story'); startRain(); speakPanel(); }
+function storyNext(){ sClick(); if(S.storyIdx>=STORY.length-1){ stopSpeak(); finishStory(); } else { S.storyIdx++; renderStory(); speakPanel(); } }
+function finishStory(){ stopSpeak(); stopRain(); lsSet('wish_intro_seen', true); show('title'); }
+function skipStory(){ stopSpeak(); finishStory(); }
+function storyTick(ts){ const now=(ts||0)/1000; if(S.scene==='story'){ if(story.i!==S.storyIdx){ story.i=S.storyIdx; story.age=0; } story.age+=Math.min(0.05, (now-sPrev)||0); drawStoryScene(now, story.age); } sPrev=now; requestAnimationFrame(storyTick); }
+function wireStory(){ const nx=$('storyNext'); if(nx) nx.onclick=storyNext; const sk=$('storySkip'); if(sk) sk.onclick=skipStory;
+  const sc=$('storyCanvas'); if(sc) sc.addEventListener('pointerdown', ()=>{ if(S.scene==='story') storyNext(); });
+  const tb=$('titleStoryBtn'); if(tb) tb.onclick=()=>startStory(true); }
+function initStory(){ wireStory(); requestAnimationFrame(storyTick); if(!lsGet('wish_intro_seen', false)) startStory(false); else show('title'); }
+
+/* ============================ WIRING ============================ */
+function bind(id, fn){ const e=$(id); if(e) e.onclick=fn; }
+function wire(){
+  bind('startBtn', ()=>{ sClick(); startPlay(); });
+  bind('newBtn', ()=>{ sClick(); newGame(); render(); });
+  bind('dnAgain', ()=>{ sClick(); newGame(); show('play'); render(); });
+  bind('dnMore', ()=>{ sClick(); G.ended=null; show('play'); render(); });
+  bind('soundBtn', toggleSound);
+  bind('logBtn', openLog); bind('logClose', closeLog); bind('alertBtn', resumeNow);
+  const cv=$('stage');
+  if(cv && cv.addEventListener){
+    const pos=e=>{ const r=cv.getBoundingClientRect(); const cx=(e.clientX!==undefined)?e.clientX:(e.touches&&e.touches[0]?e.touches[0].clientX:0);
+      const cy=(e.clientY!==undefined)?e.clientY:(e.touches&&e.touches[0]?e.touches[0].clientY:0); return [cx-r.left, cy-r.top]; };
+    cv.addEventListener('pointerdown', e=>{ const p=pos(e); stageDown(p[0], p[1]); });
+    cv.addEventListener('pointermove', e=>{ const p=pos(e); if(STAGE.drag) stageMove(p[0], p[1]); else stageHover(p[0], p[1]); });
+    cv.addEventListener('pointerup', e=>{ const p=pos(e); const d=STAGE.drag; STAGE.drag=null; if(!d||!d.moved) stageClick(p[0], p[1]); });
+    cv.addEventListener('pointercancel', ()=>{ STAGE.drag=null; });
+    cv.addEventListener('pointerleave', ()=>{ if(cv.style) cv.style.cursor='grab'; });
+    /* a plain click still arrives when a pointer sequence is cancelled */
+    cv.addEventListener('click', e=>{ const p=pos(e); stageClick(p[0], p[1]); });
+    /* and touchend, for browsers that report taps only that way */
+    cv.addEventListener('touchend', e=>{ const t0=e.changedTouches&&e.changedTouches[0]; if(!t0) return; const r=cv.getBoundingClientRect();
+      const d=STAGE.drag; STAGE.drag=null; if(d&&d.moved) return; stageClick(t0.clientX-r.left, t0.clientY-r.top); }, { passive:true });
+  }
+  const al=$('alert'); if(al) al.onclick=e=>{ if(e&&e.target&&e.target.id==='alert') resumeNow(); };
+  bind('narrBtn', toggleNarr);
+  const sv=lsGet('wish_sound', true); S.soundOn=sv;
+  const sb=$('soundBtn'); if(sb) sb.textContent=S.soundOn?'\uD83D\uDD0A':'\uD83D\uDD07';
+  NARR.on=lsGet('wish_narr', true);
+  const nb=$('narrBtn'); if(nb) nb.textContent=NARR.on?'\uD83D\uDD0A Narration on':'\uD83D\uDD07 Narration off';
+  const cont=$('startBtn'); if(cont && loadGame()) cont.textContent='Continue \u203a';
+}
+
+/* boot */
+loadSave(); wire(); requestAnimationFrame(stageTick); initStory();
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { S, SAVE, G, STAGE, CARDS, EVENTS, ERAS,
+    resetGame, newGame, startPlay, simTick, buyCard, fireEvent, gap, eraFor, growthP, growthE, researchRate,
+    available, canBuy, hasCounter, endGame, fmt, render, renderDone, show, startStory, storyNext, skipStory,
+    setSeed(n){ seed=n; }, devModels, modelRisk, deployModel, tickModels, newModel, LABS, CATS, PEOPLE, FX, SKY, risksNow, fireRisk, catchChance, PAUSE, resumeNow, renderLog, builtLevel, BUILDS, unlocked, unmet, fireMinor, rollOffer, chooseOffer, OFFERS, MINOR, riskMod, applyFx, buildCap, drawBackdrop, HOT, SPOT, spawnHot, tickHot, stageTap, stageClick, stageHover, closeSpot, stageDown, stageMove, stageUp, chooseSpot, hotPx, cardPx, cardById, openCardSpot };
+}
+
+</script>
+</body>
+</html>
