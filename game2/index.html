@@ -786,9 +786,13 @@ function stopRain(){ try{ const c=ac(); if(RAIN.gain&&c) RAIN.gain.gain.setTarge
 /* ============================ NARRATION (recorded audio files) ============================ */
 /* Drop ElevenLabs exports in ./voice/ as p1.mp3 ... p11.mp3 (one per story panel).
    If a file is missing, narration simply stays silent. Browser TTS is NOT used. */
-/* panels 10 and 11 were rewritten for the civilisation game; their recordings no longer match, so they stay silent until re-recorded */
-const NARR={on:true, el:null, missing:{9:true, 10:true}};
-function narrSrc(i){ return 'voice/p'+(i+1)+'.mp3'; }
+const NARR={on:true, el:null, missing:{}};
+/* Panels 10 and 11 were rewritten for the civilisation game, so p10.mp3 and
+   p11.mp3 no longer match their text. They ask for a -v2 file instead: drop
+   voice/p10-v2.mp3 and voice/p11-v2.mp3 in and they start playing, with no
+   code change. Until then speakPanel's onerror leaves them silent. */
+const NARR_V2={ 9:true, 10:true };
+function narrSrc(i){ return 'voice/p'+(i+1)+(NARR_V2[i]?'-v2':'')+'.mp3'; }
 function speakPanel(){ try{ if(!NARR.on) return; const i=S.storyIdx; if(NARR.missing[i]) return;
     stopSpeak();
     const a=new Audio(narrSrc(i)); a.preload='auto'; a.volume=1.0;
@@ -1572,8 +1576,37 @@ function drawStoryPanel(c, w, h, i, t, age){
     c.fillStyle='#8fdcff'; c.beginPath(); c.arc(cxg, cyg, 16*u, 0, 6.28); c.fill(); spOfficer(c, cx-off*0.95, gy, OF); }
   else if(i===9){ groundLine('#12183a'); spGenie(c, cx+off*0.6, gy-54*u, GN*ease(age), t); spOfficer(c, cx-off*1.05, gy, OF);
     c.font=(24*u)+'px sans-serif'; c.textAlign='center'; for(let k=0;k<6;k++){ const a=t*0.8+k, rx=cx+off*0.6+Math.cos(a)*96*u, ry=gy-64*u+Math.sin(a)*54*u; c.globalAlpha=0.4+0.3*Math.sin(t*2+k); c.fillText('\u2728', rx, ry); } c.globalAlpha=1; c.textAlign='left'; }
-  else { groundLine('#141042'); const gl=0.5+0.5*Math.sin(t*2.5), cxg=cx+off*1.1, cyg=gy-96*u; const cg=c.createRadialGradient(cxg, cyg, 6, cxg, cyg, 150*u); cg.addColorStop(0, 'rgba(168, 90,255, '+(0.5+gl*0.4)+')'); cg.addColorStop(1, 'rgba(168, 90,255, 0)'); c.fillStyle=cg; c.beginPath(); c.arc(cxg, cyg, 150*u, 0, 6.28); c.fill();
-    drawMax(c, cxg, cyg, 48*u, 0.7, 'idle', t); spOfficer(c, cx-off*1.05, gy, OF*1.15); }
+  else { /* panel 11: the civilisation you are about to steer, 2030 to 2300 */
+    groundLine('#141042');
+    const px=cx+off*0.52, py=gy-118*u, pr=Math.min(72*u, w*0.21), k=ease(Math.min(1, age/1.2));
+    /* the world, lit and turning */
+    const hal=c.createRadialGradient(px, py, pr*0.8, px, py, pr*2.1); hal.addColorStop(0, 'rgba(90,180,255,'+(0.35*k)+')'); hal.addColorStop(1, 'rgba(90,180,255,0)');
+    c.fillStyle=hal; c.beginPath(); c.arc(px, py, pr*2.1, 0, 6.28); c.fill();
+    const pg=c.createRadialGradient(px-pr*0.4, py-pr*0.4, pr*0.08, px, py, pr); pg.addColorStop(0, '#6fc0ea'); pg.addColorStop(0.55, '#2470ab'); pg.addColorStop(1, '#08203c');
+    c.fillStyle=pg; c.beginPath(); c.arc(px, py, pr*k, 0, 6.28); c.fill();
+    c.save(); c.beginPath(); c.arc(px, py, pr*k, 0, 6.28); c.clip();
+    const dr=(t*0.05)%2; c.fillStyle='rgba(70,155,95,0.9)';
+    [[0.1,-0.3,0.4,0.22],[0.7,0.15,0.34,0.26],[-0.5,0.3,0.3,0.17],[1.3,-0.05,0.26,0.2]].forEach(([fx,fy,rx,ry])=>{ for(let rp=-1;rp<=1;rp++){ c.beginPath(); c.ellipse(px+(((fx+dr)%2)-1+rp*2)*pr, py+fy*pr, rx*pr, ry*pr, 0.3, 0, 6.28); c.fill(); } });
+    c.fillStyle='rgba(255,255,255,0.4)'; for(let n=0;n<5;n++){ const ax=px+(((n*0.4+t*0.03)%2)-1)*pr*1.1; c.beginPath(); c.ellipse(ax, py+((n*0.7)%1.4-0.7)*pr*0.8, pr*0.3, pr*0.07, 0.2, 0, 6.28); c.fill(); }
+    const nightG=c.createLinearGradient(px-pr*0.1, 0, px+pr, 0); nightG.addColorStop(0, 'rgba(2,6,24,0)'); nightG.addColorStop(1, 'rgba(2,6,24,0.8)'); c.fillStyle=nightG; c.fillRect(px-pr, py-pr, 2*pr, 2*pr);
+    /* cities coming on, one after another */
+    const lit=Math.min(1, age/2.6); for(let n=0;n<70;n++){ if(n/70>lit) break; const an=((n*137)%360)/57.3, rr=pr*Math.sqrt(((n*53)%100)/100); const lx=px+Math.cos(an)*rr, ly=py+Math.sin(an)*rr; if(lx<px+pr*0.02) continue; c.fillStyle='rgba(255,220,140,'+(0.6+0.4*Math.sin(t*2+n))+')'; const ls=(1.6+1.1*Math.min(1, age/3))*u; c.fillRect(lx, ly, ls, ls); }
+    c.restore();
+    /* the orbital ring, assembling */
+    const rk=ease(Math.max(0, Math.min(1, (age-1.1)/2)));
+    c.strokeStyle='rgba(184,194,255,'+(0.55*rk)+')'; c.lineWidth=1.6*u; c.beginPath(); c.ellipse(px, py, pr*1.5, pr*0.46, -0.35, 0, 6.28*rk); c.stroke();
+    for(let n=0;n<7;n++){ if(n/7>rk) break; const an=t*0.25+n*0.9; const sx=px+Math.cos(an)*pr*1.5*Math.cos(-0.35)-Math.sin(an)*pr*0.46*Math.sin(-0.35), sy=py+Math.cos(an)*pr*1.5*Math.sin(-0.35)+Math.sin(an)*pr*0.46*Math.cos(-0.35);
+      c.fillStyle='#cfd6ff'; c.fillRect(sx-1.6*u, sy-1.6*u, 3.2*u, 3.2*u); }
+    /* ships leaving, later */
+    const sk=Math.max(0, Math.min(1, (age-2.4)/2)); for(let n=0;n<3;n++){ if(n/3>sk) break; const kk=((t*0.12+n*0.33)%1); c.fillStyle='rgba(84,227,155,'+(1-kk)+')'; c.beginPath(); c.moveTo(px+kk*130*u, py-pr*1.1-kk*60*u); c.lineTo(px+kk*130*u-5*u, py-pr*1.1-kk*60*u+4*u); c.lineTo(px+kk*130*u-5*u, py-pr*1.1-kk*60*u-4*u); c.closePath(); c.fill(); }
+    /* the officer, looking at what they are responsible for */
+    spOfficer(c, cx-off*1.15, gy, OF*1.15);
+    /* the span of the run */
+    const ly=Math.min(gy-8*u, py+pr*1.6), lx0=px-pr*1.12, lx1=Math.min(w-24*u, px+pr*1.12);
+    c.font='700 '+(11*u)+'px ui-monospace, monospace'; c.textAlign='center'; c.globalAlpha=0.6+0.2*Math.sin(t*1.6);
+    c.fillStyle='#8fa0d8'; c.fillText('2030', lx0, ly); c.fillText('2300', lx1, ly);
+    c.globalAlpha=0.35; c.strokeStyle='#8fa0d8'; c.lineWidth=1*u; c.beginPath(); c.moveTo(lx0+17*u, ly-4*u); c.lineTo(lx1-17*u, ly-4*u); c.stroke();
+    c.globalAlpha=1; c.textAlign='left'; }
 }
 function renderStory(){ const p=STORY[S.storyIdx]; const k=$('storyKicker'), tx=$('storyText'); if(k) k.textContent=p.k; if(tx) tx.textContent=p.t;
   const dots=$('storyDots'); if(dots){ dots.innerHTML=''; STORY.forEach((_, j)=>{ const d=document.createElement('span'); d.className='sdot'+(j===S.storyIdx?' on':''); dots.appendChild(d); }); }
