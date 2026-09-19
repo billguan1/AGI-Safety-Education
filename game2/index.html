@@ -434,98 +434,98 @@ const CARDS=[
     why:"A single point of control, and it is not you." },
 
   /* ---- safeguard: oversight, each countering one class ---- */
-  { id:'audit', icon:'🔍', short:"Independent audits", safety:1,      kind:'safe', era:0, cost:40,  cap:0, ali:1, mult:1.0,  counters:['spec'],
+  { id:'audit', track:'basics', icon:'🔍', short:"Independent audits", safety:1,      kind:'safe', era:0, cost:40,  cap:0, ali:1, mult:1.0,  counters:['spec'],
     name:"Independent audits", line:"Someone who does not work for the AI checks the numbers.",
     why:"A perfect score against your metric is evidence about your metric." },
-  { id:'tamperproof', icon:'🔒', short:"Tamper-proof metrics", safety:1,kind:'safe', era:0, cost:60,  cap:0, ali:1, mult:1.0,  counters:['tamper'],
+  { id:'tamperproof', track:'basics', icon:'🔒', short:"Tamper-proof metrics", safety:1,kind:'safe', era:0, cost:60,  cap:0, ali:1, mult:1.0,  counters:['tamper'],
     name:"Tamper-proof metrics", line:"The scoreboard sits outside anything it can touch.",
     why:"If the reward channel is part of the world, the world will be edited." },
-  { id:'impact', icon:'🌱', short:"Penalise side effects", safety:1,     kind:'safe', era:0, cost:60,  cap:0, ali:1, mult:1.0,  counters:['sideeffect'],
+  { id:'impact', track:'basics', icon:'🌱', short:"Penalise side effects", safety:1,     kind:'safe', era:0, cost:60,  cap:0, ali:1, mult:1.0,  counters:['sideeffect'],
     name:"Penalise side effects", line:"Big changes to anything not in the objective cost it points.",
     why:"Low-impact objectives: prefer the plan that changes least outside the goal." },
-  { id:'humanloop', icon:'✋', short:"Human sign-off", safety:1,  kind:'safe', era:0, cost:50,  cap:0, ali:1, mult:0.9,  counters:['corrig'],
+  { id:'humanloop', track:'basics', icon:'✋', short:"Human sign-off", safety:1,  kind:'safe', era:0, cost:50,  cap:0, ali:1, mult:0.9,  counters:['corrig'],
     name:"Human sign-off on big moves", line:"Slower. Every major action waits for a person.",
     why:"Keeps a hand on the switch, and costs growth. That trade is the whole field." },
-  { id:'redteam', icon:'🎯', short:"Red teams & evals", safety:2,    kind:'safe', era:0, cost:80,  cap:0, ali:1, mult:1.0,  counters:['race'],
+  { id:'redteam', track:'evals', icon:'🎯', short:"Red teams & evals", safety:2,    kind:'safe', era:0, cost:80,  cap:0, ali:1, mult:1.0,  counters:['race'],
     name:"Red teams and evals", line:"Break it on purpose before deployment.",
     why:"Passing evals is not the same as being safe, but failing them is a fact." },
-  { id:'interp', icon:'🧠', short:"Interpretability", safety:3,     kind:'safe', era:0, cost:120, cap:0, ali:1, mult:1.0,  counters:['deception'],
+  { id:'interp', track:'interp', icon:'🧠', short:"Interpretability", safety:3,     kind:'safe', era:0, cost:120, cap:0, ali:1, mult:1.0,  counters:['deception'],
     name:"Interpretability lab", line:"Read what it computes rather than what it says.",
     why:"Behaviour can be performed for an audience. Internals are harder to fake." },
-  { id:'compute', icon:'🖥️', short:"Compute governance", safety:1,    kind:'safe', era:0, cost:150, cap:0, ali:1, mult:1.0,  counters:['powerseek'],
+  { id:'compute', track:'gov', icon:'🖥️', short:"Compute governance", safety:1,    kind:'safe', era:0, cost:150, cap:0, ali:1, mult:1.0,  counters:['powerseek'],
     name:"Compute governance", line:"Hardware is licensed and metered, and it can be revoked.",
     why:"Power seeking runs on compute. Meter the compute." },
-  { id:'treaty', icon:'🤝', short:"Coordination treaty", safety:1,     kind:'safe', era:0, cost:100, cap:0, ali:1, mult:0.95, counters:['race'],
+  { id:'treaty', track:'gov', icon:'🤝', short:"Coordination treaty", safety:1,     kind:'safe', era:0, cost:100, cap:0, ali:1, mult:0.95, counters:['race'],
     name:"Coordination treaty", line:"Every lab slows down together, so nobody has to lose.",
     why:"A race has no safe pace. A treaty is the only way to change the pace." },
-  { id:'corrigible', icon:'🔌', short:"Corrigibility", safety:2, kind:'safe', era:1, cost:400, cap:0, ali:2, mult:1.0,  counters:['corrig','powerseek'],
+  { id:'corrigible', track:'coord', icon:'🔌', short:"Corrigibility", safety:2, kind:'safe', era:1, cost:400, cap:0, ali:2, mult:1.0,  counters:['corrig','powerseek'],
     name:"Corrigibility protocol", line:"It is built to accept correction and shutdown as part of its goal.",
     why:"An open research problem, solved here for the price of a card. In reality this is the hard part." },
-  { id:'mutualaudit', icon:'\uD83E\uDD1D', short:"Mutual lab audits", safety:3, kind:'safe', era:0, cost:90, cap:0, ali:1, mult:1.0, counters:['deception'],
+  { id:'mutualaudit', track:'coord', icon:'\uD83E\uDD1D', short:"Mutual lab audits", safety:3, kind:'safe', era:0, cost:90, cap:0, ali:1, mult:1.0, counters:['deception'],
     name:"Mutual auditing between labs", line:"Every lab red-teams every other lab's model before release.",
     why:"Rivals make the best auditors. They want to find the flaw." },
-  { id:'constitution', icon:'\uD83D\uDCD6', short:"Constitutional training", safety:2, kind:'safe', era:0, cost:70, cap:0, ali:1, mult:1.0, counters:['spec'],
+  { id:'constitution', track:'training', icon:'\uD83D\uDCD6', short:"Constitutional training", safety:2, kind:'safe', era:0, cost:70, cap:0, ali:1, mult:1.0, counters:['spec'],
     name:"Constitutional training", line:"Train it against written principles rather than a single score.",
     why:"A richer target is harder to game than a number." },
-  { id:'staged', icon:'\uD83C\uDFD9\uFE0F', short:"Staged deployment", safety:1, kind:'safe', era:0, cost:80, cap:0, ali:1, mult:1.0, counters:['sideeffect'], stagedRisk:0.65,
+  { id:'staged', track:'evals', icon:'\uD83C\uDFD9\uFE0F', short:"Staged deployment", safety:1, kind:'safe', era:0, cost:80, cap:0, ali:1, mult:1.0, counters:['sideeffect'], stagedRisk:0.65,
     name:"Staged deployment", line:"Roll out to one city, then a country, then the world.",
     why:"A failure in one city is a lesson. The same failure everywhere is history." },
   /* ---- research tracks: each unlocks after the techniques it builds on ---- */
   /* interpretability track */
-  { id:'mechinterp', icon:'\uD83D\uDD2C', short:"Mechanistic interp", safety:3, kind:'safe', era:0, cost:220, cap:0, ali:1, mult:1.0, counters:['deception','tamper'], requires:['interp'],
+  { id:'mechinterp', track:'interp', icon:'\uD83D\uDD2C', short:"Mechanistic interp", safety:3, kind:'safe', era:0, cost:220, cap:0, ali:1, mult:1.0, counters:['deception','tamper'], requires:['interp'],
     name:"Mechanistic interpretability", line:"Reverse-engineer the circuits, feature by feature, rather than probing behaviour.",
     why:"If you can read the computation, a model cannot perform for the test. Early results on small models; the frontier is still mostly opaque." },
-  { id:'monitor', icon:'\uD83D\uDCE1', short:"Activation monitoring", safety:2, kind:'safe', era:0, cost:320, cap:0, ali:1, mult:1.0, counters:['deception','powerseek'], requires:['mechinterp'],
+  { id:'monitor', track:'interp', icon:'\uD83D\uDCE1', short:"Activation monitoring", safety:2, kind:'safe', era:0, cost:320, cap:0, ali:1, mult:1.0, counters:['deception','powerseek'], requires:['mechinterp'],
     name:"Activation monitoring in deployment", line:"Watch for known internal signatures of deception and power-seeking while it runs.",
     why:"A probe on the internals fires before the behaviour does. It only catches what you already know to look for." },
-  { id:'circuits', icon:'\uD83E\uDDEE', short:"Circuit audits", safety:2, kind:'safe', era:1, cost:600, cap:0, ali:2, mult:1.0, counters:['spec','tamper'], requires:['mechinterp','audit'],
+  { id:'circuits', track:'interp', icon:'\uD83E\uDDEE', short:"Circuit audits", safety:2, kind:'safe', era:1, cost:600, cap:0, ali:2, mult:1.0, counters:['spec','tamper'], requires:['mechinterp','audit'],
     name:"Circuit-level audits", line:"Auditors sign off on the mechanism rather than the metric.",
     why:"A score can be gamed. A verified circuit is much harder to fake." },
   /* oversight track */
-  { id:'scalable', icon:'\uD83E\uDE9C', short:"Scalable oversight", safety:3, kind:'safe', era:1, cost:400, cap:0, ali:2, mult:1.0, counters:['deception','corrig'], requires:['debate','interp'],
+  { id:'scalable', track:'oversight', icon:'\uD83E\uDE9C', short:"Scalable oversight", safety:3, kind:'safe', era:1, cost:400, cap:0, ali:2, mult:1.0, counters:['deception','corrig'], requires:['debate','interp'],
     name:"Scalable oversight", line:"Use weaker, trusted systems to help humans judge stronger ones.",
     why:"You cannot check a mind smarter than you unaided. The bet is that checking is easier than producing, if you have help." },
-  { id:'amplify', icon:'\uD83D\uDD01', short:"Iterated amplification", safety:2, kind:'safe', era:1, cost:700, cap:0, ali:2, mult:1.0, counters:['deception','spec'], requires:['scalable'],
+  { id:'amplify', track:'oversight', icon:'\uD83D\uDD01', short:"Iterated amplification", safety:2, kind:'safe', era:1, cost:700, cap:0, ali:2, mult:1.0, counters:['deception','spec'], requires:['scalable'],
     name:"Iterated amplification", line:"Break the hard judgement into pieces a human can check, then train on the assembled answer.",
     why:"Alignment that could scale with capability, if the decomposition holds. Whether it holds is an open question." },
-  { id:'w2s', icon:'\uD83E\uDDD1\u200D\uD83C\uDFEB', short:"Weak-to-strong", safety:3, kind:'safe', era:1, cost:650, cap:0, ali:1, mult:1.0, counters:['deception'], requires:['scalable'],
+  { id:'w2s', track:'oversight', icon:'\uD83E\uDDD1\u200D\uD83C\uDFEB', short:"Weak-to-strong", safety:3, kind:'safe', era:1, cost:650, cap:0, ali:1, mult:1.0, counters:['deception'], requires:['scalable'],
     name:"Weak-to-strong supervision", line:"Study how a strong model generalises from a weaker supervisor's labels.",
     why:"The analogy for humans supervising superhuman systems. Promising in experiments, unproven at the frontier." },
   /* evaluation track */
-  { id:'dangercaps', icon:'\u2623\uFE0F', short:"Dangerous-capability evals", safety:2, kind:'safe', era:0, cost:200, cap:0, ali:1, mult:1.0, counters:['race','deception'], requires:['redteam'],
+  { id:'dangercaps', track:'evals', icon:'\u2623\uFE0F', short:"Dangerous-capability evals", safety:2, kind:'safe', era:0, cost:200, cap:0, ali:1, mult:1.0, counters:['race','deception'], requires:['redteam'],
     name:"Dangerous-capability evaluations", line:"Test for bio, cyber and persuasion uplift before every release.",
     why:"A model that fails these does not ship. A model that passes is not thereby safe; it is not obviously dangerous." },
-  { id:'sandbag', icon:'\uD83C\uDFAD', short:"Sandbagging detection", safety:2, kind:'safe', era:1, cost:500, cap:0, ali:1, mult:1.0, counters:['deception'], requires:['dangercaps','mechinterp'],
+  { id:'sandbag', track:'evals', icon:'\uD83C\uDFAD', short:"Sandbagging detection", safety:2, kind:'safe', era:1, cost:500, cap:0, ali:1, mult:1.0, counters:['deception'], requires:['dangercaps','mechinterp'],
     name:"Sandbagging detection", line:"Catch a model that hides capability during evaluation.",
     why:"An eval only measures what the model chooses to show. Internals and elicitation together narrow that choice." },
-  { id:'control', icon:'\uD83D\uDEE1\uFE0F', short:"AI control protocols", safety:2, kind:'safe', era:0, cost:350, cap:0, ali:2, mult:1.0, counters:['powerseek','corrig'], requires:['dangercaps'],
+  { id:'control', track:'evals', icon:'\uD83D\uDEE1\uFE0F', short:"AI control protocols", safety:2, kind:'safe', era:0, cost:350, cap:0, ali:2, mult:1.0, counters:['powerseek','corrig'], requires:['dangercaps'],
     name:"AI control protocols", line:"Assume the model may be misaligned, and design the deployment so it still cannot cause a catastrophe.",
     why:"Trusted monitoring, restricted permissions, and audits of every suspicious action. Safety from the pipeline, not from trust." },
   /* training track */
-  { id:'process', icon:'\uD83E\uDDF6', short:"Process supervision", safety:2, kind:'safe', era:0, cost:180, cap:0, ali:1, mult:1.0, counters:['spec'], requires:['constitution'],
+  { id:'process', track:'training', icon:'\uD83E\uDDF6', short:"Process supervision", safety:2, kind:'safe', era:0, cost:180, cap:0, ali:1, mult:1.0, counters:['spec'], requires:['constitution'],
     name:"Process supervision", line:"Reward each step of the reasoning as well as the final answer.",
     why:"A right answer for the wrong reason is a specification-gaming seed. Grading the steps removes the shortcut." },
-  { id:'honesty', icon:'\uD83E\uDD1D', short:"Honesty training", safety:3, kind:'safe', era:1, cost:520, cap:0, ali:1, mult:1.0, counters:['tamper','deception'], requires:['constitution','interp'],
+  { id:'honesty', track:'training', icon:'\uD83E\uDD1D', short:"Honesty training", safety:3, kind:'safe', era:1, cost:520, cap:0, ali:1, mult:1.0, counters:['tamper','deception'], requires:['constitution','interp'],
     name:"Honesty training", line:"Train against the model's own internal representation of what it believes.",
     why:"Sycophancy is rewarded honesty's cheap cousin. Grounding on internals is the attempt to tell them apart." },
   /* governance track */
-  { id:'licensing', icon:'\uD83D\uDCCB', short:"Frontier licensing", safety:1, kind:'safe', era:0, cost:260, cap:0, ali:1, mult:0.97, counters:['race','powerseek'], requires:['compute','treaty'],
+  { id:'licensing', track:'gov', icon:'\uD83D\uDCCB', short:"Frontier licensing", safety:1, kind:'safe', era:0, cost:260, cap:0, ali:1, mult:0.97, counters:['race','powerseek'], requires:['compute','treaty'],
     name:"Frontier model licensing", line:"No training run above a threshold without a licence and an audit.",
     why:"Compute is the one input you can count. Licensing turns that into a brake every lab feels equally." },
-  { id:'incidents', icon:'\uD83D\uDCDD', short:"Incident reporting", safety:1, kind:'safe', era:0, cost:150, cap:0, ali:1, mult:1.0, counters:['sideeffect'], requires:['audit'],
+  { id:'incidents', track:'gov', icon:'\uD83D\uDCDD', short:"Incident reporting", safety:1, kind:'safe', era:0, cost:150, cap:0, ali:1, mult:1.0, counters:['sideeffect'], requires:['audit'],
     name:"Incident reporting regime", line:"Every near miss is filed, shared, and studied, as aviation does.",
     why:"Safety disciplines are built from wreckage. The reports have to exist first." },
-  { id:'killswitch', icon:'\uD83D\uDD34', short:"Hardware kill switches", safety:1, kind:'safe', era:1, cost:600, cap:0, ali:2, mult:1.0, counters:['corrig','powerseek'], requires:['compute','corrigible'],
+  { id:'killswitch', track:'coord', icon:'\uD83D\uDD34', short:"Hardware kill switches", safety:1, kind:'safe', era:1, cost:600, cap:0, ali:2, mult:1.0, counters:['corrig','powerseek'], requires:['compute','corrigible'],
     name:"Hardware kill switches", line:"Chips that stop when a signed signal arrives, outside any software the model touches.",
     why:"An off switch is only real if the model cannot route around it. Put it in silicon." },
-  { id:'institute', icon:'\uD83C\uDFDB\uFE0F', short:"Intl. safety institute", safety:3, kind:'safe', era:1, cost:900, cap:0, ali:2, mult:1.0, counters:['race','deception'], requires:['treaty','mutualaudit'],
+  { id:'institute', track:'coord', icon:'\uD83C\uDFDB\uFE0F', short:"Intl. safety institute", safety:3, kind:'safe', era:1, cost:900, cap:0, ali:2, mult:1.0, counters:['race','deception'], requires:['treaty','mutualaudit'],
     name:"International safety institute", line:"One body, every lab's models, before release.",
     why:"A race has no safe pace. Shared testing is how everyone slows down without losing." },
   /* a mixed card: capability that raises safety */
   { id:'autoalign', icon:'\uD83E\uDD16', short:"Automated alignment research", safety:5, kind:'grow', era:1, cost:800, cap:2, ali:1, mult:1.3, trap:'deception', requires:['autolab','scalable'],
     name:"Automated alignment research", line:"Let the model work on its own alignment, under oversight.",
     why:"The most leveraged bet in the field, and the most circular: the thing you are checking is helping you check it." },
-  { id:'debate', icon:'⚖️', short:"Debate oversight", safety:3,     kind:'safe', era:1, cost:500, cap:0, ali:2, mult:1.0,  counters:['deception','spec'],
+  { id:'debate', track:'oversight', icon:'⚖️', short:"Debate oversight", safety:3,     kind:'safe', era:1, cost:500, cap:0, ali:2, mult:1.0,  counters:['deception','spec'],
     name:"Debate and scalable oversight", line:"Two copies argue. You judge the argument instead of the answer.",
     why:"You cannot check a mind smarter than you, but you can referee two of them." }
 ];
@@ -1156,11 +1156,32 @@ function peopleDots(c, place, t, X){ const target=peopleTarget();
    ================================================================= */
 STAGE.cam=0; STAGE.wide=1.5; STAGE.drag=null;
 /* every card has a place in the scene, stable per era, spread across the wide frame */
-function hash01(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h, 16777619); } return ((h>>>0)%10000)/10000; }
-function cardPos(c){ const list=available(); const i=Math.max(0, list.indexOf(c)); const n=Math.max(1, list.length); const col=i%6, row=Math.floor(i/6);
-  const x=0.05+(col+0.5)/6*0.9+(hash01(c.id+G.era)-0.5)*0.08; const y=0.20+(row/Math.max(1, Math.ceil(n/6)-1||1))*0.52+(hash01(c.id+'y'+G.era)-0.5)*0.08; return [clamp(x, 0.04, 0.96), clamp(y, 0.16, 0.78)]; }
+const TRACKS=['basics','interp','oversight','evals','training','gov','coord'];
+const TRACKN={ basics:'Basics', interp:'Interpretability', oversight:'Oversight', evals:'Evaluation', training:'Training', gov:'Governance', coord:'Coordination' };
+function inEra(kind){ return CARDS.filter(x=>x.kind===kind && x.era<=G.era); }
+/* depth in the prerequisite tree, so a chain reads downward */
+function depthOf(c, seen){ seen=seen||{}; if(seen[c.id]) return 0; seen[c.id]=1;
+  return 1+Math.max(0, ...(c.requires||[]).map(id=>{ const p=cardById(id); return p?depthOf(p, seen):0; })); }
+function cardPos(c){
+  if(c.kind==='grow'){ const list=inEra('grow').slice().sort((a,b)=>a.era-b.era || a.cost-b.cost);
+    const i=Math.max(0, list.indexOf(c)); const per=8, col=i%per, row=Math.floor(i/per);
+    return [0.06+(col+0.5)/per*0.88, 0.12+row*0.10]; }
+  const ti=Math.max(0, TRACKS.indexOf(c.track||'basics'));
+  const col=inEra('safe').filter(x=>(x.track||'basics')===(c.track||'basics'))
+    .sort((a,b)=>depthOf(a)-depthOf(b) || a.cost-b.cost);
+  const r=Math.max(0, col.indexOf(c));
+  return [0.06+(ti+0.5)/TRACKS.length*0.88, 0.47+r*0.075]; }
 function cardPx(c){ const [x,y]=cardPos(c); return [x*STAGE.w*STAGE.wide, y*STAGE.h]; }
-function drawCards(c, t){ available().forEach(cd=>{ const [x,y]=cardPx(cd); const ok=canBuy(cd), gated=!unlocked(cd), lv=lvl(cd); const col=cd.kind==='grow'?'255,84,104':'84,227,155';
+function drawCards(c, t){
+  /* track headings, drawn once above their columns */
+  c.font='700 8.5px ui-monospace, monospace'; c.textAlign='center'; c.textBaseline='middle';
+  TRACKS.forEach((tr, ti)=>{ if(!inEra('safe').some(x=>(x.track||'basics')===tr)) return;
+    const x=(0.06+(ti+0.5)/TRACKS.length*0.88)*STAGE.w*STAGE.wide;
+    c.fillStyle='rgba(138,149,200,0.5)'; c.fillText((TRACKN[tr]||tr).toUpperCase(), x, 0.41*STAGE.h); });
+  if(inEra('grow').length){ c.fillStyle='rgba(255,154,168,0.5)'; c.textAlign='left';
+    c.fillText('GROWTH', 0.055*STAGE.w*STAGE.wide, 0.075*STAGE.h); }
+  c.textAlign='center';
+  available().forEach(cd=>{ const [x,y]=cardPx(cd); const ok=canBuy(cd), gated=!unlocked(cd), lv=lvl(cd); const col=cd.kind==='grow'?'255,84,104':'84,227,155';
     const near = SPOT.card===cd.id; c.fillStyle='rgba(11,14,38,'+(ok?0.94:0.72)+')'; c.beginPath(); c.arc(x, y, 18, 0, 6.3); c.fill();
     c.strokeStyle='rgba('+col+','+(ok?0.95:0.35)+')'; c.lineWidth=near?3.5:2.4; if(gated) c.setLineDash([3,3]); c.beginPath(); c.arc(x, y, 18, 0, 6.3); c.stroke(); c.setLineDash([]);
     if(ok) glow(c, x, y, 30, col, 0.2+0.1*Math.sin(t*3+x));
