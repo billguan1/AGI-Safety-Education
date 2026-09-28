@@ -257,9 +257,9 @@
 
   /* 2.3 speed: race a century of progress */
   R.speed = function(box, C){
-    box.innerHTML = '<p class="dki-fact">' + esc(C.fact) + '</p>' +
-      '<div class="dki-bars"><div class="dki-row"><span class="dki-name">' + esc(C.human) + '</span><div class="dki-track"><i class="dki-h"></i></div><b class="dki-n dki-ht"></b></div>' +
-      '<div class="dki-row"><span class="dki-name">' + esc(C.machine) + '</span><div class="dki-track"><i class="dki-m"></i></div><b class="dki-n dki-mt"></b></div></div>' +
+    box.innerHTML = '<p class="dki-fact">' + esc(C.fact) + '</p><p class="dki-say">' + esc(C.both || "") + '</p>' +
+      '<div class="dki-bars dki-race"><div class="dki-rrow"><span class="dki-name">' + esc(C.human) + '</span><div class="dki-track"><i class="dki-h"></i><em>100</em></div><span class="dki-st2 dki-ht"></span></div>' +
+      '<div class="dki-rrow"><span class="dki-name">' + esc(C.machine) + '</span><div class="dki-track"><i class="dki-m"></i><em>100</em></div><span class="dki-st2 dki-mt"></span></div></div>' +
       '<button type="button" class="dki-go">' + esc(C.go) + '</button>';
     var h = box.querySelector(".dki-h"), m = box.querySelector(".dki-m"), ht = box.querySelector(".dki-ht"), mt = box.querySelector(".dki-mt"), go = box.querySelector(".dki-go");
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

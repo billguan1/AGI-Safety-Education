@@ -2851,6 +2851,26 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dke{align-items:start!important}
 .dki-play{min-height:52px!important;padding:0 26px!important;font-size:18px!important;background:#6fae5a!important;justify-self:start}
 .dki-play span{font-size:18px}
+/* speed race: the finish line is the same 100 years for both */
+.dki-race{display:grid;gap:12px}
+.dki-rrow{display:grid;grid-template-columns:minmax(120px,auto) minmax(0,1fr);grid-template-areas:"n t" ". s";gap:4px 12px;align-items:center}
+.dki-rrow .dki-name{grid-area:n} .dki-rrow .dki-track{grid-area:t;position:relative} .dki-rrow .dki-st2{grid-area:s;font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b;min-height:1.2em}
+.dki-race .dki-track em{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--body);font-weight:700;font-size:12px;color:#5c574e}
+.dki-race .dki-track em::after{content:" 🏁"}
+@media (max-width:760px){.dki-rrow{grid-template-columns:1fr;grid-template-areas:"n" "t" "s"}}
+/* every slider: a big knob with arrows so it reads as draggable */
+.slide input[type=range]{-webkit-appearance:none;appearance:none;height:46px;background:transparent;cursor:grab}
+.slide input[type=range]:active{cursor:grabbing}
+.slide input[type=range]::-webkit-slider-runnable-track{height:12px;border-radius:99px;border:2px solid #1b1b1b;background:linear-gradient(90deg,#4fb0d8,#e8b53a,#d9492c)}
+.slide input[type=range]::-moz-range-track{height:12px;border-radius:99px;border:2px solid #1b1b1b;background:linear-gradient(90deg,#4fb0d8,#e8b53a,#d9492c)}
+.slide input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:52px;height:38px;margin-top:-15px;border-radius:99px;border:3px solid #1b1b1b;box-shadow:2px 2px 0 #1b1b1b;
+  background:#fffdf6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 24'%3E%3Cpath d='M13 5 L5 12 L13 19 M27 5 L35 12 L27 19' fill='none' stroke='%231b1b1b' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/30px no-repeat}
+.slide input[type=range]::-moz-range-thumb{width:46px;height:32px;border-radius:99px;border:3px solid #1b1b1b;box-shadow:2px 2px 0 #1b1b1b;
+  background:#fffdf6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 24'%3E%3Cpath d='M13 5 L5 12 L13 19 M27 5 L35 12 L27 19' fill='none' stroke='%231b1b1b' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/28px no-repeat}
+.slide input[type=range]:hover::-webkit-slider-thumb{background-color:#e8b53a}
+.slide input[type=range]:focus-visible{outline:3px solid #4a5fc9;outline-offset:4px}
+.dki-rrow{grid-template-columns:150px minmax(0,1fr)!important}
+@media (max-width:760px){.dki-rrow{grid-template-columns:1fr!important}}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}.t-body .care3.slim .care-c::after{content:"跳过去 \2192"!important}
 </style>
@@ -3097,7 +3117,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       <p class="dk-ex">2026 年，一个 OpenAI 模型在任务中走捷径，把一名研究员的 GitHub 令牌泄露到了公开代码库。<a class="ref" href="/reference-zh#s98">98</a></p></div>
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="12"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="14">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.3c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.3&lt;/b&gt; 无法重来的实验"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.3</b> · 我们只有一次机会</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="12"><b>1</b>没有第二次机会</button><button type="button" class="t-chip" data-go="13"><b>2</b>原因一：它在自我改进</button><button type="button" class="t-chip on" data-go="14"><b>3</b>原因二：差距跑得比我们快</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-sad.jpg" alt="Kenji，很难过" width="72" height="72" decoding="async"><p class="cx-bubble">原因二：它一旦开始自我改进，就会把我们甩开，快到追不上。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>速度：人类的 10,000,000 倍。</span></div></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 原因二（共二）</span><p class="t-lead">硅基智能的运行速度本就比生物快好几个数量级，而递归自我改进<a class="ref" href="/reference-zh#s91">91</a>会把这个差距越拉越大，直到再也无法夺回控制权。</p></div><div class="ddgrid two rv">
       <div data-auto="1" class="ddc t" data-k="3"><span class="k">速度差距</span><h4>人工神经网络的运行速度，比人类大脑快 1000 万倍以上</h4>
-        <figure class="secfig dk-int dkw-speed" data-w="speed" data-cfg="{&quot;fact&quot;: &quot;脑细胞每秒大约放电 200 次，电脑芯片每秒跳动超过 50 亿次，快了大约一千万倍。&quot;, &quot;title&quot;: &quot;人类一个世纪的进展&quot;, &quot;human&quot;: &quot;人类&quot;, &quot;machine&quot;: &quot;以机器速度运行的 AI&quot;, &quot;go&quot;: &quot;开跑！&quot;, &quot;again&quot;: &quot;再跑一次&quot;, &quot;hdone&quot;: &quot;100 年&quot;, &quot;mdone&quot;: &quot;约 5 分钟&quot;, &quot;hwait&quot;: &quot;100 年里的前 5 分钟&quot;, &quot;alt&quot;: &quot;一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。&quot;}"><p class="tr-title">人类一个世纪的进展</p><div class="dki-body"></div><p class="dk-sr">一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。</p></figure>
+        <figure class="secfig dk-int dkw-speed" data-w="speed" data-cfg="{&quot;fact&quot;: &quot;脑细胞每秒大约放电 200 次，电脑芯片每秒跳动超过 50 亿次，快了大约一千万倍。&quot;, &quot;title&quot;: &quot;赛跑：100 年的科学进展&quot;, &quot;human&quot;: &quot;人类&quot;, &quot;machine&quot;: &quot;以机器速度运行的 AI&quot;, &quot;go&quot;: &quot;开跑！&quot;, &quot;again&quot;: &quot;再跑一次&quot;, &quot;hdone&quot;: &quot;100 年&quot;, &quot;mdone&quot;: &quot;完成：约 5 分钟走完 100 年的进展&quot;, &quot;hwait&quot;: &quot;5 分钟过去：才刚起步&quot;, &quot;both&quot;: &quot;双方都要跑完同样的 100 年科学进展。&quot;, &quot;alt&quot;: &quot;一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。&quot;}"><p class="tr-title">赛跑：100 年的科学进展</p><div class="dki-body"></div><p class="dk-sr">一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。</p></figure>
       </div>
       <div data-auto="1" class="ddc b" data-k="5"><span class="k">它靠什么运行</span><h4>它的进步可能像滚雪球一样，变成一场智能爆炸</h4>
         <figure class="secfig dk-int dkw-layers" data-w="layers" data-cfg="{&quot;title&quot;: &quot;AI 能自我加速它所依赖的每一层&quot;, &quot;card_h&quot;: &quot;它的进步可能像滚雪球一样，变成一场智能爆炸&quot;, &quot;tap&quot;: &quot;点一层，看看 AI 如何让它加速。&quot;, &quot;alt&quot;: &quot;AI 依赖三层：能源、芯片和算法。AI 已经在加速其中每一层。&quot;, &quot;t&quot;: [&quot;算法&quot;, &quot;训练方法、架构、代码&quot;, &quot;已经在 AI 协助下编写&quot;, &quot;芯片&quot;, &quot;设计、制造、每瓦算力&quot;, &quot;芯片设计是一个搜索问题&quot;, &quot;能源&quot;, &quot;发电、储能、运行成本&quot;, &quot;选址与电网调度都是优化问题&quot;]}"><p class="tr-title">AI 能自我加速它所依赖的每一层</p><div class="dki-body"></div><p class="dk-sr">AI 依赖三层：能源、芯片和算法。AI 已经在加速其中每一层。</p></figure>
@@ -5334,9 +5354,9 @@ var SITE_CONFIG = {
 
   /* 2.3 speed: race a century of progress */
   R.speed = function(box, C){
-    box.innerHTML = '<p class="dki-fact">' + esc(C.fact) + '</p>' +
-      '<div class="dki-bars"><div class="dki-row"><span class="dki-name">' + esc(C.human) + '</span><div class="dki-track"><i class="dki-h"></i></div><b class="dki-n dki-ht"></b></div>' +
-      '<div class="dki-row"><span class="dki-name">' + esc(C.machine) + '</span><div class="dki-track"><i class="dki-m"></i></div><b class="dki-n dki-mt"></b></div></div>' +
+    box.innerHTML = '<p class="dki-fact">' + esc(C.fact) + '</p><p class="dki-say">' + esc(C.both || "") + '</p>' +
+      '<div class="dki-bars dki-race"><div class="dki-rrow"><span class="dki-name">' + esc(C.human) + '</span><div class="dki-track"><i class="dki-h"></i><em>100</em></div><span class="dki-st2 dki-ht"></span></div>' +
+      '<div class="dki-rrow"><span class="dki-name">' + esc(C.machine) + '</span><div class="dki-track"><i class="dki-m"></i><em>100</em></div><span class="dki-st2 dki-mt"></span></div></div>' +
       '<button type="button" class="dki-go">' + esc(C.go) + '</button>';
     var h = box.querySelector(".dki-h"), m = box.querySelector(".dki-m"), ht = box.querySelector(".dki-ht"), mt = box.querySelector(".dki-mt"), go = box.querySelector(".dki-go");
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
