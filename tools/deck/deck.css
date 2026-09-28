@@ -916,3 +916,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body .dkf-funnel svg{width:100%!important;height:100%!important;max-width:none!important}
 .dki-sub{font-family:var(--body);font-size:15px;line-height:1.4;color:#3b3833}
 .b2-next{flex-wrap:wrap-reverse!important}
+/* charts inside claim cards get the same inner margin as every other chart */
+.t-body .claim figure,.t-body .cl-figs figure,.t-body .cl-half figure{padding:18px 20px!important;box-sizing:border-box}
+.t-body .claim figure .dkh-t,.t-body .cl-figs figure .dkh-t{margin-bottom:4px}
+@media (max-width:760px){.slide .t-body figure.secfig,.slide .t-body figure.secfig:not(.tr-fig),.t-body .ddc figure,.t-body .claim figure,.t-body .cl-figs figure{padding:14px!important}}
