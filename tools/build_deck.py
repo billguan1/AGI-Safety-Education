@@ -374,7 +374,18 @@ def H(kind, lang, t, extra=None):
             g += '<div class="dkh-rh">%s</div>' % E(r) + ''.join('<div class="dkh-cell %s"><b>%s</b>%s</div>' % (k, E(a), ('<span>%s</span>' % E(b)) if b else '') for a, b, k in row)
         return '<div class="dkh">%s<div class="dkh-grid">%s</div><p class="dkh-note">%s</p></div>' % (T0(0), g, E(note))
     if kind == 'problems':
-        return '<div class="dkh dkh-two">%s</div>' % ''.join('<div class="dkh-box"><span class="dkh-k">%s</span><b>%s</b><span>%s</span></div>' % (E(t[a]), E(t[a + 1]), E(t[a + 2])) for a in (0, 3))
+        L = extra
+        import random
+        rnd = random.Random(3)
+        cols = ['#4a5fc9', '#6fae5a', '#e8b53a', '#e07a5f', '#1f9c96']
+        many = ''.join('<i style="left:%d%%;top:%d%%;background:%s"></i>' % (rnd.randint(8, 84), rnd.randint(10, 80), rnd.choice(cols)) for _ in range(16))
+        few = ''.join('<i style="left:%d%%;top:%d%%;background:%s"></i>' % (x, y, c) for x, y, c in ((24, 30, '#4a5fc9'), (58, 52, '#6fae5a'), (36, 70, '#e8b53a')))
+        d1 = ('<div class="dpb-row"><div class="dpb-fig"><div class="dpb-cloud">%s</div><span>%s</span></div><span class="dpb-to" aria-hidden="true">→</span>'
+              '<div class="dpb-fig"><div class="dpb-note">%s</div><span>%s</span></div></div>') % (many, E(L[0]), few, E(L[1]))
+        d2 = ('<div class="dpb-row"><div class="dpb-fig"><div class="dpb-out">✓ 100%%</div><span>%s</span></div><span class="dpb-to" aria-hidden="true">≠?</span>'
+              '<div class="dpb-fig"><div class="dpb-in">?</div><span>%s</span></div></div>') % (E(L[2]), E(L[3]))
+        box = lambda a, d: '<div class="dkh-box"><span class="dkh-k">%s</span><b>%s</b>%s<span>%s</span></div>' % (E(t[a]), E(t[a + 1]), d, E(t[a + 2]))
+        return '<div class="dkh dkh-two">%s%s</div>' % (box(0, d1), box(3, d2))
     if kind == 'subgoals':
         chips = ''.join('<span class="dkh-chip%s">%s</span>' % (' dkh-hot' if i == 4 else '', E(t[i])) for i in range(5))
         res = [(6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17)]
@@ -534,7 +545,8 @@ def plan(pg):
             c, ntl = re.subn(r'<ol class="dkh-tl">.*?</ol>', lambda m: key + '<ol class="dkh-tl dtl">%s</ol>' % items, c, flags=re.S)
             assert ntl == 1
         if 'claim-3' in c[:80]:
-            c = rebuild(c, 1, 'problems', pg.lang); c = rebuild(c, 0, 'payoff4', pg.lang)
+            figs3 = re.findall(r'<figure\b.*?</figure>', c, re.S)
+            c = swap_fig_svgs(c, 1, globals()['H']('problems', pg.lang, svg_texts(figs3[1]), T['prob'])); c = rebuild(c, 0, 'payoff4', pg.lang)
         if 'claim-2' in c[:80]:
             figs = re.findall(r'<figure\b.*?</figure>', c, re.S)
             src = re.search(r'<svg class="lx-d"[^>]*>(.*?)</svg>', figs[1], re.S).group(1)

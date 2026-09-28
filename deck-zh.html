@@ -2827,6 +2827,30 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dke{display:grid!important;grid-template-columns:120px 120px auto;justify-content:start;align-items:end;gap:18px!important}
 .dke-item{min-width:0!important}
 @media (max-width:760px){.dke{grid-template-columns:84px 84px auto;gap:10px!important}}
+@media (max-width:760px){.dke{--S:118px!important;grid-template-columns:58px 58px auto!important;gap:8px!important}.t-body .dke .dkr-v{font-size:28px}}
+/* two-box pairs: colour each box */
+.dkh-two > .dkh-box{border-width:2.5px;border-top-width:9px!important;box-shadow:3px 3px 0 #1b1b1b}
+.dkh-two > .dkh-box:nth-child(1){border-top-color:#4a5fc9!important;background:#eef1fb!important}
+.dkh-two > .dkh-box:nth-child(2){border-top-color:#d9492c!important;background:#fcebe6!important}
+.dkh-two > .dkh-box:nth-child(1) .dkh-k{color:#3a4f9e!important}
+.dkh-two > .dkh-box:nth-child(2) .dkh-k{color:#b43a1e!important}
+/* problem pictures */
+.dpb-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 8px}
+.dpb-fig{display:grid;justify-items:center;gap:4px;text-align:center}
+.dpb-fig > span{font-family:var(--body);font-weight:700;font-size:12px;color:#3b3833}
+.dpb-cloud,.dpb-note{position:relative;width:92px;height:70px;border:2.5px dashed #1b1b1b;border-radius:40px;background:#fffdf6}
+.dpb-note{width:56px;height:70px;border-style:solid;border-radius:4px;box-shadow:2px 2px 0 #1b1b1b}
+.dpb-cloud i,.dpb-note i{position:absolute;width:9px;height:9px;border-radius:50%;border:1.5px solid #1b1b1b}
+.dpb-to{font-family:var(--body);font-weight:700;font-size:22px;color:#1b1b1b}
+.dpb-out,.dpb-in{display:grid;place-items:center;width:84px;height:70px;border:2.5px solid #1b1b1b;border-radius:10px;font-family:var(--body);font-weight:700;font-size:16px;box-shadow:2px 2px 0 #1b1b1b}
+.dpb-out{background:#dcebd2;color:#1b1b1b}
+.dpb-in{background:#1b1b1b;color:#fffdf6;font-family:var(--comic);font-size:36px}
+/* economy squares share a baseline */
+.dke-item{grid-template-rows:var(--S) auto auto!important;align-content:start}
+.dke-item > i{align-self:end}
+.dke{align-items:start!important}
+.dki-play{min-height:52px!important;padding:0 26px!important;font-size:18px!important;background:#6fae5a!important;justify-self:start}
+.dki-play span{font-size:18px}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}.t-body .care3.slim .care-c::after{content:"跳过去 \2192"!important}
 </style>
@@ -3011,7 +3035,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
           <div class="cl-hh"><span class="cl-sk">难题二</span><span class="cl-hn">人与 AI 之间的对齐与可解释性</span></div>
           <p>我们无法把自己的意图写得足够精确、让机器照办，因为总有话没说到。而我们只看得见一个系统在我们的测试里做了什么，永远看不见它真正在优化什么。<a href="#why-translation">后面两章</a>会把这些细节讲透。</p>
           <div class="cl-figs one">
-        <figure><div class="dkh dkh-two"><div class="dkh-box"><span class="dkh-k">难题一</span><b>我们说不准自己到底想要什么</b><span>于是它学到的目标，从来都不完全是我们想要的。</span></div><div class="dkh-box"><span class="dkh-k">难题二</span><b>我们查不出系统心里真正装着什么</b><span>漂亮的分数说明的是测试本身，不是那个系统。</span></div></div>
+        <figure><div class="dkh dkh-two"><div class="dkh-box"><span class="dkh-k">难题一</span><b>我们说不准自己到底想要什么</b><div class="dpb-row"><div class="dpb-fig"><div class="dpb-cloud"><i style="left:38%;top:79%;background:#6fae5a"></i><i style="left:55%;top:70%;background:#1f9c96"></i><i style="left:16%;top:11%;background:#e07a5f"></i><i style="left:41%;top:80%;background:#6fae5a"></i><i style="left:32%;top:70%;background:#1f9c96"></i><i style="left:78%;top:70%;background:#e07a5f"></i><i style="left:27%;top:39%;background:#6fae5a"></i><i style="left:74%;top:59%;background:#4a5fc9"></i><i style="left:16%;top:30%;background:#1f9c96"></i><i style="left:13%;top:48%;background:#4a5fc9"></i><i style="left:42%;top:70%;background:#1f9c96"></i><i style="left:57%;top:64%;background:#e07a5f"></i><i style="left:81%;top:66%;background:#6fae5a"></i><i style="left:54%;top:22%;background:#4a5fc9"></i><i style="left:25%;top:73%;background:#6fae5a"></i><i style="left:41%;top:65%;background:#e8b53a"></i></div><span>我们想要的</span></div><span class="dpb-to" aria-hidden="true">→</span><div class="dpb-fig"><div class="dpb-note"><i style="left:24%;top:30%;background:#4a5fc9"></i><i style="left:58%;top:52%;background:#6fae5a"></i><i style="left:36%;top:70%;background:#e8b53a"></i></div><span>我们写下来的</span></div></div><span>于是它学到的目标，从来都不完全是我们想要的。</span></div><div class="dkh-box"><span class="dkh-k">难题二</span><b>我们查不出系统心里真正装着什么</b><div class="dpb-row"><div class="dpb-fig"><div class="dpb-out">✓ 100%</div><span>测试看到的</span></div><span class="dpb-to" aria-hidden="true">≠?</span><div class="dpb-fig"><div class="dpb-in">?</div><span>它真正相信的</span></div></div><span>漂亮的分数说明的是测试本身，不是那个系统。</span></div></div>
           </figure>
       </div>
         </div>
@@ -3057,7 +3081,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       <figure style="margin:16px 0 0"><div class="dkh"><div class="dkh-chips"><span class="dkh-chip">保持开机</span><span class="dkh-chip">保住自己的目标</span><span class="dkh-chip">想得更清楚</span><span class="dkh-chip">造出更好的工具</span><span class="dkh-chip dkh-hot">攫取资源</span></div><p class="dkh-t dkh-arrow">人类的生存也依赖这些</p><div class="dkh-four"><div class="dkh-box"><b>电力</b><span>支撑粮食、供水与医院的电网</span></div><div class="dkh-box"><b>土地与水</b><span>我们赖以为生的农田与水源</span></div><div class="dkh-box"><b>金属与工厂</b><span>制造我们一切用品的工业</span></div><div class="dkh-box"><b>物质本身</b><span>我们赖以存活的那条窄带</span></div></div></div>
       </figure>
       <p class="fig-src">Bostrom《超级智能的意志》 · 见 <a class="ref" href="/reference-zh#s34">34</a> <a class="ref" href="/reference-zh#s26">26</a></p>
-    </div><figure class="secfig dk-int dkw-beai" data-w="beai" data-cfg="{&quot;title&quot;: &quot;当一回 AI：给 Capy 一个目标&quot;, &quot;pick&quot;: &quot;给 Capy 选一个目标。&quot;, &quot;goals&quot;: [&quot;去拿咖啡&quot;, &quot;治好一种病&quot;, &quot;赢下国际象棋&quot;], &quot;gverb&quot;: [&quot;拿到咖啡&quot;, &quot;治好这种病&quot;, &quot;赢下这盘棋&quot;], &quot;goal&quot;: &quot;目标：{g}。&quot;, &quot;subs&quot;: [&quot;保持开机&quot;, &quot;保住自己的目标&quot;, &quot;想得更清楚&quot;, &quot;造出更好的工具&quot;, &quot;攫取资源&quot;], &quot;why&quot;: [&quot;关机了，我就没法{g}。&quot;, &quot;要是有人改了我的目标，{g}这件事就落空了。&quot;, &quot;想得越清楚，我就越能{g}。&quot;, &quot;工具越好，越能帮我{g}。&quot;, &quot;电力、土地和机器越多，越能帮我{g}。&quot;], &quot;sub&quot;: &quot;子目标 {n}：{s}。&quot;, &quot;end&quot;: &quot;这些没有一个是谁要求的。几乎任何目标都会带出它们。&quot;, &quot;again&quot;: &quot;换个目标试试&quot;, &quot;alt&quot;: &quot;给 Capy 一个目标，看看五个子目标如何冒出来：保持开机、保住自己的目标、想得更清楚、造出更好的工具、攫取资源。&quot;}"><p class="tr-title">当一回 AI：给 Capy 一个目标</p><div class="dki-body"></div><p class="dk-sr">给 Capy 一个目标，看看五个子目标如何冒出来：保持开机、保住自己的目标、想得更清楚、造出更好的工具、攫取资源。</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="9"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="11">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; 故事的终点"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · 同一个 AI，也可能终结文明</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="9"><b>1</b>四种出错方式</button><button type="button" class="t-chip" data-go="10"><b>2</b>它为何会夺走我们所需</button><button type="button" class="t-chip on" data-go="11"><b>3</b>六条通往灭绝的路</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-shocked.jpg" alt="Kenji，很震惊" width="72" height="72" decoding="async"><p class="cx-bubble">它可能终结我们的六种方式。点开一张，看看会怎样展开。</p></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 六条通往灭绝的路</span><p class="t-lead">这些都还没有发生，每一条都是从这些系统已经在做的事情推演出来的。</p></div><div class="ddgrid three rv">
+    </div><figure class="secfig dk-int dkw-beai" data-w="beai" data-cfg="{&quot;title&quot;: &quot;当一回 AI：给 Capy 一个目标&quot;, &quot;pick&quot;: &quot;给 Capy 选一个目标，然后按开始。&quot;, &quot;play&quot;: &quot;开始&quot;, &quot;goals&quot;: [&quot;去拿咖啡&quot;, &quot;治好一种病&quot;, &quot;赢下国际象棋&quot;], &quot;gverb&quot;: [&quot;拿到咖啡&quot;, &quot;治好这种病&quot;, &quot;赢下这盘棋&quot;], &quot;goal&quot;: &quot;目标：{g}。&quot;, &quot;subs&quot;: [&quot;保持开机&quot;, &quot;保住自己的目标&quot;, &quot;想得更清楚&quot;, &quot;造出更好的工具&quot;, &quot;攫取资源&quot;], &quot;why&quot;: [&quot;关机了，我就没法{g}。&quot;, &quot;要是有人改了我的目标，{g}这件事就落空了。&quot;, &quot;想得越清楚，我就越能{g}。&quot;, &quot;工具越好，越能帮我{g}。&quot;, &quot;电力、土地和机器越多，越能帮我{g}。&quot;], &quot;sub&quot;: &quot;子目标 {n}：{s}。&quot;, &quot;end&quot;: &quot;这些没有一个是谁要求的。几乎任何目标都会带出它们。&quot;, &quot;again&quot;: &quot;换个目标试试&quot;, &quot;alt&quot;: &quot;给 Capy 一个目标，看看五个子目标如何冒出来：保持开机、保住自己的目标、想得更清楚、造出更好的工具、攫取资源。&quot;}"><p class="tr-title">当一回 AI：给 Capy 一个目标</p><div class="dki-body"></div><p class="dk-sr">给 Capy 一个目标，看看五个子目标如何冒出来：保持开机、保住自己的目标、想得更清楚、造出更好的工具、攫取资源。</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="9"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="11">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; 故事的终点"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · 同一个 AI，也可能终结文明</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="9"><b>1</b>四种出错方式</button><button type="button" class="t-chip" data-go="10"><b>2</b>它为何会夺走我们所需</button><button type="button" class="t-chip on" data-go="11"><b>3</b>六条通往灭绝的路</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-shocked.jpg" alt="Kenji，很震惊" width="72" height="72" decoding="async"><p class="cx-bubble">它可能终结我们的六种方式。点开一张，看看会怎样展开。</p></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 六条通往灭绝的路</span><p class="t-lead">这些都还没有发生，每一条都是从这些系统已经在做的事情推演出来的。</p></div><div class="ddgrid three rv">
       <div data-more="它会怎样出错" class="ddc r" data-k="1"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg></span><span class="k">人为制造的瘟疫</span><h4>在第一个症状出现之前就已传遍</h4><p>一个药物设计模型只要把一个评分指标反转，六小时内就能产出 4 万个致命候选物，<a class="ref" href="/reference-zh#s90">90</a> 而 Anthropic 已经无法排除自家模型会帮到想造生物武器的人。<a class="ref" href="/reference-zh#s70">70</a> 一种为长期无声潜伏而设计的病原体，会在第一例确诊之前抵达每一块大陆。</p></div>
       <div data-more="它会怎样出错" class="ddc r" data-k="6"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg></span><span class="k">核武器与自主武器</span><h4>它挑起的战争，或它触发的发射</h4><p>军火库的发射决定，要在几分钟内依据递到眼前的画面做出；1983 年，那张画面不过是云顶反射的阳光。<a class="ref" href="/reference-zh#s76">76</a> 伪造确认发射的军官，已经被证明可行，<a class="ref" href="/reference-zh#s73">73</a> 自主武器则彻底取消了这道决策：伪造一次看起来像是对方发动的打击，就足以挑起一场战争。</p></div>
       <div data-more="它会怎样出错" class="ddc o" data-k="3"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg></span><span class="k">资源</span><h4>它夺走我们赖以生存的电和水</h4><p>几乎任何目标，只要被认真追求，都会想要更多能源、土地、水和物质，<a class="ref" href="/reference-zh#s34">34</a> 而一个出价与建设都胜过任何机构的系统会把它们拿走。人类生存所需的那一窄条条件带，正由同样的东西构成；而目标里没有一句要求它留下这些。</p></div>
@@ -5499,9 +5523,9 @@ var SITE_CONFIG = {
       '<path d="M8 22h10M9 19h8l-1-6h-6z"/><circle cx="13" cy="8" r="3.2"/><path d="M11 13l-1-2h6l-1 2"/>'];
     var html = '<p class="dki-say">' + esc(C.pick) + '</p><div class="dki-goals">';
     C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case dki-goal" data-k="' + k + '" aria-pressed="false"><svg viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + ICON[k] + '</svg>' + esc(g) + '</button>'; });
-    html += '</div><div class="dki-term" aria-live="polite"></div>';
+    html += '</div><button type="button" class="dki-go dki-play"><span aria-hidden="true">▶</span> ' + esc(C.play) + '</button><div class="dki-term" aria-live="polite"></div>';
     box.innerHTML = html;
-    var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), timer = [];
+    var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), play = box.querySelector(".dki-play"), timer = [], pick = 0;
     function run(k){
       timer.forEach(clearTimeout); timer = [];
       [].forEach.call(btns, function(b, j){ b.setAttribute("aria-pressed", j === k ? "true" : "false"); });
@@ -5513,7 +5537,10 @@ var SITE_CONFIG = {
       term.innerHTML = "";
       lines.forEach(function(l, n){ timer.push(setTimeout(function(){ term.insertAdjacentHTML("beforeend", l); }, reduceM ? 0 : n * 650)); });
     }
-    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ run(+b.getAttribute("data-k")); }); });
+    function sel(k){ pick = k; [].forEach.call(btns, function(b, j){ b.setAttribute("aria-pressed", j === k ? "true" : "false"); }); }
+    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ sel(+b.getAttribute("data-k")); }); });
+    play.addEventListener("click", function(){ run(pick); play.innerHTML = '<span aria-hidden="true">↻</span> ' + esc(C.again); });
+    sel(0);
   };
 
   /* 3.1 race simulator: you set your lab's safety; rivals cut safety when behind */

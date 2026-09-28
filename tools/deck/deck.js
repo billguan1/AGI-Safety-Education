@@ -446,9 +446,9 @@
       '<path d="M8 22h10M9 19h8l-1-6h-6z"/><circle cx="13" cy="8" r="3.2"/><path d="M11 13l-1-2h6l-1 2"/>'];
     var html = '<p class="dki-say">' + esc(C.pick) + '</p><div class="dki-goals">';
     C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case dki-goal" data-k="' + k + '" aria-pressed="false"><svg viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + ICON[k] + '</svg>' + esc(g) + '</button>'; });
-    html += '</div><div class="dki-term" aria-live="polite"></div>';
+    html += '</div><button type="button" class="dki-go dki-play"><span aria-hidden="true">▶</span> ' + esc(C.play) + '</button><div class="dki-term" aria-live="polite"></div>';
     box.innerHTML = html;
-    var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), timer = [];
+    var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), play = box.querySelector(".dki-play"), timer = [], pick = 0;
     function run(k){
       timer.forEach(clearTimeout); timer = [];
       [].forEach.call(btns, function(b, j){ b.setAttribute("aria-pressed", j === k ? "true" : "false"); });
@@ -460,7 +460,10 @@
       term.innerHTML = "";
       lines.forEach(function(l, n){ timer.push(setTimeout(function(){ term.insertAdjacentHTML("beforeend", l); }, reduceM ? 0 : n * 650)); });
     }
-    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ run(+b.getAttribute("data-k")); }); });
+    function sel(k){ pick = k; [].forEach.call(btns, function(b, j){ b.setAttribute("aria-pressed", j === k ? "true" : "false"); }); }
+    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ sel(+b.getAttribute("data-k")); }); });
+    play.addEventListener("click", function(){ run(pick); play.innerHTML = '<span aria-hidden="true">↻</span> ' + esc(C.again); });
+    sel(0);
   };
 
   /* 3.1 race simulator: you set your lab's safety; rivals cut safety when behind */

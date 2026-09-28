@@ -974,3 +974,27 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dke{display:grid!important;grid-template-columns:120px 120px auto;justify-content:start;align-items:end;gap:18px!important}
 .dke-item{min-width:0!important}
 @media (max-width:760px){.dke{grid-template-columns:84px 84px auto;gap:10px!important}}
+@media (max-width:760px){.dke{--S:118px!important;grid-template-columns:58px 58px auto!important;gap:8px!important}.t-body .dke .dkr-v{font-size:28px}}
+/* two-box pairs: colour each box */
+.dkh-two > .dkh-box{border-width:2.5px;border-top-width:9px!important;box-shadow:3px 3px 0 #1b1b1b}
+.dkh-two > .dkh-box:nth-child(1){border-top-color:#4a5fc9!important;background:#eef1fb!important}
+.dkh-two > .dkh-box:nth-child(2){border-top-color:#d9492c!important;background:#fcebe6!important}
+.dkh-two > .dkh-box:nth-child(1) .dkh-k{color:#3a4f9e!important}
+.dkh-two > .dkh-box:nth-child(2) .dkh-k{color:#b43a1e!important}
+/* problem pictures */
+.dpb-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:10px 0 8px}
+.dpb-fig{display:grid;justify-items:center;gap:4px;text-align:center}
+.dpb-fig > span{font-family:var(--body);font-weight:700;font-size:12px;color:#3b3833}
+.dpb-cloud,.dpb-note{position:relative;width:92px;height:70px;border:2.5px dashed #1b1b1b;border-radius:40px;background:#fffdf6}
+.dpb-note{width:56px;height:70px;border-style:solid;border-radius:4px;box-shadow:2px 2px 0 #1b1b1b}
+.dpb-cloud i,.dpb-note i{position:absolute;width:9px;height:9px;border-radius:50%;border:1.5px solid #1b1b1b}
+.dpb-to{font-family:var(--body);font-weight:700;font-size:22px;color:#1b1b1b}
+.dpb-out,.dpb-in{display:grid;place-items:center;width:84px;height:70px;border:2.5px solid #1b1b1b;border-radius:10px;font-family:var(--body);font-weight:700;font-size:16px;box-shadow:2px 2px 0 #1b1b1b}
+.dpb-out{background:#dcebd2;color:#1b1b1b}
+.dpb-in{background:#1b1b1b;color:#fffdf6;font-family:var(--comic);font-size:36px}
+/* economy squares share a baseline */
+.dke-item{grid-template-rows:var(--S) auto auto!important;align-content:start}
+.dke-item > i{align-self:end}
+.dke{align-items:start!important}
+.dki-play{min-height:52px!important;padding:0 26px!important;font-size:18px!important;background:#6fae5a!important;justify-self:start}
+.dki-play span{font-size:18px}
