@@ -387,7 +387,7 @@ def plan(pg):
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
-             (P['2.1'][1], part_head(*T['heads']['2.1b']) + auto(one(B, '<div class="ddgrid')))])
+             (P['2.1'][1], part_head(*T['heads']['2.1b']) + one(B, '<div class="ddgrid'))])             # six cards start closed
     # 2.2
     ch = pg.chapter('why-it-ends-badly'); B = ch['blocks']
     bodies = [b for b in B if b.startswith('<p class="body')]
