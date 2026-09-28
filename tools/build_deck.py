@@ -273,14 +273,30 @@ def plan(pg):
     cover = cover[:ci] + fig + cover[cj:]
     intro = dict(id='crossroads', num='', label=pg.label['crossroads'], acc=T['intro_acc'])
     S.append(dict(key='cover', sec=intro, wrap='mast', anchor='top', body=cover))
-    S.append(dict(key='care', sec=intro, wrap='mast', body=care))
+    care_title = re.search(r'<h2 class="mh-h"><span>(.*?)</span></h2>', care, re.S)
+    assert care_title
+    S.append(dict(key='care', sec=intro, wrap='mast', kicker=T['intro_kick'], title=care_title.group(1),
+                  body=care.replace(care_title.group(0), '', 1)))
     cross = pg.section('crossroads')
     claims = kids(one(cross, '<div class="claims'))
     assert len(claims) == 3
+    def claim_card(c):
+        # open the halves, and turn "Read the chapter" into a real link to the chapter's slide
+        c = c.replace('<div class="cl-half"', '<div data-auto="1" class="cl-half"')
+        href = re.search(r'<h3><a href="(#[^"]+)"', c).group(1)
+        c, ng = re.subn(r'<span class="cl-go">(.*?)</span>', r'<a class="cl-go" href="%s">\1</a>' % href, c)
+        assert ng == 1, 'claim link'
+        return c
+    claims = [claim_card(c) for c in claims]
     for i, c in enumerate(claims):
+        h3 = re.search(r'<h3><a href="#[^"]+">(.*?)</a></h3>', c, re.S); num = re.search(r'<span class="cl-n">\d</span>\s*', c)
+        assert h3 and num
+        c = c.replace(h3.group(0), '', 1).replace(num.group(0), '', 1)
         S.append(dict(key='claim%d' % (i + 1), sec=intro, wrap='cross', anchor='crossroads' if i == 0 else '',
-                      body='<div class="claims">%s</div>' % c))
-    S.append(dict(key='solution', sec=intro, wrap='cross', body=one(cross, '<div class="mh-close')))
+                      kicker=T['claim_kick'] % (i + 1), title=h3.group(1), body='<div class="claims">%s</div>' % c))
+    close = one(cross, '<div class="mh-close'); mk = re.search(r'<span class="mc-k">(.*?)</span>\s*', close, re.S)
+    assert mk
+    S.append(dict(key='solution', sec=intro, wrap='cross', kicker=T['intro_kick'], title=mk.group(1), body=close.replace(mk.group(0), '', 1)))
 
     def add(ch, parts):
         for j, (chip, body) in enumerate(parts):
@@ -313,8 +329,8 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
-             (P['2.3'][1], part_head(T['heads']['2.3b'][0], h3s[0], T['heads']['2.3b'][1]) + auto(grids[0])),
-             (P['2.3'][2], part_head(T['heads']['2.3c'], h3s[1], unp(para)) + auto(grids[1]))])
+             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(grids[0])),                  # Kenji carries the reason
+             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(grids[1]))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
@@ -333,10 +349,10 @@ def plan(pg):
     assert len(figs) == 3 and len(h3s) == 2 and len(ps) == 3 and len(grids) == 2
     H = T['heads']
     add(ch, [(P['4.1'][0], stand(ch) + figs[0]),
-             (P['4.1'][1], part_head(H['4.1b'], text(h3s[0]), unp(ps[0])) + figs[1]),
+             (P['4.1'][1], part_head(H['4.1b']) + figs[1]),                                     # Kenji carries outer alignment
              (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + grids[0]),
              (P['4.1'][3], part_head(H['4.1d']) + demo_bare(one(B, '<div class="demo-embed'))),
-             (P['4.1'][4], part_head(H['4.1e'], text(h3s[1]), unp(ps[2])) + iceberg_fig(T)),
+             (P['4.1'][4], part_head(H['4.1e'], '', unp(ps[2])) + iceberg_fig(T)),
              (P['4.1'][5], part_head(H['4.1f']) + grids[1])])
     # 4.2
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
@@ -351,7 +367,7 @@ def plan(pg):
     lname = [text(re.search(r'<h4>(.*?)</h4>', l, re.S).group(1)).split(' ', 1)[-1].strip() for l in layers]
     parts = [(P['5.1'][0], stand(ch) + one(B, '<figure'))]
     for i, l in enumerate(layers):
-        parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1), text(one(B, '<h3')) if i == 0 else '') + l))
+        parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
     parts.append((P['5.1'][1], part_head(H['5.1f']) + ''.join(b for b in B if b.startswith('<details'))))
     add(ch, parts)
     # 5.2
@@ -491,14 +507,17 @@ def build(pg, en_colors=None):
                ('<div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>%s</span></div>' % html.escape(capy)) if capy else '')
         body, got = colorize(x['body'], None if en_colors is None else en_colors[x['key']])
         colors[x['key']] = got
+        same = [y for y in S if y['sec'] is sec]
+        chips = ''
+        if len(same) > 1:
+            names = T['intro_parts'] if sec['id'] == 'crossroads' else [y.get('chip') for y in same]
+            chips = '<div class="t-chips" aria-label="%s">%s</div>' % (T['chips_aria'], ''.join(
+                '<button type="button" class="t-chip%s" data-go="%d"><b>%d</b>%s</button>' % (' on' if y is x else '', S.index(y), k + 1, html.escape(nm))
+                for k, (y, nm) in enumerate(zip(same, names))))
+        ihead = ('<div class="wrap t-head"><div class="sec-head"><span class="chapno">%s</span><h2>%s</h2>%s</div></div>'
+                 % (x['kicker'], x['title'], chips)) if x.get('title') else ''
         if x['wrap'] == 'dd':
             n, parts, j = x['parts'], None, x['part']
-            same = [y for y in S if y['sec'] is sec]
-            chips = ''
-            if len(same) > 1:
-                chips = '<div class="t-chips" aria-label="%s">%s</div>' % (T['chips_aria'], ''.join(
-                    '<button type="button" class="t-chip%s" data-go="%d"><b>%d</b>%s</button>' % (' on' if y is x else '', S.index(y), k + 1, html.escape(y['chip']))
-                    for k, y in enumerate(same)))
             if j == 0:
                 head = ('<div class="wrap t-head"><div class="sec-head"><span class="chapno">%s<span class="t-grp">%s</span></span><h2>%s</h2>%s</div></div>'
                         % (sec['chapno'], sec['group'], sec['h2'], chips))
@@ -507,11 +526,11 @@ def build(pg, en_colors=None):
             inside = '<section%s class="dd">%s<div class="wrap t-body">%s%s</div></section>' % (
                 (' id="%s"' % x['anchor']) if x.get('anchor') else '', head, nar, body)
         elif x['wrap'] == 'mast':
-            inside = '<header class="masthead"%s><div class="wrap t-body">%s%s</div></header>' % (
-                (' id="%s"' % x['anchor']) if x.get('anchor') else '', nar, body)
+            inside = '<header class="masthead"%s>%s<div class="wrap t-body">%s%s</div></header>' % (
+                (' id="%s"' % x['anchor']) if x.get('anchor') else '', ihead, nar, body)
         elif x['wrap'] == 'cross':
-            inside = '<section class="cross"%s><div class="wrap t-body">%s%s</div></section>' % (
-                (' id="%s"' % x['anchor']) if x.get('anchor') else '', nar, body)
+            inside = '<section class="cross"%s>%s<div class="wrap t-body">%s%s</div></section>' % (
+                (' id="%s"' % x['anchor']) if x.get('anchor') else '', ihead, nar, body)
         else:
             inside = '<section class="cross anthem" id="anthem"><div class="wrap t-body">%s%s</div></section>' % (nar, body)
         # buttons: back, then the next step

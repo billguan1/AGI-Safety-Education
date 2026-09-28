@@ -168,3 +168,12 @@
     paint(false);
   });
 })();
+
+(function(){
+  /* on phones the current chip scrolls into view in its row */
+  function show(){ document.querySelectorAll(".slide:not([inert]) .t-chips").forEach(function(row){
+    var on = row.querySelector(".t-chip.on"); if (on && row.scrollWidth > row.clientWidth) row.scrollLeft = on.offsetLeft - 12; }); }
+  document.addEventListener("click", function(){ setTimeout(show, 60); });
+  document.addEventListener("keydown", function(){ setTimeout(show, 60); });
+  setTimeout(show, 300);
+})();
