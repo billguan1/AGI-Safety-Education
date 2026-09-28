@@ -449,3 +449,48 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .tc-ref .dk-h{font-size:19px}
 .tc-x{border-top:0;padding-top:10px;flex-direction:column;align-items:flex-start}
 @media (min-width:1100px){.d-hint{display:none!important}}
+
+/* ---- crash, fix, repeat: unlock game ---- */
+.tr-count{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0;font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b}
+.tr-count b{font-variant-numeric:tabular-nums}
+.tr-all{border:2px solid #1b1b1b;background:#fffdf6;border-radius:99px;padding:3px 12px;font-family:var(--body);font-weight:700;font-size:13px;color:#1b1b1b;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
+.tr-cover{display:none}
+.tr-game .tr-steps li,.tr-game .tr-agi{position:relative}
+.tr-game [data-st="next"] > .tr-cover,.tr-game [data-st="locked"] > .tr-cover{
+  display:grid;place-items:center;align-content:center;gap:2px;position:absolute;inset:-2px;z-index:2;border-radius:12px;
+  border:2.5px solid #1b1b1b;background-color:#fffdf6;background-image:radial-gradient(rgba(27,27,27,.12) 1px,transparent 1.3px);background-size:7px 7px;
+  box-shadow:3px 3px 0 #1b1b1b;font:inherit;color:#1b1b1b;padding:0}
+.tr-game .tr-agi > .tr-cover{inset:0;border-radius:8px}
+.tr-q{font-family:var(--comic);font-size:36px;line-height:1}
+.tr-tap{font-family:var(--body);font-weight:700;font-size:14px;display:none}
+.tr-game [data-st="next"] > .tr-cover{background-color:#e8b53a;cursor:pointer;animation:trNudge 1.6s ease-in-out infinite}
+.tr-game [data-st="next"] > .tr-cover .tr-tap{display:block}
+.tr-game [data-st="next"] > .tr-cover:hover{transform:translate(-1px,-2px);box-shadow:5px 5px 0 #1b1b1b;animation:none}
+.tr-game [data-st="next"] > .tr-cover:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b1b1b}
+.tr-game [data-st="next"] > .tr-cover:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
+.tr-game [data-st="locked"] > .tr-cover{cursor:default}
+.tr-game [data-st="locked"] > .tr-cover .tr-q{opacity:.35}
+.tr-game [data-pop] > *:not(.tr-cover){animation:trPop .42s cubic-bezier(.3,1.6,.5,1)}
+@keyframes trNudge{0%,100%{transform:none}50%{transform:translateY(-3px)}}
+@keyframes trPop{0%{transform:scale(.6) rotate(-6deg);opacity:0}100%{transform:none;opacity:1}}
+@media (prefers-reduced-motion: reduce){.tr-game [data-st="next"] > .tr-cover{animation:none}.tr-game [data-pop] > *{animation:none!important}}
+@media (max-width:900px){.tr-q{font-size:24px}.tr-tap{font-size:11px}}
+/* chart text is ink or grey only */
+.t-body .tr-line span,.t-body .tr-cliff span{color:#1b1b1b!important}
+/* 4.1 iceberg */
+.slide .t-body figure.ice-fig{max-width:660px!important}
+.ice-fig .tr-title{margin:0 0 8px}
+.ice-fig svg.ice{width:100%;height:auto;display:block}
+/* a question under Kenji is the biggest thing on the slide */
+.t-body > .rv[style*="margin-top:24px"]{margin-top:4px!important;margin-bottom:22px}
+.t-body > .rv[style*="margin-top:24px"] > p:first-child{font-family:var(--body)!important;font-weight:700!important;font-size:clamp(19px,1rem + .6vw,24px)!important;line-height:1.3;color:#1b1b1b!important;text-transform:none!important;letter-spacing:0!important}
+.t-body > .rv[style*="margin-top:24px"] .pbtn{min-height:44px;padding:0 18px;font-size:15px!important;font-family:var(--body)!important;font-weight:700;text-transform:none!important;letter-spacing:0!important;border:2.5px solid #1b1b1b!important;border-radius:99px!important;box-shadow:3px 3px 0 #1b1b1b}
+.t-body > .rv[style*="margin-top:24px"] .note{font-size:17px!important;color:#1b1b1b!important}
+/* header: logo plus the site's primer line */
+.dk-brand{display:flex;align-items:center;gap:14px;text-shadow:none!important;min-width:0}
+.dk-logo{font-family:var(--comic);font-size:24px;letter-spacing:.04em;color:#1b1b1b;text-shadow:2px 2px 0 #e8b53a}
+.dk-primer{font-family:var(--body);font-weight:700;font-size:13px;line-height:1.25;color:#3b3833;letter-spacing:.02em;max-width:34ch;white-space:normal}
+.dk-primer b{color:#d2553f;font-weight:700}
+@media (min-width:1100px){.dk-bar .d-where{display:none}}
+@media (max-width:1099px){.dk-primer{display:none}}
+.ice-fig .tr-title{font-family:var(--comic)!important;font-size:26px!important;letter-spacing:.03em;color:#1b1b1b;text-shadow:2px 2px 0 #e8b53a}

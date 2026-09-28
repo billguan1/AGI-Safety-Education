@@ -119,6 +119,12 @@ def auto(block):
 
 def unp(p): return re.sub(r'^<p[^>]*>|</p>$', '', p.strip())
 
+def demo_bare(block):
+    """The demo's own heading and instruction repeat the chip and Kenji's line, so the deck drops them."""
+    out, n = re.subn(r'\s*<h3>[^<]*</h3>\s*<p class="dsub">.*?</p>', '', block, count=1, flags=re.S)
+    assert n == 1, 'demo heading not found'
+    return out
+
 
 def tries_fig(T):
     """Crash, fix, repeat: the picture timeline for 2.3."""
@@ -167,8 +173,36 @@ def tries_fig(T):
                 '<path class="b" %s d="M92 38 L96 48 L106 48 L98 54 L101 63 L92 58 L83 63 L86 54 L78 48 L88 48 Z"/></svg><span>%s</span></div></div></div>'
                 % (P['chip'], T['tries_norun'], W, W, T['tries_oneshot']))
     legend = '<div class="tr-legend"><span class="lg-f">%s</span><span class="lg-x">%s</span><span class="lg-s">%s</span></div>' % T['tries_legend']
-    return ('<figure class="secfig tr-fig" role="img" aria-label="%s"><div class="tr-top"><p class="tr-title">%s</p>%s</div>%s</figure>'
-            % (html.escape(T['tries_alt']), T['tries_title'], legend, ''.join(rows)))
+    # the unlock game: tiles lock only once the script runs, so the figure reads fine without it
+    count = ('<p class="tr-count" hidden><span>%s</span><button type="button" class="tr-all">%s</button></p>'
+             % (T['tries_count'] % ('<b class="tr-n">1</b>', '<b class="tr-t">16</b>'), T['tries_all']))
+    return ('<figure class="secfig tr-fig" aria-label="%s" data-reveal="%s" data-tap="%s" data-ai="%s">'
+            '<div class="tr-top"><p class="tr-title">%s</p>%s</div>%s%s</figure>'
+            % (html.escape(T['tries_alt']), html.escape(T['tries_reveal']), html.escape(T['tries_tap']), html.escape(T['tries_ai_q']),
+               T['tries_title'], legend, count, ''.join(rows)))
+
+
+def iceberg_fig(T):
+    """What training can reach: a picture in place of the text-heavy chart in 4.1."""
+    I = T['ice']
+    F = 'font-family="Comic Neue,Archivo,sans-serif"'
+    svg = ('<svg class="ice" data-keep="1" viewBox="0 0 480 300" role="img" aria-label="%s">'
+           '<rect x="0" y="120" width="480" height="180" fill="#dbe6f5"/>'
+           '<path d="M0 120 H480" stroke="#1b1b1b" stroke-width="2" stroke-dasharray="7 6"/>'
+           '<path d="M160 120 L300 120 L362 188 L322 276 L182 286 L118 208 Z" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linejoin="round"/>'
+           '<path d="M198 120 L234 66 L262 80 L292 120 Z" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linejoin="round"/>'
+           '<text x="240" y="232" text-anchor="middle" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="64" fill="#1b1b1b">?</text>'
+           '<text x="12" y="62" %s font-size="18" font-weight="700" fill="#1b1b1b">%s</text>'
+           '<text x="12" y="80" %s font-size="14" fill="#5c574e">%s</text>'
+           '<path d="M104 68 Q170 44 222 78" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"/>'
+           '<path d="M222 78 L207 76 M222 78 L215 65" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"/>'
+           '<text x="304" y="84" %s font-size="18" font-weight="700" fill="#1b1b1b">%s</text>'
+           '<text x="304" y="102" %s font-size="14" fill="#5c574e">%s</text>'
+           '<text x="12" y="112" %s font-size="14" fill="#5c574e">%s</text>'
+           '<text x="372" y="202" %s font-size="18" font-weight="700" fill="#1b1b1b">%s</text>'
+           '<text x="372" y="220" %s font-size="14" fill="#5c574e">%s</text>'
+           '</svg>') % (html.escape(I['alt']), F, I['train'], F, I['train2'], F, I['tip'], F, I['tip2'], F, I['line'], F, I['deep'], F, I['deep2'])
+    return '<figure class="secfig ice-fig"><p class="tr-title">%s</p>%s</figure>' % (I['title'], svg)
 
 
 # ---------------------------------------------------------------- the slide plan
@@ -192,6 +226,7 @@ def plan(pg):
         return '%s="%s"' % (m.group(1), CLIFF[v])
     fig = re.sub(r'<text\b[^>]*>', lambda t: t.group(0).replace('fill="#ffd88a"', 'fill="#8a5d00"'), fig)   # the prize heading, not its glow
     fig = re.sub(r'\b(fill|stroke|stop-color)="(#[0-9a-fA-F]{3,6})"', cliff_colour, fig)
+    fig = re.sub(r'<text\b[^>]*>', lambda t: re.sub(r'fill="(?!#1b1b1b|#5c574e|#6f6a60)#[0-9a-fA-F]{3,6}"', 'fill="#1b1b1b"', t.group(0)), fig)   # text: ink or grey
     cover = cover[:ci] + fig + cover[cj:]
     intro = dict(id='crossroads', num='', label=pg.label['crossroads'], acc=T['intro_acc'])
     S.append(dict(key='cover', sec=intro, wrap='mast', anchor='top', body=cover))
@@ -216,7 +251,7 @@ def plan(pg):
     # 1.1
     ch = pg.chapter('why-irresistible'); B = ch['blocks']
     bet = one(B, '<div class="bet').replace('<div class="bet rv"', '<div class="bet rv t-compact"', 1)
-    add(ch, [('', stand(ch) + bet + auto(one(B, '<div class="ddgrid')) + key(ch))])
+    add(ch, [('', bet + stand(ch) + auto(one(B, '<div class="ddgrid')) + key(ch))])        # the question comes first, then the detail
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + one(B, '<figure')),
@@ -241,13 +276,13 @@ def plan(pg):
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
     add(ch, [(P['3.1'][0], stand(ch) + one(B, '<figure')),
-             (P['3.1'][1], part_head(*T['heads']['3.1b']) + auto(one(B, '<div class="ddgrid')) + quiz + key(ch))])
+             (P['3.1'][1], quiz + part_head(*T['heads']['3.1b']) + auto(one(B, '<div class="ddgrid')) + key(ch))])
     # 3.2
     ch = pg.chapter('why-human-misalignment'); B = ch['blocks']
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
     add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + grids[0]),
              (P['3.2'][1], part_head(*T['heads']['3.2b']) + grids[1]),
-             (P['3.2'][2], part_head(*T['heads']['3.2c']) + figs[0] + figs[1] + one(B, '<div class="rv" style="margin-top:24px">'))])
+             (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + figs[0] + figs[1])])
     # 4.1
     ch = pg.chapter('why-translation'); B = ch['blocks']
     figs = [x for x in B if x.startswith('<figure')]; h3s = [x for x in B if x.startswith('<h3')]
@@ -257,8 +292,8 @@ def plan(pg):
     add(ch, [(P['4.1'][0], stand(ch) + figs[0]),
              (P['4.1'][1], part_head(H['4.1b'], text(h3s[0]), unp(ps[0])) + figs[1]),
              (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + grids[0]),
-             (P['4.1'][3], part_head(H['4.1d']) + one(B, '<div class="demo-embed')),
-             (P['4.1'][4], part_head(H['4.1e'], text(h3s[1]), unp(ps[2])) + figs[2]),
+             (P['4.1'][3], part_head(H['4.1d']) + demo_bare(one(B, '<div class="demo-embed'))),
+             (P['4.1'][4], part_head(H['4.1e'], text(h3s[1]), unp(ps[2])) + iceberg_fig(T)),
              (P['4.1'][5], part_head(H['4.1f']) + grids[1])])
     # 4.2
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
@@ -372,7 +407,8 @@ def repaint(tag, attr, value):
         if l < .72: return '#5c574e'
         return '#1b1b1b' if words or attr == 'stroke' else '#d8cdb3'
     if not words and attr == 'fill' and l > .85: return value      # pale cells keep their tint
-    return darken(rgb, 4.0 if words else (2.6 if attr == 'stroke' else 2.1))
+    if words: return '#1b1b1b'              # chart text is ink or grey; colour stays on the marks
+    return darken(rgb, 2.6 if attr == 'stroke' else 2.1)
 
 def paper_svg(m):
     tag, vbw, body = m.group(1), float(m.group(2)), m.group(3)
@@ -491,6 +527,7 @@ def deck_bar(pg, segs):
     lang = re.search(r'<a class="hbtn hbtn-lang" href="([^"]*)"[^>]*>(.*?)</a>', old, re.S)
     assert lang.group(1) == T['lang_from']
     act = text(re.search(r'<a class="hbtn hbtn-act"[^>]*>(.*?)</a>', old, re.S).group(1))
+    primer = re.search(r'<a class="brand"[^>]*>(.*?)</a>', old, re.S).group(1).strip()
     cols = []
     for g in re.finditer(r'<li class="ng">\s*<button[^>]*>(.*?)<span class="ng-caret".*?<ul class="ng-menu">(.*?)</ul>', old, re.S):
         items = ''.join('<li%s><a href="%s">%s</a></li>' % (' class="dk-g"' if 'ng-grp' in li.group(1) else '', li.group(2), text(li.group(3)))
@@ -501,12 +538,12 @@ def deck_bar(pg, segs):
     assert extra.count('nav-xbtn') == 2
     pg.toc_tail = cols[2].replace('class="dk-col"', 'class="dk-col tc-ref"') + '<div class="dk-x tc-x">%s</div>' % extra
     return ('<header class="dk-bar" id="dk-bar"><div class="dk-row">'
-            '<a class="dk-brand" href="#top">SafeAGI</a><span class="d-where" id="d-where"></span>'
+            '<a class="dk-brand" href="#top"><span class="dk-logo">SafeAGI</span><span class="dk-primer">%s</span></a><span class="d-where" id="d-where"></span>'
             '<div class="dk-acts"><button type="button" class="dk-btn dk-menu-btn" id="dk-menu-btn" aria-expanded="false" aria-controls="dk-menu">%s</button>'
             '<a class="dk-btn" href="%s" hreflang="%s">%s</a><a class="dk-btn dk-go" href="#what-you-can-do">%s</a></div></div>'
             '<div class="d-segs">%s</div></header>\n'
             '<nav class="dk-menu" id="dk-menu" aria-label="%s" hidden><div class="dk-menu-in">%s<div class="dk-x">%s</div></div></nav>\n') % (
-            T['contents'], T['lang_to'], 'zh-Hans' if pg.lang == 'en' else 'en', text(lang.group(2)), act, segs, T['contents'], ''.join(cols), extra)
+            primer, T['contents'], T['lang_to'], 'zh-Hans' if pg.lang == 'en' else 'en', text(lang.group(2)), act, segs, T['contents'], ''.join(cols), extra)
 
 
 def page(pg, slides, segs, S):
@@ -531,6 +568,8 @@ def page(pg, slides, segs, S):
         ('var TIER = { caption: 10.5, label: 11.5, emphasis: 12.5, value: 15, display: 21 };',
          'var TIER = { caption: 13, label: 14.5, emphasis: 15.5, value: 18.5, display: 26 };'),
         ('if (first && !NO_HOIST[sec.id]) {', 'if (false) {'),               # charts stay where the slide puts them
+        ('if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;',
+         'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig")) return false;'),   # deck drawings size themselves
         ('$$(".cando-block:not(#what-you-can-do)", main)', '$$(".cando-block.lx-never", main)'),   # each group has its own slide
         ('  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }',
          '  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }\n  window.__lxFitAll = refitAll;'),

@@ -128,3 +128,43 @@
     });
   });
 })();
+
+
+(function(){
+  /* crash, fix, repeat: unlock the story one card at a time */
+  document.querySelectorAll(".tr-fig").forEach(function(fig){
+    var steps = [].slice.call(fig.querySelectorAll(".tr-steps li, .tr-agi"));
+    var count = fig.querySelector(".tr-count"), num = fig.querySelector(".tr-n"), tot = fig.querySelector(".tr-t"), all = fig.querySelector(".tr-all");
+    if (!steps.length || !count) return;
+    var shown = 1, covers = [];
+    fig.className += " tr-game";
+    tot.textContent = steps.length;
+    steps.forEach(function(li, k){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "tr-cover";
+      b.setAttribute("aria-label", fig.getAttribute("data-reveal") + " " + (k + 1));
+      b.innerHTML = '<span class="tr-q">?</span><span class="tr-tap">' +
+        (li.className.indexOf("tr-agi") > -1 ? fig.getAttribute("data-ai") : fig.getAttribute("data-tap")) + "</span>";
+      b.addEventListener("click", function(){ if (k === shown) reveal(k + 1, true); });
+      li.appendChild(b); covers.push(b);
+    });
+    function paint(pop){
+      steps.forEach(function(li, k){
+        var st = k < shown ? "open" : (k === shown ? "next" : "locked");
+        li.setAttribute("data-st", st);
+        covers[k].disabled = st !== "next";
+        covers[k].tabIndex = st === "next" ? 0 : -1;
+        if (pop && k === shown - 1) { li.setAttribute("data-pop", "1"); setTimeout(function(){ li.removeAttribute("data-pop"); }, 500); }
+      });
+      num.textContent = shown;
+      if (shown >= steps.length) all.hidden = true;
+    }
+    function reveal(n, focusNext){
+      shown = Math.min(n, steps.length); paint(true);
+      if (focusNext && shown < steps.length) covers[shown].focus({preventScroll: true});
+    }
+    all.addEventListener("click", function(){ reveal(steps.length, false); });
+    count.hidden = false;
+    paint(false);
+  });
+})();
