@@ -87,6 +87,7 @@ class Page:
             else:
                 self.label[sid] = lab.split(' · ', 1)[-1]
         assert len(self.group) == 5 and len(self.label) >= 13, (self.group, self.label)
+        self.old_intro = self.label['crossroads']; self.label['crossroads'] = self.T['intro_label']        # the deck is many slides, so no "in one page"
 
     def section(self, sid):
         s = self.s; a = s.index('<section id="%s"' % sid); b = s.index('</section>', a) + 10
@@ -490,7 +491,11 @@ def plan(pg):
                       kicker=T['claim_kick'] % (i + 1), title=h3.group(1), body='<div class="claims">%s</div>' % c))
     close = one(cross, '<div class="mh-close'); mk = re.search(r'<span class="mc-k">(.*?)</span>\s*', close, re.S)
     assert mk
-    S.append(dict(key='solution', sec=intro, wrap='cross', kicker=T['intro_kick'], title=mk.group(1), body=close.replace(mk.group(0), '', 1)))
+    close = close.replace(mk.group(0), '', 1)
+    hs = [text(h) for h in re.findall(r'<h3>(.*?)</h3>', close, re.S)]; ps = [text(p) for p in re.findall(r'<p>(.*?)</p>', close, re.S)]
+    assert len(hs) == 2 and len(ps) == 2, (len(hs), len(ps))
+    S.append(dict(key='solution', sec=intro, wrap='cross', kicker=T['intro_kick'], title=mk.group(1),
+                  body=widget_plain('fork', T, {'ends': hs, 'subs': ps}) + '<div class="dk-sr">%s</div>' % close))
 
     def add(ch, parts):
         for j, (chip, body) in enumerate(parts):
@@ -879,7 +884,7 @@ def main():
     S_zh, sl_zh, sg_zh, _ = build(zh, colors)
     assert [x['key'] for x in S_en] == [x['key'] for x in S_zh]
     for pg, sl, sg, S in ((en, sl_en, sg_en, S_en), (zh, sl_zh, sg_zh, S_zh)):
-        doc = paper(page(pg, sl, sg, S))
+        doc = paper(page(pg, sl, sg, S)).replace(pg.old_intro, pg.T['intro_label'])
         ids = re.findall(r'\bid="([^"]+)"', doc)
         dup = sorted(set(i for i in ids if ids.count(i) > 1))
         assert not dup, ('duplicate ids', dup[:10])

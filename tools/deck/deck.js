@@ -412,8 +412,8 @@
   /* 5.3 the fork: can safety be solved? each branch leads to one of the two asks */
   R.fork = function(box, C){
     box.innerHTML = '<div class="dki-fork"><p class="dki-q">' + esc(C.q) + '</p><div class="dki-branches">' +
-      '<button type="button" class="dki-br dki-yes" aria-pressed="false"><span class="dki-bl">' + esc(C.yes) + '</span><span class="dki-end">' + esc(C.ends[0]) + '</span></button>' +
-      '<button type="button" class="dki-br dki-no" aria-pressed="false"><span class="dki-bl">' + esc(C.no) + '</span><span class="dki-end">' + esc(C.ends[1]) + '</span></button>' +
+      '<button type="button" class="dki-br dki-yes" aria-pressed="false"><span class="dki-bl">' + esc(C.yes) + '</span><span class="dki-end">' + esc(C.ends[0]) + '</span>' + (C.subs ? '<span class="dki-sub">' + esc(C.subs[0]) + '</span>' : '') + '</button>' +
+      '<button type="button" class="dki-br dki-no" aria-pressed="false"><span class="dki-bl">' + esc(C.no) + '</span><span class="dki-end">' + esc(C.ends[1]) + '</span>' + (C.subs ? '<span class="dki-sub">' + esc(C.subs[1]) + '</span>' : '') + '</button>' +
       '</div></div>';
     var br = box.querySelectorAll(".dki-br");
     [].forEach.call(br, function(b){ b.addEventListener("click", function(){
