@@ -494,3 +494,5 @@ html,body{background:#f4ecd8;color:var(--ink)}
 @media (min-width:1100px){.dk-bar .d-where{display:none}}
 @media (max-width:1099px){.dk-primer{display:none}}
 .ice-fig .tr-title{font-family:var(--comic)!important;font-size:26px!important;letter-spacing:.03em;color:#1b1b1b;text-shadow:2px 2px 0 #e8b53a}
+/* charts redrawn for the deck keep their drawn size */
+.t-body svg.dk-chart{width:100%;height:auto;display:block}

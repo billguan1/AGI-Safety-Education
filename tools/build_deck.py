@@ -205,6 +205,46 @@ def iceberg_fig(T):
     return '<figure class="secfig ice-fig"><p class="tr-title">%s</p>%s</figure>' % (I['title'], svg)
 
 
+FONT = 'font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif"'
+def dk_svg(vb, label, body):
+    """A chart redrawn for the deck: sized as drawn, coloured as drawn."""
+    return '<svg class="dk-chart" data-keep="1" viewBox="%s" role="img" aria-label="%s">%s</svg>' % (vb, html.escape(label), body)
+
+def charts_11(T):
+    C = T['ch11']; F = FONT
+    def t(x, y, size, txt, fill='#1b1b1b', bold=True, anchor='start'):
+        return '<text x="%s" y="%s" %s font-size="%s"%s fill="%s" text-anchor="%s">%s</text>' % (
+            x, y, F, size, ' font-weight="700"' if bold else '', fill, anchor, html.escape(txt))
+    bars = ''.join('<rect x="%d" y="%d" width="62" height="%d" rx="3" fill="%s" stroke="#1b1b1b" stroke-width="2"/>%s%s'
+                   % (x, 136 - h, h, col, t(x + 31, 128 - h, 18, v, anchor='middle'), t(x + 31, 156, 14, yr, '#5c574e', False, 'middle'))
+                   for x, h, col, v, yr in ((14, 14, '#b9d6a8', C['c_vals'][0], '2022'), (114, 44, '#8cbf73', C['c_vals'][1], '2024'),
+                                            (214, 86, '#4f9440', C['c_vals'][2], '2026')))
+    compute = dk_svg('0 0 290 162', C['c_title'] + '. ' + C['c_sub'],
+                     t(0, 18, 17, C['c_title']) + t(0, 38, 14, C['c_sub'], '#5c574e', False) +
+                     '<path d="M0 136 H290" stroke="#1b1b1b" stroke-width="2"/>' + bars)
+    funding = dk_svg('0 0 290 168', C['f_title'],
+                     t(0, 18, 17, C['f_title']) +
+                     t(0, 44, 14, C['f_build'], '#5c574e', False) +
+                     '<rect x="0" y="50" width="288" height="30" rx="3" fill="#4a5fc9" stroke="#1b1b1b" stroke-width="2"/>' +
+                     t(278, 71, 16, C['f_bval'], '#fff', anchor='end') +
+                     t(0, 104, 14, C['f_safe'], '#5c574e', False) +
+                     '<rect x="0" y="110" width="4" height="30" fill="#d9492c" stroke="#1b1b1b" stroke-width="1.5"/>' +
+                     t(14, 131, 16, C['f_sval']) +
+                     t(0, 164, 20, C['f_ratio']))
+    plans = dk_svg('0 0 290 124', C['p_title'],
+                   t(0, 18, 17, C['p_title']) +
+                   '<text x="0" y="72" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#1b1b1b">12</text>' + t(62, 64, 16, C['p_pub'], bold=False) +
+                   '<text x="10" y="120" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#d9492c">0</text>' + t(62, 112, 16, C['p_chk'], bold=False))
+    return [compute, funding, plans]
+
+def swap_svgs(block, new):
+    """Replace the block's charts, in order, with deck redraws."""
+    old = re.findall(r'<svg\b.*?</svg>', block, re.S)
+    assert len(old) == len(new), ('chart count', len(old), len(new))
+    for o, n in zip(old, new): block = block.replace(o, n, 1)
+    return block
+
+
 # ---------------------------------------------------------------- the slide plan
 def plan(pg):
     """Every slide in order: dict(key, sec, chip, head, body)."""
@@ -251,7 +291,7 @@ def plan(pg):
     # 1.1
     ch = pg.chapter('why-irresistible'); B = ch['blocks']
     bet = one(B, '<div class="bet').replace('<div class="bet rv"', '<div class="bet rv t-compact"', 1)
-    add(ch, [('', bet + stand(ch) + auto(one(B, '<div class="ddgrid')) + key(ch))])        # the question comes first, then the detail
+    add(ch, [('', bet + stand(ch) + auto(swap_svgs(one(B, '<div class="ddgrid'), charts_11(T))) + key(ch))])        # the question comes first, then the detail
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + one(B, '<figure')),
@@ -569,7 +609,7 @@ def page(pg, slides, segs, S):
          'var TIER = { caption: 13, label: 14.5, emphasis: 15.5, value: 18.5, display: 26 };'),
         ('if (first && !NO_HOIST[sec.id]) {', 'if (false) {'),               # charts stay where the slide puts them
         ('if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;',
-         'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig")) return false;'),   # deck drawings size themselves
+         'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart")) return false;'),   # deck drawings size themselves
         ('$$(".cando-block:not(#what-you-can-do)", main)', '$$(".cando-block.lx-never", main)'),   # each group has its own slide
         ('  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }',
          '  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }\n  window.__lxFitAll = refitAll;'),

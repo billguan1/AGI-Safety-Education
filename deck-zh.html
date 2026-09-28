@@ -2347,6 +2347,8 @@ html,body{background:#f4ecd8;color:var(--ink)}
 @media (min-width:1100px){.dk-bar .d-where{display:none}}
 @media (max-width:1099px){.dk-primer{display:none}}
 .ice-fig .tr-title{font-family:var(--comic)!important;font-size:26px!important;letter-spacing:.03em;color:#1b1b1b;text-shadow:2px 2px 0 #e8b53a}
+/* charts redrawn for the deck keep their drawn size */
+.t-body svg.dk-chart{width:100%;height:auto;display:block}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}
 </style>
@@ -2792,43 +2794,14 @@ html,body{background:#f4ecd8;color:var(--ink)}
         <p class="note" id="bet-fund-out" role="status" aria-live="polite" style="margin-top:8px"></p>
       </div><p class="stand">市场奖励的是“以最快速度造出先进 AI”，安全因此沦为马后炮；等到超级智能降临时，安全很可能仍然落在后面。</p><div class="ddgrid three rv">
       <div data-auto="1" class="ddc g" data-k="1"><span class="k">诱惑</span><h4>钱，追的是能力兑现后的经济回报</h4><p>先发优势和可观的利润前景，正吸引资金和人才争分夺秒地把它造出来。<a class="ref" href="/reference-zh#s45">45</a><a class="ref" href="/reference-zh#s21">21</a></p><figure>
-            <svg viewBox="0 0 290 126" role="img" aria-label="柱状图：前沿训练算力每两年扩大十倍，从 10^24 增至 10^26 FLOPs。">
-            <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".12em" fill="#5c574e" data-lx-dfs="11.46">前沿训练算力</text>
-            <text x="0" y="22" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#5c574e" data-lx-dfs="11.46">每两年扩大十倍</text>
-            <rect x="16" y="84" width="64" height="22" rx="2" fill="#91bd7c" opacity="0.45" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-            <text x="48" y="79" font-family="Comic Neue,Archivo,sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="12.46">10²⁴</text>
-            <text x="48" y="120" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.46">2022</text>
-            <rect x="110" y="62" width="64" height="44" rx="2" fill="#91bd7c" opacity="0.72" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-            <text x="142" y="57" font-family="Comic Neue,Archivo,sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="12.46">10²⁵</text>
-            <text x="142" y="120" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.46">2024</text>
-            <rect x="204" y="34" width="64" height="72" rx="2" fill="#91bd7c" opacity="0.99" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-            <text x="236" y="29" font-family="Comic Neue,Archivo,sans-serif" font-size="9" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="12.46">10²⁶</text>
-            <text x="236" y="120" font-family="IBM Plex Mono,monospace" font-size="8" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.46">2026</text>
-            <line x1="0" y1="106" x2="290" y2="106" stroke="#cfc4ab" stroke-width="1"/>
-          </svg>
+            <svg class="dk-chart" data-keep="1" viewBox="0 0 290 162" role="img" aria-label="训练 AI 用的算力. 每两年多 10 倍"><text x="0" y="18" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="17" font-weight="700" fill="#1b1b1b" text-anchor="start">训练 AI 用的算力</text><text x="0" y="38" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="14" fill="#5c574e" text-anchor="start">每两年多 10 倍</text><path d="M0 136 H290" stroke="#1b1b1b" stroke-width="2"/><rect x="14" y="122" width="62" height="14" rx="3" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2"/><text x="45" y="114" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="18" font-weight="700" fill="#1b1b1b" text-anchor="middle">1 倍</text><text x="45" y="156" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="14" fill="#5c574e" text-anchor="middle">2022</text><rect x="114" y="92" width="62" height="44" rx="3" fill="#8cbf73" stroke="#1b1b1b" stroke-width="2"/><text x="145" y="84" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="18" font-weight="700" fill="#1b1b1b" text-anchor="middle">10 倍</text><text x="145" y="156" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="14" fill="#5c574e" text-anchor="middle">2024</text><rect x="214" y="50" width="62" height="86" rx="3" fill="#4f9440" stroke="#1b1b1b" stroke-width="2"/><text x="245" y="42" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="18" font-weight="700" fill="#1b1b1b" text-anchor="middle">100 倍</text><text x="245" y="156" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="14" fill="#5c574e" text-anchor="middle">2026</text></svg>
           </figure></div>
       <div data-auto="1" class="ddc o" data-k="2"><span class="k">被冷落的一方</span><h4>安全只拖进度、不见产出，被视为纯成本</h4><p>安全研究造不出可以卖的产品，甚至可能拖慢开发本身。<a class="ref" href="/reference-zh#s47">47</a></p><figure>
-            <svg viewBox="0 0 290 140" role="img" aria-label="两条柱：约一千亿美元投入建造先进人工智能，对比约一千万美元的公共安全研究。">
-            <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".04em" fill="#5c574e" data-lx-dfs="13.03">建造它，与证明它安全</text>
-            <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5c574e" data-lx-dfs="13.03">投入建造先进人工智能</text>
-            <rect x="0" y="36" width="290" height="20" rx="2" fill="#8d9dff" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-            <text x="284" y="50" font-family="Comic Neue,Archivo,sans-serif" font-size="9.5" font-weight="800" text-anchor="end" fill="#fff" data-lx-dfs="14.16">约 1,000 亿美元</text>
-            <text x="0" y="76" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5c574e" data-lx-dfs="13.03">公共部门的安全研究</text>
-            <rect x="0" y="82" width="2" height="20" rx="1" fill="#bd3a20"/>
-            <text x="10" y="96" font-family="Comic Neue,Archivo,sans-serif" font-size="9.5" font-weight="800" fill="#1b1b1b" data-lx-dfs="14.16">约 1,000 万美元</text>
-            <line x1="0" y1="114" x2="290" y2="114" stroke="#cfc4ab"/>
-            <text x="0" y="130" font-family="IBM Plex Mono,monospace" font-size="7.5" fill="#1b1b1b" data-lx-dfs="13.03">大约一万比一，占全部 AI 研究约 2%</text>
-          </svg>
+            <svg class="dk-chart" data-keep="1" viewBox="0 0 290 168" role="img" aria-label="建造 AI，与让它安全"><text x="0" y="18" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="17" font-weight="700" fill="#1b1b1b" text-anchor="start">建造 AI，与让它安全</text><text x="0" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="14" fill="#5c574e" text-anchor="start">建造 AI</text><rect x="0" y="50" width="288" height="30" rx="3" fill="#4a5fc9" stroke="#1b1b1b" stroke-width="2"/><text x="278" y="71" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="end">约 1,000 亿美元</text><text x="0" y="104" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="14" fill="#5c574e" text-anchor="start">公共安全研究</text><rect x="0" y="110" width="4" height="30" fill="#d9492c" stroke="#1b1b1b" stroke-width="1.5"/><text x="14" y="131" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="16" font-weight="700" fill="#1b1b1b" text-anchor="start">约 1,000 万美元</text><text x="0" y="164" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="20" font-weight="700" fill="#1b1b1b" text-anchor="start">一万比一</text></svg>
             <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">ETO</a> · <a class="ref" href="/reference-zh#s46">46</a> <a class="ref" href="/reference-zh#s47">47</a></p>
           </figure></div>
       <div data-auto="1" class="ddc b" data-k="4"><span class="k">缺口</span><h4>市场之外，没有任何力量纠偏</h4><p>各国政府既缺专业能力，也缺授权，压根儿建不起能强制推行安全标准的独立监管机构。<a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s15">15</a></p><figure>
-            <svg viewBox="0 0 290 84" role="img" aria-label="2025 年发布了十二份自愿性安全框架，没有一份是任何人被要求去核验的。">
-            <text x="0" y="10" font-family="IBM Plex Mono,monospace" font-size="7.5" font-weight="700" letter-spacing=".12em" fill="#5c574e" data-lx-dfs="11.89">2025 年的自愿性安全框架</text>
-            <text x="0" y="42" font-family="Comic Neue,Archivo,sans-serif" font-size="20" font-weight="800" fill="#1b1b1b" data-lx-dfs="23.79">12</text>
-            <text x="38" y="41" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#5c574e" data-lx-dfs="13.03">已发布</text>
-            <text x="0" y="72" font-family="Comic Neue,Archivo,sans-serif" font-size="20" font-weight="800" fill="#1b1b1b" data-lx-dfs="23.79">0</text>
-            <text x="38" y="71" font-family="IBM Plex Mono,monospace" font-size="8.5" fill="#5c574e" data-lx-dfs="13.03">有人被要求去核验</text>
-          </svg>
+            <svg class="dk-chart" data-keep="1" viewBox="0 0 290 124" role="img" aria-label="公司的安全计划（2025）"><text x="0" y="18" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="17" font-weight="700" fill="#1b1b1b" text-anchor="start">公司的安全计划（2025）</text><text x="0" y="72" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#1b1b1b">12</text><text x="62" y="64" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="16" fill="#1b1b1b" text-anchor="start">份已发布</text><text x="10" y="120" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#d9492c">0</text><text x="62" y="112" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="16" fill="#1b1b1b" text-anchor="start">份必须接受核查</text></svg>
           </figure></div>
     </div><div class="keyline rv"><span class="kk">唯一一个它替我们解决不了的问题</span><p>几乎任何问题，ASI 都能替我们找到答案，唯独“它自己是否安全”除外。所以安全是我们必须最先解决的问题。</p></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="5"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="7">下一节：2.1 丰裕的时代 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.1a" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.1&lt;/b&gt; 丰裕的时代"><section id="why-upside" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 2.1 节 <b class="rt-min">2 分钟</b><span class="t-grp">第 2 章 · 岔路口</span></span><h2>先进 AI 若造得对，能带来无限丰裕、延长人类寿命，并加速其他一切技术的发展</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="7"><b>1</b>用数字看回报</button><button type="button" class="t-chip" data-go="8"><b>2</b>人们会在哪里感受到它</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">如果一切顺利，回报大得惊人。看看经济能长得多快！</p></div><p class="stand">超级智能有望创造巨额财富乃至近乎无限的丰裕，并解决我们今天解决不了的问题。</p><figure class="secfig rv">
       <svg class="lx-d" viewBox="0 0 720 170" role="img" aria-label="两根柱：二十年后，按每年百分之三的增速，世界经济是今天的一点八倍；按每年百分之三十，是今天的一百九十倍。">
@@ -4400,7 +4373,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
   }
   function isChart(svg){
     if (vbw(svg) <= 40) return false;
-    if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig")) return false;
+    if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart")) return false;
     return true;
   }
   var TIER = { caption: 13, label: 14.5, emphasis: 15.5, value: 18.5, display: 26 };
