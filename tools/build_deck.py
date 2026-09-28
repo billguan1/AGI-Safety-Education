@@ -275,6 +275,36 @@ def swap_fig(block, n, kind, T):
     assert block[a:b].count('<figure') == 1
     return block[:a] + widget(kind, T, block[a:b]) + block[b:]
 
+def risk_chart(T, src_svg):
+    """How likely is disaster: four rows in HTML, names and quotes from the page's own chart."""
+    t = [text(x) for x in re.findall(r'<text\b[^>]*>(.*?)</text>', src_svg, re.S)]
+    rows = [(t[1], t[2], t[3], 10, 20), (t[4], t[5], t[6], 25, 25), (t[7], t[8], t[9], 10, 20), (t[10], t[11], t[12], 10, 10)]
+    out = ['<div class="dkh"><p class="dkh-t">%s</p>' % html.escape(T['risk_title'])]
+    for name, quote, val, a, b in rows:
+        mark = ('<i class="dkh-seg" style="left:%.2f%%;width:%.2f%%"></i>' % (a / 30 * 100, (b - a) / 30 * 100)) if b > a else ('<i class="dkh-dot" style="left:%.2f%%"></i>' % (a / 30 * 100))
+        out.append('<div class="dkh-row"><div class="dkh-top"><b>%s</b><b class="dkh-v">%s</b></div><span class="dkh-q">%s</span><div class="dkh-bar">%s</div></div>'
+                   % (html.escape(name), html.escape(val), html.escape(quote), mark))
+    out.append('<div class="dkh-axis"><span>0%</span><span>10%</span><span>20%</span><span>30%</span></div></div>')
+    return ''.join(out)
+
+def econ_chart(T):
+    """The world economy by 2055: three rates, one scale, nothing off the chart."""
+    E = T['econ']; top = 1.3 ** 20
+    out = ['<div class="dkh"><p class="dkh-t">%s</p><p class="dkh-q">%s</p>' % (html.escape(E['title']), html.escape(E['sub']))]
+    for (lab, r) in zip(E['rows'], (3, 12, 30)):
+        m = (1 + r / 100.0) ** 20
+        out.append('<div class="dkh-row"><div class="dkh-top"><b>%s</b><b class="dkh-v">×%s</b></div><div class="dkh-bar dkh-fill"><i style="width:%.2f%%"></i></div></div>'
+                   % (html.escape(lab), ('%.1f' % m) if m < 10 else ('%d' % round(m)), max(1.2, m / top * 100)))
+    out.append('</div>')
+    return ''.join(out)
+
+def swap_fig_svgs(block, n, new_svg):
+    """Put one deck-drawn svg in place of every svg inside the block's nth figure."""
+    figs = [m for m in re.finditer(r'<figure\b.*?</figure>', block, re.S)]
+    f = figs[n]; inner = re.sub(r'<svg\b.*?</svg>\s*', '', f.group(0), flags=re.S)
+    inner = inner.replace('>', '>' + new_svg, 1)
+    return block[:f.start()] + inner + block[f.end():]
+
 def swap_svgs(block, new):
     """Replace the block's charts, in order, with deck redraws."""
     old = re.findall(r'<svg\b.*?</svg>', block, re.S)
@@ -319,6 +349,11 @@ def plan(pg):
     claims = kids(one(cross, '<div class="claims'))
     assert len(claims) == 3
     def claim_card(c):
+        if 'claim-2' in c[:80]:
+            figs = re.findall(r'<figure\b.*?</figure>', c, re.S)
+            src = re.search(r'<svg class="lx-d"[^>]*>(.*?)</svg>', figs[1], re.S).group(1)
+            c = swap_fig_svgs(c, 1, risk_chart(T, src))
+            c = swap_fig_svgs(c, 0, econ_chart(T))
         # open the halves, and turn "Read the chapter" into a real link to the chapter's slide
         c = c.replace('<div class="cl-half"', '<div data-auto="1" class="cl-half"')
         href = re.search(r'<h3><a href="(#[^"]+)"', c).group(1)
@@ -528,13 +563,15 @@ def paper_svg(m):
     def el(e):
         t = e.group(0); name = e.group(1)
         t = re.sub(r'\b(fill|stroke)="(#[0-9a-fA-F]{3,6})"', lambda k: '%s="%s"' % (k.group(1), repaint(name, k.group(1), k.group(2))), t)
-        if name == 'rect' and 'stroke=' not in t and 'fill="none"' not in t:
+        fillm = re.search(r'fill="(#[0-9a-fA-F]{3,6})"', t)
+        solid = fillm and 'opacity=' not in t and colorsys.rgb_to_hls(*[v / 255 for v in hexrgb(fillm.group(1))])[1] < .8
+        if name == 'rect' and 'stroke=' not in t and solid:
             w = re.search(r' width="([\d.]+)"', t); hh = re.search(r' height="([\d.]+)"', t)
             if w and hh and float(w.group(1)) >= 6 and float(hh.group(1)) >= 6:
                 t = t[:-2] + ' stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>' if t.endswith('/>') else t
         return t
     body = re.sub(r'<(\w+)\b[^>]*>', el, body)
-    body = body.replace('font-family="Archivo,sans-serif"', 'font-family="Comic Neue,Archivo,sans-serif"')
+    body = re.sub(r'font-family="[^"]*(?:IBM Plex Mono|Archivo)[^"]*"', 'font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif"', body)
     return tag + body + '</svg>'
 
 def paper(h):

@@ -14,7 +14,8 @@ T = {
  'en': dict(
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
-    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', more_how='How it goes wrong',
+    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', more_how='How it goes wrong', risk_title='How likely is disaster? People building AI say:',
+    econ=dict(title='How big the world economy gets by 2055', sub='Growth speeds up from 2035. Today = 1.', rows=("At today's 3% a year", 'At 12% a year', 'At 30% a year')),
     checks_k='Quick check', right='Right!', wrongp='Not quite.',
     checks={
       '1.1': ('For every $10,000 spent building AI, roughly how much goes to public safety research?', ('About $1', 'About $100', 'About $1,000'), 0, 'It is roughly 10,000 to 1.'),
@@ -150,7 +151,8 @@ T = {
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', more_how='它会怎样出错',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', more_how='它会怎样出错', risk_title='灾难有多大可能？做 AI 的人这样说：',
+    econ=dict(title='到 2055 年，世界经济会有多大', sub='从 2035 年起加速增长，今天记为 1。', rows=('按今天的每年 3%', '按每年 12%', '按每年 30%')),
     checks_k='小测验', right='答对了！', wrongp='不太对。',
     checks={
       '1.1': ('每投入 1 万美元建造 AI，大约有多少流向公共安全研究？', ('大约 1 美元', '大约 100 美元', '大约 1,000 美元'), 0, '比例大约是一万比一。'),
