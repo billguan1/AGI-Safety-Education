@@ -11,7 +11,7 @@ that exists only in the deck (narration, part headings, buttons) lives in
 tools/deck/text.py. Styles and deck behaviour live in tools/deck/deck.css and
 tools/deck/deck.js.
 """
-import re, os, sys, html, colorsys, json
+import re, os, sys, html, colorsys, json, ast
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -118,6 +118,14 @@ def auto(block):
     return re.sub(r'<div class="(ddc|endc)', r'<div data-auto="1" class="\1', block)
 
 def unp(p): return re.sub(r'^<p[^>]*>|</p>$', '', p.strip())
+
+def loophole(block, pg):
+    """Guess how it cheated before the answer shows: the right answer is the page's own demo text."""
+    m = re.search(r'var DEMOS = (\[.*?\]);', pg.s, re.S)
+    got = [d[1] for d in ast.literal_eval(m.group(1))]
+    L = dict(pg.T['wid']['loophole']); L['got'] = got
+    assert len(got) == len(L['wrong']) == 5
+    return block.replace('<div class="demo-embed"', '<div class="demo-embed" data-lh="%s"' % html.escape(json.dumps(L, ensure_ascii=False)), 1)
 
 def demo_bare(block):
     """The demo's own heading and instruction repeat the chip and Kenji's line, so the deck drops them."""
@@ -363,7 +371,7 @@ def plan(pg):
         six = six[:c.start()] + c.group(0).replace('<div class="ddc', '<div data-more="%s" class="ddc' % T['more_how'], 1).replace(
             '<span class="k">', '<span class="sc-ic">%s</span><span class="k">' % icons[n], 1) + six[c.end():]
     add(ch, [(P['2.2'][0], stand(ch) + one(B, '<div class="ends')),
-             (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(one(B, '<div class="ddc b rv" id="route-two"'))),
+             (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(one(B, '<div class="ddc b rv" id="route-two"')) + widget_plain('beai', T)),
              (P['2.2'][2], part_head(k, t, text(bodies[0]) + T['open_any']) + six + key(ch) + bodies[1])])
     # 2.3
     ch = pg.chapter('why-one-try'); B = ch['blocks']
@@ -377,7 +385,7 @@ def plan(pg):
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
-    add(ch, [(P['3.1'][0], stand(ch) + one(B, '<figure')),
+    add(ch, [(P['3.1'][0], stand(ch) + one(B, '<figure') + widget_plain('race', T)),
              (P['3.1'][1], quiz + part_head(*T['heads']['3.1b']) + auto(one(B, '<div class="ddgrid')) + key(ch))])
     # 3.2
     ch = pg.chapter('why-human-misalignment'); B = ch['blocks']
@@ -394,7 +402,7 @@ def plan(pg):
     add(ch, [(P['4.1'][0], stand(ch) + figs[0]),
              (P['4.1'][1], part_head(H['4.1b']) + figs[1]),                                     # Kenji carries outer alignment
              (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + grids[0]),
-             (P['4.1'][3], part_head(H['4.1d']) + demo_bare(one(B, '<div class="demo-embed'))),
+             (P['4.1'][3], part_head(H['4.1d']) + loophole(demo_bare(one(B, '<div class="demo-embed')), pg)),
              (P['4.1'][4], part_head(H['4.1e'], '', unp(ps[2])) + iceberg_fig(T)),
              (P['4.1'][5], part_head(H['4.1f']) + grids[1])])
     # 4.2

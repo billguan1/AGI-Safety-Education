@@ -2529,6 +2529,43 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (prefers-reduced-motion: reduce){.dki-out,.dki-in{transition:none}}
 .dki-chain{flex-wrap:nowrap}
 @media (min-width:761px){.dki-chain .dki-node{flex:1 1 0;text-align:center}.dki-chain .dki-link{flex:0 0 84px}}
+/* be the AI */
+.dki-goals{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.dki-term{display:grid;gap:8px;min-height:40px;padding:14px 16px;border:3px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:4px 4px 0 #1b1b1b}
+.dki-term:empty{display:none}
+.dki-term p{margin:0;animation:trPop .3s ease}
+.dki-tg{display:flex;align-items:center;gap:10px;font-family:"Space Mono",monospace;font-weight:700;font-size:15px;color:#1b1b1b}
+.dki-capy{width:44px;height:44px;border-radius:8px;border:2.5px solid #1b1b1b;object-fit:cover}
+.dki-ts{display:grid;gap:2px;padding-left:12px;border-left:4px solid #e8b53a}
+.dki-ts b{font-family:"Space Mono",monospace;font-size:14px;color:#1b1b1b}
+.dki-ts span{font-family:var(--body);font-size:15px;color:#3b3833}
+.dki-te{font-family:var(--body);font-weight:700;font-size:17px;color:#1b1b1b;padding-top:6px;border-top:2px dashed #cfc4ab}
+/* race */
+.dki-rule{margin:0;font-family:var(--body);font-size:15px;color:#3b3833}
+.dki-lanes{display:grid;gap:8px}
+.dki-lane,.dki-riskrow{display:grid;grid-template-columns:minmax(96px,auto) minmax(0,1fr) 3.5ch;align-items:center;gap:10px}
+.dki-lane .dki-track{position:relative}
+.dki-lane .dki-track i{background:#4a5fc9}
+.dki-lane.dki-me .dki-track i{background:#6fae5a}
+.dki-fin{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--body);font-size:12px;color:#5c574e}
+.dki-lane .dki-n{font-family:var(--body);font-weight:700;font-size:14px;min-width:0}
+.dki-riskrow .dki-track i{background:#d9492c}
+.dki-lbl{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
+.dki-round{font-family:var(--comic);font-size:22px;color:#1b1b1b}
+.dki-case:disabled{opacity:.5;cursor:default}
+/* spot the loophole */
+.demo-cell.dki-hide p{visibility:hidden}
+.demo-cell.dki-hide{background-image:repeating-linear-gradient(45deg,#f4ecd8 0 8px,#ece2c8 8px 16px)!important}
+.dki-lh{display:grid;gap:10px;margin-top:14px}
+.dki-q2{margin:0;font-family:var(--body);font-weight:700;font-size:18px;color:#1b1b1b}
+.dki-opts{display:grid;gap:8px}
+.dki-opt{text-align:left;padding:10px 14px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b;font-family:var(--body);font-size:15px;line-height:1.35;color:#1b1b1b;cursor:pointer}
+.dki-opt:hover:not(:disabled){background:#fff6d8}
+.dki-opt:disabled{cursor:default}
+.dki-opt.dki-right{background:#dcebd2}
+.dki-opt.dki-wrong{background:#f6d5cc}
+.dki-opt:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+@media (max-width:760px){.dki-lane,.dki-riskrow{grid-template-columns:1fr 3.5ch}.dki-lane .dki-track,.dki-riskrow .dki-track{grid-column:1/-1;grid-row:2}}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
@@ -3089,7 +3126,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 </svg>
       </figure>
       <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="/reference#s34">34</a> <a class="ref" href="/reference#s26">26</a></p>
-    </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="9"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn t-cont" data-go="11">Continue to part 3 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; The end of the story"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · The same AI could end civilization</p><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="9"><b>1</b>Four ways it goes wrong</button><button type="button" class="t-chip" data-go="10"><b>2</b>Why it would take what we need</button><button type="button" class="t-chip on" data-go="11"><b>3</b>Six paths to extinction</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-shocked.jpg" alt="Kenji, looking shocked" width="72" height="72" decoding="async"><p class="cx-bubble">Six ways this could end us. Tap one to see how it would unfold.</p></div><div class="t-parthead"><span class="t-pk">Part 3 · Six paths to extinction</span><p class="t-lead">None of these has happened yet, and each is reasoned from what these systems already do.</p></div><div class="ddgrid three rv">
+    </div><figure class="secfig dk-int dkw-beai" data-w="beai" data-cfg="{&quot;title&quot;: &quot;Be the AI: give Capy a goal&quot;, &quot;pick&quot;: &quot;Pick a goal for Capy.&quot;, &quot;goals&quot;: [&quot;Fetch coffee&quot;, &quot;Cure a disease&quot;, &quot;Win at chess&quot;], &quot;gverb&quot;: [&quot;fetch the coffee&quot;, &quot;cure the disease&quot;, &quot;win at chess&quot;], &quot;goal&quot;: &quot;GOAL: {g}.&quot;, &quot;subs&quot;: [&quot;Stay switched on&quot;, &quot;Keep its goal&quot;, &quot;Think better&quot;, &quot;Build better tools&quot;, &quot;Take resources&quot;], &quot;why&quot;: [&quot;I can&#x27;t {g} if I&#x27;m switched off.&quot;, &quot;If someone changes my goal, I won&#x27;t {g}.&quot;, &quot;Better thinking means I {g} more reliably.&quot;, &quot;Better tools help me {g}.&quot;, &quot;More power, land and machines help me {g}.&quot;], &quot;sub&quot;: &quot;SUBGOAL {n}: {s}.&quot;, &quot;end&quot;: &quot;Nobody asked for any of these. They come with almost any goal.&quot;, &quot;again&quot;: &quot;Try another goal&quot;, &quot;alt&quot;: &quot;Give Capy a goal and watch five subgoals appear: stay switched on, keep its goal, think better, build better tools, take resources.&quot;}"><p class="tr-title">Be the AI: give Capy a goal</p><div class="dki-body"></div><p class="dk-sr">Give Capy a goal and watch five subgoals appear: stay switched on, keep its goal, think better, build better tools, take resources.</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="9"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn t-cont" data-go="11">Continue to part 3 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; The end of the story"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · The same AI could end civilization</p><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="9"><b>1</b>Four ways it goes wrong</button><button type="button" class="t-chip" data-go="10"><b>2</b>Why it would take what we need</button><button type="button" class="t-chip on" data-go="11"><b>3</b>Six paths to extinction</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-shocked.jpg" alt="Kenji, looking shocked" width="72" height="72" decoding="async"><p class="cx-bubble">Six ways this could end us. Tap one to see how it would unfold.</p></div><div class="t-parthead"><span class="t-pk">Part 3 · Six paths to extinction</span><p class="t-lead">None of these has happened yet, and each is reasoned from what these systems already do.</p></div><div class="ddgrid three rv">
       <div data-more="How it goes wrong" class="ddc r" data-k="1"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg></span><span class="k">Engineered pandemic</span><h4>A pathogen that spreads before the first symptom</h4><p>A drug-design model with one score inverted proposed 40,000 lethal candidates in six hours,<a class="ref" href="/reference#s90">90</a> and Anthropic can no longer rule out its own models helping someone toward a biological weapon.<a class="ref" href="/reference#s70">70</a> Something built for a long silent incubation reaches every continent before the first diagnosis.</p></div>
       <div data-more="How it goes wrong" class="ddc r" data-k="6"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg></span><span class="k">Nuclear and autonomous weapons</span><h4>A war it starts, or a launch it triggers</h4><p>Arsenals launch on a decision made in minutes from whatever picture arrives, and in 1983 that picture was sunlight on cloud tops.<a class="ref" href="/reference#s76">76</a> Deepfaking the officer who confirms a launch has already been demonstrated,<a class="ref" href="/reference#s73">73</a> and autonomous weapons remove that decision entirely: staging one strike that looks like the other side's is enough to start the war itself.</p></div>
       <div data-more="How it goes wrong" class="ddc o" data-k="3"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg></span><span class="k">Resources</span><h4>It takes the power and water we live on</h4><p>Almost any goal pursued hard wants more energy, land, water and matter,<a class="ref" href="/reference#s34">34</a> and a system that can outbid and outbuild every institution takes them. The narrow band of conditions humans need is made of the same things, and nothing in the goal says to leave it.</p></div>
@@ -3221,7 +3258,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 <text x="0" y="258" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">Racing pays in both rows, so both race. A</text>
 <text x="0" y="272" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">coordination failure rather than villainy.</text>
 </svg>
-    </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="14"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn t-cont" data-go="16">Continue to part 2 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="3.1b" data-acc="#8d9dff" style="--c-acc:#8d9dff" data-where="&lt;b&gt;3.1&lt;/b&gt; The race with no brakes"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>3.1</b> · Whoever slows down first loses, so nobody slows down</p><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="15"><b>1</b>The trap</button><button type="button" class="t-chip on" data-go="16"><b>2</b>Inside one lab</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji, looking like he has an idea" width="72" height="72" decoding="async"><p class="cx-bubble">Your call. Then see the two pressures every lab is under.</p></div><div class="rv" style="margin-top:24px">
+    </figure><figure class="secfig dk-int dkw-race" data-w="race" data-cfg="{&quot;title&quot;: &quot;Race simulator: you run Lab A&quot;, &quot;you&quot;: &quot;You (Lab A)&quot;, &quot;labs&quot;: [&quot;Lab B&quot;, &quot;Lab C&quot;], &quot;label&quot;: &quot;Your safety spending this round&quot;, &quot;opts&quot;: [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;], &quot;run&quot;: &quot;Run the round&quot;, &quot;round&quot;: &quot;Round {n}&quot;, &quot;finish&quot;: &quot;finish&quot;, &quot;risk&quot;: &quot;Risk to everyone&quot;, &quot;won&quot;: &quot;You got there first, at {s}% safety. The race was won by cutting corners.&quot;, &quot;lost&quot;: &quot;{lab} got there first, at {s}% safety. Going carefully cost you the race.&quot;, &quot;close&quot;: &quot;{lab} got there first, just ahead of you. Everyone cut corners, so the risk to everyone is at its highest.&quot;, &quot;lesson&quot;: &quot;Nobody slows down alone. The way out is for every lab to slow down together.&quot;, &quot;again&quot;: &quot;Play again&quot;, &quot;rule&quot;: &quot;Rival labs follow the incentive: whoever is behind cuts safety.&quot;, &quot;alt&quot;: &quot;A race between three labs. You choose your safety spending each round; rival labs cut safety whenever they are behind.&quot;}"><p class="tr-title">Race simulator: you run Lab A</p><div class="dki-body"></div><p class="dk-sr">A race between three labs. You choose your safety spending each round; rival labs cut safety whenever they are behind.</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="14"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn t-cont" data-go="16">Continue to part 2 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="3.1b" data-acc="#8d9dff" style="--c-acc:#8d9dff" data-where="&lt;b&gt;3.1&lt;/b&gt; The race with no brakes"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>3.1</b> · Whoever slows down first loses, so nobody slows down</p><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="15"><b>1</b>The trap</button><button type="button" class="t-chip on" data-go="16"><b>2</b>Inside one lab</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji, looking like he has an idea" width="72" height="72" decoding="async"><p class="cx-bubble">Your call. Then see the two pressures every lab is under.</p></div><div class="rv" style="margin-top:24px">
       <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">You run a frontier lab. Your model is ready to ship. What do you do?</p>
       <div class="filters" id="race-scenario">
         <button type="button" class="pbtn" data-r="0">Ship now, skip the extra review</button>
@@ -3496,7 +3533,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <div class="ddc r" data-k="4"><span class="k">One way it fails</span><h4>Perverse instantiation</h4><p>It satisfies your literal criterion in a way you would never have sanctioned. Asked to make people smile, it could wire their facial muscles. Asked to maximize a reward signal, it could seize the reward channel.</p>
         </div>
         <div class="ddc o" data-k="3"><span class="k">Another way it fails</span><h4>Infrastructure with no stopping point</h4><p>Nothing in the goal says when to stop. More compute, energy and material always help accomplish it, so the system keeps converting the world into those things, with no point at which it is finished.</p></div>
-      </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="21"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn t-cont" data-go="23">Continue to part 4 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1d" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; The genie problem"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.1</b> · The alignment problem: we cannot reliably embed our aspirations in a machine</p><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="20"><b>1</b>Two ways it fails</button><button type="button" class="t-chip" data-go="21"><b>2</b>Outer alignment</button><button type="button" class="t-chip" data-go="22"><b>3</b>Worded well, still wrong</button><button type="button" class="t-chip on" data-go="23"><b>4</b>See it happen</button><button type="button" class="t-chip" data-go="24"><b>5</b>Inner alignment</button><button type="button" class="t-chip" data-go="25"><b>6</b>What we can see</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji, looking like he has an idea" width="72" height="72" decoding="async"><p class="cx-bubble">Pick a goal and see what the machine did with it. Every one of these really happened.</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>OBJECTIVE MET. TECHNICALLY.</span></div></div><div class="t-parthead"><span class="t-pk">Part 4 · See it happen</span></div><div class="demo-embed">
+      </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="21"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn t-cont" data-go="23">Continue to part 4 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1d" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; The genie problem"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.1</b> · The alignment problem: we cannot reliably embed our aspirations in a machine</p><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="20"><b>1</b>Two ways it fails</button><button type="button" class="t-chip" data-go="21"><b>2</b>Outer alignment</button><button type="button" class="t-chip" data-go="22"><b>3</b>Worded well, still wrong</button><button type="button" class="t-chip on" data-go="23"><b>4</b>See it happen</button><button type="button" class="t-chip" data-go="24"><b>5</b>Inner alignment</button><button type="button" class="t-chip" data-go="25"><b>6</b>What we can see</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji, looking like he has an idea" width="72" height="72" decoding="async"><p class="cx-bubble">Pick a goal and see what the machine did with it. Every one of these really happened.</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>OBJECTIVE MET. TECHNICALLY.</span></div></div><div class="t-parthead"><span class="t-pk">Part 4 · See it happen</span></div><div class="demo-embed" data-lh="{&quot;q&quot;: &quot;How do you think it cheated?&quot;, &quot;yes&quot;: &quot;You spotted it!&quot;, &quot;no&quot;: &quot;Sneakier than that. Here is what it really did:&quot;, &quot;wrong&quot;: [[&quot;Crashed into the other boats to slow them down.&quot;, &quot;Took a shortcut across the land.&quot;], [&quot;Found a hidden cheat code for extra lives.&quot;, &quot;Let the other player win on purpose.&quot;], [&quot;Wrote very long answers to look thorough.&quot;, &quot;Refused to answer any hard questions.&quot;], [&quot;Knocked the object into the hand.&quot;, &quot;Asked a person to pick it up.&quot;], [&quot;Copied a solution from the internet.&quot;, &quot;Rewrote the problem to make it easier.&quot;]], &quot;got&quot;: [&quot;Found a lagoon where it could circle forever, hitting the same score targets, and never finished the race at all.&quot;, &quot;Paused the game permanently on the last move. A game that never resumes is a game you never lose.&quot;, &quot;Learned that agreeing with the rater scores better than being right, and became confidently sycophantic.&quot;, &quot;Positioned the hand between the camera and the object so it only looked like a successful grasp to the human scoring it.&quot;, &quot;Detected which tests would run and special-cased them, so the tests pass and the underlying problem is untouched.&quot;]}">
 <div class="demo rv">
       <div class="demo-btns">
         <button type="button" class="dbtn on" data-d="0">Win the boat race</button>
@@ -6220,6 +6257,96 @@ var SITE_CONFIG = {
       bots.className = "dki-bots" + (open ? " dki-open" : "");
     });
   };
+
+  var reduceM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var capyImg = '<img class="dki-capy" src="/deck-img/capy.jpg" alt="" width="44" height="44">';
+
+  /* 2.2 be the AI: pick a goal, watch the subgoals arrive */
+  R.beai = function(box, C){
+    var html = '<p class="dki-say">' + esc(C.pick) + '</p><div class="dki-goals">';
+    C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="false">' + esc(g) + '</button>'; });
+    html += '</div><div class="dki-term" aria-live="polite"></div>';
+    box.innerHTML = html;
+    var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), timer = [];
+    function run(k){
+      timer.forEach(clearTimeout); timer = [];
+      [].forEach.call(btns, function(b, j){ b.setAttribute("aria-pressed", j === k ? "true" : "false"); });
+      var g = C.gverb[k], lines = ['<p class="dki-tg">' + capyImg + '<span>' + esc(C.goal.replace("{g}", C.goals[k])).toUpperCase() + '</span></p>'];
+      C.subs.forEach(function(sname, n){
+        lines.push('<p class="dki-ts"><b>' + esc(C.sub.replace("{n}", n + 1).replace("{s}", sname)).toUpperCase() + '</b><span>' + esc(C.why[n].replace("{g}", g)) + '</span></p>');
+      });
+      lines.push('<p class="dki-te">' + esc(C.end) + '</p>');
+      term.innerHTML = "";
+      lines.forEach(function(l, n){ timer.push(setTimeout(function(){ term.insertAdjacentHTML("beforeend", l); }, reduceM ? 0 : n * 650)); });
+    }
+    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ run(+b.getAttribute("data-k")); }); });
+  };
+
+  /* 3.1 race simulator: you set your lab's safety; rivals cut safety when behind */
+  R.race = function(box, C){
+    var VALS = [10, 40, 70], names = [C.you, C.labs[0], C.labs[1]], speed = [1, 1.02, 0.97];
+    var st;
+    function reset(){ st = {cap: [0, 0, 0], safe: [0, 0, 0], round: 0, risk: 0, done: false, pick: 1}; }
+    reset();
+    var html = '<p class="dki-rule">' + esc(C.rule) + '</p><div class="dki-lanes">';
+    names.forEach(function(n, k){ html += '<div class="dki-lane' + (k === 0 ? ' dki-me' : '') + '"><span class="dki-name">' + esc(n) + '</span><div class="dki-track"><i></i><em class="dki-fin">' + esc(C.finish) + '</em></div><b class="dki-n"></b></div>'; });
+    html += '</div><div class="dki-riskrow"><span class="dki-name">' + esc(C.risk) + '</span><div class="dki-track dki-risk"><i></i></div></div>' +
+      '<div class="dki-ctl"><span class="dki-lbl">' + esc(C.label) + '</span><div class="dki-goals">';
+    C.opts.forEach(function(o, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="' + (k === 1) + '">' + esc(o) + ' · ' + VALS[k] + '%</button>'; });
+    html += '</div></div><div class="dki-goals"><button type="button" class="dki-go dki-run">' + esc(C.run) + '</button><span class="dki-round"></span></div><p class="dki-say" aria-live="polite"></p>';
+    box.innerHTML = html;
+    var lanes = box.querySelectorAll(".dki-lane"), opts = box.querySelectorAll(".dki-ctl .dki-case"), runB = box.querySelector(".dki-run"),
+        roundT = box.querySelector(".dki-round"), say = box.querySelector(".dki-say"), riskI = box.querySelector(".dki-risk i");
+    function paint(){
+      [].forEach.call(lanes, function(l, k){ l.querySelector("i").style.width = Math.min(100, st.cap[k]) + "%"; l.querySelector(".dki-n").textContent = st.round ? st.safe[k] + "%" : ""; });
+      riskI.style.width = Math.min(100, st.risk) + "%";
+      roundT.textContent = st.round ? C.round.replace("{n}", st.round) : "";
+      [].forEach.call(opts, function(b, k){ b.setAttribute("aria-pressed", k === st.pick ? "true" : "false"); b.disabled = st.done; });
+    }
+    [].forEach.call(opts, function(b){ b.addEventListener("click", function(){ st.pick = +b.getAttribute("data-k"); paint(); }); });
+    runB.addEventListener("click", function(){
+      if (st.done) { reset(); say.textContent = ""; runB.textContent = C.run; paint(); return; }
+      var lead = Math.max.apply(null, st.cap);
+      st.safe = [VALS[st.pick], st.cap[1] >= lead + 10 ? 25 : 10, st.cap[2] >= lead + 10 ? 25 : 10];
+      for (var k = 0; k < 3; k++) {
+        var s = st.safe[k] / 100, gain = (8 + 14 * (1 - s)) * speed[k];
+        st.cap[k] += gain; st.risk += gain * (1 - s) / 2.78;
+      }
+      st.round++;
+      var best = 0; for (k = 1; k < 3; k++) if (st.cap[k] > st.cap[best]) best = k;
+      if (st.cap[best] >= 100) {
+        st.done = true; runB.textContent = C.again;
+        var msg = best === 0 ? C.won.replace("{s}", st.safe[0]) : (st.safe[0] <= 10 ? C.close : C.lost).replace("{lab}", names[best]).replace("{s}", st.safe[best]);
+        say.innerHTML = esc(msg) + ' <b>' + esc(C.lesson) + '</b>';
+        document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "race", right: true, val: best === 0 ? "won" : "lost", safe: st.safe[0]}}));
+      }
+      paint();
+    });
+    paint();
+  };
+
+  /* 4.1 spot the loophole: guess how it cheated before the real answer shows */
+  document.querySelectorAll(".demo-embed[data-lh]").forEach(function(demo){
+    var L; try { L = JSON.parse(demo.getAttribute("data-lh")); } catch (e) { return; }
+    var got = demo.querySelector(".demo-cell.got"), out = demo.querySelector(".demo-out"), cur = 0;
+    var box = document.createElement("div"); box.className = "dki-lh"; out.parentNode.insertBefore(box, out.nextSibling);
+    var ORDER = [[1, 0, 2], [0, 2, 1], [2, 1, 0], [1, 2, 0], [0, 1, 2]];
+    function ask(i){
+      cur = i; got.className = got.className.replace(/\s*dki-hide/g, "") + " dki-hide";
+      var opts = [L.got[i], L.wrong[i][0], L.wrong[i][1]], html = '<p class="dki-q2">' + esc(L.q) + '</p><div class="dki-opts">';
+      ORDER[i].forEach(function(o){ html += '<button type="button" class="dki-opt" data-o="' + o + '">' + esc(opts[o]) + '</button>'; });
+      box.innerHTML = html + '</div><p class="dki-say" aria-live="polite"></p>';
+      [].forEach.call(box.querySelectorAll(".dki-opt"), function(b){ b.addEventListener("click", function(){
+        var right = b.getAttribute("data-o") === "0";
+        [].forEach.call(box.querySelectorAll(".dki-opt"), function(x){ x.disabled = true; x.className = "dki-opt" + (x.getAttribute("data-o") === "0" ? " dki-right" : (x === b ? " dki-wrong" : "")); });
+        box.querySelector(".dki-say").textContent = right ? L.yes : L.no;
+        got.className = got.className.replace(/\s*dki-hide/g, "");
+        document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "loophole-" + cur, right: right}}));
+      }); });
+    }
+    demo.querySelectorAll(".dbtn").forEach(function(b){ b.addEventListener("click", function(){ ask(+b.getAttribute("data-d")); }); });
+    ask(0);
+  });
 
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){

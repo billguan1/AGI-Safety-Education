@@ -427,6 +427,96 @@
     });
   };
 
+  var reduceM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var capyImg = '<img class="dki-capy" src="/deck-img/capy.jpg" alt="" width="44" height="44">';
+
+  /* 2.2 be the AI: pick a goal, watch the subgoals arrive */
+  R.beai = function(box, C){
+    var html = '<p class="dki-say">' + esc(C.pick) + '</p><div class="dki-goals">';
+    C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="false">' + esc(g) + '</button>'; });
+    html += '</div><div class="dki-term" aria-live="polite"></div>';
+    box.innerHTML = html;
+    var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), timer = [];
+    function run(k){
+      timer.forEach(clearTimeout); timer = [];
+      [].forEach.call(btns, function(b, j){ b.setAttribute("aria-pressed", j === k ? "true" : "false"); });
+      var g = C.gverb[k], lines = ['<p class="dki-tg">' + capyImg + '<span>' + esc(C.goal.replace("{g}", C.goals[k])).toUpperCase() + '</span></p>'];
+      C.subs.forEach(function(sname, n){
+        lines.push('<p class="dki-ts"><b>' + esc(C.sub.replace("{n}", n + 1).replace("{s}", sname)).toUpperCase() + '</b><span>' + esc(C.why[n].replace("{g}", g)) + '</span></p>');
+      });
+      lines.push('<p class="dki-te">' + esc(C.end) + '</p>');
+      term.innerHTML = "";
+      lines.forEach(function(l, n){ timer.push(setTimeout(function(){ term.insertAdjacentHTML("beforeend", l); }, reduceM ? 0 : n * 650)); });
+    }
+    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ run(+b.getAttribute("data-k")); }); });
+  };
+
+  /* 3.1 race simulator: you set your lab's safety; rivals cut safety when behind */
+  R.race = function(box, C){
+    var VALS = [10, 40, 70], names = [C.you, C.labs[0], C.labs[1]], speed = [1, 1.02, 0.97];
+    var st;
+    function reset(){ st = {cap: [0, 0, 0], safe: [0, 0, 0], round: 0, risk: 0, done: false, pick: 1}; }
+    reset();
+    var html = '<p class="dki-rule">' + esc(C.rule) + '</p><div class="dki-lanes">';
+    names.forEach(function(n, k){ html += '<div class="dki-lane' + (k === 0 ? ' dki-me' : '') + '"><span class="dki-name">' + esc(n) + '</span><div class="dki-track"><i></i><em class="dki-fin">' + esc(C.finish) + '</em></div><b class="dki-n"></b></div>'; });
+    html += '</div><div class="dki-riskrow"><span class="dki-name">' + esc(C.risk) + '</span><div class="dki-track dki-risk"><i></i></div></div>' +
+      '<div class="dki-ctl"><span class="dki-lbl">' + esc(C.label) + '</span><div class="dki-goals">';
+    C.opts.forEach(function(o, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="' + (k === 1) + '">' + esc(o) + ' · ' + VALS[k] + '%</button>'; });
+    html += '</div></div><div class="dki-goals"><button type="button" class="dki-go dki-run">' + esc(C.run) + '</button><span class="dki-round"></span></div><p class="dki-say" aria-live="polite"></p>';
+    box.innerHTML = html;
+    var lanes = box.querySelectorAll(".dki-lane"), opts = box.querySelectorAll(".dki-ctl .dki-case"), runB = box.querySelector(".dki-run"),
+        roundT = box.querySelector(".dki-round"), say = box.querySelector(".dki-say"), riskI = box.querySelector(".dki-risk i");
+    function paint(){
+      [].forEach.call(lanes, function(l, k){ l.querySelector("i").style.width = Math.min(100, st.cap[k]) + "%"; l.querySelector(".dki-n").textContent = st.round ? st.safe[k] + "%" : ""; });
+      riskI.style.width = Math.min(100, st.risk) + "%";
+      roundT.textContent = st.round ? C.round.replace("{n}", st.round) : "";
+      [].forEach.call(opts, function(b, k){ b.setAttribute("aria-pressed", k === st.pick ? "true" : "false"); b.disabled = st.done; });
+    }
+    [].forEach.call(opts, function(b){ b.addEventListener("click", function(){ st.pick = +b.getAttribute("data-k"); paint(); }); });
+    runB.addEventListener("click", function(){
+      if (st.done) { reset(); say.textContent = ""; runB.textContent = C.run; paint(); return; }
+      var lead = Math.max.apply(null, st.cap);
+      st.safe = [VALS[st.pick], st.cap[1] >= lead + 10 ? 25 : 10, st.cap[2] >= lead + 10 ? 25 : 10];
+      for (var k = 0; k < 3; k++) {
+        var s = st.safe[k] / 100, gain = (8 + 14 * (1 - s)) * speed[k];
+        st.cap[k] += gain; st.risk += gain * (1 - s) / 2.78;
+      }
+      st.round++;
+      var best = 0; for (k = 1; k < 3; k++) if (st.cap[k] > st.cap[best]) best = k;
+      if (st.cap[best] >= 100) {
+        st.done = true; runB.textContent = C.again;
+        var msg = best === 0 ? C.won.replace("{s}", st.safe[0]) : (st.safe[0] <= 10 ? C.close : C.lost).replace("{lab}", names[best]).replace("{s}", st.safe[best]);
+        say.innerHTML = esc(msg) + ' <b>' + esc(C.lesson) + '</b>';
+        document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "race", right: true, val: best === 0 ? "won" : "lost", safe: st.safe[0]}}));
+      }
+      paint();
+    });
+    paint();
+  };
+
+  /* 4.1 spot the loophole: guess how it cheated before the real answer shows */
+  document.querySelectorAll(".demo-embed[data-lh]").forEach(function(demo){
+    var L; try { L = JSON.parse(demo.getAttribute("data-lh")); } catch (e) { return; }
+    var got = demo.querySelector(".demo-cell.got"), out = demo.querySelector(".demo-out"), cur = 0;
+    var box = document.createElement("div"); box.className = "dki-lh"; out.parentNode.insertBefore(box, out.nextSibling);
+    var ORDER = [[1, 0, 2], [0, 2, 1], [2, 1, 0], [1, 2, 0], [0, 1, 2]];
+    function ask(i){
+      cur = i; got.className = got.className.replace(/\s*dki-hide/g, "") + " dki-hide";
+      var opts = [L.got[i], L.wrong[i][0], L.wrong[i][1]], html = '<p class="dki-q2">' + esc(L.q) + '</p><div class="dki-opts">';
+      ORDER[i].forEach(function(o){ html += '<button type="button" class="dki-opt" data-o="' + o + '">' + esc(opts[o]) + '</button>'; });
+      box.innerHTML = html + '</div><p class="dki-say" aria-live="polite"></p>';
+      [].forEach.call(box.querySelectorAll(".dki-opt"), function(b){ b.addEventListener("click", function(){
+        var right = b.getAttribute("data-o") === "0";
+        [].forEach.call(box.querySelectorAll(".dki-opt"), function(x){ x.disabled = true; x.className = "dki-opt" + (x.getAttribute("data-o") === "0" ? " dki-right" : (x === b ? " dki-wrong" : "")); });
+        box.querySelector(".dki-say").textContent = right ? L.yes : L.no;
+        got.className = got.className.replace(/\s*dki-hide/g, "");
+        document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "loophole-" + cur, right: right}}));
+      }); });
+    }
+    demo.querySelectorAll(".dbtn").forEach(function(b){ b.addEventListener("click", function(){ ask(+b.getAttribute("data-d")); }); });
+    ask(0);
+  });
+
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){
     var kind = fig.getAttribute("data-w"), box = fig.querySelector(".dki-body"), C;

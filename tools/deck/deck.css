@@ -663,3 +663,40 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (prefers-reduced-motion: reduce){.dki-out,.dki-in{transition:none}}
 .dki-chain{flex-wrap:nowrap}
 @media (min-width:761px){.dki-chain .dki-node{flex:1 1 0;text-align:center}.dki-chain .dki-link{flex:0 0 84px}}
+/* be the AI */
+.dki-goals{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.dki-term{display:grid;gap:8px;min-height:40px;padding:14px 16px;border:3px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:4px 4px 0 #1b1b1b}
+.dki-term:empty{display:none}
+.dki-term p{margin:0;animation:trPop .3s ease}
+.dki-tg{display:flex;align-items:center;gap:10px;font-family:"Space Mono",monospace;font-weight:700;font-size:15px;color:#1b1b1b}
+.dki-capy{width:44px;height:44px;border-radius:8px;border:2.5px solid #1b1b1b;object-fit:cover}
+.dki-ts{display:grid;gap:2px;padding-left:12px;border-left:4px solid #e8b53a}
+.dki-ts b{font-family:"Space Mono",monospace;font-size:14px;color:#1b1b1b}
+.dki-ts span{font-family:var(--body);font-size:15px;color:#3b3833}
+.dki-te{font-family:var(--body);font-weight:700;font-size:17px;color:#1b1b1b;padding-top:6px;border-top:2px dashed #cfc4ab}
+/* race */
+.dki-rule{margin:0;font-family:var(--body);font-size:15px;color:#3b3833}
+.dki-lanes{display:grid;gap:8px}
+.dki-lane,.dki-riskrow{display:grid;grid-template-columns:minmax(96px,auto) minmax(0,1fr) 3.5ch;align-items:center;gap:10px}
+.dki-lane .dki-track{position:relative}
+.dki-lane .dki-track i{background:#4a5fc9}
+.dki-lane.dki-me .dki-track i{background:#6fae5a}
+.dki-fin{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-style:normal;font-family:var(--body);font-size:12px;color:#5c574e}
+.dki-lane .dki-n{font-family:var(--body);font-weight:700;font-size:14px;min-width:0}
+.dki-riskrow .dki-track i{background:#d9492c}
+.dki-lbl{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
+.dki-round{font-family:var(--comic);font-size:22px;color:#1b1b1b}
+.dki-case:disabled{opacity:.5;cursor:default}
+/* spot the loophole */
+.demo-cell.dki-hide p{visibility:hidden}
+.demo-cell.dki-hide{background-image:repeating-linear-gradient(45deg,#f4ecd8 0 8px,#ece2c8 8px 16px)!important}
+.dki-lh{display:grid;gap:10px;margin-top:14px}
+.dki-q2{margin:0;font-family:var(--body);font-weight:700;font-size:18px;color:#1b1b1b}
+.dki-opts{display:grid;gap:8px}
+.dki-opt{text-align:left;padding:10px 14px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b;font-family:var(--body);font-size:15px;line-height:1.35;color:#1b1b1b;cursor:pointer}
+.dki-opt:hover:not(:disabled){background:#fff6d8}
+.dki-opt:disabled{cursor:default}
+.dki-opt.dki-right{background:#dcebd2}
+.dki-opt.dki-wrong{background:#f6d5cc}
+.dki-opt:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+@media (max-width:760px){.dki-lane,.dki-riskrow{grid-template-columns:1fr 3.5ch}.dki-lane .dki-track,.dki-riskrow .dki-track{grid-column:1/-1;grid-row:2}}
