@@ -267,6 +267,12 @@ def cards_text(block):
         out.append([text(k.group(1)) if k else '', text(h.group(1)), p.group(1).strip() if p else ''])
     return out
 
+def card_heading(block, n, new):
+    """Replace the heading of the block's nth card (the chart now carries its old point)."""
+    hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
+    m = hs[n]
+    return block[:m.start()] + '<h4>%s</h4>' % html.escape(new) + block[m.end():]
+
 def swap_fig(block, n, kind, T, texts=False):
     """Replace the block's nth figure with an interactive one; texts=True hands it the original labels."""
     starts = [m.start() for m in re.finditer(r'<figure\b', block)]
@@ -521,7 +527,7 @@ def plan(pg):
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
              (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T))),   # Kenji carries the reason
-             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(grids[1], 1, 'layers', T, True), 0, 'speed', T)))])
+             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_heading(grids[1], 1, T['wid']['layers']['card_h']), 1, 'layers', T, True), 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
