@@ -518,6 +518,37 @@
     ask(0);
   });
 
+  /* 2.3 out of the loop: longer tasks, less of the work checked by a person (shape of the original chart) */
+  R.loop = function(box, C){
+    var t = C.t || [], zh = /^zh/i.test(document.documentElement.lang || ""), J = zh ? "" : " ";
+    var N = 20, cells = "";
+    for (var k = 0; k < N; k++) cells += '<i></i>';
+    box.innerHTML = '<div class="dki-legend"><span class="dki-lr">' + esc(C.rev) + '</span><span class="dki-la">' + esc(C.agent) + '</span></div>' +
+      '<div class="dki-work" aria-hidden="true">' + cells + '</div>' + slider(C.label, 0, 100, 1, 10) +
+      '<div class="dki-ends"><span>' + esc(t[5] || "") + '</span><span>' + esc(t[6] || "") + '</span></div><p class="dki-say">' + esc(t[7] || "") + '</p>';
+    var inp = box.querySelector("input"), v = box.querySelector(".dki-v"), is = box.querySelectorAll(".dki-work i");
+    function draw(){
+      var x = +inp.value / 100, rev = Math.round(N * (0.9 - 0.75 * x));
+      v.textContent = x < 0.34 ? (t[5] || "").split(/[,，]/)[0] : x < 0.67 ? "…" : (t[6] || "").split(/[,，]/)[0];
+      [].forEach.call(is, function(c, k){ c.className = k < rev ? "dki-r" : "dki-a"; });
+    }
+    inp.addEventListener("input", draw); draw();
+  };
+
+  /* 2.3 what it runs on: tap a layer */
+  R.layers = function(box, C){
+    var t = C.t || [], L = [[0, 1, 2], [3, 4, 5], [6, 7, 8]], html = '<div class="dki-stack">';
+    L.forEach(function(r, k){ html += '<button type="button" class="dki-layer dki-l' + k + '" aria-pressed="false" data-k="' + k + '">' + esc(t[r[0]] || "") + '</button>'; });
+    html += '</div><div class="dki-lay-out" aria-live="polite"><p class="dki-say">' + esc(C.tap) + '</p></div>';
+    box.innerHTML = html;
+    var bs = box.querySelectorAll(".dki-layer"), out = box.querySelector(".dki-lay-out");
+    [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
+      var k = +b.getAttribute("data-k"), r = L[k];
+      [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      out.innerHTML = '<b>' + esc(t[r[0]]) + '</b><p>' + esc(t[r[1]]) + '</p><p class="dki-ai">⚡ ' + esc(t[r[2]]) + '</p>';
+    }); });
+  };
+
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){
     var kind = fig.getAttribute("data-w"), box = fig.querySelector(".dki-body"), C;

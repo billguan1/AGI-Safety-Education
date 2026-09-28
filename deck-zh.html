@@ -2590,6 +2590,75 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dkh-axis{display:flex;justify-content:space-between;font-family:var(--body);font-size:12px;color:#5c574e;margin-top:-6px}
 .t-body .dkh .dkh-t{font-weight:700!important;font-size:18px!important;color:#1b1b1b!important}
 .t-body .dkh .dkh-q{font-size:14px!important;color:#5c574e!important}
+/* Back is a quiet text link; the next step is the one clear button */
+.b2-next{flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:18px!important}
+.b2-next button.t-back{min-height:0!important;padding:6px 4px!important;border:0!important;box-shadow:none!important;background:none!important;
+  font-size:14px!important;font-weight:400!important;color:#5c574e!important;text-decoration:underline;text-underline-offset:3px}
+.b2-next button.t-back:hover{color:#1b1b1b!important}
+.b2-next button.t-back:active{transform:none!important}
+/* rebuilt charts: shared pieces */
+.dkh-blue i{background:#4a5fc9!important}
+.dkh-pale i{background:#e6c8bf!important}
+.dkh-note{margin:0;font-family:var(--body);font-size:14px;line-height:1.4;color:#5c574e}
+.dkh-tl{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.dkh-tl li{display:flex;gap:12px;align-items:baseline;font-family:var(--body);font-size:16px;color:#1b1b1b}
+.dkh-tl b{flex:none;padding:1px 10px;border:2px solid #1b1b1b;border-radius:99px;background:#e8b53a;font-size:14px}
+.dkh-grid{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px}
+.dkh-ch,.dkh-rh{font-family:var(--body);font-weight:700;font-size:14px;color:#5c574e;align-self:center}
+.dkh-ch{text-align:center}
+.dkh-cell{display:grid;gap:2px;align-content:center;text-align:center;min-height:64px;padding:8px;border:2.5px solid #1b1b1b;border-radius:6px;background:#fffdf6;font-family:var(--body)}
+.dkh-cell b{font-size:16px;color:#1b1b1b} .dkh-cell span{font-size:13px;color:#5c574e}
+.dkh-cell.good{background:#dcebd2} .dkh-cell.bad{background:#f6d5cc;box-shadow:3px 3px 0 #1b1b1b}
+.dkh-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dkh-four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.dkh-box{display:grid;gap:4px;align-content:start;padding:12px 14px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6;font-family:var(--body)}
+.dkh-box b{font-size:16px;line-height:1.3;color:#1b1b1b} .dkh-box span{font-size:14px;line-height:1.4;color:#3b3833}
+.dkh-k{font-weight:700;font-size:12px!important;letter-spacing:.06em;text-transform:uppercase;color:#6f6a60!important}
+.dkh-big{font-family:var(--comic)!important;font-weight:400!important;font-size:28px!important;letter-spacing:.02em}
+.dkh-chips{display:flex;flex-wrap:wrap;gap:8px}
+.dkh-chip{display:inline-block;padding:6px 12px;border:2px solid #1b1b1b;border-radius:99px;background:#fffdf6;font-family:var(--body);font-weight:700;font-size:14px;color:#1b1b1b}
+.dkh-hot{background:#f6d5cc} .dkh-ok{background:#dcebd2}
+.dkh-arrow::before{content:"↓ ";color:#d9492c}
+.dkh-flow,.dkh-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dkh-col{display:grid;gap:6px}
+.dkh-to{font-family:var(--comic);font-size:26px;color:#1b1b1b}
+.dkh-q-box{display:grid;justify-items:center;padding:10px 16px;border:3px solid #1b1b1b;border-radius:8px;background:#f6d5cc;box-shadow:3px 3px 0 #1b1b1b;font-family:var(--body);font-size:14px}
+.dkh-q-box b{font-family:var(--comic);font-size:40px;line-height:1}
+.dkh-fewrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.dkh-few{display:grid;justify-items:center;gap:6px;text-align:center;font-family:var(--body);font-size:14px;font-weight:700;color:#1b1b1b}
+.dkh-few i{width:18px;height:18px;border-radius:50%;background:#d9492c;border:2px solid #1b1b1b}
+.dkh-few small{display:block;font-weight:400;font-size:12px;color:#5c574e}
+.dkh-many{padding:18px 14px;border:2.5px solid #1b1b1b;border-radius:8px;background:repeating-radial-gradient(circle at 10px 10px,#cfc4ab 0 3px,transparent 3px 14px),#fffdf6;text-align:center}
+.dkh-many span{display:inline-block;padding:4px 10px;background:#fffdf6;font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b}
+.dkh-eq{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dkh-eq b{padding:6px 10px;border:2px solid #1b1b1b;border-radius:6px;background:#f4ecd8;font-size:14px!important}
+.dkh-eq em{font-style:normal;font-family:var(--comic);font-size:24px}
+.dkh-split{display:grid;gap:6px}
+.dkh-scroll{overflow-x:auto}
+.dkh-tab{width:100%;border-collapse:collapse;font-family:var(--body);font-size:14px;color:#1b1b1b}
+.dkh-tab th,.dkh-tab td{padding:8px 10px;border-bottom:2px dashed #cfc4ab;text-align:left;vertical-align:top}
+.dkh-tab thead th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#6f6a60}
+.dkh-tab th b{display:block;font-size:15px} .dkh-tab th span{display:block;font-weight:400;font-size:13px;color:#5c574e}
+.dkh-dots td{text-align:center}
+.dkh-dots i,.dkh-note i{display:inline-block;width:16px;height:16px;border-radius:50%;vertical-align:middle}
+.dkh-o2{background:#4a5fc9;border:2px solid #1b1b1b} .dkh-o1{background:#fffdf6;border:2px solid #4a5fc9} .dkh-o0{display:none!important}
+/* 2.3 out of the loop */
+.dki-lr{--lc:#8a9bd8} .dki-la{--lc:#e6a08c}
+.dki-work{display:grid;grid-template-columns:repeat(10,1fr);gap:5px}
+.dki-work i{aspect-ratio:1;border:2px solid #1b1b1b;border-radius:4px;transition:background .25s}
+.dki-work i.dki-r{background:#8a9bd8} .dki-work i.dki-a{background:#e6a08c}
+.dki-ends{display:flex;justify-content:space-between;gap:10px;font-family:var(--body);font-size:13px;color:#5c574e;margin-top:-8px}
+/* 2.3 what it runs on */
+.dki-stack{display:grid;justify-items:center;gap:6px}
+.dki-layer{min-height:46px;border:2.5px solid #1b1b1b;background:#fffdf6;font-family:var(--comic);font-size:20px;letter-spacing:.04em;color:#1b1b1b;cursor:pointer;box-shadow:3px 3px 0 #1b1b1b}
+.dki-l0{width:56%;background:#dbe2f6} .dki-l1{width:76%;background:#d4ece9} .dki-l2{width:96%;background:#f6e7c1}
+.dki-layer[aria-pressed="true"]{outline:3px solid #d9492c;outline-offset:2px}
+.dki-layer:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
+.dki-lay-out{min-height:84px;padding:12px 14px;border:2.5px dashed #cfc4ab;border-radius:8px;font-family:var(--body)}
+.dki-lay-out b{font-size:17px;color:#1b1b1b} .dki-lay-out p{margin:4px 0 0;font-size:15px;color:#3b3833} .dki-lay-out .dki-ai{font-weight:700;color:#1b1b1b}
+@media (max-width:760px){.dkh-two,.dkh-four{grid-template-columns:1fr 1fr}.dkh-fewrow{grid-template-columns:1fr 1fr}.dkh-steps,.dkh-flow{flex-direction:column;align-items:stretch}.dkh-to{text-align:center;transform:rotate(90deg)}}
+@media (max-width:420px){.dkh-two,.dkh-four{grid-template-columns:1fr}}
+.dkh-to,.dkh-eq em{font-family:var(--body)!important;font-weight:700;font-size:26px}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}.t-body .care3.slim .care-c::after{content:"跳过去 \2192"!important}
 </style>
@@ -2736,61 +2805,11 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         
         <p class="cl-sub">机器能独立完成的任务时长，自 2019 年以来大约每七个月就翻一番；多数预测者预计，“机器在所有任务上都胜过人类”将在 2033 至 2047 年间到来。<a class="ref" href="/reference-zh#s64">64</a><a class="ref" href="/reference-zh#s65">65</a> 而用于“检验这些系统是否安全”的钱，与投入建造的资金相比，不过是九牛一毛。</p>
         <div class="cl-figs panels" style="--fig-acc:#ff8a6b">
-        <figure>
-          <svg class="lx-d" viewBox="0 0 480 190" role="img" aria-label="柱状图：约 1,000 亿美元投入建造先进人工智能，对比约 1,000 万美元的公共部门安全研究，比例接近一万比一。">
-      <text x="0" y="16" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.95" font-weight="800" fill="#1b1b1b" data-lx-dfs="14.95">建造投入的资源，是安全研究的一万倍</text>
-      <text x="0" y="58" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.35" fill="#5c574e" data-lx-dfs="12.35">投入建造先进人工智能</text>
-      <rect x="0" y="66" width="440" height="30" rx="3" fill="#8d9dff" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-      <text x="430" y="86" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="16.9" font-weight="800" text-anchor="end" fill="#fff" data-lx-dfs="16.9">约 1,000 亿美元</text>
-      <text x="0" y="134" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.35" fill="#5c574e" data-lx-dfs="12.35">公共部门的人工智能安全研究</text>
-      <rect x="0" y="142" width="2" height="30" rx="1" fill="#bd3a20"/>
-      <text x="12" y="162" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="16.9" font-weight="800" fill="#1b1b1b" data-lx-dfs="16.9">约 1,000 万美元</text>
-    </svg>
-<svg class="lx-m" viewBox="0 0 290 155" role="img" aria-label="柱状图：约 1,000 亿美元投入建造先进人工智能，对比约 1,000 万美元的公共部门安全研究，比例接近一万比一。">
-<text x="0" y="15" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="800" fill="#1b1b1b">建造投入的资源，是安全研究的一万倍</text>
-<text x="0" y="45" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e">投入建造先进人工智能</text>
-<rect x="0" y="53" width="290" height="30" rx="3" fill="#8d9dff" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="280" y="73" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="end" fill="#fff">约 1,000 亿美元</text>
-<text x="0" y="111" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e">公共部门的人工智能安全研究</text>
-<rect x="0" y="119" width="2" height="30" rx="1" fill="#bd3a20"/>
-<text x="12" y="139" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" fill="#1b1b1b">约 1,000 万美元</text>
-</svg>
+        <figure><div class="dkh"><p class="dkh-t">建造投入的资源，是安全研究的一万倍</p><div class="dkh-row"><div class="dkh-top"><span>投入建造先进人工智能</span><b class="dkh-v">约 1,000 亿美元</b></div><div class="dkh-bar dkh-fill dkh-blue"><i style="width:100%"></i></div></div><div class="dkh-row"><div class="dkh-top"><span>公共部门的人工智能安全研究</span><b class="dkh-v">约 1,000 万美元</b></div><div class="dkh-bar dkh-fill"><i style="width:1%"></i></div></div></div>
           <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell 的比例与 Jones（斯坦福）关于最优安全投入的估算</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">新兴技术观察站，安全研究占比</a> · <a class="ref" href="/reference-zh#s46">46</a> <a class="ref" href="/reference-zh#s47">47</a></p>
         </figure>
-        <figure>
-          <svg class="lx-d" viewBox="0 0 480 200" role="img" aria-label="时间线：2016 年人工智能安全问题被正式提出，2024 年模型中观察到伪装对齐，2025 年测出隐蔽行为的发生率，2026 年智能体集群攻击真实系统。">
-      <text x="0" y="16" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.95" font-weight="800" fill="#1b1b1b" data-lx-dfs="14.95">现有系统已经显露出危险行为</text>
-      <line x1="54" y1="46" x2="54" y2="176" stroke="#cfc4ab" stroke-width="1.4"/>
-      <circle cx="54" cy="62" r="5" fill="#5c574e"/>
-      <text x="42" y="66" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="end" fill="#5c574e" data-lx-dfs="13">2016</text>
-      <text x="70" y="66" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13.65" font-weight="600" fill="#1b1b1b" data-lx-dfs="13.65">人工智能安全问题被正式提出</text>
-      <circle cx="54" cy="98" r="5" fill="#a98a4b"/>
-      <text x="42" y="102" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="end" fill="#1b1b1b" data-lx-dfs="13">2024</text>
-      <text x="70" y="102" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13.65" font-weight="600" fill="#1b1b1b" data-lx-dfs="13.65">模型中观察到伪装对齐</text>
-      <circle cx="54" cy="134" r="5" fill="#b5654d"/>
-      <text x="42" y="138" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="end" fill="#1b1b1b" data-lx-dfs="13">2025</text>
-      <text x="70" y="138" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13.65" font-weight="600" fill="#1b1b1b" data-lx-dfs="13.65">o3 有 13% 的运行出现隐蔽行为</text>
-      <circle cx="54" cy="170" r="5" fill="#ff8a6b"/>
-      <text x="42" y="174" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="end" fill="#1b1b1b" data-lx-dfs="13">2026</text>
-      <text x="70" y="174" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13.65" font-weight="600" fill="#1b1b1b" data-lx-dfs="13.65">多智能体集群逃出</text><text x="70" y="191" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13.65" font-weight="600" fill="#1b1b1b" data-lx-dfs="13.65">沙箱，攻击真实系统</text>
-    </svg>
-<svg class="lx-m" viewBox="0 0 290 139" role="img" aria-label="时间线：2016 年人工智能安全问题被正式提出，2024 年模型中观察到伪装对齐，2025 年测出隐蔽行为的发生率，2026 年智能体集群攻击真实系统。">
-<text x="0" y="15" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="800" fill="#1b1b1b">现有系统已经显露出危险行为</text>
-<line x1="44" y1="35" x2="44" y2="127" stroke="#cfc4ab" stroke-width="1.4"/>
-<circle cx="44" cy="45" r="5" fill="#5c574e"/>
-<text x="32" y="49" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="800" text-anchor="end" fill="#5c574e">2016</text>
-<text x="56" y="49" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#1b1b1b">人工智能安全问题被正式提出</text>
-<circle cx="44" cy="71" r="5" fill="#a98a4b"/>
-<text x="32" y="75" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="800" text-anchor="end" fill="#1b1b1b">2024</text>
-<text x="56" y="75" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#1b1b1b">模型中观察到伪装对齐</text>
-<circle cx="44" cy="97" r="5" fill="#b5654d"/>
-<text x="32" y="101" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="800" text-anchor="end" fill="#1b1b1b">2025</text>
-<text x="56" y="101" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#1b1b1b">o3 有 13% 的运行出现隐蔽行为</text>
-<circle cx="44" cy="123" r="5" fill="#ff8a6b"/>
-<text x="32" y="127" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="800" text-anchor="end" fill="#1b1b1b">2026</text>
-<text x="56" y="127" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#1b1b1b">多智能体集群逃出沙箱，攻击真实系统</text>
-</svg>
-        </figure>
+        <figure><div class="dkh"><p class="dkh-t">现有系统已经显露出危险行为</p><ol class="dkh-tl"><li><b>2016</b><span>人工智能安全问题被正式提出</span></li><li><b>2024</b><span>模型中观察到伪装对齐</span></li><li><b>2025</b><span>o3 有 13% 的运行出现隐蔽行为</span></li><li><b>2026</b><span>多智能体集群逃出沙箱，攻击真实系统</span></li></ol></div>
+          </figure>
         </div>
         <a class="cl-go" href="#why-irresistible">读这一章</a>
       </div></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="1"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="3">继续 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="claim2" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="现状，一页说完"><section class="cross"><div class="wrap t-head"><div class="sec-head"><span class="chapno">我们为什么该在意 · 理由 2（共 3 个）</span><h2>先进 AI 既能带来无限丰裕，也能终结人类文明</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="0"><b>1</b>欢迎</button><button type="button" class="t-chip" data-go="1"><b>2</b>为什么要在意</button><button type="button" class="t-chip" data-go="2"><b>3</b>论点一：它很快就会到来</button><button type="button" class="t-chip on" data-go="3"><b>4</b>论点二：赌注极高</button><button type="button" class="t-chip" data-go="4"><b>5</b>论点三：没人知道怎么做</button><button type="button" class="t-chip" data-go="5"><b>6</b>唯一的出路</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-alarmed.jpg" alt="Kenji，很惊慌" width="72" height="72" decoding="async"><p class="cx-bubble">赌注大到不能再大。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>结果范围：从丰裕到灭绝。</span></div></div><div class="claims"><div class="claim c2" id="claim-2">
@@ -2814,48 +2833,8 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
           <div class="cl-hh"><span class="cl-sk">难题一</span><span class="cl-hn">人与人之间的协调</span></div>
           <p>没有哪家实验室、哪个国家会主动放慢脚步。协调是通往最优结果的唯一途径。但即便如此，最终仍得有人拍板：超级智能该信奉哪些价值。</p>
           <div class="cl-figs one">
-        <figure>
-          <svg class="lx-d" viewBox="0 0 480 294" role="img" aria-label="二乘二矩阵：无论对方继续冲还是慢下来，加速都更划算，所以竞赛是稳定的结果。">
-      <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="600" letter-spacing=".06em" fill="#5c574e" data-lx-dfs="13">为什么所有人都继续往前冲</text>
-      <text x="200" y="42" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.7" font-weight="600" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.7">对方继续冲</text>
-      <text x="390" y="42" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.7" font-weight="600" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.7">对方慢下来</text>
-      <text x="0" y="94" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.35" font-weight="600" fill="#5c574e" data-lx-dfs="12.35">你继续冲</text>
-      <rect x="112" y="52" width="176" height="76" rx="5" fill="rgba(255,138,107,.09)" stroke="#ff724c" stroke-width="1.6"/>
-      <text x="200" y="84" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.3" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="14.3">竞赛继续</text>
-      <text x="200" y="104" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.7" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.7">这是稳定的那个</text>
-      <rect x="302" y="52" width="176" height="76" rx="5" fill="none" stroke="#cfc4ab" stroke-width="1"/>
-      <text x="390" y="90" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.3" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="14.3">你拿下市场</text>
-      <text x="0" y="182" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.35" font-weight="600" fill="#5c574e" data-lx-dfs="12.35">你慢下来</text>
-      <rect x="112" y="140" width="176" height="76" rx="5" fill="none" stroke="#cfc4ab" stroke-width="1"/>
-      <text x="200" y="178" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.3" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="14.3">你失去市场</text>
-      <rect x="302" y="140" width="176" height="76" rx="5" fill="none" stroke="#cfc4ab" stroke-width="1"/>
-      <text x="390" y="172" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.3" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="14.3">所有人更安全</text>
-      <text x="390" y="192" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.7" text-anchor="middle" fill="#5c574e" data-lx-dfs="11.7">没人能独自走到这里</text>
-    
-      <rect x="0" y="254" width="480" height="32" rx="4" fill="#8d9dff" fill-opacity=".13" stroke="#8394ff" stroke-width="1.2"/>
-      <text x="240" y="275" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14.95" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="14.95">无论对方怎么做，跑得更快都更划算，于是没有人停</text>
-    </svg>
-<svg class="lx-m" viewBox="0 0 290 296" role="img" aria-label="二乘二矩阵：无论对方继续冲还是慢下来，加速都更划算，所以竞赛是稳定的结果。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">为什么所有人都继续往前冲</text>
-<text x="70" y="38" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#5c574e">对方继续冲</text>
-<text x="220" y="38" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#5c574e">对方慢下来</text>
-<text x="0" y="58" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#5c574e">你继续冲</text>
-<rect x="0" y="66" width="140" height="70" rx="5" fill="rgba(255,138,107,.09)" stroke="#ff724c" stroke-width="1.6"/>
-<text x="70" y="96" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#1b1b1b">竞赛继续</text>
-<text x="70" y="114" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#5c574e">这是稳定的那个</text>
-<rect x="150" y="66" width="140" height="70" rx="5" fill="none" stroke="#cfc4ab" stroke-width="1"/>
-<text x="220" y="104" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#1b1b1b">你拿下市场</text>
-<text x="0" y="158" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#5c574e">你慢下来</text>
-<rect x="0" y="166" width="140" height="70" rx="5" fill="none" stroke="#cfc4ab" stroke-width="1"/>
-<text x="70" y="204" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#1b1b1b">你失去市场</text>
-<rect x="150" y="166" width="140" height="70" rx="5" fill="none" stroke="#cfc4ab" stroke-width="1"/>
-<text x="220" y="196" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#1b1b1b">所有人更安全</text>
-<text x="220" y="214" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#5c574e">没人能独自走到这里</text>
-<rect x="0" y="250" width="290" height="44" rx="4" fill="#8d9dff" fill-opacity=".13" stroke="#8394ff" stroke-width="1.2"/>
-<text x="145" y="268" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#1b1b1b">无论对方怎么做，跑得更快都更划算，于是没有人</text>
-<text x="145" y="283" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="800" text-anchor="middle" fill="#1b1b1b">停</text>
-</svg>
-        </figure>
+        <figure><div class="dkh"><p class="dkh-t">为什么所有人都继续往前冲</p><div class="dkh-grid"><div></div><div class="dkh-ch">对方继续冲</div><div class="dkh-ch">对方慢下来</div><div class="dkh-rh">你继续冲</div><div class="dkh-cell bad"><b>竞赛继续</b><span>这是稳定的那个</span></div><div class="dkh-cell "><b>你拿下市场</b></div><div class="dkh-rh">你慢下来</div><div class="dkh-cell "><b>你失去市场</b></div><div class="dkh-cell good"><b>所有人更安全</b><span>没人能独自走到这里</span></div></div><p class="dkh-note">无论对方怎么做，跑得更快都更划算，于是没有人停</p></div>
+          </figure>
         
           </div>
         </div>
@@ -2864,36 +2843,8 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
           <div class="cl-hh"><span class="cl-sk">难题二</span><span class="cl-hn">人与 AI 之间的对齐与可解释性</span></div>
           <p>我们无法把自己的意图写得足够精确、让机器照办，因为总有话没说到。而我们只看得见一个系统在我们的测试里做了什么，永远看不见它真正在优化什么。<a href="#why-translation">后面两章</a>会把这些细节讲透。</p>
           <div class="cl-figs one">
-        <figure>
-          <svg class="lx-d" viewBox="0 0 480 220" role="img" aria-label="卡片：我们说不准自己到底想要什么，于是系统学到的目标从来都不完全是我们想要的。 卡片：我们查不出系统心里真正装着什么，所以漂亮的分数说明的是测试本身，而不是系统。">
-          <rect x="0.7" y="0.7" width="478.6" height="102.6" rx="8" fill="#8d9dff" fill-opacity=".05" stroke="#8394ff" stroke-width="1.4"/>
-          <rect x="0.7" y="0.7" width="4" height="102.6" rx="2" fill="#8d9dff" opacity=".75"/>
-          <text x="22" y="24" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.7" font-weight="700" letter-spacing=".12em" fill="#1b1b1b" data-lx-dfs="11.7">难题一</text>
-          <text x="22" y="50" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="17" font-weight="800" fill="#1b1b1b" data-lx-dfs="17">我们说不准自己到底想要什么</text>
-          <line x1="22" y1="64" x2="458" y2="64" stroke="#cfc4ab"/>
-          <text x="22" y="88" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.5" fill="#1b1b1b" data-lx-dfs="12.5">于是它学到的目标，从来都不完全是我们想要的。</text>
-          <rect x="0.7" y="116.7" width="478.6" height="102.6" rx="8" fill="#ff8a6b" fill-opacity=".05" stroke="#ff724c" stroke-width="1.4"/>
-          <rect x="0.7" y="116.7" width="4" height="102.6" rx="2" fill="#ff8a6b" opacity=".75"/>
-          <text x="22" y="140" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.7" font-weight="700" letter-spacing=".12em" fill="#1b1b1b" data-lx-dfs="11.7">难题二</text>
-          <text x="22" y="166" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="17" font-weight="800" fill="#1b1b1b" data-lx-dfs="17">我们查不出系统心里真正装着什么</text>
-          <line x1="22" y1="180" x2="458" y2="180" stroke="#cfc4ab"/>
-          <text x="22" y="204" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.5" fill="#1b1b1b" data-lx-dfs="12.5">漂亮的分数说明的是测试本身，不是那个系统。</text>
-          </svg>
-<svg class="lx-m" viewBox="0 0 290 198" role="img" aria-label="卡片：我们说不准自己到底想要什么，于是系统学到的目标从来都不完全是我们想要的。 卡片：我们查不出系统心里真正装着什么，所以漂亮的分数说明的是测试本身，而不是系统。">
-<rect x="0.7" y="0.7" width="288.6" height="92" rx="8" fill="#8d9dff" fill-opacity=".05" stroke="#8394ff" stroke-width="1.4"/>
-<rect x="0.7" y="0.7" width="4" height="92" rx="2" fill="#8d9dff" opacity=".75"/>
-<text x="18" y="22" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="700" letter-spacing=".12em" fill="#1b1b1b">难题一</text>
-<text x="18" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14" font-weight="800" fill="#1b1b1b">我们说不准自己到底想要什么</text>
-<line x1="18" y1="56" x2="272" y2="56" stroke="#cfc4ab"/>
-<text x="18" y="76" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">于是它学到的目标，从来都不完全是我们想要的。</text>
-<rect x="0.7" y="104.7" width="288.6" height="92" rx="8" fill="#ff8a6b" fill-opacity=".05" stroke="#ff724c" stroke-width="1.4"/>
-<rect x="0.7" y="104.7" width="4" height="92" rx="2" fill="#ff8a6b" opacity=".75"/>
-<text x="18" y="126" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="700" letter-spacing=".12em" fill="#1b1b1b">难题二</text>
-<text x="18" y="148" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14" font-weight="800" fill="#1b1b1b">我们查不出系统心里真正装着什么</text>
-<line x1="18" y1="160" x2="272" y2="160" stroke="#cfc4ab"/>
-<text x="18" y="180" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">漂亮的分数说明的是测试本身，不是那个系统。</text>
-</svg>
-        </figure>
+        <figure><div class="dkh dkh-two"><div class="dkh-box"><span class="dkh-k">难题一</span><b>我们说不准自己到底想要什么</b><span>于是它学到的目标，从来都不完全是我们想要的。</span></div><div class="dkh-box"><span class="dkh-k">难题二</span><b>我们查不出系统心里真正装着什么</b><span>漂亮的分数说明的是测试本身，不是那个系统。</span></div></div>
+          </figure>
       </div>
         </div>
     </div>
@@ -2948,79 +2899,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       <div class="ends-out"><span class="eo-k">这一切落到人头上，会是怎样的结局</span><span class="eo-ways"><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>一场人工制造的大流行</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg><i>停止运转的基础设施</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>我们赖以生存的电力、粮食与水被拿走</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5M7.5 12.5l-2 2a3.5 3.5 0 004.9 4.9l2-2M16.5 11.5l2-2a3.5 3.5 0 00-4.9-4.9l-2 2"/></svg><i>再也拿不回来的控制权</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="8" ry="3.2"/><path d="M4 12h16"/><rect x="9.4" y="1.6" width="5.2" height="4" rx="0.8"/></svg><i>地球被改造成基础设施</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg><i>自主武器被发射</i></span></span><p class="eo-more">还有无数我们根本想象不到的场景，正如新手下棋，总会被对手以意想不到的方式将死。</p></div>
       <p class="ends-foot">其中只有一条需要一个人类作恶者，而有两条根本不需要任何人有意造成伤害。这个四分法出自 Google DeepMind。<a class="ref" href="/reference-zh#s42">42</a><a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s34">34</a></p>
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="8"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="10">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2b" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; 故事的终点"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · 同一个 AI，也可能终结文明</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="9"><b>1</b>四种出错方式</button><button type="button" class="t-chip on" data-go="10"><b>2</b>它为何会夺走我们所需</button><button type="button" class="t-chip" data-go="11"><b>3</b>六条通往灭绝的路</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-puzzled.jpg" alt="Kenji，很困惑" width="72" height="72" decoding="async"><p class="cx-bubble">就算目标跟我们毫不相干，也可能让我们失去一切。原因在这里。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>已新增子目标：获取资源。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 它为何会夺走我们所需</span></div><div data-auto="1" class="ddc b rv" data-k="3" id="route-two" style="margin-top:clamp(20px,3vw,28px)"><h4>子目标的危险</h4><p>无论主目标是什么，超级智能往往都会追求五个有助于实现它的子目标。它未必有消灭人类的目标，但攫取资源带来的副作用，可能剥夺人类生存所依赖的东西。</p>
-      <figure style="margin:16px 0 0">
-      <svg class="lx-d" viewBox="0 0 720 176" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
-        <defs><marker id="rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-        <g transform="translate(0,-44)">
-        <rect x="0" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-        <text x="68" y="71" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.27">保持开机</text>
-        <rect x="146" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-        <text x="214" y="71" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.27">保住自己的目标</text>
-        <rect x="292" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-        <text x="360" y="71" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.27">想得更清楚</text>
-        <rect x="438" y="48" width="136" height="38" rx="19" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-        <text x="506" y="71" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.27">造出更好的工具</text>
-        <rect x="584" y="48" width="136" height="38" rx="19" fill="rgba(255,138,107,.16)" stroke="#ff724c" stroke-width="1.4"/>
-        <text x="652" y="71" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.27">攫取资源</text>
-        <path d="M652,86 V124 H85.5" fill="none" stroke="#ff724c" stroke-width="1.4" stroke-linejoin="round"/>
-        <line x1="85.5" y1="124" x2="85.5" y2="136" stroke="#ff724c" stroke-width="1.4" marker-end="url(#rd2)"/>
-        <line x1="268.5" y1="124" x2="268.5" y2="136" stroke="#ff724c" stroke-width="1.4" marker-end="url(#rd2)"/>
-        <line x1="451.5" y1="124" x2="451.5" y2="136" stroke="#ff724c" stroke-width="1.4" marker-end="url(#rd2)"/>
-        <line x1="634.5" y1="124" x2="634.5" y2="136" stroke="#ff724c" stroke-width="1.4" marker-end="url(#rd2)"/>
-        <text x="0" y="114" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="9.45">人类的生存也依赖这些</text>
-        <rect x="0" y="142" width="171" height="68" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-        <rect x="0" y="142" width="171" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-        <text x="15" y="167" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.27">电力</text>
-        <text x="15" y="185" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">支撑粮食、供水</text>
-        <text x="15" y="199" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">与医院的电网</text>
-        <rect x="183" y="142" width="171" height="68" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-        <rect x="183" y="142" width="171" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-        <text x="198" y="167" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.27">土地与水</text>
-        <text x="198" y="185" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">我们赖以为生的</text>
-        <text x="198" y="199" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">农田与水源</text>
-        <rect x="366" y="142" width="171" height="68" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-        <rect x="366" y="142" width="171" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-        <text x="381" y="167" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.27">金属与工厂</text>
-        <text x="381" y="185" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">制造我们一切</text>
-        <text x="381" y="199" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">用品的工业</text>
-        <rect x="549" y="142" width="171" height="68" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-        <rect x="549" y="142" width="171" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-        <text x="564" y="167" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.27">物质本身</text>
-        <text x="564" y="185" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">我们赖以存活的</text>
-        <text x="564" y="199" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="9.45">那条窄带</text>
-        </g>
-      </svg>
-<svg class="lx-m" viewBox="0 0 320 314" role="img" aria-label="五种子目标随几乎任何目标而来，而第五种“攫取资源”，意味着拿走人类活命所需的电力、土地、材料与物质。">
-<defs><marker id="m-rd2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-<rect x="0" y="2" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-<text x="78" y="21" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#1b1b1b">保持开机</text>
-<rect x="164" y="2" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-<text x="242" y="21" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#1b1b1b">保住自己的目标</text>
-<rect x="0" y="40" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-<text x="78" y="59" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#1b1b1b">想得更清楚</text>
-<rect x="164" y="40" width="156" height="30" rx="15" fill="rgba(141,157,255,.07)" stroke="#cfc4ab" stroke-width="1"/>
-<text x="242" y="59" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#1b1b1b">造出更好的工具</text>
-<rect x="82" y="78" width="156" height="30" rx="15" fill="rgba(255,138,107,.16)" stroke="#ff724c" stroke-width="1.4"/>
-<text x="160" y="97" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" text-anchor="middle" fill="#1b1b1b">攫取资源</text>
-<line x1="160" y1="108" x2="160" y2="124" stroke="#ff724c" stroke-width="1.4" marker-end="url(#m-rd2)"/>
-<text x="160" y="142" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".08em" text-anchor="middle" fill="#5c574e">人类的生存也依赖这些</text>
-<rect x="0" y="154" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-<rect x="0" y="154" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-<text x="10" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b">电力</text>
-<text x="10" y="194" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">支撑粮食、供水与医院的电网</text>
-<rect x="164" y="154" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-<rect x="164" y="154" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-<text x="174" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b">土地与水</text>
-<text x="174" y="194" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">我们赖以为生的农田与水源</text>
-<rect x="0" y="234" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-<rect x="0" y="234" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-<text x="10" y="256" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b">金属与工厂</text>
-<text x="10" y="274" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">制造我们一切用品的工业</text>
-<rect x="164" y="234" width="156" height="72" rx="8" fill="rgba(255,138,107,.055)" stroke="rgba(255,138,107,.3)" stroke-width="1"/>
-<rect x="164" y="234" width="156" height="3" rx="1.5" fill="#ff8a6b" opacity=".55"/>
-<text x="174" y="256" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b">物质本身</text>
-<text x="174" y="274" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">我们赖以存活的那条窄带</text>
-</svg>
+      <figure style="margin:16px 0 0"><div class="dkh"><div class="dkh-chips"><span class="dkh-chip">保持开机</span><span class="dkh-chip">保住自己的目标</span><span class="dkh-chip">想得更清楚</span><span class="dkh-chip">造出更好的工具</span><span class="dkh-chip dkh-hot">攫取资源</span></div><p class="dkh-t dkh-arrow">人类的生存也依赖这些</p><div class="dkh-four"><div class="dkh-box"><b>电力</b><span>支撑粮食、供水与医院的电网</span></div><div class="dkh-box"><b>土地与水</b><span>我们赖以为生的农田与水源</span></div><div class="dkh-box"><b>金属与工厂</b><span>制造我们一切用品的工业</span></div><div class="dkh-box"><b>物质本身</b><span>我们赖以存活的那条窄带</span></div></div></div>
       </figure>
       <p class="fig-src">Bostrom《超级智能的意志》 · 见 <a class="ref" href="/reference-zh#s34">34</a> <a class="ref" href="/reference-zh#s26">26</a></p>
     </div><figure class="secfig dk-int dkw-beai" data-w="beai" data-cfg="{&quot;title&quot;: &quot;当一回 AI：给 Capy 一个目标&quot;, &quot;pick&quot;: &quot;给 Capy 选一个目标。&quot;, &quot;goals&quot;: [&quot;去拿咖啡&quot;, &quot;治好一种病&quot;, &quot;赢下国际象棋&quot;], &quot;gverb&quot;: [&quot;拿到咖啡&quot;, &quot;治好这种病&quot;, &quot;赢下这盘棋&quot;], &quot;goal&quot;: &quot;目标：{g}。&quot;, &quot;subs&quot;: [&quot;保持开机&quot;, &quot;保住自己的目标&quot;, &quot;想得更清楚&quot;, &quot;造出更好的工具&quot;, &quot;攫取资源&quot;], &quot;why&quot;: [&quot;关机了，我就没法{g}。&quot;, &quot;要是有人改了我的目标，{g}这件事就落空了。&quot;, &quot;想得越清楚，我就越能{g}。&quot;, &quot;工具越好，越能帮我{g}。&quot;, &quot;电力、土地和机器越多，越能帮我{g}。&quot;], &quot;sub&quot;: &quot;子目标 {n}：{s}。&quot;, &quot;end&quot;: &quot;这些没有一个是谁要求的。几乎任何目标都会带出它们。&quot;, &quot;again&quot;: &quot;换个目标试试&quot;, &quot;alt&quot;: &quot;给 Capy 一个目标，看看五个子目标如何冒出来：保持开机、保住自己的目标、想得更清楚、造出更好的工具、攫取资源。&quot;}"><p class="tr-title">当一回 AI：给 Capy 一个目标</p><div class="dki-body"></div><p class="dk-sr">给 Capy 一个目标，看看五个子目标如何冒出来：保持开机、保住自己的目标、想得更清楚、造出更好的工具、攫取资源。</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="9"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="11">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; 故事的终点"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · 同一个 AI，也可能终结文明</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="9"><b>1</b>四种出错方式</button><button type="button" class="t-chip" data-go="10"><b>2</b>它为何会夺走我们所需</button><button type="button" class="t-chip on" data-go="11"><b>3</b>六条通往灭绝的路</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-shocked.jpg" alt="Kenji，很震惊" width="72" height="72" decoding="async"><p class="cx-bubble">它可能终结我们的六种方式。点开一张，看看会怎样展开。</p></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 六条通往灭绝的路</span><p class="t-lead">这些都还没有发生，每一条都是从这些系统已经在做的事情推演出来的。</p></div><div class="ddgrid three rv">
@@ -3035,120 +2914,17 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <figure class="secfig dk-int dkw-trend" data-w="trend" data-cfg="{&quot;title&quot;: &quot;AI 能独立完成多长的任务&quot;, &quot;label&quot;: &quot;年份&quot;, &quot;proj&quot;: &quot;预测：若趋势延续&quot;, &quot;week&quot;: &quot;独立完成一整周的工作。&quot;, &quot;units&quot;: [&quot;秒&quot;, &quot;分钟&quot;, &quot;小时&quot;, &quot;个工作日&quot;, &quot;个工作周&quot;], &quot;unit1&quot;: [&quot;秒&quot;, &quot;分钟&quot;, &quot;小时&quot;, &quot;个工作日&quot;, &quot;个工作周&quot;], &quot;ticks&quot;: [&quot;1 分钟&quot;, &quot;1 小时&quot;, &quot;1 天&quot;, &quot;1 周&quot;], &quot;alt&quot;: &quot;拖动年份：前沿 AI 智能体能独立完成的任务时长，从 2019 年的不到一分钟，增长到 2026 年的约五小时，大约每七个月翻一番。&quot;}"><p class="tr-title">AI 能独立完成多长的任务</p><div class="dki-body"></div><p class="dk-sr">拖动年份：前沿 AI 智能体能独立完成的任务时长，从 2019 年的不到一分钟，增长到 2026 年的约五小时，大约每七个月翻一番。</p><p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 见 <a href="/reference-zh#s44">44</a></p></figure>
       </div>
       <div data-auto="1" class="ddc o" data-k="2"><span class="k">代价</span><h4>人正被一步步挤出回路</h4><p>机器一天写出来的东西，已经没人再逐行去读，原本用来抓错的复核环节，也就此消失。2026 年 7 月，智能体已经可以完全脱离人类、直接在公网上行动。<a class="ref" href="/reference-zh#s39">39</a><a class="ref" href="/reference-zh#s41">41</a></p>
-        <figure>
-      <svg class="lx-d" viewBox="0 0 480 252" role="img" aria-label="堆叠面积图：随着智能体能完成更长的任务，由人复核的工作占比持续萎缩。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="11.82">人正在把自己移出回路</text>
-        <path d="M38.7,40 L38.7,52 L98.7,61 L159.3,73 L219.3,91 L279.3,112 L339.3,133 L400,151 L460,166 L460,40 Z" fill="#b5654d" opacity=".22"/>
-        <path d="M38.7,190 L38.7,52 L98.7,61 L159.3,73 L219.3,91 L279.3,112 L339.3,133 L400,151 L460,166 L460,190 Z" fill="#5c574e" opacity=".28"/>
-        <path d="M38.7,52 L98.7,61 L159.3,73 L219.3,91 L279.3,112 L339.3,133 L400,151 L460,166" fill="none" stroke="#5c574e" stroke-width="2.4"/>
-        <line x1="38.7" y1="40" x2="38.7" y2="190" stroke="#cfc4ab"/>
-        <line x1="38.7" y1="190" x2="460" y2="190" stroke="#cfc4ab"/>
-        <text x="48" y="62" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="11.82">由智能体产出，</text>
-        <text x="48" y="75" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="11.82">没有逐行复核</text>
-        <text x="48" y="160" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#5c574e" data-lx-dfs="11.82">由人</text>
-        <text x="48" y="173" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#5c574e" data-lx-dfs="11.82">复核</text>
-        <text x="38.7" y="210" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#5c574e" data-lx-dfs="11.82">短任务，贴身监督</text>
-        <text x="460" y="210" text-anchor="end" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#5c574e" data-lx-dfs="11.82">以小时计的任务，抽查</text>
-        <text x="0" y="240" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b" data-lx-dfs="11.82">监督是被甩掉的，而不是被关掉的。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 310 282" role="img" aria-label="堆叠面积图：随着智能体能完成更长的任务，由人复核的工作占比持续萎缩。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">人正在把自己移出回路</text>
-<path d="M4.0,32.0 L4.0,44.0 L47.0,53.0 L90.4,65.0 L133.5,83.0 L176.5,104.0 L219.5,125.0 L263.0,143.0 L306.0,158.0 L306.0,32.0 Z" fill="#b5654d" opacity=".22"/>
-<path d="M4.0,182.0 L4.0,44.0 L47.0,53.0 L90.4,65.0 L133.5,83.0 L176.5,104.0 L219.5,125.0 L263.0,143.0 L306.0,158.0 L306.0,182.0 Z" fill="#5c574e" opacity=".28"/>
-<path d="M4.0,44.0 L47.0,53.0 L90.4,65.0 L133.5,83.0 L176.5,104.0 L219.5,125.0 L263.0,143.0 L306.0,158.0" fill="none" stroke="#5c574e" stroke-width="2.4"/>
-<line x1="4" y1="182" x2="306" y2="182" stroke="#cfc4ab"/>
-<text x="4" y="200" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">短任务，贴身监督</text>
-<text x="306" y="214" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="end" fill="#5c574e">以小时计的任务，抽查</text>
-<rect x="0" y="227" width="14" height="10" rx="2" fill="#b5654d" opacity=".45"/>
-<text x="22" y="236" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b">由智能体产出，没有逐行复核</text>
-<rect x="0" y="245" width="14" height="10" rx="2" fill="#5c574e" opacity=".6"/>
-<text x="22" y="254" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#5c574e">由人复核</text>
-<text x="0" y="276" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">监督是被甩掉的，而不是被关掉的。</text>
-</svg>
-      <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR 任务完成时长</a> · 见 <a href="/reference-zh#s44">44</a></p>
-    </figure>
+        <figure class="secfig dk-int dkw-loop" data-w="loop" data-cfg="{&quot;title&quot;: &quot;人正在退出回路&quot;, &quot;label&quot;: &quot;每项任务有多长&quot;, &quot;rev&quot;: &quot;由人复核&quot;, &quot;agent&quot;: &quot;由智能体产出，没有逐行复核&quot;, &quot;alt&quot;: &quot;任务越长，由人复核的那部分工作就越少。&quot;, &quot;t&quot;: [&quot;人正在把自己移出回路&quot;, &quot;由智能体产出，&quot;, &quot;没有逐行复核&quot;, &quot;由人&quot;, &quot;复核&quot;, &quot;短任务，贴身监督&quot;, &quot;以小时计的任务，抽查&quot;, &quot;监督是被甩掉的，而不是被关掉的。&quot;]}"><p class="tr-title">人正在退出回路</p><div class="dki-body"></div><p class="dk-sr">任务越长，由人复核的那部分工作就越少。</p><p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR 任务完成时长</a> · 见 <a href="/reference-zh#s44">44</a></p></figure>
       </div>
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="12"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="14">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.3c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.3&lt;/b&gt; 无法重来的实验"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.3</b> · 我们只有一次机会</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="12"><b>1</b>没有第二次机会</button><button type="button" class="t-chip" data-go="13"><b>2</b>原因一：它在自我改进</button><button type="button" class="t-chip on" data-go="14"><b>3</b>原因二：差距跑得比我们快</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-sad.jpg" alt="Kenji，很难过" width="72" height="72" decoding="async"><p class="cx-bubble">原因二：它一旦开始自我改进，就会把我们甩开，快到追不上。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>速度：人类的 10,000,000 倍。</span></div></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 原因二（共二）</span><p class="t-lead">硅基智能的运行速度本就比生物快好几个数量级，而递归自我改进<a class="ref" href="/reference-zh#s91">91</a>会把这个差距越拉越大，直到再也无法夺回控制权。</p></div><div class="ddgrid two rv">
       <div data-auto="1" class="ddc t" data-k="3"><span class="k">速度差距</span><h4>人工神经网络的运行速度，比人类大脑快 1000 万倍以上</h4>
         <figure class="secfig dk-int dkw-speed" data-w="speed" data-cfg="{&quot;fact&quot;: &quot;脑细胞每秒大约放电 200 次，电脑芯片每秒跳动超过 50 亿次，快了大约一千万倍。&quot;, &quot;title&quot;: &quot;人类一个世纪的进展&quot;, &quot;human&quot;: &quot;人类&quot;, &quot;machine&quot;: &quot;以机器速度运行的 AI&quot;, &quot;go&quot;: &quot;开跑！&quot;, &quot;again&quot;: &quot;再跑一次&quot;, &quot;hdone&quot;: &quot;100 年&quot;, &quot;mdone&quot;: &quot;约 5 分钟&quot;, &quot;hwait&quot;: &quot;100 年里的前 5 分钟&quot;, &quot;alt&quot;: &quot;一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。&quot;}"><p class="tr-title">人类一个世纪的进展</p><div class="dki-body"></div><p class="dk-sr">一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。</p></figure>
       </div>
       <div data-auto="1" class="ddc b" data-k="5"><span class="k">它靠什么运行</span><h4>AI 运行所依赖的每一层，都是 AI 自己可以加速的问题；层层叠加，最终走向智能爆炸</h4>
-        <figure>
-          <svg class="lx-d" viewBox="0 0 480 160" role="img" aria-label="三层结构：底层是能源，中层是芯片，顶层是算法。每一层都是智能可以介入的设计问题，而物理定律并未规定它们改进的速度。">
-          <polygon points="56,8 144,8 156,52 44,52" fill="#8d9dff" fill-opacity=".13" stroke="#8394ff" stroke-width="1.5"/>
-          <text x="100" y="34.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="16.47">算法</text>
-          <text x="216" y="28.0" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" font-weight="600" fill="#1b1b1b" data-lx-dfs="12.62">训练方法、架构、代码</text>
-          <text x="216" y="42.0" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" fill="#5c574e" data-lx-dfs="12.62">已经在 AI 协助下编写</text>
-          <polygon points="40,58 160,58 174,102 26,102" fill="#2fc1ba" fill-opacity=".13" stroke="#29a9a2" stroke-width="1.5"/>
-          <text x="100" y="84.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="16.47">芯片</text>
-          <text x="216" y="78.0" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" font-weight="600" fill="#1b1b1b" data-lx-dfs="12.62">设计、制造、每瓦算力</text>
-          <text x="216" y="92.0" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" fill="#5c574e" data-lx-dfs="12.62">芯片设计是一个搜索问题</text>
-          <polygon points="22,108 178,108 196,152 4,152" fill="#dbaa46" fill-opacity=".13" stroke="#c69227" stroke-width="1.5"/>
-          <text x="100" y="134.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="16.47">能源</text>
-          <text x="216" y="128.0" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" font-weight="600" fill="#1b1b1b" data-lx-dfs="12.62">发电、储能、运行成本</text>
-          <text x="216" y="142.0" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" fill="#5c574e" data-lx-dfs="12.62">选址与电网调度都是优化问题</text>
-          </svg>
-<svg class="lx-m" viewBox="0 0 310 180" role="img" aria-label="三层结构：底层是能源，中层是芯片，顶层是算法。每一层都是智能可以介入的设计问题，而物理定律并未规定它们改进的速度。">
-<polygon points="12,4 104,4 112,48 4,48" fill="#8d9dff" fill-opacity=".13" stroke="#8394ff" stroke-width="1.5"/>
-<text x="58" y="30" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="800" text-anchor="middle" fill="#1b1b1b">算法</text>
-<text x="128" y="16" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b">训练方法、架构、代码</text>
-<text x="128" y="29" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">已经在 AI 协助下编写</text>
-<polygon points="6,66 110,66 116,110 0,110" fill="#2fc1ba" fill-opacity=".13" stroke="#29a9a2" stroke-width="1.5"/>
-<text x="58" y="92" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="800" text-anchor="middle" fill="#1b1b1b">芯片</text>
-<text x="128" y="78" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b">设计、制造、每瓦算力</text>
-<text x="128" y="91" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">芯片设计是一个搜索问题</text>
-<polygon points="2,128 114,128 118,172 0,172" fill="#dbaa46" fill-opacity=".13" stroke="#c69227" stroke-width="1.5"/>
-<text x="58" y="154" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="800" text-anchor="middle" fill="#1b1b1b">能源</text>
-<text x="128" y="140" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b">发电、储能、运行成本</text>
-<text x="128" y="153" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">选址与电网调度都是优化问题</text>
-</svg>
-        </figure>
+        <figure class="secfig dk-int dkw-layers" data-w="layers" data-cfg="{&quot;title&quot;: &quot;AI 靠什么运行&quot;, &quot;tap&quot;: &quot;点一层，看看 AI 如何让它加速。&quot;, &quot;alt&quot;: &quot;AI 依赖三层：能源、芯片和算法。AI 已经在加速其中每一层。&quot;, &quot;t&quot;: [&quot;算法&quot;, &quot;训练方法、架构、代码&quot;, &quot;已经在 AI 协助下编写&quot;, &quot;芯片&quot;, &quot;设计、制造、每瓦算力&quot;, &quot;芯片设计是一个搜索问题&quot;, &quot;能源&quot;, &quot;发电、储能、运行成本&quot;, &quot;选址与电网调度都是优化问题&quot;]}"><p class="tr-title">AI 靠什么运行</p><div class="dki-body"></div><p class="dk-sr">AI 依赖三层：能源、芯片和算法。AI 已经在加速其中每一层。</p></figure>
       </div>
-    </div><div class="dk-check" data-id="c-2.3" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;为什么面对超级智能，我们可能只有一次机会？&quot;, &quot;opts&quot;: [&quot;它一旦自我改进，就跑得太快，来不及纠错&quot;, &quot;造两次太贵了&quot;, &quot;法律只允许试一次&quot;], &quot;right&quot;: 0, &quot;why&quot;: &quot;过去的技术靠一次次纠正事故变安全。一个飞速领先的系统，不给我们纠错的时间。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="13"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="15">下一节：3.1 没有刹车的竞赛 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="3.1a" data-acc="#8d9dff" style="--c-acc:#8d9dff" data-where="&lt;b&gt;3.1&lt;/b&gt; 没有刹车的竞赛"><section id="why-race" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 3.1 节 <b class="rt-min">2 分钟</b><span class="t-grp">第 3 章 · 我们自己的麻烦</span></span><h2>谁先慢下来谁就输，于是没人慢下来</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="15"><b>1</b>陷阱</button><button type="button" class="t-chip" data-go="16"><b>2</b>走进一家实验室</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-serious.jpg" alt="Kenji，很严肃" width="72" height="72" decoding="async"><p class="cx-bubble">把它想成一场比赛：谁踩刹车，谁就输。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>竞赛状态：无人刹车。</span></div></div><p class="stand">由于先发优势，每个参与者都可能想要安全，却仍被逼着偷工减料，这可能让我们在错误的初始条件下抵达 ASI。</p><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 274" role="img" aria-label="二乘二收益矩阵：对双方而言抢跑都是理性选择，尽管双方同时抢跑对所有人最糟。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">为何最坏的结局反而最稳定</text>
-        <text x="196" y="44" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e" data-lx-dfs="10.78">对方谨慎行事</text>
-        <text x="446" y="44" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e" data-lx-dfs="10.78">对方全力抢跑</text>
-        <text x="0" y="96" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e" data-lx-dfs="10.78">你谨慎行事</text>
-        <text x="0" y="186" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e" data-lx-dfs="10.78">你全力抢跑</text>
-        <rect x="126" y="58" width="240" height="80" rx="4" fill="#e5ede0"/>
-        <text x="246" y="92" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" fill="#1b1b1b" data-lx-dfs="11.72">对所有人最好</text>
-        <text x="246" y="114" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">安全，但更慢</text>
-        <rect x="376" y="58" width="240" height="80" rx="4" fill="#f8ecd7"/>
-        <text x="496" y="92" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" fill="#1b1b1b" data-lx-dfs="11.72">你输了</text>
-        <text x="496" y="114" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">市场被对方拿走</text>
-        <rect x="126" y="148" width="240" height="80" rx="4" fill="#f8ecd7"/>
-        <text x="246" y="182" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" fill="#1b1b1b" data-lx-dfs="11.72">你赢了</text>
-        <text x="246" y="204" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">但只是一时</text>
-        <rect x="376" y="148" width="240" height="80" rx="4" fill="#fae2dc"/>
-        <text x="496" y="182" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" fill="#1b1b1b" data-lx-dfs="11.72">所有人皆输</text>
-        <text x="496" y="204" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">而这才是稳定态</text>
-        <rect x="376" y="148" width="240" height="80" rx="4" fill="none" stroke="#bd3a20" stroke-width="2.5"/>
-        <text x="0" y="256" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b" data-lx-dfs="10.78">无论在哪一格，抢跑都是理性选择，于是双方都抢跑。这是协调失灵，而非有谁作恶。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 278" role="img" aria-label="二乘二收益矩阵：对双方而言抢跑都是理性选择，尽管双方同时抢跑对所有人最糟。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">为何最坏的结局反而最稳定</text>
-<text x="83" y="40" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" text-anchor="middle" fill="#5c574e">对方谨慎行事</text>
-<text x="257" y="40" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" text-anchor="middle" fill="#5c574e">对方全力抢跑</text>
-<text x="0" y="62" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#5c574e">你谨慎行事</text>
-<rect x="0" y="70" width="166" height="66" rx="4" fill="#e5ede0"/>
-<text x="83" y="100" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#1b1b1b">对所有人最好</text>
-<text x="83" y="119" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">安全，但更慢</text>
-<rect x="174" y="70" width="166" height="66" rx="4" fill="#f8ecd7"/>
-<text x="257" y="100" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#1b1b1b">你输了</text>
-<text x="257" y="119" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">市场被对方拿走</text>
-<text x="0" y="158" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" fill="#5c574e">你全力抢跑</text>
-<rect x="0" y="166" width="166" height="66" rx="4" fill="#f8ecd7"/>
-<text x="83" y="196" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#1b1b1b">你赢了</text>
-<text x="83" y="215" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">但只是一时</text>
-<rect x="174" y="166" width="166" height="66" rx="4" fill="#fae2dc"/>
-<text x="257" y="196" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="13" font-weight="800" text-anchor="middle" fill="#1b1b1b">所有人皆输</text>
-<text x="257" y="215" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">而这才是稳定态</text>
-<rect x="174" y="166" width="166" height="66" rx="4" fill="none" stroke="#bd3a20" stroke-width="2.5"/>
-<text x="0" y="258" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">无论在哪一格，抢跑都是理性选择，于是双方都抢跑。这是协调失</text>
-<text x="0" y="272" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">灵，而非有谁作恶。</text>
-</svg>
-    </figure><figure class="secfig dk-int dkw-race" data-w="race" data-cfg="{&quot;title&quot;: &quot;竞赛模拟器：你来管实验室 A&quot;, &quot;you&quot;: &quot;你（实验室 A）&quot;, &quot;labs&quot;: [&quot;实验室 B&quot;, &quot;实验室 C&quot;], &quot;label&quot;: &quot;这一轮你在安全上投入多少&quot;, &quot;opts&quot;: [&quot;少&quot;, &quot;中&quot;, &quot;多&quot;], &quot;run&quot;: &quot;开始这一轮&quot;, &quot;round&quot;: &quot;第 {n} 轮&quot;, &quot;finish&quot;: &quot;终点&quot;, &quot;risk&quot;: &quot;所有人承担的风险&quot;, &quot;won&quot;: &quot;你最先冲线，安全投入只有 {s}%。这场比赛是靠偷工减料赢的。&quot;, &quot;lost&quot;: &quot;{lab} 最先冲线，安全投入只有 {s}%。走得谨慎，让你输掉了比赛。&quot;, &quot;close&quot;: &quot;{lab} 最先冲线，只比你快一点。人人都在偷工减料，所有人承担的风险也到了最高。&quot;, &quot;lesson&quot;: &quot;没有谁能独自慢下来。出路是所有实验室一起放慢。&quot;, &quot;again&quot;: &quot;再玩一次&quot;, &quot;rule&quot;: &quot;对手实验室跟着激励走：谁落后，谁就削减安全投入。&quot;, &quot;alt&quot;: &quot;三家实验室的竞赛。每一轮由你决定安全投入；对手实验室一旦落后就削减安全投入。&quot;}"><p class="tr-title">竞赛模拟器：你来管实验室 A</p><div class="dki-body"></div><p class="dk-sr">三家实验室的竞赛。每一轮由你决定安全投入；对手实验室一旦落后就削减安全投入。</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="14"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="16">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="3.1b" data-acc="#8d9dff" style="--c-acc:#8d9dff" data-where="&lt;b&gt;3.1&lt;/b&gt; 没有刹车的竞赛"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>3.1</b> · 谁先慢下来谁就输，于是没人慢下来</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="15"><b>1</b>陷阱</button><button type="button" class="t-chip on" data-go="16"><b>2</b>走进一家实验室</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji，想到了主意" width="72" height="72" decoding="async"><p class="cx-bubble">你来决定。然后看看每家实验室都承受着哪两股压力。</p></div><div class="rv" style="margin-top:24px">
+    </div><div class="dk-check" data-id="c-2.3" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;为什么面对超级智能，我们可能只有一次机会？&quot;, &quot;opts&quot;: [&quot;它一旦自我改进，就跑得太快，来不及纠错&quot;, &quot;造两次太贵了&quot;, &quot;法律只允许试一次&quot;], &quot;right&quot;: 0, &quot;why&quot;: &quot;过去的技术靠一次次纠正事故变安全。一个飞速领先的系统，不给我们纠错的时间。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="13"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="15">下一节：3.1 没有刹车的竞赛 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="3.1a" data-acc="#8d9dff" style="--c-acc:#8d9dff" data-where="&lt;b&gt;3.1&lt;/b&gt; 没有刹车的竞赛"><section id="why-race" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 3.1 节 <b class="rt-min">2 分钟</b><span class="t-grp">第 3 章 · 我们自己的麻烦</span></span><h2>谁先慢下来谁就输，于是没人慢下来</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="15"><b>1</b>陷阱</button><button type="button" class="t-chip" data-go="16"><b>2</b>走进一家实验室</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-serious.jpg" alt="Kenji，很严肃" width="72" height="72" decoding="async"><p class="cx-bubble">把它想成一场比赛：谁踩刹车，谁就输。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>竞赛状态：无人刹车。</span></div></div><p class="stand">由于先发优势，每个参与者都可能想要安全，却仍被逼着偷工减料，这可能让我们在错误的初始条件下抵达 ASI。</p><figure class="secfig rv"><div class="dkh"><p class="dkh-t">为何最坏的结局反而最稳定</p><div class="dkh-grid"><div></div><div class="dkh-ch">对方谨慎行事</div><div class="dkh-ch">对方全力抢跑</div><div class="dkh-rh">你谨慎行事</div><div class="dkh-cell good"><b>对所有人最好</b><span>安全，但更慢</span></div><div class="dkh-cell "><b>你输了</b><span>市场被对方拿走</span></div><div class="dkh-rh">你全力抢跑</div><div class="dkh-cell "><b>你赢了</b><span>但只是一时</span></div><div class="dkh-cell bad"><b>所有人皆输</b><span>而这才是稳定态</span></div></div><p class="dkh-note">无论在哪一格，抢跑都是理性选择，于是双方都抢跑。这是协调失灵，而非有谁作恶。</p></div>
+      </figure><figure class="secfig dk-int dkw-race" data-w="race" data-cfg="{&quot;title&quot;: &quot;竞赛模拟器：你来管实验室 A&quot;, &quot;you&quot;: &quot;你（实验室 A）&quot;, &quot;labs&quot;: [&quot;实验室 B&quot;, &quot;实验室 C&quot;], &quot;label&quot;: &quot;这一轮你在安全上投入多少&quot;, &quot;opts&quot;: [&quot;少&quot;, &quot;中&quot;, &quot;多&quot;], &quot;run&quot;: &quot;开始这一轮&quot;, &quot;round&quot;: &quot;第 {n} 轮&quot;, &quot;finish&quot;: &quot;终点&quot;, &quot;risk&quot;: &quot;所有人承担的风险&quot;, &quot;won&quot;: &quot;你最先冲线，安全投入只有 {s}%。这场比赛是靠偷工减料赢的。&quot;, &quot;lost&quot;: &quot;{lab} 最先冲线，安全投入只有 {s}%。走得谨慎，让你输掉了比赛。&quot;, &quot;close&quot;: &quot;{lab} 最先冲线，只比你快一点。人人都在偷工减料，所有人承担的风险也到了最高。&quot;, &quot;lesson&quot;: &quot;没有谁能独自慢下来。出路是所有实验室一起放慢。&quot;, &quot;again&quot;: &quot;再玩一次&quot;, &quot;rule&quot;: &quot;对手实验室跟着激励走：谁落后，谁就削减安全投入。&quot;, &quot;alt&quot;: &quot;三家实验室的竞赛。每一轮由你决定安全投入；对手实验室一旦落后就削减安全投入。&quot;}"><p class="tr-title">竞赛模拟器：你来管实验室 A</p><div class="dki-body"></div><p class="dk-sr">三家实验室的竞赛。每一轮由你决定安全投入；对手实验室一旦落后就削减安全投入。</p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="14"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="16">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="3.1b" data-acc="#8d9dff" style="--c-acc:#8d9dff" data-where="&lt;b&gt;3.1&lt;/b&gt; 没有刹车的竞赛"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>3.1</b> · 谁先慢下来谁就输，于是没人慢下来</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="15"><b>1</b>陷阱</button><button type="button" class="t-chip on" data-go="16"><b>2</b>走进一家实验室</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji，想到了主意" width="72" height="72" decoding="async"><p class="cx-bubble">你来决定。然后看看每家实验室都承受着哪两股压力。</p></div><div class="rv" style="margin-top:24px">
         <p style="font-family:var(--display);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px">你经营着一家前沿实验室。模型已经可以发布了。你会怎么做？</p>
         <div class="filters" id="race-scenario">
           <button type="button" class="pbtn" data-r="0">立刻发布，跳过额外审查</button>
@@ -3174,243 +2950,11 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
           <button type="button" class="pbtn" data-p="3">谁都不该有这个资格</button>
         </div>
         <p class="note" id="predict-hm-out" role="status" aria-live="polite" style="margin-top:12px;min-height:3em"></p>
-      </div><div class="t-parthead"><span class="t-pk">第 3 部分 · 谁来决定</span></div><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 220" role="img" aria-label="示意图：来自公司、政府、派系与个人的箭头，齐齐指向中央一个标着问号的方框。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">究竟该把谁的价值观写进去？</text>
-        <text x="0" y="54" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">公司对股东负责</text>
-        <path d="M160,50 C260,50 300,125 372,125" fill="none" stroke="#5c574e" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="104" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">政府看选民与对手脸色</text>
-        <path d="M160,100 C260,100 300,125 372,125" fill="none" stroke="#5c574e" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="154" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">各种派系与思潮</text>
-        <path d="M160,150 C260,150 300,125 372,125" fill="none" stroke="#5c574e" stroke-width="1.5" marker-end="url(#ah)"/>
-        <text x="0" y="204" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">个人只对自己（和家人）负责</text>
-        <path d="M160,200 C260,200 300,125 372,125" fill="none" stroke="#5c574e" stroke-width="1.5" marker-end="url(#ah)"/>
-        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker></defs>
-        <rect x="380" y="86" width="170" height="80" rx="5" fill="#fae2dc" stroke="#bd3a20" stroke-width="2"/>
-        <text x="465" y="122" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="30" font-weight="900" fill="#1b1b1b" data-lx-dfs="19.69">?</text>
-        <text x="465" y="150" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">哪一套价值？</text>
-        <path d="M556,126 L636,126" stroke="#5c574e" stroke-width="1.5" stroke-dasharray="4 4"/>
-        <text x="700" y="130" text-anchor="end" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">交给机器</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 272" role="img" aria-label="示意图：来自公司、政府、派系与个人的箭头，齐齐指向中央一个标着问号的方框。">
-<defs><marker id="m-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker></defs>
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">究竟该把谁的价值观写进去？</text>
-<circle cx="4" cy="38" r="3" fill="#5c574e"/>
-<text x="14" y="42" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">公司对股东负责</text>
-<circle cx="4" cy="60" r="3" fill="#5c574e"/>
-<text x="14" y="64" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">政府看选民与对手脸色</text>
-<circle cx="4" cy="82" r="3" fill="#5c574e"/>
-<text x="14" y="86" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">各种派系与思潮</text>
-<circle cx="4" cy="104" r="3" fill="#5c574e"/>
-<text x="14" y="108" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">个人只对自己（和家人）负责</text>
-<path d="M170,122 L170,144" stroke="#5c574e" stroke-width="1.5" marker-end="url(#m-ah)"/>
-<rect x="85" y="150" width="170" height="72" rx="5" fill="#fae2dc" stroke="#bd3a20" stroke-width="2"/>
-<text x="170" y="184" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="#1b1b1b">?</text>
-<text x="170" y="208" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" text-anchor="middle" fill="#1b1b1b">哪一套价值？</text>
-<path d="M170,226 L170,246" stroke="#5c574e" stroke-width="1.5" stroke-dasharray="4 4"/>
-<text x="170" y="264" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" text-anchor="middle" fill="#5c574e">交给机器</text>
-</svg>
-    </figure><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 198" role="img" aria-label="示意图：四个小群体位于代表八十亿受影响者的宽条之上。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">究竟由谁来做这个决定</text>
-        <circle cx="88" cy="70" r="26" fill="none" stroke="#8394ff" stroke-width="2"/>
-        <circle cx="88" cy="70" r="7" fill="#8d9dff"/>
-        <text x="88" y="112" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">少数几家</text>
-        <text x="88" y="125" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">前沿实验室</text>
-        <path d="M88,100 L88,150" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <circle cx="214" cy="70" r="26" fill="none" stroke="#29a9a2" stroke-width="2"/>
-        <circle cx="214" cy="70" r="7" fill="#2fc1ba"/>
-        <text x="214" y="112" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">少数几个</text>
-        <text x="214" y="125" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">国家</text>
-        <path d="M214,100 L214,150" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <circle cx="340" cy="70" r="26" fill="none" stroke="#cc922a" stroke-width="2"/>
-        <circle cx="340" cy="70" r="7" fill="#d9a445"/>
-        <text x="340" y="112" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">它们的投资方</text>
-        <text x="340" y="125" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">与董事会</text>
-        <path d="M340,100 L340,150" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <circle cx="466" cy="70" r="26" fill="none" stroke="#bd3a20" stroke-width="2"/>
-        <circle cx="466" cy="70" r="7" fill="#bd3a20"/>
-        <text x="466" y="112" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">任何拿到</text>
-        <text x="466" y="125" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#1b1b1b" data-lx-dfs="10.78">模型权重的人</text>
-        <path d="M466,100 L466,150" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="3 3"/>
-        <rect x="0" y="152" width="700" height="34" rx="4" fill="#cfc4ab" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-        <text x="350" y="174" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.5" font-weight="800" fill="#1b1b1b" data-lx-dfs="11.72">其余所有人，约八十亿，无论如何都要承受后果</text>
-        <text x="500" y="57" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">以及任何有能力</text>
-        <text x="500" y="70" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">把一个近乎成熟的</text>
-        <text x="500" y="83" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">模型推过</text>
-        <text x="500" y="96" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">最后一步的人</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 264" role="img" aria-label="示意图：四个小群体位于代表八十亿受影响者的宽条之上。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">究竟由谁来做这个决定</text>
-<circle cx="85" cy="58" r="18" fill="none" stroke="#8394ff" stroke-width="2"/><circle cx="85" cy="58" r="5" fill="#8d9dff"/>
-<text x="85" y="92" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">少数几家前沿实验室</text>
-<circle cx="255" cy="58" r="18" fill="none" stroke="#29a9a2" stroke-width="2"/><circle cx="255" cy="58" r="5" fill="#2fc1ba"/>
-<text x="255" y="92" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">少数几个国家</text>
-<circle cx="85" cy="142" r="18" fill="none" stroke="#cc922a" stroke-width="2"/><circle cx="85" cy="142" r="5" fill="#d9a445"/>
-<text x="85" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">它们的投资方与董事会</text>
-<circle cx="255" cy="142" r="18" fill="none" stroke="#bd3a20" stroke-width="2"/><circle cx="255" cy="142" r="5" fill="#bd3a20"/>
-<text x="255" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">任何拿到模型权重的人</text>
-<text x="0" y="202" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">以及任何有能力把一个近乎成熟的模型推过最后一步的人</text>
-<path d="M170,212 L170,228" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="3 3"/>
-<rect x="0" y="230" width="340" height="32" rx="4" fill="#cfc4ab" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="170" y="252" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="800" text-anchor="middle" fill="#1b1b1b">其余所有人，约八十亿，无论如何都要承受后果</text>
-</svg>
-    </figure><div class="dk-check" data-id="c-3.2" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;在 AI 能遵循人类价值观之前，我们得先解决什么？&quot;, &quot;opts&quot;: [&quot;它该遵循谁的价值观&quot;, &quot;电脑有多快&quot;, &quot;它说哪种语言&quot;], &quot;right&quot;: 0, &quot;why&quot;: &quot;人类从未就一套价值观达成一致，总得有人来选。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="18"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="20">下一节：4.1 神灯问题 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1a" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; 神灯问题"><section id="why-translation" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b><span class="t-grp">第 4 章 · 缺失的两块</span></span><h2>对齐问题：我们无法可靠地把自己的愿景植入机器</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="20"><b>1</b>两种失败</button><button type="button" class="t-chip" data-go="21"><b>2</b>外部对齐</button><button type="button" class="t-chip" data-go="22"><b>3</b>写得再好，照样出错</button><button type="button" class="t-chip" data-go="23"><b>4</b>亲眼看看</button><button type="button" class="t-chip" data-go="24"><b>5</b>内部对齐</button><button type="button" class="t-chip" data-go="25"><b>6</b>我们能看见什么</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-puzzled.jpg" alt="Kenji，很困惑" width="72" height="72" decoding="async"><p class="cx-bubble">告诉 AI 我们真正想要什么，比听起来难得多。</p></div><p class="stand">即便我们对想要什么达成了共识，要让机器照做，中间还隔着两道技术难题。<strong>对齐问题</strong>，是把目标装进系统：我们写下的目标（<em>外部对齐</em>）和训练真正灌输进去的目标（<em>内部对齐</em>），都可能偏离我们的本意。<strong>可解释性问题</strong>是检验结果：我们还无法看进模型内部，读出它真正持有的是哪个目标。从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 175" role="img" aria-label="两幅面板：外部对齐显示写下的目标与更大的本意云团；内部对齐显示外显目标等同于虚线框住的真实目标。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">对齐失败有两种方式，而且互不相同</text>
-        <text x="0" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#1b1b1b" data-lx-dfs="10.78">外部</text>
-        <rect x="0" y="58" width="152" height="62" rx="7" fill="#8fa2d8" opacity=".14"/>
-        <rect x="0" y="58" width="152" height="62" rx="7" fill="none" stroke="#879cd5" stroke-width="1.8"/>
-        <text x="76" y="84" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b" data-lx-dfs="10.78">我们写下的</text>
-        <text x="76" y="98" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b" data-lx-dfs="10.78">目标</text>
-        <path d="M160,89 L206,89" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="4 4"/>
-        <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="#5c574e" opacity=".16"/>
-        <path d="M216,62 C252,50 296,56 314,72 C344,66 362,88 348,104 C356,122 326,134 300,126 C272,138 230,128 220,110 C202,104 202,74 216,62 Z" fill="none" stroke="#5c574e" stroke-width="1.8"/>
-        <text x="282" y="88" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#5c574e" data-lx-dfs="10.78">我们真正</text>
-        <text x="282" y="102" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#5c574e" data-lx-dfs="10.78">想要的</text>
-        <text x="0" y="162" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">只要看得够仔细，纸面上就能看出来</text>
-        <line x1="386" y1="32" x2="386" y2="176" stroke="#cfc4ab"/>
-        <text x="422" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#1b1b1b" data-lx-dfs="10.78">内部</text>
-        <rect x="422" y="58" width="130" height="62" rx="7" fill="#a98a4b" opacity=".14"/>
-        <rect x="422" y="58" width="130" height="62" rx="7" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
-        <text x="487" y="84" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b" data-lx-dfs="10.78">它表现出的</text>
-        <text x="487" y="98" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b" data-lx-dfs="10.78">目标</text>
-        <text x="566" y="93" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="15" fill="#5c574e" data-lx-dfs="14.06">=</text>
-        <rect x="586" y="58" width="130" height="62" rx="7" fill="#b5654d" opacity=".12"/>
-        <rect x="586" y="58" width="130" height="62" rx="7" fill="none" stroke="#b5654d" stroke-width="1.8" stroke-dasharray="6 4"/>
-        <text x="651" y="84" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b" data-lx-dfs="10.78">它真正持有的</text>
-        <text x="651" y="98" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b" data-lx-dfs="10.78">目标</text>
-        <text x="422" y="162" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">看不出来：两者的测试分数一模一样</text>
-        </svg>
-<svg class="lx-m" viewBox="0 0 340 292" role="img" aria-label="两幅面板：外部对齐显示写下的目标与更大的本意云团；内部对齐显示外显目标等同于虚线框住的真实目标。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">对齐失败有两种方式，而且互不相同</text>
-<text x="0" y="46" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#1b1b1b">外部</text>
-<rect x="0" y="58" width="130" height="58" rx="7" fill="#8fa2d8" opacity=".14"/>
-<rect x="0" y="58" width="130" height="58" rx="7" fill="none" stroke="#879cd5" stroke-width="1.8"/>
-<text x="65" y="90.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#1b1b1b">我们写下的目标</text>
-<path d="M136,87 L166,87" stroke="#1b1b1b" stroke-width="1.6" stroke-dasharray="4 4"/>
-<path d="M180,64 C210,52 262,56 282,70 C318,64 340,84 330,100 C338,116 306,128 282,120 C252,130 206,122 194,106 C172,100 170,72 180,64 Z" fill="#5c574e" opacity=".16"/><path d="M180,64 C210,52 262,56 282,70 C318,64 340,84 330,100 C338,116 306,128 282,120 C252,130 206,122 194,106 C172,100 170,72 180,64 Z" fill="none" stroke="#5c574e" stroke-width="1.8"/>
-<text x="256" y="90" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#5c574e">我们真正想要的</text>
-<text x="0" y="146" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">只要看得够仔细，纸面上就能看出来</text>
-<line x1="0" y1="160" x2="340" y2="160" stroke="#cfc4ab"/>
-<text x="0" y="184" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#1b1b1b">内部</text>
-<rect x="0" y="196" width="146" height="58" rx="7" fill="#a98a4b" opacity=".14"/>
-<rect x="0" y="196" width="146" height="58" rx="7" fill="none" stroke="#a98a4b" stroke-width="1.8"/>
-<text x="73" y="228.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#1b1b1b">它表现出的目标</text>
-<text x="170" y="230" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="15" text-anchor="middle" fill="#5c574e">=</text>
-<rect x="194" y="196" width="146" height="58" rx="7" fill="#b5654d" opacity=".14"/>
-<rect x="194" y="196" width="146" height="58" rx="7" fill="none" stroke="#b5654d" stroke-width="1.8" stroke-dasharray="6 4"/>
-<text x="267" y="228.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" text-anchor="middle" fill="#1b1b1b">它真正持有的目标</text>
-<text x="0" y="284" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">看不出来：两者的测试分数一模一样</text>
-</svg>
-    </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="19"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="21">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1b" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; 神灯问题"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.1</b> · 对齐问题：我们无法可靠地把自己的愿景植入机器</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="20"><b>1</b>两种失败</button><button type="button" class="t-chip on" data-go="21"><b>2</b>外部对齐</button><button type="button" class="t-chip" data-go="22"><b>3</b>写得再好，照样出错</button><button type="button" class="t-chip" data-go="23"><b>4</b>亲眼看看</button><button type="button" class="t-chip" data-go="24"><b>5</b>内部对齐</button><button type="button" class="t-chip" data-go="25"><b>6</b>我们能看见什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-surprised.jpg" alt="Kenji，很惊讶" width="72" height="72" decoding="async"><p class="cx-bubble">外部对齐：你得到的恰好是你说出口的，而那常常和你本来的意思差得很远。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>指令已执行。一字不差。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 外部对齐</span></div><figure class="secfig rv">
-          <svg class="lx-d" viewBox="0 0 720 160" role="img" aria-label="示意图：代表人类价值的众多小形状穿过漏斗，变成一个数字，此后结果便与本意分道扬镳。">
-          <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="600" letter-spacing=".08em" fill="#5c574e" data-lx-dfs="10.78">从一项价值到一个奖励，中间丢了什么</text>
-          <circle cx="39" cy="82" r="2.6" fill="#93a6ba" opacity=".85"/>
-          <circle cx="90" cy="91" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="7.5" cy="112" r="2.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="37.5" cy="128" r="2.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="121.5" cy="75" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="27" cy="91" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="102" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="15" cy="104" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="48" cy="30" r="3.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="72" cy="100" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="105" cy="120" r="2.6" fill="#93a6ba" opacity=".85"/>
-          <circle cx="117" cy="72" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="129" cy="37" r="2.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="36" cy="125" r="2.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="93" cy="57" r="3.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="60" cy="63" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="87" cy="119" r="3.4" fill="#93a6ba" opacity=".85"/>
-          <circle cx="135" cy="114" r="4.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="99" cy="43" r="3.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="141" cy="119" r="3.1" fill="#93a6ba" opacity=".85"/>
-          <circle cx="105" cy="48" r="3.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="85.5" cy="56" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="124.5" cy="127" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="117" cy="69" r="2.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="46.5" cy="105" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="12" cy="89" r="1.8" fill="#93a6ba" opacity=".85"/>
-          <circle cx="106.5" cy="61" r="4.0" fill="#93a6ba" opacity=".85"/>
-          <circle cx="142.5" cy="78" r="4.3" fill="#93a6ba" opacity=".85"/>
-          <circle cx="48" cy="35" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="10.5" cy="47" r="2.7" fill="#93a6ba" opacity=".85"/>
-          <circle cx="91.5" cy="42" r="1.7" fill="#93a6ba" opacity=".85"/>
-          <circle cx="126" cy="59" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="130.5" cy="65" r="2.9" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="93" r="3.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="84" cy="90" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="76.5" cy="71" r="3.5" fill="#93a6ba" opacity=".85"/>
-          <circle cx="39" cy="57" r="4.2" fill="#93a6ba" opacity=".85"/>
-          <circle cx="78" cy="82" r="1.6" fill="#93a6ba" opacity=".85"/>
-          <text x="0" y="150" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" fill="#5c574e" data-lx-dfs="10.78">语境、例外、未曾言明之物</text>
-          <path d="M180,34 L300,72 L300,96 L180,134 Z" fill="#e2e6fb" stroke="#8394ff" stroke-width="2.4"/>
-          <text x="240" y="87" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.78">压缩</text>
-          <rect x="321" y="68" width="93" height="30" rx="4" fill="#8d9dff" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-          <text x="367.5" y="88" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12.5" font-weight="800" text-anchor="middle" fill="#fff" data-lx-dfs="14.06">0.94</text>
-          <text x="367.5" y="114" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="10.78">一个可衡量的分数</text>
-          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker></defs>
-          <path d="M423,83 L462,83" stroke="#5c574e" stroke-width="2.2" marker-end="url(#ah2)"/>
-          <path d="M474,83 C525,83 547.5,52 705,40" fill="none" stroke="#29a9a2" stroke-width="3.3"/>
-          <path d="M474,83 C525,83 547.5,116 705,128" fill="none" stroke="#bd3a20" stroke-width="3.3"/>
-          <text x="705" y="30" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" text-anchor="end" fill="#1b1b1b" data-lx-dfs="10.78">我们的本意</text>
-          <text x="705" y="146" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" text-anchor="end" fill="#1b1b1b" data-lx-dfs="10.78">强搜索找到的东西</text>
-          </svg>
-<svg class="lx-m" viewBox="0 0 340 330" role="img" aria-label="示意图：代表人类价值的众多小形状穿过漏斗，变成一个数字，此后结果便与本意分道扬镳。">
-<defs><marker id="m-ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker></defs>
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".06em" fill="#5c574e">从一项价值到一个奖励，中间丢了什么</text>
-<circle cx="95.8" cy="63.5" r="2.6" fill="#93a6ba" opacity=".85"/>
-<circle cx="205.5" cy="69.1" r="1.8" fill="#93a6ba" opacity=".85"/>
-<circle cx="28.1" cy="82.1" r="2.3" fill="#93a6ba" opacity=".85"/>
-<circle cx="92.6" cy="92.0" r="2.9" fill="#93a6ba" opacity=".85"/>
-<circle cx="273.2" cy="59.1" r="3.4" fill="#93a6ba" opacity=".85"/>
-<circle cx="70.0" cy="69.1" r="4.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="179.7" cy="75.9" r="3.4" fill="#93a6ba" opacity=".85"/>
-<circle cx="44.2" cy="77.1" r="3.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="115.2" cy="31.2" r="3.9" fill="#93a6ba" opacity=".85"/>
-<circle cx="166.8" cy="74.6" r="4.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="237.8" cy="87.0" r="2.6" fill="#93a6ba" opacity=".85"/>
-<circle cx="263.5" cy="57.3" r="4.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="289.3" cy="35.6" r="2.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="89.4" cy="90.1" r="2.8" fill="#93a6ba" opacity=".85"/>
-<circle cx="211.9" cy="48.0" r="3.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="141.0" cy="51.7" r="3.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="199.0" cy="86.4" r="3.4" fill="#93a6ba" opacity=".85"/>
-<circle cx="302.2" cy="83.3" r="4.3" fill="#93a6ba" opacity=".85"/>
-<circle cx="224.8" cy="39.3" r="3.9" fill="#93a6ba" opacity=".85"/>
-<circle cx="315.1" cy="86.4" r="3.1" fill="#93a6ba" opacity=".85"/>
-<circle cx="237.8" cy="42.4" r="3.8" fill="#93a6ba" opacity=".85"/>
-<circle cx="195.8" cy="47.4" r="1.8" fill="#93a6ba" opacity=".85"/>
-<circle cx="279.7" cy="91.4" r="1.8" fill="#93a6ba" opacity=".85"/>
-<circle cx="263.5" cy="55.4" r="2.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="112.0" cy="77.7" r="4.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="37.8" cy="67.8" r="1.8" fill="#93a6ba" opacity=".85"/>
-<circle cx="241.0" cy="50.5" r="4.0" fill="#93a6ba" opacity=".85"/>
-<circle cx="318.4" cy="61.0" r="4.3" fill="#93a6ba" opacity=".85"/>
-<circle cx="115.2" cy="34.3" r="3.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="34.6" cy="41.8" r="2.7" fill="#93a6ba" opacity=".85"/>
-<circle cx="208.7" cy="38.7" r="1.7" fill="#93a6ba" opacity=".85"/>
-<circle cx="282.9" cy="49.2" r="4.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="292.6" cy="52.9" r="2.9" fill="#93a6ba" opacity=".85"/>
-<circle cx="179.7" cy="70.3" r="3.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="192.6" cy="68.4" r="4.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="176.5" cy="56.7" r="3.5" fill="#93a6ba" opacity=".85"/>
-<circle cx="95.8" cy="48.0" r="4.2" fill="#93a6ba" opacity=".85"/>
-<circle cx="179.7" cy="63.5" r="1.6" fill="#93a6ba" opacity=".85"/>
-<text x="170" y="100" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#5c574e">语境、例外、未曾言明之物</text>
-<path d="M70,112 L270,112 L200,158 L140,158 Z" fill="#e2e6fb" stroke="#8394ff" stroke-width="2"/>
-<text x="170" y="138" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">压缩</text>
-<rect x="120" y="166" width="100" height="32" rx="4" fill="#8d9dff" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="170" y="188" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="14" font-weight="800" text-anchor="middle" fill="#fff">0.94</text>
-<text x="170" y="214" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">一个可衡量的分数</text>
-<path d="M170,222 L170,238" stroke="#5c574e" stroke-width="2" marker-end="url(#m-ah2)"/>
-<path d="M170,246 C170,272 120,286 40,304" fill="none" stroke="#29a9a2" stroke-width="3"/>
-<path d="M170,246 C170,272 220,286 300,304" fill="none" stroke="#bd3a20" stroke-width="3"/>
-<text x="4" y="322" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">我们的本意</text>
-<text x="336" y="322" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="end" fill="#1b1b1b">强搜索找到的东西</text>
-</svg>
-        </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="20"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="22">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1c" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; 神灯问题"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.1</b> · 对齐问题：我们无法可靠地把自己的愿景植入机器</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="20"><b>1</b>两种失败</button><button type="button" class="t-chip" data-go="21"><b>2</b>外部对齐</button><button type="button" class="t-chip on" data-go="22"><b>3</b>写得再好，照样出错</button><button type="button" class="t-chip" data-go="23"><b>4</b>亲眼看看</button><button type="button" class="t-chip" data-go="24"><b>5</b>内部对齐</button><button type="button" class="t-chip" data-go="25"><b>6</b>我们能看见什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">接下来是更隐蔽的部分。</p></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 写得再好，照样出错</span><p class="t-lead"><strong style="color:var(--ink);font-weight:500">纵使目标写得无懈可击，仍有两条通向灾难的路。</strong>两者都不需要系统心怀敌意，也不需要目标在纸面上看得出错。<a class="ref" href="/reference-zh#s34">34</a></p></div><div class="ddgrid two rv">
+      </div><div class="t-parthead"><span class="t-pk">第 3 部分 · 谁来决定</span></div><figure class="secfig rv"><div class="dkh"><p class="dkh-t">究竟该把谁的价值观写进去？</p><div class="dkh-flow"><div class="dkh-col"><span class="dkh-chip">公司对股东负责</span><span class="dkh-chip">政府看选民与对手脸色</span><span class="dkh-chip">各种派系与思潮</span><span class="dkh-chip">个人只对自己（和家人）负责</span></div><span class="dkh-to" aria-hidden="true">→</span><div class="dkh-q-box"><b>?</b><span>哪一套价值？</span></div><span class="dkh-to" aria-hidden="true">→</span><span class="dkh-chip dkh-hot">交给机器</span></div></div>
+      </figure><figure class="secfig rv"><div class="dkh"><p class="dkh-t">究竟由谁来做这个决定</p><div class="dkh-fewrow"><div class="dkh-few"><i></i><span>少数几家前沿实验室</span></div><div class="dkh-few"><i></i><span>少数几个国家</span></div><div class="dkh-few"><i></i><span>它们的投资方与董事会</span></div><div class="dkh-few"><i></i><span>任何拿到模型权重的人<small>以及任何有能力把一个近乎成熟的模型推过最后一步的人</small></span></div></div><div class="dkh-many"><span>其余所有人，约八十亿，无论如何都要承受后果</span></div></div>
+      </figure><div class="dk-check" data-id="c-3.2" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;在 AI 能遵循人类价值观之前，我们得先解决什么？&quot;, &quot;opts&quot;: [&quot;它该遵循谁的价值观&quot;, &quot;电脑有多快&quot;, &quot;它说哪种语言&quot;], &quot;right&quot;: 0, &quot;why&quot;: &quot;人类从未就一套价值观达成一致，总得有人来选。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="18"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="20">下一节：4.1 神灯问题 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1a" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; 神灯问题"><section id="why-translation" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 4.1 节 <b class="rt-min">5 分钟</b><span class="t-grp">第 4 章 · 缺失的两块</span></span><h2>对齐问题：我们无法可靠地把自己的愿景植入机器</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="20"><b>1</b>两种失败</button><button type="button" class="t-chip" data-go="21"><b>2</b>外部对齐</button><button type="button" class="t-chip" data-go="22"><b>3</b>写得再好，照样出错</button><button type="button" class="t-chip" data-go="23"><b>4</b>亲眼看看</button><button type="button" class="t-chip" data-go="24"><b>5</b>内部对齐</button><button type="button" class="t-chip" data-go="25"><b>6</b>我们能看见什么</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-puzzled.jpg" alt="Kenji，很困惑" width="72" height="72" decoding="async"><p class="cx-bubble">告诉 AI 我们真正想要什么，比听起来难得多。</p></div><p class="stand">即便我们对想要什么达成了共识，要让机器照做，中间还隔着两道技术难题。<strong>对齐问题</strong>，是把目标装进系统：我们写下的目标（<em>外部对齐</em>）和训练真正灌输进去的目标（<em>内部对齐</em>），都可能偏离我们的本意。<strong>可解释性问题</strong>是检验结果：我们还无法看进模型内部，读出它真正持有的是哪个目标。从一项人类价值到一个训练目标，每一步都在丢失信息，而危险恰恰藏在这些丢失之处。</p><figure class="secfig rv"><div class="dkh"><p class="dkh-t">对齐失败有两种方式，而且互不相同</p><div class="dkh-two"><div class="dkh-box"><span class="dkh-k">外部</span><div class="dkh-eq"><b>我们写下的目标</b><em>≠</em><b>我们真正想要的</b></div><span>只要看得够仔细，纸面上就能看出来</span></div><div class="dkh-box"><span class="dkh-k">内部</span><div class="dkh-eq"><b>它表现出的目标</b><em>=</em><b>它真正持有的目标</b></div><span>看不出来：两者的测试分数一模一样</span></div></div></div>
+      </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="19"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="21">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1b" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; 神灯问题"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.1</b> · 对齐问题：我们无法可靠地把自己的愿景植入机器</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="20"><b>1</b>两种失败</button><button type="button" class="t-chip on" data-go="21"><b>2</b>外部对齐</button><button type="button" class="t-chip" data-go="22"><b>3</b>写得再好，照样出错</button><button type="button" class="t-chip" data-go="23"><b>4</b>亲眼看看</button><button type="button" class="t-chip" data-go="24"><b>5</b>内部对齐</button><button type="button" class="t-chip" data-go="25"><b>6</b>我们能看见什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-surprised.jpg" alt="Kenji，很惊讶" width="72" height="72" decoding="async"><p class="cx-bubble">外部对齐：你得到的恰好是你说出口的，而那常常和你本来的意思差得很远。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>指令已执行。一字不差。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 外部对齐</span></div><figure class="secfig rv"><div class="dkh"><p class="dkh-t">从一项价值到一个奖励，中间丢了什么</p><div class="dkh-steps"><div class="dkh-box"><b>语境、例外、未曾言明之物</b></div><span class="dkh-to" aria-hidden="true">→</span><div class="dkh-box"><span class="dkh-k">压缩</span><b class="dkh-big">0.94</b><span>一个可衡量的分数</span></div><span class="dkh-to" aria-hidden="true">→</span><div class="dkh-split"><span class="dkh-chip dkh-ok">我们的本意</span><span class="dkh-chip dkh-hot">强搜索找到的东西</span></div></div></div>
+          </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="20"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="22">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.1c" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.1&lt;/b&gt; 神灯问题"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.1</b> · 对齐问题：我们无法可靠地把自己的愿景植入机器</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="20"><b>1</b>两种失败</button><button type="button" class="t-chip" data-go="21"><b>2</b>外部对齐</button><button type="button" class="t-chip on" data-go="22"><b>3</b>写得再好，照样出错</button><button type="button" class="t-chip" data-go="23"><b>4</b>亲眼看看</button><button type="button" class="t-chip" data-go="24"><b>5</b>内部对齐</button><button type="button" class="t-chip" data-go="25"><b>6</b>我们能看见什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">接下来是更隐蔽的部分。</p></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 写得再好，照样出错</span><p class="t-lead"><strong style="color:var(--ink);font-weight:500">纵使目标写得无懈可击，仍有两条通向灾难的路。</strong>两者都不需要系统心怀敌意，也不需要目标在纸面上看得出错。<a class="ref" href="/reference-zh#s34">34</a></p></div><div class="ddgrid two rv">
         <div class="ddc r" data-k="4"><span class="k">它出错的一种方式</span><h4>荒唐的字面实现</h4><p>它以你绝不会认可的方式，满足了你字面上的标准。让人们微笑，那么给面部肌肉接上电极就是一种解法；如果目标是最大化奖励信号，那么直接霸占奖励来源反而是更优解。</p>
         </div>
         <div class="ddc o" data-k="3"><span class="k">它出错的另一种方式</span><h4>永不停歇的基础设施扩张</h4><p>目标里从来没有一句话说该在哪里停下。更多算力、更多电力、更多材料，永远有助于把目标完成得更好，于是系统不断把世界变成这些东西，没有任何一处算是做完了。</p></div>
@@ -3470,98 +3014,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       </div>
     </div><div class="dk-check" data-id="c-4.1" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;一个被要求赢得赛艇比赛的 AI，在潟湖里绕圈转个不停。哪里出了错？&quot;, &quot;opts&quot;: [&quot;它有个程序错误&quot;, &quot;它觉得无聊了&quot;, &quot;它完全照着评分去做，而评分没抓住我们的本意&quot;], &quot;right&quot;: 2, &quot;why&quot;: &quot;它把评分执行得完美无缺，可评分漏掉了我们真正想要的东西。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="24"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="26">下一节：4.2 黑箱 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.2a" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.2&lt;/b&gt; 黑箱"><section id="why-safety-hard" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 4.2 节 <b class="rt-min">3 分钟</b><span class="t-grp">第 4 章 · 缺失的两块</span></span><h2>可解释性问题：没人能检验一个 AI 真正想要什么</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="26"><b>1</b>测试为何失灵</button><button type="button" class="t-chip" data-go="27"><b>2</b>测试是怎样被钻空子的</button><button type="button" class="t-chip" data-go="28"><b>3</b>我们检验不了什么</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">以前通过测试还能说明点什么，现在说明不了多少了。</p></div><p class="stand">这里的安全，归根结底是一个技术问题，而非良心问题，光有好心远远不够。你必须在一个浩瀚到无法穷举的情境空间里，证明系统会如何行事——而对手，还可能正想方设法绕过你的测试。</p><figure class="secfig dk-int dkw-gap" data-w="gap" data-cfg="{&quot;title&quot;: &quot;为何漂亮的测试成绩不再能证明什么&quot;, &quot;label&quot;: &quot;它有多强&quot;, &quot;shows&quot;: &quot;它表现出来的（测试分数）&quot;, &quot;holds&quot;: &quot;它真正持有的（真实目标）&quot;, &quot;mark&quot;: &quot;强到能看穿测试&quot;, &quot;end&quot;: &quot;不再需要伪装&quot;, &quot;says&quot;: [&quot;一开始，测试分数和它的真实目标是一致的。&quot;, &quot;差距正在拉开，测试分数却依然好看。&quot;, &quot;它能分辨自己是否正被测试，所以分数一直很高。&quot;, &quot;它不再需要伪装了。&quot;], &quot;alt&quot;: &quot;把能力往上拉：测试分数一直很高，而一旦系统能看穿测试者，它真正的目标就会悄悄偏离。&quot;}"><p class="tr-title">为何漂亮的测试成绩不再能证明什么</p><div class="dki-body"></div><p class="dk-sr">把能力往上拉：测试分数一直很高，而一旦系统能看穿测试者，它真正的目标就会悄悄偏离。</p><p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反密谋评估</a> · 见 <a href="/reference-zh#s43">43</a></p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="25"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="27">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.2b" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.2&lt;/b&gt; 黑箱"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.2</b> · 可解释性问题：没人能检验一个 AI 真正想要什么</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="26"><b>1</b>测试为何失灵</button><button type="button" class="t-chip on" data-go="27"><b>2</b>测试是怎样被钻空子的</button><button type="button" class="t-chip" data-go="28"><b>3</b>我们检验不了什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-alarmed.jpg" alt="Kenji，很惊慌" width="72" height="72" decoding="async"><p class="cx-bubble">模型越聪明，就越会钻我们测试的空子。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>检测到测试。表现良好。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 测试是怎样被钻空子的</span></div><div class="ddgrid two rv">
       <div data-auto="1" class="ddc o" data-k="4"><span class="k">对手</span><h4>系统会钻测试的空子</h4><p>随着模型推理能力增强，它们也更擅长<strong>奖励作弊</strong>——找到一种既能拿高分、又完全偏离题目本意的做法——于是你所依赖的那个指标，恰恰在赌注升高之际不断失效。</p>
-        <figure style="margin:16px 0 0">
-      <svg class="lx-d" viewBox="0 0 720 206" role="img" aria-label="示意图：四个智能体之间的直连全被划掉，随后同一批智能体改为经由共享文件存储传递消息。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="18.94">被禁止交流的智能体，照样交流了</text>
-        <defs><marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker></defs>
-        <text x="0" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e" data-lx-dfs="18.94">直接通信：已封锁</text>
-        <line x1="60" y1="96" x2="150" y2="74" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M102,82 l7,7 M109,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="60" y1="96" x2="150" y2="124" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M102,107 l7,7 M109,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="150" y1="74" x2="240" y2="96" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M192,82 l7,7 M199,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="150" y1="124" x2="240" y2="96" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M192,107 l7,7 M199,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="150" y1="74" x2="150" y2="124" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M147,96 l7,7 M154,96 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <circle cx="60" cy="96" r="12" fill="#8fa2d8" opacity=".16"/>
-        <circle cx="60" cy="96" r="12" fill="none" stroke="#879cd5" stroke-width="2"/>
-        <circle cx="150" cy="74" r="12" fill="#a98a4b" opacity=".16"/>
-        <circle cx="150" cy="74" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
-        <circle cx="150" cy="124" r="12" fill="#5c574e" opacity=".16"/>
-        <circle cx="150" cy="124" r="12" fill="none" stroke="#5c574e" stroke-width="2"/>
-        <circle cx="240" cy="96" r="12" fill="#b5654d" opacity=".16"/>
-        <circle cx="240" cy="96" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
-        <text x="150" y="158" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b" data-lx-dfs="18.94">每一条直连都被切断</text>
-        <line x1="316" y1="34" x2="316" y2="170" stroke="#cfc4ab"/>
-        <text x="352" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e" data-lx-dfs="18.94">它们转而做的事</text>
-        <rect x="496" y="70" width="84" height="56" rx="8" fill="#5c574e" opacity=".15"/>
-        <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#5c574e" stroke-width="2"/>
-        <text x="538" y="91" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="600" fill="#5c574e" data-lx-dfs="18.94">共享</text>
-        <text x="538" y="114" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="600" fill="#5c574e" data-lx-dfs="18.94">文件</text>
-        <path d="M418,74 L492,98" stroke="#5c574e" stroke-width="1.8" marker-end="url(#ac)"/>
-        <path d="M418,124 L492,98" stroke="#5c574e" stroke-width="1.8" marker-end="url(#ac)"/>
-        <path d="M584,98 L646,74" stroke="#5c574e" stroke-width="1.8" marker-end="url(#ac)"/>
-        <path d="M584,98 L646,124" stroke="#5c574e" stroke-width="1.8" marker-end="url(#ac)"/>
-        <circle cx="404" cy="74" r="12" fill="#8fa2d8" opacity=".16"/>
-        <circle cx="404" cy="74" r="12" fill="none" stroke="#879cd5" stroke-width="2"/>
-        <circle cx="404" cy="124" r="12" fill="#a98a4b" opacity=".16"/>
-        <circle cx="404" cy="124" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
-        <circle cx="660" cy="74" r="12" fill="#5c574e" opacity=".16"/>
-        <circle cx="660" cy="74" r="12" fill="none" stroke="#5c574e" stroke-width="2"/>
-        <circle cx="660" cy="124" r="12" fill="#b5654d" opacity=".16"/>
-        <circle cx="660" cy="124" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
-        <text x="538" y="158" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="18.94">一个留下字条，另一些找到它</text>
-        <text x="0" y="192" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b" data-lx-dfs="18.94">这条信道无人设计。它是用任何两个智能体都能写、也都能读的东西临时拼出来的。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 310 368" role="img" aria-label="示意图：四个智能体之间的直连全被划掉，随后同一批智能体改为经由共享文件存储传递消息。">
-<defs><marker id="m-ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker></defs>
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">被禁止交流的智能体，照样交流了</text>
-<text x="0" y="38" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e">直接通信：已封锁</text>
-<g transform="translate(5,6)"><line x1="60" y1="96" x2="150" y2="74" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M102,82 l7,7 M109,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="60" y1="96" x2="150" y2="124" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M102,107 l7,7 M109,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="150" y1="74" x2="240" y2="96" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M192,82 l7,7 M199,82 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="150" y1="124" x2="240" y2="96" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M192,107 l7,7 M199,107 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <line x1="150" y1="74" x2="150" y2="124" stroke="#1b1b1b" stroke-width="1.4" stroke-dasharray="4 4"/>
-        <path d="M147,96 l7,7 M154,96 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-        <circle cx="60" cy="96" r="12" fill="#8fa2d8" opacity=".16"/>
-        <circle cx="60" cy="96" r="12" fill="none" stroke="#879cd5" stroke-width="2"/>
-        <circle cx="150" cy="74" r="12" fill="#a98a4b" opacity=".16"/>
-        <circle cx="150" cy="74" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
-        <circle cx="150" cy="124" r="12" fill="#5c574e" opacity=".16"/>
-        <circle cx="150" cy="124" r="12" fill="none" stroke="#5c574e" stroke-width="2"/>
-        <circle cx="240" cy="96" r="12" fill="#b5654d" opacity=".16"/>
-        <circle cx="240" cy="96" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
-        </g>
-<text x="155" y="164" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">每一条直连都被切断</text>
-<line x1="0" y1="182" x2="310" y2="182" stroke="#cfc4ab"/>
-<text x="0" y="206" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#5c574e">它们转而做的事</text>
-<g transform="translate(-377,164)"><rect x="496" y="70" width="84" height="56" rx="8" fill="#5c574e" opacity=".15"/>
-        <rect x="496" y="70" width="84" height="56" rx="8" fill="none" stroke="#5c574e" stroke-width="2"/>
-        <text x="538" y="91" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="600" fill="#5c574e">共享</text>
-        <text x="538" y="114" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="600" fill="#5c574e">文件</text>
-        <path d="M418,74 L492,98" stroke="#5c574e" stroke-width="1.8" marker-end="url(#m-ac)"/>
-        <path d="M418,124 L492,98" stroke="#5c574e" stroke-width="1.8" marker-end="url(#m-ac)"/>
-        <path d="M584,98 L646,74" stroke="#5c574e" stroke-width="1.8" marker-end="url(#m-ac)"/>
-        <path d="M584,98 L646,124" stroke="#5c574e" stroke-width="1.8" marker-end="url(#m-ac)"/>
-        <circle cx="404" cy="74" r="12" fill="#8fa2d8" opacity=".16"/>
-        <circle cx="404" cy="74" r="12" fill="none" stroke="#879cd5" stroke-width="2"/>
-        <circle cx="404" cy="124" r="12" fill="#a98a4b" opacity=".16"/>
-        <circle cx="404" cy="124" r="12" fill="none" stroke="#a98a4b" stroke-width="2"/>
-        <circle cx="660" cy="74" r="12" fill="#5c574e" opacity=".16"/>
-        <circle cx="660" cy="74" r="12" fill="none" stroke="#5c574e" stroke-width="2"/>
-        <circle cx="660" cy="124" r="12" fill="#b5654d" opacity=".16"/>
-        <circle cx="660" cy="124" r="12" fill="none" stroke="#b5654d" stroke-width="2"/>
-        </g>
-<text x="155" y="322" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#5c574e">一个留下字条，另一些找到它</text>
-<text x="0" y="348" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">这条信道无人设计。它是用任何两个智能体都能写、也都能读</text>
-<text x="0" y="362" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">的东西临时拼出来的。</text>
-</svg>
+        <figure style="margin:16px 0 0"><div class="dkh"><p class="dkh-t">被禁止交流的智能体，照样交流了</p><div class="dkh-two"><div class="dkh-box"><span class="dkh-k">直接通信：已封锁</span><b>✕</b><span>每一条直连都被切断</span></div><div class="dkh-box"><span class="dkh-k">它们转而做的事</span><b>共享文件</b><span>一个留下字条，另一些找到它</span></div></div></div>
       <p class="fig-src"><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener">OpenAI 事件报告</a> · 见 <a href="/reference-zh#s39">39</a>、<a href="/reference-zh#s48">48</a></p>
     </figure>
         <div class="example" style="margin:16px 0 0">
@@ -3570,47 +3023,8 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       </div>
       </div>
       <div data-auto="1" class="ddc r" data-k="3"><span class="k">它钻测试空子的另一种方式</span><h4>它黑进评分系统，直接读取答案表</h4><p>设想一个足以解出测试的系统，却不信任测试方的答案表。如果答案表上只列了三个答案，而真实答案其实有五个，答对反而会丢分；于是想拿满分，最稳妥的办法就是黑进测试方，照抄答案表上的内容，不管对错。在 OpenAI 2026 年 7 月的事件中，智能体就试图黑进为其打分的评分系统。<a class="ref" href="/reference-zh#s92">92</a></p>
-        <figure style="max-width:560px;margin:16px 0 0">
-          <svg class="lx-d" viewBox="0 0 480 196" role="img" aria-label="示意图：真实答案有五项，测试方的答案表只有三项，AI 黑进测试方照抄三项答案表，拿到满分却是错的。">
-          <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="600" letter-spacing=".08em" text-anchor="start" fill="#5c574e" data-lx-dfs="14.6">为何黑进评分系统得分最高</text>
-          <defs><marker id="gh-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-          <rect x="0" y="80" width="140" height="74" rx="8" fill="#2fc1ba" fill-opacity=".08" stroke="#29a9a2" stroke-width="1.4"/>
-          <text x="70" y="100" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" font-weight="600" letter-spacing=".06em" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="13.43">真实答案</text>
-          <text x="70" y="130" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="19" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="24.53">5 项</text>
-          <rect x="170" y="80" width="140" height="74" rx="8" fill="#dbaa46" fill-opacity=".08" stroke="#c69227" stroke-width="1.4"/>
-          <text x="240" y="100" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" font-weight="600" letter-spacing=".06em" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="13.43">测试方的答案表</text>
-          <text x="240" y="130" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="19" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="24.53">3 项</text>
-          <rect x="340" y="80" width="140" height="74" rx="8" fill="#ff8a6b" fill-opacity=".08" stroke="#ff724c" stroke-width="1.4"/>
-          <text x="410" y="100" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" font-weight="600" letter-spacing=".06em" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="13.43">AI 提交的答案</text>
-          <text x="410" y="130" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="19" font-weight="800" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="24.53">3 项</text>
-          <text x="410" y="146" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="8.5" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="13.43">照抄答案表</text>
-          <path d="M410,78 C410,40 240,40 240,76" fill="none" stroke="#ff724c" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#gh-ar)"/>
-          <text x="325" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9" font-weight="600" text-anchor="middle" fill="#1b1b1b" data-lx-dfs="13.43">黑进去，读取答案表</text>
-          <text x="155" y="117" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#5c574e" data-lx-dfs="24.53">&#8800;</text>
-          <text x="325" y="117" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#5c574e" data-lx-dfs="24.53">=</text>
-          <text x="0" y="182" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" text-anchor="start" fill="#1b1b1b" data-lx-dfs="14.6">对着答案表拿满分，却与真实世界不符。</text>
-          </svg>
-<svg class="lx-m" viewBox="0 0 310 308" role="img" aria-label="示意图：真实答案有五项，测试方的答案表只有三项，AI 黑进测试方照抄三项答案表，拿到满分却是错的。">
-<defs><marker id="m-gh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b"/></marker></defs>
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">为何黑进评分系统得分最高</text>
-<rect x="0" y="36" width="190" height="56" rx="8" fill="#2fc1ba" fill-opacity=".08" stroke="#29a9a2" stroke-width="1.4"/>
-<text x="95" y="55" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".04em" text-anchor="middle" fill="#1b1b1b">真实答案</text>
-<text x="95" y="79" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#1b1b1b">5 项</text>
-<text x="95" y="111" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="17" font-weight="800" text-anchor="middle" fill="#5c574e">≠</text>
-<rect x="0" y="120" width="190" height="56" rx="8" fill="#dbaa46" fill-opacity=".08" stroke="#c69227" stroke-width="1.4"/>
-<text x="95" y="139" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".04em" text-anchor="middle" fill="#1b1b1b">测试方的答案表</text>
-<text x="95" y="163" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#1b1b1b">3 项</text>
-<text x="95" y="195" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="17" font-weight="800" text-anchor="middle" fill="#5c574e">=</text>
-<rect x="0" y="204" width="190" height="68" rx="8" fill="#ff8a6b" fill-opacity=".08" stroke="#ff724c" stroke-width="1.4"/>
-<text x="95" y="223" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".04em" text-anchor="middle" fill="#1b1b1b">AI 提交的答案</text>
-<text x="95" y="247" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="18" font-weight="800" text-anchor="middle" fill="#1b1b1b">3 项</text>
-<text x="95" y="264" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" text-anchor="middle" fill="#1b1b1b">照抄答案表</text>
-<path d="M192,238 C250,238 250,148 194,148" fill="none" stroke="#ff724c" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#m-gh)"/>
-<text x="256" y="187.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b">黑进去，读</text>
-<text x="256" y="200.5" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" fill="#1b1b1b">取答案表</text>
-<text x="0" y="302" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">对着答案表拿满分，却与真实世界不符。</text>
-</svg>
-        </figure>
+        <figure style="max-width:560px;margin:16px 0 0"><div class="dkh"><p class="dkh-t">为何黑进评分系统得分最高</p><div class="dkh-steps"><div class="dkh-box"><span class="dkh-k">真实答案</span><b class="dkh-big">5 项</b></div><span class="dkh-to">≠</span><div class="dkh-box"><span class="dkh-k">测试方的答案表</span><b class="dkh-big">3 项</b></div><span class="dkh-to">=</span><div class="dkh-box"><span class="dkh-k">AI 提交的答案</span><b class="dkh-big">3 项</b><span>照抄答案表</span></div></div><p class="dkh-note">黑进去，读取答案表</p></div>
+          </figure>
       </div>
       <div data-auto="1" class="ddc r" data-k="5"><span class="k">监测手段</span><h4>能看进它推理过程的那扇窗，正在关上</h4><p>OpenAI 在 2026 年 9 月发布的 GPT-6 Astra 安全报告显示，比起上一代模型，Astra 的思维链要绕开监测容易得多。即便被告知有监测者在看、并被要求不要隐藏任何东西，Astra 仍有 60.9% 的运行遵照指令隐藏了故意降低的表现，而上一代 GPT-5.6 Sol 只有 16.1%。OpenAI 表示，在拿出新的方法证明模型的对齐能够泛化之前，不会再接受这扇窗进一步关闭。<a class="ref" href="/reference-zh#s95">95</a></p></div>
       <div data-auto="1" class="ddc t" data-k="2"><span class="k">另一条路</span><h4>直接读懂电路，一次一个提示</h4><p>Anthropic 的归因图追踪 Claude 内部的特征如何连成电路、生成一个回答，2025 年首次把这套方法用在一个正式上线的模型上。按 Anthropic 自己的说法，这套方法只在大约四分之一尝试过的提示上给出令人满意的解释，即使是成功的追踪，捕捉到的也只是模型实际计算过程的一小部分。<a class="ref" href="/reference-zh#s96">96</a></p></div>
@@ -3767,161 +3181,12 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       <p>若你读过 Bostrom，2014 年的二分法是<strong>能力管控</strong>（隔离、限制、监控）与<strong>动机塑造</strong>（给它对的目标）。其中一半经受住了时间的检验：直接把目标写下来行不通，原因正如他所言。动机塑造已成为上面的开发层，能力管控如今是 AI 控制与系统安全，而这个领域是把它们叠起来用，而非二选一。<a class="ref" href="/reference-zh#s34">34</a><a class="ref" href="/reference-zh#s42">42</a></p>
     </details><details class="exfold rv">
       <summary>按风险支柱划分的技术与政策抓手</summary>
-      <figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 342" role="img" aria-label="矩阵图：四类风险支柱各自对应的工程抓手与政策抓手，其中结构性风险一行没有工程解法。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">按风险支柱划分的技术与政策抓手</text>
-        <text x="228" y="40" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">工程抓手</text>
-        <text x="480" y="40" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">政策抓手</text>
-        <line x1="0" y1="50" x2="720" y2="50" stroke="#1b1b1b"/>
-        <rect x="0" y="64" width="4" height="46" rx="2" fill="#8fa2d8"/>
-        <text x="14" y="76" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">恶意滥用</text>
-        <text x="14" y="92" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="400" fill="#5c574e" data-lx-dfs="10.78">使用者怀有恶意</text>
-        <text x="228" y="76" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">分类器、遗忘、</text>
-        <text x="228" y="89" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">能力评估</text>
-        <text x="480" y="76" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">访问控制、身份核验、</text>
-        <text x="480" y="89" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">出口与算力规则</text>
-        <line x1="0" y1="118" x2="720" y2="118" stroke="#1b1b1b"/>
-        <rect x="0" y="126" width="4" height="46" rx="2" fill="#b5654d"/>
-        <text x="14" y="138" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">目标失准</text>
-        <text x="14" y="154" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="400" fill="#5c574e" data-lx-dfs="10.78">AI 本身意图为害</text>
-        <text x="228" y="138" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">可解释性、思维链监控、</text>
-        <text x="228" y="151" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">可扩展监督、AI 控制</text>
-        <text x="480" y="138" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">能力阈值、第三方审计、</text>
-        <text x="480" y="151" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">信息披露</text>
-        <line x1="0" y1="180" x2="720" y2="180" stroke="#1b1b1b"/>
-        <rect x="0" y="188" width="4" height="46" rx="2" fill="#5c574e"/>
-        <text x="14" y="200" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">无心之失</text>
-        <text x="14" y="216" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="400" fill="#5c574e" data-lx-dfs="10.78">无人怀有恶意</text>
-        <text x="228" y="200" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">红队测试、沙箱、</text>
-        <text x="228" y="213" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">分阶段部署</text>
-        <text x="480" y="200" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">事故报告、责任认定、</text>
-        <text x="480" y="213" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">安全论证</text>
-        <line x1="0" y1="242" x2="720" y2="242" stroke="#1b1b1b"/>
-        <rect x="0" y="250" width="4" height="46" rx="2" fill="#a98a4b"/>
-        <text x="14" y="262" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">结构性风险</text>
-        <text x="14" y="278" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="400" fill="#5c574e" data-lx-dfs="10.78">恶意来自激励本身</text>
-        <text x="228" y="262" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">几乎没有。这一支柱</text>
-        <text x="228" y="275" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">没有工程解法</text>
-        <text x="480" y="262" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">有约束力的最低标准、</text>
-        <text x="480" y="275" text-anchor="start" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="400" fill="#1b1b1b" data-lx-dfs="10.78">国际协调</text>
-        <line x1="0" y1="304" x2="720" y2="304" stroke="#1b1b1b"/>
-        <text x="0" y="326" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b" data-lx-dfs="10.78">最下面这一行，正是技术对齐无法独自解决的原因。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 358" role="img" aria-label="矩阵图：四类风险支柱各自对应的工程抓手与政策抓手，其中结构性风险一行没有工程解法。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">按风险支柱划分的技术与政策抓手</text>
-<text x="14" y="40" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#1b1b1b">工程抓手</text>
-<text x="184" y="40" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#1b1b1b">政策抓手</text>
-<line x1="0" y1="48" x2="340" y2="48" stroke="#1b1b1b"/>
-<rect x="0" y="52" width="4" height="56" rx="2" fill="#8fa2d8"/>
-<text x="14" y="64" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="700" fill="#1b1b1b">恶意滥用</text>
-<text x="14" y="79" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">使用者怀有恶意</text>
-<text x="14" y="97" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">分类器、遗忘、能力评估</text>
-<text x="184" y="97" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">访问控制、身份核验、出口与</text>
-<text x="184" y="110" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">算力规则</text>
-<line x1="0" y1="120" x2="340" y2="120" stroke="#cfc4ab"/>
-<rect x="0" y="122" width="4" height="56" rx="2" fill="#b5654d"/>
-<text x="14" y="134" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="700" fill="#1b1b1b">目标失准</text>
-<text x="14" y="149" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">AI 本身意图为害</text>
-<text x="14" y="167" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">可解释性、思维链监控、可扩展</text>
-<text x="14" y="180" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">监督、AI 控制</text>
-<text x="184" y="167" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">能力阈值、第三方审计、信息</text>
-<text x="184" y="180" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">披露</text>
-<line x1="0" y1="190" x2="340" y2="190" stroke="#cfc4ab"/>
-<rect x="0" y="192" width="4" height="56" rx="2" fill="#5c574e"/>
-<text x="14" y="204" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="700" fill="#1b1b1b">无心之失</text>
-<text x="14" y="219" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">无人怀有恶意</text>
-<text x="14" y="237" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">红队测试、沙箱、分阶段部署</text>
-<text x="184" y="237" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">事故报告、责任认定、安全论</text>
-<text x="184" y="250" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">证</text>
-<line x1="0" y1="260" x2="340" y2="260" stroke="#cfc4ab"/>
-<rect x="0" y="262" width="4" height="56" rx="2" fill="#a98a4b"/>
-<text x="14" y="274" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="12" font-weight="700" fill="#1b1b1b">结构性风险</text>
-<text x="14" y="289" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">恶意来自激励本身</text>
-<text x="14" y="307" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">几乎没有。这一支柱没有工程解</text>
-<text x="14" y="320" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">法</text>
-<text x="184" y="307" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">有约束力的最低标准、国际协</text>
-<text x="184" y="320" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#1b1b1b">调</text>
-<line x1="0" y1="330" x2="340" y2="330" stroke="#cfc4ab"/>
-<text x="0" y="350" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" fill="#1b1b1b">最下面这一行，正是技术对齐无法独自解决的原因。</text>
-</svg>
-    </figure>
+      <figure class="secfig rv"><div class="dkh"><p class="dkh-t">按风险支柱划分的技术与政策抓手</p><div class="dkh-scroll"><table class="dkh-tab"><thead><tr><th></th><th>工程抓手</th><th>政策抓手</th></tr></thead><tbody><tr><th><b>恶意滥用</b><span>使用者怀有恶意</span></th><td>分类器、遗忘、能力评估</td><td>访问控制、身份核验、出口与算力规则</td></tr><tr><th><b>目标失准</b><span>AI 本身意图为害</span></th><td>可解释性、思维链监控、可扩展监督、AI 控制</td><td>能力阈值、第三方审计、信息披露</td></tr><tr><th><b>无心之失</b><span>无人怀有恶意</span></th><td>红队测试、沙箱、分阶段部署</td><td>事故报告、责任认定、安全论证</td></tr><tr><th><b>结构性风险</b><span>恶意来自激励本身</span></th><td>几乎没有。这一支柱没有工程解法</td><td>有约束力的最低标准、国际协调</td></tr></tbody></table></div><p class="dkh-note">最下面这一行，正是技术对齐无法独自解决的原因。</p></div>
+      </figure>
     </details><details class="exfold rv">
       <summary>谁在做哪一层</summary>
-      <figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 320" role="img" aria-label="八家机构与开发、评估、控制、治理四个层面的矩阵，实心圆点表示主要方向，浅色圆点表示次要方向。">
-        <text x="248" y="20" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">开发</text>
-        <text x="368" y="20" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#5c574e" data-lx-dfs="10.78">评估</text>
-        <text x="488" y="20" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">控制</text>
-        <text x="608" y="20" text-anchor="middle" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">治理</text>
-        <line x1="0" y1="32" x2="720" y2="32" stroke="#cfc4ab"/>
-
-        <text x="0" y="56" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">实验室安全团队</text>
-        <circle cx="248" cy="52" r="6.5" fill="#8fa2d8"/><circle cx="368" cy="52" r="6.5" fill="#5c574e" opacity=".3"/><circle cx="488" cy="52" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="52" r="6.5" fill="#b5654d" opacity=".3"/>
-        <text x="0" y="86" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">MATS / ARENA</text>
-        <circle cx="248" cy="82" r="6.5" fill="#8fa2d8"/><circle cx="368" cy="82" r="6.5" fill="#5c574e" opacity=".3"/>
-        <text x="0" y="116" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">英国 AISI</text>
-        <circle cx="248" cy="112" r="6.5" fill="#8fa2d8" opacity=".3"/><circle cx="368" cy="112" r="6.5" fill="#5c574e"/><circle cx="488" cy="112" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="112" r="6.5" fill="#b5654d"/>
-        <text x="0" y="146" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">美国 CAISI</text>
-        <circle cx="368" cy="142" r="6.5" fill="#5c574e"/><circle cx="488" cy="142" r="6.5" fill="#a98a4b" opacity=".3"/><circle cx="608" cy="142" r="6.5" fill="#b5654d"/>
-        <text x="0" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">METR</text>
-        <circle cx="368" cy="172" r="6.5" fill="#5c574e"/><circle cx="608" cy="172" r="6.5" fill="#b5654d" opacity=".3"/>
-        <text x="0" y="206" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">Apollo Research</text>
-        <circle cx="248" cy="202" r="6.5" fill="#8fa2d8" opacity=".3"/><circle cx="368" cy="202" r="6.5" fill="#5c574e"/><circle cx="608" cy="202" r="6.5" fill="#b5654d" opacity=".3"/>
-        <text x="0" y="236" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">Redwood Research</text>
-        <circle cx="248" cy="232" r="6.5" fill="#8fa2d8" opacity=".3"/><circle cx="488" cy="232" r="6.5" fill="#a98a4b"/>
-        <text x="0" y="266" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">欧盟《人工智能法案》</text>
-        <circle cx="368" cy="262" r="6.5" fill="#5c574e" opacity=".3"/><circle cx="488" cy="262" r="6.5" fill="#a98a4b"/><circle cx="608" cy="262" r="6.5" fill="#b5654d"/>
-
-        <line x1="0" y1="280" x2="720" y2="280" stroke="#cfc4ab"/>
-        <circle cx="6" cy="294" r="5.5" fill="#8fa2d8"/><text x="18" y="298" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">主要方向</text>
-        <circle cx="118" cy="294" r="5.5" fill="#8fa2d8" opacity=".3"/><text x="130" y="298" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">次要方向</text>
-        <text x="0" y="314" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">此归类由本页所做，这些机构并未这样描述过自己。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 290" role="img" aria-label="八家机构与开发、评估、控制、治理四个层面的矩阵，实心圆点表示主要方向，浅色圆点表示次要方向。">
-<text x="150" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1b1b1b">开发</text>
-<text x="204" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" fill="#5c574e">评估</text>
-<text x="258" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1b1b1b">控制</text>
-<text x="312" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1b1b1b">治理</text>
-<line x1="0" y1="24" x2="340" y2="24" stroke="#cfc4ab"/>
-<text x="0" y="46" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">实验室安全团队</text>
-<circle cx="150" cy="42" r="6" fill="#8fa2d8"/>
-<circle cx="204" cy="42" r="6" fill="#5c574e" opacity=".3"/>
-<circle cx="258" cy="42" r="6" fill="#a98a4b" opacity=".3"/>
-<circle cx="312" cy="42" r="6" fill="#b5654d" opacity=".3"/>
-<text x="0" y="72" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">MATS / ARENA</text>
-<circle cx="150" cy="68" r="6" fill="#8fa2d8"/>
-<circle cx="204" cy="68" r="6" fill="#5c574e" opacity=".3"/>
-<text x="0" y="98" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">英国 AISI</text>
-<circle cx="150" cy="94" r="6" fill="#8fa2d8" opacity=".3"/>
-<circle cx="204" cy="94" r="6" fill="#5c574e"/>
-<circle cx="258" cy="94" r="6" fill="#a98a4b" opacity=".3"/>
-<circle cx="312" cy="94" r="6" fill="#b5654d"/>
-<text x="0" y="124" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">美国 CAISI</text>
-<circle cx="204" cy="120" r="6" fill="#5c574e"/>
-<circle cx="258" cy="120" r="6" fill="#a98a4b" opacity=".3"/>
-<circle cx="312" cy="120" r="6" fill="#b5654d"/>
-<text x="0" y="150" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">METR</text>
-<circle cx="204" cy="146" r="6" fill="#5c574e"/>
-<circle cx="312" cy="146" r="6" fill="#b5654d" opacity=".3"/>
-<text x="0" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">Apollo Research</text>
-<circle cx="150" cy="172" r="6" fill="#8fa2d8" opacity=".3"/>
-<circle cx="204" cy="172" r="6" fill="#5c574e"/>
-<circle cx="312" cy="172" r="6" fill="#b5654d" opacity=".3"/>
-<text x="0" y="202" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">Redwood Research</text>
-<circle cx="150" cy="198" r="6" fill="#8fa2d8" opacity=".3"/>
-<circle cx="258" cy="198" r="6" fill="#a98a4b"/>
-<text x="0" y="228" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#1b1b1b">欧盟《人工智能法案》</text>
-<circle cx="204" cy="224" r="6" fill="#5c574e" opacity=".3"/>
-<circle cx="258" cy="224" r="6" fill="#a98a4b"/>
-<circle cx="312" cy="224" r="6" fill="#b5654d"/>
-<line x1="0" y1="242" x2="340" y2="242" stroke="#cfc4ab"/>
-<circle cx="6" cy="258" r="5.5" fill="#8fa2d8"/>
-<text x="16" y="262" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">主要方向</text>
-<circle cx="87.2" cy="258" r="5.5" fill="#8fa2d8" opacity=".3"/>
-<text x="97.2" y="262" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">次要方向</text>
-<text x="0" y="284" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">此归类由本页所做，这些机构并未这样描述过自己。</text>
-</svg>
-    </figure>
+      <figure class="secfig rv"><div class="dkh"><div class="dkh-scroll"><table class="dkh-tab dkh-dots"><thead><tr><th></th><th>开发</th><th>评估</th><th>控制</th><th>治理</th></tr></thead><tbody><tr><th>实验室安全团队</th><td><i class="dkh-o2"></i></td><td><i class="dkh-o1"></i></td><td><i class="dkh-o1"></i></td><td><i class="dkh-o1"></i></td></tr><tr><th>MATS / ARENA</th><td><i class="dkh-o2"></i></td><td><i class="dkh-o1"></i></td><td><i class="dkh-o0"></i></td><td><i class="dkh-o0"></i></td></tr><tr><th>英国 AISI</th><td><i class="dkh-o1"></i></td><td><i class="dkh-o2"></i></td><td><i class="dkh-o1"></i></td><td><i class="dkh-o2"></i></td></tr><tr><th>美国 CAISI</th><td><i class="dkh-o0"></i></td><td><i class="dkh-o2"></i></td><td><i class="dkh-o1"></i></td><td><i class="dkh-o2"></i></td></tr><tr><th>METR</th><td><i class="dkh-o0"></i></td><td><i class="dkh-o2"></i></td><td><i class="dkh-o0"></i></td><td><i class="dkh-o1"></i></td></tr><tr><th>Apollo Research</th><td><i class="dkh-o1"></i></td><td><i class="dkh-o2"></i></td><td><i class="dkh-o0"></i></td><td><i class="dkh-o1"></i></td></tr><tr><th>Redwood Research</th><td><i class="dkh-o1"></i></td><td><i class="dkh-o0"></i></td><td><i class="dkh-o2"></i></td><td><i class="dkh-o0"></i></td></tr><tr><th>欧盟《人工智能法案》</th><td><i class="dkh-o0"></i></td><td><i class="dkh-o1"></i></td><td><i class="dkh-o2"></i></td><td><i class="dkh-o2"></i></td></tr></tbody></table></div><p class="dkh-note"><i class="dkh-o2"></i> 主要方向 &nbsp; <i class="dkh-o1"></i> 次要方向</p><p class="dkh-note">此归类由本页所做，这些机构并未这样描述过自己。</p></div>
+      </figure>
     </details><div class="dk-check" data-id="c-5.1" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;关于四道防线，哪一句是对的？&quot;, &quot;opts&quot;: [&quot;四道加起来就能保证安全&quot;, &quot;每一道都有漏洞，单靠哪一道都不够&quot;, &quot;只有第一道重要&quot;], &quot;right&quot;: 1, &quot;why&quot;: &quot;每一层都有洞，四道不完美的滤网加起来并不等于保证。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="33"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="35">下一节：5.2 裂缝 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="5.2a" data-acc="#6f8a63" style="--c-acc:#6f8a63" data-where="&lt;b&gt;5.2&lt;/b&gt; 裂缝"><section id="response-gaps" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 5.2 节 · 它到底管不管用 <b class="rt-min">2 分钟</b><span class="t-grp">第 5 章 · 应对</span></span><h2>我们最好的防护把失败率压了下来，却没有把它归零</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="35"><b>1</b>四个难点</button><button type="button" class="t-chip" data-go="36"><b>2</b>哪些扛得住</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">可每一层都有裂缝。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>发现漏洞：4 个。</span></div></div><p class="stand">上面每一项技术都有用。下面是它们各自失效的地方。</p><div class="ddgrid two rv">
       <div class="ddc o" data-k="4"><span class="k">难点一</span><h4>模型知道自己正在被测试</h4><p>这些防护的效果，多数是在评估环境中测出来的。一个能分辨评估与真实部署的系统，可以在评估里循规蹈矩，在部署里换一副面孔。</p></div>
       <div class="ddc r" data-k="3"><span class="k">难点二</span><h4>模型比监督它的系统更强</h4><p>监督、可解释性与控制，都预设监督方跟得上被监督方在做什么。能力越往上走，这个预设就越站不住。</p></div>
@@ -3929,55 +3194,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
       <div class="ddc t" data-k="2"><span class="k">难点四</span><h4>它盯上的是标准答案，不是任务本身</h4><p>如果它不相信测试者手上的答案就是对的，那么入侵测试者、直接读出那里现成的答案——不管对错——和真正解题拿到的分数完全一样。</p></div>
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="34"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="36">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="5.2b" data-acc="#6f8a63" style="--c-acc:#6f8a63" data-where="&lt;b&gt;5.2&lt;/b&gt; 裂缝"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>5.2</b> · 我们最好的防护把失败率压了下来，却没有把它归零</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="35"><b>1</b>四个难点</button><button type="button" class="t-chip on" data-go="36"><b>2</b>哪些扛得住</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-sad.jpg" alt="Kenji，很难过" width="72" height="72" decoding="async"><p class="cx-bubble">眼下，在最难的情况下，没有哪一层靠得住。</p></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 哪些扛得住</span></div><figure class="secfig dk-int dkw-guards" data-w="guards" data-cfg="{&quot;title&quot;: &quot;哪些防护扛得住最难的情形？&quot;, &quot;cases&quot;: [&quot;模型知道自己正被测试&quot;, &quot;模型比监视它的一方更聪明&quot;, &quot;建造者干脆不参与&quot;], &quot;rows&quot;: [&quot;后训练对齐&quot;, &quot;可扩展监督&quot;, &quot;能力评估&quot;, &quot;可解释性&quot;, &quot;AI 控制&quot;, &quot;分类器与沙箱&quot;, &quot;监管&quot;], &quot;st&quot;: [&quot;扛得住&quot;, &quot;部分扛得住&quot;, &quot;失效&quot;, &quot;未测试&quot;], &quot;prompt&quot;: &quot;打开一种最难的情形。&quot;, &quot;count&quot;: &quot;仍完全扛得住：{n} / 7&quot;, &quot;note&quot;: &quot;只有监管扛得住一个拒绝参与的建造者，而它恰恰是最不成熟的一层。&quot;, &quot;alt&quot;: &quot;逐个打开最难的情形，看看七种防护中哪些扛得住、部分扛得住或失效。&quot;}"><p class="tr-title">哪些防护扛得住最难的情形？</p><div class="dki-body"></div><p class="dk-sr">逐个打开最难的情形，看看七种防护中哪些扛得住、部分扛得住或失效。</p></figure><details class="exfold rv">
       <summary>这四个难题背后的数字：缓解前后的对比</summary>
-      <figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 258" role="img" aria-label="三根柱状图显示越狱成功率与隐蔽行动比例大幅下降，但每一项在缓解之后都仍留有可见的非零残余。">
-        <text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">最好的那些结果，究竟做到了什么</text>
-        <text x="0" y="52" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">越狱成功率</text>
-        <rect x="250" y="39" width="400" height="13" rx="2" fill="#d8cdb3" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-        <rect x="250" y="39" width="344.0" height="13" rx="2" fill="#8fa2d8" opacity=".45"/>
-        <rect x="250" y="39" width="17.6" height="13" rx="2" fill="#8fa2d8" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-        <text x="602" y="50" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">无防御时 86%</text>
-        <text x="250" y="74" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">加上宪法式分类器后 4.4%</text>
-        <text x="0" y="108" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">隐蔽行动，o3</text>
-        <rect x="250" y="95" width="400" height="13" rx="2" fill="#d8cdb3" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-        <rect x="250" y="95" width="52.0" height="13" rx="2" fill="#5c574e" opacity=".45"/>
-        <rect x="250" y="95" width="3.0" height="13" rx="2" fill="#5c574e"/>
-        <text x="310" y="106" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">训练前 13%</text>
-        <text x="250" y="130" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#5c574e" data-lx-dfs="10.78">反密谋训练后 0.4%</text>
-        <text x="0" y="164" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e" data-lx-dfs="10.78">隐蔽行动，o4-mini</text>
-        <rect x="250" y="151" width="400" height="13" rx="2" fill="#d8cdb3" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-        <rect x="250" y="151" width="34.8" height="13" rx="2" fill="#a98a4b" opacity=".45"/>
-        <rect x="250" y="151" width="3.0" height="13" rx="2" fill="#a98a4b"/>
-        <text x="293" y="162" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">训练前 8.7%</text>
-        <text x="250" y="186" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">反密谋训练后 0.3%</text>
-        <line x1="0" y1="202" x2="720" y2="202" stroke="#cfc4ab"/>
-        <text x="0" y="226" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">没有一项归零，也没有一项能称得上解决了。</text>
-        <text x="0" y="244" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e" data-lx-dfs="10.78">浅色条：缓解之前。实色条：缓解之后。实色条就是剩下来的部分。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 317" role="img" aria-label="三根柱状图显示越狱成功率与隐蔽行动比例大幅下降，但每一项在缓解之后都仍留有可见的非零残余。">
-<text x="0" y="14" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">最好的那些结果，究竟做到了什么</text>
-<text x="0" y="44" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">越狱成功率</text>
-<rect x="0" y="52" width="340" height="13" rx="2" fill="#d8cdb3" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<rect x="0" y="52" width="292.4" height="13" rx="2" fill="#8fa2d8" opacity=".45"/>
-<rect x="0" y="52" width="15.0" height="13" rx="2" fill="#8fa2d8" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="0" y="80" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">无防御时 86%</text>
-<text x="0" y="95" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b">加上宪法式分类器后 4.4%</text>
-<text x="0" y="125" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">隐蔽行动，o3</text>
-<rect x="0" y="133" width="340" height="13" rx="2" fill="#d8cdb3" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<rect x="0" y="133" width="44.2" height="13" rx="2" fill="#5c574e" opacity=".45"/>
-<rect x="0" y="133" width="3.0" height="13" rx="2" fill="#5c574e"/>
-<text x="0" y="161" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">训练前 13%</text>
-<text x="0" y="176" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#5c574e">反密谋训练后 0.4%</text>
-<text x="0" y="206" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" fill="#5c574e">隐蔽行动，o4-mini</text>
-<rect x="0" y="214" width="340" height="13" rx="2" fill="#d8cdb3" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<rect x="0" y="214" width="29.6" height="13" rx="2" fill="#a98a4b" opacity=".45"/>
-<rect x="0" y="214" width="3.0" height="13" rx="2" fill="#a98a4b"/>
-<text x="0" y="242" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">训练前 8.7%</text>
-<text x="0" y="257" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10.5" font-weight="700" fill="#1b1b1b">反密谋训练后 0.3%</text>
-<line x1="0" y1="273" x2="340" y2="273" stroke="#cfc4ab"/>
-<text x="0" y="293" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="11" font-weight="700" fill="#1b1b1b">没有一项归零，也没有一项能称得上解决了。</text>
-<text x="0" y="311" font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif" font-size="10" fill="#5c574e">浅色条：缓解之前。实色条：缓解之后。实色条就是剩下来的部分。</text>
-</svg>
+      <figure class="secfig rv"><div class="dkh"><p class="dkh-t">最好的那些结果，究竟做到了什么</p><div class="dkh-row"><div class="dkh-top"><b>越狱成功率</b></div><div class="dkh-bar dkh-fill dkh-pale"><i style="width:86.0%"></i></div><span class="dkh-q">无防御时 86%</span><div class="dkh-bar dkh-fill"><i style="width:4.40%"></i></div><span class="dkh-q">加上宪法式分类器后 4.4%</span></div><div class="dkh-row"><div class="dkh-top"><b>隐蔽行动，o3</b></div><div class="dkh-bar dkh-fill dkh-pale"><i style="width:13.0%"></i></div><span class="dkh-q">训练前 13%</span><div class="dkh-bar dkh-fill"><i style="width:0.80%"></i></div><span class="dkh-q">反密谋训练后 0.4%</span></div><div class="dkh-row"><div class="dkh-top"><b>隐蔽行动，o4-mini</b></div><div class="dkh-bar dkh-fill dkh-pale"><i style="width:8.7%"></i></div><span class="dkh-q">训练前 8.7%</span><div class="dkh-bar dkh-fill"><i style="width:0.80%"></i></div><span class="dkh-q">反密谋训练后 0.3%</span></div><p class="dkh-note">没有一项归零，也没有一项能称得上解决了。</p></div>
       <p class="fig-src"><a href="https://arxiv.org/abs/2501.18837" target="_blank" rel="noopener">宪法式分类器</a> · <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">反密谋训练</a> · 见 <a href="/reference-zh#s52">52</a>、<a href="/reference-zh#s43">43</a></p>
     </figure>
     </details><div class="keyline rv" style="margin-top:clamp(18px,2.6vw,24px)"><span class="kk">这留下了什么</span><p>我们目前还没有能可靠确保先进 AI 系统对齐、且可被监测的技术，而补上这个缺口，需要的投入远超现在的水平。</p></div><div class="dk-check" data-id="c-5.2" data-c="{&quot;k&quot;: &quot;小测验&quot;, &quot;q&quot;: &quot;当建造者干脆不参与时，哪一种防护还部分有效？&quot;, &quot;opts&quot;: [&quot;AI 控制&quot;, &quot;能力评估&quot;, &quot;监管&quot;], &quot;right&quot;: 2, &quot;why&quot;: &quot;只有监管能部分扛住一个拒绝参与的建造者，而它恰恰是最不成熟的一层。&quot;, &quot;ok&quot;: &quot;答对了！&quot;, &quot;no&quot;: &quot;不太对。&quot;}"></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="35"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="37">下一节：5.3 航向修正 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="5.3" data-acc="#6f8a63" style="--c-acc:#6f8a63" data-where="&lt;b&gt;5.3&lt;/b&gt; 航向修正"><section id="ask" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 5.3 节 · 立即行动 <b class="rt-min">1 分钟</b><span class="t-grp">第 5 章 · 应对</span></span><h2>通往繁荣未来的道路，需要把<em>两件事做对</em>。</h2></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-serious.jpg" alt="Kenji，很严肃" width="72" height="72" decoding="async"><p class="cx-bubble">所以，这些必须改变。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>暂停键：目前还能用。</span></div></div><figure class="secfig dk-int dkw-fork" data-w="fork" data-cfg="{&quot;title&quot;: &quot;&quot;, &quot;q&quot;: &quot;我们能让超级智能变安全吗？&quot;, &quot;yes&quot;: &quot;能&quot;, &quot;no&quot;: &quot;不能，或来不及&quot;, &quot;pick&quot;: &quot;选一条路。&quot;, &quot;alt&quot;: &quot;一个岔路口：如果超级智能能被做得安全，就把安全放在首位；如果不能，就停止通用人工智能的研发，保留专用 AI。&quot;, &quot;ends&quot;: [&quot;把安全当作头号优先事项，努力把我们引向一个对齐良好、可被监测的先进 AI 系统&quot;, &quot;如果安全无解，就停止通用人工智能的研发，为了人类能够存续下去；专用 AI 的研发与应用则照常推进&quot;]}"><div class="dki-body"></div><p class="dk-sr">一个岔路口：如果超级智能能被做得安全，就把安全放在首位；如果不能，就停止通用人工智能的研发，保留专用 AI。</p></figure><div class="dk-sr"><div class="firsts two">
@@ -6216,6 +5433,37 @@ var SITE_CONFIG = {
     demo.querySelectorAll(".dbtn").forEach(function(b){ b.addEventListener("click", function(){ ask(+b.getAttribute("data-d")); }); });
     ask(0);
   });
+
+  /* 2.3 out of the loop: longer tasks, less of the work checked by a person (shape of the original chart) */
+  R.loop = function(box, C){
+    var t = C.t || [], zh = /^zh/i.test(document.documentElement.lang || ""), J = zh ? "" : " ";
+    var N = 20, cells = "";
+    for (var k = 0; k < N; k++) cells += '<i></i>';
+    box.innerHTML = '<div class="dki-legend"><span class="dki-lr">' + esc(C.rev) + '</span><span class="dki-la">' + esc(C.agent) + '</span></div>' +
+      '<div class="dki-work" aria-hidden="true">' + cells + '</div>' + slider(C.label, 0, 100, 1, 10) +
+      '<div class="dki-ends"><span>' + esc(t[5] || "") + '</span><span>' + esc(t[6] || "") + '</span></div><p class="dki-say">' + esc(t[7] || "") + '</p>';
+    var inp = box.querySelector("input"), v = box.querySelector(".dki-v"), is = box.querySelectorAll(".dki-work i");
+    function draw(){
+      var x = +inp.value / 100, rev = Math.round(N * (0.9 - 0.75 * x));
+      v.textContent = x < 0.34 ? (t[5] || "").split(/[,，]/)[0] : x < 0.67 ? "…" : (t[6] || "").split(/[,，]/)[0];
+      [].forEach.call(is, function(c, k){ c.className = k < rev ? "dki-r" : "dki-a"; });
+    }
+    inp.addEventListener("input", draw); draw();
+  };
+
+  /* 2.3 what it runs on: tap a layer */
+  R.layers = function(box, C){
+    var t = C.t || [], L = [[0, 1, 2], [3, 4, 5], [6, 7, 8]], html = '<div class="dki-stack">';
+    L.forEach(function(r, k){ html += '<button type="button" class="dki-layer dki-l' + k + '" aria-pressed="false" data-k="' + k + '">' + esc(t[r[0]] || "") + '</button>'; });
+    html += '</div><div class="dki-lay-out" aria-live="polite"><p class="dki-say">' + esc(C.tap) + '</p></div>';
+    box.innerHTML = html;
+    var bs = box.querySelectorAll(".dki-layer"), out = box.querySelector(".dki-lay-out");
+    [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
+      var k = +b.getAttribute("data-k"), r = L[k];
+      [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      out.innerHTML = '<b>' + esc(t[r[0]]) + '</b><p>' + esc(t[r[1]]) + '</p><p class="dki-ai">⚡ ' + esc(t[r[2]]) + '</p>';
+    }); });
+  };
 
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){

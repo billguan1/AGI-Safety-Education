@@ -245,9 +245,9 @@ def charts_11(T):
                    '<text x="10" y="120" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#d9492c">0</text>' + t(62, 112, 16, C['p_chk'], bold=False))
     return [compute, funding, plans]
 
-def widget(kind, T, old_fig):
+def widget(kind, T, old_fig, extra=None):
     """An interactive chart in place of a static one; deck.js draws it. The source line stays."""
-    W = T['wid'][kind]
+    W = dict(T['wid'][kind]); W.update(extra or {})
     src = re.search(r'<p class="fig-src">.*?</p>', old_fig, re.S)
     return ('<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div>'
             '<p class="dk-sr">%s</p>%s</figure>') % (kind, kind, html.escape(json.dumps(W, ensure_ascii=False)), W['title'], W['alt'], src.group(0) if src else '')
@@ -267,13 +267,13 @@ def cards_text(block):
         out.append([text(k.group(1)) if k else '', text(h.group(1)), p.group(1).strip() if p else ''])
     return out
 
-def swap_fig(block, n, kind, T):
-    """Replace the block's nth figure with an interactive one."""
+def swap_fig(block, n, kind, T, texts=False):
+    """Replace the block's nth figure with an interactive one; texts=True hands it the original labels."""
     starts = [m.start() for m in re.finditer(r'<figure\b', block)]
     assert len(starts) > n, ('figure', n, len(starts))
     a = starts[n]; b = block.index('</figure>', a) + 9
     assert block[a:b].count('<figure') == 1
-    return block[:a] + widget(kind, T, block[a:b]) + block[b:]
+    return block[:a] + widget(kind, T, block[a:b], {'t': svg_texts(block[a:b])} if texts else None) + block[b:]
 
 def risk_chart(T, src_svg):
     """How likely is disaster: four rows in HTML, names and quotes from the page's own chart."""
@@ -297,6 +297,102 @@ def econ_chart(T):
                    % (html.escape(lab), ('%.1f' % m) if m < 10 else ('%d' % round(m)), max(1.2, m / top * 100)))
     out.append('</div>')
     return ''.join(out)
+
+# ---------------------------------------------------------------- charts rebuilt in HTML
+def svg_texts(fig):
+    """Label strings of a figure's desktop chart, in drawing order."""
+    m = re.search(r'<svg class="lx-d"[^>]*>(.*?)</svg>', fig, re.S) or re.search(r'<svg\b[^>]*>(.*?)</svg>', fig, re.S)
+    return [text(x) for x in re.findall(r'<text\b[^>]*>(.*?)</text>', m.group(1), re.S)]
+
+def E(x): return html.escape(x)
+
+def H(kind, lang, t, extra=None):
+    """One chart as HTML, from the labels of the original drawing."""
+    j = '' if lang == 'zh' else ' '
+    J = lambda *k: j.join(t[i] for i in k)
+    T0 = lambda i: '<p class="dkh-t">%s</p>' % E(t[i])
+    if kind == 'funding':
+        return ('<div class="dkh">%s<div class="dkh-row"><div class="dkh-top"><span>%s</span><b class="dkh-v">%s</b></div><div class="dkh-bar dkh-fill dkh-blue"><i style="width:100%%"></i></div></div>'
+                '<div class="dkh-row"><div class="dkh-top"><span>%s</span><b class="dkh-v">%s</b></div><div class="dkh-bar dkh-fill"><i style="width:1%%"></i></div></div></div>') % (T0(0), E(t[1]), E(t[2]), E(t[3]), E(t[4]))
+    if kind == 'timeline':
+        items = [(t[1], t[2]), (t[3], t[4]), (t[5], t[6]), (t[7], J(8, 9))]
+        return '<div class="dkh">%s<ol class="dkh-tl">%s</ol></div>' % (T0(0), ''.join('<li><b>%s</b><span>%s</span></li>' % (E(y), E(x)) for y, x in items))
+    if kind in ('payoff4', 'payoff3'):
+        if kind == 'payoff4':
+            cols, rows = (t[1], t[2]), (t[3], t[7]); cells = [[(t[4], t[5], 'bad'), (t[6], '', '')], [(t[8], '', ''), (t[9], t[10], 'good')]]; note = t[11]
+        else:
+            cols, rows = (t[1], t[2]), (t[3], t[4]); cells = [[(t[5], t[6], 'good'), (t[7], t[8], '')], [(t[9], t[10], ''), (t[11], t[12], 'bad')]]; note = t[13]
+        g = '<div></div>' + ''.join('<div class="dkh-ch">%s</div>' % E(c) for c in cols)
+        for r, row in zip(rows, cells):
+            g += '<div class="dkh-rh">%s</div>' % E(r) + ''.join('<div class="dkh-cell %s"><b>%s</b>%s</div>' % (k, E(a), ('<span>%s</span>' % E(b)) if b else '') for a, b, k in row)
+        return '<div class="dkh">%s<div class="dkh-grid">%s</div><p class="dkh-note">%s</p></div>' % (T0(0), g, E(note))
+    if kind == 'problems':
+        return '<div class="dkh dkh-two">%s</div>' % ''.join('<div class="dkh-box"><span class="dkh-k">%s</span><b>%s</b><span>%s</span></div>' % (E(t[a]), E(t[a + 1]), E(t[a + 2])) for a in (0, 3))
+    if kind == 'subgoals':
+        chips = ''.join('<span class="dkh-chip%s">%s</span>' % (' dkh-hot' if i == 4 else '', E(t[i])) for i in range(5))
+        res = [(6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17)]
+        cards = ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(t[a]), E(J(b, c))) for a, b, c in res)
+        return '<div class="dkh"><div class="dkh-chips">%s</div><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (chips, E(t[5]), cards)
+    if kind == 'whose':
+        groups = ''.join('<span class="dkh-chip">%s</span>' % E(t[i]) for i in range(1, 5))
+        return ('<div class="dkh">%s<div class="dkh-flow"><div class="dkh-col">%s</div><span class="dkh-to" aria-hidden="true">→</span>'
+                '<div class="dkh-q-box"><b>?</b><span>%s</span></div><span class="dkh-to" aria-hidden="true">→</span><span class="dkh-chip dkh-hot">%s</span></div></div>') % (T0(0), groups, E(t[6]), E(t[7]))
+    if kind == 'decide':
+        few = [J(1, 2), J(3, 4), J(5, 6), J(7, 8) + '<small>' + E(J(10, 11, 12, 13)) + '</small>']
+        dots = ''.join('<div class="dkh-few"><i></i><span>%s</span></div>' % (E(x) if '<small>' not in x else E(x.split('<small>')[0]) + '<small>' + x.split('<small>')[1]) for x in few)
+        return '<div class="dkh">%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div></div>' % (T0(0), dots, E(t[9]))
+    if kind == 'twoways':
+        return ('<div class="dkh">%s<div class="dkh-two"><div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>≠</em><b>%s</b></div><span>%s</span></div>'
+                '<div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>%s</em><b>%s</b></div><span>%s</span></div></div></div>') % (
+                T0(0), E(t[1]), E(J(2, 3)), E(J(4, 5)), E(t[6]), E(t[7]), E(J(8, 9)), E(t[10]), E(J(11, 12)), E(t[13]))
+    if kind == 'lost':
+        return ('<div class="dkh">%s<div class="dkh-steps"><div class="dkh-box"><b>%s</b></div><span class="dkh-to" aria-hidden="true">→</span>'
+                '<div class="dkh-box"><span class="dkh-k">%s</span><b class="dkh-big">%s</b><span>%s</span></div><span class="dkh-to" aria-hidden="true">→</span>'
+                '<div class="dkh-split"><span class="dkh-chip dkh-ok">%s</span><span class="dkh-chip dkh-hot">%s</span></div></div></div>') % (T0(0), E(t[1]), E(t[2]), E(t[3]), E(t[4]), E(t[5]), E(t[6]))
+    if kind == 'talk':
+        return ('<div class="dkh">%s<div class="dkh-two"><div class="dkh-box"><span class="dkh-k">%s</span><b>✕</b><span>%s</span></div>'
+                '<div class="dkh-box"><span class="dkh-k">%s</span><b>%s</b><span>%s</span></div></div></div>') % (T0(0), E(t[1]), E(t[2]), E(t[3]), E(J(4, 5)), E(t[6]))
+    if kind == 'grader':
+        box = lambda a, b, c='': '<div class="dkh-box"><span class="dkh-k">%s</span><b class="dkh-big">%s</b>%s</div>' % (E(a), E(b), ('<span>%s</span>' % E(c)) if c else '')
+        return ('<div class="dkh">%s<div class="dkh-steps">%s<span class="dkh-to">%s</span>%s<span class="dkh-to">%s</span>%s</div><p class="dkh-note">%s</p></div>') % (
+                T0(0), box(t[1], t[2]), E(t[9]), box(t[3], t[4]), E(t[10]), box(t[5], t[6], t[7]), E(t[8]))
+    if kind == 'levers':
+        rows = [(3, 4, (5, 6), (7, 8)), (9, 10, (11, 12), (13, 14)), (15, 16, (17, 18), (19, 20)), (21, 22, (23, 24), (25, 26))]
+        body = ''.join('<tr><th><b>%s</b><span>%s</span></th><td>%s</td><td>%s</td></tr>' % (E(t[a]), E(t[b]), E(J(*c)), E(J(*d))) for a, b, c, d in rows)
+        return '<div class="dkh">%s<div class="dkh-scroll"><table class="dkh-tab"><thead><tr><th></th><th>%s</th><th>%s</th></tr></thead><tbody>%s</tbody></table></div><p class="dkh-note">%s</p></div>' % (
+               T0(0), E(t[1]), E(t[2]), body, E(t[27]))
+    if kind == 'orgs':
+        cols, names, grid = extra
+        head = '<tr><th></th>%s</tr>' % ''.join('<th>%s</th>' % E(c) for c in cols)
+        body = ''.join('<tr><th>%s</th>%s</tr>' % (E(n), ''.join('<td><i class="dkh-o%d"></i></td>' % v for v in row)) for n, row in zip(names, grid))
+        return ('<div class="dkh"><div class="dkh-scroll"><table class="dkh-tab dkh-dots"><thead>%s</thead><tbody>%s</tbody></table></div>'
+                '<p class="dkh-note"><i class="dkh-o2"></i> %s &nbsp; <i class="dkh-o1"></i> %s</p><p class="dkh-note">%s</p></div>') % (head, body, E(t[12]), E(t[13]), E(t[14]))
+    if kind == 'numbers':
+        def num(x): return float(re.search(r'[\d.]+', x.replace(',', '')).group(0))
+        rows = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
+        body = ''.join('<div class="dkh-row"><div class="dkh-top"><b>%s</b></div><div class="dkh-bar dkh-fill dkh-pale"><i style="width:%.1f%%"></i></div><span class="dkh-q">%s</span>'
+                       '<div class="dkh-bar dkh-fill"><i style="width:%.2f%%"></i></div><span class="dkh-q">%s</span></div>' % (E(t[a]), num(t[b]), E(t[b]), max(.8, num(t[c])), E(t[c])) for a, b, c in rows)
+        return '<div class="dkh">%s%s<p class="dkh-note">%s</p></div>' % (T0(0), body, E(t[10]))
+    raise ValueError(kind)
+
+def orgs_grid(fig, t):
+    """Which organisation works where, read dot by dot from the original chart: 2 primary, 1 secondary, 0 none."""
+    sv = re.search(r'<svg class="lx-d"[^>]*>(.*?)</svg>', fig, re.S).group(1)
+    colx = [float(x) for x in re.findall(r'<text x="([\d.]+)" y="20" text-anchor="middle"', sv)]
+    rowy = [float(y) for y in re.findall(r'<text x="0" y="([\d.]+)"[^>]*>[^<]+</text>', sv)][:8]
+    assert len(colx) == 4 and len(rowy) == 8, (colx, rowy)
+    grid = [[0] * 4 for _ in rowy]
+    for cx, cy, rest in re.findall(r'<circle cx="([\d.]+)" cy="([\d.]+)" r="6.5"([^>]*)/>', sv):
+        c = min(range(4), key=lambda k: abs(colx[k] - float(cx))); r = min(range(8), key=lambda k: abs(rowy[k] - 4 - float(cy)))
+        grid[r][c] = 1 if 'opacity=' in rest else 2
+    return (t[0:4], t[4:12], grid)
+
+def rebuild(block, n, kind, lang):
+    """Swap the block's nth figure drawing for its HTML rebuild; the source line stays."""
+    figs = re.findall(r'<figure\b.*?</figure>', block, re.S)
+    t = svg_texts(figs[n])
+    extra = orgs_grid(figs[n], t) if kind == 'orgs' else None
+    return swap_fig_svgs(block, n, H(kind, lang, t, extra))
 
 def swap_fig_svgs(block, n, new_svg):
     """Put one deck-drawn svg in place of every svg inside the block's nth figure."""
@@ -349,6 +445,10 @@ def plan(pg):
     claims = kids(one(cross, '<div class="claims'))
     assert len(claims) == 3
     def claim_card(c):
+        if 'claim-1' in c[:80]:
+            c = rebuild(c, 1, 'timeline', pg.lang); c = rebuild(c, 0, 'funding', pg.lang)
+        if 'claim-3' in c[:80]:
+            c = rebuild(c, 1, 'problems', pg.lang); c = rebuild(c, 0, 'payoff4', pg.lang)
         if 'claim-2' in c[:80]:
             figs = re.findall(r'<figure\b.*?</figure>', c, re.S)
             src = re.search(r'<svg class="lx-d"[^>]*>(.*?)</svg>', figs[1], re.S).group(1)
@@ -406,7 +506,7 @@ def plan(pg):
         six = six[:c.start()] + c.group(0).replace('<div class="ddc', '<div data-more="%s" class="ddc' % T['more_how'], 1).replace(
             '<span class="k">', '<span class="sc-ic">%s</span><span class="k">' % icons[n], 1) + six[c.end():]
     add(ch, [(P['2.2'][0], stand(ch) + one(B, '<div class="ends')),
-             (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(one(B, '<div class="ddc b rv" id="route-two"')) + widget_plain('beai', T)),
+             (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(rebuild(one(B, '<div class="ddc b rv" id="route-two"'), 0, 'subgoals', pg.lang)) + widget_plain('beai', T)),
              (P['2.2'][2], part_head(k, t, text(bodies[0]) + T['open_any']) + six + key(ch) + bodies[1])])
     # 2.3
     ch = pg.chapter('why-one-try'); B = ch['blocks']
@@ -415,27 +515,27 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
-             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(swap_fig(grids[0], 0, 'trend', T))),   # Kenji carries the reason
-             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(grids[1], 0, 'speed', T)))])
+             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T))),   # Kenji carries the reason
+             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(grids[1], 1, 'layers', T, True), 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
-    add(ch, [(P['3.1'][0], stand(ch) + one(B, '<figure') + widget_plain('race', T)),
+    add(ch, [(P['3.1'][0], stand(ch) + rebuild(one(B, '<figure'), 0, 'payoff3', pg.lang) + widget_plain('race', T)),
              (P['3.1'][1], quiz + part_head(*T['heads']['3.1b']) + auto(one(B, '<div class="ddgrid')) + key(ch))])
     # 3.2
     ch = pg.chapter('why-human-misalignment'); B = ch['blocks']
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
     add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + grids[0]),
              (P['3.2'][1], part_head(*T['heads']['3.2b']) + widget_plain('chain', T, {'cards': cards_text(grids[1])})),
-             (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + figs[0] + figs[1])])
+             (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + rebuild(figs[0], 0, 'whose', pg.lang) + rebuild(figs[1], 0, 'decide', pg.lang))])
     # 4.1
     ch = pg.chapter('why-translation'); B = ch['blocks']
     figs = [x for x in B if x.startswith('<figure')]; h3s = [x for x in B if x.startswith('<h3')]
     ps = [x for x in B if x.startswith('<p class="rv"')]; grids = [x for x in B if x.startswith('<div class="ddgrid')]
     assert len(figs) == 3 and len(h3s) == 2 and len(ps) == 3 and len(grids) == 2
     H = T['heads']
-    add(ch, [(P['4.1'][0], stand(ch) + figs[0]),
-             (P['4.1'][1], part_head(H['4.1b']) + figs[1]),                                     # Kenji carries outer alignment
+    add(ch, [(P['4.1'][0], stand(ch) + rebuild(figs[0], 0, 'twoways', pg.lang)),
+             (P['4.1'][1], part_head(H['4.1b']) + rebuild(figs[1], 0, 'lost', pg.lang)),                                     # Kenji carries outer alignment
              (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + grids[0]),
              (P['4.1'][3], part_head(H['4.1d']) + loophole(demo_bare(one(B, '<div class="demo-embed')), pg)),
              (P['4.1'][4], part_head(H['4.1e'], '', unp(ps[2])) + iceberg_fig(T)),
@@ -444,7 +544,7 @@ def plan(pg):
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
     body = kids(one(B, '<div class="body'))
     add(ch, [(P['4.2'][0], stand(ch) + swap_fig(one(body, '<figure'), 0, 'gap', T)),
-             (P['4.2'][1], part_head(H['4.2b']) + auto(one(body, '<div class="ddgrid'))),
+             (P['4.2'][1], part_head(H['4.2b']) + auto(rebuild(rebuild(one(body, '<div class="ddgrid'), 1, 'grader', pg.lang), 0, 'talk', pg.lang))),
              (P['4.2'][2], part_head(H['4.2c']) + widget_plain('inside', T) + one(body, '<p') + one(B, '<div class="core'))])
     # 5.1
     ch = pg.chapter('response'); B = ch['blocks']
@@ -454,12 +554,14 @@ def plan(pg):
     parts = [(P['5.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'cheese', T))]
     for i, l in enumerate(layers):
         parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
-    parts.append((P['5.1'][1], part_head(H['5.1f']) + ''.join(b for b in B if b.startswith('<details'))))
+    dets = [b for b in B if b.startswith('<details')]
+    dets = [rebuild(d, 0, 'levers', pg.lang) if 'exfold' in d[:40] and k == 1 else (rebuild(d, 0, 'orgs', pg.lang) if 'exfold' in d[:40] and k == 2 else d) for k, d in enumerate(dets)]
+    parts.append((P['5.1'][1], part_head(H['5.1f']) + ''.join(dets)))
     add(ch, parts)
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']
     add(ch, [(P['5.2'][0], stand(ch) + one(B, '<div class="ddgrid')),
-             (P['5.2'][1], part_head(H['5.2b']) + swap_fig(one(B, '<figure'), 0, 'guards', T) + one(B, '<details') + key(ch))])
+             (P['5.2'][1], part_head(H['5.2b']) + swap_fig(one(B, '<figure'), 0, 'guards', T) + rebuild(one(B, '<details'), 0, 'numbers', pg.lang) + key(ch))])
     # 5.3 ask: no sec-head, an eyebrow and a big heading
     B = pg.section('ask')
     eb = inner(one(B, '<p class="eyebrow'))
