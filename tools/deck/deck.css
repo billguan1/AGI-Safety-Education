@@ -522,3 +522,8 @@ html,body{background:#f4ecd8;color:var(--ink)}
   .cx-bubble{flex:1 1 0;min-width:0}
   .cx-capy{flex-basis:100%}
 }
+/* glossary tips on phones: a full-width panel above the slide buttons, never off the edge */
+@media (max-width:760px){
+  .t-body .term .term-tip{position:fixed!important;left:16px!important;right:16px!important;top:auto!important;bottom:calc(84px + env(safe-area-inset-bottom,0px))!important;
+    width:auto!important;max-width:none!important;transform:none!important;z-index:70;background:#fffdf6!important;color:#1b1b1b!important;border:2.5px solid #1b1b1b!important;box-shadow:4px 4px 0 #1b1b1b!important}
+}
