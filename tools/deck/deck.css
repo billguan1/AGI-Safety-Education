@@ -806,3 +806,21 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (max-width:760px){.dkh-two,.dkh-four{grid-template-columns:1fr 1fr}.dkh-fewrow{grid-template-columns:1fr 1fr}.dkh-steps,.dkh-flow{flex-direction:column;align-items:stretch}.dkh-to{text-align:center;transform:rotate(90deg)}}
 @media (max-width:420px){.dkh-two,.dkh-four{grid-template-columns:1fr}}
 .dkh-to,.dkh-eq em{font-family:var(--body)!important;font-weight:700;font-size:26px}
+/* swiss cheese, straight through */
+.dki-cheese{position:relative;display:grid;grid-template-columns:auto repeat(4,minmax(0,1fr)) auto;align-items:center;justify-items:center;gap:12px;padding:6px 0}
+.dki-cheese .dki-slice{position:relative;width:100%;height:170px;display:grid;align-content:end;padding:8px}
+.dki-cheese .dki-hole{top:50%;margin-top:-20px}
+.dki-cheese .dki-hole.dki-past{background:#f6d5cc;border-style:solid}
+.dki-cheese .dki-hole.dki-on{background:#d9492c;border-style:solid}
+.dki-threat,.dki-through{max-width:120px;text-align:center;line-height:1.25}
+.dki-path{position:absolute;left:0;right:0;top:50%;border-top:3px dashed #d9492c;opacity:.45;z-index:0;pointer-events:none}
+.dki-cheese > *:not(.dki-path):not(.dki-ball){position:relative;z-index:1}
+.dki-cheese .dki-ball{position:absolute;z-index:3}
+@media (max-width:760px){
+  .dki-cheese{grid-template-columns:1fr;gap:10px}
+  .dki-cheese .dki-slice{height:84px;max-width:260px}
+  .dki-cheese .dki-hole{top:50%;left:50%}
+  .dki-threat,.dki-through{max-width:none}
+  .dki-path{left:50%;right:auto;top:0;bottom:0;border-top:0;border-left:3px dashed #d9492c}
+}
+@media (max-width:760px){.dki-cheese .dki-slice{align-content:center;justify-items:start;padding:8px 12px}.dki-cheese .dki-ln{text-align:left;max-width:38%}}

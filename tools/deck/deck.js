@@ -367,38 +367,40 @@
     });
   };
 
-  /* 5.1 four layers as swiss cheese: send the threat through, tap a hole for why */
+  /* 5.1 four layers as swiss cheese: the holes line up, so a failure goes straight through */
   R.cheese = function(box, C){
-    var COL = ["#4a5fc9", "#6fae5a", "#e8b53a", "#e07a5f"], html = '<div class="dki-cheese"><span class="dki-threat">' + esc(C.threat) + '</span><div class="dki-slices">';
+    var COL = ["#4a5fc9", "#6fae5a", "#e8b53a", "#e07a5f"], zh = /^zh/i.test(document.documentElement.lang || "");
+    var html = '<div class="dki-cheese"><span class="dki-threat">' + esc(C.threat) + '</span>';
     C.layers.forEach(function(l, k){
       html += '<div class="dki-slice" style="--c:' + COL[k] + '"><span class="dki-ln">' + esc(l) + '</span>' +
-        '<button type="button" class="dki-hole" data-k="' + k + '" aria-label="' + esc(l) + '" style="top:' + [38, 52, 30, 46][k] + '%"></button></div>';
+        '<button type="button" class="dki-hole" data-k="' + k + '" aria-label="' + esc(l) + '"></button></div>';
     });
-    html += '</div><span class="dki-through">' + esc(C.through) + '</span><i class="dki-ball" aria-hidden="true"></i></div>' +
-      '<button type="button" class="dki-go">' + esc(C.go) + '</button><p class="dki-say">' + esc(C.tap) + '</p>';
+    html += '<span class="dki-through">' + esc(C.through) + '</span><i class="dki-path" aria-hidden="true"></i><i class="dki-ball" aria-hidden="true"></i></div>' +
+      '<button type="button" class="dki-go">' + esc(C.go) + '</button><p class="dki-say" aria-live="polite">' + esc(C.tap) + '</p>';
     box.innerHTML = html;
-    var holes = box.querySelectorAll(".dki-hole"), say = box.querySelector(".dki-say"), go = box.querySelector(".dki-go"), ball = box.querySelector(".dki-ball"), wrap = box.querySelector(".dki-cheese");
-    [].forEach.call(holes, function(h){
-      h.addEventListener("click", function(){
-        var k = +h.getAttribute("data-k");
-        [].forEach.call(holes, function(x){ x.className = "dki-hole"; }); h.className = "dki-hole dki-on";
-        say.innerHTML = '<b>' + esc(C.layers[k]) + (/^zh/i.test(document.documentElement.lang || "") ? '：</b>' : ':</b> ') + esc(C.why[k]);
-      });
-    });
+    var holes = box.querySelectorAll(".dki-hole"), say = box.querySelector(".dki-say"), go = box.querySelector(".dki-go"),
+        ball = box.querySelector(".dki-ball"), wrap = box.querySelector(".dki-cheese");
+    function tell(k){
+      [].forEach.call(holes, function(x, n){ x.className = "dki-hole" + (n === k ? " dki-on" : (n < k ? " dki-past" : "")); });
+      say.innerHTML = '<b>' + esc(C.layers[k]) + (zh ? "：" : ": ") + '</b>' + esc(C.why[k]);
+    }
+    [].forEach.call(holes, function(h){ h.addEventListener("click", function(){ tell(+h.getAttribute("data-k")); }); });
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function centre(el){ var r = el.getBoundingClientRect(), w = wrap.getBoundingClientRect(); return [r.left + r.width / 2 - w.left, r.top + r.height / 2 - w.top]; }
     go.addEventListener("click", function(){
-      var wr = wrap.getBoundingClientRect(), pts = [];
-      [].forEach.call(holes, function(h){ var r = h.getBoundingClientRect(); pts.push([r.left + r.width / 2 - wr.left, r.top + r.height / 2 - wr.top]); });
-      var th = box.querySelector(".dki-threat").getBoundingClientRect(), tt = box.querySelector(".dki-through").getBoundingClientRect();
-      pts.unshift([th.left + th.width / 2 - wr.left, th.bottom - wr.top + 6]); pts.push([tt.left + tt.width / 2 - wr.left, tt.top - wr.top - 6]);
-      var t0 = null, DUR = reduce ? 1 : 2200; go.disabled = true; ball.style.opacity = 1;
+      var pts = [centre(box.querySelector(".dki-threat"))];
+      [].forEach.call(holes, function(h){ pts.push(centre(h)); });
+      pts.push(centre(box.querySelector(".dki-through")));
+      var t0 = null, PER = reduce ? 1 : 900, last = -1; go.disabled = true; ball.style.opacity = 1; wrap.className = "dki-cheese";
       function step(ts){
         if (t0 === null) t0 = ts;
-        var p = Math.min(1, (ts - t0) / DUR), f = p * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(f)), u = f - i;
+        var f = Math.min(pts.length - 1, (ts - t0) / PER), i = Math.min(pts.length - 2, Math.floor(f)), u = f - i;
         ball.style.transform = "translate(" + (pts[i][0] + (pts[i + 1][0] - pts[i][0]) * u) + "px," + (pts[i][1] + (pts[i + 1][1] - pts[i][1]) * u) + "px)";
-        if (p < 1) requestAnimationFrame(step); else { go.disabled = false; go.textContent = C.again; wrap.className = "dki-cheese dki-leaked"; }
+        var at = Math.round(f) - 1; if (at !== last && at >= 0 && at < holes.length) { last = at; tell(at); }
+        if (f < pts.length - 1) requestAnimationFrame(step);
+        else { go.disabled = false; go.textContent = C.again; wrap.className = "dki-cheese dki-leaked"; }
       }
-      wrap.className = "dki-cheese"; requestAnimationFrame(step);
+      requestAnimationFrame(step);
     });
   };
 
