@@ -260,6 +260,9 @@ def plan(pg):
     # the cliff is an illustration, so it gets a hand-picked paper palette rather than the chart rules
     ci = cover.index('<figure class="cliff'); cj = cover.index('</figure>', ci)
     fig = cover[ci:cj].replace('<svg', '<svg data-keep="1"')
+    # the cliff-edge label sits low on the rock face, away from the climbers
+    fig, nlab = re.subn(r'<text x="548" y="150"( text-anchor="end")', r'<text x="510" y="414"\1', fig)
+    assert nlab == 1, ('cliff edge label', nlab)
     def cliff_colour(m):
         v = m.group(2).lower()
         assert v in CLIFF, ('cliff colour with no paper mapping', v)
