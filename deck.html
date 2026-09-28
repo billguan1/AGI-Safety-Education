@@ -2698,6 +2698,39 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body a.care-c:nth-child(2) .care-ic{background:#f6e7c1}
 .t-body a.care-c:nth-child(3) .care-ic{background:#dbe2f6}
 .t-body .care-top{margin-bottom:8px}
+/* disaster odds as tiles */
+.dkr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dkr-tile{display:grid;gap:2px;align-content:start;padding:14px 16px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b;border-top:8px solid #d9492c}
+.t-body .dkr-v{font-family:var(--comic);font-weight:400;font-size:40px;line-height:1;letter-spacing:.02em;color:#1b1b1b}
+.t-body .dkr-odds{font-family:var(--body);font-weight:700;font-size:14px;color:#b43a1e;margin-bottom:6px}
+.t-body .dkr-n{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
+.t-body .dkr-q{font-family:var(--body);font-size:14px;line-height:1.35;color:#5c574e}
+/* economy as squares by area */
+.dke{display:grid;grid-template-columns:1fr 1fr 2.4fr;gap:14px;align-items:end}
+.dke-item{display:grid;gap:4px;justify-items:start}
+.dke-box{width:100%;aspect-ratio:1;display:flex;align-items:flex-end}
+.dke-box i{display:block;background:#d9492c;border:2.5px solid #1b1b1b;border-radius:4px;box-shadow:3px 3px 0 #1b1b1b}
+.dke-item:first-child .dke-box i,.dke-item:nth-child(2) .dke-box i{background:#e8b53a}
+@media (max-width:420px){.dkr{grid-template-columns:1fr}.t-body .dkr-v{font-size:34px}}
+/* economy squares: one reference size, so areas compare truly */
+.dke{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;--S:190px}
+.dke-item{display:grid;gap:4px;justify-items:start;min-width:84px}
+.dke-item > i{display:block;width:calc(var(--S) * var(--f));height:calc(var(--S) * var(--f));min-width:8px;min-height:8px;background:#e8b53a;border:2.5px solid #1b1b1b;border-radius:3px;box-shadow:3px 3px 0 #1b1b1b}
+.dke-item:last-child > i{background:#d9492c}
+@media (max-width:760px){.dke{--S:150px;gap:14px}}
+.tr-game [data-st="next"] > .tr-cover,.tr-game [data-st="locked"] > .tr-cover{inset:0!important}
+@media (max-width:760px){.dkh-to{transform:none!important;font-size:0!important;line-height:1}.dkh-to::after{content:"↓";font-size:26px}}
+/* goal buttons carry an icon */
+.dki-goal{gap:10px}
+.dki-goal svg{width:26px;height:26px;flex:none}
+/* takeaway boxes: light, with the accent bar */
+.t-body .keyline{background:#fff6d8!important;border:3px solid #1b1b1b!important;border-left:12px solid #e8b53a!important;box-shadow:4px 4px 0 #1b1b1b!important}
+.t-body .keyline p{color:#1b1b1b!important}
+.t-body .keyline .kk{color:#8a5d00!important}
+.t-body .keyline a{color:#2f5aa8!important}
+/* hidden glossary tips take no space until opened */
+.slide .term:not(:hover):not(:focus-within):not(.show) .term-tip{display:none!important}
+.dki-cheese .dki-ln{overflow-wrap:anywhere;hyphens:auto}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
@@ -2857,10 +2890,10 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         
         <p class="cl-sub">The initial conditions under which we create superintelligence will determine whether we reach a world of abundance or destruction.</p>
         <div class="cl-figs panels" style="--fig-acc:#3fd0c9">
-        <figure><div class="dkh"><p class="dkh-t">How big the world economy gets by 2055</p><p class="dkh-q">Growth speeds up from 2035. Today = 1.</p><div class="dkh-row"><div class="dkh-top"><b>At today&#x27;s 3% a year</b><b class="dkh-v">×1.8</b></div><div class="dkh-bar dkh-fill"><i style="width:1.20%"></i></div></div><div class="dkh-row"><div class="dkh-top"><b>At 12% a year</b><b class="dkh-v">×9.6</b></div><div class="dkh-bar dkh-fill"><i style="width:5.08%"></i></div></div><div class="dkh-row"><div class="dkh-top"><b>At 30% a year</b><b class="dkh-v">×190</b></div><div class="dkh-bar dkh-fill"><i style="width:100.00%"></i></div></div></div>
+        <figure><div class="dkh"><p class="dkh-t">How big the world economy gets by 2055</p><p class="dkh-q">Growth speeds up from 2035. Today = 1.</p><div class="dke"><div class="dke-item"><i style="--f:0.0975"></i><b class="dkr-v">×1.8</b><span class="dkr-q">At today&#x27;s 3% a year</span></div><div class="dke-item"><i style="--f:0.2253"></i><b class="dkr-v">×9.6</b><span class="dkr-q">At 12% a year</span></div><div class="dke-item"><i style="--f:1.0000"></i><b class="dkr-v">×190</b><span class="dkr-q">At 30% a year</span></div></div></div>
           <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>, rates compounded from 2035 · <a class="ref" href="/reference#s66">66</a> <a class="ref" href="/reference#s1">1</a></p>
         </figure>
-        <figure><div class="dkh"><p class="dkh-t">How likely is disaster? People building AI say:</p><div class="dkh-row"><div class="dkh-top"><b>Geoffrey Hinton</b><b class="dkh-v">10 to 20%</b></div><span class="dkh-q">extinction within 30 years</span><div class="dkh-bar"><i class="dkh-seg" style="left:33.33%;width:33.33%"></i></div></div><div class="dkh-row"><div class="dkh-top"><b>Dario Amodei</b><b class="dkh-v">25%</b></div><span class="dkh-q">it goes really, really badly</span><div class="dkh-bar"><i class="dkh-dot" style="left:83.33%"></i></div></div><div class="dkh-row"><div class="dkh-top"><b>Elon Musk</b><b class="dkh-v">10 to 20%</b></div><span class="dkh-q">something terrible happens</span><div class="dkh-bar"><i class="dkh-seg" style="left:33.33%;width:33.33%"></i></div></div><div class="dkh-row"><div class="dkh-top"><b>2,778 AI researchers</b><b class="dkh-v">10%</b></div><span class="dkh-q">median, on us losing control</span><div class="dkh-bar"><i class="dkh-dot" style="left:33.33%"></i></div></div><div class="dkh-axis"><span>0%</span><span>10%</span><span>20%</span><span>30%</span></div></div>
+        <figure><div class="dkh"><p class="dkh-t">How likely is disaster? People building AI say:</p><div class="dkr"><div class="dkr-tile"><b class="dkr-v">10 to 20%</b><span class="dkr-odds">about 1 in 10 to 1 in 5</span><b class="dkr-n">Geoffrey Hinton</b><span class="dkr-q">extinction within 30 years</span></div><div class="dkr-tile"><b class="dkr-v">25%</b><span class="dkr-odds">about 1 in 4</span><b class="dkr-n">Dario Amodei</b><span class="dkr-q">it goes really, really badly</span></div><div class="dkr-tile"><b class="dkr-v">10 to 20%</b><span class="dkr-odds">about 1 in 10 to 1 in 5</span><b class="dkr-n">Elon Musk</b><span class="dkr-q">something terrible happens</span></div><div class="dkr-tile"><b class="dkr-v">10%</b><span class="dkr-odds">about 1 in 10</span><b class="dkr-n">2,778 AI researchers</b><span class="dkr-q">median, on us losing control</span></div></div></div>
 <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="/reference#s34">34</a> · <a href="https://www.theguardian.com/technology/2024/dec/27/godfather-of-ai-raises-odds-of-the-technology-wiping-out-humanity-over-next-30-years" target="_blank" rel="noopener">Hinton on BBC Radio 4</a> · <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Amodei in Axios</a> · <a href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf" target="_blank" rel="noopener">Grace et al., 2,778 AI researchers</a> · <a class="ref" href="/reference#s77">77</a> <a class="ref" href="/reference#s78">78</a> <a class="ref" href="/reference#s79">79</a> <a class="ref" href="/reference#s80">80</a></p>
         </figure>
         </div>
@@ -5386,8 +5419,12 @@ var SITE_CONFIG = {
 
   /* 2.2 be the AI: pick a goal, watch the subgoals arrive */
   R.beai = function(box, C){
+    var ICON = [
+      '<path d="M5 11h14v6a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z"/><path d="M19 13h2a2.5 2.5 0 0 1 0 5h-2"/><path d="M9 4c-1 1.5 1 2.5 0 4M14 4c-1 1.5 1 2.5 0 4"/>',
+      '<rect x="4" y="4" width="18" height="18" rx="5"/><path d="M13 8.5v9M8.5 13h9"/>',
+      '<path d="M8 22h10M9 19h8l-1-6h-6z"/><circle cx="13" cy="8" r="3.2"/><path d="M11 13l-1-2h6l-1 2"/>'];
     var html = '<p class="dki-say">' + esc(C.pick) + '</p><div class="dki-goals">';
-    C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="false">' + esc(g) + '</button>'; });
+    C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case dki-goal" data-k="' + k + '" aria-pressed="false"><svg viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + ICON[k] + '</svg>' + esc(g) + '</button>'; });
     html += '</div><div class="dki-term" aria-live="polite"></div>';
     box.innerHTML = html;
     var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), timer = [];

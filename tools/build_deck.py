@@ -276,27 +276,23 @@ def swap_fig(block, n, kind, T, texts=False):
     return block[:a] + widget(kind, T, block[a:b], {'t': svg_texts(block[a:b])} if texts else None) + block[b:]
 
 def risk_chart(T, src_svg):
-    """How likely is disaster: four rows in HTML, names and quotes from the page's own chart."""
+    """How likely is disaster: one tile per person, the number big and the odds in plain words."""
     t = [text(x) for x in re.findall(r'<text\b[^>]*>(.*?)</text>', src_svg, re.S)]
-    rows = [(t[1], t[2], t[3], 10, 20), (t[4], t[5], t[6], 25, 25), (t[7], t[8], t[9], 10, 20), (t[10], t[11], t[12], 10, 10)]
-    out = ['<div class="dkh"><p class="dkh-t">%s</p>' % html.escape(T['risk_title'])]
-    for name, quote, val, a, b in rows:
-        mark = ('<i class="dkh-seg" style="left:%.2f%%;width:%.2f%%"></i>' % (a / 30 * 100, (b - a) / 30 * 100)) if b > a else ('<i class="dkh-dot" style="left:%.2f%%"></i>' % (a / 30 * 100))
-        out.append('<div class="dkh-row"><div class="dkh-top"><b>%s</b><b class="dkh-v">%s</b></div><span class="dkh-q">%s</span><div class="dkh-bar">%s</div></div>'
-                   % (html.escape(name), html.escape(val), html.escape(quote), mark))
-    out.append('<div class="dkh-axis"><span>0%</span><span>10%</span><span>20%</span><span>30%</span></div></div>')
-    return ''.join(out)
+    rows = [(t[1], t[2], t[3], T['odds'][0]), (t[4], t[5], t[6], T['odds'][1]), (t[7], t[8], t[9], T['odds'][2]), (t[10], t[11], t[12], T['odds'][3])]
+    tiles = ''.join('<div class="dkr-tile"><b class="dkr-v">%s</b><span class="dkr-odds">%s</span><b class="dkr-n">%s</b><span class="dkr-q">%s</span></div>'
+                    % (E(v), E(o), E(n), E(q)) for n, q, v, o in rows)
+    return '<div class="dkh"><p class="dkh-t">%s</p><div class="dkr">%s</div></div>' % (E(T['risk_title']), tiles)
 
 def econ_chart(T):
-    """The world economy by 2055: three rates, one scale, nothing off the chart."""
-    E = T['econ']; top = 1.3 ** 20
-    out = ['<div class="dkh"><p class="dkh-t">%s</p><p class="dkh-q">%s</p>' % (html.escape(E['title']), html.escape(E['sub']))]
-    for (lab, r) in zip(E['rows'], (3, 12, 30)):
+    """The world economy by 2055: three squares, each sized by area, so x190 dwarfs the rest."""
+    Ec = T['econ']; top = 1.3 ** 20
+    sq = ''
+    for lab, r in zip(Ec['rows'], (3, 12, 30)):
         m = (1 + r / 100.0) ** 20
-        out.append('<div class="dkh-row"><div class="dkh-top"><b>%s</b><b class="dkh-v">×%s</b></div><div class="dkh-bar dkh-fill"><i style="width:%.2f%%"></i></div></div>'
-                   % (html.escape(lab), ('%.1f' % m) if m < 10 else ('%d' % round(m)), max(1.2, m / top * 100)))
-    out.append('</div>')
-    return ''.join(out)
+        side = (m / top) ** .5 * 100
+        sq += ('<div class="dke-item"><i style="--f:%.4f"></i><b class="dkr-v">×%s</b><span class="dkr-q">%s</span></div>'
+               % (side / 100, ('%.1f' % m) if m < 10 else ('%d' % round(m)), E(lab)))
+    return '<div class="dkh"><p class="dkh-t">%s</p><p class="dkh-q">%s</p><div class="dke">%s</div></div>' % (E(Ec['title']), E(Ec['sub']), sq)
 
 # ---------------------------------------------------------------- charts rebuilt in HTML
 def svg_texts(fig):

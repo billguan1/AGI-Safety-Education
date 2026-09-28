@@ -832,3 +832,36 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body a.care-c:nth-child(2) .care-ic{background:#f6e7c1}
 .t-body a.care-c:nth-child(3) .care-ic{background:#dbe2f6}
 .t-body .care-top{margin-bottom:8px}
+/* disaster odds as tiles */
+.dkr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dkr-tile{display:grid;gap:2px;align-content:start;padding:14px 16px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b;border-top:8px solid #d9492c}
+.t-body .dkr-v{font-family:var(--comic);font-weight:400;font-size:40px;line-height:1;letter-spacing:.02em;color:#1b1b1b}
+.t-body .dkr-odds{font-family:var(--body);font-weight:700;font-size:14px;color:#b43a1e;margin-bottom:6px}
+.t-body .dkr-n{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
+.t-body .dkr-q{font-family:var(--body);font-size:14px;line-height:1.35;color:#5c574e}
+/* economy as squares by area */
+.dke{display:grid;grid-template-columns:1fr 1fr 2.4fr;gap:14px;align-items:end}
+.dke-item{display:grid;gap:4px;justify-items:start}
+.dke-box{width:100%;aspect-ratio:1;display:flex;align-items:flex-end}
+.dke-box i{display:block;background:#d9492c;border:2.5px solid #1b1b1b;border-radius:4px;box-shadow:3px 3px 0 #1b1b1b}
+.dke-item:first-child .dke-box i,.dke-item:nth-child(2) .dke-box i{background:#e8b53a}
+@media (max-width:420px){.dkr{grid-template-columns:1fr}.t-body .dkr-v{font-size:34px}}
+/* economy squares: one reference size, so areas compare truly */
+.dke{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;--S:190px}
+.dke-item{display:grid;gap:4px;justify-items:start;min-width:84px}
+.dke-item > i{display:block;width:calc(var(--S) * var(--f));height:calc(var(--S) * var(--f));min-width:8px;min-height:8px;background:#e8b53a;border:2.5px solid #1b1b1b;border-radius:3px;box-shadow:3px 3px 0 #1b1b1b}
+.dke-item:last-child > i{background:#d9492c}
+@media (max-width:760px){.dke{--S:150px;gap:14px}}
+.tr-game [data-st="next"] > .tr-cover,.tr-game [data-st="locked"] > .tr-cover{inset:0!important}
+@media (max-width:760px){.dkh-to{transform:none!important;font-size:0!important;line-height:1}.dkh-to::after{content:"↓";font-size:26px}}
+/* goal buttons carry an icon */
+.dki-goal{gap:10px}
+.dki-goal svg{width:26px;height:26px;flex:none}
+/* takeaway boxes: light, with the accent bar */
+.t-body .keyline{background:#fff6d8!important;border:3px solid #1b1b1b!important;border-left:12px solid #e8b53a!important;box-shadow:4px 4px 0 #1b1b1b!important}
+.t-body .keyline p{color:#1b1b1b!important}
+.t-body .keyline .kk{color:#8a5d00!important}
+.t-body .keyline a{color:#2f5aa8!important}
+/* hidden glossary tips take no space until opened */
+.slide .term:not(:hover):not(:focus-within):not(.show) .term-tip{display:none!important}
+.dki-cheese .dki-ln{overflow-wrap:anywhere;hyphens:auto}

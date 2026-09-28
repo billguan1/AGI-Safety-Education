@@ -435,8 +435,12 @@
 
   /* 2.2 be the AI: pick a goal, watch the subgoals arrive */
   R.beai = function(box, C){
+    var ICON = [
+      '<path d="M5 11h14v6a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z"/><path d="M19 13h2a2.5 2.5 0 0 1 0 5h-2"/><path d="M9 4c-1 1.5 1 2.5 0 4M14 4c-1 1.5 1 2.5 0 4"/>',
+      '<rect x="4" y="4" width="18" height="18" rx="5"/><path d="M13 8.5v9M8.5 13h9"/>',
+      '<path d="M8 22h10M9 19h8l-1-6h-6z"/><circle cx="13" cy="8" r="3.2"/><path d="M11 13l-1-2h6l-1 2"/>'];
     var html = '<p class="dki-say">' + esc(C.pick) + '</p><div class="dki-goals">';
-    C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="false">' + esc(g) + '</button>'; });
+    C.goals.forEach(function(g, k){ html += '<button type="button" class="dki-case dki-goal" data-k="' + k + '" aria-pressed="false"><svg viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + ICON[k] + '</svg>' + esc(g) + '</button>'; });
     html += '</div><div class="dki-term" aria-live="polite"></div>';
     box.innerHTML = html;
     var term = box.querySelector(".dki-term"), btns = box.querySelectorAll(".dki-goals button"), timer = [];
