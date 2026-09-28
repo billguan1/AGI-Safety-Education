@@ -261,7 +261,7 @@ def plan(pg):
     ci = cover.index('<figure class="cliff'); cj = cover.index('</figure>', ci)
     fig = cover[ci:cj].replace('<svg', '<svg data-keep="1"')
     # the cliff-edge label sits low on the rock face, away from the climbers
-    fig, nlab = re.subn(r'<text x="548" y="150"( text-anchor="end")', r'<text x="510" y="414"\1', fig)
+    fig, nlab = re.subn(r'<text x="548" y="150" text-anchor="end"', '<text x="564" y="420" text-anchor="start"', fig)
     assert nlab == 1, ('cliff edge label', nlab)
     def cliff_colour(m):
         v = m.group(2).lower()
