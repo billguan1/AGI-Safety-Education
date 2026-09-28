@@ -437,6 +437,15 @@ def plan(pg):
     cover = cover[:ci] + fig + cover[cj:]
     intro = dict(id='crossroads', num='', label=pg.label['crossroads'], acc=T['intro_acc'])
     S.append(dict(key='cover', sec=intro, wrap='mast', anchor='top', body=cover))
+    CARE_ICONS = [
+        '<circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/>',                                   # clock: arriving soon
+        '<path d="M16 5v22M9 27h14M6 10h20"/><path d="M6 10l-4 8h8zM26 10l-4 8h8z"/>',               # scales: abundance or destruction
+        '<rect x="5" y="5" width="22" height="22" rx="4"/><path d="M12.5 13a3.5 3.5 0 1 1 5 3.2c-1 .5-1.5 1.2-1.5 2.3M16 22.5v.5"/>',  # unknown
+    ]
+    for n, ic in enumerate(CARE_ICONS, 1):
+        old = '<span class="care-n">%d</span>' % n
+        assert care.count(old) == 1, ('care badge', n)
+        care = care.replace(old, '<span class="care-top">%s<span class="care-ic" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">%s</svg></span></span>' % (old, ic))
     care_title = re.search(r'<h2 class="mh-h"><span>(.*?)</span></h2>', care, re.S)
     assert care_title
     S.append(dict(key='care', sec=intro, wrap='mast', kicker=T['intro_kick'], title=care_title.group(1),

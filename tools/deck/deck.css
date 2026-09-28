@@ -824,3 +824,11 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
   .dki-path{left:50%;right:auto;top:0;bottom:0;border-top:0;border-left:3px dashed #d9492c}
 }
 @media (max-width:760px){.dki-cheese .dki-slice{align-content:center;justify-items:start;padding:8px 12px}.dki-cheese .dki-ln{text-align:left;max-width:38%}}
+/* why-care card icons */
+.t-body .care-top{display:flex;align-items:center;gap:12px}
+.t-body .care-ic{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;border:2.5px solid #1b1b1b;box-shadow:3px 3px 0 #1b1b1b;color:#1b1b1b}
+.t-body .care-ic svg{width:30px;height:30px}
+.t-body a.care-c:nth-child(1) .care-ic{background:#f6d5cc}
+.t-body a.care-c:nth-child(2) .care-ic{background:#f6e7c1}
+.t-body a.care-c:nth-child(3) .care-ic{background:#dbe2f6}
+.t-body .care-top{margin-bottom:8px}
