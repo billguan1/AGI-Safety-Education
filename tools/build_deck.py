@@ -493,6 +493,12 @@ def plan(pg):
     team = fig[rj:rk]; assert team.count('<g transform=') == 6, team.count('<g transform=')
     rope = re.search(r'<path d="M70,206[^>]*/>', fig).group(0)
     fig = fig.replace(rope, '<g class="cr-rope">%s</g>' % rope, 1).replace(team, '<g class="cr-team">%s</g>' % team, 1)
+    # the figure already over the edge moves with the group; its drop arrow and the prize lines can fade
+    assert fig.count('<g transform="translate(606,214) rotate(38)">') == 1
+    fig = fig.replace('<g transform="translate(606,214) rotate(38)">', '<g class="cr-fall" transform="translate(606,214) rotate(38)">', 1)
+    fig, na = re.subn(r'<path d="M628,236 C640,256', '<path class="cr-arrow" d="M628,236 C640,256', fig); assert na == 1
+    fig, npz = re.subn(r'<text x="668" y="(\d+)"', lambda m: ('<text class="cr-ptext" x="668" y="%s"' % m.group(1)) if 60 <= int(m.group(1)) <= 140 else m.group(0), fig)
+    assert fig.count('class="cr-ptext"') >= 4, fig.count('class="cr-ptext"')
     C = T['cliffgame']
     ctl = ('<div class="cr-ctl" data-c="%s"></div>' % html.escape(json.dumps(C, ensure_ascii=False)))
     fig = fig + ctl
@@ -521,9 +527,12 @@ def plan(pg):
     def claim_card(c):
         if 'claim-1' in c[:80]:
             c = rebuild(c, 1, 'timeline', pg.lang); c = rebuild(c, 0, 'funding', pg.lang)
-            extra = ''.join('<li><b>%s</b><span>%s</span></li>' % (E(y), refs_html(x, pg.refbase)) for y, x in T['incidents']['timeline'])
-            assert c.count('</ol></div>') == 1
-            c = c.replace('</ol></div>', extra + '</ol></div>', 1)
+            I = T['incidents']
+            items = ''.join('<li class="dtl-%s"><i aria-hidden="true">%s</i><b>%s</b><span>%s%s</span></li>' % (
+                ('esc' if k else 'warn'), ('!' if k else ''), E(y), E(x), refs_html(r, pg.refbase)) for y, x, k, r in I['timeline'])
+            key = '<p class="dtl-key"><span class="dtl-warn"><i></i>%s</span><span class="dtl-esc"><i>!</i>%s</span></p>' % (E(I['tl_key'][0]), E(I['tl_key'][1]))
+            c, ntl = re.subn(r'<ol class="dkh-tl">.*?</ol>', lambda m: key + '<ol class="dkh-tl dtl">%s</ol>' % items, c, flags=re.S)
+            assert ntl == 1
         if 'claim-3' in c[:80]:
             c = rebuild(c, 1, 'problems', pg.lang); c = rebuild(c, 0, 'payoff4', pg.lang)
         if 'claim-2' in c[:80]:

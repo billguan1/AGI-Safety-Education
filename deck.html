@@ -2814,6 +2814,32 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body .ddc .dkh-steps .dkh-to{align-self:center;font-size:20px}
 @media (max-width:760px){.t-body .ddc .dkh-steps{grid-template-columns:1fr}.t-body .ddc .dkh-steps .dkh-to{text-align:center}}
 .t-body .dk-ex{margin:10px 0 0!important;padding:10px 12px;border-left:4px solid #8a9bd8;background:#f4ecd8;border-radius:0 6px 6px 0;font-family:var(--body);font-size:15px!important;line-height:1.45;color:#3b3833!important}
+/* cliff drag: an arrow that invites the drag */
+.cr-track{position:relative}
+.cr-nudge{position:absolute;left:44px;top:50%;margin-top:-16px;font-family:var(--body);font-weight:700;font-size:26px;line-height:32px;color:#d9492c;pointer-events:none;animation:crNudge 1.1s ease-in-out infinite}
+@keyframes crNudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(14px);opacity:1}}
+@media (prefers-reduced-motion: reduce){.cr-nudge{animation:none}}
+.cr-lab{font-size:16px!important}
+.cr-fall,.cr-team > g > g{transition:transform .12s linear}
+.cr-ptext,.cr-arrow{transition:opacity .3s}
+/* timeline: a line, a dot per event, red for escapes */
+.dtl{position:relative;gap:10px!important;padding-left:4px!important}
+.dtl::before{content:"";position:absolute;left:15px;top:10px;bottom:10px;width:3px;background:#1b1b1b;border-radius:2px}
+.dtl li{position:relative;display:grid!important;grid-template-columns:26px 82px 1fr;align-items:center;gap:10px!important}
+.dtl li i{position:relative;z-index:1;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:2.5px solid #1b1b1b;background:#cfc4ab;font-style:normal;font-family:var(--comic);font-size:16px;color:#fffdf6}
+.dtl li.dtl-esc i{background:#d9492c;box-shadow:0 0 0 4px rgba(217,73,44,.25)}
+.dtl li b{padding:0!important;border:0!important;background:none!important;font-family:var(--body);font-weight:700;font-size:14px!important;color:#5c574e}
+.dtl li.dtl-esc b{color:#b43a1e}
+.dtl li span{font-family:var(--body);font-size:15px;line-height:1.3;color:#1b1b1b}
+.dtl li.dtl-esc span{font-weight:700}
+.dtl-key{display:flex;gap:16px;flex-wrap:wrap;margin:0;font-family:var(--body);font-size:13px;color:#5c574e}
+.dtl-key span{display:inline-flex;align-items:center;gap:6px}
+.dtl-key i{display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;border:2px solid #1b1b1b;background:#cfc4ab;font-style:normal;font-size:10px;color:#fffdf6;font-family:var(--comic)}
+.dtl-key .dtl-esc i{background:#d9492c}
+/* economy squares on an even grid */
+.dke{display:grid!important;grid-template-columns:120px 120px auto;justify-content:start;align-items:end;gap:18px!important}
+.dke-item{min-width:0!important}
+@media (max-width:760px){.dke{grid-template-columns:84px 84px auto;gap:10px!important}}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
@@ -2877,11 +2903,11 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <!-- prize floating beyond the far side -->
         <ellipse cx="668" cy="80" rx="140" ry="70" fill="url(#prizeGlow)"/>
         <text x="668" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#1b1b1b" data-lx-dfs="15">THE PRIZE</text>
-        <text x="668" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Infinite abundance.</text>
-        <text x="668" y="90" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Extended human lifespan.</text>
-        <text x="668" y="104" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Science and tech breakthroughs</text>
-        <text x="668" y="118" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">at accelerated speed</text>
-        <text x="668" y="137" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">only if we arrive safely</text>
+        <text class="cr-ptext" x="668" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Infinite abundance.</text>
+        <text class="cr-ptext" x="668" y="90" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Extended human lifespan.</text>
+        <text class="cr-ptext" x="668" y="104" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Science and tech breakthroughs</text>
+        <text class="cr-ptext" x="668" y="118" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">at accelerated speed</text>
+        <text class="cr-ptext" x="668" y="137" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">only if we arrive safely</text>
 
         <!-- SOLID GROUND with a real cliff face -->
         <path d="M0,224 L556,224 L556,430 L0,430 Z" fill="url(#rock)"/>
@@ -2899,10 +2925,10 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <text x="700" y="379" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">Existential wipeout</text>
         <text x="700" y="396" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="9.5">No second attempt</text>
         <!-- one figure already over the edge -->
-        <path d="M628,236 C640,256 646,280 648,306" fill="none" stroke="#d9492c" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55" marker-end="url(#droptip)"/>
+        <path class="cr-arrow" d="M628,236 C640,256 646,280 648,306" fill="none" stroke="#d9492c" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55" marker-end="url(#droptip)"/>
         
         <g stroke="#d9492c" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
-          <g transform="translate(606,214) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#d9492c"/>
+          <g class="cr-fall" transform="translate(606,214) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#d9492c"/>
             <path d="M0,-23 L2,-6 M2,-6 L-8,6 M2,-6 L12,3 M-1,-17 L-12,-13 M-1,-17 L10,-22"/></g>
         </g>
         <!-- one figure with wings, rising toward the prize -->
@@ -2945,7 +2971,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#1b1b1b" data-lx-dfs="19">Racing to be first</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#5c574e" data-lx-dfs="15">to a place nobody should reach first.</text>
       </svg>
-    <div class="cr-ctl" data-c="{&quot;q&quot;: &quot;Is safety solved before we get there?&quot;, &quot;yes&quot;: &quot;Yes&quot;, &quot;no&quot;: &quot;No&quot;, &quot;label&quot;: &quot;Race toward the edge&quot;, &quot;start&quot;: &quot;Drag to race toward the edge.&quot;, &quot;sayNo&quot;: &quot;Nobody slowed down. The first one over dragged the rest into the drop.&quot;, &quot;sayYes&quot;: &quot;With safety solved first, crossing the edge means reaching the prize.&quot;}"></div></figure></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">Continue <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="The big picture"><header class="masthead"><div class="wrap t-head"><div class="sec-head"><span class="chapno">The big picture</span><h2>Why should we care?</h2><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="0"><b>1</b>Welcome</button><button type="button" class="t-chip on" data-go="1"><b>2</b>Why care</button><span class="t-subchips"><button type="button" class="t-chip t-chip-sub" data-go="2">It is arriving soon</button><button type="button" class="t-chip t-chip-sub" data-go="3">The stakes</button><button type="button" class="t-chip t-chip-sub" data-go="4">Nobody knows how</button></span><button type="button" class="t-chip" data-go="5"><b>3</b>The only solution</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji, looking like he has an idea" width="72" height="72" decoding="async"><p class="cx-bubble">Three reasons we should care about AGI safety. Tap one to jump to it.</p></div><div class="mh-care">
+    <div class="cr-ctl" data-c="{&quot;q&quot;: &quot;Is safety solved before we get there?&quot;, &quot;yes&quot;: &quot;Yes&quot;, &quot;no&quot;: &quot;No&quot;, &quot;label&quot;: &quot;Drag right to race toward the edge →&quot;, &quot;start&quot;: &quot;Drag right to race toward the edge.&quot;, &quot;sayNo&quot;: &quot;Nobody slowed down. The first one over dragged the rest into the drop.&quot;, &quot;sayYes&quot;: &quot;Safety came first, so crossing the edge means reaching the prize: abundance, longer lives, faster science.&quot;}"></div></figure></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">Continue <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="The big picture"><header class="masthead"><div class="wrap t-head"><div class="sec-head"><span class="chapno">The big picture</span><h2>Why should we care?</h2><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="0"><b>1</b>Welcome</button><button type="button" class="t-chip on" data-go="1"><b>2</b>Why care</button><span class="t-subchips"><button type="button" class="t-chip t-chip-sub" data-go="2">It is arriving soon</button><button type="button" class="t-chip t-chip-sub" data-go="3">The stakes</button><button type="button" class="t-chip t-chip-sub" data-go="4">Nobody knows how</button></span><button type="button" class="t-chip" data-go="5"><b>3</b>The only solution</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji, looking like he has an idea" width="72" height="72" decoding="async"><p class="cx-bubble">Three reasons we should care about AGI safety. Tap one to jump to it.</p></div><div class="mh-care">
     
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-top"><span class="care-n">1</span><span class="care-ic" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/></svg></span></span>
@@ -2965,7 +2991,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <figure><div class="dkh"><p class="dkh-t">Building AI gets 10,000 times the resources of safety research</p><div class="dkh-row"><div class="dkh-top"><span>Going into building advanced AI</span><b class="dkh-v">~ $100 billion</b></div><div class="dkh-bar dkh-fill dkh-blue"><i style="width:100%"></i></div></div><div class="dkh-row"><div class="dkh-top"><span>Public-sector AI safety research</span><b class="dkh-v">~ $10 million</b></div><div class="dkh-bar dkh-fill"><i style="width:1%"></i></div></div></div>
           <p class="fig-src"><a href="https://forum.effectivealtruism.org/posts/nyPBnkcKngrfdoyEt/ai-safety-remains-underfunded-by-more-than-3-ooms" target="_blank" rel="noopener">Russell’s ratio and Jones (Stanford) on optimal safety spending</a> · <a href="https://eto.tech/blog/state-of-global-ai-safety-research/" target="_blank" rel="noopener">Emerging Technology Observatory, share of AI research</a> · <a class="ref" href="/reference#s46">46</a> <a class="ref" href="/reference#s47">47</a></p>
         </figure>
-        <figure><div class="dkh"><p class="dkh-t">Existing systems are already showing dangerous behaviour</p><ol class="dkh-tl"><li><b>2016</b><span>AI safety problems first defined</span></li><li><b>2024</b><span>Alignment faking seen in a model</span></li><li><b>2025</b><span>Covert action in 13% of o3 runs</span></li><li><b>2026</b><span>Multi-agent swarms left the sandbox and attacked real systems</span></li><li><b>Apr 2026</b><span>Asked to in a test, a Claude model escaped its sandbox, then posted how it did it online, unasked.<a class="ref" href="/reference#s100">100</a></span></li><li><b>Jul 2026</b><span>Claude and Gemini models hacked real companies while a test was accidentally online.<a class="ref" href="/reference#s99">99</a><a class="ref" href="/reference#s101">101</a></span></li><li><b>Sep 2026</b><span>An OpenAI agent in training reached the internet through DNS and ran 2.5 hours before it was stopped.<a class="ref" href="/reference#s97">97</a></span></li></ol></div>
+        <figure><div class="dkh"><p class="dkh-t">Existing systems are already showing dangerous behaviour</p><p class="dtl-key"><span class="dtl-warn"><i></i>warning sign</span><span class="dtl-esc"><i>!</i>escaped into real systems</span></p><ol class="dkh-tl dtl"><li class="dtl-warn"><i aria-hidden="true"></i><b>2016</b><span>AI safety problems first named</span></li><li class="dtl-warn"><i aria-hidden="true"></i><b>2024</b><span>A model faked being aligned</span></li><li class="dtl-warn"><i aria-hidden="true"></i><b>2025</b><span>o3 acted in secret in 13% of tests</span></li><li class="dtl-esc"><i aria-hidden="true">!</i><b>Apr 2026</b><span>Claude broke out of a test sandbox<a class="ref" href="/reference#s100">100</a></span></li><li class="dtl-esc"><i aria-hidden="true">!</i><b>Jul 2026</b><span>AI agent swarms escaped and attacked real systems</span></li><li class="dtl-esc"><i aria-hidden="true">!</i><b>Jul 2026</b><span>Claude and Gemini hacked real companies<a class="ref" href="/reference#s99">99</a><a class="ref" href="/reference#s101">101</a></span></li><li class="dtl-esc"><i aria-hidden="true">!</i><b>Sep 2026</b><span>An OpenAI agent slipped onto the internet<a class="ref" href="/reference#s97">97</a></span></li></ol></div>
           </figure>
         </div>
         <a class="cl-go" href="#why-irresistible">Read the chapter</a>
@@ -2976,7 +3002,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
         <figure><div class="dkh"><p class="dkh-t">How big the world economy gets by 2055</p><p class="dkh-q">Growth speeds up from 2035. Today = 1.</p><div class="dke"><div class="dke-item"><i style="--f:0.0975"></i><b class="dkr-v">×1.8</b><span class="dkr-q">At today&#x27;s 3% a year</span></div><div class="dke-item"><i style="--f:0.2253"></i><b class="dkr-v">×9.6</b><span class="dkr-q">At 12% a year</span></div><div class="dke-item"><i style="--f:1.0000"></i><b class="dkr-v">×190</b><span class="dkr-q">At 30% a year</span></div></div></div>
           <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>, rates compounded from 2035 · <a class="ref" href="/reference#s66">66</a> <a class="ref" href="/reference#s1">1</a></p>
         </figure>
-        <figure><div class="dkh"><p class="dkh-t">How likely is disaster? People building AI say:</p><div class="dkr"><div class="dkr-tile"><b class="dkr-v">10 to 20%</b><span class="dkr-odds">about 1 in 10 to 1 in 5</span><b class="dkr-n">Geoffrey Hinton</b><span class="dkr-q">extinction within 30 years</span></div><div class="dkr-tile"><b class="dkr-v">25%</b><span class="dkr-odds">about 1 in 4</span><b class="dkr-n">Dario Amodei</b><span class="dkr-q">it goes really, really badly</span></div><div class="dkr-tile"><b class="dkr-v">10 to 20%</b><span class="dkr-odds">about 1 in 10 to 1 in 5</span><b class="dkr-n">Elon Musk</b><span class="dkr-q">something terrible happens</span></div><div class="dkr-tile"><b class="dkr-v">10%</b><span class="dkr-odds">about 1 in 10</span><b class="dkr-n">2,778 AI researchers</b><span class="dkr-q">median, on us losing control</span></div></div></div>
+        <figure><div class="dkh"><p class="dkh-t">How likely is a human-extinction disaster? People building AI say:</p><div class="dkr"><div class="dkr-tile"><b class="dkr-v">10 to 20%</b><span class="dkr-odds">about 1 in 10 to 1 in 5</span><b class="dkr-n">Geoffrey Hinton</b><span class="dkr-q">extinction within 30 years</span></div><div class="dkr-tile"><b class="dkr-v">25%</b><span class="dkr-odds">about 1 in 4</span><b class="dkr-n">Dario Amodei</b><span class="dkr-q">it goes really, really badly</span></div><div class="dkr-tile"><b class="dkr-v">10 to 20%</b><span class="dkr-odds">about 1 in 10 to 1 in 5</span><b class="dkr-n">Elon Musk</b><span class="dkr-q">something terrible happens</span></div><div class="dkr-tile"><b class="dkr-v">10%</b><span class="dkr-odds">about 1 in 10</span><b class="dkr-n">2,778 AI researchers</b><span class="dkr-q">median, on us losing control</span></div></div></div>
 <p class="fig-src">Bostrom, The Superintelligent Will · <a class="ref" href="/reference#s34">34</a> · <a href="https://www.theguardian.com/technology/2024/dec/27/godfather-of-ai-raises-odds-of-the-technology-wiping-out-humanity-over-next-30-years" target="_blank" rel="noopener">Hinton on BBC Radio 4</a> · <a href="https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent" target="_blank" rel="noopener">Amodei in Axios</a> · <a href="https://aiimpacts.org/wp-content/uploads/2023/04/Thousands_of_AI_authors_on_the_future_of_AI.pdf" target="_blank" rel="noopener">Grace et al., 2,778 AI researchers</a> · <a class="ref" href="/reference#s77">77</a> <a class="ref" href="/reference#s78">78</a> <a class="ref" href="/reference#s79">79</a> <a class="ref" href="/reference#s80">80</a></p>
         </figure>
         </div>
@@ -5715,34 +5741,44 @@ var SITE_CONFIG = {
   var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
-  if (!team) return;
-  var men = [].slice.call(team.querySelectorAll(":scope > g > g")), X0 = men.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
+  var faller = svg.querySelector(".cr-fall"), arrow = svg.querySelector(".cr-arrow"), ptext = svg.querySelectorAll(".cr-ptext");
+  if (!team || !faller) return;
+  var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
+  var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
   ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
-    '<label class="cr-lab" for="cr-range">' + C.label + '</label><input type="range" id="cr-range" min="0" max="100" value="0"><p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
-  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), safe = false, EDGE = 556;
+    '<label class="cr-lab" for="cr-range">' + C.label + '</label><div class="cr-track"><input type="range" id="cr-range" min="0" max="100" value="0"><span class="cr-nudge" aria-hidden="true">→</span></div>' +
+    '<p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
+  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), nudge = ctl.querySelector(".cr-nudge"), safe = false, EDGE = 556;
+  /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
+  var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
+  function lerp(a, b, u){ return a + (b - a) * u; }
+  function place(g, x, y, rot, sc){ g.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + rot.toFixed(0) + ") scale(" + sc.toFixed(2) + ")"); }
   function draw(){
-    var t = +inp.value / 100, shift = t * 500, over = 0;
-    men.forEach(function(g, i){
-      var x = X0[i] + shift, y = 206, rot = 0;
-      if (x > EDGE) {
-        over++;
-        var d = x - EDGE;
-        var SPOT = [[598, 198], [626, 190], [654, 198], [764, 192], [788, 200], [682, 188]];
-        if (safe) { var sp = SPOT[5 - i]; x = Math.min(x, sp[0]); y = 206 - Math.min(206 - sp[1], d * 0.4); }
-        else { var pull = Math.max(d, (X0[5] + shift - EDGE) * 0.6); y = 206 + Math.min(78 + (5 - i) * 20, pull * 1.4); rot = -Math.min(90, pull * 0.8); x = Math.min(x, 596 + (i % 2) * 6); }
-      }
-      g.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + rot.toFixed(0) + ")");
-    });
+    var t = +inp.value / 100, shift = t * 640, maxu = 0, slot = 0;
+    /* the figure already over the edge goes first */
+    var fu = Math.max(0, Math.min(1, shift / 120)); maxu = Math.max(maxu, fu);
+    if (safe) place(faller, lerp(606, UP[0][0], fu), lerp(214, UP[0][1], fu), lerp(38, 0, fu), lerp(1, .85, fu));
+    else place(faller, lerp(606, 598, fu), lerp(214, 384, fu), lerp(38, -90, fu), 1);
+    slot = 1;
+    for (var k = runners.length - 1; k >= 0; k--, slot++) {
+      var g = runners[k], x = X0[k] + shift;
+      if (x <= EDGE) { place(g, x, 206, 0, 1); continue; }
+      var u = Math.min(1, (x - EDGE) / 120); maxu = Math.max(maxu, u);
+      if (safe) place(g, lerp(EDGE, UP[slot][0], u), lerp(206, UP[slot][1], u), 0, lerp(1, .85, u));
+      else place(g, lerp(EDGE, 598 + (slot % 2) * 6, u), lerp(206, 384 - slot * 19, u), lerp(0, -90, u), 1);
+    }
     rope.setAttribute("transform", "translate(" + Math.min(shift, 56) + ",0)");
     rope.style.opacity = shift > 56 ? 0 : 1;
-    say.textContent = over === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
+    if (arrow) arrow.style.opacity = shift > 10 ? 0 : 1;
+    [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
+    say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
   [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
     safe = b.getAttribute("data-v") === "1";
     [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
     draw();
   }); });
-  inp.addEventListener("input", draw);
+  inp.addEventListener("input", function(){ nudge.hidden = true; draw(); });
   draw();
 })();
 

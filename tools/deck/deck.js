@@ -679,33 +679,43 @@
   var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
-  if (!team) return;
-  var men = [].slice.call(team.querySelectorAll(":scope > g > g")), X0 = men.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
+  var faller = svg.querySelector(".cr-fall"), arrow = svg.querySelector(".cr-arrow"), ptext = svg.querySelectorAll(".cr-ptext");
+  if (!team || !faller) return;
+  var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
+  var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
   ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
-    '<label class="cr-lab" for="cr-range">' + C.label + '</label><input type="range" id="cr-range" min="0" max="100" value="0"><p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
-  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), safe = false, EDGE = 556;
+    '<label class="cr-lab" for="cr-range">' + C.label + '</label><div class="cr-track"><input type="range" id="cr-range" min="0" max="100" value="0"><span class="cr-nudge" aria-hidden="true">→</span></div>' +
+    '<p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
+  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), nudge = ctl.querySelector(".cr-nudge"), safe = false, EDGE = 556;
+  /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
+  var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
+  function lerp(a, b, u){ return a + (b - a) * u; }
+  function place(g, x, y, rot, sc){ g.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + rot.toFixed(0) + ") scale(" + sc.toFixed(2) + ")"); }
   function draw(){
-    var t = +inp.value / 100, shift = t * 500, over = 0;
-    men.forEach(function(g, i){
-      var x = X0[i] + shift, y = 206, rot = 0;
-      if (x > EDGE) {
-        over++;
-        var d = x - EDGE;
-        var SPOT = [[598, 198], [626, 190], [654, 198], [764, 192], [788, 200], [682, 188]];
-        if (safe) { var sp = SPOT[5 - i]; x = Math.min(x, sp[0]); y = 206 - Math.min(206 - sp[1], d * 0.4); }
-        else { var pull = Math.max(d, (X0[5] + shift - EDGE) * 0.6); y = 206 + Math.min(78 + (5 - i) * 20, pull * 1.4); rot = -Math.min(90, pull * 0.8); x = Math.min(x, 596 + (i % 2) * 6); }
-      }
-      g.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + rot.toFixed(0) + ")");
-    });
+    var t = +inp.value / 100, shift = t * 640, maxu = 0, slot = 0;
+    /* the figure already over the edge goes first */
+    var fu = Math.max(0, Math.min(1, shift / 120)); maxu = Math.max(maxu, fu);
+    if (safe) place(faller, lerp(606, UP[0][0], fu), lerp(214, UP[0][1], fu), lerp(38, 0, fu), lerp(1, .85, fu));
+    else place(faller, lerp(606, 598, fu), lerp(214, 384, fu), lerp(38, -90, fu), 1);
+    slot = 1;
+    for (var k = runners.length - 1; k >= 0; k--, slot++) {
+      var g = runners[k], x = X0[k] + shift;
+      if (x <= EDGE) { place(g, x, 206, 0, 1); continue; }
+      var u = Math.min(1, (x - EDGE) / 120); maxu = Math.max(maxu, u);
+      if (safe) place(g, lerp(EDGE, UP[slot][0], u), lerp(206, UP[slot][1], u), 0, lerp(1, .85, u));
+      else place(g, lerp(EDGE, 598 + (slot % 2) * 6, u), lerp(206, 384 - slot * 19, u), lerp(0, -90, u), 1);
+    }
     rope.setAttribute("transform", "translate(" + Math.min(shift, 56) + ",0)");
     rope.style.opacity = shift > 56 ? 0 : 1;
-    say.textContent = over === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
+    if (arrow) arrow.style.opacity = shift > 10 ? 0 : 1;
+    [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
+    say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
   [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
     safe = b.getAttribute("data-v") === "1";
     [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
     draw();
   }); });
-  inp.addEventListener("input", draw);
+  inp.addEventListener("input", function(){ nudge.hidden = true; draw(); });
   draw();
 })();
