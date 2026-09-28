@@ -15,6 +15,8 @@ T = {
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
     intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents',
+    toc_intro='Why you should care', toc_end='Stay in the loop',
+    intro_parts=['Welcome', 'Why care', 'Claim 1: it is arriving soon', 'Claim 2: the stakes', 'Claim 3: nobody knows how', 'The only solution'],
     back='Back', cont='Continue', cont_part='Continue to part %d', next='Next: %s', restart='Back to the start',
     chips_aria='Parts of this chapter', nav_aria='Slides', prev='Previous slide', next_aria='Next slide',
     keys='Use &larr; &rarr; keys', open_any=' Open any card to see how it would unfold.',
@@ -70,6 +72,8 @@ T = {
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'),
     intro_acc='#e8b53a', anthem_label='保持联系', contents='目录',
+    toc_intro='我们为什么该在意', toc_end='保持联系',
+    intro_parts=['欢迎', '为什么要在意', '论点一：它很快就会到来', '论点二：赌注极高', '论点三：没人知道怎么做', '唯一的出路'],
     back='返回', cont='继续', cont_part='继续看第 %d 部分', next='下一节：%s', restart='回到开头',
     chips_aria='本章的几个部分', nav_aria='翻页', prev='上一页', next_aria='下一页',
     keys='用 &larr; &rarr; 键翻页', open_any='点开任意一张卡片，看看它会怎样展开。',

@@ -2257,9 +2257,51 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .t-body .jform input[type=email]{background:#fff!important;color:#1b1b1b!important;border:2.5px solid #1b1b1b!important;border-radius:6px!important}
 .t-body .share a,.t-body .share button{background:#fffdf6!important;color:#1b1b1b!important;border:2px solid #1b1b1b!important;border-radius:99px!important;font-family:var(--body)!important;font-weight:700!important;box-shadow:2px 2px 0 #1b1b1b}
 .t-body .example .ek{color:#3a4f9e!important}
-.t-body figure.cliff svg{background:#0f1316!important;border:3px solid #1b1b1b!important;border-radius:6px!important;box-shadow:5px 5px 0 #1b1b1b}
+.t-body figure.cliff svg{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-radius:6px!important;box-shadow:5px 5px 0 #1b1b1b}
 .t-body figure.cliff figcaption{color:#3b3833!important}
 @media (max-width:760px){.t-head{position:static!important}}
+/* Goodhart slider (4.1, inside "How this actually works") */
+.t-body .gh,.t-body .ghwrap .gh{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-radius:6px!important;box-shadow:4px 4px 0 #1b1b1b;color:#1b1b1b}
+.t-body .ghlead,.t-body .ghlead strong{color:#1b1b1b!important;font-family:var(--body)!important}
+.t-body .gh-ctrl label,.t-body #gh-pct{color:#1b1b1b!important;font-family:var(--body)!important;font-weight:700}
+.t-body .gh-card{background:#f4ecd8!important;border:2.5px solid #1b1b1b!important;border-radius:6px!important}
+.t-body .gh-card .val{color:#1b1b1b!important}
+.t-body .gh-card.proxy .lbl{color:#3a4f9e!important;font-family:var(--body)!important;font-weight:700}
+.t-body .gh-card.real .lbl{color:#1d6f6a!important;font-family:var(--body)!important;font-weight:700}
+.t-body .gh-card .bar{background:#e3d8bd!important;border:1.5px solid #1b1b1b}
+.t-body .gh-say{color:#1b1b1b!important;font-family:var(--body)!important}
+.t-body .ghwrap{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-radius:6px!important;box-shadow:4px 4px 0 #1b1b1b;color:#1b1b1b}
+.t-body .ghwrap .gh{background:transparent!important;border:0!important;box-shadow:none!important}
+.t-body .tstop{background:#f4ecd8!important;color:#3b3833!important;border-color:#cfc4ab!important}
+.t-body .tstop b,.t-body .tstop .term{color:#1b1b1b!important}
+.t-body .textra{color:#3b3833!important}
+
+/* ---- left-hand contents (desktop) ---- */
+.dk-toc{display:none}
+@media (min-width:1100px){
+  .dk-toc{display:block;position:fixed;left:0;top:var(--decktop,60px);bottom:0;width:260px;z-index:30;overflow-y:auto;overscroll-behavior:contain;
+    background:#fffdf6;border-right:3px solid #1b1b1b;padding:14px 12px 90px}
+  .deck{left:260px!important}
+  .d-hint{left:284px!important}
+  .dk-menu-btn{display:none!important}
+}
+.tc-g{font-family:var(--comic);font-size:19px;letter-spacing:.03em;color:#1b1b1b;margin:16px 6px 6px;line-height:1.1}
+.tc-g:first-child{margin-top:2px}
+.tc-sec{margin:2px 0}
+.tc-s,.tc-p{display:block;width:100%;text-align:left;border:0;background:none;cursor:pointer;font-family:var(--body);color:#3b3833;border-radius:6px}
+.tc-s{padding:6px 8px 6px 12px;font-size:14.5px;line-height:1.3;border-left:4px solid transparent}
+.tc-s b{font-weight:700;color:#1b1b1b;margin-right:4px}
+.tc-s:hover,.tc-p:hover{background:#f4ecd8;color:#1b1b1b}
+.tc-sec.cur > .tc-s{background:#f4ecd8;color:#1b1b1b;font-weight:700;border-left-color:var(--c,#e8b53a)}
+.tc-parts{display:none;list-style:none;margin:4px 0 6px 16px;padding:0 0 0 10px;border-left:2px dashed #cfc4ab}
+.tc-sec.cur .tc-parts{display:block}
+.tc-p{padding:4px 8px;font-size:13.5px;line-height:1.3}
+.tc-p.on{background:#e8b53a;color:#1b1b1b;font-weight:700;box-shadow:2px 2px 0 #1b1b1b;border:1.5px solid #1b1b1b}
+.tc-s:focus-visible,.tc-p:focus-visible{outline:3px solid #4a5fc9;outline-offset:1px}
+.tc-ref{margin-top:18px;padding-top:12px;border-top:2px dashed #cfc4ab}
+.tc-ref .dk-h{font-size:19px}
+.tc-x{border-top:0;padding-top:10px;flex-direction:column;align-items:flex-start}
+@media (min-width:1100px){.d-hint{display:none!important}}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}
 </style>
@@ -2269,6 +2311,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
 <a class="skip" href="#main">跳到正文</a>
 <header class="dk-bar" id="dk-bar"><div class="dk-row"><a class="dk-brand" href="#top">SafeAGI</a><span class="d-where" id="d-where"></span><div class="dk-acts"><button type="button" class="dk-btn dk-menu-btn" id="dk-menu-btn" aria-expanded="false" aria-controls="dk-menu">目录</button><a class="dk-btn" href="/deck" hreflang="en">EN</a><a class="dk-btn dk-go" href="#what-you-can-do">立即行动</a></div></div><div class="d-segs"><div class="d-seg" style="flex:6;--c:#e8b53a" data-first="0" data-count="6"><i></i></div><div class="d-seg" style="flex:1;--c:#ff8a6b" data-first="6" data-count="1"><i></i></div><div class="d-seg" style="flex:2;--c:#3fd0c9" data-first="7" data-count="2"><i></i></div><div class="d-seg" style="flex:3;--c:#3fd0c9" data-first="9" data-count="3"><i></i></div><div class="d-seg" style="flex:3;--c:#3fd0c9" data-first="12" data-count="3"><i></i></div><div class="d-seg" style="flex:2;--c:#8d9dff" data-first="15" data-count="2"><i></i></div><div class="d-seg" style="flex:3;--c:#8d9dff" data-first="17" data-count="3"><i></i></div><div class="d-seg" style="flex:6;--c:#e8c98a" data-first="20" data-count="6"><i></i></div><div class="d-seg" style="flex:3;--c:#e8c98a" data-first="26" data-count="3"><i></i></div><div class="d-seg" style="flex:6;--c:#6f8a63" data-first="29" data-count="6"><i></i></div><div class="d-seg" style="flex:2;--c:#6f8a63" data-first="35" data-count="2"><i></i></div><div class="d-seg" style="flex:1;--c:#6f8a63" data-first="37" data-count="1"><i></i></div><div class="d-seg" style="flex:4;--c:#6f8a63" data-first="38" data-count="4"><i></i></div><div class="d-seg" style="flex:1;--c:#e8b53a" data-first="42" data-count="1"><i></i></div></div></header>
 <nav class="dk-menu" id="dk-menu" aria-label="目录" hidden><div class="dk-menu-in"><div class="dk-col"><p class="dk-h">我们为什么该在意</p><ul><li><a href="#crossroads">现状，一页说完</a></li><li class="dk-g"><a href="#why-irresistible">第 1 章 · 我们押上一切的十年</a></li><li><a href="#why-irresistible">1.1 · 千亿美元的盲区</a></li><li class="dk-g"><a href="#why-upside">第 2 章 · 岔路口</a></li><li><a href="#why-upside">2.1 · 丰裕的时代</a></li><li><a href="#why-it-ends-badly">2.2 · 故事的终点</a></li><li><a href="#why-one-try">2.3 · 无法重来的实验</a></li><li class="dk-g"><a href="#why-race">第 3 章 · 我们自己的麻烦</a></li><li><a href="#why-race">3.1 · 没有刹车的竞赛</a></li><li><a href="#why-human-misalignment">3.2 · 没人达成一致的愿望</a></li><li class="dk-g"><a href="#why-translation">第 4 章 · 缺失的两块</a></li><li><a href="#why-translation">4.1 · 神灯问题</a></li><li><a href="#why-safety-hard">4.2 · 黑箱</a></li></ul></div><div class="dk-col"><p class="dk-h">能做些什么</p><ul><li class="dk-g"><a href="#response">第 5 章 · 应对</a></li><li><a href="#response">5.1 · 防线</a></li><li><a href="#response-gaps">5.2 · 裂缝</a></li><li><a href="#ask">5.3 · 航向修正</a></li><li><a href="#do">5.4 · 轮到你了</a></li></ul></div><div class="dk-col"><p class="dk-h">参考</p><ul><li><a href="/reference-zh#change-my-mind">什么会推翻这个论点</a></li><li><a href="/reference-zh#faq">人们最先提出的质疑</a></li><li><a href="/reference-zh#glossary">术语表</a></li><li><a href="/reference-zh#resources">课程与资源目录</a></li><li><a href="/reference-zh#sources">全部来源</a></li></ul></div><div class="dk-x"><a class="nav-xbtn" href="/comics/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>读漫画</span></a><a class="nav-xbtn" href="https://game.safeagi.ca/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>玩安全游戏</span></a></div></div></nav>
+<nav class="dk-toc" id="dk-toc" aria-label="目录"><p class="tc-g">我们为什么该在意</p><div class="tc-sec" data-first="0" data-last="5"><button type="button" class="tc-s" data-go="0" style="--c:#e8b53a">现状，一页说完</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="0" data-i="0">欢迎</button></li><li><button type="button" class="tc-p" data-go="1" data-i="1">为什么要在意</button></li><li><button type="button" class="tc-p" data-go="2" data-i="2">论点一：它很快就会到来</button></li><li><button type="button" class="tc-p" data-go="3" data-i="3">论点二：赌注极高</button></li><li><button type="button" class="tc-p" data-go="4" data-i="4">论点三：没人知道怎么做</button></li><li><button type="button" class="tc-p" data-go="5" data-i="5">唯一的出路</button></li></ol></div><p class="tc-g">第 1 章 · 我们押上一切的十年</p><div class="tc-sec" data-first="6" data-last="6"><button type="button" class="tc-s" data-go="6" style="--c:#ff8a6b"><b>1.1</b> 千亿美元的盲区</button></div><p class="tc-g">第 2 章 · 岔路口</p><div class="tc-sec" data-first="7" data-last="8"><button type="button" class="tc-s" data-go="7" style="--c:#3fd0c9"><b>2.1</b> 丰裕的时代</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="7" data-i="7">用数字看回报</button></li><li><button type="button" class="tc-p" data-go="8" data-i="8">人们会在哪里感受到它</button></li></ol></div><div class="tc-sec" data-first="9" data-last="11"><button type="button" class="tc-s" data-go="9" style="--c:#3fd0c9"><b>2.2</b> 故事的终点</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="9" data-i="9">四种出错方式</button></li><li><button type="button" class="tc-p" data-go="10" data-i="10">它为何会夺走我们所需</button></li><li><button type="button" class="tc-p" data-go="11" data-i="11">六条通往灭绝的路</button></li></ol></div><div class="tc-sec" data-first="12" data-last="14"><button type="button" class="tc-s" data-go="12" style="--c:#3fd0c9"><b>2.3</b> 无法重来的实验</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="12" data-i="12">没有第二次机会</button></li><li><button type="button" class="tc-p" data-go="13" data-i="13">原因一：它在自我改进</button></li><li><button type="button" class="tc-p" data-go="14" data-i="14">原因二：差距跑得比我们快</button></li></ol></div><p class="tc-g">第 3 章 · 我们自己的麻烦</p><div class="tc-sec" data-first="15" data-last="16"><button type="button" class="tc-s" data-go="15" style="--c:#8d9dff"><b>3.1</b> 没有刹车的竞赛</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="15" data-i="15">陷阱</button></li><li><button type="button" class="tc-p" data-go="16" data-i="16">走进一家实验室</button></li></ol></div><div class="tc-sec" data-first="17" data-last="19"><button type="button" class="tc-s" data-go="17" style="--c:#8d9dff"><b>3.2</b> 没人达成一致的愿望</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="17" data-i="17">没有共同的价值观</button></li><li><button type="button" class="tc-p" data-go="18" data-i="18">两重信任</button></li><li><button type="button" class="tc-p" data-go="19" data-i="19">谁来决定</button></li></ol></div><p class="tc-g">第 4 章 · 缺失的两块</p><div class="tc-sec" data-first="20" data-last="25"><button type="button" class="tc-s" data-go="20" style="--c:#e8c98a"><b>4.1</b> 神灯问题</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="20" data-i="20">两种失败</button></li><li><button type="button" class="tc-p" data-go="21" data-i="21">外部对齐</button></li><li><button type="button" class="tc-p" data-go="22" data-i="22">写得再好，照样出错</button></li><li><button type="button" class="tc-p" data-go="23" data-i="23">亲眼看看</button></li><li><button type="button" class="tc-p" data-go="24" data-i="24">内部对齐</button></li><li><button type="button" class="tc-p" data-go="25" data-i="25">我们能看见什么</button></li></ol></div><div class="tc-sec" data-first="26" data-last="28"><button type="button" class="tc-s" data-go="26" style="--c:#e8c98a"><b>4.2</b> 黑箱</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="26" data-i="26">测试为何失灵</button></li><li><button type="button" class="tc-p" data-go="27" data-i="27">测试是怎样被钻空子的</button></li><li><button type="button" class="tc-p" data-go="28" data-i="28">我们检验不了什么</button></li></ol></div><p class="tc-g">第 5 章 · 应对</p><div class="tc-sec" data-first="29" data-last="34"><button type="button" class="tc-s" data-go="29" style="--c:#6f8a63"><b>5.1</b> 防线</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="29" data-i="29">四层防线</button></li><li><button type="button" class="tc-p" data-go="30" data-i="30">开发</button></li><li><button type="button" class="tc-p" data-go="31" data-i="31">评估</button></li><li><button type="button" class="tc-p" data-go="32" data-i="32">控制</button></li><li><button type="button" class="tc-p" data-go="33" data-i="33">治理</button></li><li><button type="button" class="tc-p" data-go="34" data-i="34">深入了解</button></li></ol></div><div class="tc-sec" data-first="35" data-last="36"><button type="button" class="tc-s" data-go="35" style="--c:#6f8a63"><b>5.2</b> 裂缝</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="35" data-i="35">四个难点</button></li><li><button type="button" class="tc-p" data-go="36" data-i="36">哪些扛得住</button></li></ol></div><div class="tc-sec" data-first="37" data-last="37"><button type="button" class="tc-s" data-go="37" style="--c:#6f8a63"><b>5.3</b> 航向修正</button></div><div class="tc-sec" data-first="38" data-last="41"><button type="button" class="tc-s" data-go="38" style="--c:#6f8a63"><b>5.4</b> 轮到你了</button><ol class="tc-parts"><li><button type="button" class="tc-p" data-go="38" data-i="38">你</button></li><li><button type="button" class="tc-p" data-go="39" data-i="39">研究者</button></li><li><button type="button" class="tc-p" data-go="40" data-i="40">各家实验室</button></li><li><button type="button" class="tc-p" data-go="41" data-i="41">各国政府</button></li></ol></div><p class="tc-g">保持联系</p><div class="tc-sec" data-first="42" data-last="42"><button type="button" class="tc-s" data-go="42" style="--c:#e8b53a">保持联系</button></div><div class="dk-col tc-ref"><p class="dk-h">参考</p><ul><li><a href="/reference-zh#change-my-mind">什么会推翻这个论点</a></li><li><a href="/reference-zh#faq">人们最先提出的质疑</a></li><li><a href="/reference-zh#glossary">术语表</a></li><li><a href="/reference-zh#resources">课程与资源目录</a></li><li><a href="/reference-zh#sources">全部来源</a></li></ul></div><div class="dk-x tc-x"><a class="nav-xbtn" href="/comics/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>读漫画</span></a><a class="nav-xbtn" href="https://game.safeagi.ca/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>玩安全游戏</span></a></div></nav>
 <main id="main"><div class="deck"><div class="track"><div class="slide" data-key="cover" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="现状，一页说完"><header class="masthead" id="top"><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">你好，我是 Kenji，这是 Capy。我们一起来看看人类有史以来下过的最大一场赌注。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>你好。我是一只非常能干的水豚。</span></div></div><p class="mh-kick">一份独立编写的领域指南 · 作者：Bill Guan</p><div class="mh-titlerow"><h1 class="mh-title">人类迄今未能破解的头号难题：<span class="mh-hl">ASI&nbsp;安全</span></h1>
     <svg class="mh-brain" viewBox="0 0 240 210" aria-hidden="true" focusable="false">
         <g fill="none" stroke="#ff6a45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
@@ -2305,14 +2348,14 @@ html,body{background:#f4ecd8;color:var(--ink)}
       <svg data-keep="1" viewBox="0 0 800 430" role="img" aria-label="示意图：实验室、公司、投资方与国家被同一根绳索拴在一起，冲向悬崖边缘。奖赏悬在崖的另一侧，崖下则是文明的覆灭；一个长着翅膀的人正朝奖赏飞升。">
         <defs>
           <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#2a333a"/><stop offset="100%" stop-color="#171d22"/>
+            <stop offset="0%" stop-color="#d9c9a3"/><stop offset="100%" stop-color="#efe3c6"/>
           </linearGradient>
           <linearGradient id="abyss" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#bd3a20" stop-opacity=".34"/>
-            <stop offset="100%" stop-color="#bd3a20" stop-opacity="0"/>
+            <stop offset="0%" stop-color="#e07a5f" stop-opacity=".34"/>
+            <stop offset="100%" stop-color="#e07a5f" stop-opacity="0"/>
           </linearGradient>
-          <marker id="droptip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff8a6b" fill-opacity=".7"/></marker>
-          <marker id="ropetip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a959c"/></marker>
+          <marker id="droptip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d9492c" fill-opacity=".7"/></marker>
+          <marker id="ropetip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#5c574e"/></marker>
           <radialGradient id="prizeGlow" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stop-color="#ffd88a" stop-opacity=".5"/>
             <stop offset="100%" stop-color="#ffd88a" stop-opacity="0"/>
@@ -2321,72 +2364,72 @@ html,body{background:#f4ecd8;color:var(--ink)}
 
         <!-- prize floating beyond the far side -->
         <ellipse cx="668" cy="80" rx="140" ry="70" fill="url(#prizeGlow)"/>
-        <text x="668" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#ffd88a" data-lx-dfs="15">奖　赏</text>
-        <text x="668" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a" data-lx-dfs="9.5">无限丰裕。</text>
-        <text x="668" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a" data-lx-dfs="9.5">延长人类寿命。</text>
-        <text x="668" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e8c98a" data-lx-dfs="9.5">科学技术加速突破</text>
-        <text x="668" y="136" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">前提：我们安全抵达</text>
+        <text x="668" y="54" text-anchor="middle" font-family="Archivo,sans-serif" font-size="15" font-weight="800" fill="#8a5d00" data-lx-dfs="15">奖　赏</text>
+        <text x="668" y="78" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a87812" data-lx-dfs="9.5">无限丰裕。</text>
+        <text x="668" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a87812" data-lx-dfs="9.5">延长人类寿命。</text>
+        <text x="668" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#a87812" data-lx-dfs="9.5">科学技术加速突破</text>
+        <text x="668" y="136" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">前提：我们安全抵达</text>
 
         <!-- SOLID GROUND with a real cliff face -->
         <path d="M0,224 L556,224 L556,430 L0,430 Z" fill="url(#rock)"/>
-        <path d="M0,224 L556,224" stroke="#6c7880" stroke-width="2.5"/>
+        <path d="M0,224 L556,224" stroke="#6f6a60" stroke-width="2.5"/>
         <!-- crumbling edge -->
-        <path d="M556,224 L566,238 L552,252 L562,268 L548,286 L558,306 L544,330 L556,360 L546,392 L556,430 L520,430 L520,224 Z" fill="url(#rock)" stroke="#6c7880" stroke-width="1.2"/>
+        <path d="M556,224 L566,238 L552,252 L562,268 L548,286 L558,306 L544,330 L556,360 L546,392 L556,430 L520,430 L520,224 Z" fill="url(#rock)" stroke="#6f6a60" stroke-width="1.2"/>
         <!-- rock striations to read as a cliff wall -->
-        <g stroke="#3a444c" stroke-width="1.4" opacity=".85">
+        <g stroke="#9c8a5f" stroke-width="1.4" opacity=".85">
           <path d="M40,262 L300,262 M120,300 L420,300 M0,344 L360,344 M180,388 L500,388"/>
         </g>
         <!-- the drop -->
         <rect x="600" y="224" width="200" height="206" fill="url(#abyss)"/>
-        <text x="700" y="336" text-anchor="middle" font-family="Archivo,sans-serif" font-size="17" font-weight="900" letter-spacing="1" fill="#ff8a6b" data-lx-dfs="17">坠　落</text>
-        <text x="700" y="362" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079" data-lx-dfs="9.5">人类失去掌控</text>
-        <text x="700" y="379" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079" data-lx-dfs="9.5">文明的覆灭</text>
-        <text x="700" y="396" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#e59079" data-lx-dfs="9.5">没有第二次机会</text>
+        <text x="700" y="336" text-anchor="middle" font-family="Archivo,sans-serif" font-size="17" font-weight="900" letter-spacing="1" fill="#d9492c" data-lx-dfs="17">坠　落</text>
+        <text x="700" y="362" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#c9573c" data-lx-dfs="9.5">人类失去掌控</text>
+        <text x="700" y="379" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#c9573c" data-lx-dfs="9.5">文明的覆灭</text>
+        <text x="700" y="396" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#c9573c" data-lx-dfs="9.5">没有第二次机会</text>
         <!-- one figure already over the edge -->
-        <path d="M628,236 C640,256 646,280 648,306" fill="none" stroke="#ff8a6b" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55" marker-end="url(#droptip)"/>
+        <path d="M628,236 C640,256 646,280 648,306" fill="none" stroke="#d9492c" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55" marker-end="url(#droptip)"/>
         
-        <g stroke="#ff8a6b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
-          <g transform="translate(606,214) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#ff8a6b"/>
+        <g stroke="#d9492c" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9">
+          <g transform="translate(606,214) rotate(38)"><circle cx="0" cy="-30" r="7" fill="#d9492c"/>
             <path d="M0,-23 L2,-6 M2,-6 L-8,6 M2,-6 L12,3 M-1,-17 L-12,-13 M-1,-17 L10,-22"/></g>
         </g>
         <!-- one figure with wings, rising toward the prize -->
         <g id="lx-flyer" transform="translate(722,204) rotate(-10)" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M-3,-19 C-12,-31 -25,-41 -40,-40 C-35,-33 -31,-26 -25,-21 C-30,-19 -33,-15 -34,-10 C-24,-12 -13,-13 -4,-13 Z" fill="#3fd0c9" fill-opacity=".2" stroke="#3fd0c9" stroke-width="1.6"/>
-          <path d="M-9,-22 C-17,-29 -26,-34 -34,-36 M-8,-17 C-17,-21 -24,-22 -29,-20" fill="none" stroke="#3fd0c9" stroke-width="1" opacity=".65"/>
-          <path d="M3,-19 C12,-31 25,-41 40,-40 C35,-33 31,-26 25,-21 C30,-19 33,-15 34,-10 C24,-12 13,-13 4,-13 Z" fill="#3fd0c9" fill-opacity=".2" stroke="#3fd0c9" stroke-width="1.6"/>
-          <path d="M9,-22 C17,-29 26,-34 34,-36 M8,-17 C17,-21 24,-22 29,-20" fill="none" stroke="#3fd0c9" stroke-width="1" opacity=".65"/>
-          <g stroke="#3fd0c9" stroke-width="3" fill="none"><circle cx="0" cy="-31" r="7" fill="#3fd0c9"/>
+          <path d="M-3,-19 C-12,-31 -25,-41 -40,-40 C-35,-33 -31,-26 -25,-21 C-30,-19 -33,-15 -34,-10 C-24,-12 -13,-13 -4,-13 Z" fill="#1f9c96" fill-opacity=".2" stroke="#1f9c96" stroke-width="1.6"/>
+          <path d="M-9,-22 C-17,-29 -26,-34 -34,-36 M-8,-17 C-17,-21 -24,-22 -29,-20" fill="none" stroke="#1f9c96" stroke-width="1" opacity=".65"/>
+          <path d="M3,-19 C12,-31 25,-41 40,-40 C35,-33 31,-26 25,-21 C30,-19 33,-15 34,-10 C24,-12 13,-13 4,-13 Z" fill="#1f9c96" fill-opacity=".2" stroke="#1f9c96" stroke-width="1.6"/>
+          <path d="M9,-22 C17,-29 26,-34 34,-36 M8,-17 C17,-21 24,-22 29,-20" fill="none" stroke="#1f9c96" stroke-width="1" opacity=".65"/>
+          <g stroke="#1f9c96" stroke-width="3" fill="none"><circle cx="0" cy="-31" r="7" fill="#1f9c96"/>
             <path d="M0,-24 L0,-5 M0,-5 L-5,8 M0,-5 L5,8 M0,-18 L-8,-29 M0,-18 L8,-29"/></g>
-          <path d="M-5,15 L-5,29 M5,14 L5,24 M0,18 L0,34" stroke="#3fd0c9" stroke-width="1.4" stroke-dasharray="3 3" opacity=".5"/>
+          <path d="M-5,15 L-5,29 M5,14 L5,24 M0,18 L0,34" stroke="#1f9c96" stroke-width="1.4" stroke-dasharray="3 3" opacity=".5"/>
         </g>
 
         <!-- edge marker -->
-        <line x1="556" y1="145" x2="556" y2="430" stroke="#bd3a20" stroke-width="2" stroke-dasharray="6 5"/>
-        <text x="548" y="150" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#ff8a6b" data-lx-dfs="10">悬崖边缘</text>
+        <line x1="556" y1="145" x2="556" y2="430" stroke="#e07a5f" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="548" y="150" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing="1" fill="#d9492c" data-lx-dfs="10">悬崖边缘</text>
 
         <!-- rope + runners -->
-        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#c3ccd2" stroke-width="2.2" stroke-dasharray="5 4"/>
+        <path d="M70,206 C170,198 300,200 500,198" fill="none" stroke="#5c574e" stroke-width="2.2" stroke-dasharray="5 4"/>
         <!-- 绳索标注放在跑者上方的空白带，引线指向两名跑者之间的绳段，避免压住人头 -->
-        <text x="205" y="132" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#e2e8ec" data-lx-dfs="11">同拴一根绳</text>
-        <text x="205" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#aeb9c0" data-lx-dfs="10">先越线的那个，把其余人一起拽下去</text>
-        <path d="M205,158 L205,192" stroke="#8a959c" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#ropetip)"/>
-        <g stroke="#e2e8ec" stroke-width="3" fill="none" stroke-linecap="round">
-          <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
-          <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#e2e8ec"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e2e8ec"/></g>
-          <g transform="translate(250,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
-          <g transform="translate(336,206)"><circle cx="0" cy="-34" r="7" fill="#9cc4ff"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#9cc4ff"/></g>
-          <g transform="translate(420,206)"><circle cx="0" cy="-34" r="7" fill="#ffb59e"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ffb59e"/></g>
-          <g transform="translate(500,206)"><circle cx="0" cy="-34" r="7.5" fill="#ff8a6b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#ff8a6b"/></g>
+        <text x="205" y="132" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" letter-spacing=".12em" fill="#1b1b1b" data-lx-dfs="11">同拴一根绳</text>
+        <text x="205" y="150" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e" data-lx-dfs="10">先越线的那个，把其余人一起拽下去</text>
+        <path d="M205,158 L205,192" stroke="#5c574e" stroke-width="1.3" stroke-dasharray="3 3" marker-end="url(#ropetip)"/>
+        <g stroke="#1b1b1b" stroke-width="3" fill="none" stroke-linecap="round">
+          <g transform="translate(70,206)"><circle cx="0" cy="-34" r="7" fill="#1b1b1b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#1b1b1b"/></g>
+          <g transform="translate(160,206)"><circle cx="0" cy="-34" r="7" fill="#1b1b1b"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#1b1b1b"/></g>
+          <g transform="translate(250,206)"><circle cx="0" cy="-34" r="7" fill="#4a6fc9"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#4a6fc9"/></g>
+          <g transform="translate(336,206)"><circle cx="0" cy="-34" r="7" fill="#4a6fc9"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#4a6fc9"/></g>
+          <g transform="translate(420,206)"><circle cx="0" cy="-34" r="7" fill="#e07a5f"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#e07a5f"/></g>
+          <g transform="translate(500,206)"><circle cx="0" cy="-34" r="7.5" fill="#d9492c"/><path d="M0,-27 L4,-8 M4,-8 L-6,4 M4,-8 L14,1 M-1,-20 L-11,-15 M-1,-20 L11,-25" stroke="#d9492c"/></g>
         </g>
-        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">实验室</text>
-        <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">实验室</text>
-        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">投资方</text>
-        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">开源权重</text>
-        <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">国家</text>
-        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#8a959c" data-lx-dfs="9.5">国家</text>
+        <text x="70" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">实验室</text>
+        <text x="160" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">实验室</text>
+        <text x="250" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">投资方</text>
+        <text x="336" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">开源权重</text>
+        <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">国家</text>
+        <text x="500" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.5">国家</text>
 
-        <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#fff" data-lx-dfs="19">争当第一</text>
-        <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#aeb9c0" data-lx-dfs="15">你追我赶，奔向一个谁都不该率先抵达的地方。</text>
+        <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#1b1b1b" data-lx-dfs="19">争当第一</text>
+        <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#5c574e" data-lx-dfs="15">你追我赶，奔向一个谁都不该率先抵达的地方。</text>
       </svg>
     </figure></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">继续 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="现状，一页说完"><header class="masthead"><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji，想到了主意" width="72" height="72" decoding="async"><p class="cx-bubble">开始之前，先记住三件事。点任意一张卡片就能跳过去。</p></div><div class="mh-care">
     <h2 class="mh-h"><span>我们为什么该在意</span></h2>
@@ -4194,7 +4237,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
       </div>
       <div class="first teal">
         <span class="fk">在系统层面，其二</span>
-        <h3>如果安全无解，就停止 AI 研发，为了人类能够存续下去</h3>
+        <h3>如果安全无解，就停止通用人工智能的研发，为了人类能够存续下去；专用 AI 的研发与应用则照常推进</h3>
       </div>
       
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="36"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="38">下一节：5.4 轮到你了 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="5.4a" data-acc="#6f8a63" style="--c-acc:#6f8a63" data-where="&lt;b&gt;5.4&lt;/b&gt; 轮到你了"><section id="do" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 5.4 节 · 可以做什么 <b class="rt-min">6 分钟</b><span class="t-grp">第 5 章 · 应对</span></span><h2>你这周就能做的事，以及你之上必须发生的改变</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="38"><b>1</b>你</button><button type="button" class="t-chip" data-go="39"><b>2</b>研究者</button><button type="button" class="t-chip" data-go="40"><b>3</b>各家实验室</button><button type="button" class="t-chip" data-go="41"><b>4</b>各国政府</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">现在轮到你出场了！</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>新任务：告诉一个朋友。</span></div></div><p class="stand">我们必须把航向转向远超当前规模的安全研究，并在必要时愿意停下来。下面是你能帮上忙的事。有四类人能推动这件事，而你就是第一类。</p><div class="cando-block" id="what-you-can-do">
@@ -5909,7 +5952,7 @@ var SITE_CONFIG = {
   var track = document.querySelector(".track"), slides = [].slice.call(track.children);
   var prev = document.getElementById("d-prev"), next = document.getElementById("d-next");
   var where = document.getElementById("d-where"), segs = [].slice.call(document.querySelectorAll(".d-seg"));
-  var n = slides.length, cur = 0;
+  var n = slides.length, cur = 0, toc = document.getElementById("dk-toc");
   function go(i, instant){
     i = Math.max(0, Math.min(n - 1, i));
     cur = i;
@@ -5924,6 +5967,16 @@ var SITE_CONFIG = {
       var first = +seg.getAttribute("data-first"), count = +seg.getAttribute("data-count");
       var done = Math.max(0, Math.min(count, i - first + 1));
       seg.querySelector("i").style.width = (100 * done / count) + "%";
+    });
+    document.querySelectorAll(".tc-sec").forEach(function(sec){
+      var on = i >= +sec.getAttribute("data-first") && i <= +sec.getAttribute("data-last");
+      sec.className = "tc-sec" + (on ? " cur" : "");
+      if (on && toc && toc.offsetParent) { var r = sec.getBoundingClientRect(), tr = toc.getBoundingClientRect();
+        if (r.top < tr.top || r.bottom > tr.bottom) toc.scrollTop += r.top - tr.top - 40; }
+    });
+    document.querySelectorAll(".tc-p").forEach(function(b){
+      var on = +b.getAttribute("data-i") === i; b.className = "tc-p" + (on ? " on" : "");
+      if (on) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
     });
     prev.disabled = i === 0; next.disabled = i === n - 1;
     s.scrollTop = 0;

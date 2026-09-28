@@ -3,7 +3,7 @@
   var track = document.querySelector(".track"), slides = [].slice.call(track.children);
   var prev = document.getElementById("d-prev"), next = document.getElementById("d-next");
   var where = document.getElementById("d-where"), segs = [].slice.call(document.querySelectorAll(".d-seg"));
-  var n = slides.length, cur = 0;
+  var n = slides.length, cur = 0, toc = document.getElementById("dk-toc");
   function go(i, instant){
     i = Math.max(0, Math.min(n - 1, i));
     cur = i;
@@ -18,6 +18,16 @@
       var first = +seg.getAttribute("data-first"), count = +seg.getAttribute("data-count");
       var done = Math.max(0, Math.min(count, i - first + 1));
       seg.querySelector("i").style.width = (100 * done / count) + "%";
+    });
+    document.querySelectorAll(".tc-sec").forEach(function(sec){
+      var on = i >= +sec.getAttribute("data-first") && i <= +sec.getAttribute("data-last");
+      sec.className = "tc-sec" + (on ? " cur" : "");
+      if (on && toc && toc.offsetParent) { var r = sec.getBoundingClientRect(), tr = toc.getBoundingClientRect();
+        if (r.top < tr.top || r.bottom > tr.bottom) toc.scrollTop += r.top - tr.top - 40; }
+    });
+    document.querySelectorAll(".tc-p").forEach(function(b){
+      var on = +b.getAttribute("data-i") === i; b.className = "tc-p" + (on ? " on" : "");
+      if (on) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current");
     });
     prev.disabled = i === 0; next.disabled = i === n - 1;
     s.scrollTop = 0;

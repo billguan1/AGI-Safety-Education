@@ -183,10 +183,16 @@ def plan(pg):
     assert mw, 'masthead wrap'
     care = one(mw, '<div class="mh-care')
     cover = ''.join(b for b in mw if b is not care)
-    # the cliff is an illustration drawn for a dark ground: it keeps its colours in a dark panel
+    # the cliff is an illustration, so it gets a hand-picked paper palette rather than the chart rules
     ci = cover.index('<figure class="cliff'); cj = cover.index('</figure>', ci)
-    assert cover[ci:cj].count('<svg') >= 1
-    cover = cover[:ci] + cover[ci:cj].replace('<svg', '<svg data-keep="1"') + cover[cj:]
+    fig = cover[ci:cj].replace('<svg', '<svg data-keep="1"')
+    def cliff_colour(m):
+        v = m.group(2).lower()
+        assert v in CLIFF, ('cliff colour with no paper mapping', v)
+        return '%s="%s"' % (m.group(1), CLIFF[v])
+    fig = re.sub(r'<text\b[^>]*>', lambda t: t.group(0).replace('fill="#ffd88a"', 'fill="#8a5d00"'), fig)   # the prize heading, not its glow
+    fig = re.sub(r'\b(fill|stroke|stop-color)="(#[0-9a-fA-F]{3,6})"', cliff_colour, fig)
+    cover = cover[:ci] + fig + cover[cj:]
     intro = dict(id='crossroads', num='', label=pg.label['crossroads'], acc=T['intro_acc'])
     S.append(dict(key='cover', sec=intro, wrap='mast', anchor='top', body=cover))
     S.append(dict(key='care', sec=intro, wrap='mast', body=care))
@@ -294,6 +300,15 @@ def plan(pg):
     S.append(dict(key='anthem', sec=dict(id='anthem', num='', label=T['anthem_label'], acc=T['intro_acc']), wrap='anthem',
                   anchor='anthem', body=''.join(an) + '<div class="deck-foot">%s</div>' % inner(foot)))
     return S
+
+
+# the cover's cliff drawing, redrawn for cream paper
+CLIFF = {'#171d22': '#efe3c6', '#2a333a': '#d9c9a3',          # ground and abyss gradients
+         '#bd3a20': '#e07a5f', '#ffd88a': '#ffd88a',
+         '#fff': '#1b1b1b', '#e2e8ec': '#1b1b1b', '#c3ccd2': '#5c574e', '#aeb9c0': '#5c574e', '#8a959c': '#5c574e',
+         '#6c7880': '#6f6a60', '#3a444c': '#9c8a5f',
+         '#3fd0c9': '#1f9c96', '#9cc4ff': '#4a6fc9', '#ff8a6b': '#d9492c', '#ffb59e': '#e07a5f',
+         '#e59079': '#c9573c', '#e8c98a': '#a87812', '#8a5d00': '#8a5d00'}
 
 
 # ---------------------------------------------------------------- card colours
@@ -447,6 +462,28 @@ def build(pg, en_colors=None):
     return S, ''.join(out), ''.join(segs), colors
 
 
+def toc(pg, S):
+    """Left-hand contents: every section, grouped as in the site nav; the current one opens to its parts."""
+    T = pg.T; out = []; last_group = None; secs = []
+    for x in S:
+        if x['sec'] not in secs: secs.append(x['sec'])
+    for sec in secs:
+        idx = [i for i, x in enumerate(S) if x['sec'] is sec]
+        grp = sec.get('group') or (T['toc_intro'] if sec['id'] == 'crossroads' else T['toc_end'])
+        if grp != last_group:
+            out.append('<p class="tc-g">%s</p>' % html.escape(grp)); last_group = grp
+        lab = ('<b>%s</b> %s' % (sec['num'], html.escape(sec['label']))) if sec.get('num') else html.escape(sec['label'])
+        parts = ''
+        if len(idx) > 1:
+            names = T['intro_parts'] if sec['id'] == 'crossroads' else [S[i].get('chip') or '' for i in idx]
+            assert len(names) == len(idx) and all(names), ('toc part names', sec['id'])
+            parts = '<ol class="tc-parts">%s</ol>' % ''.join(
+                '<li><button type="button" class="tc-p" data-go="%d" data-i="%d">%s</button></li>' % (i, i, html.escape(nm)) for i, nm in zip(idx, names))
+        out.append('<div class="tc-sec" data-first="%d" data-last="%d"><button type="button" class="tc-s" data-go="%d" style="--c:%s">%s</button>%s</div>'
+                   % (idx[0], idx[-1], idx[0], sec['acc'], lab, parts))
+    return '<nav class="dk-toc" id="dk-toc" aria-label="%s">%s%s</nav>\n' % (T['contents'], ''.join(out), pg.toc_tail)
+
+
 def deck_bar(pg, segs):
     """One compact row: brand, where you are, contents, language, act now; progress under it."""
     s = pg.s; T = pg.T
@@ -462,6 +499,7 @@ def deck_bar(pg, segs):
     assert len(cols) == 3, len(cols)
     extra = ''.join(re.findall(r'<a class="nav-xbtn".*?</a>', old, re.S))
     assert extra.count('nav-xbtn') == 2
+    pg.toc_tail = cols[2].replace('class="dk-col"', 'class="dk-col tc-ref"') + '<div class="dk-x tc-x">%s</div>' % extra
     return ('<header class="dk-bar" id="dk-bar"><div class="dk-row">'
             '<a class="dk-brand" href="#top">SafeAGI</a><span class="d-where" id="d-where"></span>'
             '<div class="dk-acts"><button type="button" class="dk-btn dk-menu-btn" id="dk-menu-btn" aria-expanded="false" aria-controls="dk-menu">%s</button>'
@@ -471,7 +509,7 @@ def deck_bar(pg, segs):
             T['contents'], T['lang_to'], 'zh-Hans' if pg.lang == 'en' else 'en', text(lang.group(2)), act, segs, T['contents'], ''.join(cols), extra)
 
 
-def page(pg, slides, segs):
+def page(pg, slides, segs, S):
     s = pg.s; T = pg.T
     head = s[:s.index('<body')]
     head, nr = re.subn(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, nofollow">', head)
@@ -483,7 +521,7 @@ def page(pg, slides, segs):
         fonts, fonts, open(os.path.join(ROOT, 'tools', 'deck', 'deck.css'), encoding='utf-8').read(), T['css']), 1)
     body = s[s.index('<body'):]
     btag = body[:body.index('>') + 1]
-    bar = deck_bar(pg, segs)
+    bar = deck_bar(pg, segs) + toc(pg, S)
     toast = re.search(r'<div id="toast"[^>]*>.*?</div>', s, re.S).group(0)
     skip = re.search(r'<a class="skip" href="#main">.*?</a>', s, re.S).group(0)
     scripts = re.findall(r'<script\b[^>]*>.*?</script>', s[s.index('</footer>'):], re.S)
@@ -514,8 +552,8 @@ def main():
     S_en, sl_en, sg_en, colors = build(en)
     S_zh, sl_zh, sg_zh, _ = build(zh, colors)
     assert [x['key'] for x in S_en] == [x['key'] for x in S_zh]
-    for pg, sl, sg in ((en, sl_en, sg_en), (zh, sl_zh, sg_zh)):
-        doc = paper(page(pg, sl, sg))
+    for pg, sl, sg, S in ((en, sl_en, sg_en, S_en), (zh, sl_zh, sg_zh, S_zh)):
+        doc = paper(page(pg, sl, sg, S))
         ids = re.findall(r'\bid="([^"]+)"', doc)
         dup = sorted(set(i for i in ids if ids.count(i) > 1))
         assert not dup, ('duplicate ids', dup[:10])
