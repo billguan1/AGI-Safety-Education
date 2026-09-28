@@ -474,8 +474,8 @@ def deck_bar(pg, segs):
 def page(pg, slides, segs):
     s = pg.s; T = pg.T
     head = s[:s.index('<body')]
-    head = head.replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
-    assert head.count('noindex') == 1
+    head, nr = re.subn(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, nofollow">', head)
+    assert nr == 1 and head.count('name="robots"') == 1
     fonts = T['fonts']
     head = head.replace('</head>', ('<link rel="stylesheet" href="%s" media="print" onload="this.media=\'all\'">'
                                     '<noscript><link rel="stylesheet" href="%s"></noscript>\n'
