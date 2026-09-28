@@ -33,6 +33,7 @@
     s.scrollTop = 0;
     try { history.replaceState(null, "", "#s=" + (i + 1)); } catch (e) {}
     if (window.__lxFitAll) setTimeout(window.__lxFitAll, 60);
+    try { document.dispatchEvent(new CustomEvent("dk-slide", {detail: i})); } catch (e) {}
   }
   window.__deckGo = go; window.__deckCur = function(){ return cur; };
   prev.addEventListener("click", function(){ go(cur - 1); });
@@ -545,4 +546,87 @@
       b.querySelector("span").textContent = open ? "–" : "+";
     });
   });
+})();
+
+
+(function(){
+  /* progress kept in this browser only: slides seen, answers given, the funding guess */
+  var lang = /^zh/i.test(document.documentElement.lang || "") ? "zh" : "en", KEY = "dk-progress-" + lang;
+  var P = {seen: {}, ans: {}, guess: ""};
+  try { var raw = localStorage.getItem(KEY); if (raw) { var o = JSON.parse(raw); if (o && typeof o === "object") P = {seen: o.seen || {}, ans: o.ans || {}, guess: o.guess || ""}; } } catch (e) {}
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(P)); } catch (e) {} paintAll(); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  var slides = [].slice.call(document.querySelectorAll(".track > .slide"));
+
+  /* stamps: a chapter is finished once every one of its slides has been seen */
+  function stamp(){
+    var done = 0, total = 0;
+    document.querySelectorAll(".tc-sec").forEach(function(sec){
+      var a = +sec.getAttribute("data-first"), b = +sec.getAttribute("data-last"), all = true;
+      for (var i = a; i <= b; i++) if (!P.seen[slides[i] && slides[i].getAttribute("data-key")]) all = false;
+      if (sec.querySelector(".tc-s b")) { total++; if (all) done++; }
+      if (all && sec.className.indexOf("tc-done") < 0) sec.className += " tc-done";
+    });
+    return [done, total];
+  }
+  function markSeen(){
+    var cur = window.__deckCur ? window.__deckCur() : 0, k = slides[cur] && slides[cur].getAttribute("data-key");
+    if (k && !P.seen[k]) { P.seen[k] = 1; save(); }
+  }
+  document.addEventListener("dk-slide", function(e){
+    var k = slides[e.detail] && slides[e.detail].getAttribute("data-key");
+    if (k && !P.seen[k]) { P.seen[k] = 1; save(); }
+  });
+
+  /* quick checks: Kenji's face answers back */
+  document.querySelectorAll(".dk-check").forEach(function(box){
+    var C; try { C = JSON.parse(box.getAttribute("data-c")); } catch (e) { return; }
+    var id = box.getAttribute("data-id"), html = '<div class="dk-ch-head"><img class="dk-ch-kenji" src="/deck-img/kenji-idea.jpg" alt="" width="56" height="56"><div><span class="dk-ch-k">' + esc(C.k) + '</span><p class="dk-ch-q">' + esc(C.q) + '</p></div></div><div class="dki-opts">';
+    C.opts.forEach(function(o, k){ html += '<button type="button" class="dki-opt" data-o="' + k + '">' + esc(o) + '</button>'; });
+    box.innerHTML = html + '</div><p class="dki-say" aria-live="polite"></p>';
+    var face = box.querySelector(".dk-ch-kenji"), say = box.querySelector(".dki-say"), btns = box.querySelectorAll(".dki-opt");
+    function show(pick){
+      var right = pick === C.right;
+      [].forEach.call(btns, function(x){ x.disabled = true; var o = +x.getAttribute("data-o"); x.className = "dki-opt" + (o === C.right ? " dki-right" : (o === pick ? " dki-wrong" : "")); });
+      face.src = "/deck-img/kenji-" + (right ? "happy" : "puzzled") + ".jpg";
+      say.innerHTML = '<b>' + esc(right ? C.ok : C.no) + '</b> ' + esc(C.why);
+    }
+    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ var pick = +b.getAttribute("data-o"); show(pick); P.ans[id] = {right: pick === C.right}; save(); }); });
+    if (P.ans[id]) { /* answered before: show the answer again */ show(P.ans[id].right ? C.right : (C.right + 1) % C.opts.length); }
+  });
+
+  /* answers from the games, and the funding guess */
+  document.addEventListener("dk-answer", function(e){ var d = e.detail || {}; if (d.id) { P.ans[d.id] = d; save(); } });
+  var betGo = document.getElementById("bet-fund-go");
+  if (betGo) betGo.addEventListener("click", function(){ var v = document.getElementById("bet-fund-val"); if (v) { P.guess = v.textContent.trim(); save(); } });
+
+  /* the results card on the last slide */
+  function results(){
+    var box = document.querySelector(".dk-results"); if (!box) return;
+    var C; try { C = JSON.parse(box.getAttribute("data-c")); } catch (e) { return; }
+    var st = stamp(), checks = 0, right = 0, loops = 0, lr = 0, race = null;
+    Object.keys(P.ans).forEach(function(k){ var a = P.ans[k];
+      if (k.indexOf("c-") === 0) { checks++; if (a.right) right++; }
+      else if (k.indexOf("loophole-") === 0) { loops++; if (a.right) lr++; }
+      else if (k === "race") race = a; });
+    function row(l, v){ return '<div class="dk-r-row"><span>' + esc(l) + '</span><b>' + esc(v) + '</b></div>'; }
+    box.innerHTML = '<p class="tr-title">' + esc(C.title) + '</p>' +
+      row(C.chapters, st[0] + " / " + st[1]) +
+      row(C.checks, checks ? right + " / " + C.nchecks : C.none) +
+      row(C.guess, P.guess || C.none) + row(C.real, C.realv) +
+      row(C.race, race ? (C.raced[race.val] || C.none) : C.none) +
+      row(C.loop, loops ? lr + " / " + loops : C.none) +
+      '<button type="button" class="dki-go dk-share">' + esc(C.share) + '</button><p class="dki-say dk-r-msg" aria-live="polite"></p>';
+    box.querySelector(".dk-share").addEventListener("click", function(){
+      var text = C.text.replace("{c}", st[0] + "/" + st[1]).replace("{k}", right + "/" + C.nchecks).replace("{g}", P.guess || "?"),
+          url = "https://safeagi.ca/", msg = box.querySelector(".dk-r-msg");
+      if (navigator.share) { navigator.share({title: "SafeAGI", text: text, url: url}).catch(function(){}); return; }
+      var full = text + " " + url;
+      function done(){ msg.textContent = C.copied; }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(full).then(done, function(){ msg.textContent = full; });
+      else msg.textContent = full;
+    });
+  }
+  function paintAll(){ stamp(); results(); }
+  setTimeout(function(){ markSeen(); paintAll(); }, 200);
 })();

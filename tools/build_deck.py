@@ -562,6 +562,15 @@ def build(pg, en_colors=None):
                '<p class="cx-bubble">%s</p>%s</div>') % (mood, html.escape(T['kenji_alt'] % T['moods'][mood]), html.escape(line),
                ('<div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>%s</span></div>' % html.escape(capy)) if capy else '')
         body, got = colorize(x['body'], None if en_colors is None else en_colors[x['key']])
+        # a quick check at the end of each chapter; the results card on the last slide
+        num = sec.get('num')
+        if x['wrap'] == 'dd' and x['part'] == x['parts'] - 1 and num in T['checks']:
+            q, opts, right, why = T['checks'][num]
+            body += '<div class="dk-check" data-id="c-%s" data-c="%s"></div>' % (num, html.escape(json.dumps(
+                dict(k=T['checks_k'], q=q, opts=opts, right=right, why=why, ok=T['right'], no=T['wrongp']), ensure_ascii=False)))
+        if x['key'] == 'anthem':
+            total = len([1 for y in S if y is S[first[y['sec']['id']]] and y['sec'].get('num')])
+            body = '<div class="dk-results" data-c="%s"></div>' % html.escape(json.dumps(dict(T['results'], total=total, nchecks=len(T['checks'])), ensure_ascii=False)) + body
         colors[x['key']] = got
         same = [y for y in S if y['sec'] is sec]
         chips = ''
