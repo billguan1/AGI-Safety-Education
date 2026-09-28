@@ -444,6 +444,14 @@ def plan(pg):
         v = m.group(2).lower()
         assert v in CLIFF, ('cliff colour with no paper mapping', v)
         return '%s="%s"' % (m.group(1), CLIFF[v])
+    # the roped runners become one group the deck can move
+    ri = fig.index('<!-- rope + runners -->'); rj = fig.index('<g stroke=', ri); rk = fig.index('</g>\n', fig.index('translate(500,206)', rj)) + 4
+    team = fig[rj:rk]; assert team.count('<g transform=') == 6, team.count('<g transform=')
+    rope = re.search(r'<path d="M70,206[^>]*/>', fig).group(0)
+    fig = fig.replace(rope, '<g class="cr-rope">%s</g>' % rope, 1).replace(team, '<g class="cr-team">%s</g>' % team, 1)
+    C = T['cliffgame']
+    ctl = ('<div class="cr-ctl" data-c="%s"></div>' % html.escape(json.dumps(C, ensure_ascii=False)))
+    fig = fig + ctl
     fig = re.sub(r'<text\b[^>]*>', lambda t: t.group(0).replace('fill="#ffd88a"', 'fill="#8a5d00"'), fig)   # the prize heading, not its glow
     fig = re.sub(r'\b(fill|stroke|stop-color)="(#[0-9a-fA-F]{3,6})"', cliff_colour, fig)
     fig = re.sub(r'<text\b[^>]*>', lambda t: re.sub(r'fill="(?!#1b1b1b|#5c574e|#6f6a60)#[0-9a-fA-F]{3,6}"', 'fill="#1b1b1b"', t.group(0)), fig)   # text: ink or grey
@@ -741,9 +749,15 @@ def build(pg, en_colors=None):
         chips = ''
         if len(same) > 1:
             names = T['intro_parts'] if sec['id'] == 'crossroads' else [y.get('chip') for y in same]
-            chips = '<div class="t-chips" aria-label="%s">%s</div>' % (T['chips_aria'], ''.join(
-                '<button type="button" class="t-chip%s" data-go="%d"><b>%d</b>%s</button>' % (' on' if y is x else '', S.index(y), k + 1, html.escape(nm))
-                for k, (y, nm) in enumerate(zip(same, names))))
+            cl = []; num = 0
+            for k, (y, nm) in enumerate(zip(same, names)):
+                sub = sec['id'] == 'crossroads' and 2 <= k <= 4
+                if not sub: num += 1
+                if sec['id'] == 'crossroads' and k == 2: cl.append('<span class="t-subchips">')
+                cl.append('<button type="button" class="t-chip%s%s" data-go="%d">%s%s</button>' % (' on' if y is x else '', ' t-chip-sub' if sub else '', S.index(y),
+                           '' if sub else '<b>%d</b>' % num, html.escape(nm)))
+                if sec['id'] == 'crossroads' and k == 4: cl.append('</span>')
+            chips = '<div class="t-chips" aria-label="%s">%s</div>' % (T['chips_aria'], ''.join(cl))
         ihead = ('<div class="wrap t-head"><div class="sec-head"><span class="chapno">%s</span><h2>%s</h2>%s</div></div>'
                  % (x['kicker'], x['title'], chips)) if x.get('title') else ''
         if x['wrap'] == 'dd':
@@ -805,8 +819,11 @@ def toc(pg, S):
         if len(idx) > 1:
             names = T['intro_parts'] if sec['id'] == 'crossroads' else [S[i].get('chip') or '' for i in idx]
             assert len(names) == len(idx) and all(names), ('toc part names', sec['id'])
-            parts = '<ol class="tc-parts">%s</ol>' % ''.join(
-                '<li><button type="button" class="tc-p" data-go="%d" data-i="%d">%s</button></li>' % (i, i, html.escape(nm)) for i, nm in zip(idx, names))
+            items = []
+            for k, (i, nm) in enumerate(zip(idx, names)):
+                sub = sec['id'] == 'crossroads' and 2 <= k <= 4
+                items.append('<li%s><button type="button" class="tc-p" data-go="%d" data-i="%d">%s</button></li>' % (' class="tc-sub"' if sub else '', i, i, html.escape(nm)))
+            parts = '<ol class="tc-parts">%s</ol>' % ''.join(items)
         out.append('<div class="tc-sec" data-first="%d" data-last="%d"><button type="button" class="tc-s" data-go="%d" style="--c:%s">%s</button>%s</div>'
                    % (idx[0], idx[-1], idx[0], sec['acc'], lab, parts))
     return '<nav class="dk-toc" id="dk-toc" aria-label="%s">%s%s</nav>\n' % (T['contents'], ''.join(out), pg.toc_tail)
@@ -885,6 +902,7 @@ def main():
     assert [x['key'] for x in S_en] == [x['key'] for x in S_zh]
     for pg, sl, sg, S in ((en, sl_en, sg_en, S_en), (zh, sl_zh, sg_zh, S_zh)):
         doc = paper(page(pg, sl, sg, S)).replace(pg.old_intro, pg.T['intro_label'])
+        assert doc.count('<div class="slide" data-key=') == len(S_en), ('slides missing', doc.count('<div class="slide" data-key='))
         ids = re.findall(r'\bid="([^"]+)"', doc)
         dup = sorted(set(i for i in ids if ids.count(i) > 1))
         assert not dup, ('duplicate ids', dup[:10])

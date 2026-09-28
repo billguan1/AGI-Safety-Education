@@ -672,3 +672,40 @@
   function paintAll(){ stamp(); results(); }
   setTimeout(function(){ markSeen(); paintAll(); }, 200);
 })();
+
+
+(function(){
+  /* the cover's cliff: drag the roped group toward the edge; safety decides whether they rise or drop */
+  var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
+  var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
+  var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
+  if (!team) return;
+  var men = [].slice.call(team.querySelectorAll(":scope > g > g")), X0 = men.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
+  ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
+    '<label class="cr-lab" for="cr-range">' + C.label + '</label><input type="range" id="cr-range" min="0" max="100" value="0"><p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
+  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), safe = false, EDGE = 556;
+  function draw(){
+    var t = +inp.value / 100, shift = t * 500, over = 0;
+    men.forEach(function(g, i){
+      var x = X0[i] + shift, y = 206, rot = 0;
+      if (x > EDGE) {
+        over++;
+        var d = x - EDGE;
+        var SPOT = [[598, 198], [626, 190], [654, 198], [764, 192], [788, 200], [682, 188]];
+        if (safe) { var sp = SPOT[5 - i]; x = Math.min(x, sp[0]); y = 206 - Math.min(206 - sp[1], d * 0.4); }
+        else { var pull = Math.max(d, (X0[5] + shift - EDGE) * 0.6); y = 206 + Math.min(78 + (5 - i) * 20, pull * 1.4); rot = -Math.min(90, pull * 0.8); x = Math.min(x, 596 + (i % 2) * 6); }
+      }
+      g.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + rot.toFixed(0) + ")");
+    });
+    rope.setAttribute("transform", "translate(" + Math.min(shift, 56) + ",0)");
+    rope.style.opacity = shift > 56 ? 0 : 1;
+    say.textContent = over === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
+  }
+  [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
+    safe = b.getAttribute("data-v") === "1";
+    [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    draw();
+  }); });
+  inp.addEventListener("input", draw);
+  draw();
+})();
