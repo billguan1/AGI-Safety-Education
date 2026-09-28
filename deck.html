@@ -5232,7 +5232,7 @@ var SITE_CONFIG = {
 
   /* 2.1 growth: slide the yearly rate, the twenty-year bar compounds */
   R.growth = function(box, C){
-    box.innerHTML = slider(C.label, 1, 30, 1, 3) +
+    box.innerHTML = slider(C.label, 1, 30, 1, 30) +
       '<div class="dki-ticks"><span style="left:' + (2 / 29 * 100) + '%">' + esc(C.tick_lo) + '</span><span style="left:100%">' + esc(C.tick_hi) + '</span></div>' +
       '<div class="dki-bars"><div class="dki-row"><span class="dki-name">' + esc(C.today) + '</span><div class="dki-track"><i class="dki-a"></i></div><b class="dki-n">×1</b></div>' +
       '<div class="dki-row"><span class="dki-name">' + esc(C.after) + '</span><div class="dki-track"><i class="dki-b"></i></div><b class="dki-n dki-x"></b></div></div>' +
