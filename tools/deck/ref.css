@@ -1,0 +1,56 @@
+/* Reference pages in the deck's comic look. Added by tools/build_deck.py between the dk-ref markers. */
+:root{--paper:#f4ecd8;--white:#fffdf6;--ink:#1b1b1b;--ink-2:#3b3833;--ink-3:#6f6a60;--rule:#1b1b1b;--rule-soft:#cfc4ab;
+  --comic:"Bangers","ZCOOL KuaiLe","Archivo",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;--display:var(--comic);--mono:"Comic Neue","PingFang SC",system-ui,sans-serif;color-scheme:light}
+html,body{background:#f4ecd8!important;color:#1b1b1b!important}
+body{background-image:radial-gradient(rgba(27,27,27,.07) 1px,transparent 1.2px)!important;background-size:9px 9px!important;font-family:var(--body)!important}
+main,section,.dd,section.dd{background:transparent!important;color:#1b1b1b!important;border-top:0!important}
+section::before,section::after{display:none!important}
+.rv{opacity:1!important;transform:none!important}
+/* header */
+.bar{border-bottom:3px solid #1b1b1b!important}
+.bar-in{background:#fffdf6!important;backdrop-filter:none!important}
+.bar .brand{font-family:var(--comic)!important;font-size:24px!important;letter-spacing:.04em;color:#1b1b1b!important;text-shadow:2px 2px 0 #e8b53a}
+.bar .hbtn{font-family:var(--body)!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;border:2.5px solid #1b1b1b!important;border-radius:99px!important;background:#fffdf6!important;color:#1b1b1b!important;box-shadow:3px 3px 0 #1b1b1b}
+.bar .hbtn-act{background:#e8b53a!important}
+/* page head */
+.refpage-head h1{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.02em!important;color:#1b1b1b!important;text-shadow:4px 4px 0 #e8b53a}
+.refpage-head p,.crumb,.crumb a{color:#3b3833!important;font-family:var(--body)!important}
+.part-div .pd-n,.part-div .pd-t,.eyebrow,.chapno,.chapno .rt-min{font-family:var(--body)!important;font-weight:700!important;letter-spacing:.06em;color:#6f6a60!important}
+.part-div{border-color:#1b1b1b!important}
+.sec-head h2{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.02em!important;color:#1b1b1b!important;text-shadow:3px 3px 0 #e8b53a}
+.sec-head .lede,.sec-head .stand,.sec-head .note,p.note{color:#3b3833!important;font-family:var(--body)!important}
+/* cards */
+.ddc{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-top:10px solid var(--k,#e8b53a)!important;border-radius:6px!important;box-shadow:5px 5px 0 #1b1b1b;color:#1b1b1b!important}
+.ddc.b{--k:#4a5fc9} .ddc.o{--k:#e8b53a} .ddc.g{--k:#6fae5a} .ddc.r{--k:#d9492c} .ddc.t{--k:#1f9c96}
+.ddc .k{font-family:var(--body)!important;font-weight:700;letter-spacing:.06em;color:#6f6a60!important}
+.ddc h4{font-family:var(--body)!important;font-weight:700!important;color:#1b1b1b!important;letter-spacing:0!important}
+.ddc p{font-family:var(--body)!important;color:#3b3833!important}
+.keyline{background:#fff6d8!important;border:3px solid #1b1b1b!important;border-left:12px solid #e8b53a!important;box-shadow:4px 4px 0 #1b1b1b!important}
+.keyline p{color:#1b1b1b!important;font-family:var(--body)!important}
+.keyline .kk{color:#8a5d00!important;font-family:var(--body)!important;font-weight:700}
+/* go deeper bars */
+.resblock{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-radius:8px!important;box-shadow:4px 4px 0 #1b1b1b;margin-bottom:14px}
+.resbar{color:#1b1b1b!important}
+.resbar .rbt{font-family:var(--body)!important;font-weight:700!important;color:#1b1b1b!important}
+.resbar .rbs,.resbar .rbx{font-family:var(--body)!important;color:#5c574e!important}
+.resbar .rbi{background:#e8b53a!important;border:2px solid #1b1b1b!important;border-radius:50%!important;color:#1b1b1b!important}
+.resbody{border-top:2px dashed #cfc4ab!important;color:#1b1b1b!important}
+.resbody b,.resbody .rl-h,.resbody a{color:#1b1b1b!important;font-family:var(--body)!important}
+.resbody i,.resbody .rl-d,.resbody p,.resbody li{color:#3b3833!important;font-family:var(--body)!important}
+/* questions */
+#faq details{background:#fffdf6;border:3px solid #1b1b1b!important;border-radius:8px;box-shadow:4px 4px 0 #1b1b1b;margin-bottom:12px;padding:0 16px}
+#faq summary{font-family:var(--body)!important;font-weight:700!important;font-size:17px!important;color:#1b1b1b!important;padding:14px 0}
+#faq summary .qn{font-family:var(--comic)!important;font-weight:400;color:#d9492c!important;margin-right:10px}
+#faq .fa p,#faq .fa{font-family:var(--body)!important;color:#3b3833!important}
+.faq-subhead-in,.faq-sub,.faq-subnote{font-family:var(--body)!important;color:#1b1b1b!important}
+/* sources */
+.src-toggle>summary,.oq-toggle>summary{font-family:var(--body)!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;color:#1b1b1b!important;border:2.5px solid #1b1b1b!important;border-radius:99px!important;padding:8px 16px!important;background:#e8b53a!important;box-shadow:3px 3px 0 #1b1b1b}
+#sources .src-cat{font-family:var(--comic)!important;font-weight:400!important;font-size:20px!important;letter-spacing:.03em!important;text-transform:none!important;color:#1b1b1b!important;margin-top:18px!important}
+#sources ol li{font-family:var(--body)!important;color:#3b3833!important}
+a,#sources a{color:#2f5aa8!important}
+.ref{color:#2f5aa8!important}
+.term{border-bottom-color:#6f6a60!important}
+.term-tip{background:#fffdf6!important;color:#1b1b1b!important;border:2.5px solid #1b1b1b!important;box-shadow:3px 3px 0 #1b1b1b}
+.gauge,.gtrack{filter:none}
+footer{background:transparent!important;color:#3b3833!important;font-family:var(--body)!important;border-top:3px solid #1b1b1b!important}
+footer a{color:#2f5aa8!important}

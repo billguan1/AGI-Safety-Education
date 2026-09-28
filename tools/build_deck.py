@@ -73,6 +73,7 @@ class Page:
         self.src, self.out = PAGES[lang]
         self.s = open(os.path.join(ROOT, self.src), encoding='utf-8').read()
         self.T = TXT.T[lang]
+        self.refbase = '/reference' if lang == 'en' else '/reference-zh'
         self.nav()
 
     def nav(self):
@@ -302,6 +303,15 @@ def short_cards(block, texts):
         out = out.replace(card, new, 1)
     return out
 
+def refs_html(t, base):
+    return re.sub(r'\[(\d+)\]', lambda m: '<a class="ref" href="%s#s%s">%s</a>' % (base, m.group(1), m.group(1)), html.escape(t, quote=False))
+
+def add_example(block, n, text_, base):
+    """Append one short example line to the block's nth card."""
+    cards = [c for c in kids(block) if re.match(r'<div[^>]*class="ddc', c)]
+    c = cards[n]; assert block.count(c) == 1
+    return block.replace(c, c[:c.rindex('</div>')] + '<p class="dk-ex">%s</p></div>' % refs_html(text_, base), 1)
+
 def card_heading(block, n, new):
     """Replace the heading of the block's nth card (the chart now carries its old point)."""
     hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
@@ -511,6 +521,9 @@ def plan(pg):
     def claim_card(c):
         if 'claim-1' in c[:80]:
             c = rebuild(c, 1, 'timeline', pg.lang); c = rebuild(c, 0, 'funding', pg.lang)
+            extra = ''.join('<li><b>%s</b><span>%s</span></li>' % (E(y), refs_html(x, pg.refbase)) for y, x in T['incidents']['timeline'])
+            assert c.count('</ol></div>') == 1
+            c = c.replace('</ol></div>', extra + '</ol></div>', 1)
         if 'claim-3' in c[:80]:
             c = rebuild(c, 1, 'problems', pg.lang); c = rebuild(c, 0, 'payoff4', pg.lang)
         if 'claim-2' in c[:80]:
@@ -583,7 +596,7 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
-             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T))),   # Kenji carries the reason
+             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(add_example(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T), 1, T['incidents']['loop'], pg.refbase))),   # Kenji carries the reason
              (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_heading(grids[1], 1, T['wid']['layers']['card_h']), 1, 'layers', T, True), 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
@@ -628,7 +641,7 @@ def plan(pg):
     add(ch, parts)
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']
-    add(ch, [(P['5.2'][0], stand(ch) + one(B, '<div class="ddgrid')),
+    add(ch, [(P['5.2'][0], stand(ch) + add_example(one(B, '<div class="ddgrid'), 0, T['incidents']['hard'], pg.refbase)),
              (P['5.2'][1], part_head(H['5.2b']) + swap_fig(one(B, '<figure'), 0, 'guards', T) + rebuild(one(B, '<details'), 0, 'numbers', pg.lang) + key(ch))])
     # 5.3 ask: no sec-head, an eyebrow and a big heading
     B = pg.section('ask')
@@ -929,6 +942,24 @@ def page(pg, slides, segs, S):
     return doc
 
 
+REF_START, REF_END = '<!-- dk-ref: comic look, added by tools/build_deck.py -->', '<!-- /dk-ref -->'
+
+def comic_reference(fname, fonts):
+    """Give a Reference page the deck's comic look. Idempotent: the marked block is stripped, then re-added."""
+    path = os.path.join(ROOT, fname); s = open(path, encoding='utf-8').read()
+    s = re.sub(re.escape(REF_START) + r'.*?' + re.escape(REF_END) + r'\n?', '', s, flags=re.S)
+    css = open(os.path.join(ROOT, 'tools', 'deck', 'ref.css'), encoding='utf-8').read()
+    js = ('<script>document.querySelectorAll(".resbar[data-res]").forEach(function(b){var body=b.nextElementSibling;'
+          'if(!body)return;b.addEventListener("click",function(){var open=body.classList.contains("closed");body.classList.toggle("closed",!open);'
+          'b.setAttribute("aria-expanded",open?"true":"false");var x=b.querySelector(".rbx");if(x)x.textContent=open?"\u2013":"+";});});</script>')
+    block = '%s\n<link rel="stylesheet" href="%s">\n<style>\n%s</style>\n%s\n' % (REF_START, fonts, css, REF_END)
+    assert s.count('</head>') == 1 and s.count('</body>') == 1
+    s = s.replace('</head>', block + '</head>', 1)
+    s = s.replace('</body>', REF_START + js + REF_END + '\n</body>', 1)
+    open(path, 'w', encoding='utf-8').write(s)
+    assert s.count(REF_START) == 2
+    print('styled %s' % fname)
+
 def main():
     en = Page('en'); zh = Page('zh')
     S_en, sl_en, sg_en, colors = build(en)
@@ -942,6 +973,8 @@ def main():
         assert not dup, ('duplicate ids', dup[:10])
         open(os.path.join(ROOT, pg.out), 'w', encoding='utf-8').write(doc)
         print('wrote %s: %d slides, %d KB' % (pg.out, len(S_en), len(doc) // 1024))
+    comic_reference('reference.html', TXT.EN_FONTS)
+    comic_reference('reference-zh.html', TXT.ZH_FONTS)
 
 if __name__ == '__main__':
     main()

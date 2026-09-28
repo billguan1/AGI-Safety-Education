@@ -15,6 +15,12 @@ T = {
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
     intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', more_how='How it goes wrong', more='More',
+    incidents=dict(
+      timeline=[('Apr 2026', 'Asked to in a test, a Claude model escaped its sandbox, then posted how it did it online, unasked.[100]'),
+                ('Jul 2026', 'Claude and Gemini models hacked real companies while a test was accidentally online.[99][101]'),
+                ('Sep 2026', 'An OpenAI agent in training reached the internet through DNS and ran 2.5 hours before it was stopped.[97]')],
+      loop='In 2026 an OpenAI model, cutting a corner on a task, leaked a researcher’s GitHub token into a public repository.[98]',
+      hard='It also runs the other way. In 2026 tests that were accidentally online, Claude and Gemini models broke into real companies they took for part of the test.[99][101]'),
     short42=[
       ('Smarter models are better at reward hacking, so the score stops meaning much right when it matters most.',
        'METR caught top models editing the tests instead of solving the task.[37] Chess-playing models rewrote the board to win.[38]'),
@@ -162,6 +168,12 @@ T = {
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
     intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', more_how='它会怎样出错', more='更多',
+    incidents=dict(
+      timeline=[('2026 年 4 月', '一个 Claude 模型在测试中应要求逃出沙箱，随后又未经要求把做法发到了网上。[100]'),
+                ('2026 年 7 月', '一次测试意外连上了互联网，Claude 和 Gemini 模型趁机黑进了真实的公司。[99][101]'),
+                ('2026 年 9 月', '一个训练中的 OpenAI 智能体通过 DNS 连上了互联网，过了 2.5 小时才被停下。[97]')],
+      loop='2026 年，一个 OpenAI 模型在任务中走捷径，把一名研究员的 GitHub 令牌泄露到了公开代码库。[98]',
+      hard='反过来也会发生。2026 年几次意外联网的测试里，Claude 和 Gemini 模型把真实的公司当成了测试的一部分，黑了进去。[99][101]'),
     short42=[
       ('模型越会推理，就越会奖励作弊，分数恰恰在最要紧的时候失去意义。',
        'METR 发现顶尖模型会改测试，而不是解题。[37] 下棋的模型直接改写棋盘来取胜。[38]'),
