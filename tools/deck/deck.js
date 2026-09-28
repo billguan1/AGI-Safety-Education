@@ -341,6 +341,92 @@
     draw();
   };
 
+  /* 3.2 chain of trust: tap a trust link to see how it breaks */
+  R.chain = function(box, C){
+    var N = C.nodes, html = '<div class="dki-chain">';
+    N.forEach(function(n, k){
+      html += '<span class="dki-node">' + esc(n) + '</span>';
+      if (k < N.length - 1) {
+        if (k === 1) html += '<span class="dki-link dki-plain" aria-hidden="true"><i></i><em>' + esc(C.mid) + '</em></span>';
+        else html += '<button type="button" class="dki-link" data-c="' + (k === 0 ? 0 : 1) + '" aria-expanded="false"><i></i><em>' + (k === 0 ? 1 : 2) + '</em></button>';
+      }
+    });
+    html += '</div><p class="dki-say">' + esc(C.tap) + '</p><div class="dki-break" hidden></div>';
+    box.innerHTML = html;
+    var links = box.querySelectorAll("button.dki-link"), out = box.querySelector(".dki-break"), say = box.querySelector(".dki-say");
+    [].forEach.call(links, function(b){
+      b.addEventListener("click", function(){
+        var c = C.cards[+b.getAttribute("data-c")], was = b.getAttribute("aria-expanded") === "true";
+        [].forEach.call(links, function(x){ x.setAttribute("aria-expanded", "false"); x.className = "dki-link"; });
+        if (was) { out.hidden = true; say.hidden = false; return; }
+        b.setAttribute("aria-expanded", "true"); b.className = "dki-link dki-broken";
+        out.innerHTML = '<span class="dki-k">' + esc(c[0]) + '</span><b>' + esc(c[1]) + '</b><p>' + c[2] + '</p>';
+        out.hidden = false; say.hidden = true;
+      });
+    });
+  };
+
+  /* 5.1 four layers as swiss cheese: send the threat through, tap a hole for why */
+  R.cheese = function(box, C){
+    var COL = ["#4a5fc9", "#6fae5a", "#e8b53a", "#e07a5f"], html = '<div class="dki-cheese"><span class="dki-threat">' + esc(C.threat) + '</span><div class="dki-slices">';
+    C.layers.forEach(function(l, k){
+      html += '<div class="dki-slice" style="--c:' + COL[k] + '"><span class="dki-ln">' + esc(l) + '</span>' +
+        '<button type="button" class="dki-hole" data-k="' + k + '" aria-label="' + esc(l) + '" style="top:' + [38, 52, 30, 46][k] + '%"></button></div>';
+    });
+    html += '</div><span class="dki-through">' + esc(C.through) + '</span><i class="dki-ball" aria-hidden="true"></i></div>' +
+      '<button type="button" class="dki-go">' + esc(C.go) + '</button><p class="dki-say">' + esc(C.tap) + '</p>';
+    box.innerHTML = html;
+    var holes = box.querySelectorAll(".dki-hole"), say = box.querySelector(".dki-say"), go = box.querySelector(".dki-go"), ball = box.querySelector(".dki-ball"), wrap = box.querySelector(".dki-cheese");
+    [].forEach.call(holes, function(h){
+      h.addEventListener("click", function(){
+        var k = +h.getAttribute("data-k");
+        [].forEach.call(holes, function(x){ x.className = "dki-hole"; }); h.className = "dki-hole dki-on";
+        say.innerHTML = '<b>' + esc(C.layers[k]) + (/^zh/i.test(document.documentElement.lang || "") ? '：</b>' : ':</b> ') + esc(C.why[k]);
+      });
+    });
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    go.addEventListener("click", function(){
+      var wr = wrap.getBoundingClientRect(), pts = [];
+      [].forEach.call(holes, function(h){ var r = h.getBoundingClientRect(); pts.push([r.left + r.width / 2 - wr.left, r.top + r.height / 2 - wr.top]); });
+      var th = box.querySelector(".dki-threat").getBoundingClientRect(), tt = box.querySelector(".dki-through").getBoundingClientRect();
+      pts.unshift([th.left + th.width / 2 - wr.left, th.bottom - wr.top + 6]); pts.push([tt.left + tt.width / 2 - wr.left, tt.top - wr.top - 6]);
+      var t0 = null, DUR = reduce ? 1 : 2200; go.disabled = true; ball.style.opacity = 1;
+      function step(ts){
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / DUR), f = p * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(f)), u = f - i;
+        ball.style.transform = "translate(" + (pts[i][0] + (pts[i + 1][0] - pts[i][0]) * u) + "px," + (pts[i][1] + (pts[i + 1][1] - pts[i][1]) * u) + "px)";
+        if (p < 1) requestAnimationFrame(step); else { go.disabled = false; go.textContent = C.again; wrap.className = "dki-cheese dki-leaked"; }
+      }
+      wrap.className = "dki-cheese"; requestAnimationFrame(step);
+    });
+  };
+
+  /* 5.3 the fork: can safety be solved? each branch leads to one of the two asks */
+  R.fork = function(box, C){
+    box.innerHTML = '<div class="dki-fork"><p class="dki-q">' + esc(C.q) + '</p><div class="dki-branches">' +
+      '<button type="button" class="dki-br dki-yes" aria-pressed="false"><span class="dki-bl">' + esc(C.yes) + '</span><span class="dki-end">' + esc(C.ends[0]) + '</span></button>' +
+      '<button type="button" class="dki-br dki-no" aria-pressed="false"><span class="dki-bl">' + esc(C.no) + '</span><span class="dki-end">' + esc(C.ends[1]) + '</span></button>' +
+      '</div></div>';
+    var br = box.querySelectorAll(".dki-br");
+    [].forEach.call(br, function(b){ b.addEventListener("click", function(){
+      [].forEach.call(br, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      box.querySelector(".dki-fork").setAttribute("data-pick", b.className.indexOf("dki-yes") > -1 ? "yes" : "no");
+    }); });
+  };
+
+  /* 4.2 same score outside, different inside */
+  R.inside = function(box, C){
+    function bot(name, inner){ return '<div class="dki-bot"><span class="dki-bn">' + esc(name) + '</span><div class="dki-face"><span class="dki-out">✓ ' + esc(C.score) + '</span><span class="dki-in">' + inner + '</span></div></div>'; }
+    box.innerHTML = '<div class="dki-bots">' + bot(C.a, '<b class="dki-heart" aria-hidden="true">♥</b>' + esc(C.ina)) + bot(C.b, '<b class="dki-eye" aria-hidden="true">👁</b>' + esc(C.inb)) + '</div>' +
+      '<button type="button" class="dki-go" aria-pressed="false">' + esc(C.look) + '</button><p class="dki-say">' + esc(C.note) + '</p>';
+    var go = box.querySelector(".dki-go"), bots = box.querySelector(".dki-bots");
+    go.addEventListener("click", function(){
+      var open = go.getAttribute("aria-pressed") !== "true";
+      go.setAttribute("aria-pressed", open ? "true" : "false"); go.textContent = open ? C.back : C.look;
+      bots.className = "dki-bots" + (open ? " dki-open" : "");
+    });
+  };
+
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){
     var kind = fig.getAttribute("data-w"), box = fig.querySelector(".dki-body"), C;

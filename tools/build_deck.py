@@ -241,8 +241,23 @@ def widget(kind, T, old_fig):
     """An interactive chart in place of a static one; deck.js draws it. The source line stays."""
     W = T['wid'][kind]
     src = re.search(r'<p class="fig-src">.*?</p>', old_fig, re.S)
-    return ('<figure class="secfig dk-int dki-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div>'
+    return ('<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div>'
             '<p class="dk-sr">%s</p>%s</figure>') % (kind, kind, html.escape(json.dumps(W, ensure_ascii=False)), W['title'], W['alt'], src.group(0) if src else '')
+
+def widget_plain(kind, T, extra=None):
+    """An interactive figure with no source figure behind it; extra adds site text to its data."""
+    W = dict(T['wid'][kind]); W.update(extra or {})
+    title = ('<p class="tr-title">%s</p>' % W['title']) if W.get('title') else ''
+    return ('<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s">%s<div class="dki-body"></div><p class="dk-sr">%s</p></figure>'
+            % (kind, kind, html.escape(json.dumps(W, ensure_ascii=False)), title, W['alt']))
+
+def cards_text(block):
+    """(label, heading, body) of each card in a grid, from the page itself."""
+    out = []
+    for c in kids(block):
+        k = re.search(r'<span class="k">(.*?)</span>', c, re.S); h = re.search(r'<h4>(.*?)</h4>', c, re.S); p = re.search(r'<p>(.*?)</p>', c, re.S)
+        out.append([text(k.group(1)) if k else '', text(h.group(1)), p.group(1).strip() if p else ''])
+    return out
 
 def swap_fig(block, n, kind, T):
     """Replace the block's nth figure with an interactive one."""
@@ -368,7 +383,7 @@ def plan(pg):
     ch = pg.chapter('why-human-misalignment'); B = ch['blocks']
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
     add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + grids[0]),
-             (P['3.2'][1], part_head(*T['heads']['3.2b']) + grids[1]),
+             (P['3.2'][1], part_head(*T['heads']['3.2b']) + widget_plain('chain', T, {'cards': cards_text(grids[1])})),
              (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + figs[0] + figs[1])])
     # 4.1
     ch = pg.chapter('why-translation'); B = ch['blocks']
@@ -387,13 +402,13 @@ def plan(pg):
     body = kids(one(B, '<div class="body'))
     add(ch, [(P['4.2'][0], stand(ch) + swap_fig(one(body, '<figure'), 0, 'gap', T)),
              (P['4.2'][1], part_head(H['4.2b']) + auto(one(body, '<div class="ddgrid'))),
-             (P['4.2'][2], part_head(H['4.2c']) + one(body, '<p') + one(B, '<div class="core'))])
+             (P['4.2'][2], part_head(H['4.2c']) + widget_plain('inside', T) + one(body, '<p') + one(B, '<div class="core'))])
     # 5.1
     ch = pg.chapter('response'); B = ch['blocks']
     layers = kids(one(B, '<div class="tinv'))
     assert len(layers) == 4
     lname = [text(re.search(r'<h4>(.*?)</h4>', l, re.S).group(1)).split(' ', 1)[-1].strip() for l in layers]
-    parts = [(P['5.1'][0], stand(ch) + one(B, '<figure'))]
+    parts = [(P['5.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'cheese', T))]
     for i, l in enumerate(layers):
         parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
     parts.append((P['5.1'][1], part_head(H['5.1f']) + ''.join(b for b in B if b.startswith('<details'))))
@@ -407,7 +422,9 @@ def plan(pg):
     eb = inner(one(B, '<p class="eyebrow'))
     ask = dict(id='ask', num=re.search(r'(\d\.\d)', eb).group(1), chapno=eb, h2=inner(one(B, '<h2')), label=pg.label['ask'],
                group=pg.group['5'][0], acc=pg.group['5'][1], blocks=B)
-    add(ask, [('', one(B, '<div class="firsts'))])
+    firsts = [text(h) for h in re.findall(r'<h3>(.*?)</h3>', one(B, '<div class="firsts'), re.S)]
+    assert len(firsts) == 2
+    add(ask, [('', widget_plain('fork', T, {'ends': firsts}) + '<div class="dk-sr">%s</div>' % one(B, '<div class="firsts'))])
     # 5.4 do: one slide per group of people
     ch = pg.chapter('do'); B = ch['blocks']
     blocks = [b for b in B if b.startswith('<div class="cando-block')]
