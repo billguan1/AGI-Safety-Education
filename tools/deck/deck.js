@@ -367,41 +367,46 @@
     });
   };
 
-  /* 5.1 four layers as swiss cheese: the holes line up, so a failure goes straight through */
+  /* 5.1 swiss cheese: ten failures fly at four leaky layers; most are caught, a few line up with every hole */
   R.cheese = function(box, C){
     var COL = ["#4a5fc9", "#6fae5a", "#e8b53a", "#e07a5f"], zh = /^zh/i.test(document.documentElement.lang || "");
-    var html = '<div class="dki-cheese"><span class="dki-threat">' + esc(C.threat) + '</span>';
+    var LANES = 10, OPEN = [[1,2,4,6,7,9],[2,4,5,7,9],[1,2,4,7,8],[0,4,7,9]], X = [22, 42, 62, 82];
+    function y(l){ return 6 + l * (88 / (LANES - 1)); }
+    var html = '<div class="dki-field"><span class="dki-src">' + esc(C.threat) + '</span>';
     C.layers.forEach(function(l, k){
-      html += '<div class="dki-slice" style="--c:' + COL[k] + '"><span class="dki-ln">' + esc(l) + '</span>' +
-        '<button type="button" class="dki-hole" data-k="' + k + '" aria-label="' + esc(l) + '"></button></div>';
+      var holes = OPEN[k].map(function(n){ return '<i style="top:' + y(n) + '%"></i>'; }).join("");
+      html += '<button type="button" class="dki-cs" data-k="' + k + '" style="left:' + X[k] + '%;--c:' + COL[k] + '" aria-label="' + esc(l) + '">' + holes + '</button>' +
+              '<span class="dki-csl" style="left:' + X[k] + '%">' + esc(l) + '</span>';
     });
-    html += '<span class="dki-through">' + esc(C.through) + '</span><i class="dki-path" aria-hidden="true"></i><i class="dki-ball" aria-hidden="true"></i></div>' +
+    for (var n = 0; n < LANES; n++) html += '<b class="dki-bb" style="top:' + y(n) + '%"></b>';
+    html += '<span class="dki-dst">' + esc(C.through) + '<em class="dki-got"></em></span></div>' +
       '<button type="button" class="dki-go">' + esc(C.go) + '</button><p class="dki-say" aria-live="polite">' + esc(C.tap) + '</p>';
     box.innerHTML = html;
-    var holes = box.querySelectorAll(".dki-hole"), say = box.querySelector(".dki-say"), go = box.querySelector(".dki-go"),
-        ball = box.querySelector(".dki-ball"), wrap = box.querySelector(".dki-cheese");
-    function tell(k){
-      [].forEach.call(holes, function(x, n){ x.className = "dki-hole" + (n === k ? " dki-on" : (n < k ? " dki-past" : "")); });
+    var slices = box.querySelectorAll(".dki-cs"), balls = box.querySelectorAll(".dki-bb"), go = box.querySelector(".dki-go"),
+        say = box.querySelector(".dki-say"), got = box.querySelector(".dki-got");
+    [].forEach.call(slices, function(b){ b.addEventListener("click", function(){
+      var k = +b.getAttribute("data-k");
+      [].forEach.call(slices, function(x){ x.className = "dki-cs" + (x === b ? " dki-on" : ""); });
       say.innerHTML = '<b>' + esc(C.layers[k]) + (zh ? "：" : ": ") + '</b>' + esc(C.why[k]);
-    }
-    [].forEach.call(holes, function(h){ h.addEventListener("click", function(){ tell(+h.getAttribute("data-k")); }); });
+    }); });
+    /* where each ball stops: the first layer whose holes miss its lane */
+    var stop = [];
+    for (n = 0; n < LANES; n++) { var s0 = 96; for (var k = 0; k < 4; k++) if (OPEN[k].indexOf(n) < 0) { s0 = X[k] - 3; break; } stop.push(s0); }
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function centre(el){ var r = el.getBoundingClientRect(), w = wrap.getBoundingClientRect(); return [r.left + r.width / 2 - w.left, r.top + r.height / 2 - w.top]; }
+    function reset(){ [].forEach.call(balls, function(b){ b.style.transition = "none"; b.style.left = "3%"; b.className = "dki-bb"; }); got.textContent = ""; }
     go.addEventListener("click", function(){
-      var pts = [centre(box.querySelector(".dki-threat"))];
-      [].forEach.call(holes, function(h){ pts.push(centre(h)); });
-      pts.push(centre(box.querySelector(".dki-through")));
-      var t0 = null, PER = reduce ? 1 : 900, last = -1; go.disabled = true; ball.style.opacity = 1; wrap.className = "dki-cheese";
-      function step(ts){
-        if (t0 === null) t0 = ts;
-        var f = Math.min(pts.length - 1, (ts - t0) / PER), i = Math.min(pts.length - 2, Math.floor(f)), u = f - i;
-        ball.style.transform = "translate(" + (pts[i][0] + (pts[i + 1][0] - pts[i][0]) * u) + "px," + (pts[i][1] + (pts[i + 1][1] - pts[i][1]) * u) + "px)";
-        var at = Math.round(f) - 1; if (at !== last && at >= 0 && at < holes.length) { last = at; tell(at); }
-        if (f < pts.length - 1) requestAnimationFrame(step);
-        else { go.disabled = false; go.textContent = C.again; wrap.className = "dki-cheese dki-leaked"; }
-      }
-      requestAnimationFrame(step);
+      reset(); go.disabled = true; balls[0].offsetWidth;
+      var through = 0;
+      [].forEach.call(balls, function(b, n){
+        var dur = reduce ? 0 : (1.8 * (stop[n] - 3) / 93).toFixed(2);
+        b.style.transition = "left " + dur + "s linear " + (reduce ? 0 : n * 0.06) + "s";
+        b.style.left = stop[n] + "%";
+        if (stop[n] >= 96) through++;
+        setTimeout(function(){ b.className = "dki-bb " + (stop[n] >= 96 ? "dki-out" : "dki-caught"); }, reduce ? 0 : (+dur + n * 0.06) * 1000);
+      });
+      setTimeout(function(){ got.textContent = through + " / " + LANES; go.disabled = false; go.textContent = C.again; }, reduce ? 0 : 2600);
     });
+    reset();
   };
 
   /* 5.3 the fork: can safety be solved? each branch leads to one of the two asks */

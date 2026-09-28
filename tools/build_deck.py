@@ -348,9 +348,19 @@ def H(kind, lang, t, extra=None):
                 '<div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>%s</em><b>%s</b></div><span>%s</span></div></div></div>') % (
                 T0(0), E(t[1]), E(J(2, 3)), E(J(4, 5)), E(t[6]), E(t[7]), E(J(8, 9)), E(t[10]), E(J(11, 12)), E(t[13]))
     if kind == 'lost':
-        return ('<div class="dkh">%s<div class="dkh-steps"><div class="dkh-box"><b>%s</b></div><span class="dkh-to" aria-hidden="true">→</span>'
-                '<div class="dkh-box"><span class="dkh-k">%s</span><b class="dkh-big">%s</b><span>%s</span></div><span class="dkh-to" aria-hidden="true">→</span>'
-                '<div class="dkh-split"><span class="dkh-chip dkh-ok">%s</span><span class="dkh-chip dkh-hot">%s</span></div></div></div>') % (T0(0), E(t[1]), E(t[2]), E(t[3]), E(t[4]), E(t[5]), E(t[6]))
+        import random
+        rnd = random.Random(7)
+        dots = ''.join('<i style="left:%d%%;top:%d%%;--d:%s"></i>' % (rnd.randint(6, 90), rnd.randint(8, 86), rnd.choice(['#4a5fc9', '#6fae5a', '#e8b53a', '#e07a5f', '#1f9c96']))
+                       for _ in range(26))
+        fork = ('<svg class="dkf-fork" viewBox="0 0 60 100" preserveAspectRatio="none" aria-hidden="true">'
+                '<path d="M0 50 C30 50 30 18 60 18" stroke="#1f9c96" stroke-width="4" fill="none" vector-effect="non-scaling-stroke"/>'
+                '<path d="M0 50 C30 50 30 82 60 82" stroke="#d9492c" stroke-width="4" fill="none" vector-effect="non-scaling-stroke"/></svg>')
+        return ('<div class="dkh">%s<div class="dkf">'
+                '<div class="dkf-cloud"><div class="dkf-dots">%s</div><span>%s</span></div>'
+                '<div class="dkf-funnel"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="dkf-h" d="M2 2 L98 36 L98 64 L2 98 Z"/><path class="dkf-v" d="M2 2 L98 2 L64 98 L36 98 Z"/></svg><span>%s</span></div>'
+                '<div class="dkf-score"><b>%s</b><span>%s</span></div>%s'
+                '<div class="dkf-ends"><span class="dkh-chip dkh-ok">%s</span><span class="dkh-chip dkh-hot">%s</span></div>'
+                '</div></div>') % (T0(0), dots, E(t[1]), E(t[2]), E(t[3]), E(t[4]), fork, E(t[5]), E(t[6]))
     if kind == 'talk':
         return ('<div class="dkh">%s<div class="dkh-two"><div class="dkh-box"><span class="dkh-k">%s</span><b>✕</b><span>%s</span></div>'
                 '<div class="dkh-box"><span class="dkh-k">%s</span><b>%s</b><span>%s</span></div></div></div>') % (T0(0), E(t[1]), E(t[2]), E(t[3]), E(J(4, 5)), E(t[6]))
