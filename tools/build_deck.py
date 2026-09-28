@@ -11,7 +11,7 @@ that exists only in the deck (narration, part headings, buttons) lives in
 tools/deck/text.py. Styles and deck behaviour live in tools/deck/deck.css and
 tools/deck/deck.js.
 """
-import re, os, sys, html, colorsys
+import re, os, sys, html, colorsys, json
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -237,6 +237,21 @@ def charts_11(T):
                    '<text x="10" y="120" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#d9492c">0</text>' + t(62, 112, 16, C['p_chk'], bold=False))
     return [compute, funding, plans]
 
+def widget(kind, T, old_fig):
+    """An interactive chart in place of a static one; deck.js draws it. The source line stays."""
+    W = T['wid'][kind]
+    src = re.search(r'<p class="fig-src">.*?</p>', old_fig, re.S)
+    return ('<figure class="secfig dk-int dki-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div>'
+            '<p class="dk-sr">%s</p>%s</figure>') % (kind, kind, html.escape(json.dumps(W, ensure_ascii=False)), W['title'], W['alt'], src.group(0) if src else '')
+
+def swap_fig(block, n, kind, T):
+    """Replace the block's nth figure with an interactive one."""
+    starts = [m.start() for m in re.finditer(r'<figure\b', block)]
+    assert len(starts) > n, ('figure', n, len(starts))
+    a = starts[n]; b = block.index('</figure>', a) + 9
+    assert block[a:b].count('<figure') == 1
+    return block[:a] + widget(kind, T, block[a:b]) + block[b:]
+
 def swap_svgs(block, new):
     """Replace the block's charts, in order, with deck redraws."""
     old = re.findall(r'<svg\b.*?</svg>', block, re.S)
@@ -313,15 +328,28 @@ def plan(pg):
     add(ch, [('', bet + stand(ch) + auto(swap_svgs(one(B, '<div class="ddgrid'), charts_11(T))) + key(ch))])        # the question comes first, then the detail
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
-    add(ch, [(P['2.1'][0], stand(ch) + one(B, '<figure')),
+    add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
              (P['2.1'][1], part_head(*T['heads']['2.1b']) + auto(one(B, '<div class="ddgrid')))])
     # 2.2
     ch = pg.chapter('why-it-ends-badly'); B = ch['blocks']
     bodies = [b for b in B if b.startswith('<p class="body')]
     k, t = T['heads']['2.2c']
+    # the six scenario cards: the band's icon for each outcome, and a button that says what it opens
+    ends = one(B, '<div class="ends')
+    icons = re.findall(r'<span class="eo-w">(<svg\b.*?</svg>)', ends, re.S)
+    assert len(icons) == 6, len(icons)
+    six = one(B, '<div class="ddgrid')
+    cards = [m for m in re.finditer(r'<div class="ddc [a-z]"><span class="k">([^<]*)</span>', six)]
+    assert len(cards) == 6, len(cards)
+    if pg.lang == 'en':
+        assert [c.group(1) for c in cards] == ['Engineered pandemic', 'Nuclear and autonomous weapons', 'Resources', 'Self-preservation', 'Infrastructure', 'Geoengineering']
+    ICON_FOR = [0, 5, 2, 3, 1, 4]          # card order -> band icon order
+    for c, n in reversed(list(zip(cards, ICON_FOR))):
+        six = six[:c.start()] + c.group(0).replace('<div class="ddc', '<div data-more="%s" class="ddc' % T['more_how'], 1).replace(
+            '<span class="k">', '<span class="sc-ic">%s</span><span class="k">' % icons[n], 1) + six[c.end():]
     add(ch, [(P['2.2'][0], stand(ch) + one(B, '<div class="ends')),
              (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(one(B, '<div class="ddc b rv" id="route-two"'))),
-             (P['2.2'][2], part_head(k, t, text(bodies[0]) + T['open_any']) + one(B, '<div class="ddgrid') + key(ch) + bodies[1])])
+             (P['2.2'][2], part_head(k, t, text(bodies[0]) + T['open_any']) + six + key(ch) + bodies[1])])
     # 2.3
     ch = pg.chapter('why-one-try'); B = ch['blocks']
     bold = [x for x in B if x.startswith('<p class="rv" style="max-width:62ch')][0]
@@ -329,8 +357,8 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
-             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(grids[0])),                  # Kenji carries the reason
-             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(grids[1]))])
+             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(swap_fig(grids[0], 0, 'trend', T))),   # Kenji carries the reason
+             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(grids[1], 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
@@ -357,7 +385,7 @@ def plan(pg):
     # 4.2
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
     body = kids(one(B, '<div class="body'))
-    add(ch, [(P['4.2'][0], stand(ch) + one(body, '<figure')),
+    add(ch, [(P['4.2'][0], stand(ch) + swap_fig(one(body, '<figure'), 0, 'gap', T)),
              (P['4.2'][1], part_head(H['4.2b']) + auto(one(body, '<div class="ddgrid'))),
              (P['4.2'][2], part_head(H['4.2c']) + one(body, '<p') + one(B, '<div class="core'))])
     # 5.1
@@ -373,7 +401,7 @@ def plan(pg):
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']
     add(ch, [(P['5.2'][0], stand(ch) + one(B, '<div class="ddgrid')),
-             (P['5.2'][1], part_head(H['5.2b']) + one(B, '<figure') + one(B, '<details') + key(ch))])
+             (P['5.2'][1], part_head(H['5.2b']) + swap_fig(one(B, '<figure'), 0, 'guards', T) + one(B, '<details') + key(ch))])
     # 5.3 ask: no sec-head, an eyebrow and a big heading
     B = pg.section('ask')
     eb = inner(one(B, '<p class="eyebrow'))
@@ -414,7 +442,7 @@ KMAP = {'The pull': 1, 'The starve': 2, 'The gap': 4,
         'The trend': 4, 'What it costs': 2, 'The speed gap': 3, 'What it runs on': 5,
         'Corner-cutting': 1, 'The rope': 4}
 CYCLE = [4, 3, 5, 2, 6, 1]
-CARD_RE = r'<div(?: data-auto="1")? class="(?:ddc|endc)\b[^"]*"'
+CARD_RE = r'<div(?: [\w-]+="[^"]*")* class="(?:ddc|endc)\b[^"]*"'
 
 def colorize(h, seq=None):
     """English: colour from the card's label. Chinese: the same colours, card by card."""
@@ -485,8 +513,11 @@ def paper_svg(m):
     return tag + body + '</svg>'
 
 def paper(h):
-    n0 = h.count('<svg')
-    h, n = re.subn(r'(<svg\b[^>]*viewBox="-?[\d.]+ -?[\d.]+ ([\d.]+)[^"]*"[^>]*>)(.*?)</svg>', paper_svg, h, flags=re.S)
+    n0 = re.sub(r'<script\b.*?</script>', '', h, flags=re.S).count('<svg')   # svg strings inside scripts are drawn later
+    parts = re.split(r'(<script\b.*?</script>)', h, flags=re.S); n = 0
+    for k in range(0, len(parts), 2):
+        parts[k], c = re.subn(r'(<svg\b[^>]*viewBox="-?[\d.]+ -?[\d.]+ ([\d.]+)[^"]*"[^>]*>)(.*?)</svg>', paper_svg, parts[k], flags=re.S); n += c
+    h = ''.join(parts)
     assert n == n0, ('svg without a viewBox', n, n0)
     return h
 
@@ -631,7 +662,7 @@ def page(pg, slides, segs, S):
          'var TIER = { caption: 13, label: 14.5, emphasis: 15.5, value: 18.5, display: 26 };'),
         ('if (first && !NO_HOIST[sec.id]) {', 'if (false) {'),               # charts stay where the slide puts them
         ('if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;',
-         'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart")) return false;'),   # deck drawings size themselves
+         'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart,.dk-int")) return false;'),   # deck drawings size themselves
         ('$$(".cando-block:not(#what-you-can-do)", main)', '$$(".cando-block.lx-never", main)'),   # each group has its own slide
         ('  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }',
          '  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }\n  window.__lxFitAll = refitAll;'),

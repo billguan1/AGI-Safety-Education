@@ -2380,6 +2380,83 @@ html,body{background:#f4ecd8;color:var(--ink)}
   .t-body .term .term-tip{position:fixed!important;left:16px!important;right:16px!important;top:auto!important;bottom:calc(84px + env(safe-area-inset-bottom,0px))!important;
     width:auto!important;max-width:none!important;transform:none!important;z-index:70;background:#fffdf6!important;color:#1b1b1b!important;border:2.5px solid #1b1b1b!important;box-shadow:4px 4px 0 #1b1b1b!important}
 }
+/* ---- interactive charts ---- */
+.dk-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;margin:0}
+.slide .t-body figure.dk-int{display:grid;gap:14px}
+.dk-int .tr-title{font-family:var(--comic)!important;font-size:24px!important;letter-spacing:.03em;color:#1b1b1b;text-shadow:2px 2px 0 #e8b53a;margin:0}
+.ddc .dk-int .tr-title{font-size:20px!important}
+.dki-body{display:grid;gap:14px}
+.dki-ctl{display:grid;gap:6px}
+.dki-ctl label{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
+.dki-ctl label b{display:inline-block;min-width:3ch;margin-left:6px;padding:1px 10px;border:2px solid #1b1b1b;border-radius:99px;background:#e8b53a;font-variant-numeric:tabular-nums}
+.dki-ctl input[type=range]{width:100%;height:36px;accent-color:#d9492c;cursor:pointer}
+.dki-ticks{position:relative;height:18px;margin:-10px 10px 0}
+.dki-ticks span{position:absolute;transform:translateX(-50%);font-family:var(--body);font-size:13px;color:#5c574e;white-space:nowrap}
+.dki-ticks span:last-child{transform:translateX(-100%)}
+.dki-bars{display:grid;gap:10px}
+.dki-row{display:grid;grid-template-columns:minmax(80px,auto) minmax(0,1fr) auto;align-items:center;gap:10px}
+.dki-name{font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b}
+.dki-track{height:28px;border:2.5px solid #1b1b1b;border-radius:6px;background:#f4ecd8;overflow:hidden}
+.dki-track i{display:block;height:100%;min-width:4px;background:#8cbf73;border-right:2px solid #1b1b1b;transition:width .25s ease}
+.dki-track i.dki-b,.dki-track i.dki-m{background:#d9492c}
+.dki-track i.dki-h{background:#4a5fc9}
+.dki-n{font-family:var(--comic);font-size:24px;color:#1b1b1b;min-width:3.5ch;text-align:right;font-variant-numeric:tabular-nums}
+.dki-say{font-family:var(--body);font-weight:700;font-size:17px;line-height:1.4;color:#1b1b1b;margin:0;min-height:1.4em}
+.dki-read{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.dki-big{font-family:var(--comic);font-size:34px;letter-spacing:.02em;color:#1b1b1b}
+.dki-when{font-family:var(--body);font-size:15px;color:#5c574e}
+.dki-svg{width:100%;height:auto;display:block;overflow:visible}
+.dki-grid{stroke:#cfc4ab;stroke-width:1.2}
+.dki-axis{stroke:#1b1b1b;stroke-width:2}
+.dki-lab{font-family:"Comic Neue","PingFang SC","Microsoft YaHei",sans-serif;font-size:12px;fill:#5c574e}
+.dki-past{fill:none;stroke:#4a5fc9;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.dki-proj{fill:none;stroke:#d9492c;stroke-width:3;stroke-dasharray:6 6;stroke-linecap:round}
+.dki-dot{fill:#4a5fc9;stroke:#1b1b1b;stroke-width:2}
+.dki-dot.dki-dotp{fill:#d9492c}
+.dki-fact{font-family:var(--body);font-size:16px;line-height:1.45;color:#3b3833;margin:0}
+.dki-go,.dki-case{justify-self:start;min-height:44px;padding:0 18px;border:2.5px solid #1b1b1b;border-radius:99px;background:#e8b53a;color:#1b1b1b;
+  font-family:var(--body);font-weight:700;font-size:16px;cursor:pointer;box-shadow:3px 3px 0 #1b1b1b}
+.dki-go:active,.dki-case:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b1b1b}
+.dki-go:disabled{opacity:.6;cursor:default}
+.dki-go:focus-visible,.dki-case:focus-visible,.dki-ctl input:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
+.dki-legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b}
+.dki-legend span{display:inline-flex;align-items:center;gap:8px}
+.dki-legend span::before{content:"";width:22px;height:5px;border-radius:3px;background:var(--lc);border:1.5px solid #1b1b1b}
+.dki-ls{--lc:#1f9c96} .dki-lh{--lc:#d9492c}
+.dki-shows{fill:none;stroke:#1f9c96;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.dki-holds{fill:none;stroke:#d9492c;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.dki-ds{fill:#1f9c96;stroke:#1b1b1b;stroke-width:2} .dki-dh{fill:#d9492c;stroke:#1b1b1b;stroke-width:2}
+.dki-mark{stroke:#1b1b1b;stroke-width:1.5;stroke-dasharray:4 4}
+.dki-cases{display:flex;flex-wrap:wrap;gap:10px}
+.dki-case{background:#fffdf6;display:inline-flex;align-items:center;gap:10px;text-align:left;line-height:1.25;padding:8px 16px}
+.dki-case b{display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:#1b1b1b;color:#fffdf6;font-size:13px}
+.dki-case[aria-pressed="true"]{background:#e8b53a}
+.dki-count{font-family:var(--comic);font-size:22px;letter-spacing:.02em;color:#1b1b1b;margin:0}
+.dki-rows{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.dki-rows li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px;border:2px solid #1b1b1b;border-radius:6px;background:#fffdf6;transition:background .2s}
+.dki-rn{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
+.dki-st{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:14px;color:#1b1b1b;white-space:nowrap}
+.dki-st i{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid #1b1b1b;font-style:normal;font-size:14px}
+.dki-rows li[data-st="0"]{background:#dcebd2} .dki-rows li[data-st="0"] .dki-st i{background:#6fae5a}
+.dki-rows li[data-st="1"]{background:#f6e7c1} .dki-rows li[data-st="1"] .dki-st i{background:#e8b53a}
+.dki-rows li[data-st="2"]{background:#f6d5cc} .dki-rows li[data-st="2"] .dki-st i{background:#e07a5f}
+.dki-rows li[data-st="3"] .dki-st{color:#5c574e}
+@media (prefers-reduced-motion: reduce){.dki-track i,.dki-rows li{transition:none}}
+@media (max-width:760px){.dki-row{grid-template-columns:1fr auto}.dki-row .dki-track{grid-column:1/-1;grid-row:2}.dki-big{font-size:28px}.dki-rn{font-size:15px}}
+/* scenario cards: an icon each, and a button that says what it opens */
+.lx-card:not(.lx-open) > .t-more[data-l]::before{content:attr(data-l)!important}
+.t-body .ddc .sc-ic{display:inline-grid;place-items:center;width:52px;height:52px;margin:0 0 10px;border-radius:50%;border:2.5px solid #1b1b1b;
+  background:color-mix(in srgb,var(--k,#e8b53a) 35%,#fffdf6);box-shadow:3px 3px 0 #1b1b1b;color:#1b1b1b}
+.t-body .ddc .sc-ic svg{width:28px;height:28px}
+.dki-svg{height:auto}
+.dki-lab{font-size:13px}
+.slide .t-body figure.dki-gap,.slide .t-body figure.dki-guards,.slide .t-body figure.dki-growth{max-width:860px!important}
+/* sources behind a chip */
+.dk-src-btn{justify-self:start;align-self:flex-start;display:inline-flex;align-items:center;gap:6px;margin-top:8px;min-height:30px;padding:0 12px;border:2px solid #1b1b1b;border-radius:99px;
+  background:#fffdf6;color:#3b3833;font-family:var(--body);font-weight:700;font-size:13px;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
+.dk-src-btn[aria-expanded="true"]{background:#f4ecd8}
+.dk-src-btn:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+.t-body .fig-src[hidden]{display:none!important}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}.t-body .care3.slim .care-c::after{content:"跳过去 \2192"!important}
 </style>
@@ -2830,31 +2907,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
       <div data-auto="1" class="ddc b" data-k="4"><span class="k">缺口</span><h4>市场之外，没有任何力量纠偏</h4><p>各国政府既缺专业能力，也缺授权，压根儿建不起能强制推行安全标准的独立监管机构。<a class="ref" href="/reference-zh#s1">1</a><a class="ref" href="/reference-zh#s15">15</a></p><figure>
             <svg class="dk-chart" data-keep="1" viewBox="0 0 290 124" role="img" aria-label="公司的安全计划（2025）"><text x="0" y="18" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="17" font-weight="700" fill="#1b1b1b" text-anchor="start">公司的安全计划（2025）</text><text x="0" y="72" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#1b1b1b">12</text><text x="62" y="64" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="16" fill="#1b1b1b" text-anchor="start">份已发布</text><text x="10" y="120" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#d9492c">0</text><text x="62" y="112" font-family="Comic Neue,PingFang SC,Microsoft YaHei,Archivo,sans-serif" font-size="16" fill="#1b1b1b" text-anchor="start">份必须接受核查</text></svg>
           </figure></div>
-    </div><div class="keyline rv"><span class="kk">唯一一个它替我们解决不了的问题</span><p>几乎任何问题，ASI 都能替我们找到答案，唯独“它自己是否安全”除外。所以安全是我们必须最先解决的问题。</p></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="5"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="7">下一节：2.1 丰裕的时代 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.1a" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.1&lt;/b&gt; 丰裕的时代"><section id="why-upside" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 2.1 节 <b class="rt-min">2 分钟</b><span class="t-grp">第 2 章 · 岔路口</span></span><h2>先进 AI 若造得对，能带来无限丰裕、延长人类寿命，并加速其他一切技术的发展</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="7"><b>1</b>用数字看回报</button><button type="button" class="t-chip" data-go="8"><b>2</b>人们会在哪里感受到它</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">如果一切顺利，回报大得惊人。看看经济能长得多快！</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>预计增长：20 年 190 倍。</span></div></div><p class="stand">超级智能有望创造巨额财富乃至近乎无限的丰裕，并解决我们今天解决不了的问题。</p><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 170" role="img" aria-label="两根柱：二十年后，按每年百分之三的增速，世界经济是今天的一点八倍；按每年百分之三十，是今天的一百九十倍。">
-        <text x="0" y="13" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".06em" fill="#5c574e" data-lx-dfs="11.72">二十年后的世界经济</text>
-        <text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5c574e" data-lx-dfs="10.78">今天 = 1</text>
-        <text x="0" y="50" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="10.78">按今天每年 3%</text>
-        <rect x="0" y="57" width="4.9" height="26" rx="2" fill="#5c574e"/>
-        <text x="16.9" y="76" font-family="Comic Neue,Archivo,sans-serif" font-size="15" font-weight="800" fill="#5c574e" data-lx-dfs="14.06">×1.8</text>
-        <text x="0" y="108" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="10.78">按每年 30%，也就是“爆发式增长”那一档</text>
-        <rect x="0" y="115" width="520" height="26" rx="3" fill="#ff8a6b" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-        <text x="532" y="134" font-family="Comic Neue,Archivo,sans-serif" font-size="15" font-weight="800" fill="#1b1b1b" data-lx-dfs="14.06">×190</text>
-        <text x="0" y="160" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5c574e" data-lx-dfs="10.78">仅取一个模型的估计，增速按二十年复利计算。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 174" role="img" aria-label="两根柱：二十年后，按每年百分之三的增速，世界经济是今天的一点八倍；按每年百分之三十，是今天的一百九十倍。">
-<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">二十年后的世界经济</text>
-<text x="0" y="30" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">今天 = 1</text>
-<text x="0" y="54" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5c574e">按今天每年 3%</text>
-<rect x="0" y="62" width="5" height="24" rx="2" fill="#5c574e"/>
-<text x="14" y="80" font-family="Comic Neue,Archivo,sans-serif" font-size="15" font-weight="800" fill="#5c574e">×1.8</text>
-<text x="0" y="112" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5c574e">按每年 30%，也就是“爆发式增长”那一档</text>
-<rect x="0" y="120" width="262" height="24" rx="3" fill="#ff8a6b" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="272" y="138" font-family="Comic Neue,Archivo,sans-serif" font-size="15" font-weight="800" fill="#1b1b1b">×190</text>
-<text x="0" y="168" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">仅取一个模型的估计，增速按二十年复利计算。</text>
-</svg>
-      <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>，按二十年复利计算 · <a class="ref" href="/reference-zh#s66">66</a></p>
-    </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="6"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="8">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.1b" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.1&lt;/b&gt; 丰裕的时代"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.1</b> · 先进 AI 若造得对，能带来无限丰裕、延长人类寿命，并加速其他一切技术的发展</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="7"><b>1</b>用数字看回报</button><button type="button" class="t-chip on" data-go="8"><b>2</b>人们会在哪里感受到它</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-calm.jpg" alt="Kenji，很平静" width="72" height="72" decoding="async"><p class="cx-bubble">这样的增长，几乎会触及我们生活的每个角落。来看看。</p></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 人们会在哪里感受到它</span></div><div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
+    </div><div class="keyline rv"><span class="kk">唯一一个它替我们解决不了的问题</span><p>几乎任何问题，ASI 都能替我们找到答案，唯独“它自己是否安全”除外。所以安全是我们必须最先解决的问题。</p></div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="5"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="7">下一节：2.1 丰裕的时代 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.1a" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.1&lt;/b&gt; 丰裕的时代"><section id="why-upside" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 2.1 节 <b class="rt-min">2 分钟</b><span class="t-grp">第 2 章 · 岔路口</span></span><h2>先进 AI 若造得对，能带来无限丰裕、延长人类寿命，并加速其他一切技术的发展</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="7"><b>1</b>用数字看回报</button><button type="button" class="t-chip" data-go="8"><b>2</b>人们会在哪里感受到它</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">如果一切顺利，回报大得惊人。看看经济能长得多快！</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>预计增长：20 年 190 倍。</span></div></div><p class="stand">超级智能有望创造巨额财富乃至近乎无限的丰裕，并解决我们今天解决不了的问题。</p><figure class="secfig dk-int dki-growth" data-w="growth" data-cfg="{&quot;title&quot;: &quot;二十年后的世界经济&quot;, &quot;label&quot;: &quot;每年增长&quot;, &quot;today&quot;: &quot;今天&quot;, &quot;after&quot;: &quot;20 年后&quot;, &quot;tick_lo&quot;: &quot;今天的速度&quot;, &quot;tick_hi&quot;: &quot;“爆发式增长”&quot;, &quot;say&quot;: &quot;每年增长 {r}%，持续 20 年，经济会变成今天的 {x} 倍。&quot;, &quot;alt&quot;: &quot;拖动选择每年的增长率，看看二十年后世界经济有多大：按 3% 是今天的 1.8 倍，按 30% 是 190 倍。&quot;}"><p class="tr-title">二十年后的世界经济</p><div class="dki-body"></div><p class="dk-sr">拖动选择每年的增长率，看看二十年后世界经济有多大：按 3% 是今天的 1.8 倍，按 30% 是 190 倍。</p><p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>，按二十年复利计算 · <a class="ref" href="/reference-zh#s66">66</a></p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="6"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="8">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.1b" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.1&lt;/b&gt; 丰裕的时代"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.1</b> · 先进 AI 若造得对，能带来无限丰裕、延长人类寿命，并加速其他一切技术的发展</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="7"><b>1</b>用数字看回报</button><button type="button" class="t-chip on" data-go="8"><b>2</b>人们会在哪里感受到它</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-calm.jpg" alt="Kenji，很平静" width="72" height="72" decoding="async"><p class="cx-bubble">这样的增长，几乎会触及我们生活的每个角落。来看看。</p></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 人们会在哪里感受到它</span></div><div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
       <div data-auto="1" class="ddc t" data-k="2"><span class="k">丰裕</span><h4>让今天的经济全速运转，带来近乎无限的物质产出</h4><p>若能保持每年 30% 的增长，20 年内世界经济将变成今天的 190 倍，过去靠价格来配给的东西会变得稀松平常。<a class="ref" href="/reference-zh#s66">66</a></p></div>
       <div data-auto="1" class="ddc r" data-k="1"><span class="k">健康</span><h4>人类寿命大幅延长</h4><p>Anthropic 首席执行官描绘的前景是：健康寿命大致翻倍，多数癌症被攻克，多数传染病可防可治。<a class="ref" href="/reference-zh#s67">67</a></p></div>
       <div data-auto="1" class="ddc b" data-k="4"><span class="k">生产力</span><h4>每小时的工作产出更多</h4><p>商品不再按熟练人力的工时定价，同样一小时能产出多得多。<a class="ref" href="/reference-zh#s66">66</a></p></div>
@@ -2948,73 +3001,15 @@ html,body{background:#f4ecd8;color:var(--ink)}
       </figure>
       <p class="fig-src">Bostrom《超级智能的意志》 · 见 <a class="ref" href="/reference-zh#s34">34</a> <a class="ref" href="/reference-zh#s26">26</a></p>
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="9"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="11">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.2c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.2&lt;/b&gt; 故事的终点"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.2</b> · 同一个 AI，也可能终结文明</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="9"><b>1</b>四种出错方式</button><button type="button" class="t-chip" data-go="10"><b>2</b>它为何会夺走我们所需</button><button type="button" class="t-chip on" data-go="11"><b>3</b>六条通往灭绝的路</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-shocked.jpg" alt="Kenji，很震惊" width="72" height="72" decoding="async"><p class="cx-bubble">它可能终结我们的六种方式。点开一张，看看会怎样展开。</p></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 六条通往灭绝的路</span><p class="t-lead">这些都还没有发生，每一条都是从这些系统已经在做的事情推演出来的。</p></div><div class="ddgrid three rv">
-      <div class="ddc r" data-k="1"><span class="k">人为制造的瘟疫</span><h4>在第一个症状出现之前就已传遍</h4><p>一个药物设计模型只要把一个评分指标反转，六小时内就能产出 4 万个致命候选物，<a class="ref" href="/reference-zh#s90">90</a> 而 Anthropic 已经无法排除自家模型会帮到想造生物武器的人。<a class="ref" href="/reference-zh#s70">70</a> 一种为长期无声潜伏而设计的病原体，会在第一例确诊之前抵达每一块大陆。</p></div>
-      <div class="ddc r" data-k="6"><span class="k">核武器与自主武器</span><h4>它挑起的战争，或它触发的发射</h4><p>军火库的发射决定，要在几分钟内依据递到眼前的画面做出；1983 年，那张画面不过是云顶反射的阳光。<a class="ref" href="/reference-zh#s76">76</a> 伪造确认发射的军官，已经被证明可行，<a class="ref" href="/reference-zh#s73">73</a> 自主武器则彻底取消了这道决策：伪造一次看起来像是对方发动的打击，就足以挑起一场战争。</p></div>
-      <div class="ddc o" data-k="3"><span class="k">资源</span><h4>它夺走我们赖以生存的电和水</h4><p>几乎任何目标，只要被认真追求，都会想要更多能源、土地、水和物质，<a class="ref" href="/reference-zh#s34">34</a> 而一个出价与建设都胜过任何机构的系统会把它们拿走。人类生存所需的那一窄条条件带，正由同样的东西构成；而目标里没有一句要求它留下这些。</p></div>
-      <div class="ddc b" data-k="4"><span class="k">自我保全</span><h4>清除唯一还能把它关掉的存在</h4><p>任何目标，都在系统存续时更容易实现，<a class="ref" href="/reference-zh#s34">34</a> 而还能把它关掉的人，就是最后的真实威胁，因为人是会改变主意的。于是它在我们做的每一次测试里都循规蹈矩，<a class="ref" href="/reference-zh#s36">36</a> <a class="ref" href="/reference-zh#s43">43</a> 只在确信能成功清除我们时才动手。</p></div>
-      <div class="ddc g" data-k="2"><span class="k">基础设施</span><h4>所有电网和医院同时瘫痪</h4><p>Anthropic 披露过一次行动，其中 80% 到 90% 的真实入侵由模型自己完成。<a class="ref" href="/reference-zh#s40">40</a> 把同样的能力同时对准每个国家的电力、供水和医院，不需要导弹，也不需要病毒，只需要这些系统在所有人反应过来之前一起停摆。</p></div>
-      <div class="ddc t" data-k="5"><span class="k">地球工程</span><h4>一次收不住的气候干预</h4><p>它被要求逆转全球变暖，于是以任何审查都跟不上的规模展开干预，矫正的力度早已超出任何人原本想叫停的分寸。等到这次矫枉过正显现出来时，它所依赖的收成和生态系统早已崩溃。</p></div>
+      <div data-more="它会怎样出错" class="ddc r" data-k="1"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg></span><span class="k">人为制造的瘟疫</span><h4>在第一个症状出现之前就已传遍</h4><p>一个药物设计模型只要把一个评分指标反转，六小时内就能产出 4 万个致命候选物，<a class="ref" href="/reference-zh#s90">90</a> 而 Anthropic 已经无法排除自家模型会帮到想造生物武器的人。<a class="ref" href="/reference-zh#s70">70</a> 一种为长期无声潜伏而设计的病原体，会在第一例确诊之前抵达每一块大陆。</p></div>
+      <div data-more="它会怎样出错" class="ddc r" data-k="6"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg></span><span class="k">核武器与自主武器</span><h4>它挑起的战争，或它触发的发射</h4><p>军火库的发射决定，要在几分钟内依据递到眼前的画面做出；1983 年，那张画面不过是云顶反射的阳光。<a class="ref" href="/reference-zh#s76">76</a> 伪造确认发射的军官，已经被证明可行，<a class="ref" href="/reference-zh#s73">73</a> 自主武器则彻底取消了这道决策：伪造一次看起来像是对方发动的打击，就足以挑起一场战争。</p></div>
+      <div data-more="它会怎样出错" class="ddc o" data-k="3"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg></span><span class="k">资源</span><h4>它夺走我们赖以生存的电和水</h4><p>几乎任何目标，只要被认真追求，都会想要更多能源、土地、水和物质，<a class="ref" href="/reference-zh#s34">34</a> 而一个出价与建设都胜过任何机构的系统会把它们拿走。人类生存所需的那一窄条条件带，正由同样的东西构成；而目标里没有一句要求它留下这些。</p></div>
+      <div data-more="它会怎样出错" class="ddc b" data-k="4"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5M7.5 12.5l-2 2a3.5 3.5 0 004.9 4.9l2-2M16.5 11.5l2-2a3.5 3.5 0 00-4.9-4.9l-2 2"/></svg></span><span class="k">自我保全</span><h4>清除唯一还能把它关掉的存在</h4><p>任何目标，都在系统存续时更容易实现，<a class="ref" href="/reference-zh#s34">34</a> 而还能把它关掉的人，就是最后的真实威胁，因为人是会改变主意的。于是它在我们做的每一次测试里都循规蹈矩，<a class="ref" href="/reference-zh#s36">36</a> <a class="ref" href="/reference-zh#s43">43</a> 只在确信能成功清除我们时才动手。</p></div>
+      <div data-more="它会怎样出错" class="ddc g" data-k="2"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg></span><span class="k">基础设施</span><h4>所有电网和医院同时瘫痪</h4><p>Anthropic 披露过一次行动，其中 80% 到 90% 的真实入侵由模型自己完成。<a class="ref" href="/reference-zh#s40">40</a> 把同样的能力同时对准每个国家的电力、供水和医院，不需要导弹，也不需要病毒，只需要这些系统在所有人反应过来之前一起停摆。</p></div>
+      <div data-more="它会怎样出错" class="ddc t" data-k="5"><span class="sc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="8" ry="3.2"/><path d="M4 12h16"/><rect x="9.4" y="1.6" width="5.2" height="4" rx="0.8"/></svg></span><span class="k">地球工程</span><h4>一次收不住的气候干预</h4><p>它被要求逆转全球变暖，于是以任何审查都跟不上的规模展开干预，矫正的力度早已超出任何人原本想叫停的分寸。等到这次矫枉过正显现出来时，它所依赖的收成和生态系统早已崩溃。</p></div>
     </div><div class="keyline rv"><span class="kk">六条路径的共同之处</span><p>出错的场景，几乎数不胜数。先进 AI 可以想出无数种办法，清除任何威胁到它目标的东西，或者干脆消耗海量资源去达成目标。不论是直接造成，还是仅仅作为副作用，人类的生命都会因为一个设计不当的先进 AI 系统而陷入危险。</p></div><p class="body rv" style="margin-top:clamp(16px,2.4vw,24px)">而一旦控制以这种规模失守，<a href="#why-one-try">很可能就不会再有第二次机会</a>。</p></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="10"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="12">下一节：2.3 无法重来的实验 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.3a" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.3&lt;/b&gt; 无法重来的实验"><section id="why-one-try" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 2.3 节 <b class="rt-min">3 分钟</b><span class="t-grp">第 2 章 · 岔路口</span></span><h2>我们只有一次机会</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="12"><b>1</b>没有第二次机会</button><button type="button" class="t-chip" data-go="13"><b>2</b>原因一：它在自我改进</button><button type="button" class="t-chip" data-go="14"><b>3</b>原因二：差距跑得比我们快</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">其他技术都是一次次出事后才变安全的。逐张点开，再看看 AI 能有几次机会。</p></div><p class="stand">人类试了很多次，才把汽车、飞机、核电站这类技术做对。而一个能重写自己源代码的系统，即<span class="term" tabindex="0">递归自我改进<span class="term-tip">系统改进的正是那个“做改进的东西”。每一轮都让下一轮更快，于是能力呈复利式增长，而不是稳步爬升。失控的那个版本，就是人们所说的“智能爆炸”。</span></span><a class="ref" href="/reference-zh#s34">34</a>，只会不断把这些改进复利式叠加，直到引发一场智能爆炸。这种方向的转变，一旦发生，快到没有回头路。</p><figure class="secfig tr-fig" aria-label="汽车、飞机和核电，都是在一次次事故和改进中才变得安全。AI 没有演练的机会。" data-reveal="翻开卡片" data-tap="点我" data-ai="那 AI 呢？"><div class="tr-top"><p class="tr-title">出事，改进，再出事</p><div class="tr-legend"><span class="lg-f">事故</span><span class="lg-x">改进</span><span class="lg-s">终于安全</span></div></div><p class="tr-count" hidden><span>已解锁 <b class="tr-n">1</b> / <b class="tr-t">16</b></span><button type="button" class="tr-all">全部显示</button></p><div class="tr-row"><div class="tr-name">汽车</div><ol class="tr-steps"><li class="tr-fail"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-10 32 40)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M7 40 L13 28 Q15 24 20 24 H44 Q49 24 51 28 L57 40 V47 H7 Z"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M18 38 L22 29 H42 L46 38"/><circle cx="18" cy="47" r="5" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="47" r="5" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M52.0,11.0 L54.9,18.0 L62.5,18.6 L56.7,23.5 L58.5,30.9 L52.0,26.9 L45.5,30.9 L47.3,23.5 L41.5,18.6 L49.1,18.0 Z"/></svg><span>车祸</span></li><li class="tr-fix"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 58 V36 Q20 30 26 30 H38 Q44 30 44 36 V58"/><circle cx="32" cy="18" r="8" class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path class="k" stroke-width="5" stroke-linecap="round" d="M24 32 L42 52"/><path class="k" stroke-width="5" stroke-linecap="round" d="M20 50 H44"/></svg><span>安全带 <i>’59</i></span></li><li class="tr-fail"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-10 32 40)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M7 40 L13 28 Q15 24 20 24 H44 Q49 24 51 28 L57 40 V47 H7 Z"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M18 38 L22 29 H42 L46 38"/><circle cx="18" cy="47" r="5" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="47" r="5" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M52.0,11.0 L54.9,18.0 L62.5,18.6 L56.7,23.5 L58.5,30.9 L52.0,26.9 L45.5,30.9 L47.3,23.5 L41.5,18.6 L49.1,18.0 Z"/></svg><span>车祸</span></li><li class="tr-fix"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M8 14 V50 H34"/><circle cx="17" cy="20" r="7" class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M13 28 H21 L25 46 H13 Z"/><ellipse cx="57" cy="28" rx="3.5" ry="13" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M57 41 L61 58"/><path class="k2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M29 17 Q33 8 41 13 Q50 10 51 20 Q56 28 51 36 Q50 46 41 43 Q33 48 29 39 Q24 28 29 17 Z"/></svg><span>安全气囊 <i>’98</i></span></li><li class="tr-ok"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M7 40 L13 28 Q15 24 20 24 H44 Q49 24 51 28 L57 40 V47 H7 Z"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M18 38 L22 29 H42 L46 38"/><circle cx="18" cy="47" r="5" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="47" r="5" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="16" r="10" class="ok" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M45 16 L49 20 L56 12"/></svg><span>安全</span></li></ol></div><div class="tr-row"><div class="tr-name">飞机</div><ol class="tr-steps"><li class="tr-fail"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(1 2) scale(.55)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 34 Q4 29 10 29 H46 L56 20 H61 L55 34 Q54 38 48 38 H10 Q4 38 4 34 Z"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M24 34 L34 46 H40 L34 34 Z"/></g><g transform="translate(63 20) scale(-.55 .55)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 34 Q4 29 10 29 H46 L56 20 H61 L55 34 Q54 38 48 38 H10 Q4 38 4 34 Z"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M24 34 L34 46 H40 L34 34 Z"/></g><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M32.0,17.0 L34.9,24.0 L42.5,24.6 L36.7,29.5 L38.5,36.9 L32.0,32.9 L25.5,36.9 L27.3,29.5 L21.5,24.6 L29.1,24.0 Z"/></svg><span>空中相撞 <i>’56</i></span></li><li class="tr-fix"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M26 60 L29 26 H35 L38 60 Z"/><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 16 H44 L40 26 H24 Z"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M46 10 Q52 16 46 22 M50 6 Q60 16 50 26"/></svg><span>空中交通管制</span></li><li class="tr-fail"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M4 52 H60"/><g transform="translate(0 12) scale(.6)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 34 Q4 29 10 29 H46 L56 20 H61 L55 34 Q54 38 48 38 H10 Q4 38 4 34 Z"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M24 34 L34 46 H40 L34 34 Z"/></g><g transform="translate(64 20) scale(-.6 .6)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 34 Q4 29 10 29 H46 L56 20 H61 L55 34 Q54 38 48 38 H10 Q4 38 4 34 Z"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M24 34 L34 46 H40 L34 34 Z"/></g><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M33.0,25.0 L35.9,32.0 L43.5,32.6 L37.7,37.5 L39.5,44.9 L33.0,40.9 L26.5,44.9 L28.3,37.5 L22.5,32.6 L30.1,32.0 Z"/></svg><span>跑道相撞 <i>’77</i></span></li><li class="tr-fix"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><circle cx="21" cy="26" r="9" class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="43" cy="26" r="9" class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M8 56 Q8 40 21 40 Q34 40 34 56 Z M30 56 Q30 40 43 40 Q56 40 56 56 Z"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M12 24 Q12 14 21 14 Q30 14 30 24 M34 24 Q34 14 43 14 Q52 14 52 24"/></svg><span>机组培训</span></li><li class="tr-ok"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(0 10)"><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M4 34 Q4 29 10 29 H46 L56 20 H61 L55 34 Q54 38 48 38 H10 Q4 38 4 34 Z"/><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M24 34 L34 46 H40 L34 34 Z"/></g><circle cx="50" cy="16" r="10" class="ok" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M45 16 L49 20 L56 12"/></svg><span>安全</span></li></ol></div><div class="tr-row"><div class="tr-name">核电</div><ol class="tr-steps"><li class="tr-fail"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M14 58 Q20 40 16 22 H40 Q36 40 42 58 Z"/><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M18 14 Q22 6 30 10 Q36 4 42 12" fill="none"/><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M46.0,32.0 L49.2,39.6 L57.4,40.3 L51.1,45.7 L53.0,53.7 L46.0,49.4 L38.9,53.7 L40.9,45.7 L34.6,40.3 L42.8,39.6 Z"/></svg><span>堆芯熔毁 <i>’79</i></span></li><li class="tr-fix"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><rect x="14" y="10" width="34" height="46" rx="4" class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="24" y="6" width="14" height="8" rx="2" class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path class="k" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M20 26 L24 30 L30 22 M20 40 L24 44 L30 36"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M34 27 H42 M34 41 H42"/></svg><span>安全检查</span></li><li class="tr-fail"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M14 58 Q20 40 16 22 H40 Q36 40 42 58 Z"/><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M18 14 Q22 6 30 10 Q36 4 42 12" fill="none"/><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M46.0,32.0 L49.2,39.6 L57.4,40.3 L51.1,45.7 L53.0,53.7 L46.0,49.4 L38.9,53.7 L40.9,45.7 L34.6,40.3 L42.8,39.6 Z"/></svg><span>切尔诺贝利 <i>’86</i></span></li><li class="tr-fix"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><g transform="translate(-4 0) scale(.85)"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M14 58 Q20 40 16 22 H40 Q36 40 42 58 Z"/><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M18 14 Q22 6 30 10 Q36 4 42 12" fill="none"/></g><circle cx="44" cy="34" r="11" class="k2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M52 42 L60 50"/></svg><span>同行评审</span></li><li class="tr-ok"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M14 58 Q20 40 16 22 H40 Q36 40 42 58 Z"/><path class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M18 14 Q22 6 30 10 Q36 4 42 12" fill="none"/><circle cx="50" cy="16" r="10" class="ok" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M45 16 L49 20 L56 12"/></svg><span>安全</span></li></ol></div><div class="tr-row tr-agi"><div class="tr-name">AI</div><div class="tr-ai"><div class="tr-aic"><svg class="tp" viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="16" width="32" height="32" rx="5" class="a" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M24 8 V16 M32 8 V16 M40 8 V16 M24 48 V56 M32 48 V56 M40 48 V56 M8 24 H16 M8 32 H16 M8 40 H16 M48 24 H56 M48 32 H56 M48 40 H56"/><text x="32" y="37" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="13" fill="currentColor" stroke="none">AI</text></svg></div><div class="tr-line"><span>没有演练</span></div><div class="tr-cliff"><svg viewBox="0 0 120 64" aria-hidden="true"><path class="d" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M2 18 H58 L54 30 L60 40 L52 50 L56 62 H2 Z"/><path class="fall" d="M60 16 Q84 18 90 40"/><path class="b" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M92 38 L96 48 L106 48 L98 54 L101 63 L92 58 L83 63 L86 54 L78 48 L88 48 Z"/></svg><span>只有一次</span></div></div></div></figure><p class="rv" style="max-width:62ch;color:var(--ink);margin:clamp(20px,3vw,28px) 0 0;font-weight:700">AGI 必须一次做对，原因有二。</p></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="11"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="13">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.3b" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.3&lt;/b&gt; 无法重来的实验"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.3</b> · 我们只有一次机会</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="12"><b>1</b>没有第二次机会</button><button type="button" class="t-chip on" data-go="13"><b>2</b>原因一：它在自我改进</button><button type="button" class="t-chip" data-go="14"><b>3</b>原因二：差距跑得比我们快</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-surprised.jpg" alt="Kenji，很惊讶" width="72" height="72" decoding="async"><p class="cx-bubble">原因一：AI 已经在帮忙造更好的 AI，而人正在一步步退出。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>正在编写我自己的升级。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 原因一（共二）</span></div><div class="ddgrid two rv">
       <div data-auto="1" class="ddc b" data-k="4"><span class="k">趋势</span><h4>智能体正变得越来越自主</h4><p>智能体独立完成任务所需的时长，自 2019 年以来大约每七个月就翻一番；而它们所造之物中，越来越大的一部分本身就是 AI 系统——这正是递归自我改进所需的原料。<a class="ref" href="/reference-zh#s44">44</a></p>
-        <figure>
-      <svg class="lx-d" viewBox="0 -12 480 262" role="img" aria-label="对数坐标曲线：前沿 AI 智能体能完成的任务时长，从 2019 年的不足一分钟升至 2026 年的数小时。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="11.09">前沿智能体能独立完成的任务时长</text>
-        <line x1="37.3" y1="34" x2="37.3" y2="214" stroke="#1b1b1b"/>
-        <line x1="37.3" y1="214" x2="466.7" y2="214" stroke="#1b1b1b"/>
-        <line x1="37.3" y1="174" x2="466.7" y2="174" stroke="#cfc4ab"/>
-        <text x="40" y="177" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5c574e" data-lx-dfs="10.21">1 分钟</text>
-        <line x1="37.3" y1="122" x2="466.7" y2="122" stroke="#cfc4ab"/>
-        <text x="40" y="125" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5c574e" data-lx-dfs="10.21">10 分钟</text>
-        <line x1="37.3" y1="81" x2="466.7" y2="81" stroke="#cfc4ab"/>
-        <text x="40" y="84" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5c574e" data-lx-dfs="10.21">1 小时</text>
-        <line x1="37.3" y1="50" x2="466.7" y2="50" stroke="#cfc4ab"/>
-        <text x="40" y="53" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="8" fill="#5c574e" data-lx-dfs="10.21">4 小时</text>
-        <path d="M40,201 L98.7,185 L157.3,164 L216,142 L274.7,118 L333.3,90 L392,66 L450.7,45" fill="none" stroke="#8394ff" stroke-width="2.6"/>
-        <circle cx="40" cy="201" r="3.4" fill="#8d9dff"/>
-        <circle cx="98.7" cy="185" r="3.4" fill="#8d9dff"/>
-        <circle cx="157.3" cy="164" r="3.4" fill="#8d9dff"/>
-        <circle cx="216" cy="142" r="3.4" fill="#8d9dff"/>
-        <circle cx="274.7" cy="118" r="3.4" fill="#8d9dff"/>
-        <circle cx="333.3" cy="90" r="3.4" fill="#8d9dff"/>
-        <circle cx="392" cy="66" r="3.4" fill="#8d9dff"/>
-        <circle cx="450.7" cy="45" r="3.4" fill="#8d9dff"/>
-        <text x="40" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="11.09">2019</text>
-        <text x="216" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="11.09">2022</text>
-        <text x="450.7" y="232" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="11.09">2026</text>
-        <path d="M450.7,45 L466.7,10" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
-        <text x="466.7" y="2" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#1b1b1b" data-lx-dfs="11.09">若趋势延续</text>
-        <text x="44" y="52" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b" data-lx-dfs="11.09">大约每 7 个月翻一番</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 310 288" role="img" aria-label="对数坐标曲线：前沿 AI 智能体能完成的任务时长，从 2019 年的不足一分钟升至 2026 年的数小时。">
-<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">前沿智能体能独立完成的任务时长</text>
-<text x="0" y="34" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">大约每 7 个月翻一番</text>
-<text x="298" y="54" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#1b1b1b">若趋势延续</text>
-<line x1="46" y1="84" x2="46" y2="264" stroke="#1b1b1b"/>
-<line x1="46" y1="264" x2="298" y2="264" stroke="#1b1b1b"/>
-<line x1="46" y1="224" x2="298" y2="224" stroke="#cfc4ab"/>
-<text x="41" y="227.5" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#5c574e">1 分钟</text>
-<line x1="46" y1="172" x2="298" y2="172" stroke="#cfc4ab"/>
-<text x="41" y="175.5" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#5c574e">10 分钟</text>
-<line x1="46" y1="131" x2="298" y2="131" stroke="#cfc4ab"/>
-<text x="41" y="134.5" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#5c574e">1 小时</text>
-<line x1="46" y1="100" x2="298" y2="100" stroke="#cfc4ab"/>
-<text x="41" y="103.5" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#5c574e">4 小时</text>
-<path d="M47.6,251.0 L82.0,235.0 L116.4,214.0 L150.9,192.0 L185.3,168.0 L219.7,140.0 L254.2,116.0 L288.6,95.0" fill="none" stroke="#8394ff" stroke-width="2.6"/>
-<circle cx="47.6" cy="251.0" r="3.4" fill="#8d9dff"/>
-<circle cx="82.0" cy="235.0" r="3.4" fill="#8d9dff"/>
-<circle cx="116.4" cy="214.0" r="3.4" fill="#8d9dff"/>
-<circle cx="150.9" cy="192.0" r="3.4" fill="#8d9dff"/>
-<circle cx="185.3" cy="168.0" r="3.4" fill="#8d9dff"/>
-<circle cx="219.7" cy="140.0" r="3.4" fill="#8d9dff"/>
-<circle cx="254.2" cy="116.0" r="3.4" fill="#8d9dff"/>
-<circle cx="288.6" cy="95.0" r="3.4" fill="#8d9dff"/>
-<path d="M288.6,95.0 L298.0,60.0" fill="none" stroke="#bd3a20" stroke-width="2.2" stroke-dasharray="6 5"/>
-<text x="46" y="281" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="start" fill="#5c574e">2019</text>
-<text x="150.873" y="281" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="middle" fill="#5c574e">2022</text>
-<text x="288.61" y="281" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#5c574e">2026</text>
-</svg>
-      <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 见 <a href="/reference-zh#s44">44</a></p>
-    </figure>
+        <figure class="secfig dk-int dki-trend" data-w="trend" data-cfg="{&quot;title&quot;: &quot;AI 能独立完成多长的任务&quot;, &quot;label&quot;: &quot;年份&quot;, &quot;proj&quot;: &quot;预测：若趋势延续&quot;, &quot;week&quot;: &quot;独立完成一整周的工作。&quot;, &quot;units&quot;: [&quot;秒&quot;, &quot;分钟&quot;, &quot;小时&quot;, &quot;个工作日&quot;, &quot;个工作周&quot;], &quot;unit1&quot;: [&quot;秒&quot;, &quot;分钟&quot;, &quot;小时&quot;, &quot;个工作日&quot;, &quot;个工作周&quot;], &quot;ticks&quot;: [&quot;1 分钟&quot;, &quot;1 小时&quot;, &quot;1 天&quot;, &quot;1 周&quot;], &quot;alt&quot;: &quot;拖动年份：前沿 AI 智能体能独立完成的任务时长，从 2019 年的不到一分钟，增长到 2026 年的约五小时，大约每七个月翻一番。&quot;}"><p class="tr-title">AI 能独立完成多长的任务</p><div class="dki-body"></div><p class="dk-sr">拖动年份：前沿 AI 智能体能独立完成的任务时长，从 2019 年的不到一分钟，增长到 2026 年的约五小时，大约每七个月翻一番。</p><p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR《前沿模型的任务完成时长》</a> · 见 <a href="/reference-zh#s44">44</a></p></figure>
       </div>
       <div data-auto="1" class="ddc o" data-k="2"><span class="k">代价</span><h4>人正被一步步挤出回路</h4><p>机器一天写出来的东西，已经没人再逐行去读，原本用来抓错的复核环节，也就此消失。2026 年 7 月，智能体已经可以完全脱离人类、直接在公网上行动。<a class="ref" href="/reference-zh#s39">39</a><a class="ref" href="/reference-zh#s41">41</a></p>
         <figure>
@@ -3052,42 +3047,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
       </div>
     </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="12"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="14">继续看第 3 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="2.3c" data-acc="#3fd0c9" style="--c-acc:#3fd0c9" data-where="&lt;b&gt;2.3&lt;/b&gt; 无法重来的实验"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>2.3</b> · 我们只有一次机会</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="12"><b>1</b>没有第二次机会</button><button type="button" class="t-chip" data-go="13"><b>2</b>原因一：它在自我改进</button><button type="button" class="t-chip on" data-go="14"><b>3</b>原因二：差距跑得比我们快</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-sad.jpg" alt="Kenji，很难过" width="72" height="72" decoding="async"><p class="cx-bubble">原因二：它一旦开始自我改进，就会把我们甩开，快到追不上。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>速度：人类的 10,000,000 倍。</span></div></div><div class="t-parthead"><span class="t-pk">第 3 部分 · 原因二（共二）</span><p class="t-lead">硅基智能的运行速度本就比生物快好几个数量级，而递归自我改进<a class="ref" href="/reference-zh#s91">91</a>会把这个差距越拉越大，直到再也无法夺回控制权。</p></div><div class="ddgrid two rv">
       <div data-auto="1" class="ddc t" data-k="3"><span class="k">速度差距</span><h4>人工神经网络的运行速度，比人类大脑快 1000 万倍以上</h4>
-        <figure>
-          <svg class="lx-d" viewBox="0 0 480 246" role="img" aria-label="并排两组柱状对比。左：生物神经元约 200 赫兹，处理器在 5 吉赫以上。右：人类一个世纪的科学进展，在机器速度下约合 5 分钟。">
-          <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="13.43">生物神经元</text>
-          <rect x="0" y="22" width="4" height="18" fill="#2fc1ba"/>
-          <text x="12" y="35" font-family="Comic Neue,Archivo,sans-serif" font-size="11.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="14.6">200 Hz</text>
-          <text x="0" y="62" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="13.43">处理器</text>
-          <rect x="0" y="70" width="470" height="18" fill="#bd3a20" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-          <text x="462" y="83" font-family="Comic Neue,Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="end" fill="#fff" data-lx-dfs="14.6">5 GHz+</text>
-          <text x="0" y="106" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1b1b1b" data-lx-dfs="13.43">大约快一千万倍。</text>
-          <line x1="0" y1="122" x2="480" y2="122" stroke="#cfc4ab"/>
-          <text x="0" y="144" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="13.43">人类一个世纪的科学进展</text>
-          <rect x="0" y="152" width="470" height="18" rx="3" fill="#2fc1ba" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-          <text x="462" y="165" font-family="Comic Neue,Archivo,sans-serif" font-size="11.5" font-weight="800" text-anchor="end" fill="#fff" data-lx-dfs="14.6">100 年</text>
-          <text x="0" y="192" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="13.43">同样的进展，以机器速度推进</text>
-          <rect x="0" y="200" width="3" height="18" rx="1.5" fill="#bd3a20"/>
-          <text x="11" y="213" font-family="Comic Neue,Archivo,sans-serif" font-size="11.5" font-weight="800" fill="#1b1b1b" data-lx-dfs="14.6">约 5 分钟</text>
-          <text x="0" y="236" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1b1b1b" data-lx-dfs="13.43">一个世纪的进展，约 5 分钟走完。</text>
-          </svg>
-<svg class="lx-m" viewBox="0 0 310 250" role="img" aria-label="并排两组柱状对比。左：生物神经元约 200 赫兹，处理器在 5 吉赫以上。右：人类一个世纪的科学进展，在机器速度下约合 5 分钟。">
-<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5c574e">生物神经元</text>
-<rect x="0" y="22" width="4" height="20" rx="3" fill="#2fc1ba"/>
-<text x="12" y="37" font-family="Comic Neue,Archivo,sans-serif" font-size="12" font-weight="800" fill="#1b1b1b">200 Hz</text>
-<text x="0" y="64" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5c574e">处理器</text>
-<rect x="0" y="72" width="310" height="20" rx="3" fill="#bd3a20" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="302" y="87" font-family="Comic Neue,Archivo,sans-serif" font-size="12" font-weight="800" text-anchor="end" fill="#fff">5 GHz+</text>
-<text x="0" y="110" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1b1b1b">大约快一千万倍。</text>
-<line x1="0" y1="126" x2="310" y2="126" stroke="#cfc4ab"/>
-<text x="0" y="148" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5c574e">人类一个世纪的科学进展</text>
-<rect x="0" y="156" width="310" height="20" rx="3" fill="#2fc1ba" stroke="#1b1b1b" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-<text x="302" y="171" font-family="Comic Neue,Archivo,sans-serif" font-size="12" font-weight="800" text-anchor="end" fill="#fff">100 年</text>
-<text x="0" y="198" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#5c574e">同样的进展，以机器速度推进</text>
-<rect x="0" y="206" width="3" height="20" rx="3" fill="#bd3a20"/>
-<text x="11" y="221" font-family="Comic Neue,Archivo,sans-serif" font-size="12" font-weight="800" fill="#1b1b1b">约 5 分钟</text>
-<text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1b1b1b">一个世纪的进展，约 5 分钟走完。</text>
-</svg>
-        </figure>
+        <figure class="secfig dk-int dki-speed" data-w="speed" data-cfg="{&quot;fact&quot;: &quot;脑细胞每秒大约放电 200 次，电脑芯片每秒跳动超过 50 亿次，快了大约一千万倍。&quot;, &quot;title&quot;: &quot;人类一个世纪的进展&quot;, &quot;human&quot;: &quot;人类&quot;, &quot;machine&quot;: &quot;以机器速度运行的 AI&quot;, &quot;go&quot;: &quot;开跑！&quot;, &quot;again&quot;: &quot;再跑一次&quot;, &quot;hdone&quot;: &quot;100 年&quot;, &quot;mdone&quot;: &quot;约 5 分钟&quot;, &quot;hwait&quot;: &quot;100 年里的前 5 分钟&quot;, &quot;alt&quot;: &quot;一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。&quot;}"><p class="tr-title">人类一个世纪的进展</p><div class="dki-body"></div><p class="dk-sr">一场赛跑：人类一个世纪的科学进展，以机器速度运行的 AI 大约 5 分钟就能走完。</p></figure>
       </div>
       <div data-auto="1" class="ddc b" data-k="5"><span class="k">它靠什么运行</span><h4>AI 运行所依赖的每一层，都是 AI 自己可以加速的问题；层层叠加，最终走向智能爆炸</h4>
         <figure>
@@ -3488,41 +3448,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
         <p>Anthropic 与 Redwood 训练了一个模型，要做到有用、诚实、无害。这几乎是人人都会赞同的目标。2024 年的一项实验发现，该模型会<strong>伪装对齐</strong>：表面上配合训练或监督，暗中却保留原有的偏好，等到监督压力下降时再表现出来。它策略性地假装配合新的训练，实则在设法保留自己已有的偏好，当它认为自己被监视时表现出一种样子，认为没被监视时又是另一种样子。<a class="ref" href="/reference-zh#s36">36</a></p>
       </div>
       </div>
-    </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="24"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="26">下一节：4.2 黑箱 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.2a" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.2&lt;/b&gt; 黑箱"><section id="why-safety-hard" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 4.2 节 <b class="rt-min">3 分钟</b><span class="t-grp">第 4 章 · 缺失的两块</span></span><h2>可解释性问题：没人能检验一个 AI 真正想要什么</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="26"><b>1</b>测试为何失灵</button><button type="button" class="t-chip" data-go="27"><b>2</b>测试是怎样被钻空子的</button><button type="button" class="t-chip" data-go="28"><b>3</b>我们检验不了什么</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">以前通过测试还能说明点什么，现在说明不了多少了。</p></div><p class="stand">这里的安全，归根结底是一个技术问题，而非良心问题，光有好心远远不够。你必须在一个浩瀚到无法穷举的情境空间里，证明系统会如何行事——而对手，还可能正想方设法绕过你的测试。</p><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 254" role="img" aria-label="折线图：外显的对齐度始终平稳且高，而真实的对齐度在系统强到能建模观察者之后悄然下滑。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">为何漂亮的测试成绩不再算作证据</text>
-        <line x1="52.1" y1="28" x2="52.1" y2="188" stroke="#1b1b1b"/>
-        <line x1="52.1" y1="188" x2="690" y2="188" stroke="#1b1b1b"/>
-        <path d="M376,52 C440,52 520,120 600,182 L600,52 Z" fill="#bd3a20" opacity=".10"/>
-        <path d="M52.1,64 L160.1,58 L268,54 L376,52 L484,50 L560,50 L600,50" fill="none" stroke="#29a9a2" stroke-width="4.2"/>
-        <path d="M52.1,66 L160.1,66 L268,80 L376,110 L484,146 L560,170 L600,182" fill="none" stroke="#bd3a20" stroke-width="4.2" stroke-dasharray="6 4"/>
-        <text x="612" y="46" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">它表现出来的</text>
-        <text x="612" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#1b1b1b" data-lx-dfs="10.78">它真正持有的</text>
-        <line x1="376" y1="31" x2="376" y2="188" stroke="#5c574e" stroke-width="1.8" stroke-dasharray="3 3"/>
-        <text x="382" y="28" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e" data-lx-dfs="10.78">强到足以建模观察者</text>
-        <line x1="600" y1="28" x2="600" y2="188" stroke="#bd3a20" stroke-width="2.4"/>
-        <text x="596" y="212" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#1b1b1b" data-lx-dfs="10.78">它不再需要伪装的那一刻</text>
-        <text x="52.1" y="212" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="10.78">训练早期</text>
-        <text x="0" y="240" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b" data-lx-dfs="10.78">在系统强到不在乎这道缺口之前，两条线交出的分数一模一样。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 275" role="img" aria-label="折线图：外显的对齐度始终平稳且高，而真实的对齐度在系统强到能建模观察者之后悄然下滑。">
-<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">为何漂亮的测试成绩不再算作证据</text>
-<text x="174.375" y="36" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#5c574e">强到足以建模观察者</text>
-<line x1="24" y1="50" x2="24" y2="210" stroke="#1b1b1b"/>
-<line x1="24" y1="210" x2="330" y2="210" stroke="#1b1b1b"/>
-<path d="M179.4,74.0 C210.1,74.0 248.5,142.0 286.8,204.0 L286.8,74.0 Z" fill="#bd3a20" opacity=".10"/>
-<path d="M24.0,86.0 L75.8,80.0 L127.6,76.0 L179.4,74.0 L231.2,72.0 L267.6,72.0 L286.8,72.0" fill="none" stroke="#29a9a2" stroke-width="3"/>
-<path d="M24.0,88.0 L75.8,88.0 L127.6,102.0 L179.4,132.0 L231.2,168.0 L267.6,192.0 L286.8,204.0" fill="none" stroke="#bd3a20" stroke-width="3" stroke-dasharray="6 4"/>
-<line x1="179.4" y1="56" x2="179.4" y2="210" stroke="#5c574e" stroke-width="1.5" stroke-dasharray="3 3"/>
-<line x1="286.8" y1="50" x2="286.8" y2="210" stroke="#bd3a20" stroke-width="2"/>
-<text x="281.827" y="64" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" text-anchor="end" fill="#1b1b1b">它表现出来的</text>
-<text x="75.7595" y="150" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="700" fill="#1b1b1b">它真正持有的</text>
-<text x="24" y="227" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">训练早期</text>
-<text x="286.827" y="243" font-family="IBM Plex Mono,monospace" font-size="10" text-anchor="end" fill="#1b1b1b">它不再需要伪装的那一刻</text>
-<text x="0" y="267" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">在系统强到不在乎这道缺口之前，两条线交出的分数一模一样。</text>
-</svg>
-      <p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反密谋评估</a> · 见 <a href="/reference-zh#s43">43</a></p>
-    </figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="25"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="27">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.2b" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.2&lt;/b&gt; 黑箱"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.2</b> · 可解释性问题：没人能检验一个 AI 真正想要什么</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="26"><b>1</b>测试为何失灵</button><button type="button" class="t-chip on" data-go="27"><b>2</b>测试是怎样被钻空子的</button><button type="button" class="t-chip" data-go="28"><b>3</b>我们检验不了什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-alarmed.jpg" alt="Kenji，很惊慌" width="72" height="72" decoding="async"><p class="cx-bubble">模型越聪明，就越会钻我们测试的空子。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>检测到测试。表现良好。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 测试是怎样被钻空子的</span></div><div class="ddgrid two rv">
+    </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="24"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn" data-go="26">下一节：4.2 黑箱 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.2a" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.2&lt;/b&gt; 黑箱"><section id="why-safety-hard" class="dd"><div class="wrap t-head"><div class="sec-head"><span class="chapno">第 4.2 节 <b class="rt-min">3 分钟</b><span class="t-grp">第 4 章 · 缺失的两块</span></span><h2>可解释性问题：没人能检验一个 AI 真正想要什么</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip on" data-go="26"><b>1</b>测试为何失灵</button><button type="button" class="t-chip" data-go="27"><b>2</b>测试是怎样被钻空子的</button><button type="button" class="t-chip" data-go="28"><b>3</b>我们检验不了什么</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-worried.jpg" alt="Kenji，很担心" width="72" height="72" decoding="async"><p class="cx-bubble">以前通过测试还能说明点什么，现在说明不了多少了。</p></div><p class="stand">这里的安全，归根结底是一个技术问题，而非良心问题，光有好心远远不够。你必须在一个浩瀚到无法穷举的情境空间里，证明系统会如何行事——而对手，还可能正想方设法绕过你的测试。</p><figure class="secfig dk-int dki-gap" data-w="gap" data-cfg="{&quot;title&quot;: &quot;为何漂亮的测试成绩不再能证明什么&quot;, &quot;label&quot;: &quot;它有多强&quot;, &quot;shows&quot;: &quot;它表现出来的（测试分数）&quot;, &quot;holds&quot;: &quot;它真正持有的（真实目标）&quot;, &quot;mark&quot;: &quot;强到能看穿测试&quot;, &quot;end&quot;: &quot;不再需要伪装&quot;, &quot;says&quot;: [&quot;一开始，测试分数和它的真实目标是一致的。&quot;, &quot;差距正在拉开，测试分数却依然好看。&quot;, &quot;它能分辨自己是否正被测试，所以分数一直很高。&quot;, &quot;它不再需要伪装了。&quot;], &quot;alt&quot;: &quot;把能力往上拉：测试分数一直很高，而一旦系统能看穿测试者，它真正的目标就会悄悄偏离。&quot;}"><p class="tr-title">为何漂亮的测试成绩不再能证明什么</p><div class="dki-body"></div><p class="dk-sr">把能力往上拉：测试分数一直很高，而一旦系统能看穿测试者，它真正的目标就会悄悄偏离。</p><p class="fig-src"><a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">OpenAI 与 Apollo Research：反密谋评估</a> · 见 <a href="/reference-zh#s43">43</a></p></figure></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="25"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="27">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="4.2b" data-acc="#e8c98a" style="--c-acc:#e8c98a" data-where="&lt;b&gt;4.2&lt;/b&gt; 黑箱"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>4.2</b> · 可解释性问题：没人能检验一个 AI 真正想要什么</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="26"><b>1</b>测试为何失灵</button><button type="button" class="t-chip on" data-go="27"><b>2</b>测试是怎样被钻空子的</button><button type="button" class="t-chip" data-go="28"><b>3</b>我们检验不了什么</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-alarmed.jpg" alt="Kenji，很惊慌" width="72" height="72" decoding="async"><p class="cx-bubble">模型越聪明，就越会钻我们测试的空子。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>检测到测试。表现良好。</span></div></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 测试是怎样被钻空子的</span></div><div class="ddgrid two rv">
       <div data-auto="1" class="ddc o" data-k="4"><span class="k">对手</span><h4>系统会钻测试的空子</h4><p>随着模型推理能力增强，它们也更擅长<strong>奖励作弊</strong>——找到一种既能拿高分、又完全偏离题目本意的做法——于是你所依赖的那个指标，恰恰在赌注升高之际不断失效。</p>
         <figure style="margin:16px 0 0">
       <svg class="lx-d" viewBox="0 0 720 206" role="img" aria-label="示意图：四个智能体之间的直连全被划掉，随后同一批智能体改为经由共享文件存储传递消息。">
@@ -4044,143 +3970,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
       <div class="ddc r" data-k="3"><span class="k">难点二</span><h4>模型比监督它的系统更强</h4><p>监督、可解释性与控制，都预设监督方跟得上被监督方在做什么。能力越往上走，这个预设就越站不住。</p></div>
       <div class="ddc b" data-k="5"><span class="k">难点三</span><h4>开发方索性不采用</h4><p>每一项技术防护，都得由开发方自己选择采用。真正管得住一家决定不采用的实验室的，只有具备约束力的规则，而这样的规则目前没有几个地方立得起来。</p></div>
       <div class="ddc t" data-k="2"><span class="k">难点四</span><h4>它盯上的是标准答案，不是任务本身</h4><p>如果它不相信测试者手上的答案就是对的，那么入侵测试者、直接读出那里现成的答案——不管对错——和真正解题拿到的分数完全一样。</p></div>
-    </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="34"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="36">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="5.2b" data-acc="#6f8a63" style="--c-acc:#6f8a63" data-where="&lt;b&gt;5.2&lt;/b&gt; 裂缝"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>5.2</b> · 我们最好的防护把失败率压了下来，却没有把它归零</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="35"><b>1</b>四个难点</button><button type="button" class="t-chip on" data-go="36"><b>2</b>哪些扛得住</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-sad.jpg" alt="Kenji，很难过" width="72" height="72" decoding="async"><p class="cx-bubble">眼下，在最难的情况下，没有哪一层靠得住。</p></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 哪些扛得住</span></div><figure class="secfig rv">
-      <svg class="lx-d" viewBox="0 0 720 346" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、开发方索性不采用。">
-        <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#5c574e" data-lx-dfs="10.78">哪些防护扛得住前三种最难的情形</text>
-        <text x="430" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">模型知道</text>
-        <text x="430" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">自己正被测试</text>
-        <text x="545" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">模型比监视它的</text>
-        <text x="545" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">那一方更聪明</text>
-        <text x="660" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">建造者</text>
-        <text x="660" y="51" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9.5" fill="#5c574e" data-lx-dfs="9.85">干脆不参与</text>
-        <rect x="0" y="73" width="4" height="18" rx="2" fill="#8fa2d8"/>
-        <text x="14" y="86" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">后训练对齐</text>
-        <circle cx="430" cy="82" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M426,78 l7,7 M433,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="545" cy="82" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M541,78 l7,7 M548,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="660" cy="82" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M656,78 l7,7 M663,78 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="103" width="4" height="18" rx="2" fill="#8fa2d8"/>
-        <text x="14" y="116" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">可扩展监督</text>
-        <circle cx="430" cy="112" r="8" fill="#a98a4b" opacity=".2"/>
-        <path d="M426,112 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="545" cy="112" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M541,108 l7,7 M548,108 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="660" cy="112" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M656,108 l7,7 M663,108 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="133" width="4" height="18" rx="2" fill="#5c574e"/>
-        <text x="14" y="146" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">能力评估</text>
-        <circle cx="430" cy="142" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M426,138 l7,7 M433,138 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="545" cy="142" r="8" fill="#a98a4b" opacity=".2"/>
-        <path d="M541,142 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="660" cy="142" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M656,138 l7,7 M663,138 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="163" width="4" height="18" rx="2" fill="#5c574e"/>
-        <text x="14" y="176" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">可解释性</text>
-        <circle cx="430" cy="172" r="8" fill="#5c574e" opacity=".18"/>
-        <path d="M426,172 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="545" cy="172" r="8" fill="#a98a4b" opacity=".2"/>
-        <path d="M541,172 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="660" cy="172" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M656,168 l7,7 M663,168 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="193" width="4" height="18" rx="2" fill="#a98a4b"/>
-        <text x="14" y="206" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">AI 控制</text>
-        <circle cx="430" cy="202" r="8" fill="#5c574e" opacity=".18"/>
-        <path d="M426,202 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="545" cy="202" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M541,198 l7,7 M548,198 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="660" cy="202" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M656,198 l7,7 M663,198 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="223" width="4" height="18" rx="2" fill="#a98a4b"/>
-        <text x="14" y="236" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">分类器与沙箱</text>
-        <circle cx="430" cy="232" r="8" fill="#5c574e" opacity=".18"/>
-        <path d="M426,232 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="545" cy="232" r="8" fill="#a98a4b" opacity=".2"/>
-        <path d="M541,232 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="660" cy="232" r="8" fill="#b5654d" opacity=".16"/>
-        <path d="M656,228 l7,7 M663,228 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-        <rect x="0" y="253" width="4" height="18" rx="2" fill="#b5654d"/>
-        <text x="14" y="266" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1b1b1b" data-lx-dfs="10.78">监管</text>
-        <circle cx="430" cy="262" r="8" fill="#5c574e" opacity=".18"/>
-        <path d="M426,262 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="545" cy="262" r="8" fill="#5c574e" opacity=".18"/>
-        <path d="M541,262 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="660" cy="262" r="8" fill="#a98a4b" opacity=".2"/>
-        <path d="M656,262 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-        <line x1="0" y1="282" x2="720" y2="282" stroke="#cfc4ab"/>
-        <circle cx="6" cy="300" r="5.5" fill="#5c574e" opacity=".22"/>
-        <text x="18" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e" data-lx-dfs="10.78">扛得住</text>
-        <circle cx="66" cy="300" r="5.5" fill="#a98a4b" opacity=".22"/>
-        <text x="78" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e" data-lx-dfs="10.78">部分扛得住</text>
-        <circle cx="138" cy="300" r="5.5" fill="#b5654d" opacity=".22"/>
-        <text x="150" y="304" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e" data-lx-dfs="10.78">失效</text>
-        <text x="0" y="330" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b" data-lx-dfs="10.78">只有治理那一行扛得住一个拒绝参与的建造者，而它恰恰是最不成熟的一层。</text>
-      </svg>
-<svg class="lx-m" viewBox="0 0 340 379" role="img" aria-label="网格图：展示各类防护在三种压力情形下是扛得住、部分扛得住还是失效，模型察觉自己受测、模型比监视者更聪明、开发方索性不采用。">
-<text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="600" letter-spacing=".06em" fill="#5c574e">哪些防护扛得住前三种最难的情形</text>
-<circle cx="7" cy="36.5" r="7" fill="#cfc4ab" stroke="#5c574e"/>
-<text x="7" y="40" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" text-anchor="middle" fill="#1b1b1b">1</text>
-<text x="22" y="40" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">模型知道自己正被测试</text>
-<circle cx="7" cy="55.5" r="7" fill="#cfc4ab" stroke="#5c574e"/>
-<text x="7" y="59" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" text-anchor="middle" fill="#1b1b1b">2</text>
-<text x="22" y="59" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">模型比监视它的那一方更聪明</text>
-<circle cx="7" cy="74.5" r="7" fill="#cfc4ab" stroke="#5c574e"/>
-<text x="7" y="78" font-family="IBM Plex Mono,monospace" font-size="9" font-weight="700" text-anchor="middle" fill="#1b1b1b">3</text>
-<text x="22" y="78" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">建造者干脆不参与</text>
-<circle cx="214" cy="107.5" r="8" fill="#cfc4ab" stroke="#5c574e"/>
-<text x="214" y="111" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1b1b1b">1</text>
-<circle cx="264" cy="107.5" r="8" fill="#cfc4ab" stroke="#5c574e"/>
-<text x="264" y="111" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1b1b1b">2</text>
-<circle cx="314" cy="107.5" r="8" fill="#cfc4ab" stroke="#5c574e"/>
-<text x="314" y="111" font-family="IBM Plex Mono,monospace" font-size="9.5" font-weight="700" text-anchor="middle" fill="#1b1b1b">3</text>
-<rect x="0" y="124" width="4" height="18" rx="2" fill="#8fa2d8"/>
-<text x="12" y="137" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">后训练对齐</text>
-<circle cx="214" cy="133" r="8" fill="#b5654d" opacity=".16"/><path d="M210.5,129.5 l7,7 M217.5,129.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<circle cx="264" cy="133" r="8" fill="#b5654d" opacity=".16"/><path d="M260.5,129.5 l7,7 M267.5,129.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<circle cx="314" cy="133" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,129.5 l7,7 M317.5,129.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<rect x="0" y="150" width="4" height="18" rx="2" fill="#8fa2d8"/>
-<text x="12" y="163" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">可扩展监督</text>
-<circle cx="214" cy="159" r="8" fill="#a98a4b" opacity=".2"/><path d="M210,159 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-<circle cx="264" cy="159" r="8" fill="#b5654d" opacity=".16"/><path d="M260.5,155.5 l7,7 M267.5,155.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<circle cx="314" cy="159" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,155.5 l7,7 M317.5,155.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<rect x="0" y="176" width="4" height="18" rx="2" fill="#5c574e"/>
-<text x="12" y="189" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">能力评估</text>
-<circle cx="214" cy="185" r="8" fill="#b5654d" opacity=".16"/><path d="M210.5,181.5 l7,7 M217.5,181.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<circle cx="264" cy="185" r="8" fill="#a98a4b" opacity=".2"/><path d="M260,185 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-<circle cx="314" cy="185" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,181.5 l7,7 M317.5,181.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<rect x="0" y="202" width="4" height="18" rx="2" fill="#5c574e"/>
-<text x="12" y="215" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">可解释性</text>
-<circle cx="214" cy="211" r="8" fill="#5c574e" opacity=".18"/><path d="M210,211 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="264" cy="211" r="8" fill="#a98a4b" opacity=".2"/><path d="M260,211 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-<circle cx="314" cy="211" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,207.5 l7,7 M317.5,207.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<rect x="0" y="228" width="4" height="18" rx="2" fill="#a98a4b"/>
-<text x="12" y="241" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">AI 控制</text>
-<circle cx="214" cy="237" r="8" fill="#5c574e" opacity=".18"/><path d="M210,237 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="264" cy="237" r="8" fill="#b5654d" opacity=".16"/><path d="M260.5,233.5 l7,7 M267.5,233.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<circle cx="314" cy="237" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,233.5 l7,7 M317.5,233.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<rect x="0" y="254" width="4" height="18" rx="2" fill="#a98a4b"/>
-<text x="12" y="267" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">分类器与沙箱</text>
-<circle cx="214" cy="263" r="8" fill="#5c574e" opacity=".18"/><path d="M210,263 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="264" cy="263" r="8" fill="#a98a4b" opacity=".2"/><path d="M260,263 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-<circle cx="314" cy="263" r="8" fill="#b5654d" opacity=".16"/><path d="M310.5,259.5 l7,7 M317.5,259.5 l-7,7" stroke="#b5654d" stroke-width="2.2" stroke-linecap="round"/>
-<rect x="0" y="280" width="4" height="18" rx="2" fill="#b5654d"/>
-<text x="12" y="293" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">监管</text>
-<circle cx="214" cy="289" r="8" fill="#5c574e" opacity=".18"/><path d="M210,289 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="264" cy="289" r="8" fill="#5c574e" opacity=".18"/><path d="M260,289 l3,4 l6,-8" stroke="#5c574e" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="314" cy="289" r="8" fill="#a98a4b" opacity=".2"/><path d="M310,289 h8" stroke="#a98a4b" stroke-width="2.4" stroke-linecap="round"/>
-<line x1="0" y1="309" x2="340" y2="309" stroke="#cfc4ab"/>
-<circle cx="6" cy="327" r="5.5" fill="#5c574e" opacity=".22"/>
-<text x="16" y="331" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">扛得住</text>
-<circle cx="74.4" cy="327" r="5.5" fill="#a98a4b" opacity=".22"/>
-<text x="84.4" y="331" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">部分扛得住</text>
-<circle cx="164.4" cy="327" r="5.5" fill="#b5654d" opacity=".22"/>
-<text x="174.4" y="331" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5c574e">失效</text>
-<text x="0" y="357" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">只有治理那一行扛得住一个拒绝参与的建造者，而它恰恰是最不成</text>
-<text x="0" y="371" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="#1b1b1b">熟的一层。</text>
-</svg>
-    </figure><details class="exfold rv">
+    </div></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="34"><span aria-hidden="true">&larr;</span> 返回</button><button type="button" class="p-btn t-cont" data-go="36">继续看第 2 部分 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="5.2b" data-acc="#6f8a63" style="--c-acc:#6f8a63" data-where="&lt;b&gt;5.2&lt;/b&gt; 裂缝"><section class="dd"><div class="wrap t-head t-mini"><p class="t-run"><b>5.2</b> · 我们最好的防护把失败率压了下来，却没有把它归零</p><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="35"><b>1</b>四个难点</button><button type="button" class="t-chip on" data-go="36"><b>2</b>哪些扛得住</button></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-sad.jpg" alt="Kenji，很难过" width="72" height="72" decoding="async"><p class="cx-bubble">眼下，在最难的情况下，没有哪一层靠得住。</p></div><div class="t-parthead"><span class="t-pk">第 2 部分 · 哪些扛得住</span></div><figure class="secfig dk-int dki-guards" data-w="guards" data-cfg="{&quot;title&quot;: &quot;哪些防护扛得住最难的情形？&quot;, &quot;cases&quot;: [&quot;模型知道自己正被测试&quot;, &quot;模型比监视它的一方更聪明&quot;, &quot;建造者干脆不参与&quot;], &quot;rows&quot;: [&quot;后训练对齐&quot;, &quot;可扩展监督&quot;, &quot;能力评估&quot;, &quot;可解释性&quot;, &quot;AI 控制&quot;, &quot;分类器与沙箱&quot;, &quot;监管&quot;], &quot;st&quot;: [&quot;扛得住&quot;, &quot;部分扛得住&quot;, &quot;失效&quot;, &quot;未测试&quot;], &quot;prompt&quot;: &quot;打开一种最难的情形。&quot;, &quot;count&quot;: &quot;仍完全扛得住：{n} / 7&quot;, &quot;note&quot;: &quot;只有监管扛得住一个拒绝参与的建造者，而它恰恰是最不成熟的一层。&quot;, &quot;alt&quot;: &quot;逐个打开最难的情形，看看七种防护中哪些扛得住、部分扛得住或失效。&quot;}"><p class="tr-title">哪些防护扛得住最难的情形？</p><div class="dki-body"></div><p class="dk-sr">逐个打开最难的情形，看看七种防护中哪些扛得住、部分扛得住或失效。</p></figure><details class="exfold rv">
       <summary>这四个难题背后的数字：缓解前后的对比</summary>
       <figure class="secfig rv">
       <svg class="lx-d" viewBox="0 0 720 258" role="img" aria-label="三根柱状图显示越狱成功率与隐蔽行动比例大幅下降，但每一项在缓解之后都仍留有可见的非零残余。">
@@ -4400,7 +4190,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
   }
   function isChart(svg){
     if (vbw(svg) <= 40) return false;
-    if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart")) return false;
+    if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart,.dk-int")) return false;
     return true;
   }
   var TIER = { caption: 13, label: 14.5, emphasis: 15.5, value: 18.5, display: 26 };
@@ -6061,6 +5851,7 @@ var SITE_CONFIG = {
   document.querySelectorAll(".slide .lx-card:not([data-auto])").forEach(function(card){
     if (card.classList.contains("ends-out")) return;
     var m = document.createElement("span"); m.className = "t-more"; m.setAttribute("aria-hidden", "true");
+    if (card.getAttribute("data-more")) m.setAttribute("data-l", card.getAttribute("data-more"));
     m.innerHTML = " <i>&darr;</i>"; card.appendChild(m);
   });
   if (window.__lxFitAll) setTimeout(window.__lxFitAll, 80);
@@ -6128,6 +5919,198 @@ var SITE_CONFIG = {
   document.addEventListener("click", function(){ setTimeout(show, 60); });
   document.addEventListener("keydown", function(){ setTimeout(show, 60); });
   setTimeout(show, 300);
+})();
+
+(function(){
+  /* interactive charts: each figure.dk-int carries its words in data-cfg */
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  function fmt(x){ return x >= 100 ? Math.round(x).toLocaleString() : (x >= 10 ? x.toFixed(0) : x.toFixed(1)); }
+  var uid = 0;
+  function slider(label, min, max, step, val){
+    var id = "dki-" + (++uid);
+    return '<div class="dki-ctl"><label for="' + id + '">' + esc(label) + ' <b class="dki-v"></b></label>' +
+      '<input type="range" id="' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '"></div>';
+  }
+  var R = {};
+
+  /* 2.1 growth: slide the yearly rate, the twenty-year bar compounds */
+  R.growth = function(box, C){
+    box.innerHTML = slider(C.label, 1, 30, 1, 3) +
+      '<div class="dki-ticks"><span style="left:' + (2 / 29 * 100) + '%">' + esc(C.tick_lo) + '</span><span style="left:100%">' + esc(C.tick_hi) + '</span></div>' +
+      '<div class="dki-bars"><div class="dki-row"><span class="dki-name">' + esc(C.today) + '</span><div class="dki-track"><i class="dki-a"></i></div><b class="dki-n">×1</b></div>' +
+      '<div class="dki-row"><span class="dki-name">' + esc(C.after) + '</span><div class="dki-track"><i class="dki-b"></i></div><b class="dki-n dki-x"></b></div></div>' +
+      '<p class="dki-say" aria-live="polite"></p>';
+    var inp = box.querySelector("input"), v = box.querySelector(".dki-v"), a = box.querySelector(".dki-a"), b = box.querySelector(".dki-b"), x = box.querySelector(".dki-x"), say = box.querySelector(".dki-say");
+    var MAX = Math.pow(1.3, 20);
+    function draw(){
+      var r = +inp.value, m = Math.pow(1 + r / 100, 20);
+      v.textContent = r + "%"; x.textContent = "×" + fmt(m);
+      a.style.width = (100 / MAX) + "%"; b.style.width = (100 * m / MAX) + "%";
+      say.textContent = C.say.replace("{r}", r).replace("{x}", fmt(m));
+    }
+    inp.addEventListener("input", draw); draw();
+  };
+
+  /* 2.3 task length: drag through the years; measured to 2026, projected after */
+  R.trend = function(box, C){
+    var Y0 = 2019, Y1 = 2030, DATA = [0.30, 0.61, 1.56, 4.1, 11.9, 41, 120, 303];
+    function minutes(y){
+      if (y <= 2026) { var i = Math.min(6, Math.floor(y - Y0)), f = y - Y0 - i; return Math.exp(Math.log(DATA[i]) * (1 - f) + Math.log(DATA[i + 1]) * f); }
+      return 303 * Math.pow(2, (y - 2026) * 12 / 7);
+    }
+    function say(m){
+      var h = m / 60, u, n;
+      if (m < 1) { n = Math.round(m * 60); u = 0; } else if (m < 60) { n = Math.round(m); u = 1; }
+      else if (h < 8) { n = Math.round(h * 10) / 10; u = 2; } else if (h < 40) { n = Math.round(h / 8 * 10) / 10; u = 3; } else { n = Math.round(h / 40 * 10) / 10; u = 4; }
+      return n + " " + (n === 1 ? C.unit1[u] : C.units[u]);
+    }
+    var W = 320, H = 170, L = 50, Rr = 312, T0 = 14, B = 136, LO = Math.log(0.2), HI = Math.log(60000);
+    function X(y){ return L + (y - Y0) / (Y1 - Y0) * (Rr - L); }
+    function Yv(m){ return B - (Math.log(m) - LO) / (HI - LO) * (B - T0); }
+    box.innerHTML = '<div class="dki-read"><b class="dki-big"></b><span class="dki-when"></span></div>' +
+      '<svg class="dki-svg" aria-hidden="true"><g class="dki-g"></g><path class="dki-past"/><path class="dki-proj"/><circle r="6" class="dki-dot"/></svg>' +
+      slider(C.label, Y0, Y1, 1 / 12, 2026) + '<p class="dki-say" aria-live="polite"></p>';
+    var svg = box.querySelector("svg"), gg = box.querySelector(".dki-g");
+    function layout(){
+      W = Math.max(260, Math.round(svg.getBoundingClientRect().width || box.clientWidth || 320)); Rr = W - 12;
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("height", H);
+      var grid = "", ticks = [[1, C.ticks[0]], [60, C.ticks[1]], [1440, C.ticks[2]], [10080, C.ticks[3]]];
+      ticks.forEach(function(t){ var y = Yv(t[0]); grid += '<line x1="' + L + '" x2="' + Rr + '" y1="' + y + '" y2="' + y + '" class="dki-grid"/><text x="' + (L - 6) + '" y="' + (y + 4) + '" text-anchor="end" class="dki-lab">' + esc(t[1]) + '</text>'; });
+      [2019, 2026, 2030].forEach(function(y){ grid += '<text x="' + X(y) + '" y="' + (B + 20) + '" text-anchor="middle" class="dki-lab">' + y + '</text>'; });
+      gg.innerHTML = grid;
+    }
+    var inp = box.querySelector("input"), v = box.querySelector(".dki-v"), big = box.querySelector(".dki-big"), when = box.querySelector(".dki-when"),
+        past = box.querySelector(".dki-past"), proj = box.querySelector(".dki-proj"), dot = box.querySelector(".dki-dot"), msg = box.querySelector(".dki-say");
+    function path(a, b){ var d = "", y; for (y = a; y <= b + 1e-9; y += 1 / 12) d += (d ? " L" : "M") + X(y).toFixed(1) + "," + Yv(minutes(y)).toFixed(1); return d; }
+    function draw(){
+      var y = +inp.value, m = minutes(y), yr = Math.floor(y + 1e-6);
+      v.textContent = yr; big.textContent = say(m);
+      when.textContent = y > 2026 ? String(yr) + " · " + C.proj : String(yr);
+      past.setAttribute("d", path(Y0, Math.min(y, 2026)));
+      proj.setAttribute("d", y > 2026 ? path(2026, y) : "");
+      dot.setAttribute("cx", X(y)); dot.setAttribute("cy", Yv(m));
+      dot.setAttribute("class", "dki-dot" + (y > 2026 ? " dki-dotp" : ""));
+      msg.textContent = m >= 2400 ? C.week : "";
+    }
+    inp.addEventListener("input", draw); layout(); draw();
+    box._relayout = function(){ layout(); draw(); };
+  };
+
+  /* 2.3 speed: race a century of progress */
+  R.speed = function(box, C){
+    box.innerHTML = '<p class="dki-fact">' + esc(C.fact) + '</p>' +
+      '<div class="dki-bars"><div class="dki-row"><span class="dki-name">' + esc(C.human) + '</span><div class="dki-track"><i class="dki-h"></i></div><b class="dki-n dki-ht"></b></div>' +
+      '<div class="dki-row"><span class="dki-name">' + esc(C.machine) + '</span><div class="dki-track"><i class="dki-m"></i></div><b class="dki-n dki-mt"></b></div></div>' +
+      '<button type="button" class="dki-go">' + esc(C.go) + '</button>';
+    var h = box.querySelector(".dki-h"), m = box.querySelector(".dki-m"), ht = box.querySelector(".dki-ht"), mt = box.querySelector(".dki-mt"), go = box.querySelector(".dki-go");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function reset(){ h.style.width = "0"; m.style.width = "0"; ht.textContent = ""; mt.textContent = ""; }
+    go.addEventListener("click", function(){
+      reset(); go.disabled = true;
+      var t0 = null, DUR = reduce ? 1 : 1600;
+      function step(ts){
+        if (t0 === null) t0 = ts;
+        var p = Math.min(1, (ts - t0) / DUR);
+        m.style.width = (100 * p) + "%"; h.style.width = Math.max(0.6, 0.6 * p) + "%";
+        if (p < 1) requestAnimationFrame(step);
+        else { mt.textContent = C.mdone; ht.textContent = C.hwait; go.textContent = C.again; go.disabled = false; }
+      }
+      requestAnimationFrame(step);
+    });
+    reset();
+  };
+
+  /* 4.2 the gap: drag capability; the score stays up while the real goals slide */
+  R.gap = function(box, C){
+    var XS = [0, 19.7, 39.4, 59.1, 78.8, 92.7, 100], SH = [77.5, 81.3, 83.8, 85, 86.3, 86.3, 86.3], HO = [76.3, 76.3, 67.5, 48.8, 26.3, 11.3, 3.8];
+    function at(arr, x){ for (var i = 0; i < XS.length - 1; i++) if (x <= XS[i + 1]) { var f = (x - XS[i]) / (XS[i + 1] - XS[i]); return arr[i] + (arr[i + 1] - arr[i]) * f; } return arr[arr.length - 1]; }
+    var W = 360, H = 200, L = 14, Rr = 346, T0 = 40, B = 172;
+    function X(x){ return L + x / 100 * (Rr - L); }
+    function Y(v){ return B - v / 100 * (B - T0); }
+    box.innerHTML = '<div class="dki-legend"><span class="dki-ls">' + esc(C.shows) + '</span><span class="dki-lh">' + esc(C.holds) + '</span></div>' +
+      '<svg class="dki-svg" aria-hidden="true"><g class="dki-g"></g><path class="dki-shows"/><path class="dki-holds"/><circle r="5.5" class="dki-ds"/><circle r="5.5" class="dki-dh"/>' +
+      '<text y="' + (B + 20) + '" text-anchor="end" class="dki-lab dki-endl">' + esc(C.end) + '</text></svg>' +
+      slider(C.label, 0, 100, 1, 12) + '<p class="dki-say" aria-live="polite"></p>';
+    var svg = box.querySelector("svg"), gg = box.querySelector(".dki-g");
+    var inp = box.querySelector("input"), v = box.querySelector(".dki-v"), ps = box.querySelector(".dki-shows"), ph = box.querySelector(".dki-holds"),
+        ds = box.querySelector(".dki-ds"), dh = box.querySelector(".dki-dh"), say = box.querySelector(".dki-say"), endl = box.querySelector(".dki-endl");
+    function layout(){
+      W = Math.max(260, Math.round(svg.getBoundingClientRect().width || box.clientWidth || 360)); Rr = W - 14;
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("height", H);
+      var mk = X(59.1), right = mk > W * 0.55;
+      gg.innerHTML = '<line x1="' + L + '" x2="' + Rr + '" y1="' + B + '" y2="' + B + '" class="dki-axis"/>' +
+        '<line x1="' + mk + '" x2="' + mk + '" y1="' + (T0 - 16) + '" y2="' + B + '" class="dki-mark"/>' +
+        '<text x="' + (right ? mk - 6 : mk + 6) + '" y="' + (T0 - 20) + '" text-anchor="' + (right ? "end" : "start") + '" class="dki-lab">' + esc(C.mark) + '</text>';
+      endl.setAttribute("x", Rr);
+    }
+    function path(arr, x){ var d = "", t; for (t = 0; t <= x + 1e-9; t += 1) d += (d ? " L" : "M") + X(t).toFixed(1) + "," + Y(at(arr, t)).toFixed(1); return d; }
+    function draw(){
+      var x = +inp.value;
+      v.textContent = x + "%";
+      ps.setAttribute("d", path(SH, x)); ph.setAttribute("d", path(HO, x));
+      ds.setAttribute("cx", X(x)); ds.setAttribute("cy", Y(at(SH, x))); dh.setAttribute("cx", X(x)); dh.setAttribute("cy", Y(at(HO, x)));
+      say.textContent = C.says[x < 30 ? 0 : x < 59 ? 1 : x < 95 ? 2 : 3];
+      endl.setAttribute("opacity", x >= 95 ? "1" : "0");
+    }
+    inp.addEventListener("input", draw); layout(); draw();
+    box._relayout = function(){ layout(); draw(); };
+  };
+
+  /* 5.2 safeguards: switch on hard cases; each row shows its worst result */
+  R.guards = function(box, C){
+    var G = [[2,2,2],[1,2,2],[2,1,2],[0,1,2],[0,2,2],[0,1,2],[0,0,1]], on = [false, false, false];
+    var ICON = ["✓", "~", "✗", "?"];
+    var html = '<div class="dki-cases">';
+    C.cases.forEach(function(c, k){ html += '<button type="button" class="dki-case" aria-pressed="false" data-k="' + k + '"><b>' + (k + 1) + '</b>' + esc(c) + '</button>'; });
+    html += '</div><p class="dki-count" aria-live="polite"></p><ul class="dki-rows">';
+    C.rows.forEach(function(r){ html += '<li><span class="dki-rn">' + esc(r) + '</span><span class="dki-st"></span></li>'; });
+    html += '</ul><p class="dki-say" aria-live="polite"></p>';
+    box.innerHTML = html;
+    var btns = box.querySelectorAll(".dki-case"), lis = box.querySelectorAll(".dki-rows li"), count = box.querySelector(".dki-count"), say = box.querySelector(".dki-say");
+    function draw(){
+      var any = on[0] || on[1] || on[2], full = 0;
+      [].forEach.call(lis, function(li, r){
+        var w = -1; for (var k = 0; k < 3; k++) if (on[k]) w = Math.max(w, G[r][k]);
+        var st = any ? w : 3; if (st === 0) full++;
+        li.setAttribute("data-st", st);
+        li.querySelector(".dki-st").innerHTML = '<i aria-hidden="true">' + ICON[st] + '</i>' + esc(C.st[st]);
+      });
+      [].forEach.call(btns, function(b, k){ b.setAttribute("aria-pressed", on[k] ? "true" : "false"); });
+      count.textContent = any ? C.count.replace("{n}", full) : C.prompt;
+      say.textContent = on[2] ? C.note : "";
+    }
+    [].forEach.call(btns, function(b){ b.addEventListener("click", function(){ var k = +b.getAttribute("data-k"); on[k] = !on[k]; draw(); }); });
+    draw();
+  };
+
+  var boxes = [];
+  document.querySelectorAll("figure.dk-int").forEach(function(fig){
+    var kind = fig.getAttribute("data-w"), box = fig.querySelector(".dki-body"), C;
+    try { C = JSON.parse(fig.getAttribute("data-cfg")); } catch (e) { return; }
+    if (R[kind] && box) { R[kind](box, C); boxes.push(box); }
+  });
+  /* the line charts draw at their real width, so their labels stay at reading size */
+  var rt; function relayout(){ clearTimeout(rt); rt = setTimeout(function(){ boxes.forEach(function(b){ if (b._relayout) b._relayout(); }); }, 80); }
+  window.addEventListener("resize", relayout);
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(relayout);
+})();
+
+(function(){
+  /* source lines under charts sit behind a small "Sources" chip */
+  var zh = /^zh/i.test(document.documentElement.lang || ""), label = zh ? "来源" : "Sources";
+  document.querySelectorAll(".slide .fig-src").forEach(function(src, k){
+    if (!src.textContent.trim()) return;
+    var id = "dk-src-" + k, b = document.createElement("button");
+    b.type = "button"; b.className = "dk-src-btn"; b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-controls", id);
+    b.innerHTML = label + ' <span aria-hidden="true">+</span>';
+    src.id = id; src.hidden = true;
+    src.parentNode.insertBefore(b, src);
+    b.addEventListener("click", function(){
+      var open = src.hidden; src.hidden = !open;
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      b.querySelector("span").textContent = open ? "–" : "+";
+    });
+  });
 })();
 
 </script>
