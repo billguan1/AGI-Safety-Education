@@ -2362,6 +2362,13 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .ice-fig .tr-title{font-family:var(--comic)!important;font-size:26px!important;letter-spacing:.03em;color:#1b1b1b;text-shadow:2px 2px 0 #e8b53a}
 /* charts redrawn for the deck keep their drawn size */
 .t-body svg.dk-chart{width:100%;height:auto;display:block}
+/* "Why should we care" cards jump to their claim: say so */
+.t-body .care3.slim .care-c::after{content:"Jump to it \2192";width:auto;height:auto;min-height:38px;padding:0 16px;margin-top:auto!important;align-self:flex-start;
+  border:2.5px solid #1b1b1b!important;border-radius:99px;background:#fffdf6;color:#1b1b1b!important;opacity:1!important;
+  font-family:var(--body);font-weight:700;font-size:14px;box-shadow:3px 3px 0 #1b1b1b}
+.t-body .care3.slim .care-c p{margin-bottom:16px!important}
+.t-body .care3.slim a.care-c:hover::after{background:#e8b53a!important}
+.t-body .care3.slim .care-c{display:flex!important;flex-direction:column}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>

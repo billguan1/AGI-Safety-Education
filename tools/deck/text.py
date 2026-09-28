@@ -78,7 +78,8 @@ T = {
     css=(':root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;'
          '--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;'
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
-         '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'),
+         '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
+         '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
     intro_acc='#e8b53a', anthem_label='保持联系', contents='目录',
     toc_intro='我们为什么该在意', toc_end='保持联系',
     intro_parts=['欢迎', '为什么要在意', '论点一：它很快就会到来', '论点二：赌注极高', '论点三：没人知道怎么做', '唯一的出路'],
