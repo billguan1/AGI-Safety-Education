@@ -14,7 +14,7 @@ T = {
  'en': dict(
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
-    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', more_how='How it goes wrong', risk_title='How likely is disaster? People building AI say:',
+    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', more_how='How it goes wrong', more='More', risk_title='How likely is disaster? People building AI say:',
     cliffgame=dict(q='Is safety solved before we get there?', yes='Yes', no='No', label='Race toward the edge', start='Drag to race toward the edge.', 
                    sayNo='Nobody slowed down. The first one over dragged the rest into the drop.', sayYes='With safety solved first, crossing the edge means reaching the prize.'), odds=('about 1 in 10 to 1 in 5', 'about 1 in 4', 'about 1 in 10 to 1 in 5', 'about 1 in 10'),
     econ=dict(title='How big the world economy gets by 2055', sub='Growth speeds up from 2035. Today = 1.', rows=("At today's 3% a year", 'At 12% a year', 'At 30% a year')),
@@ -154,7 +154,7 @@ T = {
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', more_how='它会怎样出错', risk_title='灾难有多大可能？做 AI 的人这样说：',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', more_how='它会怎样出错', more='更多', risk_title='灾难有多大可能？做 AI 的人这样说：',
     cliffgame=dict(q='抵达之前，安全问题解决了吗？', yes='解决了', no='没有', label='冲向悬崖边', start='拖动，冲向悬崖边。', 
                    sayNo='没有人慢下来。第一个越过边缘的，把其余人一起拽进了深渊。', sayYes='先解决了安全问题，越过边缘就意味着抵达奖赏。'), odds=('大约十分之一到五分之一', '大约四分之一', '大约十分之一到五分之一', '大约十分之一'),
     econ=dict(title='到 2055 年，世界经济会有多大', sub='从 2035 年起加速增长，今天记为 1。', rows=('按今天的每年 3%', '按每年 12%', '按每年 30%')),

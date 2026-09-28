@@ -268,6 +268,21 @@ def cards_text(block):
         out.append([text(k.group(1)) if k else '', text(h.group(1)), p.group(1).strip() if p else ''])
     return out
 
+def slim_cards(block, label):
+    """Each card keeps its label, heading and picture; paragraphs and examples fold under a small "More"."""
+    out = block
+    for card in kids(block):
+        if not re.match(r'<div[^>]*class="ddc', card): continue
+        parts = kids(card)
+        keep = [x for x in parts if re.match(r'<(span|h4|figure)\b', x)]
+        fold = [x for x in parts if x not in keep]
+        if not fold: continue
+        open_tag = card[:card.index('>') + 1]
+        new = open_tag + ''.join(keep) + '<details class="dk-more"><summary>%s</summary>%s</details></div>' % (label, ''.join(fold))
+        assert out.count(card) == 1
+        out = out.replace(card, new, 1)
+    return out
+
 def card_heading(block, n, new):
     """Replace the heading of the block's nth card (the chart now carries its old point)."""
     hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
@@ -578,7 +593,7 @@ def plan(pg):
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
     body = kids(one(B, '<div class="body'))
     add(ch, [(P['4.2'][0], stand(ch) + swap_fig(one(body, '<figure'), 0, 'gap', T)),
-             (P['4.2'][1], part_head(H['4.2b']) + auto(rebuild(rebuild(one(body, '<div class="ddgrid'), 1, 'grader', pg.lang), 0, 'talk', pg.lang))),
+             (P['4.2'][1], part_head(H['4.2b']) + auto(slim_cards(rebuild(rebuild(one(body, '<div class="ddgrid'), 1, 'grader', pg.lang), 0, 'talk', pg.lang), T['more']))),
              (P['4.2'][2], part_head(H['4.2c']) + widget_plain('inside', T) + one(body, '<p') + one(B, '<div class="core'))])
     # 5.1
     ch = pg.chapter('response'); B = ch['blocks']
