@@ -865,3 +865,8 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 /* hidden glossary tips take no space until opened */
 .slide .term:not(:hover):not(:focus-within):not(.show) .term-tip{display:none!important}
 .dki-cheese .dki-ln{overflow-wrap:anywhere;hyphens:auto}
+/* answer lines take no room until they have something to say */
+.t-body .dki-say:empty,.t-body p.note:empty{display:none!important}
+.t-body > .rv[style*="margin-top:24px"] .note{min-height:0!important}
+.t-body > .rv[style*="margin-top:24px"]{margin-bottom:10px!important}
+.dk-check{padding-bottom:14px}
