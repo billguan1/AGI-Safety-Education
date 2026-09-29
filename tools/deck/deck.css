@@ -1167,3 +1167,15 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .b2-next{flex-direction:row!important;flex-wrap:nowrap!important;justify-content:flex-start!important;align-items:center}
 .b2-next button:not(.t-back){white-space:normal;text-align:left}
 .b2-next button.t-back{flex:none}
+/* trust chain: the numbered links read as buttons */
+button.dki-link{height:56px}
+button.dki-link em{min-width:44px;height:34px;padding:0 10px;gap:4px;display:inline-flex;align-items:center;justify-content:center;background:#e8b53a;border-width:2.5px;font-size:15px;box-shadow:2px 2px 0 #1b1b1b}
+button.dki-link em::after{content:"↓";font-size:15px;line-height:1}
+button.dki-link:hover em{transform:translateY(-2px);box-shadow:3px 4px 0 #1b1b1b}
+.dki-chain:not(.dki-tapped) button.dki-link em{animation:dkiBob 1.4s ease-in-out infinite}
+.dki-chain:not(.dki-tapped) button.dki-link:nth-of-type(2) em{animation-delay:.5s}
+@keyframes dkiBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+button.dki-link.dki-broken em::after{content:"✕"}
+@media (prefers-reduced-motion: reduce){.dki-chain button.dki-link em{animation:none!important}}
+@media (max-width:760px){button.dki-link{height:48px}}
+.dkh-many span{font-size:17px!important}

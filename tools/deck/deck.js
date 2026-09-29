@@ -360,7 +360,7 @@
         var c = C.cards[+b.getAttribute("data-c")], was = b.getAttribute("aria-expanded") === "true";
         [].forEach.call(links, function(x){ x.setAttribute("aria-expanded", "false"); x.className = "dki-link"; });
         if (was) { out.hidden = true; say.hidden = false; return; }
-        b.setAttribute("aria-expanded", "true"); b.className = "dki-link dki-broken";
+        b.setAttribute("aria-expanded", "true"); b.className = "dki-link dki-broken"; box.querySelector(".dki-chain").classList.add("dki-tapped");
         out.innerHTML = '<span class="dki-k">' + esc(c[0]) + '</span><b>' + esc(c[1]) + '</b><p>' + c[2] + '</p>';
         out.hidden = false; say.hidden = true;
       });

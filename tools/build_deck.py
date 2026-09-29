@@ -690,7 +690,7 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
     add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + grids[0]),
              (P['3.2'][1], part_head(*T['heads']['3.2b']) + widget_plain('chain', T, {'cards': cards_text(grids[1])})),
-             (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + rebuild(figs[0], 0, 'whose', pg.lang) + rebuild(figs[1], 0, 'decide', pg.lang))])
+             (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + rebuild(figs[0], 0, 'whose', pg.lang) + re.sub(r'(<div class="dkh-many"><span>).*?(</span>)', lambda m: m.group(1) + E(T['many']) + m.group(2), rebuild(figs[1], 0, 'decide', pg.lang), count=1, flags=re.S))])
     # 4.1
     ch = pg.chapter('why-translation'); B = ch['blocks']
     figs = [x for x in B if x.startswith('<figure')]; h3s = [x for x in B if x.startswith('<h3')]
