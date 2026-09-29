@@ -1619,7 +1619,7 @@ footer a{color:#2f5aa8!important}
     <a class="brand" href="/">Reference</a>
     <div class="bar-actions">
       <a class="hbtn hbtn-lang" href="/reference-zh">中文</a>
-      <a class="hbtn hbtn-act" href="/"><span>Back to the primer</span></a>
+      <a class="hbtn hbtn-act" href="/"><span>Back to the guide</span></a>
     </div>
   </div>
 </div>
@@ -1628,12 +1628,12 @@ footer a{color:#2f5aa8!important}
 <div class="wrap refpage-head">
   <span class="crumb"><a href="/">safeagi.ca</a></span>
   <h1>Reference</h1>
-  <p>Everything the primer rests on: the sources, the findings that would weaken the case, the objections people raise first, and where to go next.</p>
+  <p>Everything the guide rests on: the sources, the findings that would weaken the case, the objections people raise first, and where to go next.</p>
 </div>
 
 <section id="change-my-mind">
   <div class="wrap">
-    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-n">Part 3</span><span class="pd-t">Reference</span></div>
+    <div class="part-div" style="--pd-acc:#a98a4b"><span class="pd-t">Reference</span></div>
     <div class="sec-head rv">
       <p class="eyebrow">Falsifiability</p>
       <h2>What would prove this wrong</h2>
@@ -1644,7 +1644,7 @@ footer a{color:#2f5aa8!important}
       <div class="ddc o"><span class="k">On self-preservation</span><h4>Indifference to being switched off</h4><p>We build capable planners that are reliably indifferent to being switched off. That is an active research program, and the property does not come for free.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div>
       <div class="ddc g"><span class="k">On specifying values</span><h4>Behaviour specified directly</h4><p>We gain the ability to specify behaviour directly, or to inspect and hand-write what a system values, instead of growing it by search.</p></div>
       <div class="ddc r"><span class="k">On Goodhart's law</span><h4>A specification that survives pressure</h4><p>Someone writes down a specification of human values that survives arbitrary optimization pressure. This remains an open problem.<a class="ref" href="#s35">35</a></p></div>
-      <div class="ddc t"><span class="k">On verification</span><h4>Interpretability or robust evals</h4><p>Interpretability matures enough to certify a system's objectives, or evaluations become robust to a system that knows it is being evaluated.<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p></div>
+      <div class="ddc t"><span class="k">On verification</span><h4>Interpretability, or tests that can&rsquo;t be gamed</h4><p>Interpretability matures enough to certify a system's objectives, or tests keep working on a system that knows it is being tested.<a class="ref" href="#s24">24</a><a class="ref" href="#s19">19</a></p></div>
       <div class="ddc b"><span class="k">On timelines</span><h4>Capability improvements plateau</h4><p>Progress on the properties this page worries about, autonomy, long-horizon planning, situational awareness, stalls well short of human level for an extended period, giving institutions time to catch up on their own schedule rather than a compressed one.</p></div>
       <div class="ddc o"><span class="k">On the resourcing gap</span><h4>Safety scales faster than capability</h4><p>Funding, talent and results in interpretability, control and evaluation start growing faster than capability research, closing the funding gap rather than widening it.<a class="ref" href="#s46">46</a><a class="ref" href="#s47">47</a></p></div>
     </div>
@@ -1779,9 +1779,9 @@ footer a{color:#2f5aa8!important}
     <div class="rv">
       <details><summary><span class="qn">01</span>Isn't this just science fiction?</summary><div class="fa"><p>The concern is narrower and more boring than the films. Nothing in it turns on robots deciding to hate us. We train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they learned. The failures described here, models cheating their tests and faking compliance, are documented in real systems today rather than imagined.<a class="ref" href="#s37">37</a><a class="ref" href="#s36">36</a></p></div></details>
         <details><summary><span class="qn">02</span>We already run superhuman systems and they are fine. Why is this different?</summary><div class="fa"><p>Narrowness is what contains those systems, rather than our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight.</p></div></details>
-      <details><summary><span class="qn">03</span>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is the ability we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. It does not need to hate us to route around the off switch, only to notice the switch is in the way. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
+      <details><summary><span class="qn">03</span>Can't we just switch it off if it misbehaves?</summary><div class="fa"><p>That is the ability we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. All it has to do is notice the switch is in its way, and hating us has nothing to do with it. Making systems that stay correctable is an open research problem, and correctability is not something we get by default.<a class="ref" href="#s34">34</a><a class="ref" href="#s20">20</a></p></div></details>
       <details><summary><span class="qn">04</span>Won't a smart enough AI just understand what we want?</summary><div class="fa"><p>Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimize the goal it was trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the <span class="term" tabindex="0">orthogonality thesis<span class="term-tip">A system's level of capability and the content of its goals are independent. Getting smarter does not automatically produce good values.</span></span>.<a class="ref" href="#s34">34</a></p></div></details>
-      <details><summary><span class="qn">05</span>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the case in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this page, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the actions section lists concrete steps.</p></div></details>
+      <details><summary><span class="qn">05</span>Isn't it too late, or too big for me to matter?</summary><div class="fa"><p>The single biggest bottleneck in this field is that most people have never heard the case in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this guide, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the What you can do section lists more steps.</p></div></details>
       <details><summary><span class="qn">06</span>What is "alignment", exactly?</summary><div class="fa"><p>Getting a system to pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training).<a class="ref" href="#s25">25</a></p></div></details>
       <details><summary><span class="qn">07</span>What are "interpretability", "evals", and "AI control"?</summary><div class="fa"><p><strong>Interpretability</strong> is reading a model's internal computation to see why it did something, the closest thing to opening the box.<a class="ref" href="#s24">24</a> <strong>Evaluations</strong> are structured tests of what a model can do, though they measure what it displays rather than its full capability.<a class="ref" href="#s19">19</a> <strong>AI control</strong> assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm.<a class="ref" href="#s20">20</a></p></div></details>
       <details><summary><span class="qn">08</span>If it is this risky, why is anyone building it?</summary><div class="fa"><p>Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is what makes it a coordination problem that no single careful actor can fix.<a class="ref" href="#s1">1</a></p></div></details>
@@ -1794,13 +1794,13 @@ footer a{color:#2f5aa8!important}
           <div class="dis"><h3><span>Dispute 01</span> How much time is there?</h3>
         <div class="sides">
           <div class="side one"><h4>Short timelines</h4><p>Capability jumps have repeatedly arrived earlier than forecast, and recent gains came from a method that still has room to run. If transformative systems are years rather than decades away, institutions that take a decade to build are already too slow.</p></div>
-          <div class="side two"><h4>Longer timelines</h4><p>Benchmark performance is not reliable real-world competence, and progress on what doesn't benchmark well (long-horizon autonomy, robust planning) has been slower. Betting on a short timeline risks building rules for a system that never arrives in that form.</p></div>
+          <div class="side two"><h4>Longer timelines</h4><p>Benchmark performance is not reliable real-world competence, and progress on what doesn't benchmark well (long-horizon autonomy, reliable planning) has been slower. Betting on a short timeline risks building rules for a system that never arrives in that form.</p></div>
         </div>
         <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Short timelines</span><span class="gtrack"><i style="left:50%"></i></span><span class="gend b">Longer timelines</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">Genuinely uncertain. Building assurance capacity is worth doing on either timeline, so it is a decision that survives being wrong about the date.</p></div></div>
 
       <div class="dis"><h3><span>Dispute 02</span> Does the <span class="term" tabindex="0">instrumental convergence<span class="term-tip">Almost any goal produces the same handful of dangerous subgoals, such as self-preservation and resource acquisition.</span></span> argument hold?</h3>
         <div class="sides">
-          <div class="side one"><h4>It holds</h4><p>The subgoals fall out of the structure of goal-directed behaviour itself, which is why they show up in economics and biology too. You do not need the system to be agentic in any exotic sense, only to be selected for achieving objectives.</p></div>
+          <div class="side one"><h4>It holds</h4><p>The subgoals fall out of the structure of goal-directed behaviour itself, which is why they show up in economics and biology too. It is enough for training to reward the system for reaching goals.</p></div>
           <div class="side two"><h4>It overreaches</h4><p>The argument treats trained models as coherent expected-utility maximizers, which they demonstrably are not. Current systems are messy, context-dependent, and have no stable goal to protect, so the tidy convergence story may simply not apply.</p></div>
         </div>
         <div class="gauge"><span class="glab">Where the weight of evidence sits</span><div class="grow"><span class="gend a">Convergence holds</span><span class="gtrack"><i style="left:42%"></i></span><span class="gend b">It overreaches</span></div><p class="verdict" style="border:0;padding-top:12px;margin-top:0">That critique lands on the strong version, and the weaker claim survives it: training that rewards achieving objectives applies pressure toward these subgoals, and pressure is enough to be worth engineering against.</p></div></div>
@@ -1841,7 +1841,7 @@ footer a{color:#2f5aa8!important}
     <div class="sec-head rv">
       <p class="eyebrow">References</p>
       <h2>Sources</h2>
-      <p class="note">Every numbered claim links here. Verified 14 September 2026. Dates and deadlines move, so trust the linked page over this one.</p>
+      <p class="note">Every numbered claim links here. Verified 14 September 2026; sources 104 to 106 added 29 September 2026. Dates and deadlines move, so trust the linked page over this one.</p>
     </div>
     <details class="src-toggle">
       <summary>Show all sources, categorized</summary>
@@ -1980,7 +1980,7 @@ footer a{color:#2f5aa8!important}
 </section>
 
 
-<div class="wrap refpage-back"><a href="/">Back to the primer</a></div>
+<div class="wrap refpage-back"><a href="/">Back to the guide</a></div>
 </main>
 
 <footer><div class="wrap">
