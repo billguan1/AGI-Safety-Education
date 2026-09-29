@@ -293,7 +293,7 @@
     var W = 360, H = 200, L = 14, Rr = 346, T0 = 40, B = 172;
     function X(x){ return L + x / 100 * (Rr - L); }
     function Y(v){ return B - v / 100 * (B - T0); }
-    box.innerHTML = '<div class="dki-legend"><span class="dki-ls">' + esc(C.shows) + '</span><span class="dki-lh">' + esc(C.holds) + '</span></div>' +
+    box.innerHTML = '<div class="dki-legend"><span class="dki-ls">' + esc(C.shows) + '</span><span class="dki-lho">' + esc(C.holds) + '</span></div>' +
       '<svg class="dki-svg" aria-hidden="true"><g class="dki-g"></g><path class="dki-shows"/><path class="dki-holds"/><circle r="5.5" class="dki-ds"/><circle r="5.5" class="dki-dh"/>' +
       '<text y="' + (B + 20) + '" text-anchor="end" class="dki-lab dki-endl">' + esc(C.end) + '</text></svg>' +
       slider(C.label, 0, 100, 1, 12) + '<p class="dki-say" aria-live="polite"></p>';
@@ -826,6 +826,21 @@
   draw();
 })();
 
+
+(function(){
+  /* 3.2 who decides: the reader's pick lights up whoever actually holds that power */
+  document.querySelectorAll(".dkh[data-ask]").forEach(function(box){
+    var C; try { C = JSON.parse(box.getAttribute("data-ask")); } catch (e) { return; }
+    var bs = box.querySelectorAll(".dkh-opt"), few = box.querySelectorAll(".dkh-few"), out = box.querySelector(".dkh-reply");
+    [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
+      var k = +b.getAttribute("data-k");
+      [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      [].forEach.call(few, function(f, i){ f.classList.toggle("dkh-hit", C.hi[k].indexOf(i) >= 0); });
+      box.classList.add("dkh-picked"); out.textContent = C.replies[k];
+      try { document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "decide", val: k}})); } catch (e) {}
+    }); });
+  });
+})();
 
 (function(){
   /* 2.2 subgoal chips switch the cards underneath */

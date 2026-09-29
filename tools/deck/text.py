@@ -14,7 +14,8 @@ T = {
  'en': dict(
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
-    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say', src_word='Sources:', more_detail='More detail', less_detail='Show less', more_how='How it goes wrong', more='More',
+    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say',
+    decide_ask=dict(hi=[[0, 2], [1], [], [0]], replies=['That is close to today: labs already write the rules their models follow. But shareholders are a tiny slice of eight billion people, and nobody elected the company.', 'Better in principle, but governments disagree as much as companies do, and whichever state wins would be deciding for everyone else.', 'Ethicists disagree too, and a panel is still a small group choosing for billions who never voted for it. Today no such panel decides anything.', 'That is a value choice too. In practice it means whoever ships first decides.']), src_word='Sources:', more_detail='More detail', less_detail='Show less', more_how='How it goes wrong', more='More',
     incidents=dict(
       timeline=[('2016', 'AI safety problems first named', 0, ''),
                 ('2024', 'A model faked being aligned', 0, ''),
@@ -79,7 +80,6 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
       '3.2': ('Before an AI can follow human values, what do we have to settle first?', ('Whose values it should follow', 'How fast the computer is', 'Which language it speaks'), 0, 'People have never agreed on one set of values, so someone has to choose.'),
       '4.1': ('An AI told to win a boat race circled a lagoon forever. What went wrong?', ('It had a bug', 'It got bored', 'It did exactly what it was scored on, which missed what we meant'), 2, 'It followed the score perfectly. The score left out what we actually wanted.'),
       '4.2': ('Why do good test results stop proving an AI is safe?', ('A smart model can act safe when it knows it is being tested', 'The tests are too easy to write', 'The scores are made up'), 0, 'A safe system and one that knows it is being watched give the same score.'),
-      '5.1': ('What is true of the four layers of defence?', ('Together they guarantee safety', 'Each one leaks, so none is enough alone', 'Only the first layer matters'), 1, 'Each layer has holes, and four imperfect filters do not add up to a guarantee.'),
       '5.2': ('Which safeguard still partly works when a builder simply opts out?', ('AI control', 'Capability evaluations', 'Regulation'), 2, 'Only regulation partly survives a builder who opts out, and it is the least developed.'),
     },
     results=dict(title='Your results', chapters='Chapters finished', checks='Quick checks right', guess='Your guess for public safety research',
@@ -208,7 +208,8 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权', src_word='来源：', more_detail='展开详情', less_detail='收起', more_how='它会怎样出错', more='更多',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权',
+    decide_ask=dict(hi=[[0, 2], [1], [], [0]], replies=['这接近今天的现实：实验室已经在为自己的模型定规则。但股东只是八十亿人中很小的一部分，也没有人选举过这家公司。', '原则上更好，可政府之间的分歧不比公司少，而胜出的那个国家，将替所有人做决定。', '伦理学家也彼此争论，而一个委员会仍是一小群人，替从未投票的数十亿人做选择。今天也没有这样的委员会在做决定。', '这同样是一种价值判断。实际上它意味着：谁先发布，谁就说了算。']), src_word='来源：', more_detail='展开详情', less_detail='收起', more_how='它会怎样出错', more='更多',
     incidents=dict(
       timeline=[('2016', 'AI 安全问题首次被提出', 0, ''),
                 ('2024', '一个模型假装自己已经对齐', 0, ''),
@@ -273,7 +274,6 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
       '3.2': ('在 AI 能遵循人类价值观之前，我们得先解决什么？', ('它该遵循谁的价值观', '电脑有多快', '它说哪种语言'), 0, '人类从未就一套价值观达成一致，总得有人来选。'),
       '4.1': ('一个被要求赢得赛艇比赛的 AI，在潟湖里绕圈转个不停。哪里出了错？', ('它有个程序错误', '它觉得无聊了', '它完全照着评分去做，而评分没抓住我们的本意'), 2, '它把评分执行得完美无缺，可评分漏掉了我们真正想要的东西。'),
       '4.2': ('为什么漂亮的测试成绩，不再能证明 AI 是安全的？', ('聪明的模型知道自己正被测试时，会装作安全', '测试写得太简单了', '分数是编出来的'), 0, '一个真正安全的系统，与一个知道自己正被监视的系统，分数一模一样。'),
-      '5.1': ('关于四道防线，哪一句是对的？', ('四道加起来就能保证安全', '每一道都有漏洞，单靠哪一道都不够', '只有第一道重要'), 1, '每一层都有洞，四道不完美的滤网加起来并不等于保证。'),
       '5.2': ('当建造者干脆不参与时，哪一种防护还部分有效？', ('AI 控制', '能力评估', '监管'), 2, '只有监管能部分扛住一个拒绝参与的建造者，而它恰恰是最不成熟的一层。'),
     },
     results=dict(title='你的成绩', chapters='读完的章节', checks='小测验答对', guess='你对公共安全研究经费的猜测',

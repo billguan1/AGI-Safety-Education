@@ -465,7 +465,14 @@ def H(kind, lang, t, extra=None):
     if kind == 'decide':
         few = [J(1, 2), J(3, 4), J(5, 6), J(7, 8, 10)]
         dots = ''.join('<div class="dkh-few"><i></i><span>%s</span></div>' % (E(x) if '<small>' not in x else E(x.split('<small>')[0]) + '<small>' + x.split('<small>')[1]) for x in few)
-        return '<div class="dkh">%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div></div>' % (T0(0), dots, E(t[9]))
+        if not extra:
+            return '<div class="dkh">%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div></div>' % (T0(0), dots, E(t[9]))
+        # the reader's pick lights up whoever actually holds that power today
+        q, opts, cfg = extra
+        ask = '<div class="dkh-ask"><p class="dkh-q">%s</p><div class="dkh-opts">%s</div></div>' % (E(q), ''.join(
+            '<button type="button" class="dki-case dkh-opt" data-k="%d" aria-pressed="false">%s</button>' % (k, E(o)) for k, o in enumerate(opts)))
+        return ('<div class="dkh" data-ask="%s">%s%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div><p class="dkh-reply" aria-live="polite"></p></div>'
+                % (html.escape(json.dumps(cfg, ensure_ascii=False)), ask, T0(0), dots, E(t[9])))
     if kind == 'twoways':
         return ('<div class="dkh">%s<div class="dkh-two"><div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>≠</em><b>%s</b></div><span>%s</span></div>'
                 '<div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>%s</em><b>%s</b></div><span>%s</span></div></div></div>') % (
@@ -522,11 +529,19 @@ def orgs_grid(fig, t):
         grid[r][c] = 1 if 'opacity=' in rest else 2
     return (t[0:4], t[4:12], grid)
 
-def rebuild(block, n, kind, lang):
+def decide_ask(B, T):
+    """The page's who-should-decide question, folded into the who-actually-decides chart."""
+    qb = one(B, '<div class="rv" style="margin-top:24px">')
+    q = text(re.search(r'<p\b[^>]*>(.*?)</p>', qb, re.S).group(1))
+    opts = [text(x) for x in re.findall(r'<button type="button" class="pbtn"[^>]*>(.*?)</button>', qb, re.S)]
+    assert len(opts) == 4 and len(T['decide_ask']['replies']) == 4, opts
+    return (q, opts, T['decide_ask'])
+
+def rebuild(block, n, kind, lang, extra=None):
     """Swap the block's nth figure drawing for its HTML rebuild; the source line stays."""
     figs = re.findall(r'<figure\b.*?</figure>', block, re.S)
     t = svg_texts(figs[n])
-    extra = orgs_grid(figs[n], t) if kind == 'orgs' else None
+    extra = orgs_grid(figs[n], t) if kind == 'orgs' else extra
     return swap_fig_svgs(block, n, H(kind, lang, t, extra))
 
 def swap_fig_svgs(block, n, new_svg):
@@ -701,7 +716,7 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
     add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + grids[0]),
              (P['3.2'][1], part_head(*T['heads']['3.2b']) + widget_plain('chain', T, {'cards': cards_text(grids[1])})),
-             (P['3.2'][2], one(B, '<div class="rv" style="margin-top:24px">') + part_head(*T['heads']['3.2c']) + rebuild(figs[0], 0, 'whose', pg.lang) + re.sub(r'(<div class="dkh-many"><span>).*?(</span>)', lambda m: m.group(1) + E(T['many']) + m.group(2), rebuild(figs[1], 0, 'decide', pg.lang), count=1, flags=re.S))])
+             (P['3.2'][2], part_head(*T['heads']['3.2c']) + rebuild(figs[0], 0, 'whose', pg.lang) + re.sub(r'(<div class="dkh-many"><span>).*?(</span>)', lambda m: m.group(1) + E(T['many']) + m.group(2), rebuild(figs[1], 0, 'decide', pg.lang, decide_ask(B, T)), count=1, flags=re.S))])
     # 4.1
     ch = pg.chapter('why-translation'); B = ch['blocks']
     figs = [x for x in B if x.startswith('<figure')]; h3s = [x for x in B if x.startswith('<h3')]
