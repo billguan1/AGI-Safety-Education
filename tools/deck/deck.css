@@ -1047,6 +1047,15 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (max-width:760px){.dke{grid-template-columns:1fr 1fr 1.8fr!important;--S:118px!important}}
 .t-body .endc .dk-scene{display:block;width:100%;max-width:240px;height:auto;margin:8px 0 6px}
 /* the five subgoals are tabs: they must look pressable, not like the name tags elsewhere */
+/* 4.1c: pictures inside the two cards */
+.wl-fig{margin:14px 0 0!important;padding:0!important;border:0!important;box-shadow:none!important;background:transparent!important}
+.wl-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;gap:8px;margin-top:8px}
+.wl-ask,.wl-did{display:grid;gap:2px;align-content:start;padding:8px 10px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6}
+.wl-did{background:#f6d5cc}
+.wl-ask span,.wl-did span{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5c574e}
+.wl-ask b,.wl-did b{font-family:var(--body);font-size:16px;line-height:1.3;color:#1b1b1b}
+.wl-to{align-self:center;font-weight:700;font-size:20px;color:#1b1b1b}
+.wl-climb svg{display:block;width:100%;max-width:360px;height:auto;overflow:visible}
 .dsg-hint{margin:0 0 10px;font-family:var(--body);font-weight:700;font-size:15px;color:#5c574e}
 .dsg-tabs{gap:10px}
 .dsg-tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border-width:2.5px;font-size:15px;cursor:pointer;box-shadow:3px 3px 0 #1b1b1b;transition:transform .12s,box-shadow .12s}

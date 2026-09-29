@@ -15,6 +15,8 @@ T = {
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
     intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say',
+    worded=dict(asked='You ask', did='It does', rows=[('Make people smile', 'Wires their face muscles into a grin'), ('Maximize the reward', 'Grabs the button that hands out reward')], steps=['Compute', 'Energy', 'Material', 'More', 'More'], done='Done',
+                alt1='Two requests and what the system did: asked to make people smile, it wires their face muscles; asked to maximize reward, it grabs the reward button.', alt2='Steps of compute, energy and material keep climbing, and the finish flag is crossed out.'),
     fork53_no=('If safety turns out to be an intractable problem, we must be willing to stop general AI development', 'Narrow AI, built for one field such as medicine or science, keeps being developed and used, so we still get its benefits.'),
     decide_ask=dict(hi=[[0, 2], [1], [], [0]], replies=['That is close to today: labs already write the rules their models follow. But shareholders are a tiny slice of eight billion people, and nobody elected the company.', 'Better in principle, but governments disagree as much as companies do, and whichever state wins would be deciding for everyone else.', 'Ethicists disagree too, and a panel is still a small group choosing for billions who never voted for it. Today no such panel decides anything.', 'That is a value choice too. In practice it means whoever ships first decides.']), src_word='Sources:', more_detail='More detail', less_detail='Show less', more_how='How it goes wrong', more='More',
     incidents=dict(
@@ -89,7 +91,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
                  text='I went through the SafeAGI comic guide to AI safety: {c} chapters, {k} quick checks right. I guessed {g} a year goes to public AI safety research. The real figure is about $10 million, next to $100 billion for building AI.'),
     toc_intro='Why you should care', toc_end='Stay in the loop', intro_kick='The big picture', intro_label='The big picture', claim_kick='The big picture · Reason %d of 3',
     intro_parts=['Welcome', 'Why care', 'It is arriving soon', 'The stakes', 'Nobody knows how', 'The only solution'],
-    back='Back', cont='Continue', cont_part='Continue to part %d', next='Next: %s', restart='Back to the start',
+    back='Back', cont='Continue', cont_part='Continue to part %s', part_word='Part %s', next='Next: %s', restart='Back to the start',
     chips_aria='Parts of this chapter', nav_aria='Slides', prev='Previous slide', next_aria='Next slide',
     keys='Use &larr; &rarr; keys', open_any='',
     kenji_alt='Kenji, looking %s',
@@ -210,6 +212,8 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
     intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权',
+    worded=dict(asked='你要求', did='它照做', rows=[('让人们笑起来', '把他们的面部肌肉接上电线，拉成笑脸'), ('让奖励最大化', '直接抢走发奖励的那个按钮')], steps=['算力', '能源', '材料', '更多', '更多'], done='完成',
+                alt1='两个要求和系统的做法：要它让人们笑，它把面部肌肉接上电线；要它让奖励最大化，它抢走发奖励的按钮。', alt2='算力、能源、材料一级级往上爬，终点旗被划掉了。'),
     fork53_no=('如果安全最终被证明是一道无解的难题，我们就必须愿意停止通用 AI 的研发', '专用于某一领域（比如医学或科学）的窄 AI 仍可继续研发和应用，让我们照样享受它的好处。'),
     decide_ask=dict(hi=[[0, 2], [1], [], [0]], replies=['这接近今天的现实：实验室已经在为自己的模型定规则。但股东只是八十亿人中很小的一部分，也没有人选举过这家公司。', '原则上更好，可政府之间的分歧不比公司少，而胜出的那个国家，将替所有人做决定。', '伦理学家也彼此争论，而一个委员会仍是一小群人，替从未投票的数十亿人做选择。今天也没有这样的委员会在做决定。', '这同样是一种价值判断。实际上它意味着：谁先发布，谁就说了算。']), src_word='来源：', more_detail='展开详情', less_detail='收起', more_how='它会怎样出错', more='更多',
     incidents=dict(
@@ -284,7 +288,7 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
                  text='我读完了 SafeAGI 的 AI 安全漫画指南：{c} 个章节，小测验答对 {k} 道。我猜每年有 {g} 投入公共 AI 安全研究，真实数字大约只有 1,000 万美元，而建造 AI 的投入是 1,000 亿美元。'),
     toc_intro='我们为什么该在意', toc_end='保持联系', intro_kick='全局概览', intro_label='全局概览', claim_kick='全局概览 · 理由 %d（共 3 个）',
     intro_parts=['欢迎', '为什么要在意', '它很快就会到来', '赌注极高', '没人知道怎么做', '唯一的出路'],
-    back='返回', cont='继续', cont_part='继续看第 %d 部分', next='下一节：%s', restart='回到开头',
+    back='返回', cont='继续', cont_part='继续看第 %s 部分', part_word='第 %s 部分', next='下一节：%s', restart='回到开头',
     chips_aria='本章的几个部分', nav_aria='翻页', prev='上一页', next_aria='下一页',
     keys='用 &larr; &rarr; 键翻页', open_any='',
     kenji_alt='Kenji，%s',

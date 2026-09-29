@@ -111,6 +111,17 @@ class Page:
 
 
 # ---------------------------------------------------------------- slide pieces
+# parts that sit under another part, by section: (first, last) indices of the children
+SUBS = {'crossroads': [(2, 4)], 'why-one-try': [(1, 2)], 'why-translation': [(2, 3), (5, 5)], 'response': [(1, 4)]}
+def is_sub(sid, k): return any(a <= k <= b for a, b in SUBS.get(sid, []))
+def part_nums(sid, n):
+    """Top-level parts count 1, 2, 3; a child reads 2.1, 2.2 under its parent."""
+    out, top, child = [], 0, 0
+    for k in range(n):
+        if is_sub(sid, k): child += 1; out.append('%d.%d' % (top, child))
+        else: top += 1; child = 0; out.append('%d' % top)
+    return out
+
 def part_head(kicker, title='', lead=''):
     return ('<div class="t-parthead"><span class="t-pk">%s</span>%s%s</div>'
             % (kicker, ('<h3 class="t-ph">%s</h3>' % title) if title else '', ('<p class="t-lead">%s</p>' % lead) if lead else ''))
@@ -120,6 +131,37 @@ def auto(block):
     return re.sub(r'<div class="(ddc|endc)', r'<div data-auto="1" class="\1', block)
 
 def unp(p): return re.sub(r'^<p[^>]*>|</p>$', '', p.strip())
+
+def into_card(block, n, fig):
+    """Put a figure at the end of the block's nth card, found by tag balance."""
+    starts = [m.start() for m in re.finditer(r'<div(?: [\w-]+="[^"]*")* class="ddc\b', block)]
+    assert len(starts) > n, ('cards', len(starts))
+    d = 0
+    for m in re.finditer(r'<div\b|</div>', block[starts[n]:]):
+        d += 1 if m.group(0) == '<div' else -1
+        if d == 0:
+            end = starts[n] + m.start(); break
+    return block[:end] + fig + block[end:]
+
+def worded_figs(block, T):
+    """4.1 worded well, still wrong: what was asked beside what it did; and a climb with no finish."""
+    L = T['worded']
+    rows = ''.join('<div class="wl-row"><div class="wl-ask"><span>%s</span><b>%s</b></div><span class="wl-to" aria-hidden="true">\u2192</span>'
+                   '<div class="wl-did"><span>%s</span><b>%s</b></div></div>' % (E(L['asked']), E(a), E(L['did']), E(d)) for a, d in L['rows'])
+    lit = '<figure class="secfig wl-fig" aria-label="%s">%s</figure>' % (E(L['alt1']), rows)
+    steps = ''.join('<rect x="%d" y="%d" width="46" height="%d" rx="4" fill="%s" stroke="#1b1b1b" stroke-width="2.5"/>'
+                    '<text x="%d" y="%d" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1b1b1b">%s</text>'
+                    % (8 + i * 52, 126 - (26 + i * 20), 26 + i * 20, c, 31 + i * 52, 126 - (26 + i * 20) - 7, E(s))
+                    for i, (s, c) in enumerate(zip(L['steps'], ['#fff6d8', '#f6e3a8', '#e8b53a', '#e9a07f', '#d9492c'])))
+    svg = ('<svg viewBox="0 0 330 150" role="img" aria-label="%s">%s'
+           '<path d="M268 24 L316 6" stroke="#1b1b1b" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#wl-tip)"/>'
+           '<defs><marker id="wl-tip" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1b1b1b"/></marker></defs>'
+           '<g transform="translate(290 88)"><path d="M0 40 V0" stroke="#1b1b1b" stroke-width="2.5"/><path d="M0 0 H26 L20 7 L26 14 H0 Z" fill="#cfe6c4" stroke="#1b1b1b" stroke-width="2"/>'
+           '<path d="M-4 2 L30 34 M30 2 L-4 34" stroke="#d9492c" stroke-width="3.5" stroke-linecap="round"/>'
+           '<text x="13" y="54" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1b1b1b">%s</text></g>'
+           '<path d="M2 127 H286" stroke="#1b1b1b" stroke-width="2.5"/></svg>') % (E(L['alt2']), steps, E(L['done']))
+    stop = '<figure class="secfig wl-fig wl-climb">%s</figure>' % svg
+    return into_card(into_card(block, 1, stop), 0, lit)
 
 def loophole(block, pg):
     """Guess how it cheated before the answer shows: the right answer is the page's own demo text."""
@@ -726,7 +768,7 @@ def plan(pg):
     H = T['heads']
     add(ch, [(P['4.1'][0], stand(ch) + rebuild(figs[0], 0, 'twoways', pg.lang)),
              (P['4.1'][1], part_head(H['4.1b']) + rebuild(figs[1], 0, 'lost', pg.lang)),                                     # Kenji carries outer alignment
-             (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + auto(grids[0])),
+             (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + auto(worded_figs(grids[0], T))),
              (P['4.1'][3], part_head(H['4.1d']) + loophole(demo_bare(one(B, '<div class="demo-embed')), pg)),
              (P['4.1'][4], part_head(H['4.1e'], '', unp(ps[2])) + iceberg_fig(T)),
              (P['4.1'][5], part_head(H['4.1f']) + grids[1] + one(B, '<div class="ghwrap'))])
@@ -929,15 +971,19 @@ def build(pg, en_colors=None):
             names = T['intro_parts'] if sec['id'] == 'crossroads' else [y.get('chip') for y in same]
             cl = []; num = 0
             for k, (y, nm) in enumerate(zip(same, names)):
-                sub = sec['id'] == 'crossroads' and 2 <= k <= 4
+                sub = is_sub(sec['id'], k)
                 if not sub: num += 1
-                if sec['id'] == 'crossroads' and k == 2: cl.append('<span class="t-subchips">')
+                if sub and not is_sub(sec['id'], k - 1): cl.append('<span class="t-subchips">')
                 cl.append('<button type="button" class="t-chip%s%s" data-go="%d">%s%s</button>' % (' on' if y is x else '', ' t-chip-sub' if sub else '', S.index(y),
                            '' if sub else '<b>%d</b>' % num, html.escape(nm)))
-                if sec['id'] == 'crossroads' and k == 4: cl.append('</span>')
+                if sub and (k == len(same) - 1 or not is_sub(sec['id'], k + 1)): cl.append('</span>')
             chips = '<div class="t-chips" aria-label="%s">%s</div>' % (T['chips_aria'], ''.join(cl))
         ihead = ('<div class="wrap t-head"><div class="sec-head"><span class="chapno">%s</span><h2>%s</h2>%s</div></div>'
                  % (x['kicker'], x['title'], chips)) if x.get('title') else ''
+        if x['wrap'] == 'dd' and sec['id'] in SUBS:
+            # the part kicker carries the nested number (Part 2.1), computed from SUBS
+            pn = part_nums(sec['id'], len(same))[x['part']]
+            body = re.sub(r'(<span class="t-pk">)(?:Part \d+|第 \d+ 部分)', lambda m: m.group(1) + (T['part_word'] % pn), body, count=1)
         if x['wrap'] == 'dd':
             n, parts, j = x['parts'], None, x['part']
             if j == 0:
@@ -961,7 +1007,7 @@ def build(pg, en_colors=None):
         if i < len(S) - 1:
             nx = S[i + 1]
             if nx['sec'] is sec:
-                lab = T['cont_part'] % (x['part'] + 2) if x['wrap'] == 'dd' else T['cont']
+                lab = T['cont_part'] % part_nums(sec['id'], len(same))[x['part'] + 1] if x['wrap'] == 'dd' else T['cont']
                 btns.append('<button type="button" class="p-btn t-cont" data-go="%d">%s <span aria-hidden="true">&rarr;</span></button>' % (i + 1, lab))
             else:
                 ns = nx['sec']
@@ -1007,7 +1053,7 @@ def toc(pg, S):
             assert len(names) == len(idx) and all(names), ('toc part names', sec['id'])
             items = []
             for k, (i, nm) in enumerate(zip(idx, names)):
-                sub = sec['id'] == 'crossroads' and 2 <= k <= 4
+                sub = is_sub(sec['id'], k)
                 items.append('<li%s><button type="button" class="tc-p" data-go="%d" data-i="%d">%s</button></li>' % (' class="tc-sub"' if sub else '', i, i, html.escape(nm)))
             parts = '<ol class="tc-parts">%s</ol>' % ''.join(items)
         out.append('<div class="tc-sec" data-first="%d" data-last="%d"><button type="button" class="tc-s" data-go="%d" style="--c:%s">%s</button>%s</div>'
