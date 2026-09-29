@@ -548,6 +548,9 @@ def plan(pg):
     assert mw, 'masthead wrap'
     care = one(mw, '<div class="mh-care')
     cover = ''.join(b for b in mw if b is not care)
+    # the brain drawing beside the title is dropped from the deck cover
+    cover, nb = re.subn(r'<(div|svg|figure|span)\b[^>]*class="[^"]*mh-brain[^"]*"[^>]*>.*?</\1>', '', cover, count=1, flags=re.S)
+    assert nb == 1, 'brain drawing not found'
     # the cliff is an illustration, so it gets a hand-picked paper palette rather than the chart rules
     ci = cover.index('<figure class="cliff'); cj = cover.index('</figure>', ci)
     fig = cover[ci:cj].replace('<svg', '<svg data-keep="1"')
@@ -717,7 +720,7 @@ def plan(pg):
     parts = [(P['5.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'cheese', T))]
     for i, l in enumerate(layers):
         assert l.count('<div class="tlayer"') == 1
-        l = l.replace('<div class="tlayer"', '<div data-li="%d" data-crack="%s" class="tlayer"' % (i, html.escape(json.dumps(dict(T['crack'], **T['crack2']), ensure_ascii=False))), 1)
+        l = l.replace('<div class="tlayer"', '<div data-li="%d" data-crack="%s" class="tlayer"' % (i, html.escape(json.dumps(dict(T['crack'], castle=T['games51']['castle'], stamps=T['games51']['stamps'], **T['crack2']), ensure_ascii=False))), 1)
         parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
     dets = [b for b in B if b.startswith('<details') and 'aside-note' not in b[:60]]      # the older-framing footnote stays on the long page only
     dets = [rebuild(d, 0, 'levers', pg.lang) if 'exfold' in d[:40] and k == 0 else (rebuild(d, 0, 'orgs', pg.lang) if 'exfold' in d[:40] and k == 1 else d) for k, d in enumerate(dets)]
@@ -728,6 +731,20 @@ def plan(pg):
     game = '<figure class="secfig dk-int dkw-defend" data-w="defend" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div></figure>' % (
         html.escape(json.dumps(D, ensure_ascii=False)), E(D['title']))
     parts.append((P['5.1'][1], part_head(H['5.1f']) + game + ''.join(dets)))
+    # games built from the techniques' own names and weak spots
+    techs = []
+    for li, l in enumerate(layers):
+        for tc in re.findall(r'<div class="tcard"[^>]*>.*?<button type="button" class="tmore-btn"', l, re.S):
+            nm = text(re.search(r'<p class="tn">(.*?)</p>', tc, re.S).group(1))
+            st = re.search(r'<p class="tstop"><b>.*?</b>(.*?)</p>', tc, re.S)
+            if st: techs.append(dict(n=nm, l=li, w=text(re.sub(r'<a class="ref"[^>]*>.*?</a>|<span class="term-tip"[^>]*>.*?</span>', '', st.group(1)))))
+    assert len(techs) >= 12, len(techs)
+    G5 = T['games51']
+    def gfig(kind, cfg):
+        return '<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div></figure>' % (
+            kind, kind, html.escape(json.dumps(cfg, ensure_ascii=False)), E(cfg['title']))
+    parts.append((G5['chips'][0], part_head(H['5.1g']) + gfig('match', dict(G5['match'], techs=techs))))
+    parts.append((G5['chips'][1], part_head(H['5.1h']) + gfig('heist', dict(G5['heist'], techs=techs, layers=lname))))
     add(ch, parts)
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']
@@ -880,7 +897,7 @@ def build(pg, en_colors=None):
                 dict(k=T['checks_k'], q=q, opts=opts, right=right, why=why, ok=T['right'], no=T['wrongp']), ensure_ascii=False)))
         if x['key'] == 'anthem':
             total = len([1 for y in S if y is S[first[y['sec']['id']]] and y['sec'].get('num')])
-            body = '<div class="dk-results" data-c="%s"></div>' % html.escape(json.dumps(dict(T['results'], total=total, nchecks=len(T['checks'])), ensure_ascii=False)) + body
+            body = '<div class="dk-results" data-c="%s"></div>' % html.escape(json.dumps(dict(T['results'], total=total, nchecks=len(T['checks']), badge=T['games51']['badge'], badge_row=T['games51']['badge_row']), ensure_ascii=False)) + body
         colors[x['key']] = got
         same = [y for y in S if y['sec'] is sec]
         chips = ''

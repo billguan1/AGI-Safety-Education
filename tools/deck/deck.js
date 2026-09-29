@@ -36,6 +36,12 @@
     try { document.dispatchEvent(new CustomEvent("dk-slide", {detail: i})); } catch (e) {}
   }
   window.__deckGo = go; window.__deckCur = function(){ return cur; };
+  /* switching language keeps the reader on the same slide (both decks share one slide order) */
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest("a[hreflang]"); if (!a) return;
+    var h = a.getAttribute("href"); if (!/^\/deck(-zh)?$/.test(h.split("#")[0])) return;
+    a.setAttribute("href", h.split("#")[0] + "#s=" + (cur + 1));
+  }, true);
   prev.addEventListener("click", function(){ go(cur - 1); });
   function fwd(){ var j = slides[cur].getAttribute("data-next"); return j !== null ? +j : cur + 1; }
   next.addEventListener("click", function(){ go(fwd()); });
@@ -596,6 +602,59 @@
     paint();
   };
 
+  function shuffle(a){ for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* 5.1 match the crack: five rounds, each a real weak spot and three technique names */
+  R.match = function(box, C){
+    var T = C.techs, ROUNDS = 5, order, round, score;
+    function start(){ order = shuffle(T.slice()).slice(0, ROUNDS); round = 0; score = 0; ask(); }
+    function ask(){
+      var t = order[round], others = shuffle(T.filter(function(x){ return x.n !== t.n; })).slice(0, 2), opts = shuffle([t].concat(others));
+      box.innerHTML = '<p class="mc-count">' + esc(C.score.replace("{s}", score).replace("{t}", ROUNDS)) + '</p>' +
+        '<blockquote class="mc-crack">⚡ ' + esc(t.w) + '</blockquote><p class="dki-q2">' + esc(C.q) + '</p><div class="dki-opts">' +
+        opts.map(function(o){ return '<button type="button" class="dki-opt" data-n="' + esc(o.n) + '">' + esc(o.n) + '</button>'; }).join("") + '</div><p class="dki-say" aria-live="polite"></p>';
+      [].forEach.call(box.querySelectorAll(".dki-opt"), function(b){ b.addEventListener("click", function(){
+        var ok = b.getAttribute("data-n") === t.n; if (ok) score++;
+        [].forEach.call(box.querySelectorAll(".dki-opt"), function(x){ x.disabled = true; x.className = "dki-opt" + (x.getAttribute("data-n") === t.n ? " dki-right" : (x === b ? " dki-wrong" : "")); });
+        var say = box.querySelector(".dki-say"); say.textContent = ok ? C.right : C.wrong.replace("{n}", t.n);
+        box.querySelector(".mc-count").textContent = C.score.replace("{s}", score).replace("{t}", ROUNDS);
+        var nb = document.createElement("button"); nb.type = "button"; nb.className = "dki-go"; round++;
+        nb.textContent = round < ROUNDS ? C.next : C.again;
+        if (round >= ROUNDS) { say.textContent += " " + C.done.replace("{s}", score).replace("{t}", ROUNDS); document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "match", right: score >= 4, val: score}})); }
+        nb.addEventListener("click", function(){ if (round < ROUNDS) ask(); else start(); });
+        box.appendChild(nb); nb.focus({preventScroll: true});
+      }); });
+    }
+    start();
+  };
+
+  /* 5.1 the heist: you are the AI; every door has a real weak spot to slip through */
+  R.heist = function(box, C){
+    var li;
+    function start(){ li = 0; box.innerHTML = '<div class="hs-map"></div><div class="hs-step"></div>'; layer(); }
+    function map(){
+      return C.layers.map(function(L, k){ return '<span class="hs-l' + (k < li ? " hs-done" : (k === li ? " hs-now" : "")) + '">' + (k < li ? "✓ " : "") + esc(L) + '</span>'; }).join('<i aria-hidden="true">→</i>') +
+        '<i aria-hidden="true">→</i><span class="hs-l hs-exit' + (li >= C.layers.length ? " hs-done" : "") + '">🚪</span>';
+    }
+    function layer(){
+      box.querySelector(".hs-map").innerHTML = map();
+      var step = box.querySelector(".hs-step");
+      if (li >= C.layers.length) { step.innerHTML = '<p class="df-verdict df-v2">' + esc(C.out) + '</p><button type="button" class="dki-go">' + esc(C.again) + '</button>';
+        step.querySelector("button").addEventListener("click", start); return; }
+      var doors = C.techs.filter(function(t){ return t.l === li; });
+      step.innerHTML = '<p class="dki-q2">' + esc(C.pick.replace("{n}", li + 1).replace("{name}", C.layers[li])) + '</p><div class="hs-doors">' +
+        doors.map(function(d, k){ return '<button type="button" class="hs-door" data-k="' + k + '"><span class="hs-knob" aria-hidden="true"></span>' + esc(d.n) + '</button>'; }).join("") + '</div>';
+      [].forEach.call(step.querySelectorAll(".hs-door"), function(b){ b.addEventListener("click", function(){
+        var d = doors[+b.getAttribute("data-k")];
+        [].forEach.call(step.querySelectorAll(".hs-door"), function(x){ x.disabled = true; if (x !== b) x.classList.add("hs-dim"); });
+        b.classList.add("hs-open");
+        var p = document.createElement("div"); p.className = "hs-slip"; p.innerHTML = '<b>' + esc(C.slip) + '</b>' + esc(d.w); step.appendChild(p);
+        setTimeout(function(){ li++; layer(); }, window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 900 : 2600);
+      }); });
+    }
+    start();
+  };
+
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){
     var kind = fig.getAttribute("data-w"), box = fig.querySelector(".dki-body"), C;
@@ -675,6 +734,8 @@
 
   /* answers from the games, and the funding guess */
   document.addEventListener("dk-answer", function(e){ var d = e.detail || {}; if (d.id) { P.ans[d.id] = d; save(); } });
+  /* cracked technique cards stay cracked across visits */
+  document.querySelectorAll(".tk-card").forEach(function(c){ var nm = c.querySelector(".tn"); if (nm && P.ans["crack-" + nm.textContent.trim()] && !c.classList.contains("tk-open")) c.click(); });
   var betGo = document.getElementById("bet-fund-go");
   if (betGo) betGo.addEventListener("click", function(){ var v = document.getElementById("bet-fund-val"); if (v) { P.guess = v.textContent.trim(); save(); } });
 
@@ -694,6 +755,7 @@
       row(C.guess, P.guess || C.none) + row(C.real, C.realv) +
       row(C.race, race ? (C.raced[race.val] || C.none) : C.none) +
       row(C.loop, loops ? lr + " / " + loops : C.none) +
+      (document.querySelectorAll(".tk-card").length && Object.keys(P.ans).filter(function(k){ return k.indexOf("crack-") === 0; }).length >= document.querySelectorAll(".tk-card").length && C.badge ? row(C.badge_row, "🏅 " + C.badge) : "") +
       '<button type="button" class="dki-go dk-share">' + esc(C.share) + '</button><p class="dki-say dk-r-msg" aria-live="polite"></p>';
     box.querySelector(".dk-share").addEventListener("click", function(){
       var text = C.text.replace("{c}", st[0] + "/" + st[1]).replace("{k}", right + "/" + C.nchecks).replace("{g}", P.guess || "?"),
@@ -777,11 +839,18 @@
     var cards = [].slice.call(layer.querySelectorAll(".tcard")), found = 0;
     if (!cards.length) return;
     var bar = document.createElement("div"); bar.className = "tk-bar";
-    bar.innerHTML = '<span class="tk-hint">' + C.hint + '</span><b class="tk-count" aria-live="polite"></b>';
+    bar.innerHTML = '<span class="tk-hint">' + C.hint + '</span><b class="tk-count" aria-live="polite"></b>' +
+      (C.castle ? '<div class="tk-castle" data-li="' + layer.getAttribute("data-li") + '"><svg viewBox="0 0 220 120" role="img" aria-label="' + C.castle.label + '">' +
+        '<path class="cs-p cs-p0" d="M4 104 Q110 128 216 104 L216 118 L4 118 Z"/>' +
+        '<rect class="cs-p cs-p2" x="40" y="56" width="140" height="50"/><path class="cs-p cs-p2" d="M40 56 v-8 h14 v8 h14 v-8 h14 v8 h14 v-8 h14 v8 h14 v-8 h14 v8 h14 v-8 h14 v8"/>' +
+        '<rect class="cs-p cs-p1" x="92" y="20" width="36" height="86"/><path class="cs-p cs-p1" d="M92 20 v-8 h9 v8 h9 v-8 h9 v8 h9 v-8"/>' +
+        '<path class="cs-pole" d="M110 12 V-2"/><path class="cs-p cs-p3" d="M110 -2 L132 4 L110 10 Z"/>' +
+        '<path class="cs-gate" d="M100 106 v-18 a10 10 0 0 1 20 0 v18"/><g class="cs-cracks"></g></svg>' +
+        '<span class="tk-stamps"></span></div>' : '');
     layer.insertBefore(bar, layer.querySelector(".tgrid") || cards[0]);
     var done = document.createElement("p"); done.className = "tk-done"; done.hidden = true; done.textContent = C.done;
     layer.appendChild(done);
-    function paint(){ bar.querySelector(".tk-count").textContent = C.count.replace("{n}", found).replace("{t}", cards.length); done.hidden = found < cards.length; }
+    function paint(){ bar.querySelector(".tk-count").textContent = C.count.replace("{n}", found).replace("{t}", cards.length); done.hidden = found < cards.length; if (window.__dkCastle) window.__dkCastle(); }
     cards.forEach(function(c){
       c.classList.add("tk-card"); c.setAttribute("tabindex", "0"); c.setAttribute("role", "button"); c.setAttribute("aria-expanded", "false");
       var li = +(layer.getAttribute("data-li") || 0), stop = c.querySelector(".tstop");
@@ -807,6 +876,7 @@
       function crack(){
         if (c.classList.contains("tk-open")) return;
         c.classList.add("tk-open"); c.setAttribute("aria-expanded", "true"); found++; paint();
+        var nm = c.querySelector(".tn"); document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "crack-" + (nm ? nm.textContent.trim() : found), right: true}}));
       }
       c.addEventListener("click", function(e){ if (e.target.closest && e.target.closest("a")) return; crack(); });
       c.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); crack(); } });
@@ -888,4 +958,24 @@
   document.addEventListener("dk-slide", later);
   (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(later);
   setTimeout(align, 400);
+})();
+
+
+(function(){
+  /* the castle on every layer slide: cracks for every weak spot found, per part */
+  var SPOT = [[[30,108],[70,112],[150,112],[190,108],[110,114]], [[98,34],[122,48],[100,62],[120,78],[104,92]], [[52,70],[70,90],[150,70],[168,92],[60,100]], [[112,0],[122,4],[116,8],[126,2],[114,5]]];
+  function crack(x, y, big){ var s = big ? 1 : .6; return '<path d="M' + x + ' ' + y + ' l' + 4*s + ' ' + 6*s + ' l' + -5*s + ' ' + 4*s + ' l' + 5*s + ' ' + 7*s + '" />'; }
+  window.__dkCastle = function(){
+    var per = [0, 0, 0, 0], total = 0, all = document.querySelectorAll(".tlayer[data-crack] .tk-card").length;
+    document.querySelectorAll(".tlayer[data-crack]").forEach(function(L){ var li = +L.getAttribute("data-li"); per[li] = L.querySelectorAll(".tk-card.tk-open").length; total += per[li]; });
+    document.querySelectorAll(".tk-castle").forEach(function(box){
+      var cur = +box.getAttribute("data-li"), g = box.querySelector(".cs-cracks"), html = "";
+      per.forEach(function(n, k){ for (var i = 0; i < Math.min(n, 5); i++) html += crack(SPOT[k][i][0], SPOT[k][i][1], k !== 3); });
+      g.innerHTML = html;
+      box.querySelectorAll(".cs-p").forEach(function(p){ var k = +/cs-p(\d)/.exec(p.getAttribute("class"))[1]; p.classList.toggle("cs-now", k === cur); });
+      var layer = box.closest(".tlayer"), C = JSON.parse(layer.getAttribute("data-crack"));
+      box.querySelector(".tk-stamps").textContent = C.stamps.replace("{n}", total).replace("{t}", all);
+    });
+  };
+  window.__dkCastle();
 })();
