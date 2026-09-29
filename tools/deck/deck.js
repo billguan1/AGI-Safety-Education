@@ -39,7 +39,7 @@
   /* switching language keeps the reader on the same slide (both decks share one slide order) */
   document.addEventListener("click", function(e){
     var a = e.target.closest && e.target.closest("a[hreflang]"); if (!a) return;
-    var h = a.getAttribute("href"); if (!/^\/deck(-zh)?$/.test(h.split("#")[0])) return;
+    var h = a.getAttribute("href"); if (!/^\/(deck(-zh)?|index-zh)?$/.test(h.split("#")[0])) return;
     a.setAttribute("href", h.split("#")[0] + "#s=" + (cur + 1));
   }, true);
   prev.addEventListener("click", function(){ go(cur - 1); });

@@ -12,7 +12,7 @@ ZH_FONTS = 'https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:w
 
 T = {
  'en': dict(
-    fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
+    fonts=EN_FONTS, lang_from='/index-zh', lang_to='/index-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
     intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say',
     worded=dict(short=['It meets the literal goal in a way you would never have approved.', 'Nothing in the goal says when to stop, so it keeps turning the world into whatever helps.'], asked='You ask', did='It does', rows=[('Make people smile', 'Wires their face muscles into a grin'), ('Maximize the reward', 'Grabs the button that hands out reward')], steps=['Compute', 'Energy', 'Material', 'More', 'More'], done='Done',
@@ -205,7 +205,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
     ],
  ),
  'zh': dict(
-    fonts=ZH_FONTS, lang_from='/', lang_to='/deck',
+    fonts=ZH_FONTS, lang_from='/', lang_to='/',
     css=(':root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;'
          '--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;'
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'

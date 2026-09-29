@@ -1164,8 +1164,7 @@ def deck_bar(pg, segs):
 def page(pg, slides, segs, S):
     s = pg.s; T = pg.T
     head = s[:s.index('<body')]
-    head, nr = re.subn(r'<meta name="robots" content="[^"]*">', '<meta name="robots" content="noindex, nofollow">', head)
-    assert nr == 1 and head.count('name="robots"') == 1
+    assert head.count('name="robots"') == 1        # the deck is the home page: it keeps the long page's indexable robots tag
     fonts = T['fonts']
     head = head.replace('</head>', ('<link rel="stylesheet" href="%s" media="print" onload="this.media=\'all\'">'
                                     '<noscript><link rel="stylesheet" href="%s"></noscript>\n'
@@ -1243,6 +1242,40 @@ def main():
         print('wrote %s: %d slides, %d KB' % (pg.out, len(S_en), len(doc) // 1024))
     comic_reference('reference.html', TXT.EN_FONTS)
     comic_reference('reference-zh.html', TXT.ZH_FONTS)
+    make_guides()
+
+GUIDE_SWAPS = {
+    'index.html': ('guide.html', [
+        ('<link rel="canonical" href="https://safeagi.ca/">', '<link rel="canonical" href="https://safeagi.ca/guide">'),
+        ('hreflang="en" href="https://safeagi.ca/">', 'hreflang="en" href="https://safeagi.ca/guide">'),
+        ('hreflang="zh-Hans" href="https://safeagi.ca/index-zh">', 'hreflang="zh-Hans" href="https://safeagi.ca/guide-zh">'),
+        ('hreflang="x-default" href="https://safeagi.ca/">', 'hreflang="x-default" href="https://safeagi.ca/guide">'),
+        ('<meta property="og:url" content="https://safeagi.ca/">', '<meta property="og:url" content="https://safeagi.ca/guide">'),
+        ('"@id": "https://safeagi.ca/#article"', '"@id": "https://safeagi.ca/guide#article"'),
+        ('"mainEntityOfPage": "https://safeagi.ca/"', '"mainEntityOfPage": "https://safeagi.ca/guide"'),
+        ('"@id": "https://safeagi.ca/#faq"', '"@id": "https://safeagi.ca/guide#faq"'),
+        ('<a class="hbtn hbtn-lang" href="/index-zh" hreflang="zh-Hans">', '<a class="hbtn hbtn-lang" href="/guide-zh" hreflang="zh-Hans">')]),
+    'index-zh.html': ('guide-zh.html', [
+        ('<link rel="canonical" href="https://safeagi.ca/index-zh">', '<link rel="canonical" href="https://safeagi.ca/guide-zh">'),
+        ('hreflang="en" href="https://safeagi.ca/">', 'hreflang="en" href="https://safeagi.ca/guide">'),
+        ('hreflang="zh-Hans" href="https://safeagi.ca/index-zh">', 'hreflang="zh-Hans" href="https://safeagi.ca/guide-zh">'),
+        ('hreflang="x-default" href="https://safeagi.ca/">', 'hreflang="x-default" href="https://safeagi.ca/guide">'),
+        ('<meta property="og:url" content="https://safeagi.ca/index-zh">', '<meta property="og:url" content="https://safeagi.ca/guide-zh">'),
+        ('"@id": "https://safeagi.ca/index-zh#article"', '"@id": "https://safeagi.ca/guide-zh#article"'),
+        ('"mainEntityOfPage": "https://safeagi.ca/index-zh"', '"mainEntityOfPage": "https://safeagi.ca/guide-zh"'),
+        ('"@id": "https://safeagi.ca/index-zh#faq"', '"@id": "https://safeagi.ca/guide-zh#faq"'),
+        ('<a class="hbtn hbtn-lang" href="/" hreflang="en">', '<a class="hbtn hbtn-lang" href="/guide" hreflang="en">')])}
+
+def make_guides():
+    """The long page, published at /guide and /guide-zh now that the deck is the home page: same file, its own address."""
+    for src, (out, swaps) in GUIDE_SWAPS.items():
+        s = open(os.path.join(ROOT, src), encoding='utf-8').read()
+        for a, b in swaps:
+            assert s.count(a) == 1, (src, a, s.count(a))
+        for a, b in swaps:
+            s = s.replace(a, b, 1)
+        open(os.path.join(ROOT, out), 'w', encoding='utf-8').write(s)
+        print('wrote %s' % out)
 
 if __name__ == '__main__':
     main()

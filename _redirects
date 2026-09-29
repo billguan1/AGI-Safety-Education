@@ -1,3 +1,6 @@
 # /debate was removed on 2026-09-08. Keep the old URL from hard-404ing.
 /debate    /    301
 /debate.html    /    301
+# The comic deck became the home page on 2026-09-29.
+/deck    /    301
+/deck-zh    /index-zh    301
