@@ -1050,6 +1050,23 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (max-width:760px){.dke{grid-template-columns:1fr 1fr 1.8fr!important;--S:118px!important}}
 .t-body .endc .dk-scene{display:block;width:100%;max-width:240px;height:auto;margin:8px 0 6px}
 /* the five subgoals are tabs, so they look pressable, apart from the static name tags elsewhere */
+/* 2.1b: a small picture above each card's heading */
+.wf{margin:10px 0 12px;font-family:var(--body);color:#1b1b1b}
+.wf-sq{display:flex;align-items:flex-end;gap:14px}
+.wf-sq div{display:grid;justify-items:center;gap:4px;text-align:center}
+.wf-sq span{font-size:13px;font-weight:700;color:#5c574e;max-width:12ch;line-height:1.2}
+.wf-sq i{display:grid;place-items:center;border:2.5px solid #1b1b1b;background:#fff6d8}
+.wf-s1{width:10px;height:10px} .wf-s2{width:86px;height:86px;background:#e8b53a!important;box-shadow:3px 3px 0 #1b1b1b}
+.wf-s2 b{font-family:var(--comic);font-size:26px;font-style:normal}
+.wf-bars{display:grid;gap:6px}
+.wf-row{display:grid;grid-template-columns:minmax(0,8.5em) minmax(0,1fr);align-items:center;gap:8px}
+.wf-row span{font-size:13px;font-weight:700;line-height:1.2}
+.wf-row i{display:block;width:var(--w);height:16px;border:2px solid #1b1b1b;border-radius:3px;background:var(--c)}
+.wf-note{margin:2px 0 0;font-size:13px;font-weight:700;color:#5c574e}
+.wf-nums{display:flex;gap:16px;flex-wrap:wrap}
+.wf-nums div{display:grid;gap:2px}
+.wf-nums b{font-family:var(--comic);font-size:34px;line-height:1;color:#1b1b1b}
+.wf-nums span{font-size:13px;font-weight:700;color:#5c574e;max-width:14ch;line-height:1.2}
 /* 4.1c: pictures inside the two cards */
 .wl-fig{margin:14px 0 0!important;padding:0!important;border:0!important;box-shadow:none!important;background:transparent!important}
 .wl-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;gap:8px;margin-top:8px}
