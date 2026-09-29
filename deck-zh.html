@@ -2706,6 +2706,9 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body a.care-c:nth-child(2) .care-ic{background:#f6e7c1}
 .t-body a.care-c:nth-child(3) .care-ic{background:#dbe2f6}
 .t-body .care-top{margin-bottom:8px}
+/* icon centred in the card; the number stays pinned to the top-left corner */
+.t-body .care-top{position:relative;justify-content:center;min-height:52px}
+.t-body .care-top .care-n{position:absolute;left:0;top:0}
 /* disaster odds as tiles */
 .dkr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .dkr-tile{display:grid;gap:2px;align-content:start;padding:14px 16px;border:2.5px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b;border-top:8px solid #d9492c}
