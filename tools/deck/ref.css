@@ -54,3 +54,10 @@ a,#sources a{color:#2f5aa8!important}
 .gauge,.gtrack{filter:none}
 footer{background:transparent!important;color:#3b3833!important;font-family:var(--body)!important;border-top:3px solid #1b1b1b!important}
 footer a{color:#2f5aa8!important}
+/* FAQ side-by-side views and verdict boxes */
+.side,.side.one,.side.two{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-radius:8px!important;box-shadow:4px 4px 0 #1b1b1b;color:#1b1b1b!important}
+.side.one{border-top:10px solid #d9492c!important} .side.two{border-top:10px solid #4a5fc9!important}
+.side *,.dis *{color:#1b1b1b!important;font-family:var(--body)!important}
+.dis{background:#fffdf6!important;border:2.5px solid #1b1b1b!important;border-radius:8px!important;box-shadow:3px 3px 0 #1b1b1b}
+.verdict{background:#fff6d8!important;border:2.5px solid #1b1b1b!important;border-left:10px solid #e8b53a!important;border-radius:8px!important;color:#1b1b1b!important;font-family:var(--body)!important}
+.gtrack{background:#f4ecd8!important;border:2px solid #1b1b1b!important}
