@@ -86,6 +86,8 @@ html,body{height:100%;overflow:hidden;background:var(--paper)}
 .b2-next button{min-height:48px;padding:0 24px;border-radius:99px;border:0;background:var(--acc,#8d9dff);color:#0b0f12;font-size:12.5px}
 .b2-next button.t-cont{background:transparent;color:var(--p-ink);border:1px solid var(--p-line)}
 @media (max-width:900px){ .t-body .ddgrid.three,.t-body .ddgrid.two{grid-template-columns:1fr} }
+/* five cards in a three-column grid: centre the second row */
+@media (min-width:901px){ .t-body .ddgrid.three:has(>:nth-child(5):last-child){grid-template-columns:repeat(6,1fr)} .t-body .ddgrid.three:has(>:nth-child(5):last-child)>*{grid-column:span 2} .t-body .ddgrid.three:has(>:nth-child(5):last-child)>:nth-child(4){grid-column:2/span 2} }
 
 /* one accent per chapter; text stays neutral */
 .slide{--acc:var(--c-acc)}

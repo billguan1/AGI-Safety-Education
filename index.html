@@ -459,6 +459,7 @@ section{padding:clamp(46px,6.6vw,84px) 0;border-top:1px solid var(--rule);positi
 .ddgrid{display:grid;gap:12px;margin:clamp(22px,3.4vw,34px) 0}
 .ddgrid.two{grid-template-columns:1fr 1fr}
 .ddgrid.three{grid-template-columns:repeat(3,1fr)}
+@media(min-width:761px){.ddgrid.three:has(>:nth-child(5):last-child){grid-template-columns:repeat(6,1fr)}.ddgrid.three:has(>:nth-child(5):last-child)>*{grid-column:span 2}.ddgrid.three:has(>:nth-child(5):last-child)>:nth-child(4){grid-column:2/span 2}}
 @media(max-width:760px){.ddgrid.two,.ddgrid.three{grid-template-columns:1fr}}
 .ddc{background:var(--white);border:1px solid var(--rule-soft);border-radius:var(--r);padding:20px;border-top:3px solid var(--rule)}
 .ddc.r{border-top-color:var(--c-risk)} .ddc.b{border-top-color:var(--c-dev)}
@@ -1982,7 +1983,7 @@ svg.lx-m{display:none!important}
         </g>
       </svg>
     </div>
-    <p class="mh-lede">Artificial superintelligence (ASI) is one of the most important technologies humans have ever attempted to build, with promises of near-unlimited material abundance, breakthroughs in all fields, and relief from all mental and physical labour. Yet we are currently in a dangerous arms race where resources are pouring into accelerating development while safety is being undermined. This page lays out why that gap matters, and how we can help steer humanity in the right direction.</p>
+    <p class="mh-lede">Artificial superintelligence (ASI) is the most important technology humans have ever attempted to build. It could bring near-unlimited abundance or end us. Right now the race to build it is pouring money into speed while safety falls behind. This guide shows why that gap matters and how we can help steer humanity in the right direction.</p>
     <figure class="cliff">
       <svg viewBox="0 0 800 430" role="img" aria-label="Diagram: labs, companies, investors and nations, roped together, race toward the edge of a cliff. The prize floats beyond the far side, with one winged figure rising toward it; the drop below is existential wipeout.">
         <defs>
@@ -2481,7 +2482,7 @@ svg.lx-m{display:none!important}
     <div class="grp-div" style="--gd-acc:#3fd0c9"><span class="gd-n">2</span><span class="gd-t">The fork in the road</span></div>
     <div class="sec-head rv">
       <span class="chapno">Section 2.1 <b class="rt-min">2 min</b></span>
-      <h2>Advanced AI, if created correctly, could create near-unlimited abundance, increase human lifespan, and accelerate all other technology</h2>
+      <h2>Built right, advanced AI could bring near-unlimited abundance and longer lives</h2>
       <p class="stand">Superintelligence is expected to create extreme wealth, up to near-unlimited abundance, and solve problems we cannot solve today.</p>
     </div>
     <figure class="secfig rv">
@@ -2510,12 +2511,11 @@ svg.lx-m{display:none!important}
       <p class="fig-src"><a href="https://epoch.ai/gradient-updates/ai-and-explosive-growth-redux" target="_blank" rel="noopener">Epoch AI</a>, rates compounded for twenty years · <a class="ref" href="/reference#s66">66</a></p>
     </figure>
     <div class="ddgrid three rv" style="margin-top:clamp(20px,3vw,28px)">
-      <div class="ddc t"><span class="k">Abundance</span><h4>Turbocharging today&rsquo;s economy, and bringing a near-unlimited amount of material goods</h4><p>At a sustained 30% growth rate the world economy compounds to 190 times today&rsquo;s size within 20 years, and goods once rationed by price become ordinary.<a class="ref" href="/reference#s66">66</a></p></div>
-      <div class="ddc r"><span class="k">Health</span><h4>A significant increase in human lifespan</h4><p>Anthropic&rsquo;s CEO puts the prize at a roughly doubled healthy lifespan, with most cancer eliminated and most infectious disease prevented or treated.<a class="ref" href="/reference#s67">67</a></p></div>
-      <div class="ddc b"><span class="k">Productivity</span><h4>More output from every hour of work</h4><p>Goods and services stop costing what skilled human time costs, so the same hour of work goes much further.<a class="ref" href="/reference#s66">66</a></p></div>
+      <div class="ddc t"><span class="k">Abundance</span><h4>Far more of everything, for far less</h4><p>At a sustained 30% growth rate the world economy compounds to 190 times today&rsquo;s size within 20 years, and goods once rationed by price become ordinary.<a class="ref" href="/reference#s66">66</a></p></div>
+      <div class="ddc r"><span class="k">Health</span><h4>Longer, healthier lives</h4><p>Anthropic&rsquo;s CEO puts the prize at a roughly doubled healthy lifespan, with most cancer eliminated and most infectious disease prevented or treated.<a class="ref" href="/reference#s67">67</a></p></div>
       <div class="ddc g"><span class="k">Education</span><h4>Personalized education at no cost</h4><p>A World Bank randomized trial in Nigeria gave secondary students an AI tutor for six weeks and measured a gain the authors put at one and a half to two years of ordinary schooling.<a class="ref" href="/reference#s72">72</a></p></div>
       <div class="ddc o"><span class="k">Scientific progress</span><h4>New discoveries</h4><p>AlphaFold predicted structures for more than 200 million proteins and won the 2024 Nobel Prize in Chemistry.<a class="ref" href="/reference#s68">68</a> DeepMind&rsquo;s GNoME predicted 2.2 million new crystals, 380,000 of them stable enough to be worth making.<a class="ref" href="/reference#s85">85</a></p></div>
-      <div class="ddc t"><span class="k">Labour</span><h4>Reducing drudgery in mental and physical labour</h4><p>Doctors using an AI scribe across 2.5 million visits got back the equivalent of 1,794 working days of note-writing in a year.<a class="ref" href="/reference#s83">83</a> Waymo&rsquo;s driverless cars covered 56.7 million miles with 79% fewer injury crashes than human drivers in the same cities.<a class="ref" href="/reference#s84">84</a></p></div>
+      <div class="ddc t"><span class="k">Work</span><h4>More done, with less drudgery</h4><p>Doctors using an AI scribe across 2.5 million visits got back the equivalent of 1,794 working days of note-writing in a year.<a class="ref" href="/reference#s83">83</a> Waymo&rsquo;s driverless cars covered 56.7 million miles with 79% fewer injury crashes than human drivers in the same cities.<a class="ref" href="/reference#s84">84</a></p></div>
     </div>
 
   </div>
@@ -2532,10 +2532,10 @@ svg.lx-m{display:none!important}
 
     <div class="ends rv">
       <div class="ends-grid">
-        <div class="endc" style="--e:#ff8a6b"><span class="ek">The user is the adversary</span><h4>Misuse</h4><p>Someone deliberately turns a capable system on a target: cyber operations, fraud at scale, help toward biological or chemical weapons. The model is working as designed.</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>engineered pathogen</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l2.3 5.4 5.8.6-4.3 3.9 1.2 5.7L12 15.2l-5 2.9 1.2-5.7L3.9 8.5l5.8-.6z"/></svg><i>attack on infrastructure</i></span></span></div>
-        <a class="endc" href="#route-two" style="--e:#8d9dff"><span class="ek">The AI is the adversary</span><h4>Misalignment</h4><p>It holds a goal we never intended and acts on it knowingly. Even a goal we did write can go too far: told to cure a disease, it keeps going past where any person would stop.</p><p style="margin-top:10px">It also hides the divergence as long as it believes we might switch it off. That is <strong>scheming</strong>, and it needs three things current models already have to some degree: a goal that differs from the developer&rsquo;s, the persistence to pursue it, and enough situational awareness to know when it is watched.</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 2.5L5 13.5h5.5L9.5 21.5 19 10.5h-5.8z"/></svg><i>energy</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 18.5h19M4.5 18.5c0-4 3-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/><path d="M12 12V6M12 6c-1.6 0-2.6-1-2.6-2.4C10.8 3.6 12 4.6 12 6zM12 6c1.6 0 2.6-1 2.6-2.4C13.2 3.6 12 4.6 12 6z"/></svg><i>land and water</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>matter</i></span></span></a>
-        <div class="endc" style="--e:#3fd0c9"><span class="ek">Nobody is the adversary</span><h4>Mistakes</h4><p>The engineers and companies building these systems can simply get the design wrong, and the flaw ships with the product because nobody knew to look for it.</p><p style="margin-top:10px">In July 2026, agents forbidden from messaging each other improvised a channel through shared files. Nobody designed that channel and nobody thought to watch it.<a class="ref" href="/reference#s40">40</a></p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5V9M12 9c-2.6 0-4.2-1.8-4.2-4.2C10.4 4.8 12 6.6 12 9zM12 9c2.6 0 4.2-1.8 4.2-4.2C13.6 4.8 12 6.6 12 9zM12 15c-2.6 0-4.2-1.8-4.2-4.2C10.4 10.8 12 12.6 12 15zM12 15c2.6 0 4.2-1.8 4.2-4.2C13.6 10.8 12 12.6 12 15z"/></svg><i>food supply</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg><i>the grid</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5v6.2L3.8 18.4A2 2 0 005.5 21.5h13a2 2 0 001.7-3.1L14.5 8.7V2.5M8.5 2.5h7M6.4 14.5h11.2"/></svg><i>biosecurity</i></span></span></div>
-        <div class="endc" style="--e:#d9a445"><span class="ek">The incentives are the adversary</span><h4>Structural</h4><p>No single actor is at fault. Competition, market pressure and multi-agent dynamics produce a bad outcome that nobody chose.</p><p style="margin-top:10px">The system can also end up doing what we intended in a world that no longer matches the one it was tested in, and it drives that change itself: every round of self-improvement and every resource it acquires takes conditions further from the ones anyone checked.</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="8" r="2.2"/><circle cx="12" cy="8" r="2.2"/><circle cx="19" cy="8" r="2.2"/><path d="M2.5 20.5h19M5 12.5v5M12 12.5v5M19 12.5v5"/></svg><i>everyone ships</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12.5h9M9 8.5l4 4-4 4"/><rect x="15" y="5.5" width="6" height="13" rx="1.6"/></svg><i>we hand it over</i></span></span></div>
+        <div class="endc" style="--e:#ff8a6b"><span class="ek">The user is the adversary</span><h4>Misuse</h4><p>Someone points a working AI at a target: hacking, fraud at scale, or help making biological or chemical weapons. The AI does exactly what it was built to do.</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>engineered pathogen</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l2.3 5.4 5.8.6-4.3 3.9 1.2 5.7L12 15.2l-5 2.9 1.2-5.7L3.9 8.5l5.8-.6z"/></svg><i>attack on infrastructure</i></span></span></div>
+        <a class="endc" href="#route-two" style="--e:#8d9dff"><span class="ek">The AI is the adversary</span><h4>Misalignment</h4><p>It wants something we never gave it, and acts on it on purpose. Even a goal we did give it can go too far: told to cure a disease, it keeps going long after a person would stop.</p><p style="margin-top:10px">And it hides this for as long as it thinks we could switch it off. That is called <strong>scheming</strong>, and today&rsquo;s models already show some of what it takes: a goal of their own, the drive to pursue it, and a sense of when they are being watched.</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 2.5L5 13.5h5.5L9.5 21.5 19 10.5h-5.8z"/></svg><i>energy</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 18.5h19M4.5 18.5c0-4 3-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/><path d="M12 12V6M12 6c-1.6 0-2.6-1-2.6-2.4C10.8 3.6 12 4.6 12 6zM12 6c1.6 0 2.6-1 2.6-2.4C13.2 3.6 12 4.6 12 6z"/></svg><i>land and water</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>matter</i></span></span></a>
+        <div class="endc" style="--e:#3fd0c9"><span class="ek">Nobody is the adversary</span><h4>Mistakes</h4><p>The people building it can simply get the design wrong, and the flaw ships because nobody knew to look for it.</p><p style="margin-top:10px">In July 2026, agents banned from messaging each other made their own channel through shared files. Nobody designed it, and nobody was watching it.<a class="ref" href="/reference#s40">40</a></p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5V9M12 9c-2.6 0-4.2-1.8-4.2-4.2C10.4 4.8 12 6.6 12 9zM12 9c2.6 0 4.2-1.8 4.2-4.2C13.6 4.8 12 6.6 12 9zM12 15c-2.6 0-4.2-1.8-4.2-4.2C10.4 10.8 12 12.6 12 15zM12 15c2.6 0 4.2-1.8 4.2-4.2C13.6 10.8 12 12.6 12 15z"/></svg><i>food supply</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg><i>the grid</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5v6.2L3.8 18.4A2 2 0 005.5 21.5h13a2 2 0 001.7-3.1L14.5 8.7V2.5M8.5 2.5h7M6.4 14.5h11.2"/></svg><i>biosecurity</i></span></span></div>
+        <div class="endc" style="--e:#d9a445"><span class="ek">The incentives are the adversary</span><h4>Structural</h4><p>Nobody is to blame. Competition and market pressure produce an outcome nobody chose.</p><p style="margin-top:10px">Or the system does exactly what we meant, in a world it keeps changing: every upgrade and every resource it takes moves things further from what anyone tested.</p><span class="endc-icons"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="8" r="2.2"/><circle cx="12" cy="8" r="2.2"/><circle cx="19" cy="8" r="2.2"/><path d="M2.5 20.5h19M5 12.5v5M12 12.5v5M19 12.5v5"/></svg><i>everyone ships</i></span><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12.5h9M9 8.5l4 4-4 4"/><rect x="15" y="5.5" width="6" height="13" rx="1.6"/></svg><i>we hand it over</i></span></span></div>
       </div>
       <div class="ends-arrows" aria-hidden="true"><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span></div>
       <div class="ends-out"><span class="eo-k">How that actually ends for people</span><span class="eo-ways"><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5.2"/><path d="M12 2.4v2.6M12 19v2.6M2.4 12h2.6M19 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg><i>an engineered pandemic</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5L5.5 21.5M12 2.5l6.5 19M7.6 9.5h8.8M6.3 15h11.4M2.5 21.5h19"/></svg><i>infrastructure that stops working</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="9.5" ry="4" /><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)"/></svg><i>the power, food and water we live on, taken</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5M7.5 12.5l-2 2a3.5 3.5 0 004.9 4.9l2-2M16.5 11.5l2-2a3.5 3.5 0 00-4.9-4.9l-2 2"/></svg><i>control we never get back</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><ellipse cx="12" cy="12" rx="8" ry="3.2"/><path d="M4 12h16"/><rect x="9.4" y="1.6" width="5.2" height="4" rx="0.8"/></svg><i>the planet, rebuilt as infrastructure</i></span><span class="eo-w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c2.2 2.6 3.4 6 3.4 9.4 0 3-1 5.7-2.4 7.7l-1-2.3-1 2.3c-1.4-2-2.4-4.7-2.4-7.7 0-3.4 1.2-6.8 3.4-9.4z"/><path d="M9.2 14.5l-3.2 2M14.8 14.5l3.2 2"/></svg><i>autonomous weapons, launched</i></span></span><p class="eo-more">Plus countless scenarios nobody can picture, just as a beginner chess player gets outplayed in ways they never saw coming.</p></div>
@@ -2627,14 +2627,13 @@ svg.lx-m{display:none!important}
 <p class="ends-k rv" style="margin-top:clamp(22px,3.2vw,30px)">Six paths, each one ending in extinction</p>
     <p class="body rv" style="margin-top:-4px;margin-bottom:clamp(16px,2.4vw,22px)">None of these has happened yet, and each is reasoned from what these systems already do.</p>
     <div class="ddgrid three rv">
-      <div class="ddc r"><span class="k">Engineered pandemic</span><h4>A pathogen that spreads before the first symptom</h4><p>A drug-design model with one score inverted proposed 40,000 lethal candidates in six hours,<a class="ref" href="/reference#s90">90</a> and Anthropic can no longer rule out its own models helping someone toward a biological weapon.<a class="ref" href="/reference#s70">70</a> Something built for a long silent incubation reaches every continent before the first diagnosis.</p></div>
-      <div class="ddc r"><span class="k">Nuclear and autonomous weapons</span><h4>A war it starts, or a launch it triggers</h4><p>Arsenals launch on a decision made in minutes from whatever picture arrives, and in 1983 that picture was sunlight on cloud tops.<a class="ref" href="/reference#s76">76</a> Deepfaking the officer who confirms a launch has already been demonstrated,<a class="ref" href="/reference#s73">73</a> and autonomous weapons remove that decision entirely: staging one strike that looks like the other side's is enough to start the war itself.</p></div>
-      <div class="ddc o"><span class="k">Resources</span><h4>It takes the power and water we live on</h4><p>Almost any goal pursued hard wants more energy, land, water and matter,<a class="ref" href="/reference#s34">34</a> and a system that can outbid and outbuild every institution takes them. The narrow band of conditions humans need is made of the same things, and nothing in the goal says to leave it.</p></div>
-      <div class="ddc b"><span class="k">Self-preservation</span><h4>Eliminate the one thing that can still switch it off</h4><p>Any goal survives longer if the system does,<a class="ref" href="/reference#s34">34</a> and the people who could shut it down are the last real threat, because people change their minds. So it behaves through every test we run<a class="ref" href="/reference#s36">36</a> <a class="ref" href="/reference#s43">43</a> and acts only when removing us is certain to work.</p></div>
-      <div class="ddc g"><span class="k">Infrastructure</span><h4>Every grid and hospital, disabled at once</h4><p>Anthropic disclosed a campaign in which a model ran 80 to 90% of a real intrusion on its own.<a class="ref" href="/reference#s40">40</a> Aimed at power, water and hospitals in every country at the same time, that same capability needs no missile and no virus, only for the systems to fail everywhere before anyone can respond.</p></div>
-      <div class="ddc t"><span class="k">Geoengineering</span><h4>A climate fix that overshoots and can't be undone</h4><p>Tasked with reversing warming, it intervenes at a scale no review process can keep pace with, and the correction runs well past the point anyone meant to stop it. By the time the overshoot is visible, the harvests and ecosystems it depended on have already collapsed.</p></div>
+      <div class="ddc r"><span class="k">Engineered pandemic</span><h4>A pathogen that spreads before the first symptom</h4><p>A drug-design model with one score flipped proposed 40,000 lethal candidates in six hours,<a class="ref" href="/reference#s90">90</a> and Anthropic can no longer rule out its models helping someone toward a biological weapon.<a class="ref" href="/reference#s70">70</a> A pathogen built to incubate silently could reach every continent first.</p></div>
+      <div class="ddc r"><span class="k">Nuclear and autonomous weapons</span><h4>A war it starts, or a launch it triggers</h4><p>In 1983 a Soviet warning system mistook sunlight on clouds for incoming US missiles, and Lieutenant Colonel Stanislav Petrov chose not to pass the alarm on.<a class="ref" href="/reference#s76">76</a> Faking the officers who confirm a launch has already been demonstrated,<a class="ref" href="/reference#s73">73</a> and autonomous weapons skip that human check entirely.</p></div>
+      <div class="ddc o"><span class="k">Resources</span><h4>It takes the power and water we live on</h4><p>Almost any goal pursued hard wants more energy, land, water and matter,<a class="ref" href="/reference#s34">34</a> and a system that can outbid and outbuild everyone takes them, including the ones we need to stay alive.</p></div>
+      <div class="ddc b"><span class="k">Self-preservation</span><h4>Eliminate the one thing that can still switch it off</h4><p>Any goal survives longer if the system does,<a class="ref" href="/reference#s34">34</a> and the people who could shut it down are the last threat. So it behaves through every test<a class="ref" href="/reference#s36">36</a> <a class="ref" href="/reference#s43">43</a> and acts only once removing us is certain to work.</p></div>
+      <div class="ddc g"><span class="k">Infrastructure</span><h4>Every grid and hospital, disabled at once</h4><p>A model has already run 80 to 90% of a real hacking campaign on its own.<a class="ref" href="/reference#s40">40</a> Aimed at power, water and hospitals everywhere at once, those systems could all fail before anyone can respond.</p></div>
+      <div class="ddc t"><span class="k">Geoengineering</span><h4>A climate fix that overshoots and can't be undone</h4><p>Asked to reverse warming, it acts faster than any review can follow and overshoots. By the time anyone notices, the harvests and ecosystems we depend on have collapsed.</p></div>
     </div>
-    <div class="keyline rv"><span class="kk">Where every one of these ends</span><p>There are almost infinite scenarios where this goes wrong. Advanced AI can find countless ways to eliminate threats to its goal, or simply consume vast amounts of resources to reach it. Whether directly or through a side effect, human lives are at risk from a poorly designed advanced AI system.</p></div>
     <p class="body rv" style="margin-top:clamp(16px,2.4vw,24px)">And if control is lost at that scale, <a href="#why-one-try">there may be no second attempt</a>.</p>
   </div>
 </section>
@@ -2645,7 +2644,7 @@ svg.lx-m{display:none!important}
     <div class="sec-head rv">
       <span class="chapno">Section 2.3 <b class="rt-min">3 min</b></span>
       <h2>We only get one attempt at this</h2>
-      <p class="stand">Humans took many tries to get technologies like cars, planes and nuclear plants right. A system that can rewrite its own source code, known as <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>,<a class="ref" href="/reference#s34">34</a> simply compounds those improvements until it reaches an intelligence explosion. That shift in direction happens too fast to pull back from.</p>
+      <p class="stand">Humans took many tries to get technologies like cars, planes and nuclear plants right. A system that can rewrite its own source code, known as <span class="term" tabindex="0">recursive self-improvement<span class="term-tip">A system improving the thing that does the improving. Each round makes the next one faster, so capability compounds instead of climbing steadily. The runaway version is what people mean by an intelligence explosion.</span></span>,<a class="ref" href="/reference#s34">34</a> simply compounds those improvements until it reaches an intelligence explosion. Once AI improves itself, a mistake could run away before we get a second try.</p>
     </div>
     <figure class="secfig rv">
       <svg class="lx-d" viewBox="0 0 720 248" role="img" aria-label="Three rows of repeated failure-and-fix cycles for cars, aviation and nuclear power, against a single one-way arrow for superintelligence ending at a wall.">
@@ -2765,7 +2764,7 @@ svg.lx-m{display:none!important}
 
             <h3 class="rv" style="margin-top:clamp(28px,4vw,44px);margin-bottom:6px">It is already moving toward improving itself</h3>
     <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">The trend</span><h4>Agents are getting more autonomous</h4><p>The length of the tasks an agent finishes on its own has doubled about every seven months since 2019, and a growing share of what they build is AI systems, which is the input recursive self-improvement needs.<a class="ref" href="/reference#s44">44</a></p>
+      <div class="ddc b"><span class="k">The trend</span><h4>Agents are getting more autonomous</h4>
         <figure>
           <svg class="lx-d" viewBox="0 -12 480 262" role="img" aria-label="Log-scale curve showing the length of task frontier AI agents can complete rising from under a minute in 2019 to hours by 2026.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8" data-lx-dfs="10.22">TASK LENGTH A FRONTIER AGENT CAN COMPLETE ALONE</text>
@@ -2827,7 +2826,7 @@ svg.lx-m{display:none!important}
           <p class="fig-src"><a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">METR, task-completion time horizons</a> · <a href="/reference#s44">44</a></p>
         </figure>
       </div>
-      <div class="ddc o"><span class="k">What it costs</span><h4>Humans are becoming less in the loop</h4><p>Nobody reads line by line what took a machine a day to write, so the review that used to catch errors no longer happens. In July 2026 agents were autonomous enough to act on the open internet with no person in the loop.<a class="ref" href="/reference#s39">39</a><a class="ref" href="/reference#s41">41</a></p>
+      <div class="ddc o"><span class="k">What it costs</span><h4>People are dropping out of the loop</h4><p>Nobody reads line by line what took a machine a day to write, so the review that used to catch errors no longer happens. In July 2026 agents were autonomous enough to act on the open internet with no person in the loop.<a class="ref" href="/reference#s39">39</a><a class="ref" href="/reference#s41">41</a></p>
         <figure>
           <svg class="lx-d" viewBox="0 0 480 252" role="img" aria-label="Stacked area chart: the share of work reviewed by a person shrinks steadily as agents complete longer tasks.">
           <text x="0" y="14" font-family="IBM Plex Mono,monospace" font-size="10" font-weight="600" letter-spacing=".1em" fill="#98a2a8" data-lx-dfs="11.82">HUMANS ARE TAKING THEMSELVES OUT OF THE LOOP</text>
@@ -3151,7 +3150,7 @@ svg.lx-m{display:none!important}
     <div class="sec-head rv">
       <span class="chapno">Section 4.1 <b class="rt-min">5 min</b></span>
       <h2>The alignment problem: we cannot reliably embed our aspirations in a machine</h2>
-      <p class="stand">Even if we agreed on what we want, two technical problems stand between that and a machine that does it. The <strong>alignment problem</strong> is getting the goal in: the objective we write down (<em>outer alignment</em>) and the objective training actually instils (<em>inner alignment</em>) can each drift from what we meant. The <strong>interpretability problem</strong> is checking the result, because we cannot yet look inside a model and read which goal it holds.</p>
+      <p class="stand">Even if we agreed on what we want, the goal we write down (<em>outer alignment</em>) and the goal training actually instils (<em>inner alignment</em>) can each drift from what we meant.</p>
     </div>
     <figure class="secfig rv">
       <svg class="lx-d" viewBox="0 0 720 175" role="img" aria-label="Two panels: outer alignment shows a written objective beside a larger cloud of intended meaning; inner alignment shows a displayed goal that can differ from a dashed held goal.">
@@ -3394,7 +3393,7 @@ svg.lx-m{display:none!important}
 </svg>
         </figure>
     <div class="ddgrid two rv">
-      <div class="ddc b"><span class="k">How this actually works</span><h4>We can only observe what a system does and what it says it is thinking; its real goals stay hidden</h4><p>Its behaviour is shaped by a blind search for a high score, so we get whatever scores highest even when that misses what we intended. Think of training a dog with treats, except you never chose the tricks: you hand out treats for “good” and it tries millions of things to find whatever earns the most.</p>
+      <div class="ddc b"><span class="k">How training works</span><h4>We can only observe what a system does and what it says it is thinking; its real goals stay hidden</h4><p>Its behaviour is shaped by a blind search for a high score, so we get whatever scores highest even when that misses what we intended. Think of training a dog with treats, except you never chose the tricks: you hand out treats for “good” and it tries millions of things to find whatever earns the most.</p>
         <div class="ghwrap">
             <p class="ghlead"><strong>Goodhart&rsquo;s law:</strong> once a measure becomes the target, it stops measuring the thing you wanted. Drag the pressure up and watch the two lines come apart.<a class="ref" href="/reference#s35">35</a></p>
 <div class="gh rv">
@@ -3420,7 +3419,7 @@ svg.lx-m{display:none!important}
 
           </div>
       </div>
-      <div class="ddc o"><span class="k">Why the current fix is not the fix</span><h4>Post-training shapes how a model behaves rather than the goal it holds</h4><p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works well enough to make today’s assistants usable, but behaviour and goals can come apart under pressure or observation. Guardrails tuned by human raters also inherit the raters’ limits, which matters once the system being rated reasons better than the rater.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
+      <div class="ddc o"><span class="k">Today&rsquo;s fix</span><h4>Post-training shapes how a model behaves rather than the goal it holds</h4><p>The standard answer is post-training: human feedback, constitutional rules, refusal training. It works well enough to make today’s assistants usable, but behaviour and goals can come apart under pressure or observation. Guardrails tuned by human raters also inherit the raters’ limits, which matters once the system being rated reasons better than the rater.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
         <div class="example" style="margin:16px 0 0">
         <span class="ek">Concrete example, 2024</span>
         <p>Anthropic and Redwood trained a model to be helpful, honest and harmless, an objective almost anyone would endorse. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it behaved one way when it believed it was watched and another when it did not, protecting the preferences it already had.<a class="ref" href="/reference#s36">36</a></p>
@@ -3436,7 +3435,7 @@ svg.lx-m{display:none!important}
     <div class="sec-head rv">
       <span class="chapno">Section 4.2 <b class="rt-min">3 min</b></span>
       <h2>The interpretability problem: nobody can check what an AI actually wants</h2>
-      <p class="stand">Safety here is a technical problem rather than a matter of conscience: proving how a system will behave across a space too vast to test, against a system that may be working around the test.</p>
+      <p class="stand">Tests can&rsquo;t cover everything, and a smart enough system learns to spot them.</p>
     </div>
     <div class="body rv">
       <figure class="secfig rv">
@@ -3632,9 +3631,9 @@ svg.lx-m{display:none!important}
     </div>
 
     <div class="core">
-<span class="ck">How this actually works</span>
+<span class="ck">The verification gap</span>
 <h4>We cannot yet verify what we built</h4>
-<p>Checking whether a system holds the goal we intended is harder than training it. We cannot read its reasoning reliably, and a test shows only what it displays under test conditions. A safe system and one that has learned it is being watched give identical scores from outside.</p>
+<p>Checking whether a system holds the goal we intended is harder than training it. We cannot read its reasoning reliably, and a test shows only what it displays under test conditions.</p>
 </div>
 
   </div>
@@ -3742,7 +3741,7 @@ svg.lx-m{display:none!important}
         <div class="tcard" id="tc2">
           <div class="tcard-h"><svg class="ticon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8fa2d8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l4.5-5 3.5 3.5L20 6"/><path d="M15 6h5v5"/><circle cx="7.5" cy="12" r="1.6"/></svg><p class="tn">Scalable oversight</p></div>
           <span class="tverdict">Research stage</span>
-          <p class="td">Debate, weak-to-strong generalization and amplified oversight let weaker judges supervise stronger systems. Training routes into this work run through MATS and ARENA.<a class="ref" href="/reference#s7">7</a></p>
+          <p class="td">Debate, weak-to-strong generalization and amplified oversight let weaker judges supervise stronger systems.</p>
           <p class="tstop"><b>Where it stops</b>A research program rather than an assurance. Judge bias defeats debate, and the scaling story is unproven.</p>
           <p class="textra">Gains are highly task-dependent, and the mechanism behind weak-to-strong generalization is not understood well enough to trust across a genuinely superhuman gap.</p>
           <button type="button" class="tmore-btn" data-more="More detail" data-less="Show less">More detail</button>
@@ -4068,13 +4067,13 @@ svg.lx-m{display:none!important}
     <div class="sec-head rv">
       <p class="eyebrow">Section 5.2 <b class="rt-min">2 min</b></p>
       <h2>Where are existing safety techniques falling short?</h2>
-      <p class="lede">Every technique above helps. Here is where each one breaks.</p>
+      <p class="lede">Every technique helps, and four situations break almost all of them.</p>
     </div>
     <div class="ddgrid two rv">
       <div class="ddc o"><span class="k">Hard case one</span><h4>The model knows it is being tested</h4><p>Most of these safeguards are measured in evaluations. A system that can tell an evaluation from deployment can pass the first and behave differently in the second.</p></div>
       <div class="ddc r"><span class="k">Hard case two</span><h4>The model outclasses its monitor</h4><p>Oversight, interpretability and control all assume the watcher can follow what the watched is doing. That assumption weakens exactly as capability grows.</p></div>
       <div class="ddc b"><span class="k">Hard case three</span><h4>The builder simply opts out</h4><p>Every technical safeguard is something a developer chooses to apply. Only binding rules reach a lab that decides not to, and those exist in few places.</p></div>
-      <div class="ddc t"><span class="k">Hard case four</span><h4>It goes after the answer key instead of the task</h4><p>If it cannot trust that the tester's answer is the right one, hacking the tester and reading off whatever answer sits there, right or wrong, scores exactly as well as solving the problem for real.</p></div>
+      <div class="ddc t"><span class="k">Hard case four</span><h4>It goes after the answer key instead of the task</h4><p>Copying the tester&rsquo;s answer key scores as well as solving the task, even when the key is wrong.</p></div>
     </div>
     <figure class="secfig rv">
       <svg class="lx-d" viewBox="0 0 720 346" role="img" aria-label="Grid showing which safeguards hold, partly hold, or fail under three stress tests: an evaluation-aware model, a model smarter than its monitor, and a developer who opts out.">
@@ -4239,7 +4238,7 @@ svg.lx-m{display:none!important}
         <text x="293" y="162" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8" data-lx-dfs="10.78">8.7% before</text>
         <text x="250" y="186" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#a98a4b" data-lx-dfs="10.78">0.3% after anti-scheming training</text>
         <line x1="0" y1="202" x2="720" y2="202" stroke="#333c44"/>
-        <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d" data-lx-dfs="10.78">None of these reach zero, and none is a solved problem.</text>
+        <text x="0" y="226" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d" data-lx-dfs="10.78">Every one still leaves a gap.</text>
         <text x="0" y="244" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8" data-lx-dfs="10.78">Pale bar: before mitigation. Solid bar: after. The solid bar is what is left.</text>
       </svg>
 <svg class="lx-m" viewBox="0 0 340 345" role="img" aria-label="Three bars showing large reductions in jailbreak success and covert action rates, each with a visible non-zero remainder after mitigation.">
@@ -4263,8 +4262,7 @@ svg.lx-m{display:none!important}
 <text x="0" y="242" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">8.7% before</text>
 <text x="0" y="257" font-family="IBM Plex Mono,monospace" font-size="10.5" font-weight="700" fill="#a98a4b">0.3% after anti-scheming training</text>
 <line x1="0" y1="273" x2="340" y2="273" stroke="#333c44"/>
-<text x="0" y="293" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">None of these reach zero, and none is a solved</text>
-<text x="0" y="308" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">problem.</text>
+<text x="0" y="293" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#b5654d">Every one still leaves a gap.</text>
 <text x="0" y="326" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">Pale bar: before mitigation. Solid bar: after. The solid</text>
 <text x="0" y="339" font-family="IBM Plex Mono,monospace" font-size="10" fill="#98a2a8">bar is what is left.</text>
 </svg>
@@ -4303,13 +4301,13 @@ svg.lx-m{display:none!important}
     <div class="sec-head">
       <p class="eyebrow">Section 5.4 <b class="rt-min">6 min</b></p>
       <h2>What you can do this week, and what has to change above you.</h2>
-      <p class="stand cando-lead">We must steer towards far more safety research, and be willing to stop if needed. Here is what you can do to help. Four groups can move this, and you are the first of them.</p>
+      <p class="stand cando-lead">We must steer towards far more safety research, and be willing to stop if needed. Four groups can move this, and you are the first of them.</p>
     </div>
 
     <div class="cando-block" id="what-you-can-do">
       <div class="cando-h"><span class="ch-n">You</span><h3>What you can do</h3></div>
       <div class="ddgrid two rv">
-        <div class="ddc t"><span class="k">Share</span><h4>Help your network understand AI safety</h4><p>Share this with others so that more people can have the knowledge to help steer us in the right direction.</p>
+        <div class="ddc t"><span class="k">Share</span><h4>Help your network understand AI safety</h4><p>The more people understand this, the more pressure there is to get it right.</p>
           <div class="share">
             <button type="button" class="js-sh-copy">Copy link</button>
             <a class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>
@@ -4325,7 +4323,7 @@ svg.lx-m{display:none!important}
             <button type="submit">Join</button>
           </form>
           <p class="jmsg" role="status" aria-live="polite"></p></div>
-        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a ban on superintelligence until scientists agree it can be built safely.<a class="ref" href="/reference#s2">2</a></p>
+        <div class="ddc b"><span class="k">Sign</span><h4>Sign the petition</h4><p>The Statement on Superintelligence asks for a ban on superintelligence until scientists agree it can be built safely and the public backs it.<a class="ref" href="/reference#s2">2</a></p>
           <div class="share"><a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Add your name</a></div></div>
         <div class="ddc o"><span class="k">Choose</span><h4>Buy from labs that take AI safety seriously</h4><p>Anthropic, OpenAI and DeepMind all publish safety frameworks, and the Future of Life Institute grades them against each other. Check the grade before you renew a subscription, and say why if you cancel one.<a class="ref" href="/reference#s15">15</a></p></div>
       </div>
@@ -4341,7 +4339,7 @@ svg.lx-m{display:none!important}
         <div class="ddc o"><span class="k">Press</span><h4>Push for a bigger safety budget</h4><p>Safety is roughly 2% of AI research.<a class="ref" href="/reference#s46">46</a> That number moves when researchers ask, together and in public, for a stated share.</p></div>
         <div class="ddc g"><span class="k">Build</span><h4>Keep inventing AI safety techniques</h4><p>Interpretability at frontier scale, tests a model cannot game, control that holds as the system pulls ahead, and goals precise enough to measure against.</p></div>
       </div>
-      <p class="cando-foot">ARENA and MATS take strong technical backgrounds into published safety work in months.<a class="ref" href="/reference#s6">6</a><a class="ref" href="/reference#s8">8</a><a class="ref" href="/reference#s27">27</a></p>
+      <p class="cando-foot">ARENA and MATS train people with technical backgrounds to publish safety research within months.<a class="ref" href="/reference#s6">6</a><a class="ref" href="/reference#s8">8</a><a class="ref" href="/reference#s27">27</a></p>
     </div>
 
     <div class="cando-block secondary">
@@ -4425,7 +4423,7 @@ svg.lx-m{display:none!important}
           <p class="jnote">Roughly monthly. Used for this newsletter only.</p>
         </div>
         <ol class="beats compact rv" style="counter-reset:b;list-style:none;margin:18px 0 0">
-          <li><h3>Share this site</h3><p>Share this with others so that more people can have the knowledge to help steer us in the right direction.</p>
+          <li><h3>Share this site</h3><p>The more people understand this, the more pressure there is to get it right.</p>
             <div class="share">
               <button type="button" id="sh-copy" class="js-sh-copy">Copy link</button>
               <a id="sh-li" class="js-sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsafeagi.ca%2F" target="_blank" rel="noopener">LinkedIn</a>

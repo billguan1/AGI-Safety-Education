@@ -372,6 +372,13 @@ def card_heading(block, n, new):
     m = hs[n]
     return block[:m.start()] + '<h4>%s</h4>' % html.escape(new) + block[m.end():]
 
+def card_nohead(block, n):
+    """Drop the nth card's label and heading; its chart title says the same thing."""
+    hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
+    m = hs[n]; k = block.rfind('<span class="k">', 0, m.start())
+    assert k >= 0 and re.fullmatch(r'<span class="k">[^<]*</span>\s*', block[k:m.start()]), 'label then heading'
+    return block[:k] + block[m.end():]
+
 def swap_fig(block, n, kind, T, texts=False):
     """Replace the block's nth figure with an interactive one; texts=True hands it the original labels."""
     starts = [m.start() for m in re.finditer(r'<figure\b', block)]
@@ -486,8 +493,8 @@ def H(kind, lang, t, extra=None):
     if kind == 'levers':
         rows = [(3, 4, (5, 6), (7, 8)), (9, 10, (11, 12), (13, 14)), (15, 16, (17, 18), (19, 20)), (21, 22, (23, 24), (25, 26))]
         body = ''.join('<tr><th><b>%s</b><span>%s</span></th><td>%s</td><td>%s</td></tr>' % (E(t[a]), E(t[b]), E(J(*c)), E(J(*d))) for a, b, c, d in rows)
-        return '<div class="dkh">%s<div class="dkh-scroll"><table class="dkh-tab"><thead><tr><th></th><th>%s</th><th>%s</th></tr></thead><tbody>%s</tbody></table></div><p class="dkh-note">%s</p></div>' % (
-               T0(0), E(t[1]), E(t[2]), body, E(t[27]))
+        return '<div class="dkh"><div class="dkh-scroll"><table class="dkh-tab"><thead><tr><th></th><th>%s</th><th>%s</th></tr></thead><tbody>%s</tbody></table></div><p class="dkh-note">%s</p></div>' % (
+               E(t[1]), E(t[2]), body, E(t[27]))
     if kind == 'orgs':
         cols, names, grid = extra
         head = '<tr><th></th>%s</tr>' % ''.join('<th>%s</th>' % E(c) for c in cols)
@@ -499,7 +506,7 @@ def H(kind, lang, t, extra=None):
         rows = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]
         body = ''.join('<div class="dkh-row"><div class="dkh-top"><b>%s</b></div><div class="dkh-bar dkh-fill dkh-pale"><i style="width:%.1f%%"></i></div><span class="dkh-q">%s</span>'
                        '<div class="dkh-bar dkh-fill"><i style="width:%.2f%%"></i></div><span class="dkh-q">%s</span></div>' % (E(t[a]), num(t[b]), E(t[b]), max(.8, num(t[c])), E(t[c])) for a, b, c in rows)
-        return '<div class="dkh">%s%s<p class="dkh-note">%s</p></div>' % (T0(0), body, E(t[10]))
+        return '<div class="dkh">%s<p class="dkh-note">%s</p></div>' % (body, E(t[10]))
     raise ValueError(kind)
 
 def orgs_grid(fig, t):
@@ -682,7 +689,7 @@ def plan(pg):
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
              (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(add_example(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T), 1, T['incidents']['loop'], pg.refbase))),   # Kenji carries the reason
-             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_heading(grids[1], 1, T['wid']['layers']['card_h']), 1, 'layers', T, True), 0, 'speed', T)))])
+             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_nohead(grids[1], 1), 1, 'layers', T, True), 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
@@ -741,7 +748,7 @@ def plan(pg):
     assert len(techs) >= 12, len(techs)
     G5 = T['games51']
     def gfig(kind, cfg):
-        return '<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div></figure>' % (
+        return '<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s" aria-label="%s"><div class="dki-body"></div></figure>' % (
             kind, kind, html.escape(json.dumps(cfg, ensure_ascii=False)), E(cfg['title']))
     parts.append((G5['chips'][0], part_head(H['5.1g']) + gfig('match', dict(G5['match'], techs=techs))))
     parts.append((G5['chips'][1], part_head(H['5.1h']) + gfig('heist', dict(G5['heist'], techs=techs, layers=lname))))
@@ -786,7 +793,7 @@ CLIFF = {'#171d22': '#efe3c6', '#2a333a': '#d9c9a3',          # ground and abyss
 # ---------------------------------------------------------------- card colours
 # colour identifies the idea a card stands for, and keeps it wherever it appears
 KMAP = {'The pull': 1, 'The starve': 2, 'The gap': 4,
-        'Abundance': 2, 'Health': 1, 'Productivity': 4, 'Education': 5, 'Scientific progress': 3, 'Labour': 6,
+        'Abundance': 2, 'Health': 1, 'Education': 5, 'Scientific progress': 3, 'Work': 6,
         'The user is the adversary': 1, 'The AI is the adversary': 4, 'Nobody is the adversary': 3, 'The incentives are the adversary': 2,
         'Engineered pandemic': 1, 'Infrastructure': 2, 'Resources': 3, 'Self-preservation': 4, 'Geoengineering': 5, 'Nuclear and autonomous weapons': 6,
         'The trend': 4, 'What it costs': 2, 'The speed gap': 3, 'What it runs on': 5,
