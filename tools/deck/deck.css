@@ -1053,6 +1053,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dke{grid-template-columns:1fr 1fr 1.6fr!important;justify-content:stretch!important;gap:12px!important;--S:210px}
 .dke-item{justify-items:center!important;text-align:center}
 @media (max-width:760px){.dke{grid-template-columns:1fr 1fr 1.8fr!important;--S:118px!important}}
+.t-body .ddc .dk-scene{display:block;width:100%;max-width:240px;height:auto;margin:6px 0 8px}
 .t-body .endc .dk-scene{display:block;width:100%;max-width:240px;height:auto;margin:8px 0 6px}
 /* the five subgoals are tabs, so they look pressable, apart from the static name tags elsewhere */
 /* 4.1c: pictures inside the two cards */

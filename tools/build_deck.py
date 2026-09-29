@@ -404,6 +404,49 @@ def ends_scenes():
     return [dk_svg('0 0 210 104', '', x.replace('dka', 'dka%d' % n)).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1)
             for n, x in enumerate((s1, s2, s3, s4))]
 
+def feel_scenes():
+    """Five small comic scenes for where people would feel it, drawn like the 2.2a adversary scenes."""
+    K = 'stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"'
+    def man(x, y, c):
+        return ('<circle cx="%d" cy="%d" r="7" fill="%s" %s/><path d="M%d %d v18 M%d %d l-7 12 M%d %d l7 12 M%d %d l-9 6 M%d %d l9 -4" fill="none" %s/>'
+                % (x, y, c, K, x, y + 7, x, y + 25, x, y + 25, x, y + 12, x, y + 12, K))
+    def bot(x, y, c='#9fb3f0'):
+        return ('<rect x="%d" y="%d" width="34" height="30" rx="6" fill="%s" %s/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/>'
+                '<path d="M%d %d v-6" %s/><circle cx="%d" cy="%d" r="3" fill="#e8b53a" %s/><path d="M%d %d q7 5 14 0" fill="none" %s/>'
+                % (x, y, c, K, x + 11, y + 12, x + 23, y + 12, x + 17, y, K, x + 17, y - 8, K, x + 10, y + 21, K))
+    def arrow(n, x1, y1, x2, y2):
+        return '<path d="M%d %d L%d %d" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" marker-end="url(#fsa%d)"/>' % (x1, y1, x2, y2, n)
+    DEF = lambda n: '<defs><marker id="fsa%d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1b1b1b"/></marker></defs>' % n
+    spark = lambda x, y: '<path d="M%d %d l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" %s/>' % (x, y - 10, K)
+    goods = ''.join('<circle cx="%d" cy="%d" r="%d" fill="%s" %s/>' % (x, y, r, c, K) for x, y, r, c in
+                    ((100, 58, 8, '#e07a5f'), (117, 54, 9, '#6fae5a'), (134, 58, 8, '#9fb3f0'), (150, 54, 8, '#f2cc6a'), (110, 42, 7, '#f2cc6a'), (128, 40, 8, '#e07a5f'), (144, 42, 7, '#6fae5a')))
+    s1 = DEF(0) + bot(10, 46) + arrow(0, 50, 62, 76, 62) + goods + '<path d="M84 64 H166 L156 94 H94 Z" fill="#e8b53a" %s/>' % K + man(188, 44, '#6fae5a') + spark(176, 22)
+    s2 = (DEF(1) + man(26, 42, '#e07a5f') +
+          '<path d="M76 72 C56 58 52 40 66 36 C72 34 76 38 76 42 C76 38 80 34 86 36 C100 40 96 58 76 72 Z" fill="#d9492c" %s/>' % K +
+          '<path d="M106 56 h16 l6 -14 l8 28 l6 -14 h24" fill="none" stroke="#d9492c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' + arrow(1, 166, 56, 194, 56) +
+          '<text x="178" y="42" text-anchor="middle" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="22" fill="#1b1b1b">×2</text>')
+    s3 = (DEF(2) + bot(14, 46, '#b9d6a8') + '<path d="M40 30 q18 -20 40 -6 q-6 10 -22 12 l-6 8 z" fill="#fffdf6" %s/>' % K +
+          '<text x="62" y="30" text-anchor="middle" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="16" fill="#1b1b1b">A+</text>' +
+          '<path d="M86 66 Q106 56 126 66 V92 Q106 82 86 92 Z M126 66 Q146 56 166 66 V92 Q146 82 126 92 Z" fill="#fffdf6" %s/>' % K +
+          '<path d="M94 72 h22 M94 78 h22 M134 72 h22 M134 78 h22" stroke="#9aa3ab" stroke-width="2" stroke-linecap="round"/>' + man(188, 44, '#e8b53a'))
+    s4 = (DEF(3) + bot(10, 46) + '<rect x="58" y="88" width="44" height="8" rx="2" fill="#cfc4ab" %s/><path d="M80 88 V64 L90 46" fill="none" %s/>' % (K, K) +
+          '<rect x="84" y="34" width="12" height="16" rx="3" fill="#fffdf6" %s/><rect x="72" y="72" width="22" height="5" rx="2" fill="#fffdf6" %s/>' % (K, K) +
+          '<path d="M118 70 c8 -22 18 22 26 0 s18 22 26 0 s18 22 26 0" fill="none" stroke="#4a5fc9" stroke-width="4" stroke-linecap="round"/>' +
+          ''.join('<circle cx="%d" cy="%d" r="4" fill="#e07a5f" %s/>' % (x, y, K) for x, y in ((118, 70), (144, 70), (170, 70), (196, 70))) + spark(160, 34))
+    s5 = (DEF(4) + ''.join('<rect x="%d" y="%d" width="30" height="7" rx="1" fill="#fffdf6" %s/>' % (16 + (i % 2) * 3, 42 - i * 8, K) for i in range(5)) + bot(14, 50) +
+          arrow(4, 58, 66, 82, 66) + '<path d="M100 92 h60 M110 92 l-6 -26 M150 92 l6 -26 M104 66 h52" fill="none" %s/>' % K + man(132, 40, '#6fae5a') +
+          '<path d="M172 70 h14 v14 a6 6 0 0 1 -6 6 h-2 a6 6 0 0 1 -6 -6 z M186 74 h4 a3 3 0 0 1 0 6 h-4" fill="#fffdf6" %s/>' % K +
+          '<path d="M176 64 q3 -5 0 -10 M182 64 q3 -5 0 -10" fill="none" stroke="#9aa3ab" stroke-width="2" stroke-linecap="round"/>')
+    return [dk_svg('0 0 210 104', '', x).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1) for x in (s1, s2, s3, s4, s5)]
+
+def feel_scenes_in(block):
+    """A scene under each card title, marked to stay outside the card's fold."""
+    hs = list(re.finditer(r'</h4>', block)); sc = feel_scenes()
+    assert len(hs) == 5, len(hs)
+    for m, s in reversed(list(zip(hs, sc))):
+        block = block[:m.end()] + s.replace('class="dk-scene"', 'class="dk-scene dk-keep"', 1).replace('class="dk-chart dk-scene"', 'class="dk-chart dk-scene dk-keep"', 1) + block[m.end():]
+    return block
+
 def slim_ends(block, T):
     """Each adversary card: label, heading, a scene and one short line; the outcome icons stay."""
     scenes = ends_scenes(); base = '/reference' if 'reference#' in block or 'reference"' in block else '/reference-zh'
@@ -739,7 +782,7 @@ def plan(pg):
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
-             (P['2.1'][1], part_head(*T['heads']['2.1b']) + feel_icons(one(B, '<div class="ddgrid'), pg.lang))])             # six cards start closed
+             (P['2.1'][1], part_head(*T['heads']['2.1b']) + feel_scenes_in(feel_icons(one(B, '<div class="ddgrid'), pg.lang)))])             # six cards start closed
     # 2.2
     ch = pg.chapter('why-it-ends-badly'); B = ch['blocks']
     bodies = [b for b in B if b.startswith('<p class="body')]
@@ -1133,6 +1176,7 @@ def page(pg, slides, segs, S):
         ('if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;',
          'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart,.dk-int")) return false;'),   # deck drawings size themselves
         ('$$(".cando-block:not(#what-you-can-do)", main)', '$$(".cando-block.lx-never", main)'),   # each group has its own slide
+        ('    if (card.classList.contains("tcard")) {', '    after = after.filter(function(x){ return !(x.nodeType === 1 && x.classList.contains("dk-keep")); });   /* deck scenes stay in view */\n    if (card.classList.contains("tcard")) {'),
         ('  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }',
          '  function refitAll(){ $$("svg", main).forEach(function(svg){ svg._lxIgnore = null; }); fitAll(main); }\n  window.__lxFitAll = refitAll;'),
     ]:
