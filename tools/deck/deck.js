@@ -418,13 +418,19 @@
 
   /* 5.3 the fork: can safety be solved? each branch leads to one of the two asks */
   R.fork = function(box, C){
-    box.innerHTML = '<div class="dki-fork"><p class="dki-q">' + esc(C.q) + '</p><div class="dki-branches">' +
-      '<button type="button" class="dki-br dki-yes" aria-pressed="false"><span class="dki-bl">' + esc(C.yes) + '</span><span class="dki-end">' + esc(C.ends[0]) + '</span>' + (C.subs ? '<span class="dki-sub">' + esc(C.subs[0]) + '</span>' : '') + '</button>' +
-      '<button type="button" class="dki-br dki-no" aria-pressed="false"><span class="dki-bl">' + esc(C.no) + '</span><span class="dki-end">' + esc(C.ends[1]) + '</span>' + (C.subs ? '<span class="dki-sub">' + esc(C.subs[1]) + '</span>' : '') + '</button>' +
-      '</div></div>';
+    /* each branch reads as a choice: a picture, the claim, and a pill that says it can be picked */
+    var PIC = ['<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 L40 10 V23 C40 33 33 40 24 44 C15 40 8 33 8 23 V10 Z" fill="#cfe6c4" stroke="#1b1b1b" stroke-width="3" stroke-linejoin="round"/><path d="M16 24 L22 30 L33 18" fill="none" stroke="#2f6b1f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+               '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 4 H31 L44 17 V31 L31 44 H17 L4 31 V17 Z" fill="#f6d5cc" stroke="#1b1b1b" stroke-width="3" stroke-linejoin="round"/><path d="M15 24 H33" stroke="#b33a1f" stroke-width="5" stroke-linecap="round"/></svg>'];
+    function branch(k, cls, label){
+      return '<button type="button" class="dki-br ' + cls + '" aria-pressed="false"><span class="dki-bhead"><span class="dki-bpic">' + PIC[k] + '</span><span class="dki-bl">' + esc(label) + '</span></span>' +
+        '<span class="dki-end">' + esc(C.ends[k]) + '</span>' + (C.subs ? '<span class="dki-sub">' + esc(C.subs[k]) + '</span>' : '') +
+        '<span class="dki-choose">' + esc(C.choose) + ' <span aria-hidden="true">→</span></span></button>';
+    }
+    box.innerHTML = '<div class="dki-fork"><p class="dki-q">' + esc(C.q) + '</p><div class="dki-branches">' + branch(0, "dki-yes", C.yes) + branch(1, "dki-no", C.no) + '</div></div>';
     var br = box.querySelectorAll(".dki-br");
     [].forEach.call(br, function(b){ b.addEventListener("click", function(){
-      [].forEach.call(br, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      [].forEach.call(br, function(x){ var on = x === b; x.setAttribute("aria-pressed", on ? "true" : "false");
+        x.querySelector(".dki-choose").innerHTML = on ? '<span aria-hidden="true">✓</span> ' + esc(C.chosen) : esc(C.choose) + ' <span aria-hidden="true">→</span>'; });
       box.querySelector(".dki-fork").setAttribute("data-pick", b.className.indexOf("dki-yes") > -1 ? "yes" : "no");
     }); });
   };
