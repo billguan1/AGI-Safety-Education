@@ -377,7 +377,7 @@ T = {
 
 LINES = {
  'en': [
-  ('cover', 'happy', "Hi, I'm Kenji, and this is Capy. Let's look at the hardest problem people have ever tried to solve.", 'HELLO. I AM A VERY CAPABLE CAPYBARA.'),
+  ('cover', 'happy', "Hi, I'm Kenji, and this is Capy. Let's look at the hardest problem people have ever tried to solve.", 'HELLO. I AM A SUPERINTELLIGENT CAPYBARA.'),
   ('care', 'idea', 'Three reasons we should care about AGI safety. Tap one to jump to it.', None),
   ('claim1', 'worried', 'Look how fast it is moving, and how little goes into keeping it safe.', 'CAPABILITY: DOUBLING EVERY 7 MONTHS.'),
   ('claim2', 'alarmed', 'The stakes could not be higher.', 'OUTCOME RANGE: ABUNDANCE TO EXTINCTION.'),
@@ -422,7 +422,7 @@ LINES = {
   ('anthem', 'happy', "Thanks for reading with us. Let's stay in touch!", 'GOODBYE. AWAITING YOUR INSTRUCTIONS.'),
  ],
  'zh': [
-  ('cover', 'happy', '你好，我是 Kenji，这是 Capy。我们一起来看看人类面对过的最难的一道题。', '你好。我是一只非常能干的水豚。'),
+  ('cover', 'happy', '你好，我是 Kenji，这是 Capy。我们一起来看看人类面对过的最难的一道题。', '你好。我是一只超级智能的水豚。'),
   ('care', 'idea', '关心 AGI 安全的三个理由。点任意一个就能跳过去。', None),
   ('claim1', 'worried', '看看它跑得有多快，而用来保它安全的又有多少。', '能力：每 7 个月翻一番。'),
   ('claim2', 'alarmed', '赌注大到不能再大。', '结果范围：从丰裕到灭绝。'),
