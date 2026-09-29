@@ -211,7 +211,7 @@ T = {
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权', src_word='来源：', more_detail='更多细节', less_detail='收起', more_how='它会怎样出错', more='更多',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权', src_word='来源：', more_detail='展开详情', less_detail='收起', more_how='它会怎样出错', more='更多',
     incidents=dict(
       timeline=[('2016', 'AI 安全问题首次被提出', 0, ''),
                 ('2024', '一个模型假装自己已经对齐', 0, ''),
@@ -406,7 +406,7 @@ T = {
 LINES = {
  'en': [
   ('cover', 'happy', "Hi, I'm Kenji, and this is Capy. Let's look at the hardest problem people have ever tried to solve.", 'HELLO. I AM A SUPERINTELLIGENT CAPYBARA.'),
-  ('care', 'idea', 'Three reasons we should care about AGI safety. Tap one to jump to it.', None),
+  ('care', 'idea', 'Three reasons we should care about superintelligence safety. Tap one to jump to it.', None),
   ('claim1', 'worried', 'Look how fast it is moving, and how little goes into keeping it safe.', 'CAPABILITY: DOUBLING EVERY 7 MONTHS.'),
   ('claim2', 'alarmed', 'The stakes could not be higher.', 'OUTCOME RANGE: ABUNDANCE TO EXTINCTION.'),
   ('claim3', 'puzzled', 'Here are the two problems in the way.', 'GOAL SPECIFICATION: INCOMPLETE.'),
@@ -453,7 +453,7 @@ LINES = {
  ],
  'zh': [
   ('cover', 'happy', '你好，我是 Kenji，这是 Capy。我们一起来看看人类面对过的最难的一道题。', '你好。我是一只超级智能的水豚。'),
-  ('care', 'idea', '关心 AGI 安全的三个理由。点任意一个就能跳过去。', None),
+  ('care', 'idea', '关心超级智能安全的三个理由。点任意一个就能跳过去。', None),
   ('claim1', 'worried', '看看它跑得有多快，而用来保它安全的又有多少。', '能力：每 7 个月翻一番。'),
   ('claim2', 'alarmed', '赌注大到不能再大。', '结果范围：从丰裕到灭绝。'),
   ('claim3', 'puzzled', '挡在路上的，是这两个难题。', '目标说明：不完整。'),
