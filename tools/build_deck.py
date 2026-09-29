@@ -713,8 +713,8 @@ def plan(pg):
     for i, l in enumerate(layers):
         l = l.replace('<div class="tlayer"', '<div data-crack="%s" class="tlayer"' % html.escape(json.dumps(T['crack'], ensure_ascii=False)), 1)
         parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
-    dets = [b for b in B if b.startswith('<details')]
-    dets = [rebuild(d, 0, 'levers', pg.lang) if 'exfold' in d[:40] and k == 1 else (rebuild(d, 0, 'orgs', pg.lang) if 'exfold' in d[:40] and k == 2 else d) for k, d in enumerate(dets)]
+    dets = [b for b in B if b.startswith('<details') and 'aside-note' not in b[:60]]      # the older-framing footnote stays on the long page only
+    dets = [rebuild(d, 0, 'levers', pg.lang) if 'exfold' in d[:40] and k == 0 else (rebuild(d, 0, 'orgs', pg.lang) if 'exfold' in d[:40] and k == 1 else d) for k, d in enumerate(dets)]
     parts.append((P['5.1'][1], part_head(H['5.1f']) + ''.join(dets)))
     add(ch, parts)
     # 5.2
