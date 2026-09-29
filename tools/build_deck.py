@@ -178,10 +178,10 @@ def tries_fig(T):
                         re.sub(r' (’\d\d)$', r' <i>\1</i>', html.escape(cap))) for k, key, cap in steps)
         rows.append('<div class="tr-row"><div class="tr-name">%s</div><ol class="tr-steps">%s</ol></div>' % (name, cells))
     rows.append('<div class="tr-row tr-agi"><div class="tr-name">AI</div><div class="tr-ai"><div class="tr-aic">%s</div>'
-                '<div class="tr-line"><span>%s</span></div><div class="tr-cliff"><svg viewBox="0 0 120 64" aria-hidden="true">'
+                '<div class="tr-rsi"><svg viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,76.0 L3.0,75.9 L6.0,75.8 L9.0,75.7 L12.0,75.6 L15.0,75.5 L18.0,75.4 L21.0,75.3 L24.0,75.2 L27.0,75.1 L30.0,75.0 L33.0,74.9 L36.0,74.7 L39.0,74.6 L42.0,74.5 L45.0,74.3 L48.0,74.2 L51.0,74.1 L54.0,73.9 L57.0,73.7 L60.0,73.6 L63.0,73.4 L66.0,73.2 L69.0,73.1 L72.0,72.9 L75.0,72.7 L78.0,72.5 L81.0,72.3 L84.0,72.0 L87.0,71.8 L90.0,71.6 L93.0,71.4 L96.0,71.1 L99.0,70.9 L102.0,70.6 L105.0,70.3 L108.0,70.0 L111.0,69.7 L114.0,69.4 L117.0,69.1 L120.0,68.8 L123.0,68.5 L126.0,68.1 L129.0,67.8 L132.0,67.4 L135.0,67.0 L138.0,66.6 L141.0,66.2 L144.0,65.8 L147.0,65.3 L150.0,64.9 L153.0,64.4 L156.0,63.9 L159.0,63.4 L162.0,62.9 L165.0,62.4 L168.0,61.8 L171.0,61.2 L174.0,60.6 L177.0,60.0 L180.0,59.4 L183.0,58.7 L186.0,58.0 L189.0,57.3 L192.0,56.6 L195.0,55.8 L198.0,55.0 L201.0,54.2 L204.0,53.4 L207.0,52.5 L210.0,51.6 L213.0,50.7 L216.0,49.7 L219.0,48.7 L222.0,47.7 L225.0,46.6 L228.0,45.5 L231.0,44.4 L234.0,43.2 L237.0,42.0 L240.0,40.8 L243.0,39.4 L246.0,38.1 L249.0,36.7 L252.0,35.3 L255.0,33.8 L258.0,32.2 L261.0,30.6 L264.0,29.0 L267.0,27.2 L270.0,25.5 L273.0,23.6 L276.0,21.7 L279.0,19.8 L282.0,17.7 L285.0,15.6 L288.0,13.5 L291.0,11.2 L294.0,8.9 L297.0,6.5 L300.0,4.0" fill="none" stroke="#d9492c" stroke-width="4" vector-effect="non-scaling-stroke" stroke-linecap="round"/></svg>''<i class="rsi-c" style="left:30%%;--y:0.895;--z:0.70">AI</i><i class="rsi-c" style="left:62%%;--y:0.725;--z:0.90">AI</i><i class="rsi-c" style="left:86%%;--y:0.403;--z:1.15">AI</i>''<span class="rsi-loop">↻ %s</span><span class="rsi-boom">%s</span><span class="rsi-norun">%s</span></div><div class="tr-cliff"><svg viewBox="0 0 120 64" aria-hidden="true">'
                 '<path class="d" %s d="M2 18 H58 L54 30 L60 40 L52 50 L56 62 H2 Z"/><path class="fall" d="M60 16 Q84 18 90 40"/>'
                 '<path class="b" %s d="M92 38 L96 48 L106 48 L98 54 L101 63 L92 58 L83 63 L86 54 L78 48 L88 48 Z"/></svg><span>%s</span></div></div></div>'
-                % (P['chip'], T['tries_norun'], W, W, T['tries_oneshot']))
+                % (P['chip'], T['rsi_loop'], T['rsi_boom'], T['tries_norun'], W, W, T['tries_oneshot']))
     legend = '<div class="tr-legend"><span class="lg-f">%s</span><span class="lg-x">%s</span><span class="lg-s">%s</span></div>' % T['tries_legend']
     # the unlock game: tiles lock only once the script runs, so the figure reads fine without it
     count = ('<p class="tr-count" hidden><span>%s</span><button type="button" class="tr-all">%s</button></p>'
@@ -1007,6 +1007,13 @@ def page(pg, slides, segs, S):
     ]:
         assert lx.count(a) == 1, ('lx patch', a[:50])
         lx = lx.replace(a, b)
+    # the lab quiz: shorter answers in the deck
+    main_js = scripts[1]
+    i = main_js.index('var REVEAL = ['); j = main_js.index('];', i) + 2
+    main_js = main_js[:i] + 'var REVEAL = ' + json.dumps(T['race_reveal'], ensure_ascii=False) + ';' + main_js[j:]
+    main_js, nc = re.subn(r'var CLOSER = "[^"]*";', lambda m: 'var CLOSER = ' + json.dumps(T['race_closer'], ensure_ascii=False) + ';', main_js)
+    assert nc == 1, nc
+    scripts[1] = main_js
     js = open(os.path.join(ROOT, 'tools', 'deck', 'deck.js'), encoding='utf-8').read()
     doc = (head + btag + '\n' + toast + '\n' + skip + '\n' + bar +
            '<main id="main"><div class="deck"><div class="track">%s</div></div></main>\n' % slides +
