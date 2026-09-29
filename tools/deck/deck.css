@@ -1018,3 +1018,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .slide input[type=range]:focus-visible{outline:3px solid #4a5fc9;outline-offset:4px}
 .dki-rrow{grid-template-columns:150px minmax(0,1fr)!important}
 @media (max-width:760px){.dki-rrow{grid-template-columns:1fr!important}}
+/* economy squares spread across the chart */
+.dke{grid-template-columns:1fr 1fr 1.6fr!important;justify-content:stretch!important;gap:12px!important;--S:210px}
+.dke-item{justify-items:center!important;text-align:center}
+@media (max-width:760px){.dke{grid-template-columns:1fr 1fr 1.8fr!important;--S:118px!important}}
