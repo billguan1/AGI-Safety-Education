@@ -1023,3 +1023,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dke-item{justify-items:center!important;text-align:center}
 @media (max-width:760px){.dke{grid-template-columns:1fr 1fr 1.8fr!important;--S:118px!important}}
 .t-body .endc .dk-scene{display:block;width:100%;max-width:240px;height:auto;margin:8px 0 6px}
+.dsg-tab{cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
+.dsg-tab:hover{background:#fff6d8}
+.dsg-tab[aria-pressed="true"]{background:#f6d5cc}
+.dsg-tab:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}

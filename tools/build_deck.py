@@ -357,6 +357,10 @@ def slim_ends(block, T):
         out = out[:m.start()] + new + out[m.end():]
     return out
 
+def subgoal_tabs(block, pg):
+    fig = re.findall(r'<figure\b.*?</figure>', block, re.S)[0]
+    return swap_fig_svgs(block, 0, H('subgoals', pg.lang, svg_texts(fig), (pg.T['subtabs'], pg.refbase)))
+
 def card_heading(block, n, new):
     """Replace the heading of the block's nth card (the chart now carries its old point)."""
     hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
@@ -432,10 +436,15 @@ def H(kind, lang, t, extra=None):
         box = lambda a, d: '<div class="dkh-box"><span class="dkh-k">%s</span><b>%s</b>%s<span>%s</span></div>' % (E(t[a]), E(t[a + 1]), d, E(t[a + 2]))
         return '<div class="dkh dkh-two">%s%s</div>' % (box(0, d1), box(3, d2))
     if kind == 'subgoals':
-        chips = ''.join('<span class="dkh-chip%s">%s</span>' % (' dkh-hot' if i == 4 else '', E(t[i])) for i in range(5))
+        ST, base = extra
         res = [(6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17)]
-        cards = ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(t[a]), E(J(b, c))) for a, b, c in res)
-        return '<div class="dkh"><div class="dkh-chips">%s</div><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (chips, E(t[5]), cards)
+        panels = [(ST['head'], list(tab)) for tab in ST['tabs']]
+        panels.append((t[5], [(t[a], J(b, c)) for a, b, c in res]))
+        chips = ''.join('<button type="button" class="dkh-chip dsg-tab" data-i="%d" aria-pressed="%s">%s</button>' % (i, 'true' if i == 4 else 'false', E(t[i])) for i in range(5))
+        body = ''.join('<div class="dsg-panel" data-i="%d"%s><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (
+            i, '' if i == 4 else ' hidden', E(h), ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(a), refs_html(b, base)) for a, b in cards))
+            for i, (h, cards) in enumerate(panels))
+        return '<div class="dkh dsg"><div class="dkh-chips">%s</div>%s</div>' % (chips, body)
     if kind == 'whose':
         groups = ''.join('<span class="dkh-chip">%s</span>' % E(t[i]) for i in range(1, 5))
         return ('<div class="dkh">%s<div class="dkh-flow"><div class="dkh-col">%s</div><span class="dkh-to" aria-hidden="true">→</span>'
@@ -653,7 +662,7 @@ def plan(pg):
         six = six[:c.start()] + c.group(0).replace('<div class="ddc', '<div data-more="%s" class="ddc' % T['more_how'], 1).replace(
             '<span class="k">', '<span class="sc-ic">%s</span><span class="k">' % icons[n], 1) + six[c.end():]
     add(ch, [(P['2.2'][0], stand(ch) + slim_ends(one(B, '<div class="ends'), T)),
-             (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(rebuild(one(B, '<div class="ddc b rv" id="route-two"'), 0, 'subgoals', pg.lang)) + widget_plain('beai', T)),
+             (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(subgoal_tabs(one(B, '<div class="ddc b rv" id="route-two"'), pg)) + widget_plain('beai', T)),
              (P['2.2'][2], part_head(k, t, text(bodies[0]) + T['open_any']) + six + key(ch) + bodies[1])])
     # 2.3
     ch = pg.chapter('why-one-try'); B = ch['blocks']

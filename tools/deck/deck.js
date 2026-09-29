@@ -722,3 +722,16 @@
   inp.addEventListener("input", function(){ nudge.hidden = true; draw(); });
   draw();
 })();
+
+
+(function(){
+  /* 2.2 subgoal chips switch the cards underneath */
+  document.querySelectorAll(".dsg").forEach(function(box){
+    var tabs = box.querySelectorAll(".dsg-tab"), panels = box.querySelectorAll(".dsg-panel");
+    [].forEach.call(tabs, function(b){ b.addEventListener("click", function(){
+      var i = b.getAttribute("data-i");
+      [].forEach.call(tabs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      [].forEach.call(panels, function(p){ p.hidden = p.getAttribute("data-i") !== i; });
+    }); });
+  });
+})();
