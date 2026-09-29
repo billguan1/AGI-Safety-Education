@@ -840,7 +840,7 @@ def plan(pg):
     body = kids(one(B, '<div class="body'))
     add(ch, [(P['4.2'][0], stand(ch) + swap_fig(one(body, '<figure'), 0, 'gap', T)),
              (P['4.2'][1], part_head(H['4.2b']) + auto(short_cards(rebuild(rebuild(one(body, '<div class="ddgrid'), 1, 'grader', pg.lang), 0, 'talk', pg.lang), T['short42']))),
-             (P['4.2'][2], part_head(H['4.2c']) + widget_plain('inside', T) + one(body, '<p') + one(B, '<div class="core'))])
+             (P['4.2'][2], part_head(H['4.2c']) + widget_plain('inside', T) + one(body, '<p'))])
     # 5.1
     ch = pg.chapter('response'); B = ch['blocks']
     layers = kids(one(B, '<div class="tinv'))
