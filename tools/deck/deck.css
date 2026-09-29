@@ -986,6 +986,8 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dtl li{position:relative;display:grid!important;grid-template-columns:26px 82px 1fr;align-items:center;gap:10px!important}
 .dtl li i{position:relative;z-index:1;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:2.5px solid #1b1b1b;background:#cfc4ab;font-style:normal;font-family:var(--comic);font-size:16px;color:#fffdf6}
 .dtl li.dtl-esc i{background:#d9492c;box-shadow:0 0 0 4px rgba(217,73,44,.25)}
+.dtl li i svg{display:block;width:13px;height:13px}
+.dtl-key i svg{display:block;width:8px;height:8px}
 .dtl li b{padding:0!important;border:0!important;background:none!important;font-family:var(--body);font-weight:700;font-size:14px!important;color:#5c574e}
 .dtl li.dtl-esc b{color:#b43a1e}
 .dtl li span{font-family:var(--body);font-size:15px;line-height:1.3;color:#1b1b1b}
