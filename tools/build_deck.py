@@ -441,7 +441,7 @@ def H(kind, lang, t, extra=None):
         ST, base = extra
         res = [(6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17)]
         panels = [(ST['head'], list(tab)) for tab in ST['tabs']]
-        panels.append((t[5], [(t[a], J(b, c)) for a, b, c in res]))
+        panels.append((ST['head'], [(h, J(b, c)) for h, (a, b, c) in zip(ST['res'], res)]))
         chips = ''.join('<button type="button" class="dkh-chip dsg-tab" data-i="%d" aria-pressed="%s">%s</button>' % (i, 'true' if i == 4 else 'false', E(t[i])) for i in range(5))
         body = ''.join('<div class="dsg-panel" data-i="%d"%s><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (
             i, '' if i == 4 else ' hidden', E(h), ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(a), refs_html(b, base)) for a, b in cards))
