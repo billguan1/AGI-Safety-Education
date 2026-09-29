@@ -99,7 +99,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
                shocked='shocked', worried='worried', surprised='surprised', sad='sad', serious='serious'),
     parts={
       '2.1': ['The prize in numbers', 'Where people would feel it'],
-      '2.2': ['Four ways it goes wrong', 'Why it would take what we need', 'Six paths to extinction'],
+      '2.2': ['Four ways it goes wrong', 'Why it would take what we need', 'Potential pathways to human extinction'],
       '2.3': ['No second try', 'Reason 1: it is improving itself', 'Reason 2: the gap outruns us'],
       '3.1': ['The trap', 'Inside one lab'],
       '3.2': ['No shared values', 'Two layers of trust', 'Who decides'],
@@ -111,7 +111,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
     heads={
       '2.1b': ('Part 2 · Where people would feel it',),
       '2.2b': ('Part 2 · Why it would take what we need',),
-      '2.2c': ('Part 3 · Six paths to extinction', ''),
+      '2.2c': ('Part 3 · Potential pathways to human extinction', ''),
       '2.3b': ('Part 2 · Reason 1 of 2', 'The first reason is that the loop has already started, and people are stepping out of it.'),
       '2.3c': 'Part 3 · Reason 2 of 2',
       '3.1b': ('Part 2 · Inside one lab', '', 'Going carefully means losing ground, and going fast puts everyone at risk.'),
@@ -296,7 +296,7 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
                shocked='很震惊', worried='很担心', surprised='很惊讶', sad='很难过', serious='很严肃'),
     parts={
       '2.1': ['用数字看回报', '人们会在哪里感受到它'],
-      '2.2': ['四种出错方式', '它为何会夺走我们所需', '六条通往灭绝的路'],
+      '2.2': ['四种出错方式', '它为何会夺走我们所需', '人类灭绝的可能路径'],
       '2.3': ['没有第二次机会', '原因一：它在自我改进', '原因二：差距跑得比我们快'],
       '3.1': ['陷阱', '走进一家实验室'],
       '3.2': ['没有共同的价值观', '两重信任', '谁来决定'],
@@ -308,7 +308,7 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
     heads={
       '2.1b': ('第 2 部分 · 人们会在哪里感受到它',),
       '2.2b': ('第 2 部分 · 它为何会夺走我们所需',),
-      '2.2c': ('第 3 部分 · 六条通往灭绝的路', ''),
+      '2.2c': ('第 3 部分 · 人类灭绝的可能路径', ''),
       '2.3b': ('第 2 部分 · 原因一（共二）', '第一个原因是，这个循环已经开始，而人正在一步步退出其中。'),
       '2.3c': '第 3 部分 · 原因二（共二）',
       '3.1b': ('第 2 部分 · 走进一家实验室', '', '走得谨慎就会落后，走得太快又会把所有人置于险境。'),
