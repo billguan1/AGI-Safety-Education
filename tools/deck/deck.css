@@ -930,8 +930,6 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .cr-q button[aria-pressed="true"]{background:#e8b53a}
 .cr-lab{font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b}
 .cr-ctl input[type=range]{width:100%;height:36px;accent-color:#d9492c;cursor:pointer}
-.cr-team > g{transition:transform .12s linear}
-@media (prefers-reduced-motion: reduce){.cr-team > g{transition:none}}
 /* intro: the three reasons nest under "Why care" */
 .tc-parts li.tc-sub{margin-left:16px}
 .tc-parts li.tc-sub .tc-p{font-size:13px}
@@ -956,7 +954,6 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @keyframes crNudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(14px);opacity:1}}
 @media (prefers-reduced-motion: reduce){.cr-nudge{animation:none}}
 .cr-lab{font-size:16px!important}
-.cr-fall,.cr-team > g > g{transition:transform .12s linear}
 .cr-ptext,.cr-arrow{transition:opacity .3s}
 /* timeline: a line, a dot per event, red for escapes */
 .dtl{position:relative;gap:10px!important;padding-left:4px!important}

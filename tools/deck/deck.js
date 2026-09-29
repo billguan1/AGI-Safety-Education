@@ -788,7 +788,35 @@
   /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
   var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
   function lerp(a, b, u){ return a + (b - a) * u; }
-  function place(g, x, y, rot, sc){ g.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + rot.toFixed(0) + ") scale(" + sc.toFixed(2) + ")"); }
+  /* people and rope move in the same frame: each person eases toward their target, then the rope is re-tied */
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches, raf = 0;
+  function put(g, p){ g._p = p; g.setAttribute("transform", "translate(" + p[0].toFixed(1) + "," + p[1].toFixed(1) + ") rotate(" + p[2].toFixed(0) + ") scale(" + p[3].toFixed(2) + ")"); }
+  function place(g, x, y, rot, sc){ g._t = [x, y, rot, sc]; if (!g._p || still) put(g, g._t); }
+  function step(){
+    raf = 0; var moving = false;
+    runners.concat([faller]).forEach(function(g){
+      var p = g._p, t = g._t, n = p.map(function(v, i){ return v + (t[i] - v) * .35; });
+      if (n.some(function(v, i){ return Math.abs(t[i] - v) > .05; })) moving = true; else n = t.slice();
+      put(g, n);
+    });
+    tie();
+    if (moving) raf = requestAnimationFrame(step);
+  }
+  /* the rope stays tied at every waist: taut when they spread apart, a slight sag only where two bunch up */
+  var live = document.createElementNS("http://www.w3.org/2000/svg", "path"), old = rope.querySelector("path");
+  ["stroke", "stroke-width", "stroke-dasharray"].forEach(function(a){ if (old && old.getAttribute(a)) live.setAttribute(a, old.getAttribute(a)); });
+  live.setAttribute("fill", "none"); live.setAttribute("stroke-linecap", "round"); live.setAttribute("class", "cr-rope-live");
+  rope.parentNode.insertBefore(live, rope); rope.style.display = "none";
+  function waist(g){ var p = g._p, a = p[2] * Math.PI / 180, lx = 2 * p[3], ly = -12 * p[3];
+    return [p[0] + lx * Math.cos(a) - ly * Math.sin(a), p[1] + lx * Math.sin(a) + ly * Math.cos(a)]; }
+  function tie(){
+    var pts = runners.concat([faller]).map(waist), d = "M" + pts[0][0].toFixed(1) + "," + pts[0][1].toFixed(1);
+    for (var i = 1; i < pts.length; i++) {
+      var a = pts[i - 1], b = pts[i], dist = Math.hypot(b[0] - a[0], b[1] - a[1]), sag = Math.min(10, Math.max(0, 60 - dist) * .25);
+      d += " Q" + ((a[0] + b[0]) / 2).toFixed(1) + "," + ((a[1] + b[1]) / 2 + sag).toFixed(1) + " " + b[0].toFixed(1) + "," + b[1].toFixed(1);
+    }
+    live.setAttribute("d", d);
+  }
   function draw(){
     var t = +inp.value / 100, shift = t * 640, maxu = 0, slot = 0;
     /* the figure already over the edge goes first */
@@ -803,8 +831,7 @@
       if (safe) place(g, lerp(EDGE, UP[slot][0], u), lerp(206, UP[slot][1], u), 0, lerp(1, .85, u));
       else place(g, lerp(EDGE, 598 + (slot % 2) * 6, u), lerp(206, 384 - slot * 19, u), lerp(0, -90, u), 1);
     }
-    rope.setAttribute("transform", "translate(" + Math.min(shift, 56) + ",0)");
-    rope.style.opacity = shift > 56 ? 0 : 1;
+    if (still) tie(); else if (!raf) raf = requestAnimationFrame(step);
     if (arrow) arrow.style.opacity = shift > 10 ? 0 : 1;
     [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
     say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
