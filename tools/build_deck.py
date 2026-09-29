@@ -712,7 +712,7 @@ def plan(pg):
              (P['4.1'][2], part_head(H['4.1c'], '', unp(ps[1])) + auto(grids[0])),
              (P['4.1'][3], part_head(H['4.1d']) + loophole(demo_bare(one(B, '<div class="demo-embed')), pg)),
              (P['4.1'][4], part_head(H['4.1e'], '', unp(ps[2])) + iceberg_fig(T)),
-             (P['4.1'][5], part_head(H['4.1f']) + grids[1])])
+             (P['4.1'][5], part_head(H['4.1f']) + grids[1] + one(B, '<div class="ghwrap'))])
     # 4.2
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
     body = kids(one(B, '<div class="body'))
@@ -750,8 +750,7 @@ def plan(pg):
     def gfig(kind, cfg):
         return '<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s" aria-label="%s"><div class="dki-body"></div></figure>' % (
             kind, kind, html.escape(json.dumps(cfg, ensure_ascii=False)), E(cfg['title']))
-    parts.append((G5['chips'][0], part_head(H['5.1g']) + gfig('match', dict(G5['match'], techs=techs))))
-    parts.append((G5['chips'][1], part_head(H['5.1h']) + gfig('heist', dict(G5['heist'], techs=techs, layers=lname))))
+    parts.append((G5['chips'][0], part_head(H['5.1g']) + gfig('heist', dict(G5['heist'], techs=techs, layers=lname))))
     add(ch, parts)
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']

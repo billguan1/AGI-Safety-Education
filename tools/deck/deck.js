@@ -604,30 +604,6 @@
 
   function shuffle(a){ for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
 
-  /* 5.1 match the crack: five rounds, each a real weak spot and three technique names */
-  R.match = function(box, C){
-    var T = C.techs, ROUNDS = 5, order, round, score;
-    function start(){ order = shuffle(T.slice()).slice(0, ROUNDS); round = 0; score = 0; ask(); }
-    function ask(){
-      var t = order[round], others = shuffle(T.filter(function(x){ return x.n !== t.n; })).slice(0, 2), opts = shuffle([t].concat(others));
-      box.innerHTML = '<p class="mc-count">' + esc(C.score.replace("{s}", score).replace("{t}", ROUNDS)) + '</p>' +
-        '<blockquote class="mc-crack">⚡ ' + esc(t.w) + '</blockquote><p class="dki-q2">' + esc(C.q) + '</p><div class="dki-opts">' +
-        opts.map(function(o){ return '<button type="button" class="dki-opt" data-n="' + esc(o.n) + '">' + esc(o.n) + '</button>'; }).join("") + '</div><p class="dki-say" aria-live="polite"></p>';
-      [].forEach.call(box.querySelectorAll(".dki-opt"), function(b){ b.addEventListener("click", function(){
-        var ok = b.getAttribute("data-n") === t.n; if (ok) score++;
-        [].forEach.call(box.querySelectorAll(".dki-opt"), function(x){ x.disabled = true; x.className = "dki-opt" + (x.getAttribute("data-n") === t.n ? " dki-right" : (x === b ? " dki-wrong" : "")); });
-        var say = box.querySelector(".dki-say"); say.textContent = ok ? C.right : C.wrong.replace("{n}", t.n);
-        box.querySelector(".mc-count").textContent = C.score.replace("{s}", score).replace("{t}", ROUNDS);
-        var nb = document.createElement("button"); nb.type = "button"; nb.className = "dki-go"; round++;
-        nb.textContent = round < ROUNDS ? C.next : C.again;
-        if (round >= ROUNDS) { say.textContent += " " + C.done.replace("{s}", score).replace("{t}", ROUNDS); document.dispatchEvent(new CustomEvent("dk-answer", {detail: {id: "match", right: score >= 4, val: score}})); }
-        nb.addEventListener("click", function(){ if (round < ROUNDS) ask(); else start(); });
-        box.appendChild(nb); nb.focus({preventScroll: true});
-      }); });
-    }
-    start();
-  };
-
   /* 5.1 the heist: you are the AI; every door has a real weak spot to slip through */
   R.heist = function(box, C){
     var li;

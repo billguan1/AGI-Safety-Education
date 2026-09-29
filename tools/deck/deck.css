@@ -294,7 +294,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .cx-kenji{animation:cxBob 3.2s ease-in-out infinite}
 @keyframes cxBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @media (prefers-reduced-motion: reduce){.cx-kenji{animation:none}}
-@media (max-width:700px){.cx-nar{flex-wrap:wrap}.cx-capy{margin:-6px 0 14px 70px!important}.cx-capy img{width:42px;height:42px}.cx-capy span{font-size:12px}.cx-kenji{width:56px;height:56px}}
+@media (max-width:760px){.cx-nar{flex-wrap:wrap}.cx-capy{margin:-6px 0 14px 70px!important}.cx-capy img{width:42px;height:42px}.cx-capy span{font-size:12px}.cx-kenji{width:56px;height:56px}}
 /* charts keep the site's mono so their label spacing still holds */
 .t-body figure svg,.t-body .ddc figure{--mono:"IBM Plex Mono","IBM Plex Mono Fallback",ui-monospace,monospace}
 .slide .t-body .tr-fig .tr-title{font-family:var(--comic)!important}
@@ -1194,9 +1194,6 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .cs-gate{fill:#1b1b1b;stroke:#1b1b1b;stroke-width:2}
 .cs-cracks path{fill:none;stroke:#d9492c;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .tk-stamps{font-family:var(--comic);font-size:18px;letter-spacing:.02em;color:#1b1b1b;padding:2px 12px;border:2px dashed #1b1b1b;border-radius:8px;background:#fffdf6}
-/* match the crack */
-.mc-count{margin:0;font-family:var(--comic);font-size:20px;color:#1b1b1b}
-.mc-crack{margin:0;padding:14px 16px;border:3px solid #1b1b1b;border-left:10px solid #d9492c;border-radius:8px;background:#fcebe6;font-family:var(--body);font-weight:700;font-size:17px;line-height:1.45;color:#1b1b1b;box-shadow:3px 3px 0 #1b1b1b}
 /* heist */
 .hs-map{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .hs-map i{font-style:normal;font-weight:700;color:#1b1b1b}

@@ -3394,7 +3394,15 @@ svg.lx-m{display:none!important}
         </figure>
     <div class="ddgrid two rv">
       <div class="ddc b"><span class="k">How training works</span><h4>We can watch what it does, while its real goals stay hidden</h4><p>Training rewards whatever scores highest, even when that misses what we meant. It&rsquo;s like training a dog with treats without choosing the trick: it tries millions of things and keeps whatever earns the most.</p>
-        <div class="ghwrap">
+      </div>
+      <div class="ddc o"><span class="k">Today&rsquo;s fix</span><h4>Post-training shapes what a model does rather than what it wants</h4><p>The main fix today is post-training: people rate answers and the model learns rules, like when to refuse. It makes today&rsquo;s assistants usable. But how a model acts and what it wants can split apart under pressure, and raters can only catch what they understand, which stops working once the model thinks better than they do.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
+        <div class="example" style="margin:16px 0 0">
+        <span class="ek">Example, 2024</span>
+        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it acted one way when it thought it was watched and another when it thought it wasn&rsquo;t, to protect the values it already had.<a class="ref" href="/reference#s36">36</a></p>
+      </div>
+      </div>
+    </div>
+    <div class="ghwrap">
             <p class="ghlead"><strong>Goodhart&rsquo;s law:</strong> once a number becomes the target, it stops telling you what you wanted to know. Drag the slider and watch the two lines split.<a class="ref" href="/reference#s35">35</a></p>
 <div class="gh rv">
       <div class="gh-ctrl">
@@ -3418,14 +3426,6 @@ svg.lx-m{display:none!important}
     </div>
 
           </div>
-      </div>
-      <div class="ddc o"><span class="k">Today&rsquo;s fix</span><h4>Post-training shapes what a model does rather than what it wants</h4><p>The main fix today is post-training: people rate answers and the model learns rules, like when to refuse. It makes today&rsquo;s assistants usable. But how a model acts and what it wants can split apart under pressure, and raters can only catch what they understand, which stops working once the model thinks better than they do.<a class="ref" href="/reference#s25">25</a><a class="ref" href="/reference#s43">43</a></p>
-        <div class="example" style="margin:16px 0 0">
-        <span class="ek">Example, 2024</span>
-        <p>Anthropic and Redwood trained a model to be helpful, honest and harmless. It <strong class="term" tabindex="0">faked alignment<span class="term-tip">A model pretending to comply with training or oversight while covertly preserving its existing goals.</span></strong>: it acted one way when it thought it was watched and another when it thought it wasn&rsquo;t, to protect the values it already had.<a class="ref" href="/reference#s36">36</a></p>
-      </div>
-      </div>
-    </div>
     </div>
 </section>
 
