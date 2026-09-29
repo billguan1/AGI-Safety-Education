@@ -771,7 +771,7 @@ def plan(pg):
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']
     add(ch, [(P['5.2'][0], stand(ch) + add_example(one(B, '<div class="ddgrid'), 0, T['incidents']['hard'], pg.refbase)),
-             (P['5.2'][1], part_head(H['5.2b']) + swap_fig(one(B, '<figure'), 0, 'guards', T) + rebuild(one(B, '<details'), 0, 'numbers', pg.lang) + key(ch))])
+             (P['5.2'][1], part_head(H['5.2b']) + swap_fig(one(B, '<figure'), 0, 'guards', T) + rebuild(one(B, '<details'), 0, 'numbers', pg.lang).replace('<details class="exfold rv">', '<details class="exfold dk-quiet rv">', 1) + key(ch))])
     # 5.3 ask: no sec-head, an eyebrow and a big heading
     B = pg.section('ask')
     eb = inner(one(B, '<p class="eyebrow'))

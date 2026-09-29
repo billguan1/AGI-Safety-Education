@@ -951,6 +951,12 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (max-width:760px){.t-subchips{flex-wrap:nowrap;flex:0 0 auto}}
 /* folded detail inside a card */
 .t-body details.dk-more{margin-top:10px}
+/* a supporting fold that should read as a footnote: a small grey link instead of a boxed bar */
+.t-body details.exfold.dk-quiet{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin-top:12px}
+.t-body details.exfold.dk-quiet > summary{display:inline-flex;align-items:center;gap:6px;padding:4px 0!important;cursor:pointer;list-style:none;font-size:14px!important;font-weight:700;color:#5c574e!important;text-decoration:underline;text-underline-offset:3px;letter-spacing:0!important;text-transform:none!important}
+.t-body details.exfold.dk-quiet > summary::-webkit-details-marker{display:none}
+.t-body details.exfold.dk-quiet > summary::after{content:"+"}
+.t-body details.exfold.dk-quiet[open] > summary::after{content:"\2013"}
 .t-body details.dk-more > summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;list-style:none;font-family:var(--body);font-weight:700;font-size:13px;color:#5c574e;text-decoration:underline;text-underline-offset:3px}
 .t-body details.dk-more > summary::-webkit-details-marker{display:none}
 .t-body details.dk-more > summary::after{content:"+"}
