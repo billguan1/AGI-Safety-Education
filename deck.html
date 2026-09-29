@@ -6112,6 +6112,30 @@ var SITE_CONFIG = {
   }
 })();
 
+
+(function(){
+  /* charts inside side-by-side cards start at the same height, whatever the headings wrap to */
+  function align(){
+    document.querySelectorAll(".slide:not([inert]) .ddgrid").forEach(function(g){
+      var figs = [].slice.call(g.querySelectorAll(":scope > .ddc figure, :scope > .endc figure")).filter(function(f){ return !f.closest(".dk-more-body") && f.offsetParent; });
+      figs.forEach(function(f){ f.style.marginTop = ""; });
+      if (figs.length < 2 || innerWidth <= 760) return;
+      var rows = {};
+      figs.forEach(function(f){ var c = f.closest(".ddc,.endc"), key = Math.round(c.getBoundingClientRect().top); (rows[key] = rows[key] || []).push(f); });
+      Object.keys(rows).forEach(function(k){
+        var r = rows[k]; if (r.length < 2) return;
+        var tops = r.map(function(f){ return f.getBoundingClientRect().top; }), max = Math.max.apply(null, tops);
+        r.forEach(function(f, i){ var cs = parseFloat(getComputedStyle(f).marginTop) || 0; f.style.marginTop = (cs + max - tops[i]) + "px"; });
+      });
+    });
+  }
+  var t; function later(){ clearTimeout(t); t = setTimeout(align, 60); }
+  window.addEventListener("resize", later);
+  document.addEventListener("dk-slide", later);
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(later);
+  setTimeout(align, 400);
+})();
+
 </script>
 </body>
 </html>
