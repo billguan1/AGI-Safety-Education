@@ -1074,3 +1074,17 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (min-width:761px){
   .dkf-funnel{grid-column:2} .dkf-score{grid-column:3} .dkf-fork{grid-column:4;height:110px!important} .dkf-ends{grid-column:5}
 }
+/* 5.1 weak-spot hunt */
+.tk-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;margin:0 0 12px;font-family:var(--body);font-size:15px;color:#3b3833}
+.tk-count{font-family:var(--comic);font-weight:400;font-size:20px;letter-spacing:.02em;color:#1b1b1b;padding:2px 12px;border:2px solid #1b1b1b;border-radius:99px;background:#fff6d8}
+.t-body .tcard.tk-card{cursor:pointer;position:relative;background:#fffdf6!important;border:2.5px solid #1b1b1b!important;border-radius:8px!important;box-shadow:3px 3px 0 #1b1b1b;transition:transform .15s,box-shadow .15s}
+.t-body .tcard.tk-card:not(.tk-open):hover{transform:translateY(-3px) rotate(-.5deg);box-shadow:5px 6px 0 #1b1b1b}
+.t-body .tcard.tk-card:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
+.t-body .tcard.tk-card .tstop,.t-body .tcard.tk-card .textra,.t-body .tcard.tk-card .tmore-btn{display:none!important}
+.t-body .tcard.tk-card:not(.tk-open)::after{content:"?";position:absolute;right:10px;top:8px;width:28px;height:28px;display:grid;place-items:center;border:2px solid #1b1b1b;border-radius:50%;background:#e8b53a;font-family:var(--comic);font-size:18px;color:#1b1b1b}
+.t-body .tcard.tk-open{border-color:#d9492c!important;box-shadow:3px 3px 0 #d9492c;background:linear-gradient(135deg,transparent 46%,rgba(217,73,44,.12) 47%,rgba(217,73,44,.12) 49%,transparent 50%),#fffdf6!important;cursor:default}
+.t-body .tcard.tk-open .tstop{display:block!important;background:#fcebe6!important;border:2px solid #d9492c;border-radius:6px;color:#1b1b1b!important;animation:tReveal .3s ease}
+.t-body .tcard.tk-open .tstop b{display:block;color:#b43a1e!important;font-family:var(--body);margin-bottom:2px}
+.tk-done{margin:14px 0 0;padding:12px 16px;border:3px solid #1b1b1b;border-left:10px solid #d9492c;border-radius:8px;background:#fff6d8;font-family:var(--body);font-weight:700;font-size:17px;color:#1b1b1b;box-shadow:3px 3px 0 #1b1b1b}
+@media (prefers-reduced-motion: reduce){.t-body .tcard.tk-open .tstop{animation:none}}
+.t-body .tcard.tk-open .tstop{animation:none!important;opacity:1!important}

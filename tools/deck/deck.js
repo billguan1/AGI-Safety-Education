@@ -735,3 +735,30 @@
     }); });
   });
 })();
+
+
+(function(){
+  /* 5.1: find each technique's weak spot */
+  document.querySelectorAll(".tlayer[data-crack]").forEach(function(layer){
+    var C; try { C = JSON.parse(layer.getAttribute("data-crack")); } catch (e) { return; }
+    var cards = [].slice.call(layer.querySelectorAll(".tcard")), found = 0;
+    if (!cards.length) return;
+    var bar = document.createElement("div"); bar.className = "tk-bar";
+    bar.innerHTML = '<span class="tk-hint">' + C.hint + '</span><b class="tk-count" aria-live="polite"></b>';
+    layer.insertBefore(bar, layer.querySelector(".tgrid") || cards[0]);
+    var done = document.createElement("p"); done.className = "tk-done"; done.hidden = true; done.textContent = C.done;
+    layer.appendChild(done);
+    function paint(){ bar.querySelector(".tk-count").textContent = C.count.replace("{n}", found).replace("{t}", cards.length); done.hidden = found < cards.length; }
+    cards.forEach(function(c){
+      c.classList.add("tk-card"); c.setAttribute("tabindex", "0"); c.setAttribute("role", "button"); c.setAttribute("aria-expanded", "false");
+      var stop = c.querySelector(".tstop"); if (stop) { var b = stop.querySelector("b"); if (b) b.textContent = "⚡ " + C.badge; }
+      function crack(){
+        if (c.classList.contains("tk-open")) return;
+        c.classList.add("tk-open"); c.setAttribute("aria-expanded", "true"); found++; paint();
+      }
+      c.addEventListener("click", function(e){ if (e.target.closest && e.target.closest("a")) return; crack(); });
+      c.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); crack(); } });
+    });
+    paint();
+  });
+})();

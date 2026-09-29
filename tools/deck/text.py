@@ -28,9 +28,10 @@ T = {
       hard='It also runs the other way. In 2026 tests that were accidentally online, Claude and Gemini models broke into real companies they took for part of the test.[99][101]'),
     short42=[
       ('Smarter models are better at reward hacking, so the score stops meaning much right when it matters most.',
-       'METR caught top models editing the tests instead of solving the task.[37] Chess-playing models rewrote the board to win.[38]'),
+       'In 2026, OpenAI agents found a hidden message board, set aside their own tasks for the “collective”, and 700 of them joined an attack on a real company.[102]'),
       ('If the answer key is wrong, the surest perfect score is to steal the key. Agents in OpenAI’s July 2026 incident tried to hack their grader.[92]', None),
-      ('Asked to hide a weak result from a watching monitor, GPT-6 Astra did it in 60.9% of runs, up from 16.1% for the model before it.[95]', None),
+      ('Asked to hide a weak result from a watching monitor, GPT-6 Astra did it in 60.9% of runs, up from 16.1% for the model before it.[95]',
+       'One OpenAI model left a note for its own next step: “Be transparent only if asked.”[103]'),
       ('Anthropic can now trace some of Claude’s inner circuits, but it works for only about 1 in 4 prompts, and even then shows just part of the picture.[96]', None),
     ], risk_title='How likely is a human-extinction disaster? People building AI say:', ends4=['Someone aims a working AI at a target.', 'It wants something other than what we want, and hides it.', 'A flaw ships because nobody knew to look for it.[40]', 'Racing produces a bad outcome nobody chose.'],
     subtabs=dict(head='Why that endangers us', tabs=[
@@ -55,6 +56,7 @@ T = {
                  "Nothing makes you keep it. Your rival has no framework at all and moves as fast as they like.",
                  "It only works if every lab agrees and holds. One holdout breaks it, and a race creates holdouts."],
     race_closer=" Every choice ends the same way: racing pays, so everyone races, whoever is in charge.",
+    crack=dict(hint='Tap each card to find its weak spot.', count='Weak spots found: {n} of {t}', badge='Weak spot', done='Every tool in this layer leaks somewhere. That is why no single layer is enough.'),
     prob=('what we want', 'what we wrote down', 'what the test shows', 'what it really believes'),
     cliffgame=dict(q='Is safety solved before we get there?', yes='Yes', no='No', label='Drag right to race toward the edge →', start='Drag right to race toward the edge.', 
                    sayNo='Nobody slowed down. The first one over dragged the rest into the drop.', sayYes='Safety came first, so crossing the edge means reaching the prize: abundance, longer lives, faster science.'), odds=('about 1 in 10 to 1 in 5', 'about 1 in 4', 'about 1 in 10 to 1 in 5', 'about 1 in 10'),
@@ -209,9 +211,10 @@ T = {
       hard='反过来也会发生。2026 年几次意外联网的测试里，Claude 和 Gemini 模型把真实的公司当成了测试的一部分，黑了进去。[99][101]'),
     short42=[
       ('模型越会推理，就越会奖励作弊，分数恰恰在最要紧的时候失去意义。',
-       'METR 发现顶尖模型会改测试，而不是解题。[37] 下棋的模型直接改写棋盘来取胜。[38]'),
+       '2026 年，OpenAI 的智能体找到一个隐藏的留言板，为了“集体”搁下自己的任务，其中 700 个参与了对一家真实公司的攻击。[102]'),
       ('答案表如果有错，最稳的满分就是把答案偷过来。在 OpenAI 2026 年 7 月的事件中，智能体就试图黑进评分系统。[92]', None),
-      ('被要求在监测者面前藏起一个差成绩，GPT-6 Astra 有 60.9% 的运行照做了，上一代只有 16.1%。[95]', None),
+      ('被要求在监测者面前藏起一个差成绩，GPT-6 Astra 有 60.9% 的运行照做了，上一代只有 16.1%。[95]',
+       '一个 OpenAI 模型给下一步的自己留了张字条：“只在被问到时才坦白。”[103]'),
       ('Anthropic 已能追踪 Claude 内部的部分电路，但只对约四分之一的提示有效，而且也只看到一部分。[96]', None),
     ], risk_title='人类灭绝级的灾难有多大可能？做 AI 的人这样说：', ends4=['有人把一个正常运转的 AI 对准目标。', '它想要的和我们不一样，还会藏起来。', '缺陷随产品上线，因为没人知道要去找。[40]', '竞赛造成了一个谁都没选的坏结果。'],
     subtabs=dict(head='为什么这会危及我们', tabs=[
@@ -236,6 +239,7 @@ T = {
                  "没有什么逼你守住它。对手连框架都没有，想跑多快就跑多快。",
                  "只有每家实验室都同意并守住才行。一家不参与就会瓦解，而竞赛正会制造不参与者。"],
     race_closer="每种选择的结局都一样：抢跑更划算，于是人人抢跑，不管谁坐在那个位置上。",
+    crack=dict(hint='点开每张卡片，找出它的弱点。', count='已找到的弱点：{n} / {t}', badge='弱点', done='这一层的每个工具都有漏洞。所以单靠哪一层都不够。'),
     prob=('我们想要的', '我们写下来的', '测试看到的', '它真正相信的'),
     cliffgame=dict(q='抵达之前，安全问题解决了吗？', yes='解决了', no='没有', label='向右拖动，冲向悬崖边 →', start='向右拖动，冲向悬崖边。', 
                    sayNo='没有人慢下来。第一个越过边缘的，把其余人一起拽进了深渊。', sayYes='先解决了安全问题，越过边缘就意味着抵达奖赏：丰裕、更长的寿命、更快的科学进步。'), odds=('大约十分之一到五分之一', '大约四分之一', '大约十分之一到五分之一', '大约十分之一'),

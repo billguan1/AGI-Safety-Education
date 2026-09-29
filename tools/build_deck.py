@@ -709,6 +709,7 @@ def plan(pg):
     lname = [text(re.search(r'<h4>(.*?)</h4>', l, re.S).group(1)).split(' ', 1)[-1].strip() for l in layers]
     parts = [(P['5.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'cheese', T))]
     for i, l in enumerate(layers):
+        l = l.replace('<div class="tlayer"', '<div data-crack="%s" class="tlayer"' % html.escape(json.dumps(T['crack'], ensure_ascii=False)), 1)
         parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
     dets = [b for b in B if b.startswith('<details')]
     dets = [rebuild(d, 0, 'levers', pg.lang) if 'exfold' in d[:40] and k == 1 else (rebuild(d, 0, 'orgs', pg.lang) if 'exfold' in d[:40] and k == 2 else d) for k, d in enumerate(dets)]
@@ -999,6 +1000,7 @@ def page(pg, slides, segs, S):
         ('var TIER = { caption: 10.5, label: 11.5, emphasis: 12.5, value: 15, display: 21 };',
          'var TIER = { caption: 13, label: 14.5, emphasis: 15.5, value: 18.5, display: 26 };'),
         ('if (first && !NO_HOIST[sec.id]) {', 'if (false) {'),               # charts stay where the slide puts them
+        ('var CARD = ".ddc,.endc,.tcard,.cl-half";', 'var CARD = ".ddc,.endc,.cl-half";'),   # technique cards are the weak-spot game
         ('if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h")) return false;',
          'if (svg.closest(".cross-hero,.endc-icons,.ends-out,.tix,.tlayer-h,.tcard-h,.ice-fig,.tr-fig,.dk-chart,.dk-int")) return false;'),   # deck drawings size themselves
         ('$$(".cando-block:not(#what-you-can-do)", main)', '$$(".cando-block.lx-never", main)'),   # each group has its own slide
