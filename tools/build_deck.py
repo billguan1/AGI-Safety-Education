@@ -455,7 +455,7 @@ def H(kind, lang, t, extra=None):
         return ('<div class="dkh">%s<div class="dkh-flow"><div class="dkh-col">%s</div><span class="dkh-to" aria-hidden="true">→</span>'
                 '<div class="dkh-q-box"><b>?</b><span>%s</span></div><span class="dkh-to" aria-hidden="true">→</span><span class="dkh-chip dkh-hot">%s</span></div></div>') % (T0(0), groups, E(t[6]), E(t[7]))
     if kind == 'decide':
-        few = [J(1, 2), J(3, 4), J(5, 6), J(7, 8) + '<small>' + E(J(10, 11, 12, 13)) + '</small>']
+        few = [J(1, 2), J(3, 4), J(5, 6), J(7, 8, 10)]
         dots = ''.join('<div class="dkh-few"><i></i><span>%s</span></div>' % (E(x) if '<small>' not in x else E(x.split('<small>')[0]) + '<small>' + x.split('<small>')[1]) for x in few)
         return '<div class="dkh">%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div></div>' % (T0(0), dots, E(t[9]))
     if kind == 'twoways':
