@@ -457,7 +457,7 @@ def H(kind, lang, t, extra=None):
         body = ''.join('<div class="dsg-panel" data-i="%d"%s><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (
             i, '' if i == 4 else ' hidden', E(h), ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(a), refs_html(b, base)) for a, b in cards))
             for i, (h, cards) in enumerate(panels))
-        return '<div class="dkh dsg"><div class="dkh-chips">%s</div>%s</div>' % (chips, body)
+        return '<div class="dkh dsg"><p class="dsg-hint">%s</p><div class="dkh-chips dsg-tabs">%s</div>%s</div>' % (E(ST['tap']), chips, body)
     if kind == 'whose':
         groups = ''.join('<span class="dkh-chip">%s</span>' % E(t[i]) for i in range(1, 5))
         return ('<div class="dkh">%s<div class="dkh-flow"><div class="dkh-col">%s</div><span class="dkh-to" aria-hidden="true">→</span>'

@@ -1046,9 +1046,15 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dke-item{justify-items:center!important;text-align:center}
 @media (max-width:760px){.dke{grid-template-columns:1fr 1fr 1.8fr!important;--S:118px!important}}
 .t-body .endc .dk-scene{display:block;width:100%;max-width:240px;height:auto;margin:8px 0 6px}
-.dsg-tab{cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
-.dsg-tab:hover{background:#fff6d8}
-.dsg-tab[aria-pressed="true"]{background:#f6d5cc}
+/* the five subgoals are tabs: they must look pressable, not like the name tags elsewhere */
+.dsg-hint{margin:0 0 10px;font-family:var(--body);font-weight:700;font-size:15px;color:#5c574e}
+.dsg-tabs{gap:10px}
+.dsg-tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border-width:2.5px;font-size:15px;cursor:pointer;box-shadow:3px 3px 0 #1b1b1b;transition:transform .12s,box-shadow .12s}
+.dsg-tab::after{content:"\2192";font-weight:700}
+.dsg-tab:hover{background:#fff6d8;transform:translate(-1px,-1px);box-shadow:4px 4px 0 #1b1b1b}
+.dsg-tab[aria-pressed="true"]{background:#e8b53a}
+.dsg-tab[aria-pressed="true"]::after{content:"\2193"}
+@media (prefers-reduced-motion: reduce){.dsg-tab{transition:none}.dsg-tab:hover{transform:none}}
 .dsg-tab:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
 /* AI row: recursive self-improvement curve */
 .tr-rsi{position:relative;height:96px;margin:0 10px}

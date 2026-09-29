@@ -36,7 +36,7 @@ T = {
        'One OpenAI model left a note for its own next step: “Be transparent only if asked.”[103]'),
       ('Anthropic can now trace some of Claude’s inner circuits, but it works for only about 1 in 4 prompts, and even then shows just part of the picture.[96]', None),
     ], risk_title='How likely is a human-extinction disaster? People building AI say:', ends4=['Someone aims a working AI at a target.', 'It wants something other than what we want, and hides it.', 'A flaw ships because nobody knew to look for it.[40]', 'Racing produces a bad outcome nobody chose.'],
-    subtabs=dict(res=('Consumes all the electricity', 'Takes the land and water', 'Seizes metals and factories', 'Rebuilds the physical world'), head='Why that endangers us', tabs=[
+    subtabs=dict(tap='Tap a subgoal to see how it endangers us.', res=('Consumes all the electricity', 'Takes the land and water', 'Seizes metals and factories', 'Rebuilds the physical world'), head='Why that endangers us', tabs=[
       [('Guards the off switch', 'Anyone who could turn it off is in the way of its goal.[34]'),
        ('Evades oversight', 'Monitors and audits become obstacles to route around.'),
        ('Removes people who could stop it', 'The humans who might shut it down become a risk to remove.'),
@@ -231,7 +231,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
        '一个 OpenAI 模型给下一步的自己留了张字条：“只在被问到时才坦白。”[103]'),
       ('Anthropic 已能追踪 Claude 内部的部分电路，但只对约四分之一的提示有效，而且也只看到一部分。[96]', None),
     ], risk_title='人类灭绝级的灾难有多大可能？做 AI 的人这样说：', ends4=['有人把一个正常运转的 AI 对准目标。', '它想要的和我们不一样，还会藏起来。', '缺陷随产品上线，因为没人知道要去找。[40]', '竞赛造成了一个谁都没选的坏结果。'],
-    subtabs=dict(res=('耗尽全部电力', '占用土地与水', '攫取金属与工厂', '改造物理世界'), head='为什么这会危及我们', tabs=[
+    subtabs=dict(tap='点一个子目标，看看它会怎样危及我们。', res=('耗尽全部电力', '占用土地与水', '攫取金属与工厂', '改造物理世界'), head='为什么这会危及我们', tabs=[
       [('守住关机开关', '任何能关掉它的人，都挡在它实现目标的路上。[34]'),
        ('躲开监督', '监测和审计会变成它要绕开的障碍。'),
        ('除掉可能阻止它的人', '可能把它关掉的人，会变成需要除掉的风险。'),
