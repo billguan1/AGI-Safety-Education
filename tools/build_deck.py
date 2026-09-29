@@ -251,8 +251,9 @@ def widget(kind, T, old_fig, extra=None):
     """An interactive chart in place of a static one; deck.js draws it. The source line stays."""
     W = dict(T['wid'][kind]); W.update(extra or {})
     src = re.search(r'<p class="fig-src">.*?</p>', old_fig, re.S)
-    return ('<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div>'
-            '<p class="dk-sr">%s</p>%s</figure>') % (kind, kind, html.escape(json.dumps(W, ensure_ascii=False)), W['title'], W['alt'], src.group(0) if src else '')
+    title = ('<p class="tr-title">%s</p>' % W['title']) if W.get('title') else ''
+    return ('<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s">%s<div class="dki-body"></div>'
+            '<p class="dk-sr">%s</p>%s</figure>') % (kind, kind, html.escape(json.dumps(W, ensure_ascii=False)), title, W['alt'], src.group(0) if src else '')
 
 def widget_plain(kind, T, extra=None):
     """An interactive figure with no source figure behind it; extra adds site text to its data."""
@@ -689,7 +690,7 @@ def plan(pg):
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T) + bold),
              (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(add_example(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T), 1, T['incidents']['loop'], pg.refbase))),   # Kenji carries the reason
-             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_nohead(grids[1], 1), 1, 'layers', T, True), 0, 'speed', T)))])
+             (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_heading(grids[1], 1, T['wid']['layers']['card_h']), 1, 'layers', T, True), 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
