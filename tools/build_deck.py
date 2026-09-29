@@ -659,6 +659,7 @@ def plan(pg):
     assert len(hs) == 2 and len(ps) == 2, (len(hs), len(ps))
     S.append(dict(key='solution', sec=intro, wrap='cross', kicker=T['intro_kick'], title=mk.group(1),
                   body=widget_plain('fork', T, {'ends': hs, 'subs': ps})))
+    fork_hs, fork_ps = list(hs), list(ps)     # kept for 5.3; later chapters reuse these names
 
     def add(ch, parts):
         for j, (chip, body) in enumerate(parts):
@@ -779,7 +780,8 @@ def plan(pg):
                group=pg.group['5'][0], acc=pg.group['5'][1], blocks=B)
     firsts = [text(h) for h in re.findall(r'<h3>(.*?)</h3>', one(B, '<div class="firsts'), re.S)]
     assert len(firsts) == 2
-    add(ask, [('', widget_plain('fork', T, {'ends': firsts}))])
+    # same two branches as the opening fork; the second spells out that narrow AI carries on
+    add(ask, [('', widget_plain('fork', T, {'ends': [fork_hs[0], T['fork53_no'][0]], 'subs': [fork_ps[0], T['fork53_no'][1]]}))])
     # 5.4 do: one slide per group of people
     ch = pg.chapter('do'); B = ch['blocks']
     blocks = [b for b in B if b.startswith('<div class="cando-block')]
