@@ -14,7 +14,7 @@ T = {
  'en': dict(
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
-    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', many='Everyone else who is affected (~8 billion) gets no say', src_word='Sources:', more_detail='More detail', less_detail='Show less', more_how='How it goes wrong', more='More',
+    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say', src_word='Sources:', more_detail='More detail', less_detail='Show less', more_how='How it goes wrong', more='More',
     incidents=dict(
       timeline=[('2016', 'AI safety problems first named', 0, ''),
                 ('2024', 'A model faked being aligned', 0, ''),
@@ -203,7 +203,7 @@ T = {
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', many='其余所有受影响的人（约 80 亿）没有发言权', src_word='来源：', more_detail='更多细节', less_detail='收起', more_how='它会怎样出错', more='更多',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权', src_word='来源：', more_detail='更多细节', less_detail='收起', more_how='它会怎样出错', more='更多',
     incidents=dict(
       timeline=[('2016', 'AI 安全问题首次被提出', 0, ''),
                 ('2024', '一个模型假装自己已经对齐', 0, ''),

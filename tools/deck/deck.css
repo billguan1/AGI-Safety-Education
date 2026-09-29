@@ -1179,3 +1179,8 @@ button.dki-link.dki-broken em::after{content:"✕"}
 @media (prefers-reduced-motion: reduce){.dki-chain button.dki-link em{animation:none!important}}
 @media (max-width:760px){button.dki-link{height:48px}}
 .dkh-many span{font-size:17px!important}
+.b2-next{flex-wrap:wrap!important}
+.t-opt{flex-basis:100%;text-align:left;border:0;background:none;padding:4px 0;cursor:pointer;font-family:var(--body);font-weight:700;font-size:14px;color:#2f5aa8;text-decoration:underline;text-underline-offset:3px}
+.t-opt:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+.b2-next button.t-opt{min-height:0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#2f5aa8!important;font-size:14px!important;font-weight:700!important;text-transform:none!important;letter-spacing:0!important}
+.b2-next button.t-opt:active{transform:none!important}

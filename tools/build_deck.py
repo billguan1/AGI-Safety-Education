@@ -928,9 +928,17 @@ def build(pg, en_colors=None):
                 btns.append('<button type="button" class="p-btn" data-go="%d">%s <span aria-hidden="true">&rarr;</span></button>' % (i + 1, html.escape(lab)))
         else:
             btns.append('<button type="button" class="p-btn t-back" data-go="0">%s <span aria-hidden="true">&uarr;</span></button>' % T['restart'])
+        # after "You", the next step is Stay in the loop; researchers, labs and governments are optional
+        extra_attr = ''
+        if x['key'] == '5.4a':
+            ai = [k for k, y in enumerate(S) if y['key'] == 'anthem'][0]
+            btns = [b for b in btns if 't-back' in b] + ['<button type="button" class="p-btn" data-go="%d">%s <span aria-hidden="true">&rarr;</span></button>' % (ai, html.escape(T['next'] % S[ai]['sec']['label']))]
+            btns.append('<button type="button" class="t-opt" data-go="%d">%s</button>' % (i + 1, E(T['opt_more'])))
+            extra_attr = ' data-next="%d"' % ai
+        if x['key'] in ('5.4b', '5.4c', '5.4d'): extra_attr = ' data-optional="1"'
         where = ('<b>%s</b> %s' % (sec['num'], html.escape(sec['label']))) if sec.get('num') else html.escape(sec['label'])
-        out.append('<div class="slide" data-key="%s" data-acc="%s" style="--c-acc:%s" data-where="%s">%s<div class="b2-next">%s</div></div>'
-                   % (x['key'], sec['acc'], sec['acc'], html.escape(where), balanced(inside), ''.join(btns)))
+        out.append('<div class="slide" data-key="%s" data-acc="%s" style="--c-acc:%s" data-where="%s"%s>%s<div class="b2-next">%s</div></div>'
+                   % (x['key'], sec['acc'], sec['acc'], html.escape(where), extra_attr, balanced(inside), ''.join(btns)))
     # progress: one segment per section
     segs = []; seen = []
     for x in S:

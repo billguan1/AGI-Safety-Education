@@ -37,11 +37,12 @@
   }
   window.__deckGo = go; window.__deckCur = function(){ return cur; };
   prev.addEventListener("click", function(){ go(cur - 1); });
-  next.addEventListener("click", function(){ go(cur + 1); });
+  function fwd(){ var j = slides[cur].getAttribute("data-next"); return j !== null ? +j : cur + 1; }
+  next.addEventListener("click", function(){ go(fwd()); });
   document.querySelectorAll("[data-go]").forEach(function(b){ b.addEventListener("click", function(){ go(parseInt(b.getAttribute("data-go"), 10)); }); });
   document.addEventListener("keydown", function(e){
     var t = e.target; if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
-    if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); go(fwd()); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); go(cur - 1); }
   });
   var sx = 0, sy = 0, st = 0;
@@ -49,7 +50,7 @@
   track.addEventListener("touchend", function(e){
     if (e.target && e.target.closest && e.target.closest("input[type=range]")) return;
     var p = e.changedTouches[0], dx = p.clientX - sx, dy = p.clientY - sy;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.6 && Date.now() - st < 800) go(cur + (dx < 0 ? 1 : -1));
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.6 && Date.now() - st < 800) go(dx < 0 ? fwd() : cur - 1);
   }, {passive: true});
   /* the deck sits under the site's bar and the progress strip */
   var bar = document.getElementById("dk-bar");
@@ -640,7 +641,7 @@
     var done = 0, total = 0;
     document.querySelectorAll(".tc-sec").forEach(function(sec){
       var a = +sec.getAttribute("data-first"), b = +sec.getAttribute("data-last"), all = true;
-      for (var i = a; i <= b; i++) if (!P.seen[slides[i] && slides[i].getAttribute("data-key")]) all = false;
+      for (var i = a; i <= b; i++) if (slides[i] && !slides[i].hasAttribute("data-optional") && !P.seen[slides[i].getAttribute("data-key")]) all = false;
       if (sec.querySelector(".tc-s b")) { total++; if (all) done++; }
       if (all && sec.className.indexOf("tc-done") < 0) sec.className += " tc-done";
     });
