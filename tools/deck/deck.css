@@ -599,6 +599,11 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .t-body .ddc .sc-ic{display:inline-grid;place-items:center;width:52px;height:52px;margin:0 0 10px;border-radius:50%;border:2.5px solid #1b1b1b;
   background:color-mix(in srgb,var(--k,#e8b53a) 35%,#fffdf6);box-shadow:3px 3px 0 #1b1b1b;color:#1b1b1b}
 .t-body .ddc .sc-ic svg{width:28px;height:28px}
+/* 2.1b: a smaller icon in the label row */
+.t-body .ddc .fl-lab{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.t-body .ddc .sc-ic.sc-sm{width:36px;height:36px;margin:0;box-shadow:2px 2px 0 #1b1b1b;flex:none}
+.t-body .ddc .sc-ic.sc-sm svg{width:20px;height:20px}
+.t-body .ddc .fl-lab .k{margin:0}
 .dki-svg{height:auto}
 .dki-lab{font-size:13px}
 .slide .t-body figure.dkw-gap,.slide .t-body figure.dkw-guards,.slide .t-body figure.dkw-growth,.slide .t-body figure.dkw-fork,.slide .t-body figure.dkw-inside{max-width:860px!important}

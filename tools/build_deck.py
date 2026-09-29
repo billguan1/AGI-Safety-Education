@@ -143,6 +143,22 @@ def into_card(block, n, fig):
             end = starts[n] + m.start(); break
     return block[:end] + fig + block[end:]
 
+FEEL_ICONS = [   # abundance, health, education, science, work
+    '<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.4 11h10.2L20 8H6.3"/>',
+    '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M7.5 12h2.5l1.5-2.5 2 4.5 1.5-2h1.5"/>',
+    '<path d="M4 19V5.5A2.5 2.5 0 0 1 6.5 3H20v14H6.5A2.5 2.5 0 0 0 4 19.5 2.5 2.5 0 0 0 6.5 22H20v-5"/>',
+    '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/>',
+    '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>']
+def feel_icons(block, lang):
+    """2.1 where people would feel it: a small icon in each card's label row."""
+    labs = [m for m in re.finditer(r'<span class="k">([^<]*)</span>', block)]
+    assert len(labs) == 5, len(labs)
+    if lang == 'en': assert [m.group(1) for m in labs] == ['Abundance', 'Health', 'Education', 'Scientific progress', 'Work'], [m.group(1) for m in labs]
+    for m, ic in reversed(list(zip(labs, FEEL_ICONS))):
+        svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg>' % ic
+        block = block[:m.start()] + '<span class="fl-lab"><span class="sc-ic sc-sm">%s</span>%s</span>' % (svg, m.group(0)) + block[m.end():]
+    return block
+
 def worded_figs(block, T):
     """4.1 worded well, still wrong: what was asked beside what it did; and a climb with no finish."""
     L = T['worded']
@@ -723,7 +739,7 @@ def plan(pg):
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
-             (P['2.1'][1], part_head(*T['heads']['2.1b']) + one(B, '<div class="ddgrid'))])             # six cards start closed
+             (P['2.1'][1], part_head(*T['heads']['2.1b']) + feel_icons(one(B, '<div class="ddgrid'), pg.lang))])             # six cards start closed
     # 2.2
     ch = pg.chapter('why-it-ends-badly'); B = ch['blocks']
     bodies = [b for b in B if b.startswith('<p class="body')]
