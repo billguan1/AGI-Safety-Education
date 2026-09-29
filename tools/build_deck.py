@@ -312,6 +312,51 @@ def add_example(block, n, text_, base):
     c = cards[n]; assert block.count(c) == 1
     return block.replace(c, c[:c.rindex('</div>')] + '<p class="dk-ex">%s</p></div>' % refs_html(text_, base), 1)
 
+def ends_scenes():
+    """Four small comic scenes for the four adversaries."""
+    K = 'stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"'
+    def man(x, y, c):
+        return ('<circle cx="%d" cy="%d" r="7" fill="%s" %s/><path d="M%d %d v18 M%d %d l-7 12 M%d %d l7 12 M%d %d l-9 6 M%d %d l9 -4" fill="none" %s/>'
+                % (x, y, c, K, x, y + 7, x, y + 25, x, y + 25, x, y + 12, x, y + 12, K))
+    def bot(x, y, c='#9fb3f0'):
+        return ('<rect x="%d" y="%d" width="34" height="30" rx="6" fill="%s" %s/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/>'
+                '<path d="M%d %d v-6" %s/><circle cx="%d" cy="%d" r="3" fill="#e8b53a" %s/><path d="M%d %d h14" %s/>'
+                % (x, y, c, K, x + 11, y + 12, x + 23, y + 12, x + 17, y, K, x + 17, y - 8, K, x + 10, y + 22, K))
+    def arrow(x1, y1, x2, y2, c='#1b1b1b'):
+        return '<path d="M%d %d L%d %d" stroke="%s" stroke-width="3" stroke-linecap="round" marker-end="url(#dka)"/>' % (x1, y1, x2, y2, c)
+    DEF = '<defs><marker id="dka" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="context-stroke"/></marker></defs>'
+    burst = lambda x, y: '<path d="M%d %d l4 9 9 -2 -6 7 6 8 -9 -2 -4 9 -4 -9 -9 2 6 -8 -6 -7 9 2z" fill="#ffd166" %s/>' % (x, y - 12, K)
+    s1 = DEF + man(22, 34, '#e07a5f') + arrow(38, 50, 66, 50, '#d9492c') + bot(72, 36) + arrow(112, 50, 150, 50, '#d9492c') + \
+         '<circle cx="176" cy="50" r="18" fill="#fffdf6" %s/><circle cx="176" cy="50" r="10" fill="#f6d5cc" %s/><circle cx="176" cy="50" r="3" fill="#d9492c"/>' % (K, K) + burst(196, 30)
+    s2 = DEF + man(30, 44, '#e8b53a') + '<ellipse cx="46" cy="18" rx="22" ry="13" fill="#fffdf6" %s/><path d="M40 16 a4 4 0 0 1 6 -3 a4 4 0 0 1 6 3 l-6 7z" fill="#d9492c" %s/>' % (K, K) + \
+         '<text x="100" y="58" text-anchor="middle" font-family="Comic Neue,sans-serif" font-weight="700" font-size="26" fill="#1b1b1b">&#8800;</text>' + bot(140, 46) + \
+         '<ellipse cx="170" cy="18" rx="24" ry="13" fill="#fffdf6" %s/><path d="M160 20 h20 M163 14 h14 M166 24 h8" %s/>' % (K, K) + \
+         '<rect x="134" y="42" width="46" height="16" rx="8" fill="#fffdf6" %s/><path d="M146 50 q6 5 12 0" fill="none" %s/>' % (K, K)
+    s3 = DEF + man(24, 40, '#6fae5a') + arrow(40, 58, 70, 58) + bot(80, 44) + '<path d="M92 46 l6 8 -5 6 7 8" fill="none" stroke="#d9492c" stroke-width="3"/>' + \
+         '<circle cx="150" cy="56" r="11" fill="#fffdf6" %s/><path d="M158 64 l10 10" %s/><text x="150" y="61" text-anchor="middle" font-family="Comic Neue,sans-serif" font-weight="700" font-size="14" fill="#1b1b1b">?</text>' % (K, K) + \
+         '<ellipse cx="196" cy="70" rx="7" ry="5" fill="#1b1b1b"/><path d="M190 66 l-4 -4 M202 66 l4 -4" %s/>' % K
+    s4 = DEF + ''.join(bot(10 + i * 46, 50 - i * 2, c) + arrow(46 + i * 46, 66 - i * 2, 54 + i * 46, 66 - i * 2) for i, c in enumerate(('#9fb3f0', '#b9d6a8', '#f2cc6a'))) + \
+         '<path d="M158 88 L158 80 L200 80" fill="none" %s/><path d="M170 80 l-4 8 6 6 -5 10" fill="none" stroke="#1b1b1b" stroke-width="2.5"/>' % K + \
+         '<path d="M178 80 v40" stroke="#d9492c" stroke-width="2.5" stroke-dasharray="4 4"/>'
+    return [dk_svg('0 0 210 104', '', x.replace('dka', 'dka%d' % n)).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1)
+            for n, x in enumerate((s1, s2, s3, s4))]
+
+def slim_ends(block, T):
+    """Each adversary card: label, heading, a scene and one short line; the outcome icons stay."""
+    scenes = ends_scenes(); base = '/reference' if 'reference#' in block or 'reference"' in block else '/reference-zh'
+    base = re.search(r'href="(/reference(?:-zh)?)#', block).group(1) if re.search(r'href="(/reference(?:-zh)?)#', block) else base
+    cards = re.findall(r'<(div|a) class="endc"[^>]*>.*?</\1>(?=\s*<(?:div|a) class="endc"|\s*</div>\s*<div class="ends-arrows")', block, re.S)
+    ms = list(re.finditer(r'<(div|a) class="endc"[^>]*>.*?</\1>(?=\s*<(?:div|a) class="endc"|\s*</div>\s*<div class="ends-arrows")', block, re.S))
+    assert len(ms) == 4, len(ms)
+    out = block
+    for m, sc, line in reversed(list(zip(ms, scenes, T['ends4']))):
+        c = m.group(0); tag = m.group(1)
+        head = re.search(r'<span class="ek">.*?</span><h4>.*?</h4>', c, re.S).group(0)
+        icons = re.search(r'<span class="endc-icons">.*?</span></span></span>', c, re.S)
+        new = c[:c.index('>') + 1].replace('class="endc"', 'data-auto="1" class="endc"', 1) + head + sc + '<p>%s</p>' % refs_html(line, base) + (icons.group(0) if icons else '') + '</%s>' % tag
+        out = out[:m.start()] + new + out[m.end():]
+    return out
+
 def card_heading(block, n, new):
     """Replace the heading of the block's nth card (the chart now carries its old point)."""
     hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
@@ -607,7 +652,7 @@ def plan(pg):
     for c, n in reversed(list(zip(cards, ICON_FOR))):
         six = six[:c.start()] + c.group(0).replace('<div class="ddc', '<div data-more="%s" class="ddc' % T['more_how'], 1).replace(
             '<span class="k">', '<span class="sc-ic">%s</span><span class="k">' % icons[n], 1) + six[c.end():]
-    add(ch, [(P['2.2'][0], stand(ch) + one(B, '<div class="ends')),
+    add(ch, [(P['2.2'][0], stand(ch) + slim_ends(one(B, '<div class="ends'), T)),
              (P['2.2'][1], part_head(*T['heads']['2.2b']) + auto(rebuild(one(B, '<div class="ddc b rv" id="route-two"'), 0, 'subgoals', pg.lang)) + widget_plain('beai', T)),
              (P['2.2'][2], part_head(k, t, text(bodies[0]) + T['open_any']) + six + key(ch) + bodies[1])])
     # 2.3
