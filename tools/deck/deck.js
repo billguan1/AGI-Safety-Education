@@ -563,6 +563,38 @@
     }); });
   };
 
+  /* 5.1 build your defence: three picks, one attack, scored from the 5.2 safeguards table */
+  R.defend = function(box, C){
+    var picks = [], cls = ["tk-l0", "tk-l1", "tk-l2", "tk-l3"];
+    var html = '<p class="dki-say">' + esc(C.pick) + ' <b class="df-left"></b></p><div class="df-layers">';
+    C.layers.forEach(function(L, li){
+      var rows = C.rows.map(function(r, k){ return C.layer[k] === li ? '<button type="button" class="dki-case df-pick" data-k="' + k + '" aria-pressed="false">' + esc(r) + '</button>' : ""; }).join("");
+      if (rows) html += '<div class="df-layer df-l' + li + '"><span class="df-ln">' + esc(L) + '</span><div class="dki-goals">' + rows + '</div></div>';
+    });
+    html += '</div><p class="dki-say">' + esc(C.attack) + '</p><div class="dki-goals df-attacks">' +
+      C.cases.map(function(c, j){ return '<button type="button" class="dki-case df-atk" data-j="' + j + '" aria-pressed="' + (j === 0) + '">' + esc(c) + '</button>'; }).join("") +
+      '</div><button type="button" class="dki-go df-go" disabled>' + esc(C.go) + '</button><div class="df-out" aria-live="polite"></div><p class="dki-say df-note" hidden>' + esc(C.note) + '</p>';
+    box.innerHTML = html;
+    var pb = box.querySelectorAll(".df-pick"), ab = box.querySelectorAll(".df-atk"), go = box.querySelector(".df-go"), out = box.querySelector(".df-out"),
+        left = box.querySelector(".df-left"), note = box.querySelector(".df-note"), atk = 0;
+    function paint(){
+      [].forEach.call(pb, function(b){ var k = +b.getAttribute("data-k"), on = picks.indexOf(k) > -1; b.setAttribute("aria-pressed", on ? "true" : "false"); b.disabled = !on && picks.length >= 3; });
+      [].forEach.call(ab, function(b){ b.setAttribute("aria-pressed", +b.getAttribute("data-j") === atk ? "true" : "false"); });
+      left.textContent = C.left.replace("{n}", 3 - picks.length); go.disabled = picks.length < 3;
+    }
+    [].forEach.call(pb, function(b){ b.addEventListener("click", function(){ var k = +b.getAttribute("data-k"), i = picks.indexOf(k); if (i > -1) picks.splice(i, 1); else if (picks.length < 3) picks.push(k); out.innerHTML = ""; paint(); }); });
+    [].forEach.call(ab, function(b){ b.addEventListener("click", function(){ atk = +b.getAttribute("data-j"); out.innerHTML = ""; paint(); }); });
+    go.addEventListener("click", function(){
+      var best = 2, held = [];
+      var rows = picks.map(function(k){ var v = C.G[k][atk]; best = Math.min(best, v); if (v === 0) held.push(C.rows[k]);
+        return '<li class="df-r df-s' + v + '" style="animation-delay:' + (picks.indexOf(k) * .35) + 's"><span>' + esc(C.rows[k]) + '</span><b>' + esc(C.st[v]) + '</b></li>'; }).join("");
+      var msg = best === 0 ? C.win.replace("{d}", held.join(", ")) : best === 1 ? C.part : C.lose;
+      out.innerHTML = '<ul class="df-rows">' + rows + '</ul><p class="df-verdict df-v' + best + '">' + esc(msg) + '</p>';
+      note.hidden = false; go.textContent = C.again;
+    });
+    paint();
+  };
+
   var boxes = [];
   document.querySelectorAll("figure.dk-int").forEach(function(fig){
     var kind = fig.getAttribute("data-w"), box = fig.querySelector(".dki-body"), C;
@@ -751,7 +783,26 @@
     function paint(){ bar.querySelector(".tk-count").textContent = C.count.replace("{n}", found).replace("{t}", cards.length); done.hidden = found < cards.length; }
     cards.forEach(function(c){
       c.classList.add("tk-card"); c.setAttribute("tabindex", "0"); c.setAttribute("role", "button"); c.setAttribute("aria-expanded", "false");
-      var stop = c.querySelector(".tstop"); if (stop) { var b = stop.querySelector("b"); if (b) b.textContent = "⚡ " + C.badge; }
+      var li = +(layer.getAttribute("data-li") || 0), stop = c.querySelector(".tstop");
+      if (stop) {
+        var b = stop.querySelector("b"); if (b) b.textContent = (C.heads ? C.heads[li] : C.badge);
+        var ART = [
+          '<svg viewBox="0 0 60 40"><circle cx="30" cy="20" r="15" fill="#fcebe6" stroke="#1b1b1b" stroke-width="2.5"/><path d="M24 18h3M33 18h3M24 27h12" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"/><g class="tk-mask"><path d="M14 8h32v14c0 10-32 10-32 0z" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5"/><path d="M22 16q3-3 6 0M32 16q3-3 6 0M24 24q6 5 12 0" fill="none" stroke="#1b1b1b" stroke-width="2.2" stroke-linecap="round"/></g></svg>',
+          '<svg viewBox="0 0 60 40"><rect x="6" y="6" width="22" height="28" rx="3" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5"/><path d="M11 15l3 3 6-6M11 26l3 3 6-6" fill="none" stroke="#6fae5a" stroke-width="2.5" stroke-linecap="round"/><circle cx="44" cy="20" r="12" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5"/><circle cx="40" cy="18" r="2" fill="#1b1b1b"/><path class="tk-wink" d="M45 18h5" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"/><path d="M39 25q5 3 9 0" fill="none" stroke="#1b1b1b" stroke-width="2.2" stroke-linecap="round"/></svg>',
+          '<svg viewBox="0 0 60 40"><rect x="8" y="12" width="44" height="26" rx="3" fill="#f6e7c1" stroke="#1b1b1b" stroke-width="2.5"/><path d="M30 12l-3 8 5 5-4 8" fill="none" stroke="#d9492c" stroke-width="2.5"/><g class="tk-peek"><rect x="34" y="2" width="16" height="13" rx="3" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.2"/><circle cx="39" cy="8" r="1.6" fill="#1b1b1b"/><circle cx="45" cy="8" r="1.6" fill="#1b1b1b"/></g></svg>',
+          '<svg viewBox="0 0 60 40"><rect x="6" y="6" width="48" height="28" rx="3" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5"/><path d="M12 26q6-8 10-2t10-4" fill="none" stroke="#1b1b1b" stroke-width="2.2" stroke-linecap="round"/><path class="tk-gap" d="M34 24h14" stroke="#1b1b1b" stroke-width="2.2" stroke-dasharray="3 4"/></svg>'];
+        var art = document.createElement("span"); art.className = "tk-art"; art.setAttribute("aria-hidden", "true"); art.innerHTML = ART[li] || ART[0];
+        stop.insertBefore(art, stop.firstChild);
+        if (li === 3 && C.stamp) c.setAttribute("data-stamp", C.stamp);
+      }
+      c.classList.add("tk-l" + li);
+      var extra = c.querySelector(".textra");
+      if (extra && C.deeper) {
+        var db = document.createElement("button"); db.type = "button"; db.className = "tk-deep"; db.setAttribute("aria-expanded", "false"); db.textContent = C.deeper + " +";
+        c.appendChild(db);
+        db.addEventListener("click", function(e){ e.stopPropagation(); var open = !c.classList.contains("tk-deep-on"); c.classList.toggle("tk-deep-on", open);
+          db.setAttribute("aria-expanded", open ? "true" : "false"); db.textContent = open ? C.less + " \u2013" : C.deeper + " +"; });
+      }
       function crack(){
         if (c.classList.contains("tk-open")) return;
         c.classList.add("tk-open"); c.setAttribute("aria-expanded", "true"); found++; paint();

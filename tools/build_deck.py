@@ -361,6 +361,8 @@ def subgoal_tabs(block, pg):
     fig = re.findall(r'<figure\b.*?</figure>', block, re.S)[0]
     return swap_fig_svgs(block, 0, H('subgoals', pg.lang, svg_texts(fig), (pg.T['subtabs'], pg.refbase)))
 
+def J2(a, b, lang): return (a + b) if lang == 'zh' else (a + ' ' + b)
+
 def card_heading(block, n, new):
     """Replace the heading of the block's nth card (the chart now carries its old point)."""
     hs = [m for m in re.finditer(r'<h4>.*?</h4>', block, re.S)]
@@ -711,11 +713,18 @@ def plan(pg):
     lname = [text(re.search(r'<h4>(.*?)</h4>', l, re.S).group(1)).split(' ', 1)[-1].strip() for l in layers]
     parts = [(P['5.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'cheese', T))]
     for i, l in enumerate(layers):
-        l = l.replace('<div class="tlayer"', '<div data-crack="%s" class="tlayer"' % html.escape(json.dumps(T['crack'], ensure_ascii=False)), 1)
+        assert l.count('<div class="tlayer"') == 1
+        l = l.replace('<div class="tlayer"', '<div data-li="%d" data-crack="%s" class="tlayer"' % (i, html.escape(json.dumps(dict(T['crack'], **T['crack2']), ensure_ascii=False))), 1)
         parts.append((lname[i], part_head(H['5.1layer'] % (i + 2, i + 1)) + l))
     dets = [b for b in B if b.startswith('<details') and 'aside-note' not in b[:60]]      # the older-framing footnote stays on the long page only
     dets = [rebuild(d, 0, 'levers', pg.lang) if 'exfold' in d[:40] and k == 0 else (rebuild(d, 0, 'orgs', pg.lang) if 'exfold' in d[:40] and k == 1 else d) for k, d in enumerate(dets)]
-    parts.append((P['5.1'][1], part_head(H['5.1f']) + ''.join(dets)))
+    # build-your-defence: only techniques the 5.2 safeguards table scores
+    g = pg.section('response-gaps'); gf = one(g, '<figure'); gt = svg_texts(gf)
+    D = dict(T['defend'], rows=gt[7:14], cases=[J2(gt[1], gt[2], pg.lang), J2(gt[3], gt[4], pg.lang), J2(gt[5], gt[6], pg.lang)],
+             layer=[0, 0, 1, 1, 2, 2, 3], layers=lname, G=[[2, 2, 2], [1, 2, 2], [2, 1, 2], [0, 1, 2], [0, 2, 2], [0, 1, 2], [0, 0, 1]])
+    game = '<figure class="secfig dk-int dkw-defend" data-w="defend" data-cfg="%s"><p class="tr-title">%s</p><div class="dki-body"></div></figure>' % (
+        html.escape(json.dumps(D, ensure_ascii=False)), E(D['title']))
+    parts.append((P['5.1'][1], part_head(H['5.1f']) + game + ''.join(dets)))
     add(ch, parts)
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']

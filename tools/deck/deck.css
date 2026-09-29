@@ -1109,3 +1109,46 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body .tcard .tn{font-family:var(--body)!important;font-weight:700!important;font-size:16px!important;letter-spacing:0!important;text-transform:none!important;color:#1b1b1b!important}
 .dtl-src{margin:10px 0 0;font-family:var(--body);font-size:11px;color:#6f6a60}
 .dtl-src a{color:#6f6a60!important;margin-right:4px;text-decoration:underline;text-underline-offset:2px}
+/* 5.1 reveals: a different gag per layer */
+.tk-art{display:block;width:72px;height:48px;margin:0 0 6px}
+.tk-art svg{width:100%;height:100%}
+.tk-open.tk-l0 .tk-mask{animation:tkMask .6s ease forwards}
+@keyframes tkMask{to{transform:translate(18px,-16px) rotate(20deg);opacity:.25}}
+.tk-open.tk-l1 .tk-wink{animation:tkWink 1.2s ease 2}
+@keyframes tkWink{0%,40%,100%{transform:none}50%,80%{transform:translateY(-3px)}}
+.tk-open.tk-l2 .tk-peek{animation:tkPeek .7s ease forwards}
+@keyframes tkPeek{from{transform:translateY(14px)}to{transform:none}}
+.t-body .tcard.tk-open.tk-l2{animation:tkShake .35s ease}
+@keyframes tkShake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.t-body .tcard.tk-open.tk-l3::before{content:attr(data-stamp);position:absolute;right:12px;top:12px;padding:3px 10px;border:3px solid #d9492c;border-radius:6px;color:#d9492c;
+  font-family:var(--comic);font-size:18px;letter-spacing:.06em;transform:rotate(-10deg);background:rgba(255,253,246,.85);animation:tkStamp .35s ease}
+@keyframes tkStamp{from{transform:rotate(-10deg) scale(1.8);opacity:0}to{transform:rotate(-10deg) scale(1);opacity:1}}
+.t-body .tcard.tk-open.tk-l0{background:#fffdf6!important}
+.t-body .tcard.tk-open.tk-l1{border-color:#4a5fc9!important;box-shadow:3px 3px 0 #4a5fc9}
+.t-body .tcard.tk-open.tk-l1 .tstop{background:#eef1fb!important;border-color:#4a5fc9!important}
+.t-body .tcard.tk-open.tk-l1 .tstop b{color:#3a4f9e!important}
+.t-body .tcard.tk-open.tk-l2 .tstop{background:#fff6d8!important;border-color:#e8b53a!important}
+.t-body .tcard.tk-open.tk-l2 .tstop b{color:#8a5d00!important}
+@media (prefers-reduced-motion: reduce){.tk-mask,.tk-wink,.tk-peek,.t-body .tcard.tk-open.tk-l2,.t-body .tcard.tk-open.tk-l3::before{animation:none!important}}
+/* build your defence */
+.df-layers{display:grid;gap:10px}
+.df-layer{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:10px;padding:8px 12px;border:2px dashed #cfc4ab;border-radius:8px}
+.df-ln{font-family:var(--comic);font-size:18px;letter-spacing:.03em;color:#1b1b1b}
+.df-pick[aria-pressed="true"]{background:#6fae5a!important}
+.df-pick:disabled{opacity:.4;cursor:not-allowed}
+.df-atk[aria-pressed="true"]{background:#f6d5cc!important}
+.df-go{background:#d9492c!important;color:#fffdf6!important}
+.df-go:disabled{background:#cfc4ab!important;color:#1b1b1b!important}
+.df-rows{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.df-r{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border:2px solid #1b1b1b;border-radius:6px;font-family:var(--body);font-size:15px;color:#1b1b1b;animation:trPop .35s ease both}
+.df-s0{background:#dcebd2} .df-s1{background:#f6e7c1} .df-s2{background:#f6d5cc}
+.df-verdict{margin:10px 0 0;padding:12px 14px;border:3px solid #1b1b1b;border-radius:8px;font-family:var(--body);font-weight:700;font-size:17px;color:#1b1b1b;box-shadow:3px 3px 0 #1b1b1b}
+.df-v0{background:#dcebd2} .df-v1{background:#f6e7c1} .df-v2{background:#f6d5cc}
+.df-note{font-size:14px!important;font-weight:400!important;color:#5c574e!important}
+@media (max-width:760px){.df-layer{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.df-r{animation:none}}
+/* 5.1 go deeper */
+.tk-deep{display:none;align-self:flex-start;margin-top:4px;padding:4px 0;border:0;background:none;cursor:pointer;font-family:var(--body);font-weight:700;font-size:14px;color:#2f5aa8;text-decoration:underline;text-underline-offset:3px}
+.t-body .tcard.tk-open .tk-deep{display:inline-block}
+.t-body .tcard.tk-card.tk-deep-on .textra{display:block!important;margin:6px 0 0;padding:10px 12px;border-left:4px solid #4a5fc9;background:#eef1fb;border-radius:0 6px 6px 0;font-family:var(--body);font-size:15px;line-height:1.5;color:#1b1b1b!important}
+.tk-deep:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
