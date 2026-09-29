@@ -593,10 +593,12 @@ def plan(pg):
         if 'claim-1' in c[:80]:
             c = rebuild(c, 1, 'timeline', pg.lang); c = rebuild(c, 0, 'funding', pg.lang)
             I = T['incidents']
-            items = ''.join('<li class="dtl-%s"><i aria-hidden="true">%s</i><b>%s</b><span>%s%s</span></li>' % (
-                ('esc' if k else 'warn'), ('!' if k else ''), E(y), E(x), refs_html(r, pg.refbase)) for y, x, k, r in I['timeline'])
+            items = ''.join('<li class="dtl-%s"><i aria-hidden="true">%s</i><b>%s</b><span>%s</span></li>' % (
+                ('esc' if k else 'warn'), ('!' if k else ''), E(y), E(x)) for y, x, k, r in I['timeline'])
+            nums = sorted(set(int(n) for y, x, k, r in I['timeline'] for n in re.findall(r'\d+', r)))
+            srcline = '<p class="dtl-src">%s %s</p>' % (E(T['src_word']), ' '.join('<a href="%s#s%d">%d</a>' % (pg.refbase, n, n) for n in nums))
             key = '<p class="dtl-key"><span class="dtl-warn"><i></i>%s</span><span class="dtl-esc"><i>!</i>%s</span></p>' % (E(I['tl_key'][0]), E(I['tl_key'][1]))
-            c, ntl = re.subn(r'<ol class="dkh-tl">.*?</ol>', lambda m: key + '<ol class="dkh-tl dtl">%s</ol>' % items, c, flags=re.S)
+            c, ntl = re.subn(r'<ol class="dkh-tl">.*?</ol>', lambda m: key + '<ol class="dkh-tl dtl">%s</ol>' % items + srcline, c, flags=re.S)
             assert ntl == 1
         if 'claim-3' in c[:80]:
             figs3 = re.findall(r'<figure\b.*?</figure>', c, re.S)

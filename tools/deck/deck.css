@@ -1107,3 +1107,5 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body .tlayer-h h4{font-family:var(--comic)!important;font-size:22px!important;letter-spacing:.03em!important;color:#1b1b1b!important}
 .t-body .tverdict{font-family:var(--body)!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;font-size:12px!important;border:2px solid #1b1b1b;border-radius:99px;background:#fff6d8!important;color:#1b1b1b!important;padding:2px 10px!important}
 .t-body .tcard .tn{font-family:var(--body)!important;font-weight:700!important;font-size:16px!important;letter-spacing:0!important;text-transform:none!important;color:#1b1b1b!important}
+.dtl-src{margin:10px 0 0;font-family:var(--body);font-size:11px;color:#6f6a60}
+.dtl-src a{color:#6f6a60!important;margin-right:4px;text-decoration:underline;text-underline-offset:2px}

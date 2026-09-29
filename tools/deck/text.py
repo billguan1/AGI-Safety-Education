@@ -14,7 +14,7 @@ T = {
  'en': dict(
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/deck-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
-    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', more_how='How it goes wrong', more='More',
+    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', src_word='Sources:', more_how='How it goes wrong', more='More',
     incidents=dict(
       timeline=[('2016', 'AI safety problems first named', 0, ''),
                 ('2024', 'A model faked being aligned', 0, ''),
@@ -197,7 +197,7 @@ T = {
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', more_how='它会怎样出错', more='更多',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', src_word='来源：', more_how='它会怎样出错', more='更多',
     incidents=dict(
       timeline=[('2016', 'AI 安全问题首次被提出', 0, ''),
                 ('2024', '一个模型假装自己已经对齐', 0, ''),
