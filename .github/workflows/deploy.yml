@@ -48,9 +48,9 @@ jobs:
           # Kenji's faces for the slide deck (deck.html, deck-zh.html).
           [ -d deck-img ] && cp -R deck-img _site/deck-img
           if [ -d comic-site ]; then cp -R comic-site _site/comics; fi
-          # game2/ is THE WISH. Unlinked from the site on purpose; reachable only
-          # by its URL. Nothing in index.html points at it.
-          if [ -d game2 ]; then cp -R game2 _site/game2; fi
+          # game2/ was THE WISH's first home. The game now lives at game.safeagi.ca
+          # (the AI-Safety-Game repo); /game2 redirects there via _redirects, so
+          # the folder is kept for history and no longer published.
           echo "--- publishing ---"
           find _site -type f | sort
 

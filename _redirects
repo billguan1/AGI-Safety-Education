@@ -4,3 +4,6 @@
 # The comic deck became the home page on 2026-09-29.
 /deck    /    301
 /deck-zh    /index-zh    301
+# THE WISH moved from /game2 to game.safeagi.ca on 2026-09-29.
+/game2    https://game.safeagi.ca/    301
+/game2/*    https://game.safeagi.ca/:splat    301
