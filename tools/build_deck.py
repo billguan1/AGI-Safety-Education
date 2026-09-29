@@ -439,6 +439,32 @@ def feel_scenes():
           '<path d="M176 64 q3 -5 0 -10 M182 64 q3 -5 0 -10" fill="none" stroke="#9aa3ab" stroke-width="2" stroke-linecap="round"/>')
     return [dk_svg('0 0 210 104', '', x).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1) for x in (s1, s2, s3, s4, s5)]
 
+def care_scenes():
+    """Three small comic scenes for the why-care cards, in the 2.2a style."""
+    K = 'stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"'
+    def man(x, y, c):
+        return ('<circle cx="%d" cy="%d" r="7" fill="%s" %s/><path d="M%d %d v18 M%d %d l-7 12 M%d %d l7 12 M%d %d l-9 6 M%d %d l9 -4" fill="none" %s/>'
+                % (x, y, c, K, x, y + 7, x, y + 25, x, y + 25, x, y + 12, x, y + 12, K))
+    def bot(x, y, c='#9fb3f0'):
+        return ('<rect x="%d" y="%d" width="34" height="30" rx="6" fill="%s" %s/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/>'
+                '<path d="M%d %d v-6" %s/><circle cx="%d" cy="%d" r="3" fill="#e8b53a" %s/><path d="M%d %d h14" %s/>'
+                % (x, y, c, K, x + 11, y + 12, x + 23, y + 12, x + 17, y, K, x + 17, y - 8, K, x + 10, y + 22, K))
+    Q = lambda x, y, s=22: '<text x="%d" y="%d" text-anchor="middle" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="%d" fill="#1b1b1b">?</text>' % (x, y, s)
+    DEF = '<defs><marker id="csa0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1b1b1b"/></marker></defs>'
+    s1 = (DEF + '<rect x="14" y="22" width="56" height="62" rx="5" fill="#fffdf6" %s/><rect x="14" y="22" width="56" height="16" rx="5" fill="#e07a5f" %s/>' % (K, K) +
+          '<path d="M28 16 v10 M56 16 v10" %s/><text x="42" y="70" text-anchor="middle" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="22" fill="#1b1b1b">2027</text>' % K +
+          '<path d="M128 60 L84 60" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" marker-end="url(#csa0)"/>' + bot(136, 44) +
+          '<path d="M178 50 h22 M182 60 h18 M178 70 h22" stroke="#9aa3ab" stroke-width="3" stroke-linecap="round"/>')
+    goods = ''.join('<circle cx="%d" cy="%d" r="%d" fill="%s" %s/>' % (x, y, r, c, K) for x, y, r, c in ((38, 62, 7, '#6fae5a'), (52, 60, 8, '#f2cc6a'), (66, 62, 7, '#e07a5f'), (45, 50, 6, '#9fb3f0'), (59, 49, 6, '#6fae5a')))
+    s2 = ('<path d="M105 92 L93 100 H117 Z" fill="#cfc4ab" %s/><path d="M105 92 V34 M30 34 H180" fill="none" %s/>' % (K, K) +
+          '<path d="M30 34 L20 68 H76 L66 34 M144 34 L134 68 H190 L180 34" fill="none" stroke="#9aa3ab" stroke-width="2"/>' +
+          '<path d="M18 68 H78 L72 76 H24 Z" fill="#b9d6a8" %s/>' % K + goods +
+          '<path d="M132 68 H192 L186 76 H138 Z" fill="#f6d5cc" %s/>' % K +
+          '<path d="M150 66 l6 -12 -5 -6 8 -10 M166 66 l-4 -10 6 -8" fill="none" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/>' +
+          '<path d="M60 18 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" %s/>' % K)
+    s3 = man(28, 44, '#e8b53a') + Q(44, 30) + bot(88, 50) + Q(105, 34, 26) + man(182, 44, '#6fae5a') + Q(166, 30)
+    return [dk_svg('0 0 210 104', '', x).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1) for x in (s1, s2, s3)]
+
 def feel_scenes_in(block):
     """A scene under each card title, marked to stay outside the card's fold."""
     hs = list(re.finditer(r'</h4>', block)); sc = feel_scenes()
@@ -718,6 +744,9 @@ def plan(pg):
         old = '<span class="care-n">%d</span>' % n
         assert care.count(old) == 1, ('care badge', n)
         care = care.replace(old, '<span class="care-top">%s<span class="care-ic" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">%s</svg></span></span>' % (old, ic))
+    # a comic scene under each card title, like the 2.2a adversary cards
+    ends = list(re.finditer(r'</h3>', care)); assert len(ends) == 3, len(ends)
+    for m, sc in reversed(list(zip(ends, care_scenes()))): care = care[:m.end()] + sc + care[m.end():]
     care_title = re.search(r'<h2 class="mh-h"><span>(.*?)</span></h2>', care, re.S)
     assert care_title
     S.append(dict(key='care', sec=intro, wrap='mast', kicker=T['intro_kick'], title=care_title.group(1),
