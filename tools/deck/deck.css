@@ -1152,3 +1152,18 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body .tcard.tk-open .tk-deep{display:inline-block}
 .t-body .tcard.tk-card.tk-deep-on .textra{display:block!important;margin:6px 0 0;padding:10px 12px;border-left:4px solid #4a5fc9;background:#eef1fb;border-radius:0 6px 6px 0;font-family:var(--body);font-size:15px;line-height:1.5;color:#1b1b1b!important}
 .tk-deep:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+/* small sources lines */
+.t-body .dk-src{display:block;margin:8px 0 0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;font-family:var(--body)!important;font-weight:400!important;font-size:11px!important;line-height:1.4!important;color:#6f6a60!important;text-align:left}
+.t-body .dk-src::before{display:none!important}
+.t-body .dk-src a.ref{position:static!important;vertical-align:baseline!important;font-size:11px!important;color:#6f6a60!important;text-decoration:underline;text-underline-offset:2px;margin-right:2px}
+.t-body .dk-src-in{display:block}
+/* more detail on the adversary cards */
+.dk-more-btn{align-self:flex-start;margin:6px 0 0;padding:4px 0;border:0;background:none;cursor:pointer;font-family:var(--body);font-weight:700;font-size:14px;color:#2f5aa8;text-decoration:underline;text-underline-offset:3px}
+.dk-more-btn:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+.dk-more-body{margin-top:8px;padding:10px 12px;border-left:4px solid var(--k,#8a9bd8);background:#f4ecd8;border-radius:0 6px 6px 0}
+.dk-more-body p{margin:0 0 8px!important;font-family:var(--body)!important;font-size:15px!important;line-height:1.5!important;color:#1b1b1b!important}
+.dk-more-body p:last-of-type{margin-bottom:0!important}
+/* Back on the left, the next step on the right */
+.b2-next{flex-direction:row!important;flex-wrap:nowrap!important;justify-content:flex-start!important;align-items:center}
+.b2-next button:not(.t-back){white-space:normal;text-align:left}
+.b2-next button.t-back{flex:none}

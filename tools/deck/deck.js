@@ -813,3 +813,54 @@
     paint();
   });
 })();
+
+
+(function(){
+  /* "More detail" on cards that carry their full text folded */
+  document.querySelectorAll(".dk-more-btn").forEach(function(b){
+    var body = b.nextElementSibling;
+    b.addEventListener("click", function(e){
+      e.stopPropagation();
+      var open = body.hidden; body.hidden = !open;
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      b.textContent = open ? b.getAttribute("data-less") + " –" : b.getAttribute("data-more") + " +";
+      if (open && window.__dkSources) window.__dkSources(body);
+    });
+  });
+})();
+
+(function(){
+  /* citation numbers leave the sentence and gather in one small line per card, chart or paragraph */
+  var zh = /^zh/i.test(document.documentElement.lang || ""), WORD = zh ? "来源：" : "Sources:";
+  var UNIT = ".tcard,.ddc,.endc,.cl-half,.claim,.first,.dkr-tile,.dkh-box,.dki-break,.dk-check,.keyline,.core,.demo,.jur,figure,li,p,.dk-more-body,details";
+  function run(root){
+    var refs = [].slice.call((root || document).querySelectorAll(".slide a.ref, .dk-more-body a.ref, .dki-break a.ref"))
+      .filter(function(a){ return !a.closest(".fig-src,.dtl-src,.dk-src,.term-tip,.dk-sr"); });
+    var groups = [];
+    refs.forEach(function(a){
+      var u = a.parentElement.closest(UNIT); if (!u) return;
+      var g = groups.filter(function(x){ return x.u === u; })[0]; if (!g) { g = {u: u, refs: []}; groups.push(g); }
+      g.refs.push(a);
+    });
+    groups.forEach(function(g){
+      var seen = {}, links = [];
+      g.refs.forEach(function(a){ var n = a.textContent.trim(); if (!seen[n]) { seen[n] = 1; var c = a.cloneNode(true); c.className = "ref dk-srcref"; links.push(c); } a.parentNode.removeChild(a); });
+      var tag = /^(P|LI)$/.test(g.u.tagName) ? "span" : "p";
+      var line = document.createElement(tag); line.className = "dk-src" + (tag === "span" ? " dk-src-in" : "");
+      line.appendChild(document.createTextNode(WORD + " "));
+      links.forEach(function(c){ line.appendChild(c); line.appendChild(document.createTextNode(" ")); });
+      if (tag === "p") {
+        var anchor = g.u.querySelector(":scope > .t-more, :scope > .dk-more-btn, :scope > .endc-icons, :scope > .tk-deep, :scope > .fig-src, :scope > .dk-src-btn");
+        if (anchor) g.u.insertBefore(line, anchor); else g.u.appendChild(line);
+      } else g.u.appendChild(line);
+    });
+  }
+  window.__dkSources = run;
+  run(document);
+  /* text that scripts write later (quiz answers, the trust chain) */
+  if (window.MutationObserver) {
+    var t; new MutationObserver(function(ms){
+      if (ms.some(function(m){ return [].some.call(m.addedNodes, function(n){ return n.nodeType === 1 && (n.matches && n.matches("a.ref:not(.dk-srcref)") || n.querySelector && n.querySelector("a.ref:not(.dk-srcref)")); }); })) { clearTimeout(t); t = setTimeout(function(){ run(document); }, 30); }
+    }).observe(document.querySelector(".track"), {childList: true, subtree: true});
+  }
+})();

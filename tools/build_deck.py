@@ -353,7 +353,10 @@ def slim_ends(block, T):
         c = m.group(0); tag = m.group(1)
         head = re.search(r'<span class="ek">.*?</span><h4>.*?</h4>', c, re.S).group(0)
         icons = re.search(r'<span class="endc-icons">.*?</span></span></span>', c, re.S)
-        new = c[:c.index('>') + 1].replace('class="endc"', 'data-auto="1" class="endc"', 1) + head + sc + '<p>%s</p>' % refs_html(line, base) + (icons.group(0) if icons else '') + '</%s>' % tag
+        paras = ''.join(re.findall(r'<p\b[^>]*>.*?</p>', c, re.S))
+        more = ('<button type="button" class="dk-more-btn" aria-expanded="false" data-more="%s" data-less="%s">%s +</button><div class="dk-more-body" hidden>%s</div>'
+                % (E(T['more_detail']), E(T['less_detail']), E(T['more_detail']), paras)) if paras else ''
+        new = c[:c.index('>') + 1].replace('class="endc"', 'data-auto="1" class="endc"', 1) + head + sc + '<p>%s</p>' % refs_html(line, base) + more + (icons.group(0) if icons else '') + '</%s>' % tag
         out = out[:m.start()] + new + out[m.end():]
     return out
 
