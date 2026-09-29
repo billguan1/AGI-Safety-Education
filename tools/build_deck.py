@@ -161,6 +161,10 @@ def worded_figs(block, T):
            '<text x="13" y="54" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1b1b1b">%s</text></g>'
            '<path d="M2 127 H286" stroke="#1b1b1b" stroke-width="2.5"/></svg>') % (E(L['alt2']), steps, E(L['done']))
     stop = '<figure class="secfig wl-fig wl-climb">%s</figure>' % svg
+    # the pictures carry the examples, so each card keeps one short line
+    ps = re.findall(r'<p>.*?</p>', block, re.S)
+    assert len(ps) == 2, len(ps)
+    for p, short in zip(ps, L['short']): block = block.replace(p, '<p>%s</p>' % E(short), 1)
     return into_card(into_card(block, 1, stop), 0, lit)
 
 def loophole(block, pg):
