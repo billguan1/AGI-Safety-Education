@@ -5997,6 +5997,8 @@ var SITE_CONFIG = {
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
   var faller = svg.querySelector(".cr-fall"), arrow = svg.querySelector(".cr-arrow"), ptext = svg.querySelectorAll(".cr-ptext");
+  /* the name tags under the runners and the "roped together" note stay put, so they fade out as the group is dragged away */
+  var tags = svg.querySelectorAll('text[y="252"], text[x="205"][y="132"], text[x="205"][y="150"], path[d="M205,158 L205,192"]');
   if (!team || !faller) return;
   var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
   var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
@@ -6052,6 +6054,8 @@ var SITE_CONFIG = {
     }
     if (still) tie(); else if (!raf) raf = requestAnimationFrame(step);
     if (arrow) arrow.style.opacity = shift > 10 ? 0 : 1;
+    var fade = Math.max(0, 1 - shift / 220).toFixed(2);
+    [].forEach.call(tags, function(el){ el.style.opacity = fade; });
     [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
     say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
