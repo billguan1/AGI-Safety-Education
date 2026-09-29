@@ -1027,6 +1027,16 @@ def build(pg, en_colors=None):
         if x['key'] == 'anthem':
             total = len([1 for y in S if y is S[first[y['sec']['id']]] and y['sec'].get('num')])
             body = '<div class="dk-results" data-c="%s"></div>' % html.escape(json.dumps(dict(T['results'], total=total, nchecks=len(T['checks']), badge=T['games51']['badge'], badge_row=T['games51']['badge_row']), ensure_ascii=False)) + body
+            # after staying in the loop, the way into the reference material
+            refs = []
+            for rid in ('change-my-mind', 'faq', 'glossary', 'resources', 'sources'):
+                m = re.search(r'<a href="(/reference(?:-zh)?#%s)"[^>]*>(.*?)</a>' % rid, pg.s)
+                assert m, ('reference link', rid); refs.append((m.group(1), text(m.group(2))))
+            D = T['deeper']
+            deeper = ('<div class="dk-deeper"><h3>%s</h3><p>%s</p><div class="dk-deeper-links">%s</div></div>'
+                      % (E(D['title']), E(D['sub']), ''.join('<a href="%s">%s <span aria-hidden="true">&rarr;</span></a>' % (h, E(t)) for h, t in refs)))
+            assert body.count('<div class="deck-foot">') == 1
+            body = body.replace('<div class="deck-foot">', deeper + '<div class="deck-foot">', 1)
         colors[x['key']] = got
         same = [y for y in S if y['sec'] is sec]
         chips = ''
@@ -1077,6 +1087,7 @@ def build(pg, en_colors=None):
                 lab = (T['next'] % ('%s %s' % (ns['num'], ns['label']))) if ns.get('num') else T['next'] % ns['label']
                 btns.append('<button type="button" class="p-btn" data-go="%d">%s <span aria-hidden="true">&rarr;</span></button>' % (i + 1, html.escape(lab)))
         else:
+            btns.append('<a class="p-btn" href="%s">%s <span aria-hidden="true">&rarr;</span></a>' % ('/reference-zh' if pg.lang == 'zh' else '/reference', T['deeper']['btn']))
             btns.append('<button type="button" class="p-btn t-back" data-go="0">%s <span aria-hidden="true">&uarr;</span></button>' % T['restart'])
         # after "You", the next step is Stay in the loop; researchers, labs and governments are optional
         extra_attr = ''
