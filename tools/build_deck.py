@@ -143,28 +143,6 @@ def into_card(block, n, fig):
             end = starts[n] + m.start(); break
     return block[:end] + fig + block[end:]
 
-def before_head(block, n, fig):
-    """Put a picture just above the nth card's heading, where the fold never hides it."""
-    hs = [m for m in re.finditer(r'<h4>', block)]
-    assert len(hs) > n, ('headings', len(hs))
-    a = hs[n].start()
-    return block[:a] + fig + block[a:]
-
-def feel_figs(block, T):
-    """2.1 where people would feel it: one small picture per card, numbers from the cards' own text."""
-    W = T['feel']
-    def bars(rows, note):
-        return ('<div class="wf wf-bars">%s<p class="wf-note">%s</p></div>'
-                % (''.join('<div class="wf-row"><span>%s</span><i style="--w:%s%%;--c:%s"></i></div>' % (E(a), w, c) for a, w, c in rows), E(note)))
-    figs = [
-        '<div class="wf wf-sq"><div><i class="wf-s1"></i><span>%s</span></div><div><i class="wf-s2"><b>×190</b></i><span>%s</span></div></div>' % (E(W['today']), E(W['in20'])),
-        bars([(W['h_now'], 46, '#f6d5cc'), (W['h_ai'], 92, '#d9492c')], W['h_note']),
-        bars([(W['e_ai'], 8, '#6fae5a'), (W['e_school'], 95, '#cfe6c4')], W['e_note']),
-        '<div class="wf wf-nums"><div><b>200M</b><span>%s</span></div><div><b>380K</b><span>%s</span></div></div>' % (E(W['s_prot']), E(W['s_cry'])),
-        bars([(W['w_human'], 95, '#cfc4ab'), (W['w_waymo'], 20, '#4a5fc9')], W['w_note'])]
-    for k in reversed(range(5)): block = before_head(block, k, figs[k])
-    return block
-
 def worded_figs(block, T):
     """4.1 worded well, still wrong: what was asked beside what it did; and a climb with no finish."""
     L = T['worded']
@@ -745,7 +723,7 @@ def plan(pg):
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
-             (P['2.1'][1], part_head(*T['heads']['2.1b']) + feel_figs(one(B, '<div class="ddgrid'), T))])             # six cards start closed
+             (P['2.1'][1], part_head(*T['heads']['2.1b']) + one(B, '<div class="ddgrid'))])             # six cards start closed
     # 2.2
     ch = pg.chapter('why-it-ends-badly'); B = ch['blocks']
     bodies = [b for b in B if b.startswith('<p class="body')]
