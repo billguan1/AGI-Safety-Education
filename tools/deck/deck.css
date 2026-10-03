@@ -356,6 +356,13 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .t-body .mh-title{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.02em!important;color:#1b1b1b!important;text-shadow:4px 4px 0 #e8b53a;line-height:1.02!important}
 .t-body .mh-title .mh-hl{background:none!important;-webkit-text-fill-color:#d2553f!important;color:#d2553f!important}
 .t-body .mh-lede{color:#3b3833!important;font-family:var(--body)!important}
+/* cover on laptops and desktops: the chart sits above the fold, so the title and intro tighten and the chart scales to the screen height */
+@media (min-width:761px){
+  .slide[data-key="cover"] .mh-kick{margin-bottom:12px!important}
+  .slide[data-key="cover"] .mh-title{font-size:clamp(40px,2.2vw + 22px,58px)!important;max-width:none!important;margin-bottom:14px!important}
+  .slide[data-key="cover"] .mh-lede{font-size:17px!important;line-height:1.5!important;max-width:none!important}
+  .slide[data-key="cover"] figure.cliff{margin:18px auto 0!important;max-width:min(900px,max(520px,calc((100dvh - 330px) * 1.86)))!important}
+}
 .t-body .mh-h,.t-body .mh-h span,.t-body .mc-k{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.03em!important;color:#1b1b1b!important;font-size:clamp(26px,1rem + 1.4vw,38px)!important;text-transform:none!important}
 .t-body .mh-h::before,.t-body .mh-h::after,.t-body .mh-h span::before,.t-body .mh-h span::after{background:#1b1b1b!important}
 .t-body .care-c,.t-body .claim,.t-body .first{background:#fffdf6!important;border:3px solid #1b1b1b!important;border-radius:6px!important;box-shadow:5px 5px 0 #1b1b1b;color:#1b1b1b}

@@ -1089,8 +1089,10 @@ def build(pg, en_colors=None):
             inside = '<section%s class="dd">%s<div class="wrap t-body">%s%s</div></section>' % (
                 (' id="%s"' % x['anchor']) if x.get('anchor') else '', head, nar, body)
         elif x['wrap'] == 'mast':
+            # on the cover the chart comes first; Kenji and Capy introduce themselves below it
+            top_part, low_part = (body, nar) if x['key'] == 'cover' else (nar, body)
             inside = '<header class="masthead"%s>%s<div class="wrap t-body">%s%s</div></header>' % (
-                (' id="%s"' % x['anchor']) if x.get('anchor') else '', ihead, nar, body)
+                (' id="%s"' % x['anchor']) if x.get('anchor') else '', ihead, top_part, low_part)
         elif x['wrap'] == 'cross':
             inside = '<section class="cross"%s>%s<div class="wrap t-body">%s%s</div></section>' % (
                 (' id="%s"' % x['anchor']) if x.get('anchor') else '', ihead, nar, body)
