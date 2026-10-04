@@ -2824,12 +2824,10 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dk-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;margin:0!important;padding:0!important;border:0!important}
 /* cover cliff controls */
 .cr-ctl{display:grid;gap:8px;margin-top:14px}
-.cr-stage{position:relative}
-.cr-stage .cr-play{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);min-height:56px;padding:0 30px;font-size:21px!important;box-shadow:4px 4px 0 #1b1b1b;z-index:2}
-.cr-stage .cr-play.cr-ran{left:auto;top:auto;right:12px;bottom:12px;transform:none;min-height:40px;padding:0 16px;font-size:15px!important;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
 .cr-q button{min-height:38px;padding:0 16px;border:2.5px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:inherit;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q button[aria-pressed="true"]{background:#e8b53a}
+.cr-q button span{font-size:.8em;margin-right:2px}
 .cr-lab{font-family:var(--body);font-weight:700;font-size:15px;color:#1b1b1b}
 .cr-ctl input[type=range]{width:100%;height:36px;accent-color:#d9492c;cursor:pointer}
 /* intro: the three reasons nest under "Why care" */
@@ -3248,7 +3246,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#1b1b1b" data-lx-dfs="19">Racing to be first</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#5c574e" data-lx-dfs="15">to a place nobody should reach first.</text>
       </svg>
-    <div class="cr-ctl" data-c="{&quot;q&quot;: &quot;Is safety solved before we get there?&quot;, &quot;yes&quot;: &quot;Yes&quot;, &quot;no&quot;: &quot;No&quot;, &quot;play&quot;: &quot;Play&quot;, &quot;again&quot;: &quot;Play again&quot;, &quot;start&quot;: &quot;Press play to race toward the edge.&quot;, &quot;sayNo&quot;: &quot;Nobody slowed down. The first one over dragged the rest into the drop.&quot;, &quot;sayYes&quot;: &quot;Safety came first, so crossing the edge means reaching the prize: abundance, longer lives, faster science.&quot;}"></div></figure></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">Continue <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="The big picture"><header class="masthead"><div class="wrap t-head"><div class="sec-head"><span class="chapno">The big picture</span><h2>Why should we care?</h2><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="0"><b>1</b>Welcome</button><button type="button" class="t-chip on" data-go="1"><b>2</b>Why care</button><span class="t-subchips"><button type="button" class="t-chip t-chip-sub" data-go="2">It is arriving soon</button><button type="button" class="t-chip t-chip-sub" data-go="3">The stakes</button><button type="button" class="t-chip t-chip-sub" data-go="4">Nobody knows how</button></span><button type="button" class="t-chip" data-go="5"><b>3</b>The only solution</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji, looking happy" width="72" height="72" decoding="async"><p class="cx-bubble">Hi, I&#x27;m Kenji, and this is Capy. Here are three reasons to care about superintelligence safety. Tap one to jump to it.</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>HELLO. I AM A SUPERINTELLIGENT CAPYBARA.</span></div></div><div class="mh-care">
+    <div class="cr-ctl" data-c="{&quot;q&quot;: &quot;Is safety solved before we get there?&quot;, &quot;yes&quot;: &quot;Yes&quot;, &quot;no&quot;: &quot;No&quot;, &quot;start&quot;: &quot;Pick an answer to race toward the edge.&quot;, &quot;sayNo&quot;: &quot;Nobody slowed down. The first one over dragged the rest into the drop.&quot;, &quot;sayYes&quot;: &quot;Safety came first, so crossing the edge means reaching the prize: abundance, longer lives, faster science.&quot;}"></div></figure></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">Continue <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="The big picture"><header class="masthead"><div class="wrap t-head"><div class="sec-head"><span class="chapno">The big picture</span><h2>Why should we care?</h2><div class="t-chips" aria-label="Parts of this chapter"><button type="button" class="t-chip" data-go="0"><b>1</b>Welcome</button><button type="button" class="t-chip on" data-go="1"><b>2</b>Why care</button><span class="t-subchips"><button type="button" class="t-chip t-chip-sub" data-go="2">It is arriving soon</button><button type="button" class="t-chip t-chip-sub" data-go="3">The stakes</button><button type="button" class="t-chip t-chip-sub" data-go="4">Nobody knows how</button></span><button type="button" class="t-chip" data-go="5"><b>3</b>The only solution</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji, looking happy" width="72" height="72" decoding="async"><p class="cx-bubble">Hi, I&#x27;m Kenji, and this is Capy. Here are three reasons to care about superintelligence safety. Tap one to jump to it.</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>HELLO. I AM A SUPERINTELLIGENT CAPYBARA.</span></div></div><div class="mh-care">
     
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
@@ -6064,7 +6062,7 @@ var SITE_CONFIG = {
 
 
 (function(){
-  /* the cover's cliff: press play and the roped group races to the edge; safety decides whether they rise or drop */
+  /* the cover's cliff: each answer is a play button; the roped group races to the edge and the answer decides whether they rise or drop */
   var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
@@ -6074,12 +6072,9 @@ var SITE_CONFIG = {
   if (!team || !faller) return;
   var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
   var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
-  ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
-    '<button type="button" class="dki-go cr-play"><span aria-hidden="true">▶</span> ' + C.play + '</button>' +
+  ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false"><span aria-hidden="true">▶</span> ' + C.yes + '</button><button type="button" data-v="0" aria-pressed="false"><span aria-hidden="true">▶</span> ' + C.no + '</button></div>' +
     '<p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
-  var say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), go = ctl.querySelector(".cr-play"), safe = false, EDGE = 556, prog = 0, run = 0;
-  /* the play button sits on the drawing, where the eye already is; after a run it tucks into the corner */
-  var stage = document.createElement("div"); stage.className = "cr-stage"; svg.parentNode.insertBefore(stage, svg); stage.appendChild(svg); stage.appendChild(go);
+  var say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), safe = false, EDGE = 556, prog = 0, run = 0;
   /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
   var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
   function lerp(a, b, u){ return a + (b - a) * u; }
@@ -6133,20 +6128,18 @@ var SITE_CONFIG = {
     [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
     say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
-  /* play: the race runs from the start line to the far side in about 2.6 seconds */
+  /* play: the race runs from the start line to the far side in about 2.6 seconds; pressing an answer again replays it */
   function play(){
-    cancelAnimationFrame(run); prog = 0; go.classList.add("cr-ran"); draw();
-    if (still) { prog = 1; draw(); done(); return; }
+    cancelAnimationFrame(run); prog = 0; draw();
+    if (still) { prog = 1; draw(); return; }
     var t0 = 0;
-    function tick(ts){ if (!t0) t0 = ts; prog = Math.min(1, (ts - t0) / 2600); draw(); if (prog < 1) run = requestAnimationFrame(tick); else done(); }
+    function tick(ts){ if (!t0) t0 = ts; prog = Math.min(1, (ts - t0) / 2600); draw(); if (prog < 1) run = requestAnimationFrame(tick); }
     run = requestAnimationFrame(tick);
   }
-  function done(){ go.innerHTML = '<span aria-hidden="true">↻</span> ' + C.again; }
-  go.addEventListener("click", play);
   [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
     safe = b.getAttribute("data-v") === "1";
     [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-    if (prog > 0) play(); else draw();
+    play();
   }); });
   draw();
 })();

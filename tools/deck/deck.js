@@ -756,7 +756,7 @@
 
 
 (function(){
-  /* the cover's cliff: press play and the roped group races to the edge; safety decides whether they rise or drop */
+  /* the cover's cliff: each answer is a play button; the roped group races to the edge and the answer decides whether they rise or drop */
   var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
@@ -766,12 +766,9 @@
   if (!team || !faller) return;
   var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
   var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
-  ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
-    '<button type="button" class="dki-go cr-play"><span aria-hidden="true">▶</span> ' + C.play + '</button>' +
+  ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false"><span aria-hidden="true">▶</span> ' + C.yes + '</button><button type="button" data-v="0" aria-pressed="false"><span aria-hidden="true">▶</span> ' + C.no + '</button></div>' +
     '<p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
-  var say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), go = ctl.querySelector(".cr-play"), safe = false, EDGE = 556, prog = 0, run = 0;
-  /* the play button sits on the drawing, where the eye already is; after a run it tucks into the corner */
-  var stage = document.createElement("div"); stage.className = "cr-stage"; svg.parentNode.insertBefore(stage, svg); stage.appendChild(svg); stage.appendChild(go);
+  var say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), safe = false, EDGE = 556, prog = 0, run = 0;
   /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
   var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
   function lerp(a, b, u){ return a + (b - a) * u; }
@@ -825,20 +822,18 @@
     [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
     say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
-  /* play: the race runs from the start line to the far side in about 2.6 seconds */
+  /* play: the race runs from the start line to the far side in about 2.6 seconds; pressing an answer again replays it */
   function play(){
-    cancelAnimationFrame(run); prog = 0; go.classList.add("cr-ran"); draw();
-    if (still) { prog = 1; draw(); done(); return; }
+    cancelAnimationFrame(run); prog = 0; draw();
+    if (still) { prog = 1; draw(); return; }
     var t0 = 0;
-    function tick(ts){ if (!t0) t0 = ts; prog = Math.min(1, (ts - t0) / 2600); draw(); if (prog < 1) run = requestAnimationFrame(tick); else done(); }
+    function tick(ts){ if (!t0) t0 = ts; prog = Math.min(1, (ts - t0) / 2600); draw(); if (prog < 1) run = requestAnimationFrame(tick); }
     run = requestAnimationFrame(tick);
   }
-  function done(){ go.innerHTML = '<span aria-hidden="true">↻</span> ' + C.again; }
-  go.addEventListener("click", play);
   [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
     safe = b.getAttribute("data-v") === "1";
     [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-    if (prog > 0) play(); else draw();
+    play();
   }); });
   draw();
 })();
