@@ -730,11 +730,17 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dki-opt:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
 @media (max-width:760px){.dki-lane,.dki-riskrow{grid-template-columns:1fr 3.5ch}.dki-lane .dki-track,.dki-riskrow .dki-track{grid-column:1/-1;grid-row:2}}
 /* quick checks */
-.dk-check{display:grid;gap:10px;margin:22px 0 4px;padding:16px 18px;border:3px solid #1b1b1b;border-radius:8px;background:#fffdf6;box-shadow:5px 5px 0 #1b1b1b;border-top:10px solid #4a5fc9}
-.dk-ch-head{display:flex;align-items:center;gap:12px}
-.dk-ch-kenji{width:56px;height:56px;flex:none;border-radius:50%;border:3px solid #1b1b1b;object-fit:cover;background:#fffdf6}
-.dk-ch-k{display:block;font-family:var(--comic);font-size:18px;letter-spacing:.04em;color:#1b1b1b}
-.dk-ch-q{margin:2px 0 0;font-family:var(--body);font-weight:700;font-size:18px;line-height:1.3;color:#1b1b1b}
+.dk-check{display:grid;gap:8px;margin:18px 0 4px;padding:10px 14px;border:2px dashed #a69d88;border-radius:10px;background:transparent}
+.dk-ch-head{display:flex;align-items:center;gap:10px}
+.dk-ch-kenji{width:34px;height:34px;flex:none;border-radius:50%;border:2px solid #1b1b1b;object-fit:cover;background:#fffdf6}
+.dk-ch-k{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#6f6a60}
+.dk-ch-q{margin:1px 0 0;font-family:var(--body);font-weight:700;font-size:15px;line-height:1.3;color:#1b1b1b}
+/* a quiz is an aside: dashed outline, small pill answers in a row, no shadow, so it never reads as a main card */
+.dk-check .dki-opts{display:flex;flex-wrap:wrap;gap:6px;padding-left:44px}
+.dk-check .dki-opt{padding:5px 12px;border:1.5px solid #1b1b1b;border-radius:99px;box-shadow:none;font-size:14px;line-height:1.3;max-width:100%}
+.dk-check .dki-say{font-size:14px;font-weight:400;padding-left:44px}
+.dk-check .dki-say b{font-weight:700}
+@media (max-width:560px){.dk-check .dki-opts,.dk-check .dki-say{padding-left:0}}
 /* stamps */
 .tc-sec.tc-done > .tc-s::after{content:"✓";display:inline-grid;place-items:center;float:right;width:22px;height:22px;margin-left:6px;border-radius:50%;
   border:2px solid #1b1b1b;background:#6fae5a;color:#1b1b1b;font-size:12px;font-weight:700;transform:rotate(-8deg);box-shadow:1px 1px 0 #1b1b1b}
@@ -903,7 +909,6 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .t-body .dki-say:empty,.t-body p.note:empty{display:none!important}
 .t-body > .rv[style*="margin-top:24px"] .note{min-height:0!important}
 .t-body > .rv[style*="margin-top:24px"]{margin-bottom:10px!important}
-.dk-check{padding-bottom:14px}
 /* value to reward: the compression funnel */
 .dkf{display:grid;grid-template-columns:minmax(140px,240px) minmax(90px,150px) auto 56px auto;align-items:center;justify-content:start;gap:0}
 .dkf-cloud{display:grid;gap:6px;justify-items:center;text-align:center}
