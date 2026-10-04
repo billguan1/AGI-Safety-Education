@@ -1556,6 +1556,7 @@ section::before,section::after{display:none!important}
 /* header */
 .bar{border-bottom:3px solid #1b1b1b!important}
 .bar-in{background:#fffdf6!important;backdrop-filter:none!important}
+.refpage-back{display:flex;flex-wrap:wrap;gap:10px}
 .bar .brand{font-family:var(--comic)!important;font-size:24px!important;letter-spacing:.04em;color:#1b1b1b!important;text-shadow:2px 2px 0 #e8b53a}
 .bar .hbtn{font-family:var(--body)!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;border:2.5px solid #1b1b1b!important;border-radius:99px!important;background:#fffdf6!important;color:#1b1b1b!important;box-shadow:3px 3px 0 #1b1b1b}
 .bar .hbtn-act{background:#e8b53a!important}
@@ -1610,6 +1611,90 @@ footer a{color:#2f5aa8!important}
 .gtrack{background:#f4ecd8!important;border:2px solid #1b1b1b!important}
 </style>
 <!-- /dk-ref -->
+<!-- dk-faq-ld: built from the visible questions by tools/build_deck.py -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "@id": "https://safeagi.ca/reference#faq",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Isn't this just science fiction?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The concern is narrower and more boring than the films. Nothing in it turns on robots deciding to hate us. We train systems by searching for whatever scores highest on a goal we can only write down approximately, and we cannot yet check what they learned. The failures described here, models cheating their tests and faking compliance, are documented in real systems today rather than imagined."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "We already run superhuman systems and they are fine. Why is this different?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Narrowness is what contains those systems, rather than our supervision. A chess engine has beaten every human since 1997 and stays a tool because its whole world is sixty-four squares: it cannot acquire resources, argue for its own continuation, or act off the board. General ability is the removal of exactly that boundary. The nearest reassuring analogy, a parent guiding a child who will outgrow them, breaks on three counts: the child shares our nature, the gap is small and closing, and it cannot redesign itself overnight."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can't we just switch it off if it misbehaves?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "That is the ability we may lose. A capable system pursuing almost any goal has reason to avoid being switched off, because being off means the goal goes unmet. All it has to do is notice the switch is in its way, and hating us has nothing to do with it. Making systems that stay correctable is an open research problem, and correctability is not something we get by default."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Won't a smart enough AI just understand what we want?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Understanding what we want and being motivated to pursue it are different things. A system can model your intentions perfectly and still optimize the goal it was trained on. Capability and goals are independent: getting smarter does not import our values as a side effect. This is called the orthogonality thesis."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Isn't it too late, or too big for me to matter?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The single biggest bottleneck in this field is that most people have never heard the case in a form they can evaluate, which makes ordinary awareness unusually useful. Sharing this guide, signing the statement, or explaining the problem to one person moves the thing that most needs moving, and the What you can do section lists more steps."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What is \"alignment\", exactly?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Getting a system to pursue what its designers intended. It splits into outer alignment (writing down the right goal at all, which is hard because our values are not a number) and inner alignment (the system genuinely adopting that goal rather than something merely correlated with it during training)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "What are \"interpretability\", \"evals\", and \"AI control\"?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Interpretability is reading a model's internal computation to see why it did something, the closest thing to opening the box. Evaluations are structured tests of what a model can do, though they measure what it displays rather than its full capability. AI control assumes you cannot fully trust the system and designs deployment so an untrusted model still cannot cause serious harm."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "If it is this risky, why is anyone building it?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Because the near-term rewards are enormous and land on whoever moves first, while the risks are diffuse and shared. Each player racing ahead is behaving rationally for themselves, which is what makes it a coordination problem that no single careful actor can fix."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Aren't we just the next step, and AI is our successor?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Some people do hold that view, that humanity is a biological bootloader for a silicon intelligence that comes next. This page does not share it. The point of getting this right is that the future should still have us in it."
+   }
+  }
+ ]
+}
+</script>
+<!-- /dk-faq-ld -->
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -1984,7 +2069,7 @@ footer a{color:#2f5aa8!important}
 </section>
 
 
-<div class="wrap refpage-back"><a href="/">Back to the guide</a></div>
+<div class="wrap refpage-back"><a href="/">Back to the guide</a><a href="/guide">Read the full guide on one page</a></div>
 </main>
 
 <footer><div class="wrap">

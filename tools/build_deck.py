@@ -1055,6 +1055,7 @@ def build(pg, en_colors=None):
                 m = re.search(r'<a href="(/reference(?:-zh)?#%s)"[^>]*>(.*?)</a>' % rid, pg.s)
                 assert m, ('reference link', rid); refs.append((m.group(1), text(m.group(2))))
             D = T['deeper']
+            refs.append(('/guide-zh' if pg.lang == 'zh' else '/guide', D['guide']))   # the long page, so it is reachable from the home page
             deeper = ('<div class="dk-deeper"><h3>%s</h3><p>%s</p><div class="dk-deeper-links">%s</div></div>'
                       % (E(D['title']), E(D['sub']), ''.join('<a href="%s">%s <span aria-hidden="true">&rarr;</span></a>' % (h, E(t)) for h, t in refs)))
             assert body.count('<div class="deck-foot">') == 1
@@ -1251,6 +1252,28 @@ def comic_reference(fname, fonts):
     assert s.count(REF_START) == 2
     print('styled %s' % fname)
 
+FAQ_START, FAQ_END = '<!-- dk-faq-ld: built from the visible questions by tools/build_deck.py -->', '<!-- /dk-faq-ld -->'
+
+def ref_faq(fname, url, lang):
+    """FAQ structured data for a Reference page, read from the questions it shows. Idempotent."""
+    path = os.path.join(ROOT, fname); s = open(path, encoding='utf-8').read()
+    s = re.sub(re.escape(FAQ_START) + r'.*?' + re.escape(FAQ_END) + r'\n?', '', s, flags=re.S)
+    a = s.index('<section id="faq">'); sec = s[a:s.index('</section>', a)]
+    qa = re.findall(r'<details><summary><span class="qn">\d+</span>(.*?)</summary><div class="fa">(.*?)</div></details>', sec, re.S)
+    assert len(qa) >= 7, (fname, 'faq questions found', len(qa))
+    def plain(h):
+        h = re.sub(r'<span class="term-tip">.*?</span>', '', h, flags=re.S)
+        h = re.sub(r'<a class="ref"[^>]*>.*?</a>', '', h, flags=re.S)
+        return html.unescape(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', h))).replace(' ,', ',').replace(' .', '.').strip()
+    ld = {"@context": "https://schema.org", "@type": "FAQPage", "@id": url + "#faq", "inLanguage": lang,
+          "mainEntity": [{"@type": "Question", "name": plain(q), "acceptedAnswer": {"@type": "Answer", "text": plain(t)}} for q, t in qa]}
+    assert all(x["name"] and len(x["acceptedAnswer"]["text"]) > 40 for x in ld["mainEntity"])
+    block = '%s\n<script type="application/ld+json">\n%s\n</script>\n%s\n' % (FAQ_START, json.dumps(ld, indent=1, ensure_ascii=False).replace('</', '<\\/'), FAQ_END)
+    assert s.count('</head>') == 1
+    s = s.replace('</head>', block + '</head>', 1)
+    open(path, 'w', encoding='utf-8').write(s)
+    print('faq markup %s: %d questions' % (fname, len(qa)))
+
 def main():
     en = Page('en'); zh = Page('zh')
     S_en, sl_en, sg_en, colors = build(en)
@@ -1266,6 +1289,8 @@ def main():
         print('wrote %s: %d slides, %d KB' % (pg.out, len(S_en), len(doc) // 1024))
     comic_reference('reference.html', TXT.EN_FONTS)
     comic_reference('reference-zh.html', TXT.ZH_FONTS)
+    ref_faq('reference.html', 'https://safeagi.ca/reference', 'en')
+    ref_faq('reference-zh.html', 'https://safeagi.ca/reference-zh', 'zh-Hans')
     make_guides()
 
 GUIDE_SWAPS = {
@@ -1277,7 +1302,15 @@ GUIDE_SWAPS = {
         ('<meta property="og:url" content="https://safeagi.ca/">', '<meta property="og:url" content="https://safeagi.ca/guide">'),
         ('"@id": "https://safeagi.ca/#article"', '"@id": "https://safeagi.ca/guide#article"'),
         ('"mainEntityOfPage": "https://safeagi.ca/"', '"mainEntityOfPage": "https://safeagi.ca/guide"'),
-        ('"@id": "https://safeagi.ca/#faq"', '"@id": "https://safeagi.ca/guide#faq"'),
+        ('<title>Superintelligence Safety: the problem we haven&#39;t solved | SafeAGI</title>', '<title>The full guide to superintelligence safety | SafeAGI</title>'),
+        ('<meta property="og:title" content="Superintelligence Safety: the problem we haven&#39;t solved">', '<meta property="og:title" content="The full guide to superintelligence safety">'),
+        ('<meta name="twitter:title" content="Superintelligence Safety: the problem we haven&#39;t solved">', '<meta name="twitter:title" content="The full guide to superintelligence safety">'),
+        ('"headline": "Superintelligence Safety: the problem we haven\'t solved"', '"headline": "The full guide to superintelligence safety"'),
+        ('<meta name="description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">', '<meta name="description" content="The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week.">'),
+        ('<meta property="og:description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">', '<meta property="og:description" content="The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week.">'),
+        ('<meta name="twitter:description" content="Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week.">', '<meta name="twitter:description" content="The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week.">'),
+        ('"description": "Why advanced AI is dangerous, argued from first principles. The evidence, the open disputes, the best free courses, and what you can do this week."', '"description": "The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week."'),
+        ('<a class="brand" href="#top">', '<a class="brand" href="/">'),
         ('<a class="hbtn hbtn-lang" href="/index-zh" hreflang="zh-Hans">', '<a class="hbtn hbtn-lang" href="/guide-zh" hreflang="zh-Hans">')]),
     'index-zh.html': ('guide-zh.html', [
         ('<link rel="canonical" href="https://safeagi.ca/index-zh">', '<link rel="canonical" href="https://safeagi.ca/guide-zh">'),
@@ -1287,7 +1320,15 @@ GUIDE_SWAPS = {
         ('<meta property="og:url" content="https://safeagi.ca/index-zh">', '<meta property="og:url" content="https://safeagi.ca/guide-zh">'),
         ('"@id": "https://safeagi.ca/index-zh#article"', '"@id": "https://safeagi.ca/guide-zh#article"'),
         ('"mainEntityOfPage": "https://safeagi.ca/index-zh"', '"mainEntityOfPage": "https://safeagi.ca/guide-zh"'),
-        ('"@id": "https://safeagi.ca/index-zh#faq"', '"@id": "https://safeagi.ca/guide-zh#faq"'),
+        ('<title>超级智能安全：我们尚未解决的难题 | SafeAGI</title>', '<title>超级智能安全完整指南 | SafeAGI</title>'),
+        ('<meta property="og:title" content="超级智能安全：我们尚未解决的难题">', '<meta property="og:title" content="超级智能安全完整指南">'),
+        ('<meta name="twitter:title" content="超级智能安全：我们尚未解决的难题">', '<meta name="twitter:title" content="超级智能安全完整指南">'),
+        ('"headline": "超级智能安全：我们尚未解决的难题"', '"headline": "超级智能安全完整指南"'),
+        ('<meta name="description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。">', '<meta name="description" content="一篇长文读完全部内容：超级智能为何可能失控、背后的证据、专家之间的分歧，以及你本周就能做的事。">'),
+        ('<meta property="og:description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。">', '<meta property="og:description" content="一篇长文读完全部内容：超级智能为何可能失控、背后的证据、专家之间的分歧，以及你本周就能做的事。">'),
+        ('<meta name="twitter:description" content="从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。">', '<meta name="twitter:description" content="一篇长文读完全部内容：超级智能为何可能失控、背后的证据、专家之间的分歧，以及你本周就能做的事。">'),
+        ('"description": "从根子上说清先进人工智能为何危险；附实证证据、尚存争议、值得上的课程，以及你本周就能做的事。"', '"description": "一篇长文读完全部内容：超级智能为何可能失控、背后的证据、专家之间的分歧，以及你本周就能做的事。"'),
+        ('<a class="brand" href="#top">', '<a class="brand" href="/index-zh">'),
         ('<a class="hbtn hbtn-lang" href="/" hreflang="en">', '<a class="hbtn hbtn-lang" href="/guide" hreflang="en">')])}
 
 def make_guides():

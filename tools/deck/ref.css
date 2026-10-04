@@ -9,6 +9,7 @@ section::before,section::after{display:none!important}
 /* header */
 .bar{border-bottom:3px solid #1b1b1b!important}
 .bar-in{background:#fffdf6!important;backdrop-filter:none!important}
+.refpage-back{display:flex;flex-wrap:wrap;gap:10px}
 .bar .brand{font-family:var(--comic)!important;font-size:24px!important;letter-spacing:.04em;color:#1b1b1b!important;text-shadow:2px 2px 0 #e8b53a}
 .bar .hbtn{font-family:var(--body)!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;border:2.5px solid #1b1b1b!important;border-radius:99px!important;background:#fffdf6!important;color:#1b1b1b!important;box-shadow:3px 3px 0 #1b1b1b}
 .bar .hbtn-act{background:#e8b53a!important}
