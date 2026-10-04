@@ -1022,7 +1022,11 @@ def paper(h):
         parts[k], c = re.subn(r'(<svg\b[^>]*viewBox="-?[\d.]+ -?[\d.]+ ([\d.]+)[^"]*"[^>]*>)(.*?)</svg>', paper_svg, parts[k], flags=re.S); n += c
     h = ''.join(parts)
     assert n == n0, ('svg without a viewBox', n, n0)
-    return h
+    # Archivo and Newsreader are not loaded on the deck: the few drawing words set in them (the cover cliff, one icon) use Comic Neue
+    parts = re.split(r'(<script\b.*?</script>)', h, flags=re.S)
+    for k in range(0, len(parts), 2):
+        parts[k] = re.sub(r'font-family="[^"]*(?:Archivo|Newsreader)[^"]*"', 'font-family="Comic Neue,PingFang SC,Microsoft YaHei,sans-serif"', parts[k])
+    return ''.join(parts)
 
 
 # ---------------------------------------------------------------- assemble
@@ -1190,6 +1194,15 @@ def page(pg, slides, segs, S):
     s = pg.s; T = pg.T
     head = s[:s.index('<body')]
     assert head.count('name="robots"') == 1        # the deck is the home page: it keeps the long page's indexable robots tag
+    # the long page's Archivo and Newsreader set only a few chart words in the deck (redrawn in Comic Neue below), so the deck
+    # skips them: the Newsreader preload, its stylesheet, and Archivo's half of the shared one. IBM Plex Mono stays for chart labels.
+    a = head.index('<!-- The stylesheet below is async'); b = head.index('</noscript>', a) + len('</noscript>')
+    old_fonts = head[a:b]
+    assert old_fonts.count('<link') == 5 and 'newsreader' in old_fonts and old_fonts.count('<noscript>') == 1, old_fonts[:200]
+    plex = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap'
+    head = head[:a] + ('<link href="%s" rel="stylesheet" media="print" onload="this.media=\'all\'">'
+                       '<noscript><link href="%s" rel="stylesheet"></noscript>') % (plex, plex) + head[b:]
+    assert 'family=Newsreader' not in head and 's/newsreader/' not in head and 'Archivo:wght' not in head
     fonts = T['fonts']
     head = head.replace('</head>', ('<link rel="stylesheet" href="%s" media="print" onload="this.media=\'all\'">'
                                     '<noscript><link rel="stylesheet" href="%s"></noscript>\n'

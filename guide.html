@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>The full guide to superintelligence safety | SafeAGI</title>
 <meta name="description" content="The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week.">
 <meta property="og:title" content="The full guide to superintelligence safety">
 <meta property="og:description" content="The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://safeagi.ca/og-en-fdb5bbc4.png">
+<meta property="og:image" content="https://safeagi.ca/og-en-93295211.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="The hardest problem humanity has yet to solve: ASI Safety. Labs, investors and nations roped together race toward a cliff edge, with the prize beyond it and the drop below.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://safeagi.ca/og-en-fdb5bbc4.png">
+<meta name="twitter:image" content="https://safeagi.ca/og-en-93295211.png">
 <meta name="twitter:image:alt" content="The hardest problem humanity has yet to solve: ASI Safety. Labs, investors and nations roped together race toward a cliff edge, with the prize beyond it and the drop below.">
 <meta name="twitter:title" content="The full guide to superintelligence safety">
 <meta name="twitter:description" content="The whole case in one long read: why superintelligence could go wrong, the evidence behind it, where experts disagree, and what you can do this week.">
@@ -1758,7 +1761,7 @@ svg.lx-m{display:none!important}
      "https://github.com/billguan1/AGI-Safety-Education"
     ]
    },
-   "image": "https://safeagi.ca/og-en-fdb5bbc4.png",
+   "image": "https://safeagi.ca/og-en-93295211.png",
    "datePublished": "2026-09-01",
    "dateModified": "2026-09-07",
    "about": [
@@ -1784,7 +1787,6 @@ svg.lx-m{display:none!important}
  ]
 }
 </script>
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div id="prog"></div>
@@ -5787,7 +5789,21 @@ var SITE_CONFIG = {
 
   /* ---------- newsletter signup ---------- */
   (function(){
-    $$(".jform").forEach(function(f){
+    /* the spam check (Cloudflare Turnstile) is most of the page's weight, so it loads only when a reader nears a form */
+    var tsOn = false;
+    function loadTS(){
+      if (tsOn) return; tsOn = true;
+      var s = document.createElement("script"); s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js"; s.async = true; document.head.appendChild(s);
+    }
+    function tok(f){ return (f.querySelector("[name=cf-turnstile-response]") || {}).value || ""; }
+    var forms = $$(".jform");
+    if (!forms.length) return;
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function(es){ if (es.some(function(x){ return x.isIntersecting; })) { loadTS(); io.disconnect(); } }, {rootMargin: "800px"});
+      forms.forEach(function(f){ io.observe(f); });
+    } else loadTS();
+    forms.forEach(function(f){ f.addEventListener("focusin", loadTS); f.addEventListener("pointerdown", loadTS); });
+    forms.forEach(function(f){
     var msg = f.parentNode.querySelector(".jmsg") || $("#join-msg");
     var input = f.querySelector("input[type=email]");
     input.addEventListener("input", function(){ if(msg.textContent) msg.textContent = ""; });
@@ -5798,6 +5814,17 @@ var SITE_CONFIG = {
         msg.textContent = f.getAttribute("data-bad") || "That does not look like an email address.";
         input.focus(); return;
       }
+      /* a fast reader can submit before the spam check has a token: wait for it (up to 8 seconds), then send */
+      if (!f._ready && !tok(f)) {
+        loadTS(); msg.textContent = f.getAttribute("data-sending") || "\u2026";
+        var t0 = Date.now();
+        (function wait(){
+          if (tok(f) || Date.now() - t0 > 8000) { f._ready = true; if (f.requestSubmit) f.requestSubmit(); else f.dispatchEvent(new Event("submit", {cancelable: true})); }
+          else setTimeout(wait, 250);
+        })();
+        return;
+      }
+      f._ready = false;
       msg.textContent = f.getAttribute("data-sending") || "Sending\u2026";
       fetch(f.getAttribute("action"), {
         method: "POST",
