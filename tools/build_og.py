@@ -20,7 +20,7 @@ USES = {'en': ['index.html', 'reference.html', '404.html'], 'zh': ['index-zh.htm
 PAGE = '''<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="%(fonts)s"><style>
 html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#f4ecd8}
 .card{position:relative;width:1200px;height:630px;box-sizing:border-box;padding:30px 48px}
-h1{margin:0;max-width:1104px;font-family:Bangers,"ZCOOL KuaiLe",sans-serif;font-weight:400;font-size:%(size)dpx;line-height:1.04;letter-spacing:.02em;color:#1b1b1b;text-shadow:none}
+h1{margin:0;max-width:1104px;font-family:Bangers,"ZCOOL KuaiLe",sans-serif;font-weight:400;font-size:%(size)dpx;line-height:1.04;letter-spacing:.02em;color:#1b1b1b;text-shadow:4px 4px 0 #cfc4ab}
 h1 .mh-hl{color:#d2553f}
 .fig{position:absolute;left:160px;top:150px;width:880px}
 .fig svg{display:block;width:880px;height:auto}
