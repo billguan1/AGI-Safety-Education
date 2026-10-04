@@ -2391,7 +2391,13 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .t-body .cl-half{background:#fffdf6!important;border:2.5px solid #1b1b1b!important;border-left:8px solid var(--half-acc)!important;border-radius:6px!important}
 .t-body .cl-half p{color:#3b3833!important}
 /* claim 3: the two problems stack, one above the other */
-.t-body .cl-halves{grid-template-columns:1fr}
+.t-body .cl-halves{grid-template-columns:minmax(0,1fr)}
+/* two-up charts shrink with the screen, and stack on narrow phones, so fixed-size picture parts never push past the edge */
+.dkh-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:560px){.dkh-two{grid-template-columns:minmax(0,1fr)!important}}
+/* the smallest phones: share buttons wrap and their cards may shrink instead of pushing past the edge */
+.t-body .share{flex-wrap:wrap!important}
+.t-body .ddgrid>*,.anthem-act>*{min-width:0}
 .slide > header.masthead > .t-head,.slide > section.cross > .t-head{padding-top:14px}
 @media (max-width:760px){
   .t-chips{flex-wrap:nowrap!important;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin-right:calc(-1 * var(--gut));padding:2px var(--gut) 6px 2px}
