@@ -1036,7 +1036,7 @@ def build(pg, en_colors=None):
     out = []
     for i, x in enumerate(S):
         sec = x['sec']; _, mood, line, capy = L[i]
-        nar = ('<div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-%s.jpg" alt="%s" width="72" height="72" decoding="async">'
+        nar = '' if not line else ('<div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-%s.jpg" alt="%s" width="72" height="72" decoding="async">'
                '<p class="cx-bubble">%s</p>%s</div>') % (mood, html.escape(T['kenji_alt'] % T['moods'][mood]), html.escape(line),
                ('<div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>%s</span></div>' % html.escape(capy)) if capy else '')
         body, got = colorize(x['body'], None if en_colors is None else en_colors[x['key']])

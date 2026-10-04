@@ -957,6 +957,9 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dk-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;margin:0!important;padding:0!important;border:0!important}
 /* cover cliff controls */
 .cr-ctl{display:grid;gap:8px;margin-top:14px}
+.cr-stage{position:relative}
+.cr-stage .cr-play{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);min-height:56px;padding:0 30px;font-size:21px!important;box-shadow:4px 4px 0 #1b1b1b;z-index:2}
+.cr-stage .cr-play.cr-ran{left:auto;top:auto;right:12px;bottom:12px;transform:none;min-height:40px;padding:0 16px;font-size:15px!important;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
 .cr-q button{min-height:38px;padding:0 16px;border:2.5px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:inherit;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q button[aria-pressed="true"]{background:#e8b53a}

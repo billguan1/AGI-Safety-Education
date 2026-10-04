@@ -72,7 +72,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
       castle=dict(parts=('moat', 'tower', 'walls', 'flag'), label='Your castle: every weak spot you find cracks it'),
       stamps='Stamps: {n} of {t}', badge='Safety researcher, level 1', badge_row='Badge'),
     prob=('what we want', 'what we wrote down', 'what the test shows', 'what it really wants'),
-    cliffgame=dict(q='Is safety solved before we get there?', yes='Yes', no='No', label='Drag right to race toward the edge →', start='Drag right to race toward the edge.', 
+    cliffgame=dict(q='Is safety solved before we get there?', yes='Yes', no='No', play='Play', again='Play again', start='Press play to race toward the edge.', 
                    sayNo='Nobody slowed down. The first one over dragged the rest into the drop.', sayYes='Safety came first, so crossing the edge means reaching the prize: abundance, longer lives, faster science.'), odds=('about 1 in 10 to 1 in 5', 'about 1 in 4', 'about 1 in 10 to 1 in 5', 'about 1 in 10'),
     econ=dict(title='How big the world economy gets from 2035 to 2055', sub='Faster growth starts in 2035. Size in 2035 = 1.', rows=("At today's 3% a year", 'At 12% a year', 'At 30% a year')),
     checks_k='Quick check', right='Right!', wrongp='Not quite.',
@@ -269,7 +269,7 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
       castle=dict(parts=('护城河', '瞭望塔', '城墙', '旗帜'), label='你的城堡：每找到一个弱点，它就多一道裂缝'),
       stamps='印章：{n} / {t}', badge='安全研究员，一级', badge_row='徽章'),
     prob=('我们想要的', '我们写下来的', '测试看到的', '它真正想要的'),
-    cliffgame=dict(q='抵达之前，安全问题解决了吗？', yes='解决了', no='没有', label='向右拖动，冲向悬崖边 →', start='向右拖动，冲向悬崖边。', 
+    cliffgame=dict(q='抵达之前，安全问题解决了吗？', yes='解决了', no='没有', play='开始', again='再看一次', start='按开始，冲向悬崖边。', 
                    sayNo='没有人慢下来。第一个越过边缘的，把其余人一起拽进了深渊。', sayYes='先解决了安全问题，越过边缘就意味着抵达奖赏：丰裕、更长的寿命、更快的科学进步。'), odds=('大约十分之一到五分之一', '大约四分之一', '大约十分之一到五分之一', '大约十分之一'),
     econ=dict(title='2035 到 2055 年，世界经济会变多大', sub='从 2035 年起加速增长，2035 年的规模记为 1。', rows=('按今天的每年 3%', '按每年 12%', '按每年 30%')),
     checks_k='小测验', right='答对了！', wrongp='不太对。',
@@ -405,8 +405,8 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
 
 LINES = {
  'en': [
-  ('cover', 'happy', "Hi, I'm Kenji, and this is Capy. Let's look at the hardest problem people have ever tried to solve.", 'HELLO. I AM A SUPERINTELLIGENT CAPYBARA.'),
-  ('care', 'idea', 'Three reasons we should care about superintelligence safety. Tap one to jump to it.', None),
+  ('cover', 'happy', '', None),    # the cover leads with the chart; Kenji and Capy say hello on the next slide
+  ('care', 'happy', "Hi, I'm Kenji, and this is Capy. Here are three reasons to care about superintelligence safety. Tap one to jump to it.", 'HELLO. I AM A SUPERINTELLIGENT CAPYBARA.'),
   ('claim1', 'worried', 'Look how fast it is moving, and how little goes into keeping it safe.', 'CAPABILITY: DOUBLING EVERY 7 MONTHS.'),
   ('claim2', 'alarmed', 'The stakes could not be higher.', 'OUTCOME RANGE: ABUNDANCE TO EXTINCTION.'),
   ('claim3', 'puzzled', 'Here are the two problems in the way.', 'GOAL SPECIFICATION: INCOMPLETE.'),
@@ -451,8 +451,8 @@ LINES = {
   ('anthem', 'happy', "Thanks for reading with us. Let's stay in touch!", 'GOODBYE. AWAITING YOUR INSTRUCTIONS.'),
  ],
  'zh': [
-  ('cover', 'happy', '你好，我是 Kenji，这位是 Capy。我们一起来探讨人类迄今面临的最严峻挑战。', '你好。我是一只超级智能的水豚。'),
-  ('care', 'idea', '关心超级智能安全的三个理由。点任意一个就能跳过去。', None),
+  ('cover', 'happy', '', None),
+  ('care', 'happy', '你好，我是 Kenji，这位是 Capy。下面是关心超级智能安全的三个理由，点任意一个就能跳过去。', '你好。我是一只超级智能的水豚。'),
   ('claim1', 'worried', '看看它发展有多快，而用于安全保障的投入又有多少。', '能力：每 7 个月翻一番。'),
   ('claim2', 'alarmed', '赌注之大，无以复加。', '结果区间：从极度丰裕到彻底灭绝。'),
   ('claim3', 'puzzled', '横亘在前的，是这两大难题。', '目标说明：不完整。'),

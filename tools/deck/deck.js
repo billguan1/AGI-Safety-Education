@@ -756,7 +756,7 @@
 
 
 (function(){
-  /* the cover's cliff: drag the roped group toward the edge; safety decides whether they rise or drop */
+  /* the cover's cliff: press play and the roped group races to the edge; safety decides whether they rise or drop */
   var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
@@ -767,9 +767,11 @@
   var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
   var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
   ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
-    '<label class="cr-lab" for="cr-range">' + C.label + '</label><div class="cr-track"><input type="range" id="cr-range" min="0" max="100" value="0"><span class="cr-nudge" aria-hidden="true">→</span></div>' +
+    '<button type="button" class="dki-go cr-play"><span aria-hidden="true">▶</span> ' + C.play + '</button>' +
     '<p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
-  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), nudge = ctl.querySelector(".cr-nudge"), safe = false, EDGE = 556;
+  var say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), go = ctl.querySelector(".cr-play"), safe = false, EDGE = 556, prog = 0, run = 0;
+  /* the play button sits on the drawing, where the eye already is; after a run it tucks into the corner */
+  var stage = document.createElement("div"); stage.className = "cr-stage"; svg.parentNode.insertBefore(stage, svg); stage.appendChild(svg); stage.appendChild(go);
   /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
   var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
   function lerp(a, b, u){ return a + (b - a) * u; }
@@ -803,7 +805,7 @@
     live.setAttribute("d", d);
   }
   function draw(){
-    var t = +inp.value / 100, shift = t * 640, maxu = 0, slot = 0;
+    var t = prog, shift = t * 640, maxu = 0, slot = 0;
     /* the figure already over the edge goes first */
     var fu = Math.max(0, Math.min(1, shift / 120)); maxu = Math.max(maxu, fu);
     if (safe) place(faller, lerp(606, UP[0][0], fu), lerp(214, UP[0][1], fu), lerp(38, 0, fu), lerp(1, .85, fu));
@@ -823,12 +825,21 @@
     [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
     say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
+  /* play: the race runs from the start line to the far side in about 2.6 seconds */
+  function play(){
+    cancelAnimationFrame(run); prog = 0; go.classList.add("cr-ran"); draw();
+    if (still) { prog = 1; draw(); done(); return; }
+    var t0 = 0;
+    function tick(ts){ if (!t0) t0 = ts; prog = Math.min(1, (ts - t0) / 2600); draw(); if (prog < 1) run = requestAnimationFrame(tick); else done(); }
+    run = requestAnimationFrame(tick);
+  }
+  function done(){ go.innerHTML = '<span aria-hidden="true">↻</span> ' + C.again; }
+  go.addEventListener("click", play);
   [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
     safe = b.getAttribute("data-v") === "1";
     [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-    draw();
+    if (prog > 0) play(); else draw();
   }); });
-  inp.addEventListener("input", function(){ nudge.hidden = true; draw(); });
   draw();
 })();
 

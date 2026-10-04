@@ -2811,6 +2811,9 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dk-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;margin:0!important;padding:0!important;border:0!important}
 /* cover cliff controls */
 .cr-ctl{display:grid;gap:8px;margin-top:14px}
+.cr-stage{position:relative}
+.cr-stage .cr-play{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);min-height:56px;padding:0 30px;font-size:21px!important;box-shadow:4px 4px 0 #1b1b1b;z-index:2}
+.cr-stage .cr-play.cr-ran{left:auto;top:auto;right:12px;bottom:12px;transform:none;min-height:40px;padding:0 16px;font-size:15px!important;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
 .cr-q button{min-height:38px;padding:0 16px;border:2.5px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:inherit;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q button[aria-pressed="true"]{background:#e8b53a}
@@ -3230,7 +3233,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
         <text x="20" y="38" font-family="Archivo,sans-serif" font-size="19" font-weight="800" fill="#1b1b1b" data-lx-dfs="19">争当第一</text>
         <text x="20" y="62" font-family="Newsreader,serif" font-size="15" fill="#5c574e" data-lx-dfs="15">你追我赶，奔向一个谁都不该率先抵达的地方。</text>
       </svg>
-    <div class="cr-ctl" data-c="{&quot;q&quot;: &quot;抵达之前，安全问题解决了吗？&quot;, &quot;yes&quot;: &quot;解决了&quot;, &quot;no&quot;: &quot;没有&quot;, &quot;label&quot;: &quot;向右拖动，冲向悬崖边 →&quot;, &quot;start&quot;: &quot;向右拖动，冲向悬崖边。&quot;, &quot;sayNo&quot;: &quot;没有人慢下来。第一个越过边缘的，把其余人一起拽进了深渊。&quot;, &quot;sayYes&quot;: &quot;先解决了安全问题，越过边缘就意味着抵达奖赏：丰裕、更长的寿命、更快的科学进步。&quot;}"></div></figure><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">你好，我是 Kenji，这位是 Capy。我们一起来探讨人类迄今面临的最严峻挑战。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>你好。我是一只超级智能的水豚。</span></div></div></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">继续 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="全局概览"><header class="masthead"><div class="wrap t-head"><div class="sec-head"><span class="chapno">全局概览</span><h2>我们为什么该在意</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="0"><b>1</b>欢迎</button><button type="button" class="t-chip on" data-go="1"><b>2</b>为什么要在意</button><span class="t-subchips"><button type="button" class="t-chip t-chip-sub" data-go="2">它很快就会到来</button><button type="button" class="t-chip t-chip-sub" data-go="3">赌注极高</button><button type="button" class="t-chip t-chip-sub" data-go="4">没人知道怎么做</button></span><button type="button" class="t-chip" data-go="5"><b>3</b>唯一的出路</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-idea.jpg" alt="Kenji，想到了主意" width="72" height="72" decoding="async"><p class="cx-bubble">关心超级智能安全的三个理由。点任意一个就能跳过去。</p></div><div class="mh-care">
+    <div class="cr-ctl" data-c="{&quot;q&quot;: &quot;抵达之前，安全问题解决了吗？&quot;, &quot;yes&quot;: &quot;解决了&quot;, &quot;no&quot;: &quot;没有&quot;, &quot;play&quot;: &quot;开始&quot;, &quot;again&quot;: &quot;再看一次&quot;, &quot;start&quot;: &quot;按开始，冲向悬崖边。&quot;, &quot;sayNo&quot;: &quot;没有人慢下来。第一个越过边缘的，把其余人一起拽进了深渊。&quot;, &quot;sayYes&quot;: &quot;先解决了安全问题，越过边缘就意味着抵达奖赏：丰裕、更长的寿命、更快的科学进步。&quot;}"></div></figure></div></header><div class="b2-next"><button type="button" class="p-btn t-cont" data-go="1">继续 <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="care" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="全局概览"><header class="masthead"><div class="wrap t-head"><div class="sec-head"><span class="chapno">全局概览</span><h2>我们为什么该在意</h2><div class="t-chips" aria-label="本章的几个部分"><button type="button" class="t-chip" data-go="0"><b>1</b>欢迎</button><button type="button" class="t-chip on" data-go="1"><b>2</b>为什么要在意</button><span class="t-subchips"><button type="button" class="t-chip t-chip-sub" data-go="2">它很快就会到来</button><button type="button" class="t-chip t-chip-sub" data-go="3">赌注极高</button><button type="button" class="t-chip t-chip-sub" data-go="4">没人知道怎么做</button></span><button type="button" class="t-chip" data-go="5"><b>3</b>唯一的出路</button></div></div></div><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji，很开心" width="72" height="72" decoding="async"><p class="cx-bubble">你好，我是 Kenji，这位是 Capy。下面是关心超级智能安全的三个理由，点任意一个就能跳过去。</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>你好。我是一只超级智能的水豚。</span></div></div><div class="mh-care">
     
     <div class="care3 slim">
       <a class="care-c" href="#claim-1"><span class="care-n">1</span>
@@ -6052,7 +6055,7 @@ var SITE_CONFIG = {
 
 
 (function(){
-  /* the cover's cliff: drag the roped group toward the edge; safety decides whether they rise or drop */
+  /* the cover's cliff: press play and the roped group races to the edge; safety decides whether they rise or drop */
   var ctl = document.querySelector(".cr-ctl"); if (!ctl) return;
   var C; try { C = JSON.parse(ctl.getAttribute("data-c")); } catch (e) { return; }
   var fig = ctl.closest("figure"), svg = fig.querySelector("svg"), team = svg.querySelector(".cr-team"), rope = svg.querySelector(".cr-rope");
@@ -6063,9 +6066,11 @@ var SITE_CONFIG = {
   var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
   var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
   ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false">' + C.yes + '</button><button type="button" data-v="0" aria-pressed="true">' + C.no + '</button></div>' +
-    '<label class="cr-lab" for="cr-range">' + C.label + '</label><div class="cr-track"><input type="range" id="cr-range" min="0" max="100" value="0"><span class="cr-nudge" aria-hidden="true">→</span></div>' +
+    '<button type="button" class="dki-go cr-play"><span aria-hidden="true">▶</span> ' + C.play + '</button>' +
     '<p class="dki-say cr-say" aria-live="polite">' + C.start + '</p>';
-  var inp = ctl.querySelector("input"), say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), nudge = ctl.querySelector(".cr-nudge"), safe = false, EDGE = 556;
+  var say = ctl.querySelector(".cr-say"), bs = ctl.querySelectorAll(".cr-q button"), go = ctl.querySelector(".cr-play"), safe = false, EDGE = 556, prog = 0, run = 0;
+  /* the play button sits on the drawing, where the eye already is; after a run it tucks into the corner */
+  var stage = document.createElement("div"); stage.className = "cr-stage"; svg.parentNode.insertBefore(stage, svg); stage.appendChild(svg); stage.appendChild(go);
   /* seven people, seven places: two rows in the prize glow, or a pile at the foot of the cliff */
   var UP = [[590, 118], [632, 118], [674, 118], [716, 118], [758, 118], [606, 172], [648, 172]];
   function lerp(a, b, u){ return a + (b - a) * u; }
@@ -6099,7 +6104,7 @@ var SITE_CONFIG = {
     live.setAttribute("d", d);
   }
   function draw(){
-    var t = +inp.value / 100, shift = t * 640, maxu = 0, slot = 0;
+    var t = prog, shift = t * 640, maxu = 0, slot = 0;
     /* the figure already over the edge goes first */
     var fu = Math.max(0, Math.min(1, shift / 120)); maxu = Math.max(maxu, fu);
     if (safe) place(faller, lerp(606, UP[0][0], fu), lerp(214, UP[0][1], fu), lerp(38, 0, fu), lerp(1, .85, fu));
@@ -6119,12 +6124,21 @@ var SITE_CONFIG = {
     [].forEach.call(ptext, function(p){ p.style.opacity = safe && maxu > .3 ? .12 : 1; });
     say.textContent = maxu === 0 ? C.start : (safe ? C.sayYes : C.sayNo);
   }
+  /* play: the race runs from the start line to the far side in about 2.6 seconds */
+  function play(){
+    cancelAnimationFrame(run); prog = 0; go.classList.add("cr-ran"); draw();
+    if (still) { prog = 1; draw(); done(); return; }
+    var t0 = 0;
+    function tick(ts){ if (!t0) t0 = ts; prog = Math.min(1, (ts - t0) / 2600); draw(); if (prog < 1) run = requestAnimationFrame(tick); else done(); }
+    run = requestAnimationFrame(tick);
+  }
+  function done(){ go.innerHTML = '<span aria-hidden="true">↻</span> ' + C.again; }
+  go.addEventListener("click", play);
   [].forEach.call(bs, function(b){ b.addEventListener("click", function(){
     safe = b.getAttribute("data-v") === "1";
     [].forEach.call(bs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
-    draw();
+    if (prog > 0) play(); else draw();
   }); });
-  inp.addEventListener("input", function(){ nudge.hidden = true; draw(); });
   draw();
 })();
 
