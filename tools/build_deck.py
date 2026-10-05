@@ -1164,6 +1164,16 @@ def build(pg, en_colors=None):
                       % (E(D['title']), E(D['sub']), ''.join('<a href="%s">%s <span aria-hidden="true">&rarr;</span></a>' % (h, E(t)) for h, t in refs)))
             assert body.count('<div class="deck-foot">') == 1
             body = body.replace('<div class="deck-foot">', deeper + '<div class="deck-foot">', 1)
+            # the join, share and petition column sits beside the results; the poem follows underneath
+            a = body.index('<div class="anthem-act'); depth = 0
+            for m in re.finditer(r'<(/?)div\b', body[a:]):
+                depth += -1 if m.group(1) else 1
+                if depth == 0: b = a + m.end() + body[a + m.end():].index('>') + 1; break
+            act = body[a:b]
+            assert act.count('<div') == act.count('</div>') and 'join-form' in act, 'anthem-act slice'
+            r0 = body.index('<div class="dk-results"'); r1 = body.index('</div>', r0) + 6
+            assert body[r0:r1].count('<div') == 1
+            body = body[:r0] + '<div class="an-top">' + body[r0:r1] + act + '</div>' + body[r1:a] + body[b:]
         colors[x['key']] = got
         same = [y for y in S if y['sec'] is sec]
         chips = ''

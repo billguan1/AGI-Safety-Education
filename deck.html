@@ -3104,7 +3104,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .t-body .ghwrap .gh-say{font-size:15px;line-height:1.45;margin:10px 0 0}
 /* "The stakes": both charts compact enough to sit side by side above the fold */
 @media (min-width:761px){
-  .slide[data-key="claim2"] .t-body .dke{--S:120px;grid-template-columns:72px 72px auto!important;gap:12px!important}
+  .slide[data-key="claim2"] .t-body .dke{--S:120px;gap:12px!important}
   .slide[data-key="claim2"] .t-body .dke-item b,.slide[data-key="claim2"] .t-body .dke-item .dke-v{font-size:30px!important}
   .slide[data-key="claim2"] .t-body .dke-item span{font-size:12.5px;line-height:1.3}
   .slide[data-key="claim2"] .t-body .dkr{gap:8px}
@@ -3127,6 +3127,17 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .t-body .ghwrap .gh-card.real .bar i{background:#2e9b74!important}
 .t-body .ghwrap .gh-say{font-size:15px!important;font-weight:700!important;line-height:1.4;border-left:0!important;padding:0!important;margin:10px 0 0!important}
 .t-body .ghwrap .gh-src{margin:6px 0 0;font-size:12px}
+/* last slide: results on the left, join / share / petition on the right, the poem below */
+.t-body .an-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start;margin-bottom:24px}
+.t-body .an-top .dk-results{max-width:none;margin:0}
+.slide[data-key="anthem"] .t-body .anthem-grid{display:block}
+.slide[data-key="anthem"] .t-body .anthem-poem{max-width:640px;margin:0 auto}
+@media (max-width:900px){.t-body .an-top{grid-template-columns:minmax(0,1fr)}}
+.t-body .jform button{align-self:center;height:auto;min-height:46px}   /* the join button keeps its pill shape next to the spam check */
+/* "The stakes" economy chart: three equal columns, each square centred over its label */
+.slide[data-key="claim2"] .t-body .dke{grid-template-columns:repeat(3,minmax(0,1fr))!important;justify-content:stretch!important;align-items:end}
+.slide[data-key="claim2"] .t-body .dke-item{justify-items:center;text-align:center}
+@media (max-width:760px){.slide[data-key="claim2"] .t-body .dke{--S:62px;gap:8px!important;grid-template-columns:minmax(0,.8fr) minmax(0,.8fr) minmax(0,1.4fr)!important}.slide[data-key="claim2"] .t-body .dke-item .dkr-v{font-size:24px}}
 /* the left contents fold away on wide screens */
 .tc-hide,.tc-show{align-items:center;gap:6px;padding:4px 11px;border:2px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:700 12.5px/1.2 var(--body);color:#1b1b1b;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
 .tc-hide{display:inline-flex;margin:0 0 10px 6px}
@@ -3179,8 +3190,8 @@ button.dki-link.dki-broken em::after{content:"✕"}
 /* claim slides: both charts above the fold on laptops */
 @media (min-width:761px){
   .t-body .claim{position:relative}
-  .t-body .claim a.cl-go{position:absolute;top:14px;right:16px;margin:0!important;min-height:34px;padding:0 14px;font-size:14px}   /* "Read the chapter" sits top right, in view */
-  .t-body .claim .cl-sub{padding-right:190px}
+  .t-body .claim a.cl-go{min-height:34px;padding:0 14px;font-size:14px;margin-top:12px!important}   /* "Read the chapter" closes the box, below the charts */
+  .t-body .claim .cl-sub{padding-right:0!important;font-size:15px!important;line-height:1.45!important}
   .t-body .claim figure,.t-body .cl-figs figure,.t-body .cl-half figure{padding:14px 16px!important}
   .slide[data-key="claim1"] .t-body .dtl{gap:6px!important}
   .slide[data-key="claim1"] .t-body .dtl li span{font-size:14.5px;line-height:1.25}
@@ -3234,6 +3245,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="claim3"] .t-body .dpb-out,.slide[data-key="claim3"] .t-body .dpb-in{width:70px}
   .slide[data-key="claim3"] .t-body .dpb-in{font-size:28px}
 }
+@media (max-width:360px){.slide[data-key="claim2"] .t-body .dke{--S:50px}}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
@@ -3781,8 +3793,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
       <span class="rj-k">Reference</span>
       <span class="rj-h">Sources, objections and further reading</span>
       <span class="rj-go">Open</span>
-    </a></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="40"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn" data-go="42">Next: Stay in the loop <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="anthem" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="Stay in the loop"><section class="cross anthem" id="anthem"><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji, looking happy" width="72" height="72" decoding="async"><p class="cx-bubble">Thanks for reading with us. Let&#x27;s stay in touch!</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>GOODBYE. AWAITING YOUR INSTRUCTIONS.</span></div></div><div class="dk-results" data-c="{&quot;title&quot;: &quot;Your results&quot;, &quot;chapters&quot;: &quot;Chapters finished&quot;, &quot;checks&quot;: &quot;Quick checks right&quot;, &quot;guess&quot;: &quot;Your guess for public safety research&quot;, &quot;real&quot;: &quot;The real figure&quot;, &quot;realv&quot;: &quot;about $10 million a year&quot;, &quot;race&quot;: &quot;Race simulator&quot;, &quot;raced&quot;: {&quot;won&quot;: &quot;You won, by cutting corners&quot;, &quot;lost&quot;: &quot;A corner-cutter won&quot;}, &quot;loop&quot;: &quot;Loopholes spotted&quot;, &quot;none&quot;: &quot;not yet&quot;, &quot;share&quot;: &quot;Share my results&quot;, &quot;copied&quot;: &quot;Copied. Paste it anywhere to share.&quot;, &quot;text&quot;: &quot;I went through the SafeAGI comic guide to AI safety: {c} chapters, {k} quick checks right. I guessed {g} a year goes to public AI safety research. The real figure is about $10 million, next to $100 billion for building AI.&quot;, &quot;total&quot;: 12, &quot;nchecks&quot;: 6, &quot;badge&quot;: &quot;Safety researcher, level 1&quot;, &quot;badge_row&quot;: &quot;Badge&quot;}"></div><div class="anthem-grid">
-      <div class="anthem-act">
+    </a></div></section><div class="b2-next"><button type="button" class="p-btn t-back" data-go="40"><span aria-hidden="true">&larr;</span> Back</button><button type="button" class="p-btn" data-go="42">Next: Stay in the loop <span aria-hidden="true">&rarr;</span></button></div></div><div class="slide" data-key="anthem" data-acc="#e8b53a" style="--c-acc:#e8b53a" data-where="Stay in the loop"><section class="cross anthem" id="anthem"><div class="wrap t-body"><div class="cx-nar"><img class="cx-kenji" src="/deck-img/kenji-happy.jpg" alt="Kenji, looking happy" width="72" height="72" decoding="async"><p class="cx-bubble">Thanks for reading with us. Let&#x27;s stay in touch!</p><div class="cx-capy"><img src="/deck-img/capy.jpg" alt="Capy" width="54" height="54" decoding="async"><span>GOODBYE. AWAITING YOUR INSTRUCTIONS.</span></div></div><div class="an-top"><div class="dk-results" data-c="{&quot;title&quot;: &quot;Your results&quot;, &quot;chapters&quot;: &quot;Chapters finished&quot;, &quot;checks&quot;: &quot;Quick checks right&quot;, &quot;guess&quot;: &quot;Your guess for public safety research&quot;, &quot;real&quot;: &quot;The real figure&quot;, &quot;realv&quot;: &quot;about $10 million a year&quot;, &quot;race&quot;: &quot;Race simulator&quot;, &quot;raced&quot;: {&quot;won&quot;: &quot;You won, by cutting corners&quot;, &quot;lost&quot;: &quot;A corner-cutter won&quot;}, &quot;loop&quot;: &quot;Loopholes spotted&quot;, &quot;none&quot;: &quot;not yet&quot;, &quot;share&quot;: &quot;Share my results&quot;, &quot;copied&quot;: &quot;Copied. Paste it anywhere to share.&quot;, &quot;text&quot;: &quot;I went through the SafeAGI comic guide to AI safety: {c} chapters, {k} quick checks right. I guessed {g} a year goes to public AI safety research. The real figure is about $10 million, next to $100 billion for building AI.&quot;, &quot;total&quot;: 12, &quot;nchecks&quot;: 6, &quot;badge&quot;: &quot;Safety researcher, level 1&quot;, &quot;badge_row&quot;: &quot;Badge&quot;}"></div><div class="anthem-act">
         <div class="joinbig compact rv">
           <span class="sb-k">Stay in the loop</span>
           <h3>Join the community</h3>
@@ -3808,7 +3819,8 @@ button.dki-link.dki-broken em::after{content:"✕"}
           </li>
           <li><h3>Sign the petition</h3><p>Add your name to the <a href="https://superintelligence-statement.org" target="_blank" rel="noopener">Statement on Superintelligence</a>.<a class="ref" href="/reference#s2">2</a></p></li>
         </ol>
-      </div>
+      </div></div><div class="anthem-grid">
+      
       <div class="anthem-poem">
         <p class="eyebrow">A small hope</p>
         <div class="poem rv">
