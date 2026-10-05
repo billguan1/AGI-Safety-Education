@@ -2486,6 +2486,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dki-riskrow .dki-track i{background:#d9492c}
 .dki-lbl{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
 .dki-round{font-family:var(--comic);font-size:22px;color:#1b1b1b}
+.dki-ctl .dki-run{margin-left:8px}
 .dki-case:disabled{opacity:.5;cursor:default}
 /* spot the loophole */
 .demo-cell.dki-hide p{visibility:hidden}
@@ -5731,7 +5732,8 @@ var SITE_CONFIG = {
     html += '</div><div class="dki-riskrow"><span class="dki-name">' + esc(C.risk) + '</span><div class="dki-track dki-risk"><i></i></div></div>' +
       '<div class="dki-ctl"><span class="dki-lbl">' + esc(C.label) + '</span><div class="dki-goals">';
     C.opts.forEach(function(o, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="' + (k === 1) + '">' + esc(o) + ' · ' + VALS[k] + '%</button>'; });
-    html += '</div></div><div class="dki-goals"><button type="button" class="dki-go dki-run">' + esc(C.run) + '</button><span class="dki-round"></span></div><p class="dki-say" aria-live="polite"></p>';
+    /* the run button and the round count share the spending row */
+    html += '<button type="button" class="dki-go dki-run">' + esc(C.run) + '</button><span class="dki-round"></span></div></div><p class="dki-say" aria-live="polite"></p>';
     box.innerHTML = html;
     var lanes = box.querySelectorAll(".dki-lane"), opts = box.querySelectorAll(".dki-ctl .dki-case"), runB = box.querySelector(".dki-run"),
         roundT = box.querySelector(".dki-round"), say = box.querySelector(".dki-say"), riskI = box.querySelector(".dki-risk i");

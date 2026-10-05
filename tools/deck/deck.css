@@ -715,6 +715,7 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dki-riskrow .dki-track i{background:#d9492c}
 .dki-lbl{font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
 .dki-round{font-family:var(--comic);font-size:22px;color:#1b1b1b}
+.dki-ctl .dki-run{margin-left:8px}
 .dki-case:disabled{opacity:.5;cursor:default}
 /* spot the loophole */
 .demo-cell.dki-hide p{visibility:hidden}

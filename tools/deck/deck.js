@@ -491,7 +491,8 @@
     html += '</div><div class="dki-riskrow"><span class="dki-name">' + esc(C.risk) + '</span><div class="dki-track dki-risk"><i></i></div></div>' +
       '<div class="dki-ctl"><span class="dki-lbl">' + esc(C.label) + '</span><div class="dki-goals">';
     C.opts.forEach(function(o, k){ html += '<button type="button" class="dki-case" data-k="' + k + '" aria-pressed="' + (k === 1) + '">' + esc(o) + ' · ' + VALS[k] + '%</button>'; });
-    html += '</div></div><div class="dki-goals"><button type="button" class="dki-go dki-run">' + esc(C.run) + '</button><span class="dki-round"></span></div><p class="dki-say" aria-live="polite"></p>';
+    /* the run button and the round count share the spending row */
+    html += '<button type="button" class="dki-go dki-run">' + esc(C.run) + '</button><span class="dki-round"></span></div></div><p class="dki-say" aria-live="polite"></p>';
     box.innerHTML = html;
     var lanes = box.querySelectorAll(".dki-lane"), opts = box.querySelectorAll(".dki-ctl .dki-case"), runB = box.querySelector(".dki-run"),
         roundT = box.querySelector(".dki-round"), say = box.querySelector(".dki-say"), riskI = box.querySelector(".dki-risk i");
