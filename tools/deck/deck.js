@@ -296,7 +296,7 @@
     box.innerHTML = '<div class="dki-legend"><span class="dki-ls">' + esc(C.shows) + '</span><span class="dki-lho">' + esc(C.holds) + '</span></div>' +
       '<svg class="dki-svg" aria-hidden="true"><g class="dki-g"></g><path class="dki-shows"/><path class="dki-holds"/><circle r="5.5" class="dki-ds"/><circle r="5.5" class="dki-dh"/>' +
       '<text y="' + (B + 20) + '" text-anchor="end" class="dki-lab dki-endl">' + esc(C.end) + '</text></svg>' +
-      slider(C.label, 0, 100, 1, 12) + '<p class="dki-say" aria-live="polite"></p>';
+      slider(C.label, 0, 100, 1, 50) + '<p class="dki-say" aria-live="polite"></p>';   /* starts halfway, where the two lines have begun to split */
     var svg = box.querySelector("svg"), gg = box.querySelector(".dki-g");
     var inp = box.querySelector("input"), v = box.querySelector(".dki-v"), ps = box.querySelector(".dki-shows"), ph = box.querySelector(".dki-holds"),
         ds = box.querySelector(".dki-ds"), dh = box.querySelector(".dki-dh"), say = box.querySelector(".dki-say"), endl = box.querySelector(".dki-endl");

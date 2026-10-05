@@ -143,17 +143,18 @@ def into_card(block, n, fig):
             end = starts[n] + m.start(); break
     return block[:end] + fig + block[end:]
 
-FEEL_ICONS = [   # abundance, health, education, science, work
+FEEL_ICONS = [   # abundance, health, education, science, work, energy
     '<circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M3 4h2l2.4 11h10.2L20 8H6.3"/>',
     '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M7.5 12h2.5l1.5-2.5 2 4.5 1.5-2h1.5"/>',
     '<path d="M4 19V5.5A2.5 2.5 0 0 1 6.5 3H20v14H6.5A2.5 2.5 0 0 0 4 19.5 2.5 2.5 0 0 0 6.5 22H20v-5"/>',
     '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/>',
-    '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>']
+    '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+    '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>']
 def feel_icons(block, lang):
     """2.1 where people would feel it: a small icon in each card's label row."""
     labs = [m for m in re.finditer(r'<span class="k">([^<]*)</span>', block)]
-    assert len(labs) == 5, len(labs)
-    if lang == 'en': assert [m.group(1) for m in labs] == ['Abundance', 'Health', 'Education', 'Scientific progress', 'Work'], [m.group(1) for m in labs]
+    assert len(labs) == 6, len(labs)
+    if lang == 'en': assert [m.group(1) for m in labs] == ['Abundance', 'Health', 'Education', 'Scientific progress', 'Work', 'Energy'], [m.group(1) for m in labs]
     for m, ic in reversed(list(zip(labs, FEEL_ICONS))):
         svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">%s</svg>' % ic
         block = block[:m.start()] + '<span class="fl-lab"><span class="sc-ic sc-sm">%s</span>%s</span>' % (svg, m.group(0)) + block[m.end():]
@@ -454,7 +455,12 @@ def feel_scenes():
           arrow(4, 58, 66, 82, 66) + '<path d="M100 92 h60 M110 92 l-6 -26 M150 92 l6 -26 M104 66 h52" fill="none" %s/>' % K + man(132, 40, '#6fae5a') +
           '<path d="M172 70 h14 v14 a6 6 0 0 1 -6 6 h-2 a6 6 0 0 1 -6 -6 z M186 74 h4 a3 3 0 0 1 0 6 h-4" fill="#fffdf6" %s/>' % K +
           '<path d="M176 64 q3 -5 0 -10 M182 64 q3 -5 0 -10" fill="none" stroke="#9aa3ab" stroke-width="2" stroke-linecap="round"/>')
-    return [dk_svg('0 0 210 104', '', x).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1) for x in (s1, s2, s3, s4, s5)]
+    # energy: the AI tunes the reactor, and the lights come on
+    s6 = (DEF(5) + bot(8, 46) + arrow(5, 48, 62, 66, 62) +
+          '<ellipse cx="104" cy="62" rx="30" ry="16" fill="#ffd166" %s/><ellipse cx="104" cy="62" rx="15" ry="7" fill="#e07a5f" %s/>' % (K, K) +
+          '<path d="M140 50 l-8 12 h8 l-6 12" fill="none" stroke="#e8b53a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
+          man(184, 50, '#6fae5a') + '<circle cx="168" cy="26" r="9" fill="#fff6d8" %s/><path d="M165 35 h6" %s/>' % (K, K) + spark(192, 20))
+    return [dk_svg('0 0 210 104', '', x).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1) for x in (s1, s2, s3, s4, s5, s6)]
 
 def care_scenes():
     """Three small comic scenes for the why-care cards, in the 2.2a style."""
@@ -540,7 +546,7 @@ def scenes_in(block, scenes):
 def feel_scenes_in(block):
     """A scene under each card title, marked to stay outside the card's fold."""
     hs = list(re.finditer(r'</h4>', block)); sc = feel_scenes()
-    assert len(hs) == 5, len(hs)
+    assert len(hs) == 6, len(hs)
     for m, s in reversed(list(zip(hs, sc))):
         block = block[:m.end()] + s.replace('class="dk-scene"', 'class="dk-scene dk-keep"', 1).replace('class="dk-chart dk-scene"', 'class="dk-chart dk-scene dk-keep"', 1) + block[m.end():]
     return block
