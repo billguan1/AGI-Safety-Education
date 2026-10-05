@@ -3084,6 +3084,18 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .hs-door:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
 .hs-slip{padding:12px 14px;border:3px solid #1b1b1b;border-left:10px solid #9fb3f0;border-radius:8px;background:#eef1fb;font-family:var(--body);font-size:16px;line-height:1.45;color:#1b1b1b;animation:trPop .3s ease}
 @media (prefers-reduced-motion: reduce){.hs-door,.hs-slip{transition:none;animation:none}}
+/* 4.1 Goodhart slider: compact, the two readings side by side */
+.t-body .ghwrap{padding:14px 18px;margin:12px 0 4px}
+.t-body .ghwrap .ghlead{margin:0 0 6px}
+.t-body .ghwrap .gh-ctrl{margin-top:4px}
+.t-body .ghwrap #gh{height:34px}
+.t-body .ghwrap .gh-read{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px}
+.t-body .ghwrap .gh-card{padding:8px 12px;display:flex;flex-direction:column}
+.t-body .ghwrap .gh-card .lbl{flex:1}   /* a label that wraps pushes nothing: both numbers sit on one line */
+.t-body .ghwrap .gh-card .lbl{margin-bottom:2px}
+.t-body .ghwrap .gh-card .val{font-size:26px}
+.t-body .ghwrap .gh-card .bar{margin-top:6px}
+.t-body .ghwrap .gh-say{font-size:15px;line-height:1.45;margin:10px 0 0}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
