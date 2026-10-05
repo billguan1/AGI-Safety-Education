@@ -1683,3 +1683,9 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .dkf-ends > *{width:100%;box-sizing:border-box}
   .wl-climb svg{max-width:440px!important;margin:0 auto}
 }
+/* cover intro: three candidate treatments, chosen on the preview with ?lede=a|b|c */
+.slide[data-key="cover"] .t-body .mh-lede{transition:none}
+html.lede-a .slide[data-key="cover"] .t-body .mh-lede{background:#fffdf6;border:3px solid #1b1b1b;border-radius:10px;box-shadow:5px 5px 0 #1b1b1b;padding:14px 20px;color:#1b1b1b!important}
+html.lede-b .slide[data-key="cover"] .t-body .mh-lede{background:#fff3c9;border:2.5px solid #1b1b1b;border-left:10px solid #d2553f;border-radius:6px;padding:12px 18px;color:#1b1b1b!important;box-shadow:4px 4px 0 #1b1b1b;font-weight:400}
+html.lede-c .slide[data-key="cover"] .t-body .mh-lede{color:#1b1b1b!important}
+html.lede-c .slide[data-key="cover"] .t-body .mh-lede strong{background:linear-gradient(transparent 52%,#f4cf6a 52%,#f4cf6a 92%,transparent 92%);padding:0 2px}
