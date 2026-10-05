@@ -648,11 +648,11 @@ def H(kind, lang, t, extra=None):
         # hub positions (percent of a 16:9 box) and the spoke ends in a 640x360 drawing
         pos = [(50, 11), (87.5, 30.5), (81, 86), (19, 86), (12.5, 30.5)]
         chips = ''.join('<button type="button" class="dkh-chip dsg-tab" data-i="%d" aria-pressed="%s" style="--x:%s%%;--y:%s%%">'
-                        '<svg class="dk-chart dsg-ico" viewBox="0 0 24 24" aria-hidden="true">%s</svg><span>%s</span><em class="dsg-n">%d</em></button>'
-                        % (i, 'true' if i == 4 else 'false', pos[i][0], pos[i][1], ico[i], E(t[i]), i + 1) for i in range(5))
+                        '<svg class="dk-chart dsg-ico" viewBox="0 0 24 24" aria-hidden="true">%s</svg><span>%s</span></button>'
+                        % (i, 'true' if i == 4 else 'false', pos[i][0], pos[i][1], ico[i], E(t[i])) for i in range(5))
         spokes = ('<svg class="dk-chart dsg-spokes" data-keep="1" viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true">%s</svg>'
                   % ''.join('<line data-i="%d" x1="320" y1="180" x2="%d" y2="%d"/>' % (i, x * 6.4, y * 3.6) for i, (x, y) in enumerate(pos)))
-        core = '<div class="dsg-core"><small>%s</small><strong>%s</strong></div>' % (E(ST['hub_k']), E(ST['hub_g']))
+        core = '<div class="dsg-core"><strong>%s</strong></div>' % E(ST['hub_k'])
         body = ''.join('<div class="dsg-panel" data-i="%d"%s><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (
             i, '' if i == 4 else ' hidden', E(h), ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(a), refs_html(b, base)) for a, b in cards))
             for i, (h, cards) in enumerate(panels))
