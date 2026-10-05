@@ -1333,6 +1333,25 @@ def comic_reference(fname, fonts):
     assert s.count(REF_START) == 2
     print('styled %s' % fname)
 
+REFTOC_START, REFTOC_END = '<!-- dk-reftoc: the deck contents, added by tools/build_deck.py -->', '<!-- /dk-reftoc -->'
+
+def ref_toc(fname, pg, S):
+    """The deck's left-hand contents on a Reference page, each entry linking back to its slide. Idempotent."""
+    path = os.path.join(ROOT, fname); s = open(path, encoding='utf-8').read()
+    s = re.sub(re.escape(REFTOC_START) + r'.*?' + re.escape(REFTOC_END) + r'\n?', '', s, flags=re.S)
+    home = '/' if pg.lang == 'en' else '/index-zh'
+    t = toc(pg, S)
+    n0 = t.count('data-go=')
+    t, n = re.subn(r'<button type="button" class="(tc-[sp])" data-go="(\d+)"(?: data-i="\d+")?([^>]*)>(.*?)</button>',
+                   lambda m: '<a class="%s" href="%s#s=%d"%s>%s</a>' % (m.group(1), home, int(m.group(2)) + 1, m.group(3), m.group(4)), t, flags=re.S)
+    assert n == n0 and n > 40 and '<button' not in t, (n, n0)
+    t = t.replace('<nav class="dk-toc" id="dk-toc"', '<nav class="ref-toc" id="ref-toc"', 1)
+    assert 'id="ref-toc"' in t
+    assert s.count('<main id="main">') == 1
+    s = s.replace('<main id="main">', REFTOC_START + '\n' + t + '\n' + REFTOC_END + '\n<main id="main">', 1)
+    open(path, 'w', encoding='utf-8').write(s)
+    print('contents on %s: %d links' % (fname, n))
+
 FAQ_START, FAQ_END = '<!-- dk-faq-ld: built from the visible questions by tools/build_deck.py -->', '<!-- /dk-faq-ld -->'
 
 def ref_faq(fname, url, lang):
@@ -1370,6 +1389,7 @@ def main():
         print('wrote %s: %d slides, %d KB' % (pg.out, len(S_en), len(doc) // 1024))
     comic_reference('reference.html', TXT.EN_FONTS)
     comic_reference('reference-zh.html', TXT.ZH_FONTS)
+    ref_toc('reference.html', en, S_en); ref_toc('reference-zh.html', zh, S_zh)
     ref_faq('reference.html', 'https://safeagi.ca/reference', 'en')
     ref_faq('reference-zh.html', 'https://safeagi.ca/reference-zh', 'zh-Hans')
     make_guides()

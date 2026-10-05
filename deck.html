@@ -2138,7 +2138,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
 /* cover on laptops and desktops: the chart sits above the fold, so the title and intro tighten and the chart scales to the screen height */
 @media (min-width:761px){
   .slide[data-key="cover"] .mh-kick{margin-bottom:12px!important}
-  .slide[data-key="cover"] .mh-title{font-size:clamp(40px,2.2vw + 22px,58px)!important;max-width:none!important;margin-bottom:14px!important}
+  .slide[data-key="cover"] .mh-title{font-size:clamp(40px,2.2vw + 22px,58px)!important;max-width:none!important;margin-bottom:14px!important;text-wrap:wrap!important}   /* fill the width; balance kept English to two short lines */
   .slide[data-key="cover"] .mh-lede{font-size:17px!important;line-height:1.5!important;max-width:none!important}
   .slide[data-key="cover"] figure.cliff{margin:18px auto 0!important;max-width:min(900px,max(520px,calc((100dvh - 330px) * 1.86)))!important}
 }
