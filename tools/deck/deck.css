@@ -1423,3 +1423,31 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="2.2b"] .t-body .dsg-panel .dkh-box b{font-size:15px}
   .slide[data-key="2.2b"] .t-body .dsg-panel .dkh-box span{font-size:13.5px;line-height:1.35}
 }
+/* "Nobody knows how": the two problems stay stacked, drawn tighter so both fit on a laptop screen */
+@media (min-width:761px){
+  .slide[data-key="claim3"] .t-body .claim .cl-sub{margin-bottom:0}
+  .slide[data-key="claim3"] .t-body .cl-halves{margin-top:10px!important;gap:10px!important}
+  .slide[data-key="claim3"] .t-body .cl-half{padding:8px 14px 10px!important}
+  .slide[data-key="claim3"] .t-body .cl-hh{padding-bottom:6px!important;margin-bottom:6px!important}
+  .slide[data-key="claim3"] .t-body .cl-hn{font-size:19px!important}
+  .slide[data-key="claim3"] .t-body .cl-half p{font-size:15px!important;margin:0 0 6px!important}
+  .slide[data-key="claim3"] .t-body .cl-half figure{padding:8px 12px!important;margin-top:0!important}
+  .slide[data-key="claim3"] .t-body .dkh-t{font-size:15px!important;margin-bottom:2px!important}
+  .slide[data-key="claim3"] .t-body .dkh-grid{gap:5px;grid-template-columns:auto 1fr 1fr}
+  .slide[data-key="claim3"] .t-body .dkh-ch,.slide[data-key="claim3"] .t-body .dkh-rh{font-size:12.5px}
+  .slide[data-key="claim3"] .t-body .dkh-cell{min-height:0;padding:4px 8px}
+  .slide[data-key="claim3"] .t-body .dkh-cell b{font-size:14.5px}
+  .slide[data-key="claim3"] .t-body .dkh-cell span{font-size:12px}
+  .slide[data-key="claim3"] .t-body .dkh-note{font-size:12.5px}
+  .slide[data-key="claim3"] .t-body .dkh-two{gap:10px}
+  .slide[data-key="claim3"] .t-body .dkh-two > .dkh-box{padding:6px 12px 8px;border-top-width:6px!important}
+  .slide[data-key="claim3"] .t-body .dkh-two .dkh-box b{font-size:14.5px}
+  .slide[data-key="claim3"] .t-body .dkh-two .dkh-box > span{font-size:12.5px}
+}
+@media (min-width:761px){
+  .slide[data-key="claim3"] .t-body .dpb-row{margin:4px 0 2px;gap:8px}
+  .slide[data-key="claim3"] .t-body .dpb-cloud,.slide[data-key="claim3"] .t-body .dpb-note,.slide[data-key="claim3"] .t-body .dpb-out,.slide[data-key="claim3"] .t-body .dpb-in{height:50px}
+  .slide[data-key="claim3"] .t-body .dpb-cloud{width:76px}
+  .slide[data-key="claim3"] .t-body .dpb-out,.slide[data-key="claim3"] .t-body .dpb-in{width:70px}
+  .slide[data-key="claim3"] .t-body .dpb-in{font-size:28px}
+}

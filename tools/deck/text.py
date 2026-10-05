@@ -79,7 +79,6 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
     econ=dict(title='How big the world economy gets from 2035 to 2055', sub='Faster growth starts in 2035. Size in 2035 = 1.', rows=("At today's 3% a year", 'At 12% a year', 'At 30% a year')),
     checks_k='Quick check', right='Right!', wrongp='Not quite.',
     checks={
-      '1.1': ('For every $10,000 spent building AI, roughly how much goes to public safety research?', ('About $1', 'About $100', 'About $1,000'), 0, 'It is roughly 10,000 to 1.'),
       '2.2': ('Why might an AI take the power and water we need, even if nobody told it to?', ('It hates people', 'Almost any goal goes better with more resources', 'Someone programmed it to'), 1, 'More resources help with almost any goal, so taking them comes along as a side effect.'),
       '2.3': ('Why might we only get one try with superintelligence?', ('Once it improves itself, it pulls ahead too fast to fix mistakes', 'It costs too much to build twice', 'The law allows only one attempt'), 0, 'Past technologies got safe by fixing crashes. A system that races ahead leaves no time to fix anything.'),
       '3.2': ('Before an AI can follow human values, what do we have to settle first?', ('Whose values it should follow', 'How fast the computer is', 'Which language it speaks'), 0, 'People have never agreed on one set of values, so someone has to choose.'),
@@ -278,7 +277,6 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
     econ=dict(title='2035 到 2055 年，世界经济会变多大', sub='从 2035 年起加速增长，2035 年的规模记为 1。', rows=('按今天的每年 3%', '按每年 12%', '按每年 30%')),
     checks_k='小测验', right='答对了！', wrongp='不太对。',
     checks={
-      '1.1': ('每投入 1 万美元建造 AI，大约有多少流向公共安全研究？', ('大约 1 美元', '大约 100 美元', '大约 1,000 美元'), 0, '比例大约是一万比一。'),
       '2.2': ('就算没人叫它这么做，AI 为什么可能夺走我们需要的电和水？', ('它讨厌人类', '几乎任何目标，资源越多越好办', '有人把它编成这样'), 1, '资源几乎对任何目标都有帮助，所以夺走资源会顺带发生。'),
       '2.3': ('为什么面对超级智能，我们可能只有一次机会？', ('它一旦自我改进，就跑得太快，来不及纠错', '造两次太贵了', '法律只允许试一次'), 0, '过去的技术靠一次次纠正事故变安全。一个飞速领先的系统，不给我们纠错的时间。'),
       '3.2': ('在 AI 能遵循人类价值观之前，我们得先解决什么？', ('它该遵循谁的价值观', '电脑有多快', '它说哪种语言'), 0, '人类从未就一套价值观达成一致，总得有人来选。'),

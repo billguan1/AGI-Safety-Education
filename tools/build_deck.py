@@ -899,7 +899,7 @@ def plan(pg):
     # 1.1
     ch = pg.chapter('why-irresistible'); B = ch['blocks']
     bet = one(B, '<div class="bet').replace('<div class="bet rv"', '<div class="bet rv t-compact"', 1)
-    add(ch, [('', bet + stand(ch) + auto(swap_svgs(fold_fig_src(one(B, '<div class="ddgrid')), charts_11(T))) + key(ch))])        # the question comes first, then the detail
+    add(ch, [('', stand(ch) + auto(swap_svgs(fold_fig_src(one(B, '<div class="ddgrid')), charts_11(T))) + key(ch) + bet)])        # the funding guess closes the chapter, in place of a quick check on the same question
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),

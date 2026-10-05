@@ -729,7 +729,7 @@
     var C; try { C = JSON.parse(box.getAttribute("data-c")); } catch (e) { return; }
     var st = stamp(), checks = 0, right = 0, loops = 0, lr = 0, race = null;
     Object.keys(P.ans).forEach(function(k){ var a = P.ans[k];
-      if (k.indexOf("c-") === 0) { checks++; if (a.right) right++; }
+      if (k.indexOf("c-") === 0) { if (!document.querySelector('.dk-check[data-id="' + k + '"]')) return; checks++; if (a.right) right++; }   /* a check that no longer exists does not count */
       else if (k.indexOf("loophole-") === 0) { loops++; if (a.right) lr++; }
       else if (k === "race") race = a; });
     function row(l, v){ return '<div class="dk-r-row"><span>' + esc(l) + '</span><b>' + esc(v) + '</b></div>'; }
