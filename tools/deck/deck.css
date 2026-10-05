@@ -1026,6 +1026,10 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 .dtl-key span{display:inline-flex;align-items:center;gap:6px}
 .dtl-key i{display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;border:2px solid #1b1b1b;background:#cfc4ab;font-style:normal;font-size:10px;color:#fffdf6;font-family:var(--comic)}
 .dtl-key .dtl-esc i{background:#d9492c}
+.dtl li.dtl-fut i{height:40px;border-radius:12px;border-style:dashed;border-color:#3a4f9e;background:#e3e8f8}   /* a tall marker: a range of years */
+.dtl li.dtl-fut b,.dtl li.dtl-fut span{color:#3a4f9e}
+.dtl li.dtl-fut span{font-weight:700}
+.dtl-key .dtl-fut i{border-style:dashed;border-color:#3a4f9e;background:#e3e8f8;border-radius:5px}
 /* economy squares on an even grid */
 .dke{display:grid!important;grid-template-columns:120px 120px auto;justify-content:start;align-items:end;gap:18px!important}
 .dke-item{min-width:0!important}

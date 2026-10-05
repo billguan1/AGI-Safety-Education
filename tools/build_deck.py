@@ -821,11 +821,22 @@ def plan(pg):
             BANG = '<svg viewBox="0 0 10 10" aria-hidden="true"><rect x="3.9" y="0.8" width="2.2" height="5.6" rx="1.1" fill="#fffdf6"/><circle cx="5" cy="8.5" r="1.2" fill="#fffdf6"/></svg>'
             items = ''.join('<li class="dtl-%s"><i aria-hidden="true">%s</i><b>%s</b><span>%s</span></li>' % (
                 ('esc' if k else 'warn'), (BANG if k else ''), E(y), E(x)) for y, x, k, r in I['timeline'])
-            nums = sorted(set(int(n) for y, x, k, r in I['timeline'] for n in re.findall(r'\d+', r)))
+            # what the labs expect next, drawn as a range at the end of the line
+            ay, ax, ar = I['ahead']
+            items += '<li class="dtl-fut"><i aria-hidden="true"></i><b>%s</b><span>%s</span></li>' % (E(ay), E(ax))
+            nums = sorted(set(int(n) for y, x, k, r in I['timeline'] + [(ay, ax, 0, ar)] for n in re.findall(r'\d+', r)))
             srcline = '<p class="dtl-src">%s %s</p>' % (E(T['src_word']), ' '.join('<a href="%s#s%d">%d</a>' % (pg.refbase, n, n) for n in nums))
-            key = '<p class="dtl-key"><span class="dtl-warn"><i></i>%s</span><span class="dtl-esc"><i>%s</i>%s</span></p>' % (E(I['tl_key'][0]), BANG, E(I['tl_key'][1]))
+            key = ('<p class="dtl-key"><span class="dtl-warn"><i></i>%s</span><span class="dtl-esc"><i>%s</i>%s</span><span class="dtl-fut"><i></i>%s</span></p>'
+                   % (E(I['tl_key'][0]), BANG, E(I['tl_key'][1]), E(I['tl_key'][2])))
             c, ntl = re.subn(r'<ol class="dkh-tl">.*?</ol>', lambda m: key + '<ol class="dkh-tl dtl">%s</ol>' % items + srcline, c, flags=re.S)
             assert ntl == 1
+            # the timeline takes the left panel, under its own title
+            figs = re.findall(r'<figure\b.*?</figure>', c, re.S)
+            assert len(figs) == 2 and c.count(figs[0]) == 1 and c.count(figs[1]) == 1 and 'dtl' in figs[1]
+            tl, nt = re.subn(r'<p class="dkh-t">.*?</p>', '<p class="dkh-t">%s</p>' % E(I['tl_title']), figs[1], count=1, flags=re.S)
+            assert nt == 1
+            i0 = c.index(figs[0]); i1 = c.index(figs[1])
+            c = c[:i0] + tl + c[i0 + len(figs[0]):i1] + figs[0] + c[i1 + len(figs[1]):]
         if 'claim-3' in c[:80]:
             figs3 = re.findall(r'<figure\b.*?</figure>', c, re.S)
             c = swap_fig_svgs(c, 1, globals()['H']('problems', pg.lang, svg_texts(figs3[1]), T['prob'])); c = rebuild(c, 0, 'payoff4', pg.lang)
