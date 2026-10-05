@@ -2061,19 +2061,19 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .t-body h3,.t-body p{font-family:var(--body)}
 .t-body a{color:#2f6fa3}
 /* narrator */
-.cx-nar{display:flex;align-items:flex-end;gap:14px;margin:0 0 16px}
-.cx-kenji{width:72px;height:72px;border-radius:50%;border:3px solid #1b1b1b;object-fit:cover;flex:none;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b}
-.cx-bubble{position:relative;margin:0 0 18px;padding:12px 18px;background:#fffdf6;border:3px solid #1b1b1b;border-radius:22px;
-  font-family:var(--body);font-weight:700;font-size:clamp(16px,.9rem + .4vw,20px);line-height:1.3;color:#1b1b1b;max-width:52ch;box-shadow:4px 4px 0 #1b1b1b}
-.cx-bubble::before{content:"";position:absolute;left:-15px;bottom:10px;border:9px solid transparent;border-right:16px solid #1b1b1b;border-left:0}
-.cx-bubble::after{content:"";position:absolute;left:-9px;bottom:12px;border:7px solid transparent;border-right:12px solid #fffdf6;border-left:0}
-.cx-capy{display:flex;align-items:center;gap:10px;margin:0 0 18px auto}
-.cx-capy img{width:54px;height:54px;border-radius:8px;border:3px solid #1b1b1b;object-fit:cover}
-.cx-capy span{font-family:"Space Mono",monospace;font-weight:700;font-size:13px;letter-spacing:.04em;background:#fffdf6;border:2.5px solid #1b1b1b;padding:8px 10px;box-shadow:3px 3px 0 #1b1b1b}
+.cx-nar{display:flex;align-items:flex-end;gap:10px;margin:0 0 12px}
+.cx-kenji{width:54px;height:54px;border-radius:50%;border:2.5px solid #1b1b1b;object-fit:cover;flex:none;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b}
+.cx-bubble{position:relative;margin:0 0 12px;padding:8px 14px;background:#fffdf6;border:2.5px solid #1b1b1b;border-radius:18px;
+  font-family:var(--body);font-weight:700;font-size:clamp(15px,.85rem + .2vw,17px);line-height:1.35;color:#1b1b1b;max-width:60ch;box-shadow:3px 3px 0 #1b1b1b}
+.cx-bubble::before{content:"";position:absolute;left:-13px;bottom:8px;border:8px solid transparent;border-right:13px solid #1b1b1b;border-left:0}
+.cx-bubble::after{content:"";position:absolute;left:-8px;bottom:10px;border:6px solid transparent;border-right:10px solid #fffdf6;border-left:0}
+.cx-capy{display:flex;align-items:center;gap:8px;margin:0 0 12px auto}
+.cx-capy img{width:42px;height:42px;border-radius:7px;border:2.5px solid #1b1b1b;object-fit:cover}
+.cx-capy span{font-family:"Space Mono",monospace;font-weight:700;font-size:12px;letter-spacing:.04em;background:#fffdf6;border:2px solid #1b1b1b;padding:6px 9px;box-shadow:2px 2px 0 #1b1b1b}
 .cx-kenji{animation:cxBob 3.2s ease-in-out infinite}
 @keyframes cxBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 @media (prefers-reduced-motion: reduce){.cx-kenji{animation:none}}
-@media (max-width:760px){.cx-nar{flex-wrap:wrap}.cx-capy{margin:-6px 0 14px 70px!important}.cx-capy img{width:42px;height:42px}.cx-capy span{font-size:12px}.cx-kenji{width:56px;height:56px}}
+@media (max-width:760px){.cx-nar{flex-wrap:wrap}.cx-capy{margin:-4px 0 10px 56px!important}.cx-capy img{width:36px;height:36px}.cx-capy span{font-size:11.5px}.cx-kenji{width:46px;height:46px}}
 /* charts keep the site's mono so their label spacing still holds */
 .t-body figure svg,.t-body .ddc figure{--mono:"IBM Plex Mono","IBM Plex Mono Fallback",ui-monospace,monospace}
 .slide .t-body .tr-fig .tr-title{font-family:var(--comic)!important}
