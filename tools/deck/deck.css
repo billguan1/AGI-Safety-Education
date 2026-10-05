@@ -1612,3 +1612,17 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .t-body .ddgrid > .ddc.lx-open > .lx-body > figure:last-of-type{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center}
   .t-body .ddgrid > .ddc.lx-open > .lx-body > figure:last-of-type > *{width:100%}
 }
+/* 2.2b "Be the AI": title, prompt and the three goals on one row; Capy's log opens underneath */
+@media (min-width:1100px){
+  .t-body figure.dkw-beai{display:grid!important;grid-template-columns:auto auto minmax(0,1fr);align-items:center;column-gap:14px;row-gap:10px;padding:10px 16px!important}
+  .t-body figure.dkw-beai > .tr-title{margin:0!important;font-size:22px!important;white-space:nowrap}
+  .t-body figure.dkw-beai > .dki-body{display:contents}
+  .t-body figure.dkw-beai .dki-body > .dki-say{margin:0;font-size:14px;white-space:nowrap}
+  .t-body figure.dkw-beai .dki-goals{gap:8px}
+  .t-body figure.dkw-beai .dki-goal{min-height:34px;padding:0 10px;font-size:14px;gap:6px}
+  .t-body figure.dkw-beai .dki-goal svg{width:20px;height:20px}
+  .t-body figure.dkw-beai .dki-gplay{width:20px;height:20px;font-size:9px}
+  .t-body figure.dkw-beai .dki-term{grid-column:1/-1}
+  .t-body figure.dkw-beai .dki-term:empty{display:none}
+  .t-body figure.dkw-beai > .dk-sr{grid-column:1/-1}
+}
