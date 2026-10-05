@@ -1481,3 +1481,5 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="claim3"] .t-body .dpb-in{font-size:28px}
 }
 @media (max-width:360px){.slide[data-key="claim2"] .t-body .dke{--S:50px!important}}
+/* key phrases in body text stand out in ink */
+.t-body p strong,.t-body li strong,.t-body td strong{font-weight:700;color:#1b1b1b}

@@ -130,6 +130,16 @@ def auto(block):
     """Cards that carry a chart, or are short, open by default."""
     return re.sub(r'<div class="(ddc|endc)', r'<div data-auto="1" class="\1', block)
 
+def auto_first(block, n):
+    """Only the first n cards open by default; the rest start folded under Read more."""
+    k = [0]
+    def rep(m):
+        k[0] += 1
+        return '<div data-auto="1" class="%s' % m.group(1) if k[0] <= n else m.group(0)
+    out = re.sub(r'<div class="(ddc|endc)', rep, block)
+    assert k[0] > n, (k[0], n)
+    return out
+
 def unp(p): return re.sub(r'^<p[^>]*>|</p>$', '', p.strip())
 
 def into_card(block, n, fig):
@@ -967,7 +977,7 @@ def plan(pg):
     ch = pg.chapter('why-safety-hard'); B = ch['blocks']
     body = kids(one(B, '<div class="body'))
     add(ch, [(P['4.2'][0], stand(ch) + swap_fig(one(body, '<figure'), 0, 'gap', T)),
-             (P['4.2'][1], part_head(H['4.2b']) + auto(short_cards(rebuild(rebuild(one(body, '<div class="ddgrid'), 1, 'grader', pg.lang), 0, 'talk', pg.lang), T['short42']))),
+             (P['4.2'][1], part_head(H['4.2b']) + auto_first(short_cards(rebuild(rebuild(one(body, '<div class="ddgrid'), 1, 'grader', pg.lang), 0, 'talk', pg.lang), T['short42']), 2)),   # the two with charts open; the monitor and the circuits start folded
              (P['4.2'][2], part_head(H['4.2c']) + widget_plain('inside', T) + one(body, '<p'))])
     # 5.1
     ch = pg.chapter('response'); B = ch['blocks']
