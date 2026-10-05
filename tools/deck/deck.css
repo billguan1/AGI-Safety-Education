@@ -277,6 +277,14 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .t-body .bet label{color:#6f6a60;font-family:var(--body)}
 .t-body .bet label b{font-family:var(--comic);font-weight:400;letter-spacing:.03em;color:#d2553f}
 .t-body .bet .note{color:#1b1b1b;font-family:var(--body)}
+/* the funding guess is a warm-up, so it stays small next to the cards */
+.t-body .bet.t-compact{padding:12px 16px!important;border-width:2.5px!important;border-left-width:6px!important;box-shadow:3px 3px 0 #1b1b1b;margin:10px 0}
+.t-body .bet.t-compact .bet-q{font-size:16px;line-height:1.35;margin-bottom:6px}
+.t-body .bet.t-compact .bet-row{gap:10px}
+.t-body .bet.t-compact label b{font-size:20px}
+.t-body .bet.t-compact input[type=range]{height:28px}
+.t-body .bet.t-compact .pbtn{min-height:36px;padding:0 16px}
+.t-body .bet.t-compact .note{font-size:15px;margin-top:8px!important}
 .t-body .pbtn{background:#fffdf6;color:#1b1b1b}
 .t-body .pbtn.on,.t-body .pbtn[aria-pressed="true"]{background:#e8b53a}
 .t-body h3,.t-body p{font-family:var(--body)}
