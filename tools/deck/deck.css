@@ -369,7 +369,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
   .slide[data-key="cover"] .mh-kick{margin-bottom:12px!important}
   .slide[data-key="cover"] .mh-title{font-size:clamp(40px,2.2vw + 22px,58px)!important;max-width:none!important;margin-bottom:14px!important;text-wrap:wrap!important}   /* fill the width; balance kept English to two short lines */
   .slide[data-key="cover"] .mh-lede{font-size:17px!important;line-height:1.5!important;max-width:none!important}
-  .slide[data-key="cover"] figure.cliff{margin:18px auto 0!important;max-width:min(900px,max(520px,calc((100dvh - 330px) * 1.86)))!important}
+  .slide[data-key="cover"] figure.cliff{margin:18px auto 0!important;max-width:min(900px,max(480px,calc((100dvh - 386px) * 1.86)))!important}
 }
 .t-body .mh-h,.t-body .mh-h span,.t-body .mc-k{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.03em!important;color:#1b1b1b!important;font-size:clamp(26px,1rem + 1.4vw,38px)!important;text-transform:none!important}
 .t-body .mh-h::before,.t-body .mh-h::after,.t-body .mh-h span::before,.t-body .mh-h span::after{background:#1b1b1b!important}
@@ -1625,4 +1625,41 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .t-body figure.dkw-beai .dki-term{grid-column:1/-1}
   .t-body figure.dkw-beai .dki-term:empty{display:none}
   .t-body figure.dkw-beai > .dk-sr{grid-column:1/-1}
+}
+
+/* fold pass 2: shared spacing above the content, and the densest slides */
+@media (min-width:761px){
+  .slide .t-body{padding-top:10px!important}
+  .slide .t-body > .cx-nar{margin-bottom:8px!important}
+  .slide .t-body > .t-parthead{margin-bottom:8px!important}
+  /* 2.2c: the icon sits beside the label and title rather than above them */
+  .slide[data-key="2.2c"] .t-body .ddc > .sc-ic{float:left;width:42px!important;height:42px!important;margin:0 12px 4px 0!important}
+  .slide[data-key="2.2c"] .t-body .ddc > .sc-ic svg{width:22px!important;height:22px!important}
+  .slide[data-key="2.2c"] .t-body .ddc > .t-more,.slide[data-key="2.2c"] .t-body .ddc > .lx-body{clear:both}
+  .slide[data-key="2.2c"] .t-body .ddc{padding:12px 14px 14px!important}
+  /* 5.2b: the seven safeguards in two columns of slim rows */
+  .slide[data-key="5.2b"] .t-body .dki-rows{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px}
+  .slide[data-key="5.2b"] .t-body .dki-rows li{padding:5px 10px}
+  .slide[data-key="5.2b"] .t-body .dki-count{font-size:18px}
+  .slide[data-key="5.2b"] .t-body figure.secfig{padding:12px 16px!important}
+}
+@media (min-width:761px){
+  /* 5.1 layer slides: hint, castle, stamps and count share one short row */
+  .tk-bar{flex-wrap:nowrap;margin-bottom:8px}
+  .tk-castle{flex-basis:auto;order:2;margin-left:auto}
+  .tk-castle svg{width:96px}
+  .tk-stamps{font-size:15px;padding:2px 10px}
+  .tk-count{order:3;font-size:17px}
+  /* key lines: same weight, less padding */
+  .t-body .keyline{padding:10px 16px!important;margin:10px 0!important}
+  .t-body .keyline p{font-size:17px!important}
+  /* 1.1 and 4.2b: card charts and examples a little tighter */
+  .slide[data-key="1.1"] .t-body .ddc,.slide[data-key="4.2b"] .t-body .ddc{padding:12px 16px 14px!important}
+  .slide[data-key="1.1"] .t-body .ddc figure{padding:10px 14px!important;margin-top:8px!important}
+  .slide[data-key="4.2b"] .t-body .dk-ex{padding:6px 12px!important;font-size:13.5px!important}
+  /* 2.2b: the hub a little smaller */
+  .slide[data-key="2.2b"] .t-body .dsg-hub{max-width:450px!important}
+  /* claim 1: timeline rows a little tighter */
+  .slide[data-key="claim1"] .t-body .dtl{gap:3px!important}
+  .slide[data-key="claim1"] .t-body .dtl li i{width:20px;height:20px}
 }
