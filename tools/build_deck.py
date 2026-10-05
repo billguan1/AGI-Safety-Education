@@ -994,7 +994,7 @@ def plan(pg):
     def gfig(kind, cfg):
         return '<figure class="secfig dk-int dkw-%s" data-w="%s" data-cfg="%s" aria-label="%s"><div class="dki-body"></div></figure>' % (
             kind, kind, html.escape(json.dumps(cfg, ensure_ascii=False)), E(cfg['title']))
-    parts.append((G5['chips'][0], part_head(H['5.1g']) + gfig('heist', dict(G5['heist'], techs=techs, layers=lname))))
+    # (5.1g "The heist" was removed on 2026-10-05; 5.1 now ends on Build your defence)
     add(ch, parts)
     # 5.2
     ch = pg.chapter('response-gaps'); B = ch['blocks']
