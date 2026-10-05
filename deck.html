@@ -3350,6 +3350,11 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="3.1a"] .t-body > figure.secfig{display:flex;flex-direction:column;justify-content:center;margin-bottom:0!important}
   .slide[data-key="3.1a"] .t-body > figure.secfig > *{width:100%}
 }
+/* 4.1e iceberg: the frame spans the column like every other chart; the drawing sits centred, sized to the screen height */
+@media (min-width:761px){
+  .slide .t-body > figure.secfig.ice-fig{max-width:none!important;width:auto;margin-left:0!important;margin-right:0!important}
+  .slide .t-body > figure.ice-fig svg{display:block;width:auto!important;max-width:100%!important;height:min(430px,calc(100dvh - 432px))!important;min-height:240px;margin:0 auto}
+}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
