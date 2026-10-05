@@ -1287,7 +1287,8 @@ def toc(pg, S):
         out.append('<div class="tc-sec" data-first="%d" data-last="%d"><button type="button" class="tc-s" data-go="%d" style="--c:%s">%s</button>%s</div>'
                    % (idx[0], idx[-1], idx[0], sec['acc'], lab, parts))
     hide = '<button type="button" class="tc-hide" data-toc="off" aria-controls="dk-toc"><span aria-hidden="true">&laquo;</span> %s</button>' % html.escape(T['toc_hide'])
-    return '<nav class="dk-toc" id="dk-toc" aria-label="%s">%s%s%s</nav>\n%s\n' % (T['contents'], hide, ''.join(out), pg.toc_tail, TOC_JS)
+    edge = '<button type="button" class="tc-edge" data-toc="on" aria-controls="dk-toc" title="%s"><span aria-hidden="true">&raquo;</span><b>%s</b></button>' % (html.escape(T['toc_show']), html.escape(T['toc_show']))
+    return '<nav class="dk-toc" id="dk-toc" aria-label="%s">%s%s%s</nav>\n%s%s\n' % (T['contents'], hide, ''.join(out), pg.toc_tail, edge, TOC_JS)
 
 # the left contents can be folded away on wide screens; the choice is remembered across pages
 TOC_JS = ('<script>(function(){var h=document.documentElement;try{if(localStorage.getItem("toc-off")==="1")h.classList.add("toc-off")}catch(e){}'
