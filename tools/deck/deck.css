@@ -1500,7 +1500,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
 }
 /* 3.1: the payoff grid and the race simulator side by side on wide screens, both tighter, so the slide fits */
 @media (min-width:1200px){
-  .slide[data-key="3.1a"] .t-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:16px;align-items:start}
+  .slide[data-key="3.1a"] .t-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px;align-items:start}
   .slide[data-key="3.1a"] .t-body > *{grid-column:1/-1}
   .slide[data-key="3.1a"] .t-body > figure.secfig{grid-column:auto;margin-top:6px!important}
 }
@@ -1576,7 +1576,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
 /* side-by-side panels share a height: 3.1 payoff grid and race simulator */
 @media (min-width:1200px){
   .slide[data-key="3.1a"] .t-body{align-items:stretch!important}
-  .slide[data-key="3.1a"] .t-body > figure.secfig{display:flex;flex-direction:column;justify-content:center;margin-bottom:0!important}
+  .slide[data-key="3.1a"] .t-body > figure.secfig{display:flex;flex-direction:column;justify-content:flex-start;margin-bottom:0!important}
   .slide[data-key="3.1a"] .t-body > figure.secfig > *{width:100%}
 }
 /* 4.1e iceberg: the frame spans the column like every other chart; the drawing sits centred, sized to the screen height */
@@ -1604,4 +1604,11 @@ button.dki-link.dki-broken em::after{content:"✕"}
   html.toc-off .tc-edge b{writing-mode:vertical-rl;letter-spacing:.06em}
   html.toc-off .tc-edge:hover{background:#e8b53a}
   html.toc-off .tc-edge:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+}
+/* cards side by side: the chart in each open card grows to the card's foot, so inner frames line up across the row */
+@media (min-width:761px){
+  .t-body .ddgrid > .ddc.lx-open{display:flex!important;flex-direction:column}
+  .t-body .ddgrid > .ddc.lx-open > .lx-body{flex:1 1 auto;display:flex;flex-direction:column}
+  .t-body .ddgrid > .ddc.lx-open > .lx-body > figure:last-of-type{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center}
+  .t-body .ddgrid > .ddc.lx-open > .lx-body > figure:last-of-type > *{width:100%}
 }
