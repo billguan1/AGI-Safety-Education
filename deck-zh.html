@@ -3331,6 +3331,12 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="2.2b"] .t-body .dsg-panel .dkh-four{grid-template-columns:repeat(2,minmax(0,1fr))}
   .slide[data-key="2.2b"] .t-body .dsg-hub .dsg-tab{font-size:13.5px;padding:5px 11px;min-height:36px}
 }
+/* side-by-side panels share a height: 3.1 payoff grid and race simulator */
+@media (min-width:1200px){
+  .slide[data-key="3.1a"] .t-body{align-items:stretch!important}
+  .slide[data-key="3.1a"] .t-body > figure.secfig{display:flex;flex-direction:column;justify-content:center;margin-bottom:0!important}
+  .slide[data-key="3.1a"] .t-body > figure.secfig > *{width:100%}
+}
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}.t-body .care3.slim .care-c::after{content:"跳过去 \2192"!important}
 </style>
