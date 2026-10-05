@@ -858,9 +858,11 @@
 (function(){
   /* 2.2 subgoal chips switch the cards underneath */
   document.querySelectorAll(".dsg").forEach(function(box){
-    var tabs = box.querySelectorAll(".dsg-tab"), panels = box.querySelectorAll(".dsg-panel");
+    var tabs = box.querySelectorAll(".dsg-tab"), panels = box.querySelectorAll(".dsg-panel"), row = box.querySelector(".dsg-tabs");
+    if (row && /[?&]sg=c\b/.test(location.search)) { row.classList.remove("dsg-hub"); row.classList.add("dsg-tiles"); }   /* preview switch: compare the tile version */
     [].forEach.call(tabs, function(b){ b.addEventListener("click", function(){
       var i = b.getAttribute("data-i");
+      if (row) row.setAttribute("data-on", i);
       [].forEach.call(tabs, function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
       [].forEach.call(panels, function(p){ p.hidden = p.getAttribute("data-i") !== i; });
     }); });

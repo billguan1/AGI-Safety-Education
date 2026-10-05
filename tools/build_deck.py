@@ -465,6 +465,61 @@ def care_scenes():
     s3 = man(28, 44, '#e8b53a') + Q(44, 30) + bot(88, 50) + Q(105, 34, 26) + man(182, 44, '#6fae5a') + Q(166, 30)
     return [dk_svg('0 0 210 104', '', x).replace('<svg ', '<svg class="dk-chart dk-scene" ', 1).replace('class="dk-chart" ', '', 1) for x in (s1, s2, s3)]
 
+def card_scenes(which):
+    """Small comic scenes for the 3.1 race cards and the 3.2 values cards, drawn like the 2.2a adversary scenes."""
+    K = 'stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"'
+    def man(x, y, c):
+        return ('<circle cx="%d" cy="%d" r="7" fill="%s" %s/><path d="M%d %d v18 M%d %d l-7 12 M%d %d l7 12 M%d %d l-9 6 M%d %d l9 -4" fill="none" %s/>'
+                % (x, y, c, K, x, y + 7, x, y + 25, x, y + 25, x, y + 12, x, y + 12, K))
+    def bot(x, y, c='#9fb3f0'):
+        return ('<rect x="%d" y="%d" width="34" height="30" rx="6" fill="%s" %s/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/><circle cx="%d" cy="%d" r="3" fill="#1b1b1b"/>'
+                '<path d="M%d %d v-6" %s/><circle cx="%d" cy="%d" r="3" fill="#e8b53a" %s/><path d="M%d %d h14" %s/>'
+                % (x, y, c, K, x + 11, y + 12, x + 23, y + 12, x + 17, y, K, x + 17, y - 8, K, x + 10, y + 22, K))
+    def arrow(m, x1, y1, x2, y2):
+        return '<path d="M%d %d L%d %d" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" marker-end="url(#%s)"/>' % (x1, y1, x2, y2, m)
+    DEF = lambda m: '<defs><marker id="%s" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1b1b1b"/></marker></defs>' % m
+    shield = lambda x, y, c: '<path d="M%d %d l9 -3 9 3 v8 c0 6 -4 10 -9 12 c-5 -2 -9 -6 -9 -12 z" fill="%s" %s/>' % (x, y, c, K)
+    sym = lambda x, y, t, c='#1b1b1b', s=22: '<text x="%d" y="%d" text-anchor="middle" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="%d" fill="%s">%s</text>' % (x, y, s, c, t)
+    if which == 'race':
+        # caution as a handicap: the careful runner carries the safety shield and falls behind; the leader dropped it
+        s1 = ('<path d="M6 92 H204" stroke="#9aa3ab" stroke-width="2.5" stroke-linecap="round"/>' +
+              '<path d="M190 92 V40" %s/><path d="M190 40 h16 l-4 6 4 6 h-16 z" fill="#fffdf6" %s/>' % (K, K) +
+              man(40, 55, '#6fae5a') + shield(50, 62, '#b9d6a8') + '<path d="M28 46 q-3 5 0 7 M23 52 q-3 5 0 7" fill="none" stroke="#4a5fc9" stroke-width="2" stroke-linecap="round"/>' +
+              '<g transform="rotate(-70 112 86)">%s</g>' % shield(104, 82, '#b9d6a8') +
+              '<path d="M128 62 h-16 M130 70 h-20" stroke="#9aa3ab" stroke-width="2.5" stroke-linecap="round"/>' + man(150, 55, '#e07a5f'))
+        # the rope: one lab goes over the edge and drags everyone tied to it
+        s2 = ('<path d="M0 74 H150 L156 84 L150 92 L158 104 H0 Z" fill="#e3d6b8" %s/>' % K +
+              ''.join(man(x, 37, c) for x, c in ((26, '#6fae5a'), (60, '#e8b53a'), (94, '#9fb3f0'))) +
+              '<path d="M26 52 Q43 56 60 52 Q77 56 94 52 Q134 54 170 78" fill="none" stroke="#5c574e" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>' +
+              '<g transform="rotate(32 178 84)">%s</g>' % bot(162, 70, '#f6d5cc') +
+              '<path d="M196 58 l6 -6 M200 68 l8 -2 M186 52 l2 -8" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/>' + sym(60, 22, '!', '#d9492c', 24))
+        return [s1, s2]
+    # the prior problem: everyone values something different, and the AI has to pick
+    bub = lambda x, y: '<ellipse cx="%d" cy="%d" rx="16" ry="11" fill="#fffdf6" %s/>' % (x, y, K)
+    s3 = (man(22, 52, '#e07a5f') + bub(36, 20) + '<path d="M36 27 c-6 -4 -8 -8 -5 -10 c2 -1 4 0 5 2 c1 -2 3 -3 5 -2 c3 2 1 6 -5 10z" fill="#d9492c" %s/>' % K +
+          man(70, 52, '#e8b53a') + bub(84, 20) + '<path d="M76 17 h16 M84 13 v12 M79 17 l-3 6 h6z M89 17 l-3 6 h6z" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-linejoin="round"/>' +
+          bot(116, 58) + sym(133, 44, '?', '#1b1b1b', 24) +
+          man(188, 52, '#6fae5a') + bub(174, 20) + '<path d="M166 26 c0 -8 6 -12 14 -12 c0 8 -6 12 -14 12z M166 26 l9 -8" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2" stroke-linejoin="round"/>')
+    # the power problem: one party on the podium writes the rules, and the AI applies them to everyone
+    crowd = ''.join('<circle cx="%d" cy="%d" r="5" fill="%s" %s/><path d="M%d %d q6 -7 12 0" fill="none" %s/>' % (x, y, c, K, x - 6, y + 13, K)
+                    for x, y, c in ((156, 30, '#6fae5a'), (180, 28, '#e07a5f'), (200, 34, '#9fb3f0'), (150, 58, '#e8b53a'), (172, 56, '#9fb3f0'), (194, 60, '#6fae5a'),
+                                    (160, 84, '#e07a5f'), (184, 84, '#e8b53a')))
+    s4 = (DEF('vsa3') + '<rect x="8" y="70" width="44" height="26" rx="3" fill="#e3d6b8" %s/>' % K + man(30, 33, '#e8b53a') +
+          '<path d="M23 26 l1 -9 4 4 3 -6 3 6 4 -4 1 9z" fill="#ffd166" %s/>' % K +
+          '<rect x="40" y="38" width="14" height="18" rx="2" fill="#fffdf6" %s/><path d="M43 44 h8 M43 49 h8" stroke="#9aa3ab" stroke-width="1.8" stroke-linecap="round"/>' % K +
+          arrow('vsa3', 58, 50, 76, 50) + bot(82, 36) +
+          arrow('vsa3', 120, 46, 140, 34) + arrow('vsa3', 120, 52, 140, 60) + arrow('vsa3', 120, 58, 146, 84) + crowd)
+    return [s3, s4]
+
+def scenes_in(block, scenes):
+    """A scene under each card title, kept outside the card's fold."""
+    hs = list(re.finditer(r'</h4>', block))
+    assert len(hs) == len(scenes), (len(hs), len(scenes))
+    for m, s in reversed(list(zip(hs, scenes))):
+        svg = dk_svg('0 0 210 104', '', s).replace('<svg ', '<svg class="dk-chart dk-scene dk-keep" ', 1).replace('class="dk-chart" ', '', 1)
+        block = block[:m.end()] + svg + block[m.end():]
+    return block
+
 def feel_scenes_in(block):
     """A scene under each card title, marked to stay outside the card's fold."""
     hs = list(re.finditer(r'</h4>', block)); sc = feel_scenes()
@@ -584,11 +639,24 @@ def H(kind, lang, t, extra=None):
         res = [(6, 7, 8), (9, 10, 11), (12, 13, 14), (15, 16, 17)]
         panels = [(ST['head'], list(tab)) for tab in ST['tabs']]
         panels.append((ST['head'], [(h, J(b, c)) for h, (a, b, c) in zip(ST['res'], res)]))
-        chips = ''.join('<button type="button" class="dkh-chip dsg-tab" data-i="%d" aria-pressed="%s">%s</button>' % (i, 'true' if i == 4 else 'false', E(t[i])) for i in range(5))
+        # one picture per subgoal: power button, shield, lightbulb, wrench, factory
+        ico = ['<path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/>',
+               '<path d="M12 3l7 3v5c0 5-3.4 8.3-7 10-3.6-1.7-7-5-7-10V6z"/><circle cx="12" cy="11.5" r="2.6"/>',
+               '<path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.6.6 1 1.4 1 2.4h5.6c0-1 .4-1.8 1-2.4A6 6 0 0 0 12 3z"/>',
+               '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',
+               '<path d="M3 20V9l5 3V9l5 3V5h4l1 7h3v8z"/><path d="M7 16h2M12 16h2M17 16h1"/>']
+        # hub positions (percent of a 16:9 box) and the spoke ends in a 640x360 drawing
+        pos = [(50, 11), (87.5, 30.5), (81, 86), (19, 86), (12.5, 30.5)]
+        chips = ''.join('<button type="button" class="dkh-chip dsg-tab" data-i="%d" aria-pressed="%s" style="--x:%s%%;--y:%s%%">'
+                        '<svg class="dk-chart dsg-ico" viewBox="0 0 24 24" aria-hidden="true">%s</svg><span>%s</span><em class="dsg-n">%d</em></button>'
+                        % (i, 'true' if i == 4 else 'false', pos[i][0], pos[i][1], ico[i], E(t[i]), i + 1) for i in range(5))
+        spokes = ('<svg class="dk-chart dsg-spokes" data-keep="1" viewBox="0 0 640 360" preserveAspectRatio="none" aria-hidden="true">%s</svg>'
+                  % ''.join('<line data-i="%d" x1="320" y1="180" x2="%d" y2="%d"/>' % (i, x * 6.4, y * 3.6) for i, (x, y) in enumerate(pos)))
+        core = '<div class="dsg-core"><small>%s</small><strong>%s</strong></div>' % (E(ST['hub_k']), E(ST['hub_g']))
         body = ''.join('<div class="dsg-panel" data-i="%d"%s><p class="dkh-t dkh-arrow">%s</p><div class="dkh-four">%s</div></div>' % (
             i, '' if i == 4 else ' hidden', E(h), ''.join('<div class="dkh-box"><b>%s</b><span>%s</span></div>' % (E(a), refs_html(b, base)) for a, b in cards))
             for i, (h, cards) in enumerate(panels))
-        return '<div class="dkh dsg"><p class="dsg-hint">%s</p><div class="dkh-chips dsg-tabs">%s</div>%s</div>' % (E(ST['tap']), chips, body)
+        return '<div class="dkh dsg"><p class="dsg-hint">%s</p><div class="dkh-chips dsg-tabs dsg-hub" data-on="4">%s%s%s</div>%s</div>' % (E(ST['tap']), spokes, core, chips, body)
     if kind == 'whose':
         groups = ''.join('<span class="dkh-chip">%s</span>' % E(t[i]) for i in range(1, 5))
         return ('<div class="dkh">%s<div class="dkh-flow"><div class="dkh-col">%s</div><span class="dkh-to" aria-hidden="true">→</span>'
@@ -838,11 +906,11 @@ def plan(pg):
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
     add(ch, [(P['3.1'][0], stand(ch) + rebuild(one(B, '<figure'), 0, 'payoff3', pg.lang) + widget_plain('race', T)),
-             (P['3.1'][1], quiz + part_head(*T['heads']['3.1b']) + auto(one(B, '<div class="ddgrid')) + key(ch))])
+             (P['3.1'][1], quiz + part_head(*T['heads']['3.1b']) + auto(scenes_in(one(B, '<div class="ddgrid'), card_scenes('race'))) + key(ch))])
     # 3.2
     ch = pg.chapter('why-human-misalignment'); B = ch['blocks']
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
-    add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + grids[0]),
+    add(ch, [(P['3.2'][0], stand(ch) + one(B, '<div class="body') + scenes_in(grids[0], card_scenes('values'))),
              (P['3.2'][1], part_head(*T['heads']['3.2b']) + widget_plain('chain', T, {'cards': cards_text(grids[1])})),
              (P['3.2'][2], part_head(*T['heads']['3.2c']) + rebuild(figs[0], 0, 'whose', pg.lang) + re.sub(r'(<div class="dkh-many"><span>).*?(</span>)', lambda m: m.group(1) + E(T['many']) + m.group(2), rebuild(figs[1], 0, 'decide', pg.lang, decide_ask(B, T)), count=1, flags=re.S))])
     # 4.1
