@@ -485,7 +485,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .tr-game [data-st="next"] > .tr-cover:hover{transform:translate(-1px,-2px);box-shadow:5px 5px 0 #1b1b1b;animation:none}
 .tr-game [data-st="next"] > .tr-cover:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b1b1b}
 .tr-game [data-st="next"] > .tr-cover:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
-.tr-game [data-st="locked"] > .tr-cover{cursor:default}
+.tr-game [data-st="locked"] > .tr-cover{cursor:pointer}
 .tr-game [data-st="locked"] > .tr-cover .tr-q{opacity:.35}
 .tr-game [data-pop] > *:not(.tr-cover){animation:trPop .42s cubic-bezier(.3,1.6,.5,1)}
 @keyframes trNudge{0%,100%{transform:none}50%{transform:translateY(-3px)}}
@@ -1497,4 +1497,28 @@ button.dki-link.dki-broken em::after{content:"✕"}
 @media (min-width:1200px){
   .slide[data-key="claim3"] .t-body .cl-halves{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch}
   .slide[data-key="claim3"] .t-body .cl-half figure{height:auto}
+}
+/* 3.1: the payoff grid and the race simulator side by side on wide screens, both tighter, so the slide fits */
+@media (min-width:1200px){
+  .slide[data-key="3.1a"] .t-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:16px;align-items:start}
+  .slide[data-key="3.1a"] .t-body > *{grid-column:1/-1}
+  .slide[data-key="3.1a"] .t-body > figure.secfig{grid-column:auto;margin-top:6px!important}
+}
+@media (min-width:761px){
+  .slide[data-key="3.1a"] .t-body > p.stand{font-size:17px!important;margin-bottom:8px!important}
+  .slide[data-key="3.1a"] .t-body figure.secfig{padding:12px 14px!important}
+  .slide[data-key="3.1a"] .t-body .dkh-t{font-size:15px!important}
+  .slide[data-key="3.1a"] .t-body .dkh-grid{gap:5px}
+  .slide[data-key="3.1a"] .t-body .dkh-ch,.slide[data-key="3.1a"] .t-body .dkh-rh{font-size:12.5px}
+  .slide[data-key="3.1a"] .t-body .dkh-cell{min-height:0;padding:5px 8px}
+  .slide[data-key="3.1a"] .t-body .dkh-cell b{font-size:14.5px}
+  .slide[data-key="3.1a"] .t-body .dkh-cell span{font-size:12px}
+  .slide[data-key="3.1a"] .t-body .dkh-note{font-size:12.5px}
+  .slide[data-key="3.1a"] .t-body .dki-race{gap:8px}
+  .slide[data-key="3.1a"] .t-body .dkw-race .tr-title{font-size:22px!important;margin:0}
+  .slide[data-key="3.1a"] .t-body .dki-rule{font-size:14px;margin:0}
+  .slide[data-key="3.1a"] .t-body .dki-race .dki-track{height:18px}
+  .slide[data-key="3.1a"] .t-body .dki-lane,.slide[data-key="3.1a"] .t-body .dki-riskrow{gap:8px}
+  .slide[data-key="3.1a"] .t-body .dki-name{font-size:13.5px}
+  .slide[data-key="3.1a"] .t-body .dki-case,.slide[data-key="3.1a"] .t-body .dki-run{min-height:36px;padding:0 12px;font-size:14px}
 }

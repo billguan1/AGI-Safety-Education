@@ -140,12 +140,13 @@
 
 
 (function(){
-  /* crash, fix, repeat: unlock the story one card at a time */
+  /* crash, fix, repeat: tap any card in a row and the whole row turns over; the AI row is tappable from the start */
   document.querySelectorAll(".tr-fig").forEach(function(fig){
     var steps = [].slice.call(fig.querySelectorAll(".tr-steps li, .tr-agi"));
     var count = fig.querySelector(".tr-count"), num = fig.querySelector(".tr-n"), tot = fig.querySelector(".tr-t"), all = fig.querySelector(".tr-all");
     if (!steps.length || !count) return;
-    var shown = 1, covers = [];
+    var covers = [], open = steps.map(function(_, k){ return k === 0; });
+    var rowOf = steps.map(function(li){ return li.classList.contains("tr-agi") ? li : li.closest(".tr-row"); });
     fig.className += " tr-game";
     tot.textContent = steps.length;
     steps.forEach(function(li, k){
@@ -154,27 +155,33 @@
       b.setAttribute("aria-label", fig.getAttribute("data-reveal") + " " + (k + 1));
       b.innerHTML = '<span class="tr-q">?</span><span class="tr-tap">' +
         (li.className.indexOf("tr-agi") > -1 ? fig.getAttribute("data-ai") : fig.getAttribute("data-tap")) + "</span>";
-      b.addEventListener("click", function(){ if (k === shown) reveal(k + 1, true); });
+      b.addEventListener("click", function(){ revealRow(rowOf[k]); });
       li.appendChild(b); covers.push(b);
     });
-    function paint(pop){
+    function paint(popRow){
+      var firstShut = {};
       steps.forEach(function(li, k){
-        var st = k < shown ? "open" : (k === shown ? "next" : "locked");
+        var row = rowOf[k], key = steps.indexOf(row) > -1 ? k : rowOf.indexOf(row);
+        var st = open[k] ? "open" : (firstShut[key] ? "locked" : "next");
+        if (!open[k]) firstShut[key] = true;
         li.setAttribute("data-st", st);
-        covers[k].disabled = st !== "next";
-        covers[k].tabIndex = st === "next" ? 0 : -1;
-        if (pop && k === shown - 1) { li.setAttribute("data-pop", "1"); setTimeout(function(){ li.removeAttribute("data-pop"); }, 500); }
+        covers[k].disabled = open[k];
+        covers[k].tabIndex = open[k] ? -1 : 0;
+        if (popRow && row === popRow) { li.setAttribute("data-pop", "1"); setTimeout(function(){ li.removeAttribute("data-pop"); }, 500); }
       });
-      num.textContent = shown;
-      if (shown >= steps.length) all.hidden = true;
+      var n = open.filter(Boolean).length;
+      num.textContent = n;
+      if (n >= steps.length) all.hidden = true;
     }
-    function reveal(n, focusNext){
-      shown = Math.min(n, steps.length); paint(true);
-      if (focusNext && shown < steps.length) covers[shown].focus({preventScroll: true});
+    function revealRow(row){
+      steps.forEach(function(li, k){ if (rowOf[k] === row) open[k] = true; });
+      paint(row);
+      var next = covers.filter(function(c){ return !c.disabled; })[0];
+      if (next) next.focus({preventScroll: true});
     }
-    all.addEventListener("click", function(){ reveal(steps.length, false); });
+    all.addEventListener("click", function(){ open = open.map(function(){ return true; }); paint(null); });
     count.hidden = false;
-    paint(false);
+    paint(null);
   });
 })();
 

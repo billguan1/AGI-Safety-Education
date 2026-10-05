@@ -2243,7 +2243,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
 .tr-game [data-st="next"] > .tr-cover:hover{transform:translate(-1px,-2px);box-shadow:5px 5px 0 #1b1b1b;animation:none}
 .tr-game [data-st="next"] > .tr-cover:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b1b1b}
 .tr-game [data-st="next"] > .tr-cover:focus-visible{outline:3px solid #4a5fc9;outline-offset:3px}
-.tr-game [data-st="locked"] > .tr-cover{cursor:default}
+.tr-game [data-st="locked"] > .tr-cover{cursor:pointer}
 .tr-game [data-st="locked"] > .tr-cover .tr-q{opacity:.35}
 .tr-game [data-pop] > *:not(.tr-cover){animation:trPop .42s cubic-bezier(.3,1.6,.5,1)}
 @keyframes trNudge{0%,100%{transform:none}50%{transform:translateY(-3px)}}
@@ -3255,6 +3255,30 @@ button.dki-link.dki-broken em::after{content:"✕"}
 @media (min-width:1200px){
   .slide[data-key="claim3"] .t-body .cl-halves{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch}
   .slide[data-key="claim3"] .t-body .cl-half figure{height:auto}
+}
+/* 3.1: the payoff grid and the race simulator side by side on wide screens, both tighter, so the slide fits */
+@media (min-width:1200px){
+  .slide[data-key="3.1a"] .t-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);column-gap:16px;align-items:start}
+  .slide[data-key="3.1a"] .t-body > *{grid-column:1/-1}
+  .slide[data-key="3.1a"] .t-body > figure.secfig{grid-column:auto;margin-top:6px!important}
+}
+@media (min-width:761px){
+  .slide[data-key="3.1a"] .t-body > p.stand{font-size:17px!important;margin-bottom:8px!important}
+  .slide[data-key="3.1a"] .t-body figure.secfig{padding:12px 14px!important}
+  .slide[data-key="3.1a"] .t-body .dkh-t{font-size:15px!important}
+  .slide[data-key="3.1a"] .t-body .dkh-grid{gap:5px}
+  .slide[data-key="3.1a"] .t-body .dkh-ch,.slide[data-key="3.1a"] .t-body .dkh-rh{font-size:12.5px}
+  .slide[data-key="3.1a"] .t-body .dkh-cell{min-height:0;padding:5px 8px}
+  .slide[data-key="3.1a"] .t-body .dkh-cell b{font-size:14.5px}
+  .slide[data-key="3.1a"] .t-body .dkh-cell span{font-size:12px}
+  .slide[data-key="3.1a"] .t-body .dkh-note{font-size:12.5px}
+  .slide[data-key="3.1a"] .t-body .dki-race{gap:8px}
+  .slide[data-key="3.1a"] .t-body .dkw-race .tr-title{font-size:22px!important;margin:0}
+  .slide[data-key="3.1a"] .t-body .dki-rule{font-size:14px;margin:0}
+  .slide[data-key="3.1a"] .t-body .dki-race .dki-track{height:18px}
+  .slide[data-key="3.1a"] .t-body .dki-lane,.slide[data-key="3.1a"] .t-body .dki-riskrow{gap:8px}
+  .slide[data-key="3.1a"] .t-body .dki-name{font-size:13.5px}
+  .slide[data-key="3.1a"] .t-body .dki-case,.slide[data-key="3.1a"] .t-body .dki-run{min-height:36px;padding:0 12px;font-size:14px}
 }
 
 :root{--comic:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif;--body:"Comic Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif!important;--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}.t-body .care3.slim .care-c::after{content:"跳过去 \2192"!important}
@@ -5582,12 +5606,13 @@ var SITE_CONFIG = {
 
 
 (function(){
-  /* crash, fix, repeat: unlock the story one card at a time */
+  /* crash, fix, repeat: tap any card in a row and the whole row turns over; the AI row is tappable from the start */
   document.querySelectorAll(".tr-fig").forEach(function(fig){
     var steps = [].slice.call(fig.querySelectorAll(".tr-steps li, .tr-agi"));
     var count = fig.querySelector(".tr-count"), num = fig.querySelector(".tr-n"), tot = fig.querySelector(".tr-t"), all = fig.querySelector(".tr-all");
     if (!steps.length || !count) return;
-    var shown = 1, covers = [];
+    var covers = [], open = steps.map(function(_, k){ return k === 0; });
+    var rowOf = steps.map(function(li){ return li.classList.contains("tr-agi") ? li : li.closest(".tr-row"); });
     fig.className += " tr-game";
     tot.textContent = steps.length;
     steps.forEach(function(li, k){
@@ -5596,27 +5621,33 @@ var SITE_CONFIG = {
       b.setAttribute("aria-label", fig.getAttribute("data-reveal") + " " + (k + 1));
       b.innerHTML = '<span class="tr-q">?</span><span class="tr-tap">' +
         (li.className.indexOf("tr-agi") > -1 ? fig.getAttribute("data-ai") : fig.getAttribute("data-tap")) + "</span>";
-      b.addEventListener("click", function(){ if (k === shown) reveal(k + 1, true); });
+      b.addEventListener("click", function(){ revealRow(rowOf[k]); });
       li.appendChild(b); covers.push(b);
     });
-    function paint(pop){
+    function paint(popRow){
+      var firstShut = {};
       steps.forEach(function(li, k){
-        var st = k < shown ? "open" : (k === shown ? "next" : "locked");
+        var row = rowOf[k], key = steps.indexOf(row) > -1 ? k : rowOf.indexOf(row);
+        var st = open[k] ? "open" : (firstShut[key] ? "locked" : "next");
+        if (!open[k]) firstShut[key] = true;
         li.setAttribute("data-st", st);
-        covers[k].disabled = st !== "next";
-        covers[k].tabIndex = st === "next" ? 0 : -1;
-        if (pop && k === shown - 1) { li.setAttribute("data-pop", "1"); setTimeout(function(){ li.removeAttribute("data-pop"); }, 500); }
+        covers[k].disabled = open[k];
+        covers[k].tabIndex = open[k] ? -1 : 0;
+        if (popRow && row === popRow) { li.setAttribute("data-pop", "1"); setTimeout(function(){ li.removeAttribute("data-pop"); }, 500); }
       });
-      num.textContent = shown;
-      if (shown >= steps.length) all.hidden = true;
+      var n = open.filter(Boolean).length;
+      num.textContent = n;
+      if (n >= steps.length) all.hidden = true;
     }
-    function reveal(n, focusNext){
-      shown = Math.min(n, steps.length); paint(true);
-      if (focusNext && shown < steps.length) covers[shown].focus({preventScroll: true});
+    function revealRow(row){
+      steps.forEach(function(li, k){ if (rowOf[k] === row) open[k] = true; });
+      paint(row);
+      var next = covers.filter(function(c){ return !c.disabled; })[0];
+      if (next) next.focus({preventScroll: true});
     }
-    all.addEventListener("click", function(){ reveal(steps.length, false); });
+    all.addEventListener("click", function(){ open = open.map(function(){ return true; }); paint(null); });
     count.hidden = false;
-    paint(false);
+    paint(null);
   });
 })();
 
