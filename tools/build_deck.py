@@ -947,7 +947,7 @@ def plan(pg):
     grids = [x for x in B if x.startswith('<div class="ddgrid')]
     para = [x for x in B if x.startswith('<p class="rv" style="max-width:68ch')][0]
     add(ch, [(P['2.3'][0], stand(ch) + tries_fig(T)),   # the "two things explain why" line stays on the long page only
-             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(add_example(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T), 1, T['incidents']['loop'], pg.refbase))),   # Kenji carries the reason
+             (P['2.3'][1], part_head(T['heads']['2.3b'][0]) + auto(swap_fig(swap_fig(grids[0], 1, 'loop', T, True), 0, 'trend', T))),   # Kenji carries the reason
              (P['2.3'][2], part_head(T['heads']['2.3c'], '', unp(para)) + auto(swap_fig(swap_fig(card_heading(grids[1], 1, T['wid']['layers']['card_h']), 1, 'layers', T, True), 0, 'speed', T)))])
     # 3.1
     ch = pg.chapter('why-race'); B = ch['blocks']
