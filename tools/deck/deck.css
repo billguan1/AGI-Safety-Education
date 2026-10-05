@@ -970,7 +970,9 @@ button.dki-link:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px;borde
 @media (max-width:760px){.slide .t-body figure.secfig,.slide .t-body figure.secfig:not(.tr-fig),.t-body .ddc figure,.t-body .claim figure,.t-body .cl-figs figure{padding:14px!important}}
 .dk-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;margin:0!important;padding:0!important;border:0!important}
 /* cover cliff controls */
-.cr-ctl{display:grid;gap:8px;margin-top:14px}
+.cr-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:14px}   /* question, answers and the reply share one row */
+.cr-ctl .cr-say{flex:1 1 240px;margin:0;font-size:15px}
+.t-body .mh-lede strong{font-weight:700;color:#1b1b1b}
 .cr-q{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--body);font-weight:700;font-size:16px;color:#1b1b1b}
 .cr-q button{min-height:38px;padding:0 16px;border:2.5px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:inherit;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
 .cr-q button[aria-pressed="true"]{background:#e8b53a}
