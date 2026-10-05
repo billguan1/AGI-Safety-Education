@@ -3254,6 +3254,21 @@ button.dki-link.dki-broken em::after{content:"✕"}
 @media (max-width:360px){.slide[data-key="claim2"] .t-body .dke{--S:50px!important}}
 /* key phrases in body text stand out in ink */
 .t-body p strong,.t-body li strong,.t-body td strong{font-weight:700;color:#1b1b1b}
+/* part tabs: quiet navigation, smaller and flat, so the slide's content leads */
+.t-chips{gap:6px!important}
+.t-chip{min-height:26px!important;padding:0 10px!important;gap:6px!important;border-width:1.5px!important;border-color:#a69d88!important;background:transparent!important;color:#3b3833!important;font-size:12px!important;font-weight:700;box-shadow:none!important}
+.t-chip b{width:15px!important;height:15px!important;font-size:9px!important;background:#a69d88!important;color:#fffdf6!important}
+.t-chip:hover{border-color:#1b1b1b!important;color:#1b1b1b!important}
+.t-chip.on{background:#f6e3a8!important;border-color:#1b1b1b!important;color:#1b1b1b!important}
+.t-chip.on b{background:#1b1b1b!important;color:#f6e3a8!important}
+.t-subchips{gap:4px!important;padding:2px 4px!important;border-width:1.5px!important}
+.t-chip.t-chip-sub{min-height:22px!important;padding:0 8px!important;font-size:11.5px!important;box-shadow:none!important}
+.t-chip:active{transform:none!important}
+/* "Nobody knows how": on wide screens the two problems sit side by side so the whole slide fits; narrower screens keep them stacked */
+@media (min-width:1200px){
+  .slide[data-key="claim3"] .t-body .cl-halves{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch}
+  .slide[data-key="claim3"] .t-body .cl-half figure{height:auto}
+}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
