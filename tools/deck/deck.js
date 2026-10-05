@@ -1023,3 +1023,23 @@
   };
   window.__dkCastle();
 })();
+
+(function(){
+  /* folded cards that share a row match in height, so their Read more buttons line up; open cards are left alone */
+  function even(){
+    document.querySelectorAll(".t-body .ddgrid").forEach(function(g){
+      var cards = [].filter.call(g.children, function(c){ return c.classList.contains("lx-card"); });
+      cards.forEach(function(c){ c.style.minHeight = ""; });
+      var rows = {};
+      cards.forEach(function(c){ if (c.classList.contains("lx-open") || !c.offsetParent) return; var k = c.offsetTop; (rows[k] = rows[k] || []).push(c); });
+      Object.keys(rows).forEach(function(k){
+        var r = rows[k]; if (r.length < 2) return;
+        var h = Math.max.apply(null, r.map(function(c){ return c.offsetHeight; }));
+        r.forEach(function(c){ c.style.minHeight = h + "px"; });
+      });
+    });
+  }
+  var t = 0; function soon(){ clearTimeout(t); t = setTimeout(even, 80); }
+  addEventListener("resize", soon); document.addEventListener("dk-slide", soon); document.addEventListener("click", function(){ setTimeout(even, 320); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(soon); soon();
+})();

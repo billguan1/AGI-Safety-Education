@@ -1522,3 +1522,20 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="3.1a"] .t-body .dki-name{font-size:13.5px}
   .slide[data-key="3.1a"] .t-body .dki-case,.slide[data-key="3.1a"] .t-body .dki-run{min-height:36px;padding:0 12px;font-size:14px}
 }
+/* ---- one type scale for text inside cards, boxes and charts ----
+   kicker 11.5 · sources 12 · secondary 13.5 · primary 16 · figure title 17; card titles and body keep their own sizes */
+:root{--fs-kick:11.5px;--fs-src:12px;--fs-2:13.5px;--fs-1:16px;--fs-fig:17px}
+.t-body .ddc .k,.t-body .endc .ek,.t-body .fl-lab .k,.t-parthead .t-pk,.t-body .keyline .kk,.t-body .cando-h .ch-n,.t-body .cl-sk,.t-body .dkh-k,.t-body .demo-cell .lbl,.t-body .dk-check .dk-ch-k{font-size:var(--fs-kick)!important;letter-spacing:.08em}
+.t-body .dk-src,.t-body .dk-src a,.t-body .dk-src .ref,.t-body .dk-src-btn,.t-body .dtl-src,.t-body .dtl-src a,.t-body .fig-src,.t-body .gh-src{font-size:var(--fs-src)!important}
+.t-body .dkh-cell span,.t-body .dkh-box > span,.t-body .dkr-q,.t-body .dkr-odds,.t-body .dpb-fig > span,.t-body .wl-ask span,.t-body .wl-did span,.t-body .dki-lab,.t-body .dki-fin,.t-body .tverdict,.t-body .dkh-ch,.t-body .dkh-rh,.t-body .dkh-note,.t-body table th,.t-body .rsi-c,.t-body .dki-track em,.t-body .dbtn,.t-body .bet .pbtn{font-size:var(--fs-2)!important}
+.t-body .dkh-cell b,.t-body .dkh-box > b,.t-body .wl-ask b,.t-body .wl-did b{font-size:var(--fs-1)!important}
+.t-body .dkh .dkh-t{font-size:var(--fs-fig)!important}
+/* cards in a row share one height when folded, with Read more on a common baseline */
+.t-body .ddgrid{align-items:stretch!important}
+.t-body .ddgrid > .ddc.lx-card:not(.lx-open){display:flex;flex-direction:column}
+.t-body .ddgrid > .ddc.lx-card:not(.lx-open) > .t-more{margin-top:auto!important}
+.slide .t-body .dk-src a.ref,.slide .t-body .dk-src .ref{font-size:var(--fs-src)!important}
+.t-body .ddgrid > .ddc.lx-card:not(.lx-open) > .t-more{align-self:flex-start}
+.t-body .dkh-eq b{font-size:var(--fs-1)!important;padding:8px 12px!important}
+.t-body .dkh-eq em{font-size:22px}
+.t-body .dkh-two > .dkh-box{padding:14px 16px 16px}
