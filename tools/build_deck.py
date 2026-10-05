@@ -166,15 +166,16 @@ def worded_figs(block, T):
                    '<div class="wl-did"><span>%s</span><b>%s</b></div></div>' % (E(L['asked']), E(a), E(L['did']), E(d)) for a, d in L['rows'])
     lit = '<figure class="secfig wl-fig" aria-label="%s">%s</figure>' % (E(L['alt1']), rows)
     steps = ''.join('<rect x="%d" y="%d" width="46" height="%d" rx="4" fill="%s" stroke="#1b1b1b" stroke-width="2.5"/>'
-                    '<text x="%d" y="%d" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1b1b1b">%s</text>'
+                    '<text x="%d" y="%d" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="12" font-weight="700" fill="#1b1b1b">%s</text>'
                     % (8 + i * 52, 126 - (26 + i * 20), 26 + i * 20, c, 31 + i * 52, 126 - (26 + i * 20) - 7, E(s))
                     for i, (s, c) in enumerate(zip(L['steps'], ['#fff6d8', '#f6e3a8', '#e8b53a', '#e9a07f', '#d9492c'])))
-    svg = ('<svg viewBox="0 0 330 150" role="img" aria-label="%s">%s'
+    # sized with the drawing (dk-chart keeps the page's label-fitting script away), so labels shrink with it on a phone
+    svg = ('<svg class="dk-chart" viewBox="0 0 330 150" role="img" aria-label="%s">%s'
            '<path d="M268 24 L316 6" stroke="#1b1b1b" stroke-width="3" stroke-dasharray="5 4" marker-end="url(#wl-tip)"/>'
            '<defs><marker id="wl-tip" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#1b1b1b"/></marker></defs>'
            '<g transform="translate(290 88)"><path d="M0 40 V0" stroke="#1b1b1b" stroke-width="2.5"/><path d="M0 0 H26 L20 7 L26 14 H0 Z" fill="#cfe6c4" stroke="#1b1b1b" stroke-width="2"/>'
            '<path d="M-4 2 L30 34 M30 2 L-4 34" stroke="#d9492c" stroke-width="3.5" stroke-linecap="round"/>'
-           '<text x="13" y="54" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="13" font-weight="700" fill="#1b1b1b">%s</text></g>'
+           '<text x="13" y="54" text-anchor="middle" font-family="Comic Neue,PingFang SC,sans-serif" font-size="12" font-weight="700" fill="#1b1b1b">%s</text></g>'
            '<path d="M2 127 H286" stroke="#1b1b1b" stroke-width="2.5"/></svg>') % (E(L['alt2']), steps, E(L['done']))
     stop = '<figure class="secfig wl-fig wl-climb">%s</figure>' % svg
     # the pictures carry the examples, so each card keeps one short line
