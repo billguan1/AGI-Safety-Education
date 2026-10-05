@@ -2139,7 +2139,7 @@ html,body{background:#f4ecd8;color:var(--ink)}
 @media (min-width:761px){
   .slide[data-key="cover"] .mh-kick{margin-bottom:12px!important}
   .slide[data-key="cover"] .mh-title{font-size:clamp(40px,2.2vw + 22px,58px)!important;max-width:none!important;margin-bottom:14px!important;text-wrap:wrap!important}   /* fill the width; balance kept English to two short lines */
-  .slide[data-key="cover"] .mh-lede{font-size:17px!important;line-height:1.5!important;max-width:none!important}
+  .slide[data-key="cover"] .mh-lede{font-size:20px!important;line-height:1.5!important;max-width:none!important}
   .slide[data-key="cover"] figure.cliff{margin:18px auto 0!important;max-width:min(900px,max(480px,calc((100dvh - 386px) * 1.86)))!important}
 }
 .t-body .mh-h,.t-body .mh-h span,.t-body .mc-k{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.03em!important;color:#1b1b1b!important;font-size:clamp(26px,1rem + 1.4vw,38px)!important;text-transform:none!important}
@@ -3433,6 +3433,26 @@ button.dki-link.dki-broken em::after{content:"✕"}
   /* claim 1: timeline rows a little tighter */
   .slide[data-key="claim1"] .t-body .dtl{gap:3px!important}
   .slide[data-key="claim1"] .t-body .dtl li i{width:20px;height:20px}
+}
+/* ---- compact mode for short laptop screens: the whole slide scales down together (text, charts, boxes) and the column
+   widens by the same factor, so nothing reflows differently and the content keeps its visual width ---- */
+@media (min-width:1100px) and (max-height:860px){
+  .slide .wrap{zoom:.88;max-width:calc(1180px / .88)}
+  .slide[data-key="cover"] figure.cliff{max-width:min(900px,max(480px,calc((100dvh / .88 - 386px) * 1.86)))!important}
+}
+@media (min-width:1100px) and (max-height:740px){
+  .slide .wrap{zoom:.8;max-width:calc(1180px / .8)}
+  .slide[data-key="cover"] figure.cliff{max-width:min(900px,max(480px,calc((100dvh / .8 - 386px) * 1.86)))!important}
+}
+@media (min-width:1100px) and (max-height:680px){
+  .slide .wrap{zoom:.74;max-width:calc(1180px / .74)}
+  .slide[data-key="cover"] figure.cliff{max-width:min(900px,max(480px,calc((100dvh / .74 - 386px) * 1.86)))!important}
+}
+/* charts that sat left with empty space on the right: they now fill or centre in their frame */
+@media (min-width:761px){
+  .dkf{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto minmax(50px,.5fr) minmax(0,1.1fr)!important;justify-content:stretch!important}
+  .dkf-ends > *{width:100%;box-sizing:border-box}
+  .wl-climb svg{max-width:440px!important;margin:0 auto}
 }
 
 :root{--comic:"Bangers","Archivo",sans-serif}
