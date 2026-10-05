@@ -1356,17 +1356,17 @@ button.dki-link.dki-broken em::after{content:"✕"}
   html.toc-off .d-hint{left:24px!important}
   html.toc-off .tc-show{display:inline-flex;min-height:36px}
 }
-/* 2.1b: the five benefits in one row of comic panels on wide screens, so all five sit above the fold */
+/* 2.1b: two rows (three, then two), each card with its picture beside the title, so all five sit above the fold */
 @media (min-width:1100px){
-  .slide[data-key="2.1b"] .t-body .ddgrid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important}
-  .slide[data-key="2.1b"] .t-body .ddgrid > .ddc{grid-column:auto!important;padding:12px 12px 14px!important;display:flex;flex-direction:column}
-  .slide[data-key="2.1b"] .t-body .ddc .fl-lab{gap:7px;margin-bottom:6px}
+  .slide[data-key="2.1b"] .t-body .ddgrid{gap:10px!important}
+  .slide[data-key="2.1b"] .t-body .ddgrid > .ddc{display:grid;grid-template-columns:minmax(0,1fr) 132px;grid-template-areas:"lab scene" "title scene" "more more" "body body";column-gap:10px;align-items:start;padding:10px 12px 12px!important}
+  .slide[data-key="2.1b"] .t-body .ddc .fl-lab{grid-area:lab;gap:7px;margin-bottom:4px}
+  .slide[data-key="2.1b"] .t-body .ddc h4{grid-area:title;font-size:17px!important;line-height:1.25!important;margin:0!important}
+  .slide[data-key="2.1b"] .t-body .ddc .dk-scene{grid-area:scene;align-self:center;width:132px!important;max-width:132px!important;margin:0!important}
+  .slide[data-key="2.1b"] .t-body .ddc .lx-body{grid-area:body}
+  .slide[data-key="2.1b"] .t-body .ddc .t-more{grid-area:more;justify-self:start;margin-top:8px;min-height:32px;padding:0 12px;font-size:14px;gap:6px}
   .slide[data-key="2.1b"] .t-body .ddc .sc-ic.sc-sm{width:30px;height:30px}
   .slide[data-key="2.1b"] .t-body .ddc .sc-ic.sc-sm svg{width:17px;height:17px}
-  .slide[data-key="2.1b"] .t-body .ddc .fl-lab .k{font-size:10px!important;letter-spacing:.08em}
-  .slide[data-key="2.1b"] .t-body .ddc h4{font-size:16px!important;line-height:1.25!important;margin-bottom:4px!important}
-  .slide[data-key="2.1b"] .t-body .ddc .dk-scene{margin:4px 0 6px!important;max-width:100%!important}
-  .slide[data-key="2.1b"] .t-body .ddc .t-more{margin-top:auto;min-height:34px;padding:0 12px;font-size:14px;gap:6px}
 }
 /* chapter-opening headers: the title fills the row at a smaller size, so the slide's content starts higher */
 @media (min-width:761px){
