@@ -1539,3 +1539,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .t-body .dkh-eq b{font-size:var(--fs-1)!important;padding:8px 12px!important}
 .t-body .dkh-eq em{font-size:22px}
 .t-body .dkh-two > .dkh-box{padding:14px 16px 16px}
+/* one content width on every slide: charts, widgets and text boxes all span the same column, so nothing shifts between slides */
+@media (min-width:761px){
+  .slide .t-body > figure.secfig:not(.ice-fig),.slide .t-body > .body,.slide .t-body > .rv,.slide .t-body > p,.slide .t-body > figure.dk-int{max-width:none!important;width:auto;margin-left:0!important;margin-right:0!important}
+}
