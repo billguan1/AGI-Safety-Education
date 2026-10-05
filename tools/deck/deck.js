@@ -1043,8 +1043,3 @@
   addEventListener("resize", soon); document.addEventListener("dk-slide", soon); document.addEventListener("click", function(){ setTimeout(even, 320); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(soon); soon();
 })();
-
-(function(){
-  /* preview only: ?lede=a|b|c tries a treatment for the cover intro */
-  var m = /[?&]lede=([abc])/.exec(location.search); if (m) document.documentElement.classList.add("lede-" + m[1]);
-})();
