@@ -1420,13 +1420,34 @@ def ref_faq(fname, url, lang):
     open(path, 'w', encoding='utf-8').write(s)
     print('faq markup %s: %d questions' % (fname, len(qa)))
 
+def gh_deck(doc, T):
+    """4.1 Goodhart slider for the deck: a short heading, sentence-case labels and short messages. The long page keeps its own."""
+    G = T['gh']
+    def one(pat, rep, flags=re.S):
+        nonlocal doc
+        doc, n = re.subn(pat, rep, doc, count=1, flags=flags); assert n == 1, pat
+    lead = re.search(r'<p class="ghlead">.*?</p>', doc, re.S).group(0)
+    refs = ''.join(re.findall(r'<a class="ref"[^>]*>\d+</a>', lead)); assert refs
+    one(re.escape(lead), lambda m: '<p class="gh-h">%s</p><p class="gh-d">%s</p>' % (E(G['h']), E(G['d'])))
+    one(r'(<label for="gh">)[^<]*(<span id="gh-pct")', lambda m: m.group(1) + E(G['ctl']) + ' ' + m.group(2))
+    one(r'(<div class="gh-card proxy">\s*<span class="lbl">)[^<]*', lambda m: m.group(1) + E(G['proxy']))
+    one(r'(<div class="gh-card real">\s*<span class="lbl">)[^<]*', lambda m: m.group(1) + E(G['real']))
+    one(r'(<p class="gh-say" id="gh-say"[^>]*>)[^<]*(</p>)', lambda m: m.group(1) + E(G['say'][0]) + m.group(2) + '<p class="gh-src">%s</p>' % refs)
+    # the messages live in the page script: replace the array that follows the slider's own setup
+    i = doc.index('var gh = $("#gh");'); a = doc.index('var SAY = [', i); b = doc.index('];', a) + 2
+    n_old = doc[a:b].count('",') + 1
+    says = G['say'][1:] if n_old == len(G['say']) - 1 else G['say']
+    assert len(says) == n_old, (n_old, len(G['say']))
+    doc = doc[:a] + 'var SAY = [' + ', '.join(json.dumps(x, ensure_ascii=False) for x in says) + '];' + doc[b:]
+    return doc
+
 def main():
     en = Page('en'); zh = Page('zh')
     S_en, sl_en, sg_en, colors = build(en)
     S_zh, sl_zh, sg_zh, _ = build(zh, colors)
     assert [x['key'] for x in S_en] == [x['key'] for x in S_zh]
     for pg, sl, sg, S in ((en, sl_en, sg_en, S_en), (zh, sl_zh, sg_zh, S_zh)):
-        doc = paper(page(pg, sl, sg, S)).replace(pg.old_intro, pg.T['intro_label'])
+        doc = gh_deck(paper(page(pg, sl, sg, S)).replace(pg.old_intro, pg.T['intro_label']), pg.T)
         assert doc.count('<div class="slide" data-key=') == len(S_en), ('slides missing', doc.count('<div class="slide" data-key='))
         ids = re.findall(r'\bid="([^"]+)"', doc)
         dup = sorted(set(i for i in ids if ids.count(i) > 1))
