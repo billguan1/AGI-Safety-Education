@@ -10,7 +10,11 @@ section::before,section::after{display:none!important}
 .bar{border-bottom:3px solid #1b1b1b!important}
 .bar-in{background:#fffdf6!important;backdrop-filter:none!important}
 .refpage-back{display:flex;flex-wrap:wrap;gap:10px}
-/* the deck's contents stay on the left, linking back to each slide */
+/* the deck's contents stay on the left, linking back to each slide; they fold away like the deck's */
+.ref-toc .tc-hide,.tc-show{align-items:center;gap:6px;padding:4px 11px;border:2px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:700 12.5px/1.2 var(--body);color:#1b1b1b;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
+.ref-toc .tc-hide{display:inline-flex;margin:0 0 10px 6px}
+.tc-show{display:none}
+@media (min-width:1100px){html.toc-off .ref-toc{display:none!important}html.toc-off body{padding-left:0!important}html.toc-off .tc-show{display:inline-flex;min-height:34px}}
 .ref-toc{display:none}
 @media (min-width:1100px){
   .ref-toc{display:block;position:fixed;left:0;top:0;bottom:0;width:260px;z-index:40;overflow-y:auto;overscroll-behavior:contain;background:#fffdf6;border-right:3px solid #1b1b1b;padding:14px 12px 40px;box-sizing:border-box}

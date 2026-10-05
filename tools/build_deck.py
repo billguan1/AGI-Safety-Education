@@ -282,6 +282,22 @@ def dk_svg(vb, label, body):
     """A chart redrawn for the deck: sized as drawn, coloured as drawn."""
     return '<svg class="dk-chart" data-keep="1" viewBox="%s" role="img" aria-label="%s">%s</svg>' % (vb, html.escape(label), body)
 
+def fold_fig_src(grid):
+    """A card's chart sources join the card's own sources line: the chart's numbered refs move into the card text, and its source line goes."""
+    out = grid; moved = 0
+    for card in [c for c in kids(grid) if re.match(r'<div[^>]*class="ddc', c)]:
+        m = re.search(r'<p class="fig-src">(.*?)</p>', card, re.S)
+        if not m: continue
+        have = set(re.findall(r'<a class="ref"[^>]*>(\d+)</a>', card[:card.index('<figure')]))
+        add = [r for r in re.findall(r'<a class="ref"[^>]*>\d+</a>', m.group(1)) if re.search(r'>(\d+)<', r).group(1) not in have]
+        p_end = card.index('</p>')      # end of the card's first paragraph
+        new = card[:p_end] + ''.join(add) + card[p_end:]
+        new = new.replace(m.group(0), '', 1)
+        assert out.count(card) == 1 and '<p class="fig-src">' not in new
+        out = out.replace(card, new, 1); moved += 1
+    assert moved >= 1, 'no chart source to fold'
+    return out
+
 def charts_11(T):
     C = T['ch11']; F = FONT
     def t(x, y, size, txt, fill='#1b1b1b', bold=True, anchor='start'):
@@ -830,6 +846,10 @@ def plan(pg):
                    % (E(I['tl_key'][0]), BANG, E(I['tl_key'][1]), E(I['tl_key'][2])))
             c, ntl = re.subn(r'<ol class="dkh-tl">.*?</ol>', lambda m: key + '<ol class="dkh-tl dtl">%s</ol>' % items + srcline, c, flags=re.S)
             assert ntl == 1
+            # no separate sources lines on this slide: the timeline's own list carries 104 and 105, and the funding chart is sourced on 1.1
+            c, nr = re.subn(r'(<p class="cl-sub">.*?)</p>', lambda m: re.sub(r'<a class="ref"[^>]*>\d+</a>', '', m.group(1)) + '</p>', c, count=1, flags=re.S)
+            c, nf = re.subn(r'<p class="fig-src">.*?</p>', '', c, flags=re.S)
+            assert nr == 1 and nf == 1, (nr, nf)
             # the timeline takes the left panel, under its own title
             figs = re.findall(r'<figure\b.*?</figure>', c, re.S)
             assert len(figs) == 2 and c.count(figs[0]) == 1 and c.count(figs[1]) == 1 and 'dtl' in figs[1]
@@ -879,7 +899,7 @@ def plan(pg):
     # 1.1
     ch = pg.chapter('why-irresistible'); B = ch['blocks']
     bet = one(B, '<div class="bet').replace('<div class="bet rv"', '<div class="bet rv t-compact"', 1)
-    add(ch, [('', bet + stand(ch) + auto(swap_svgs(one(B, '<div class="ddgrid'), charts_11(T))) + key(ch))])        # the question comes first, then the detail
+    add(ch, [('', bet + stand(ch) + auto(swap_svgs(fold_fig_src(one(B, '<div class="ddgrid')), charts_11(T))) + key(ch))])        # the question comes first, then the detail
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
     add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
@@ -1240,7 +1260,17 @@ def toc(pg, S):
             parts = '<ol class="tc-parts">%s</ol>' % ''.join(items)
         out.append('<div class="tc-sec" data-first="%d" data-last="%d"><button type="button" class="tc-s" data-go="%d" style="--c:%s">%s</button>%s</div>'
                    % (idx[0], idx[-1], idx[0], sec['acc'], lab, parts))
-    return '<nav class="dk-toc" id="dk-toc" aria-label="%s">%s%s</nav>\n' % (T['contents'], ''.join(out), pg.toc_tail)
+    hide = '<button type="button" class="tc-hide" data-toc="off" aria-controls="dk-toc"><span aria-hidden="true">&laquo;</span> %s</button>' % html.escape(T['toc_hide'])
+    return '<nav class="dk-toc" id="dk-toc" aria-label="%s">%s%s%s</nav>\n%s\n' % (T['contents'], hide, ''.join(out), pg.toc_tail, TOC_JS)
+
+# the left contents can be folded away on wide screens; the choice is remembered across pages
+TOC_JS = ('<script>(function(){var h=document.documentElement;try{if(localStorage.getItem("toc-off")==="1")h.classList.add("toc-off")}catch(e){}'
+          'document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-toc]");if(!b)return;var off=b.getAttribute("data-toc")==="off";'
+          'h.classList.toggle("toc-off",off);try{localStorage.setItem("toc-off",off?"1":"0")}catch(x){}'
+          'setTimeout(function(){window.dispatchEvent(new Event("resize"));if(window.__lxFitAll)window.__lxFitAll()},50)})})();</script>')
+
+def toc_show(T, ctl):
+    return '<button type="button" class="tc-show" data-toc="on" aria-controls="%s"><span aria-hidden="true">&raquo;</span> %s</button>' % (ctl, html.escape(T['toc_show']))
 
 
 def deck_bar(pg, segs):
@@ -1262,7 +1292,7 @@ def deck_bar(pg, segs):
     pg.toc_tail = cols[2].replace('class="dk-col"', 'class="dk-col tc-ref"') + '<div class="dk-x tc-x">%s</div>' % extra
     return ('<header class="dk-bar" id="dk-bar"><div class="dk-row">'
             '<a class="dk-brand" href="#top"><span class="dk-logo">SafeAGI</span><span class="dk-primer">%s</span></a><span class="d-where" id="d-where"></span>'
-            '<div class="dk-acts"><button type="button" class="dk-btn dk-menu-btn" id="dk-menu-btn" aria-expanded="false" aria-controls="dk-menu">%s</button>'
+            '<div class="dk-acts">' + toc_show(T, 'dk-toc') + '<button type="button" class="dk-btn dk-menu-btn" id="dk-menu-btn" aria-expanded="false" aria-controls="dk-menu">%s</button>'
             '<a class="dk-btn" href="%s" hreflang="%s">%s</a><a class="dk-btn dk-go" href="#what-you-can-do">%s</a></div></div>'
             '<div class="d-segs">%s</div></header>\n'
             '<nav class="dk-menu" id="dk-menu" aria-label="%s" hidden><div class="dk-menu-in">%s<div class="dk-x">%s</div></div></nav>\n') % (
@@ -1355,9 +1385,13 @@ def ref_toc(fname, pg, S):
     n0 = t.count('data-go=')
     t, n = re.subn(r'<button type="button" class="(tc-[sp])" data-go="(\d+)"(?: data-i="\d+")?([^>]*)>(.*?)</button>',
                    lambda m: '<a class="%s" href="%s#s=%d"%s>%s</a>' % (m.group(1), home, int(m.group(2)) + 1, m.group(3), m.group(4)), t, flags=re.S)
-    assert n == n0 and n > 40 and '<button' not in t, (n, n0)
-    t = t.replace('<nav class="dk-toc" id="dk-toc"', '<nav class="ref-toc" id="ref-toc"', 1)
-    assert 'id="ref-toc"' in t
+    assert n == n0 and n > 40 and 'data-go=' not in t, (n, n0)
+    t = t.replace('<nav class="dk-toc" id="dk-toc"', '<nav class="ref-toc" id="ref-toc"', 1).replace('aria-controls="dk-toc"', 'aria-controls="ref-toc"')
+    assert 'id="ref-toc"' in t and 'aria-controls="dk-toc"' not in t
+    # the "show contents" button sits in the page's own header
+    s = re.sub(r'<button type="button" class="tc-show"[^>]*>.*?</button>', '', s, flags=re.S)
+    assert s.count('<div class="bar-actions">') == 1
+    s = s.replace('<div class="bar-actions">', '<div class="bar-actions">' + toc_show(pg.T, 'ref-toc'), 1)
     assert s.count('<main id="main">') == 1
     s = s.replace('<main id="main">', REFTOC_START + '\n' + t + '\n' + REFTOC_END + '\n<main id="main">', 1)
     open(path, 'w', encoding='utf-8').write(s)

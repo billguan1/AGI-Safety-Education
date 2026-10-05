@@ -14,7 +14,7 @@ T = {
  'en': dict(
     fonts=EN_FONTS, lang_from='/index-zh', lang_to='/index-zh',
     css=':root{--comic:"Bangers","Archivo",sans-serif}',
-    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say',
+    intro_acc='#e8b53a', anthem_label='Stay in the loop', contents='Contents', toc_hide='Hide contents', toc_show='Contents', opt_more='Optional: what researchers, labs and governments should do →', many='Everyone else who is affected (~8 billion) gets no say',
     worded=dict(short=['It meets the literal goal in a way you would never have approved.', 'Nothing in the goal says when to stop, so it keeps turning the world into whatever helps.'], asked='You ask', did='It does', rows=[('Make people smile', 'Wires their face muscles into a grin'), ('Maximize the reward', 'Grabs the button that hands out reward')], steps=['Compute', 'Energy', 'Material', 'More', 'More'], done='Done',
                 alt1='Two requests and what the system did: asked to make people smile, it wires their face muscles; asked to maximize reward, it grabs the reward button.', alt2='Steps of compute, energy and material keep climbing, and the finish flag is crossed out.'),
     fork53_no=('If safety turns out to be an intractable problem, we must be willing to stop developing superintelligence', 'Narrow AI, built for one field such as medicine or science, can keep being developed, so those fields still get its benefits.'),
@@ -213,7 +213,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
          '--display:"Bangers","ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif!important}'
          '.t-more::before{content:"展开阅读"!important}.lx-open > .t-more::before{content:"收起"!important}'
          '.t-body .care3.slim .care-c::after{content:"跳过去 \\2192"!important}'),
-    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权',
+    intro_acc='#e8b53a', anthem_label='保持联系', contents='目录', toc_hide='收起目录', toc_show='目录', opt_more='可选：研究人员、实验室和政府该做什么 →', many='其余所有受影响的人（约 80 亿）没有发言权',
     worded=dict(short=['它按字面意思完成了目标，方式却是你绝不会同意的。', '目标里没写什么时候该停，于是它不断将世界变成对目标有用的东西。'], asked='你要求', did='它照做', rows=[('让人们笑起来', '把他们的面部肌肉接上电线，拉成笑脸'), ('让奖励最大化', '直接抢走发奖励的那个按钮')], steps=['算力', '能源', '材料', '更多', '更多'], done='完成',
                 alt1='两个要求和系统的做法：要它让人们笑，它把面部肌肉接上电线；要它让奖励最大化，它抢走发奖励的按钮。', alt2='算力、能源、材料一级级往上爬，终点旗被划掉了。'),
     fork53_no=('如果安全最终被证明是一道无解的难题，我们就必须愿意停止研发超级智能', '专用于某一领域（比如医学或科学）的窄 AI 仍可继续研发，让这些领域照样受益。'),

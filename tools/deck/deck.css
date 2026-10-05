@@ -1331,6 +1331,31 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .t-body .ghwrap .gh-card .val{font-size:26px}
 .t-body .ghwrap .gh-card .bar{margin-top:6px}
 .t-body .ghwrap .gh-say{font-size:15px;line-height:1.45;margin:10px 0 0}
+/* "The stakes": both charts compact enough to sit side by side above the fold */
+@media (min-width:761px){
+  .slide[data-key="claim2"] .t-body .dke{--S:120px;grid-template-columns:72px 72px auto!important;gap:12px!important}
+  .slide[data-key="claim2"] .t-body .dke-item b,.slide[data-key="claim2"] .t-body .dke-item .dke-v{font-size:30px!important}
+  .slide[data-key="claim2"] .t-body .dke-item span{font-size:12.5px;line-height:1.3}
+  .slide[data-key="claim2"] .t-body .dkr{gap:8px}
+  .slide[data-key="claim2"] .t-body .dkr-tile{padding:8px 12px 10px;border-top-width:6px}
+  .slide[data-key="claim2"] .t-body .dkr-v{font-size:30px}
+  .slide[data-key="claim2"] .t-body .dkr-odds{font-size:12.5px;margin-bottom:2px}
+  .slide[data-key="claim2"] .t-body .dkr-n{font-size:14.5px}
+  .slide[data-key="claim2"] .t-body .dkr-q{font-size:12.5px;line-height:1.3}
+  .slide[data-key="claim2"] .t-body .dkh-q{margin:0 0 6px}
+}
+/* the left contents fold away on wide screens */
+.tc-hide,.tc-show{align-items:center;gap:6px;padding:4px 11px;border:2px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:700 12.5px/1.2 var(--body);color:#1b1b1b;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
+.tc-hide{display:inline-flex;margin:0 0 10px 6px}
+.tc-show{display:none}
+.tc-hide:hover,.tc-show:hover{background:#e8b53a}
+.tc-hide:focus-visible,.tc-show:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+@media (min-width:1100px){
+  html.toc-off .dk-toc{display:none}
+  html.toc-off .deck{left:0!important}
+  html.toc-off .d-hint{left:24px!important}
+  html.toc-off .tc-show{display:inline-flex;min-height:36px}
+}
 /* 2.1b: the five benefits in one row of comic panels on wide screens, so all five sit above the fold */
 @media (min-width:1100px){
   .slide[data-key="2.1b"] .t-body .ddgrid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important}
@@ -1342,4 +1367,59 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="2.1b"] .t-body .ddc h4{font-size:16px!important;line-height:1.25!important;margin-bottom:4px!important}
   .slide[data-key="2.1b"] .t-body .ddc .dk-scene{margin:4px 0 6px!important;max-width:100%!important}
   .slide[data-key="2.1b"] .t-body .ddc .t-more{margin-top:auto;min-height:34px;padding:0 12px;font-size:14px;gap:6px}
+}
+/* chapter-opening headers: the title fills the row at a smaller size, so the slide's content starts higher */
+@media (min-width:761px){
+  .t-head:not(.t-mini){padding-top:10px!important;padding-bottom:8px}
+  .t-head .chapno{margin-bottom:2px}
+  .t-head h2{font-size:clamp(26px,.9rem + 1.3vw,38px);text-wrap:wrap;line-height:1.02}
+  .t-head .t-chips{margin-top:8px}
+}
+/* above the fold on laptops: 2.2a adversaries and their outcome band, and the dense card pairs on 2.3b and 4.2b */
+@media (min-width:761px){
+  .slide[data-key="2.2a"] .t-body .endc{padding:12px 14px!important}
+  .slide[data-key="2.2a"] .t-body .endc .dk-scene{max-width:190px;margin:2px 0 0}
+  .slide[data-key="2.2a"] .t-body .endc p{font-size:15px;line-height:1.4}
+  .slide[data-key="2.2a"] .t-body .ends-arrows{display:none}
+  .t-body .ends-out{padding:12px 18px 14px!important;gap:8px!important;margin-top:12px!important}
+  .t-body .ends-out .eo-k{font-size:22px!important}
+  .t-body .ends-out .eo-ways{gap:10px 12px!important}
+  .t-body .ends-out .eo-w svg{width:22px;height:22px;padding:8px}
+  .t-body .ends-out .eo-w i{font-size:13.5px}
+  .t-body .ends-out .eo-more{font-size:15px;line-height:1.4;margin:0}
+  .slide[data-key="2.3b"] .t-body .ddc,.slide[data-key="4.2b"] .t-body .ddc{padding:12px 16px 14px!important}
+  .slide[data-key="2.3b"] .t-body .ddc p,.slide[data-key="4.2b"] .t-body .ddc p{font-size:15px;line-height:1.45}
+  .slide[data-key="2.3b"] .t-body .ddc figure,.slide[data-key="4.2b"] .t-body .ddc figure{padding:12px 14px!important;margin-top:10px!important}
+  .slide[data-key="2.3b"] .t-body .dk-ex,.slide[data-key="4.2b"] .t-body .dk-ex{font-size:14px!important;line-height:1.4;padding:8px 12px!important;margin-top:8px!important}
+  .slide[data-key="2.3b"] .t-body .ddgrid,.slide[data-key="4.2b"] .t-body .ddgrid{gap:12px!important}
+}
+/* claim slides: both charts above the fold on laptops */
+@media (min-width:761px){
+  .t-body .claim{position:relative}
+  .t-body .claim a.cl-go{position:absolute;top:14px;right:16px;margin:0!important;min-height:34px;padding:0 14px;font-size:14px}   /* "Read the chapter" sits top right, in view */
+  .t-body .claim .cl-sub{padding-right:190px}
+  .t-body .claim figure,.t-body .cl-figs figure,.t-body .cl-half figure{padding:14px 16px!important}
+  .slide[data-key="claim1"] .t-body .dtl{gap:6px!important}
+  .slide[data-key="claim1"] .t-body .dtl li span{font-size:14.5px;line-height:1.25}
+  .slide[data-key="claim3"] .t-body .cl-half{padding:12px 16px!important}
+  .slide[data-key="claim3"] .t-body .cl-half p{font-size:16px!important;line-height:1.45!important;margin-bottom:6px}
+  .slide[data-key="claim3"] .t-body .cl-halves{gap:12px!important}
+}
+@media (min-width:1100px){
+  .slide[data-key="claim2"] #claim-2 .cl-figs{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;max-width:none!important}   /* the guide's single-column rule carries an id, so this one needs one too */
+}
+/* above the fold on laptops: 2.3a crash-fix grid and the 2.2b subgoal hub */
+@media (min-width:761px){
+  .slide[data-key="2.3a"] .t-body .stand{font-size:17px!important;line-height:1.5!important;margin-bottom:10px!important}
+  .slide[data-key="2.3a"] .tr-fig{padding:12px 16px!important;gap:6px}
+  .slide[data-key="2.3a"] .tr-row{padding-top:6px}
+  .slide[data-key="2.3a"] .tr-steps li{padding:4px 4px 3px;gap:2px;min-height:0!important}
+  .slide[data-key="2.3a"] .tr-fig svg.tp{width:38px!important;height:38px!important}
+  .slide[data-key="2.3a"] .tr-steps span{font-size:13.5px}
+  .slide[data-key="2.3a"] .tr-aic{padding:6px 8px}
+  .slide[data-key="2.3a"] .tr-fig .tr-cliff svg{height:44px!important;width:90px!important}
+  .slide[data-key="2.2b"] .t-body .dsg-hub{max-width:560px}
+  .slide[data-key="2.2b"] .t-body .dsg-panel .dkh-box{padding:8px 12px;gap:2px}
+  .slide[data-key="2.2b"] .t-body .dsg-panel .dkh-box b{font-size:15px}
+  .slide[data-key="2.2b"] .t-body .dsg-panel .dkh-box span{font-size:13.5px;line-height:1.35}
 }
