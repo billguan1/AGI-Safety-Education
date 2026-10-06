@@ -3530,6 +3530,13 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .t-body .cando-h:not(:has(.ch-w)){display:none!important}
 .t-body .cando-block:not(:has(.ch-w)){margin-top:0!important}
 .t-body .cando-block:not(:has(.ch-w)) > .ddgrid{margin-top:4px!important}
+/* 2.1: more room between the icon row and the card title; the growth chart's sources link moves up beside its title */
+.slide[data-key="2.1"] .t-body .ddc .fl-lab{margin-bottom:10px!important}
+@media (min-width:761px){
+  .slide[data-key="2.1"] .t-body figure.dkw-growth{position:relative;padding-bottom:12px!important}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth > .dk-src-btn{position:absolute;top:12px;right:16px;margin:0!important}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth > .tr-title{padding-right:90px}
+}
 
 :root{--comic:"Bangers","Archivo",sans-serif}
 </style>
