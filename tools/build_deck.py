@@ -320,10 +320,10 @@ def charts_11(T):
                    for x, h, col, v, yr in ((14, 14, '#b9d6a8', C['c_vals'][0], '2022'), (114, 44, '#8cbf73', C['c_vals'][1], '2024'),
                                             (214, 86, '#4f9440', C['c_vals'][2], '2026')))
     compute = dk_svg('0 0 290 162', C['c_title'] + '. ' + C['c_sub'],
-                     t(0, 18, 17, C['c_title']) + t(0, 38, 14, C['c_sub'], '#5c574e', False) +
+                     '<text x="0" y="20" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="21" letter-spacing=".6" fill="#1b1b1b">%s</text>' % html.escape(C['c_title']) + t(0, 38, 14, C['c_sub'], '#5c574e', False) +
                      '<path d="M0 136 H290" stroke="#1b1b1b" stroke-width="2"/>' + bars)
     funding = dk_svg('0 0 290 168', C['f_title'],
-                     t(0, 18, 17, C['f_title']) +
+                     '<text x="0" y="20" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="21" letter-spacing=".6" fill="#1b1b1b">%s</text>' % html.escape(C['f_title']) +
                      t(0, 44, 14, C['f_build'], '#5c574e', False) +
                      '<rect x="0" y="50" width="288" height="30" rx="3" fill="#4a5fc9" stroke="#1b1b1b" stroke-width="2"/>' +
                      t(278, 71, 16, C['f_bval'], '#fff', anchor='end') +
@@ -332,7 +332,7 @@ def charts_11(T):
                      t(14, 131, 16, C['f_sval']) +
                      t(0, 164, 20, C['f_ratio']))
     plans = dk_svg('0 0 290 124', C['p_title'],
-                   t(0, 18, 17, C['p_title']) +
+                   '<text x="0" y="20" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="21" letter-spacing=".6" fill="#1b1b1b">%s</text>' % html.escape(C['p_title']) +
                    '<text x="0" y="72" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#1b1b1b">12</text>' + t(62, 64, 16, C['p_pub'], bold=False) +
                    '<text x="10" y="120" font-family="Bangers,ZCOOL KuaiLe,sans-serif" font-size="46" fill="#d9492c">0</text>' + t(62, 112, 16, C['p_chk'], bold=False))
     return [compute, funding, plans]
