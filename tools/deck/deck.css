@@ -1699,3 +1699,7 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .slide .t-body :is(.ddc,.endc,.cl-half) .dkh-t:not(.dkh-arrow){text-transform:lowercase!important}
 .slide .t-body :is(.ddc,.endc,.cl-half) .dkh-t:not(.dkh-arrow)::first-letter{text-transform:uppercase}
 .slide .t-body .dsg .dkh-t.dkh-arrow{font-family:var(--body)!important;font-weight:700!important;font-size:16px!important;letter-spacing:0!important;text-shadow:none!important;color:#1b1b1b!important;margin:0 0 6px!important}
+/* the comic display face is already heavy: no extra stroke, and never tighter than its own spacing */
+.t-body :is(.cl-hn,.cando-block h4,.jur h4,.dkh-big,.dk-results .tr-title){-webkit-text-stroke:0!important}
+.t-body .claim .cl-hn{letter-spacing:.03em!important}
+.slide .t-body :is(.cando-block,.jur,.ddc,.endc) h4{letter-spacing:normal}
