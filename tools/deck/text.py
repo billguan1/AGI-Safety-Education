@@ -140,8 +140,8 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
               f_bval='$100 billion', f_sval='$10 million', f_ratio='10,000 to 1',
               p_title='Company safety plans, 2025', p_pub='published', p_chk='checked by anyone outside'),
     wid=dict(
-      growth=dict(title='The world economy after twenty years', label='Growth per year', today='Today', after='After 20 years',
-                  tick_lo="today's pace", tick_hi='"explosive growth"', say='At {r}% a year for 20 years, the economy ends up {x} times as big as today.',
+      growth=dict(title='The world economy can grow 190× after twenty years', label='Growth per year', today='Today', after='After 20 years',
+                  tick_lo="today's pace", tick_hi='"explosive growth"', say='',
                   alt='Slide to pick a yearly growth rate and see how big the world economy gets after twenty years: 1.8 times today at 3%, 190 times at 30%.'),
       trend=dict(title='How long a task AI can do on its own', label='Year', proj='projected, if the trend holds', week='A full work week, done alone.',
                  units=('seconds', 'minutes', 'hours', 'work days', 'work weeks'), unit1=('second', 'minute', 'hour', 'work day', 'work week'),
@@ -340,8 +340,8 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
               f_bval='约 1,000 亿美元', f_sval='约 1,000 万美元', f_ratio='一万比一',
               p_title='公司的安全计划（2025）', p_pub='份已发布', p_chk='份经过外部核查'),
     wid=dict(
-      growth=dict(title='二十年后的世界经济', label='每年增长', today='今天', after='20 年后',
-                  tick_lo='今天的速度', tick_hi='“爆发式增长”', say='每年增长 {r}%，持续 20 年，经济会变成今天的 {x} 倍。',
+      growth=dict(title='二十年后，世界经济可增长 190 倍', label='每年增长', today='今天', after='20 年后',
+                  tick_lo='今天的速度', tick_hi='“爆发式增长”', say='',
                   alt='拖动选择每年的增长率，看看二十年后世界经济有多大：按 3% 是今天的 1.8 倍，按 30% 是 190 倍。'),
       trend=dict(title='AI 能独立完成多长的任务', label='年份', proj='预测：若趋势延续', week='独立完成一整周的工作。',
                  units=('秒', '分钟', '小时', '个工作日', '个工作周'), unit1=('秒', '分钟', '小时', '个工作日', '个工作周'),
