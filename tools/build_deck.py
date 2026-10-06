@@ -703,8 +703,9 @@ def H(kind, lang, t, extra=None):
         q, opts, cfg = extra
         ask = '<div class="dkh-ask"><p class="dkh-q">%s</p><div class="dkh-opts">%s</div></div>' % (E(q), ''.join(
             '<button type="button" class="dki-case dkh-opt" data-k="%d" aria-pressed="false">%s</button>' % (k, E(o)) for k, o in enumerate(opts)))
-        return ('<div class="dkh" data-ask="%s">%s%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div><p class="dkh-reply" aria-live="polite"></p></div>'
-                % (html.escape(json.dumps(cfg, ensure_ascii=False)), ask, T0(0), dots, E(t[9])))
+        # the chart states the point first; the question to try sits under it
+        return ('<div class="dkh" data-ask="%s">%s<div class="dkh-fewrow">%s</div><div class="dkh-many"><span>%s</span></div>%s<p class="dkh-reply" aria-live="polite"></p></div>'
+                % (html.escape(json.dumps(cfg, ensure_ascii=False)), T0(0), dots, E(t[9]), ask))
     if kind == 'twoways':
         return ('<div class="dkh">%s<div class="dkh-two"><div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>≠</em><b>%s</b></div><span>%s</span></div>'
                 '<div class="dkh-box"><span class="dkh-k">%s</span><div class="dkh-eq"><b>%s</b><em>%s</em><b>%s</b></div><span>%s</span></div></div></div>') % (

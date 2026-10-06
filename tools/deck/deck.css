@@ -1716,3 +1716,4 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="2.1"] .t-body .ddgrid > .ddc.lx-card{padding:10px 14px 12px!important}
   .slide[data-key="2.1"] .t-body .ddc .t-more{margin-top:6px!important}
 }
+.t-body .dkh-many + .dkh-ask{margin-top:16px}
