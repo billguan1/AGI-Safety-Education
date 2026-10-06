@@ -78,7 +78,7 @@ heist=dict(title='The heist: you are the AI', pick='Layer {n} of 4: {name}. Pick
     prob=('what we want', 'what we wrote down', 'what the test shows', 'what it really wants'),
     cliffgame=dict(q='Is safety solved before we get there?', yes='Yes', no='No', start='Pick an answer to race toward the edge.', 
                    sayNo='Nobody slowed down. The first one over dragged the rest into the drop.', sayYes='Safety came first, so crossing the edge means reaching the prize: abundance, longer lives, faster science.'), odds=('about 1 in 10 to 1 in 5', 'about 1 in 4', 'about 1 in 10 to 1 in 5', 'about 1 in 10'),
-    econ=dict(title='How big the world economy gets from 2035 to 2055', sub='Faster growth starts in 2035. Size in 2035 = 1.', rows=("At today's 3% a year", 'At 12% a year', 'At 30% a year')),
+    econ=dict(title='World economy can grow 190× from 2035 to 2055', sub='Faster growth starts in 2035. Size in 2035 = 1.', rows=("At today's 3% a year", 'At 12% a year', 'At 30% a year')),
     checks_k='Quick check', right='Right!', wrongp='Not quite.',
     checks={
       '2.2': ('Why might an AI take the power and water we need, even if nobody told it to?', ('It hates people', 'Almost any goal goes better with more resources', 'Someone programmed it to'), 1, 'More resources help with almost any goal, so taking them comes along as a side effect.'),
@@ -278,7 +278,7 @@ heist=dict(title='越狱：你就是 AI', pick='第 {n} 层（共 4 层）：{na
     prob=('我们想要的', '我们写下来的', '测试看到的', '它真正想要的'),
     cliffgame=dict(q='抵达之前，安全问题解决了吗？', yes='解决了', no='没有', start='选一个答案，冲向悬崖边。', 
                    sayNo='没有人慢下来。第一个越过边缘的，把其余人一起拽进了深渊。', sayYes='先解决了安全问题，越过边缘就意味着抵达奖赏：丰裕、更长的寿命、更快的科学进步。'), odds=('大约十分之一到五分之一', '大约四分之一', '大约十分之一到五分之一', '大约十分之一'),
-    econ=dict(title='2035 到 2055 年，世界经济会变多大', sub='从 2035 年起加速增长，2035 年的规模记为 1。', rows=('按今天的每年 3%', '按每年 12%', '按每年 30%')),
+    econ=dict(title='2035 到 2055 年，世界经济可增长 190 倍', sub='从 2035 年起加速增长，2035 年的规模记为 1。', rows=('按今天的每年 3%', '按每年 12%', '按每年 30%')),
     checks_k='小测验', right='答对了！', wrongp='不太对。',
     checks={
       '2.2': ('就算没人叫它这么做，AI 为什么可能夺走我们需要的电和水？', ('它讨厌人类', '几乎任何目标，资源越多越好办', '有人把它编成这样'), 1, '资源几乎对任何目标都有帮助，所以夺走资源会顺带发生。'),
