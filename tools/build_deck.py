@@ -608,11 +608,11 @@ def swap_fig(block, n, kind, T, texts=False):
     return block[:a] + widget(kind, T, block[a:b], {'t': svg_texts(block[a:b])} if texts else None) + block[b:]
 
 def risk_chart(T, src_svg):
-    """How likely is disaster: one tile per person, the number big and the odds in plain words."""
+    """How likely is disaster: one tile per person, the number big, then who said it."""
     t = [text(x) for x in re.findall(r'<text\b[^>]*>(.*?)</text>', src_svg, re.S)]
     rows = [(t[1], t[2], t[3], T['odds'][0]), (t[4], t[5], t[6], T['odds'][1]), (t[7], t[8], t[9], T['odds'][2]), (t[10], t[11], t[12], T['odds'][3])]
-    tiles = ''.join('<div class="dkr-tile"><b class="dkr-v">%s</b><span class="dkr-odds">%s</span><b class="dkr-n">%s</b><span class="dkr-q">%s</span></div>'
-                    % (E(v.replace(' to ', '\u2013')), E(o), E(n), E(q)) for n, q, v, o in rows)
+    tiles = ''.join('<div class="dkr-tile"><b class="dkr-v">%s</b><b class="dkr-n">%s</b><span class="dkr-q">%s</span></div>'
+                    % (E(v.replace(' to ', '\u2013')), E(n), E(q)) for n, q, v, o in rows)
     return '<div class="dkh"><p class="dkh-t">%s</p><div class="dkr">%s</div></div>' % (E(T['risk_title']), tiles)
 
 def econ_chart(T):
