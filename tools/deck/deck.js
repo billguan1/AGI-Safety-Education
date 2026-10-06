@@ -1043,3 +1043,12 @@
   addEventListener("resize", soon); document.addEventListener("dk-slide", soon); document.addEventListener("click", function(){ setTimeout(even, 320); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(soon); soon();
 })();
+
+(function(){
+  /* preview only: ?skin=a|b tries a calmer look, with its fonts */
+  var m = /[?&]skin=([ab])/.exec(location.search); if (!m) return;
+  document.documentElement.classList.add("skin-" + m[1]);
+  var l = document.createElement("link"); l.rel = "stylesheet";
+  l.href = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600..800&family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap";
+  document.head.appendChild(l);
+})();
