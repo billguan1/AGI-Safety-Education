@@ -1312,7 +1312,7 @@ def deck_bar(pg, segs):
     primer = re.search(r'<a class="brand"[^>]*>(.*?)</a>', old, re.S).group(1).strip()
     cols = []
     for g in re.finditer(r'<li class="ng">\s*<button[^>]*>(.*?)<span class="ng-caret".*?<ul class="ng-menu">(.*?)</ul>', old, re.S):
-        items = ''.join('<li%s><a href="%s">%s</a></li>' % (' class="dk-g"' if 'ng-grp' in li.group(1) else '', li.group(2), text(li.group(3)))
+        items = ''.join('<li%s><a href="%s">%s</a></li>' % (' class="dk-g"' if 'ng-grp' in li.group(1) else '', '#top' if li.group(2) == '#crossroads' else li.group(2), text(li.group(3)))   # the big picture starts at the cover
                         for li in re.finditer(r'<li([^>]*)><a href="([^"]+)">(.*?)</a></li>', g.group(2)))
         cols.append('<div class="dk-col"><p class="dk-h">%s</p><ul>%s</ul></div>' % (text(g.group(1)), items))
     assert len(cols) == 3, len(cols)
