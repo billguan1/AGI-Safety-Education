@@ -919,8 +919,7 @@ def plan(pg):
     add(ch, [('', stand(ch) + auto(swap_svgs(fold_fig_src(one(B, '<div class="ddgrid')), charts_11(T))) + key(ch) + bet)])        # the funding guess closes the chapter, in place of a quick check on the same question
     # 2.1
     ch = pg.chapter('why-upside'); B = ch['blocks']
-    add(ch, [(P['2.1'][0], stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T)),
-             (P['2.1'][1], part_head(*T['heads']['2.1b']) + feel_scenes_in(feel_icons(one(B, '<div class="ddgrid'), pg.lang)))])             # six cards start closed
+    add(ch, [('', stand(ch) + swap_fig(one(B, '<figure'), 0, 'growth', T) + feel_scenes_in(feel_icons(one(B, '<div class="ddgrid'), pg.lang)))])   # one slide: the growth, then where people would feel it
     # 2.2
     ch = pg.chapter('why-it-ends-badly'); B = ch['blocks']
     bodies = [b for b in B if b.startswith('<p class="body')]

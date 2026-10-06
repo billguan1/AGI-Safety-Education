@@ -1389,13 +1389,13 @@ button.dki-link.dki-broken em::after{content:"✕"}
 }
 /* 2.1b: two rows (three, then two), each card with its picture beside the title, so all five sit above the fold */
 @media (min-width:1100px){
-  .slide[data-key="2.1b"] .t-body .ddgrid{gap:10px!important}
-  .slide[data-key="2.1b"] .t-body .ddgrid > .ddc{display:grid;grid-template-columns:minmax(0,1fr) 132px;grid-template-areas:"lab scene" "title scene" "more more" "body body";column-gap:12px;align-items:start}
-  .slide[data-key="2.1b"] .t-body .ddc .fl-lab{grid-area:lab;gap:7px;margin-bottom:4px}
-  .slide[data-key="2.1b"] .t-body .ddc h4{grid-area:title;margin:0!important}
-  .slide[data-key="2.1b"] .t-body .ddc .dk-scene{grid-area:scene;align-self:center;width:132px!important;max-width:132px!important;margin:0!important}
-  .slide[data-key="2.1b"] .t-body .ddc .lx-body{grid-area:body}
-  .slide[data-key="2.1b"] .t-body .ddc .t-more{grid-area:more;justify-self:start;margin-top:10px}
+  .slide[data-key="2.1"] .t-body .ddgrid{gap:10px!important}
+  .slide[data-key="2.1"] .t-body .ddgrid > .ddc.lx-card{display:grid!important;grid-template-columns:minmax(0,1fr) 132px;grid-template-areas:"lab scene" "title scene" "more more" "body body";column-gap:12px;align-items:start}
+  .slide[data-key="2.1"] .t-body .ddc .fl-lab{grid-area:lab;gap:7px;margin-bottom:4px}
+  .slide[data-key="2.1"] .t-body .ddc h4{grid-area:title;margin:0!important}
+  .slide[data-key="2.1"] .t-body .ddc .dk-scene{grid-area:scene;align-self:center;width:132px!important;max-width:132px!important;margin:0!important}
+  .slide[data-key="2.1"] .t-body .ddc .lx-body{grid-area:body}
+  .slide[data-key="2.1"] .t-body .ddc .t-more{grid-area:more;justify-self:start;margin-top:10px}
 }
 /* chapter-opening headers: the title fills the row at a smaller size, so the slide's content starts higher */
 @media (min-width:761px){
@@ -1708,3 +1708,11 @@ button.dki-link.dki-broken em::after{content:"✕"}
 /* 4.1 Goodhart box sits under the card it supports: its name is a small caption, like other in-card chart titles */
 .slide .t-body .ghwrap .gh-h{font-family:var(--body)!important;font-weight:400!important;font-size:14.5px!important;letter-spacing:0!important;line-height:1.35!important;color:#3b3833!important;margin:0 0 2px!important}
 @media (min-width:1200px){.slide[data-key="claim3"] .t-body .cl-hh{flex-wrap:nowrap!important;gap:10px!important}.slide[data-key="claim3"] .t-body .cl-sk{flex:none}.slide[data-key="claim3"] .t-body .cl-hn{font-size:18px!important;white-space:nowrap}}
+/* 2.1 on one slide: the growth chart is tightened so the six cards fit under it */
+@media (min-width:761px){
+  .slide[data-key="2.1"] .t-body figure.dkw-growth{padding:10px 16px!important;margin-bottom:10px!important}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-body{gap:6px}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth input[type=range]{height:26px}
+  .slide[data-key="2.1"] .t-body .ddgrid > .ddc.lx-card{padding:10px 14px 12px!important}
+  .slide[data-key="2.1"] .t-body .ddc .t-more{margin-top:6px!important}
+}
