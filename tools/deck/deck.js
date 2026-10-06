@@ -772,6 +772,28 @@
   /* the name tags under the runners and the "roped together" note stay put, so they fade out as the group is dragged away */
   var tags = svg.querySelectorAll('text[y="252"], text[x="205"][y="132"], text[x="205"][y="150"], path[d="M205,158 L205,192"]');
   if (!team || !faller) return;
+  /* when the column is wider than the drawing's height cap allows, the frame still spans the column:
+     the viewBox widens at the same height, the ground runs further left, the drop further right, and the title keeps to the left edge */
+  (function(){
+    var ground = svg.querySelector('path[d="M0,224 L556,224 L556,430 L0,430 Z"]'), line = svg.querySelector('path[d="M0,224 L556,224"]');
+    var pit = svg.querySelector('rect[x="600"][y="224"]'), heads = svg.querySelectorAll('text[x="20"]');
+    if (!ground || !line || !pit) return;
+    function fit(){
+      fig.style.removeProperty("max-width"); svg.setAttribute("viewBox", "0 0 800 430");
+      var cap = fig.getBoundingClientRect().width, col = fig.parentNode.getBoundingClientRect().width;
+      var x0 = 0, w = 800;
+      if (col > cap + 4 && window.innerWidth > 760) { w = 800 * col / cap; x0 = -(w - 800) / 2; fig.style.setProperty("max-width", "none", "important"); }
+      svg.setAttribute("viewBox", x0.toFixed(1) + " 0 " + w.toFixed(1) + " 430");
+      ground.setAttribute("d", "M" + x0.toFixed(1) + ",224 L556,224 L556,430 L" + x0.toFixed(1) + ",430 Z");
+      line.setAttribute("d", "M" + x0.toFixed(1) + ",224 L556,224");
+      pit.setAttribute("width", (x0 + w - 600).toFixed(1));
+      [].forEach.call(heads, function(t){ t.setAttribute("x", (x0 + 20).toFixed(1)); });
+    }
+    var tm = 0, last = -1;
+    function soon(){ clearTimeout(tm); tm = setTimeout(function(){ var c = fig.parentNode.getBoundingClientRect().width; if (Math.abs(c - last) > 1) { last = c; fit(); } }, 80); }
+    fit(); last = fig.parentNode.getBoundingClientRect().width;
+    if (window.ResizeObserver) new ResizeObserver(soon).observe(fig.parentNode); else window.addEventListener("resize", soon);
+  })();
   var runners = [].slice.call(team.querySelectorAll(":scope > g > g"));
   var X0 = runners.map(function(g){ return +/translate\(([\d.]+)/.exec(g.getAttribute("transform"))[1]; });
   ctl.innerHTML = '<div class="cr-q"><span>' + C.q + '</span><button type="button" data-v="1" aria-pressed="false"><span aria-hidden="true">▶</span> ' + C.yes + '</button><button type="button" data-v="0" aria-pressed="false"><span aria-hidden="true">▶</span> ' + C.no + '</button></div>' +
