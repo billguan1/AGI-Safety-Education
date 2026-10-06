@@ -1690,3 +1690,6 @@ button.dki-link.dki-broken em::after{content:"✕"}
 /* every chart title is a subheading: the comic display face, one size, so a page can be skimmed title by title */
 .t-body .dkh .dkh-t,.t-body figure .tr-title,.t-body .dk-int .tr-title,.slide .t-body figure.secfig > .tr-title{font-family:var(--comic)!important;font-weight:400!important;font-size:23px!important;line-height:1.1!important;letter-spacing:.03em!important;color:#1b1b1b!important;text-transform:none!important;text-shadow:2px 2px 0 rgba(27,27,27,.17)!important;margin:0 0 8px!important}
 @media (max-width:760px){.t-body .dkh .dkh-t,.t-body figure .tr-title,.t-body .dk-int .tr-title,.slide .t-body figure.secfig > .tr-title{font-size:20px!important}}
+/* card and box titles: Comic Neue's bold is light, so a thin stroke thickens it into a clear heading weight */
+.t-body :is(.ddc h4,.endc h4,.care-c h3,.claim h3,.first h3,.dkh-box > b,.tcard .tn,.dsg-panel .dkh-box b,.cl-hn,.jur h4,.cando-block h4,.beats li b,.joinbig h3,.dk-results .dk-r-row b){-webkit-text-stroke:.55px currentColor;paint-order:stroke fill}
+.t-body :is(p,li,span,td) strong{-webkit-text-stroke:.3px currentColor}
