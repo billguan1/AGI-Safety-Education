@@ -1705,3 +1705,5 @@ button.dki-link.dki-broken em::after{content:"✕"}
 .slide .t-body :is(.cando-block,.jur,.ddc,.endc) h4{letter-spacing:normal}
 /* chart titles carry no shadow */
 .slide .t-body :is(.dkh .dkh-t,.tr-title,.gh-h),.slide .t-body figure.secfig > .tr-title,.slide .t-body .dk-results .tr-title{text-shadow:none!important}
+/* 4.1 Goodhart box sits under the card it supports: its name is a small caption, like other in-card chart titles */
+.slide .t-body .ghwrap .gh-h{font-family:var(--body)!important;font-weight:400!important;font-size:14.5px!important;letter-spacing:0!important;line-height:1.35!important;color:#3b3833!important;margin:0 0 2px!important}
