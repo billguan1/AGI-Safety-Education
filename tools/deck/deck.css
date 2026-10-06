@@ -1693,3 +1693,9 @@ button.dki-link.dki-broken em::after{content:"✕"}
 /* card and box titles: Comic Neue's bold is light, so a thin stroke thickens it into a clear heading weight */
 .t-body :is(.ddc h4,.endc h4,.care-c h3,.claim h3,.first h3,.dkh-box > b,.tcard .tn,.dsg-panel .dkh-box b,.cl-hn,.jur h4,.cando-block h4,.beats li b,.joinbig h3,.dk-results .dk-r-row b){-webkit-text-stroke:.55px currentColor;paint-order:stroke fill}
 .t-body :is(p,li,span,td) strong{-webkit-text-stroke:.3px currentColor}
+
+/* a chart inside a card or a titled box is evidence for that title: its own title becomes a small plain caption */
+.slide .t-body :is(.ddc,.endc,.cl-half) :is(.dkh-t:not(.dkh-arrow),.tr-title),.slide .t-body :is(.ddc,.endc,.cl-half) figure.secfig > .tr-title{font-family:var(--body)!important;font-weight:400!important;font-size:14.5px!important;line-height:1.35!important;letter-spacing:0!important;color:#3b3833!important;text-shadow:none!important;margin:0 0 6px!important}
+.slide .t-body :is(.ddc,.endc,.cl-half) .dkh-t:not(.dkh-arrow){text-transform:lowercase!important}
+.slide .t-body :is(.ddc,.endc,.cl-half) .dkh-t:not(.dkh-arrow)::first-letter{text-transform:uppercase}
+.slide .t-body .dsg .dkh-t.dkh-arrow{font-family:var(--body)!important;font-weight:700!important;font-size:16px!important;letter-spacing:0!important;text-shadow:none!important;color:#1b1b1b!important;margin:0 0 6px!important}
