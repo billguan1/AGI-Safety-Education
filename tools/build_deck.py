@@ -1467,13 +1467,32 @@ def gh_deck(doc, T):
     doc = doc[:a] + 'var SAY = [' + ', '.join(json.dumps(x, ensure_ascii=False) for x in says) + '];' + doc[b:]
     return doc
 
+# chart titles that come from the long page's drawings, restated as takeaways in the deck only
+DECK_TITLES = {
+    'en': [('data-lx-dfs="19">Racing to be first<', 'data-lx-dfs="19">A dangerous race towards the cliff<'),
+           ('<p class="dkh-t">WHY THE BAD OUTCOME IS THE STABLE ONE</p>', '<p class="dkh-t">Everyone races to maximize their own self-interest, which does not achieve the global maximum</p>'),
+           ('<p class="dkh-t">WHOSE VALUES GO IN?</p>', '<p class="dkh-t">People have never agreed on the values a superintelligence should hold</p>'),
+           ('<p class="dkh-t">WHO ACTUALLY GETS TO DECIDE</p>', '<p class="dkh-t">A few labs and states decide for eight billion people</p>'),
+           ('<p class="dkh-t">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</p>', '<p class="dkh-t">Squeezing a value into one score loses most of what we meant</p>')],
+    'zh': [('data-lx-dfs="19">争当第一<', 'data-lx-dfs="19">一场冲向悬崖的危险竞赛<'),
+           ('<p class="dkh-t">为何最坏的结局反而最稳定</p>', '<p class="dkh-t">每一方都在为自身利益竞速，结果却达不到整体最优</p>'),
+           ('<p class="dkh-t">究竟该把谁的价值观写进去？</p>', '<p class="dkh-t">人类从未就超级智能该持有哪些价值观达成一致</p>'),
+           ('<p class="dkh-t">究竟由谁来做这个决定</p>', '<p class="dkh-t">少数实验室和国家，替八十亿人做决定</p>'),
+           ('<p class="dkh-t">从一项价值到一个奖励，中间丢了什么</p>', '<p class="dkh-t">把价值观压缩成一个分数，就丢掉了我们本意的大部分</p>')]}
+
+def deck_titles(doc, lang):
+    for a, b in DECK_TITLES[lang]:
+        assert doc.count(a) == 1, (lang, a, doc.count(a))
+        doc = doc.replace(a, b, 1)
+    return doc
+
 def main():
     en = Page('en'); zh = Page('zh')
     S_en, sl_en, sg_en, colors = build(en)
     S_zh, sl_zh, sg_zh, _ = build(zh, colors)
     assert [x['key'] for x in S_en] == [x['key'] for x in S_zh]
     for pg, sl, sg, S in ((en, sl_en, sg_en, S_en), (zh, sl_zh, sg_zh, S_zh)):
-        doc = gh_deck(paper(page(pg, sl, sg, S)).replace(pg.old_intro, pg.T['intro_label']), pg.T)
+        doc = deck_titles(gh_deck(paper(page(pg, sl, sg, S)).replace(pg.old_intro, pg.T['intro_label']), pg.T), pg.lang)
         assert doc.count('<div class="slide" data-key=') == len(S_en), ('slides missing', doc.count('<div class="slide" data-key='))
         ids = re.findall(r'\bid="([^"]+)"', doc)
         dup = sorted(set(i for i in ids if ids.count(i) > 1))
