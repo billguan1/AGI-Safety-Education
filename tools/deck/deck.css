@@ -1768,3 +1768,5 @@ button.dki-link.dki-broken em::after{content:"✕"}
 }
 /* the fork's YES / NO labels use the body face like every other box heading */
 .slide .t-body .dki-bl{font-family:var(--body)!important;font-weight:800!important;font-size:22px!important;letter-spacing:normal!important}
+/* 3.1b: the lab question now follows the finish line */
+.slide[data-key="3.1b"] .t-body .keyline + .rv{margin-top:22px!important}

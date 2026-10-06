@@ -955,7 +955,7 @@ def plan(pg):
     ch = pg.chapter('why-race'); B = ch['blocks']
     quiz = one(B, '<div class="rv" style="margin-top:24px">')
     add(ch, [(P['3.1'][0], stand(ch) + rebuild(one(B, '<figure'), 0, 'payoff3', pg.lang) + widget_plain('race', T)),
-             (P['3.1'][1], quiz + part_head(*T['heads']['3.1b']) + auto(scenes_in(one(B, '<div class="ddgrid'), card_scenes('race'))) + key(ch))])
+             (P['3.1'][1], part_head(*T['heads']['3.1b']) + auto(scenes_in(one(B, '<div class="ddgrid'), card_scenes('race'))) + key(ch) + quiz)])
     # 3.2
     ch = pg.chapter('why-human-misalignment'); B = ch['blocks']
     grids = [x for x in B if x.startswith('<div class="ddgrid')]; figs = [x for x in B if x.startswith('<figure')]
