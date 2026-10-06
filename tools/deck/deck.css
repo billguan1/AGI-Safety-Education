@@ -1717,3 +1717,19 @@ button.dki-link.dki-broken em::after{content:"✕"}
   .slide[data-key="2.1"] .t-body .ddc .t-more{margin-top:6px!important}
 }
 .t-body .dkh-many + .dkh-ask{margin-top:16px}
+.slide .t-body .demo-embed > .tr-title.dk-demo-t{font-family:var(--comic)!important;font-weight:400!important;font-size:23px!important;line-height:1.1!important;letter-spacing:.03em!important;color:#1b1b1b!important;text-shadow:none!important;margin:0 0 10px!important}
+@media (max-width:760px){.slide .t-body .demo-embed > .tr-title.dk-demo-t{font-size:20px!important}}
+/* 2.1 growth chart: slider on the left, the two bars on the right, so the chart is half as tall */
+@media (min-width:761px){
+  .slide[data-key="2.1"] .t-body figure.dkw-growth > .tr-title{margin-bottom:6px!important}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-body{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);column-gap:32px;row-gap:0;align-items:center}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-ctl{grid-column:1;grid-row:1}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-ticks{grid-column:1;grid-row:2;margin-top:6px}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-bars{grid-column:2;grid-row:1/3;gap:8px}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-say:empty{display:none}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-track{height:20px}
+  .slide[data-key="2.1"] .t-body figure.dkw-growth .dki-n{font-size:20px}
+}
+/* 2.1 cards: room between the title, the button and the text it opens */
+.slide[data-key="2.1"] .t-body .ddc .t-more{margin-top:12px!important}
+.slide[data-key="2.1"] .t-body .ddc .lx-body{margin-top:14px!important}

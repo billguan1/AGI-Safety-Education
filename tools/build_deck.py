@@ -201,7 +201,9 @@ def loophole(block, pg):
     got = [d[1] for d in ast.literal_eval(m.group(1))]
     L = dict(pg.T['wid']['loophole']); L['got'] = got
     assert len(got) == len(L['wrong']) == 5
-    return block.replace('<div class="demo-embed"', '<div class="demo-embed" data-lh="%s"' % html.escape(json.dumps(L, ensure_ascii=False)), 1)
+    out = block.replace('<div class="demo-embed"', '<div class="demo-embed" data-lh="%s"' % html.escape(json.dumps(L, ensure_ascii=False)), 1)
+    a = out.index('<div class="demo-embed"'); a = out.index('>', a) + 1
+    return out[:a] + '<p class="tr-title dk-demo-t">%s</p>' % html.escape(L['title']) + out[a:]   # the demo's takeaway, as its chart title
 
 def demo_bare(block):
     """The demo's own heading and instruction repeat the chip and Kenji's line, so the deck drops them."""
@@ -1473,11 +1475,13 @@ DECK_TITLES = {
            ('<p class="dkh-t">WHY THE BAD OUTCOME IS THE STABLE ONE</p>', '<p class="dkh-t">Everyone races to maximize their own self-interest, which does not achieve the global maximum</p>'),
            ('<p class="dkh-t">WHOSE VALUES GO IN?</p>', '<p class="dkh-t">People have never agreed on the values a superintelligence should hold</p>'),
            ('<p class="dkh-t">WHO ACTUALLY GETS TO DECIDE</p>', '<p class="dkh-t">A few labs and states decide for eight billion people</p>'),
+           ('<p class="dkh-t">TWO WAYS ALIGNMENT FAILS, AND THEY FAIL DIFFERENTLY</p>', '<p class="dkh-t">Outer failures show up on paper, while inner ones pass every test</p>'),
            ('<p class="dkh-t">WHAT GETS LOST BETWEEN A VALUE AND A REWARD</p>', '<p class="dkh-t">Squeezing a value into one score loses most of what we meant</p>')],
     'zh': [('data-lx-dfs="19">争当第一<', 'data-lx-dfs="19">一场冲向悬崖的危险竞赛<'),
            ('<p class="dkh-t">为何最坏的结局反而最稳定</p>', '<p class="dkh-t">每一方都在为自身利益竞速，结果却达不到整体最优</p>'),
            ('<p class="dkh-t">究竟该把谁的价值观写进去？</p>', '<p class="dkh-t">人类从未就超级智能该持有哪些价值观达成一致</p>'),
            ('<p class="dkh-t">究竟由谁来做这个决定</p>', '<p class="dkh-t">少数实验室和国家，替八十亿人做决定</p>'),
+           ('<p class="dkh-t">对齐失败有两种方式，而且互不相同</p>', '<p class="dkh-t">外部对齐的失败在纸面上就看得出，内部对齐的失败却能通过每一项测试</p>'),
            ('<p class="dkh-t">从一项价值到一个奖励，中间丢了什么</p>', '<p class="dkh-t">把价值观压缩成一个分数，就丢掉了我们本意的大部分</p>')]}
 
 def deck_titles(doc, lang):
