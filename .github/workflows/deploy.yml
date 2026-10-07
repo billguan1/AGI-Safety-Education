@@ -48,9 +48,9 @@ jobs:
           # Kenji's faces for the slide deck (deck.html, deck-zh.html).
           [ -d deck-img ] && cp -R deck-img _site/deck-img
           if [ -d comic-site ]; then cp -R comic-site _site/comics; fi
-          # Blog essays: copy from blog-drafts/site/ to _site/blog/
+          # Blog essays: copy built article pages from blog/ to _site/blog/
           mkdir -p _site/blog
-          for f in blog-drafts/site/a01.html blog-drafts/site/a02.html blog-drafts/site/a03.html blog-drafts/site/a04.html blog-drafts/site/a05.html blog-drafts/site/a06.html blog-drafts/site/a07.html blog-drafts/site/a08.html blog-drafts/site/a09.html blog-drafts/site/a10.html blog-drafts/site/a11.html blog-drafts/site/a12.html blog-drafts/site/a13.html; do
+          for f in blog/a01.html blog/a02.html blog/a03.html blog/a04.html blog/a05.html blog/a06.html blog/a07.html blog/a08.html blog/a09.html blog/a10.html blog/a11.html blog/a12.html blog/a13.html; do
             [ -f "$f" ] && cp "$f" _site/blog/ || echo "skip missing $f"
           done
           # game2/ was THE WISH's first home. The game now lives at game.safeagi.ca

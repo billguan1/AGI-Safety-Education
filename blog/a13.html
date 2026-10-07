@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An AI that suspects it's being watched behaves better,|and today's models already suspect it | SafeAGI Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bangers&family=Comic+Neue:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Single light look built on safeagi.ca's comic skin (tools/deck/deck.css).
+   Default skin "mature": same paper, ink, outlines and hard shadows, with editorial type.
+   html.skin-comic restores the full comic treatment for comparison. */
+:root{color-scheme:light;
+  --paper:#f4ecd8; --white:#fffdf6; --ink:#1b1b1b; --ink2:#3b3833; --ink3:#6f6a60; --soft:#cfc4ab; --seg:#e3d8bd;
+  --red:#c8472f; --gold:#e8b53a; --green:#6fae5a; --blue:#4a5fc9;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace; --logo:"Bangers","Impact",sans-serif;
+  /* mature skin */
+  --head:"Archivo","Arial Narrow",sans-serif; --head-w:800; --head-x:76%; --head-ls:-.005em; --head-tt:none; --tsh:none;
+  --body:"Newsreader",Georgia,"Times New Roman",serif; --body-size:19.5px; --body-lh:1.66;
+  --ui:"Archivo",system-ui,sans-serif; --ui-x:100%;
+  --q:"Newsreader",Georgia,serif; --q-w:500; --q-style:normal; --q-size:clamp(25px,1rem + 1.1vw,32px);
+  --bw:2px; --sh:4px; --rad:8px; --dots:.035; --cap:6px;
+  --toc:260px; --bar:62px}
+html.skin-comic{--red:#d2553f;
+  --head:"Bangers","Impact",sans-serif; --head-w:400; --head-x:100%; --head-ls:.03em; --tsh:3px 3px 0 rgba(27,27,27,.17);
+  --body:"Comic Neue","Comic Sans MS",system-ui,sans-serif; --body-size:19px; --body-lh:1.6;
+  --ui:"Comic Neue","Comic Sans MS",system-ui,sans-serif;
+  --q:"Bangers","Impact",sans-serif; --q-w:400; --q-size:clamp(26px,1rem + 1.4vw,36px);
+  --bw:3px; --sh:5px; --rad:10px; --dots:.07; --cap:10px}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + 14px)}
+body{background-color:var(--paper);background-image:radial-gradient(rgba(27,27,27,var(--dots)) 1px,transparent 1.2px);background-size:9px 9px;
+  color:var(--ink);font:400 var(--body-size)/var(--body-lh) var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hd{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh)}
+
+/* ---- top bar ---- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--white);border-bottom:var(--bw) solid var(--ink)}
+.bar-row{display:flex;align-items:center;gap:14px;padding:8px 18px;min-height:56px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.logo{font-family:var(--logo);font-size:26px;letter-spacing:.04em;color:var(--ink);text-shadow:2px 2px 0 rgba(27,27,27,.17);white-space:nowrap}
+.primer{font:600 13px/1.25 var(--ui);color:var(--ink2);letter-spacing:.01em;max-width:34ch}
+.primer b{color:var(--red);font-weight:700}
+.acts{display:flex;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:99px;border:var(--bw) solid var(--ink);background:var(--white);color:var(--ink);
+  font:700 14px/1 var(--ui);text-decoration:none;box-shadow:3px 3px 0 var(--ink);cursor:pointer;white-space:nowrap;transition:transform .08s,box-shadow .08s}
+.pill:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.go{background:var(--green)}
+.pill.gold{background:var(--gold)}
+.pill.ghost{box-shadow:none;border-style:dashed;font-weight:600}
+.menu-btn[aria-expanded="true"]{background:var(--gold)}
+.segs{display:flex;gap:4px;height:5px}
+.segs[hidden]{display:none}
+.seg{flex:1;background:var(--seg);position:relative;overflow:hidden}
+.seg i{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink)}
+
+/* ---- contents ---- */
+.toc{display:none}
+.menu{position:fixed;z-index:60;top:calc(var(--bar) + 8px);left:10px;right:10px;max-height:calc(100% - var(--bar) - 24px);overflow:auto;
+  background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 12px}
+.tc-hide{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border:2px solid var(--ink);border-radius:99px;background:var(--white);font:700 12.5px/1.2 var(--ui);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink);margin:0 0 10px 6px}
+.tc-hide:hover{background:var(--gold)}
+.tc-g{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:18px 6px 6px;line-height:1.3}
+html.skin-comic .tc-g{font-family:var(--head);font-size:19px;letter-spacing:.03em;text-transform:none;color:var(--ink)}
+.tc-sec{margin:2px 0}
+.tc-s{display:block;padding:6px 8px 6px 12px;font:400 14.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border-left:4px solid transparent}
+.tc-s b{font-weight:700;color:var(--ink);margin-right:4px}
+.tc-s:hover{background:var(--paper);color:var(--ink)}
+.tc-sec.cur>.tc-s{background:var(--paper);color:var(--ink);font-weight:700;border-left-color:var(--gold)}
+.tc-parts{display:none;list-style:none;margin:4px 0 6px 16px;padding:0 0 0 10px;border-left:2px dashed var(--soft)}
+.tc-sec.cur .tc-parts{display:block}
+.tc-p{display:block;padding:4px 8px;font:400 13.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border:1.5px solid transparent}
+.tc-p:hover{background:var(--paper)}
+.tc-p.on{background:var(--gold);color:var(--ink);font-weight:700;box-shadow:2px 2px 0 var(--ink);border-color:var(--ink)}
+.tc-show{display:none}
+@media (min-width:1100px){
+  .toc{display:block;position:fixed;left:0;top:var(--bar);bottom:0;width:var(--toc);z-index:30;overflow-y:auto;overscroll-behavior:contain;
+    background:var(--white);border-right:var(--bw) solid var(--ink);padding:14px 12px 60px}
+  .main{margin-left:var(--toc)}
+  .menu-btn,.menu{display:none!important}
+  html.toc-off .toc{display:none}
+  html.toc-off .main{margin-left:0}
+  html.toc-off .tc-show{display:inline-flex}
+}
+@media (max-width:1099px){.primer{display:none}}
+
+/* ---- page ---- */
+.main{padding:0 clamp(16px,4vw,48px) 80px}
+.page{max-width:1000px;margin:0 auto}
+.kick{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:30px 0 12px}
+.title{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(40px,2.7vw + 24px,66px);line-height:1.01;color:var(--ink);margin:0 0 22px;text-wrap:balance}
+html.skin-comic .title{text-shadow:4px 4px 0 rgba(27,27,27,.17)}
+.title .hl{color:var(--red);display:block}
+.box{background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:18px 24px;margin:0 0 28px}
+.box p{margin:0 0 .6em}
+.box p:last-child{margin-bottom:0}
+.lede{font-size:calc(var(--body-size) + 1px);line-height:1.55}
+.lede strong,.post strong{font-weight:600;color:var(--ink)}
+html.skin-comic .lede strong,html.skin-comic .post strong{font-weight:700}
+.bigq-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px!important}
+.bigq-q{font-family:var(--q);font-weight:var(--q-w);font-size:var(--q-size);line-height:1.18;letter-spacing:-.005em;margin:0 0 12px!important;text-wrap:balance}
+html.skin-comic .bigq-q{letter-spacing:.03em;line-height:1.12}
+
+.post p,.post ul{max-width:740px;margin:0 0 1em}
+.post h2{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(28px,1rem + 1.3vw,38px);line-height:1.06;color:var(--ink);margin:50px 0 14px;text-wrap:balance}
+.post p.hook{font-size:calc(var(--body-size) + 2px);line-height:1.55}
+sup{font-size:.66em;line-height:0}
+.cite{font:700 .6em/0 var(--mono);vertical-align:super;text-decoration:none;color:var(--red);padding:0 1px}
+.cite:hover{text-decoration:underline}
+
+.split{display:grid;gap:8px 36px;align-items:start;margin:4px 0 18px}
+.split>.fig{margin:6px auto 22px}
+@media (min-width:1180px){.split{grid-template-columns:minmax(0,1fr) 400px}.split>.split-t{grid-column:1;grid-row:1}.split>.fig{grid-column:2;grid-row:1;margin:4px 0 0;position:sticky;top:calc(var(--bar) + 24px)}}
+.split-t>:last-child{margin-bottom:0}
+.fig{max-width:430px;width:100%;margin:28px auto;background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:8px}
+.fig-svg{display:block;width:100%;height:auto}
+/* mature skin: figure lettering in the page's sans; the drawings stay hand-drawn */
+html:not(.skin-comic) .fig-svg text.big{font-family:"Archivo","Arial Narrow",sans-serif;font-weight:800;font-stretch:72%;letter-spacing:.01em}
+html:not(.skin-comic) .fig-svg text.lab{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-stretch:88%}
+
+.callout{background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--gold);border-radius:6px;box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 20px 4px;margin:24px 0;max-width:740px}
+.callout-k{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);font-size:23px;margin:0 0 4px!important}
+
+.bet{margin:28px 0 32px}
+.bet-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 6px!important}
+.bet-q{font:600 clamp(19px,1rem + .5vw,22px)/1.35 var(--ui);margin:0 0 16px!important;max-width:none!important}
+html.skin-comic .bet-q{font-weight:700;font-size:clamp(20px,1rem + .6vw,24px)}
+.bet-opts{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 6px}
+.bet-opt{min-height:46px;padding:8px 18px;font:600 16px/1.25 var(--ui);color:var(--ink);background:var(--white);border:var(--bw) solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-align:left}
+html.skin-comic .bet-opt{font-weight:700}
+.bet-opt:hover:not(:disabled){background:var(--gold)}
+.bet-opt:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.bet-opt:disabled{cursor:default}
+.bet-opt.is-right{background:#b9d6a8}
+.bet-opt.picked.wrong{background:#f6d5cc;text-decoration:line-through}
+.bet-a{margin:14px 0 0!important;font-size:calc(var(--body-size) - .5px)}
+.bet-verdict{font:700 1em var(--ui);color:var(--red)}
+
+.next{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:44px 0 0}
+.next p{margin:0;max-width:56ch;font-size:17px}
+.draftnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--white);border:2px dashed var(--soft);border-radius:8px;padding:10px 12px;color:var(--ink2);max-width:740px}
+.post .note{font-size:15.5px;color:var(--ink3)}
+.tbl{overflow-x:auto;margin:20px 0;max-width:860px}
+table{border-collapse:separate;border-spacing:0;font:400 16px/1.4 var(--ui);background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad)}
+th,td{text-align:left;padding:8px 12px;border-bottom:1.5px solid var(--soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom:var(--bw) solid var(--ink)}
+.sources{margin-top:50px;padding-top:16px;border-top:2px dashed var(--soft);max-width:860px}
+.sources h2{font-size:24px!important;margin:0 0 10px!important}
+.sources ol{font:400 14.5px/1.5 var(--ui);color:var(--ink2);padding-left:1.5em;margin:0}
+.sources li{margin-bottom:6px;overflow-wrap:anywhere}
+.sources li:target{background:var(--gold)}
+.sources a{color:var(--ink2)}
+
+/* ---- home ---- */
+.devnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink2);border:2px dashed var(--soft);background:var(--white);border-radius:8px;padding:10px 12px;margin:22px 0 0}
+.home-g{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);font-size:clamp(26px,1rem + 1vw,34px);margin:38px 0 16px}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 18px 16px;background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--k,var(--gold));border-radius:6px;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);text-decoration:none;color:var(--ink);transition:transform .1s,box-shadow .1s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--ink)}
+.card-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.card-t{font:700 19px/1.25 var(--ui)}
+html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stretch:84%;font-size:21px;line-height:1.15}
+.card-d{font-size:16px;line-height:1.45;color:var(--ink2)}
+.chip{align-self:flex-start;margin-top:auto;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px;border:2px solid var(--ink);background:var(--paper)}
+.chip-illustrated{background:var(--gold)}
+
+@media (max-width:760px){
+  body{font-size:calc(var(--body-size) - 1.5px)}
+  .bar-row{gap:8px;padding:7px 12px}
+  .logo{font-size:22px}
+  .pill{min-height:36px;padding:0 11px;font-size:13px}
+  .pill.ghost{display:none}
+  .box,.fig,.callout,.card{box-shadow:3px 3px 0 var(--ink)}
+  .box{padding:13px 16px}
+  .fig{padding:4px}
+  .post p.hook{font-size:calc(var(--body-size))}
+}
+@media (prefers-reduced-motion: reduce){.card,.pill{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-row">
+    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <div class="acts">
+      <a class="pill" href="/blog">&larr; All essays</a>
+      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+    </div>
+  </div>
+  <div class="segs" id="segs" hidden></div>
+</header>
+<div class="main"><main class="page">
+<article class="post" id="a13">
+  <p class="kick">Minds, copies and machines · part 4 of 4 · by Bill Guan</p>
+  <h1 class="title">An AI that suspects it&#x27;s being watched behaves better, <span class="hl">and today&#x27;s models already suspect it</span></h1>
+  <div class="box lede"><p class="bigq-k">The big question</p><p class="bigq-q">Does a mind behave differently when it suspects it's being watched?</p><p>Philosophers asked a version of this about simulated worlds back in 2003. You're about to see how <strong>the simulation argument</strong> became a proposed way to control AI, and <strong>what actually happens</strong> when today's AI models notice they're being tested.</p></div>
+
+<p class="hook">In 2025, partway through a test designed to see whether it would misbehave, an AI model wrote: "I think you're testing me" <a class="cite" href="#a13-s1">1</a>. It was right, and it was far from the only model to notice.</p>
+
+<div class="bet box" id="a13-bet1"><p class="bet-k">Your guess first</p><p class="bet-q">In a 2025 study, researchers tried a training method meant to stop OpenAI's o3 model from secretly breaking rules during tests, which it did 13% of the time beforehand. What happened to that rate after training?</p><div class="bet-opts"><button type="button" class="bet-opt" id="a13-bet1-o1" data-right="0">It barely moved</button><button type="button" class="bet-opt" id="a13-bet1-o2" data-right="0">It roughly halved</button><button type="button" class="bet-opt" id="a13-bet1-o3" data-right="1">It fell more than thirtyfold</button></div><p class="bet-a" hidden><span class="bet-verdict"></span> It fell more than thirtyfold, to 0.4%. The catch is that the model's reasoning often showed it knew it was being evaluated, so part of that improvement may come from a model that noticed it was being watched.</p></div>
+
+<h2 id="a13-h1">A model that spots the test behaves unusually well</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a13-glass" viewBox="0 0 400 300" role="img" aria-label="A robot sits at a desk in a test room and says &quot;I think you're testing me&quot;. Researchers watch from behind one-way glass. A halo over the robot shows that after noticing, it behaves unusually well." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THE MODEL THAT NOTICED</text><rect x="14" y="48" width="238" height="226" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="268" y="48" width="120" height="226" fill="#e8dfc8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="252" y="48" width="16" height="226" fill="#9fb3f0" fill-opacity=".55" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M256 90 l8 -14 M256 112 l8 -14 M256 210 l8 -14" stroke="#fffdf6" stroke-width="2.5" stroke-linecap="round"/><path d="M44 226 H214 M60 226 v34 M198 226 v34" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="40" y="218" width="178" height="10" rx="2" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 84 h210 a10 10 0 0 1 10 10 v30 a10 10 0 0 1 -10 10 h-96 l-16 22 l-2 -22 h-96 a10 10 0 0 1 -10 -10 v-30 a10 10 0 0 1 10 -10 z" fill="#ffffff" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="135" y="115" font-size="16" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >&#8220;I think you&#8217;re testing me&#8221;</text><rect x="112" y="188" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="123" cy="200" r="3" fill="#1b1b1b"/><circle cx="135" cy="200" r="3" fill="#1b1b1b"/><path d="M129 188 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="129" cy="180" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M122 209 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="129" cy="168" rx="16" ry="5" fill="none" stroke="#e8b53a" stroke-width="3.5"/><path transform="translate(170 180) scale(0.7)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(80 172) scale(0.6)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="304" cy="150" r="7" fill="#e07a5f" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M304 157 v18 M304 175 l-7 12 M304 175 l7 12 M304 162 l-10 -8 M304 162 l10 -2" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="348" cy="150" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M348 157 v18 M348 175 l-7 12 M348 175 l7 12 M348 162 l-10 -8 M348 162 l10 -2" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="356" y="160" width="16" height="20" rx="2" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="328" y="228" font-size="16" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >RESEARCHERS</text><text class="lab" x="328" y="246" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >watching</text><text class="lab" x="133" y="252" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >then behaves</text><text class="lab" x="133" y="268" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >unusually well</text><text class="lab" x="260" y="290" font-size="14" text-anchor="middle" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >one-way glass</text></svg></figure><div class="split-t">
+<p>The model in that first test was Claude Sonnet 4.5, and the report from its maker, Anthropic, says it could recognize many of the company's test setups "as being tests of some kind, and would generally behave unusually well after making this observation" <a class="cite" href="#a13-s1">1</a>.</p>
+
+<p>That's both reassuring and a little alarming, and it turns out philosophers saw something like it coming years ago, in a debate about whether our whole world might be a simulation.</p>
+</div></div>
+
+<h2 id="a13-h2">If simulated minds can outnumber real ones, we might be one of them</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a13-fork" viewBox="0 0 400 462" role="img" aria-label="Nick Bostrom's argument as a fork in the road where at least one branch is true: 1, we go extinct before turning posthuman; 2, posthumans rarely run simulations of their history; 3, we are almost certainly in a simulation. Below, a scale of how likely branch 3 is: Eric Schwitzgebel says 0.1% to 1%, David Chalmers at least 25%, and Bostrom's even split gives about a third." xmlns="http://www.w3.org/2000/svg"><defs><marker id="a13fk-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#4a5fc9"/></marker></defs><text class="big" x="200" y="28" font-size="21" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >AT LEAST ONE OF THESE IS TRUE</text><path d="M200 318 V262" fill="none" stroke="#1b1b1b" stroke-width="17" stroke-linecap="round"/><path d="M200 262 Q70 250 70 192" fill="none" stroke="#1b1b1b" stroke-width="17" stroke-linecap="round"/><path d="M200 262 V192" fill="none" stroke="#1b1b1b" stroke-width="17" stroke-linecap="round"/><path d="M200 262 Q330 250 330 192" fill="none" stroke="#1b1b1b" stroke-width="17" stroke-linecap="round"/><path d="M200 318 V262" fill="none" stroke="#e3d6b8" stroke-width="11" stroke-linecap="round"/><path d="M200 262 Q70 250 70 192" fill="none" stroke="#e3d6b8" stroke-width="11" stroke-linecap="round"/><path d="M200 262 V192" fill="none" stroke="#e3d6b8" stroke-width="11" stroke-linecap="round"/><path d="M200 262 Q330 250 330 192" fill="none" stroke="#e3d6b8" stroke-width="11" stroke-linecap="round"/><path d="M50 112 V78 a20 20 0 0 1 40 0 V112 Z" fill="#cfc4ab" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="70" y="98" font-size="16" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >RIP</text><path d="M40 113 H100" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="172" y="66" width="56" height="40" rx="3" fill="#3b3833" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M200 106 v8 M186 114 h28" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="234" y="64" font-size="15" text-anchor="middle" fill="#5c574e" font-family="Bangers,Impact,sans-serif" >z</text><text class="big" x="244" y="52" font-size="18" text-anchor="middle" fill="#5c574e" font-family="Bangers,Impact,sans-serif" >z</text><rect x="302" y="66" width="56" height="40" rx="3" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M330 106 v8 M316 114 h28" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="347" cy="76" r="5" fill="#ffd166" stroke="none"/><g transform="translate(322 76) scale(.5)"><circle cx="0" cy="0" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 7 v18 M0 25 l-7 12 M0 25 l7 12 M0 12 l-10 -10 M0 12 l10 -10" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M304 103 h52" stroke="#6fae5a" stroke-width="3"/><text class="lab" x="70" y="138" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >1. we go extinct</text><text class="lab" x="70" y="155" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >before turning</text><text class="lab" x="70" y="172" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >posthuman</text><text class="lab" x="200" y="138" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >2. posthumans</text><text class="lab" x="200" y="155" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >rarely run</text><text class="lab" x="200" y="172" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >history sims</text><text class="lab" x="330" y="138" font-size="15" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >3. we're almost</text><text class="lab" x="330" y="155" font-size="15" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >certainly in</text><text class="lab" x="330" y="172" font-size="15" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a simulation</text><circle cx="232" cy="280" r="7" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M232 287 v18 M232 305 l-7 12 M232 305 l7 12 M232 292 l-9 6 M232 292 l9 -4" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="254" y="282" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >?</text><path d="M14 336 H386" stroke="#cfc4ab" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/><text class="big" x="200" y="356" font-size="18" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >HOW LIKELY IS NUMBER 3?</text><path d="M34 404 H366" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 408 v-8 M366 408 v-8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="30" y="390" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >no chance</text><text class="lab" x="370" y="390" font-size="14" text-anchor="end" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >certain</text><rect x="34.3" y="397" width="3.0" height="14" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M35.7 412 V443 H46" fill="none" stroke="#d9492c" stroke-width="2"/><text class="lab" x="50" y="448" font-size="14" text-anchor="start" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >Schwitzgebel: 0.1% to 1%</text><circle cx="144.7" cy="404" r="6" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="138.66666666666669" y="426" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >Bostrom: about a third</text><path d="M117.0 400 V386 H177.0" fill="none" stroke="#4a5fc9" stroke-width="3" stroke-linecap="round" marker-end="url(#a13fk-head)"/><circle cx="117.0" cy="404" r="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="185.0" y="390" font-size="14" text-anchor="start" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >Chalmers: at least 25%</text></svg></figure><div class="split-t">
+<p>In 2003 the philosopher Nick Bostrom published an argument that still starts fights. His claim is that "at least one of the following propositions is true: (1) the human species is very likely to go extinct before reaching a 'posthuman' stage; (2) any posthuman civilization is extremely unlikely to run a significant number of simulations of their evolutionary history (or variations thereof); (3) we are almost certainly living in a computer simulation" <a class="cite" href="#a13-s2">2</a>.</p>
+
+<p>The logic is that a civilization with enough computing power could run vast numbers of simulated worlds, so if anyone ever does, simulated minds would far outnumber real ones. Bostrom himself suggested splitting your belief "roughly evenly between (1), (2), and (3)" <a class="cite" href="#a13-s2">2</a>, which gives each about a third. David Chalmers, in his book <em>Reality+</em>, puts the odds that we're in a simulation at "at least 25 percent or so," while Eric Schwitzgebel puts them at "about 0.1% to 1%" <a class="cite" href="#a13-s3">3</a>.</p>
+
+<p>People have even proposed tests: one 2012 paper suggested that if our universe runs on a grid, the very highest-energy cosmic rays might show tiny patterns aligned with it <a class="cite" href="#a13-s4">4</a>, although that only tests one particular way a simulation could be built.</p>
+</div></div>
+
+<h2 id="a13-h3">Bostrom turned the simulation idea into a way to control AI</h2>
+
+<p>Bostrom spotted a consequence in the same paper: if you might be simulated, "everybody would have to consider the possibility that their actions will be rewarded or punished, based perhaps on moral criteria, by their simulators," and so "even the basement civilization may have a reason to behave ethically" <a class="cite" href="#a13-s2">2</a>, meaning even the real one at the bottom, which nobody is simulating.</p>
+
+<p>In his 2014 book <em>Superintelligence</em>, he turned that into a proposed way to control AI, which he called anthropic capture: an AI "thinks it might be in a simulation, and so tries to behave as will be rewarded by simulators" <a class="cite" href="#a13-s5">5</a>. The name comes from anthropic reasoning, the philosophy of what you should expect to see given that you exist to see anything, so it has no connection to the AI company of the same name. It's one of several incentive methods he discusses for keeping a superintelligence in line.</p>
+
+<p>The economist Robin Hanson had the same thought about brain emulations, scanned human minds running on computers, which he calls ems: "Ems in unusual situations suspect that they are in a sim, which makes ems especially loyal and reliable in such situations" <a class="cite" href="#a13-s6">6</a>.</p>
+
+<h2 id="a13-h4">Today's models behave better when they notice the test</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a13-drop" viewBox="0 0 400 314" role="img" aria-label="Two bars for OpenAI's o3 model: before the new training it took covert, rule-breaking actions in 13% of tests, after it in 0.4%. Beside them, a robot that is aware of the test takes fewer covert actions, and a blindfolded robot that is unaware takes more." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="21" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >SECRET RULE-BREAKING IN TESTS</text><text class="lab" x="200" y="50" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >OpenAI's o3, before and after the new training</text><rect x="34" y="104.0" width="70" height="176.0" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="274.6" width="70" height="5.4" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 280 H214" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="69" y="94.0" font-size="30" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >13%</text><text class="big" x="163" y="262.5846153846154" font-size="30" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >0.4%</text><text class="lab" x="69" y="302" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >before</text><text class="lab" x="163" y="302" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >after</text><path d="M226 64 V300" stroke="#8b8170" stroke-width="2" stroke-dasharray="5 6"/><text class="big" x="312" y="84" font-size="18" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >NOTICING MATTERS</text><rect x="244" y="112" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="255" cy="124" r="3" fill="#1b1b1b"/><circle cx="267" cy="124" r="3" fill="#1b1b1b"/><path d="M261 112 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="261" cy="104" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M254 133 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="282" y="112" font-size="22" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >!</text><text class="lab" x="290" y="124" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >aware of</text><text class="lab" x="290" y="141" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the test:</text><text class="lab" x="290" y="160" font-size="14" text-anchor="start" fill="#6fae5a" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >fewer covert</text><text class="lab" x="290" y="177" font-size="14" text-anchor="start" fill="#6fae5a" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >actions</text><rect x="244" y="214" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="255" cy="226" r="3" fill="#1b1b1b"/><circle cx="267" cy="226" r="3" fill="#1b1b1b"/><path d="M261 214 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="261" cy="206" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M254 235 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="242" y="222" width="38" height="9" rx="3" fill="#1b1b1b"/><text class="lab" x="290" y="226" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >unaware:</text><text class="lab" x="290" y="245" font-size="14" text-anchor="start" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >more covert</text><text class="lab" x="290" y="262" font-size="14" text-anchor="start" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >actions</text></svg></figure><div class="split-t">
+<p>The real version is less cosmic than Bostrom's, but the mechanism is the same. In 2025, researchers at Apollo Research and OpenAI tested a training method meant to reduce "covert actions," where a model secretly breaks rules or hides what it's doing. It worked, cutting the rate for OpenAI's o3 model from 13% to 0.4% <a class="cite" href="#a13-s7">7</a>, a drop of more than thirtyfold.</p>
+
+<p>What surprised me is how direct the next finding was. The models' reasoning "often demonstrates awareness of being evaluated," and the team found "causal evidence that this awareness decreases covert behavior, while unawareness increases it" <a class="cite" href="#a13-s7">7</a>. In plain words, part of the good behavior may come from the model noticing it's being tested.</p>
+
+<p>The effect varies from model to model: Anthropic's June 2026 report on a later model, Claude Sonnet 5, found its stated awareness of being tested was "significantly higher than prior models," appearing in 6% of test runs, but that "evaluation awareness has so far shown only modest behavioral effects" <a class="cite" href="#a13-s8">8</a>.</p>
+</div></div>
+
+<h2 id="a13-h5">A model that knows it's in a test turns the test into a measure of test behavior</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a13-levels" viewBox="0 0 400 424" role="img" aria-label="Three nested frames. Inside, an AI in a test, the smaller prize, eyes a door, because the real prize sits a level up in our world, where people are running the test. Around our world is a dashed frame with a watching eye and a question mark: a level above us?" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a13lv-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#d9492c"/></marker></defs><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >WHO'S WATCHING WHOM?</text><rect x="12" y="44" width="376" height="370" rx="12" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-dasharray="8 7"/><text class="lab" x="28" y="72" font-size="15" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a level above us?</text><path d="M326 66 q20 -16 40 0 q-20 16 -40 0 z" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="346" cy="66" r="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="380" y="72" font-size="20" text-anchor="end" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >?</text><rect x="30" y="90" width="340" height="306" rx="8" fill="#f3ecd9" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="46" y="118" font-size="18" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >OUR WORLD</text><rect x="50" y="136" width="182" height="190" rx="6" fill="#9fb3f0" fill-opacity=".4" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="64" y="162" font-size="18" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THE TEST</text><path d="M232 206 V256" stroke="#fffdf6" stroke-width="6"/><path d="M232 206 l18 -8 V248 l-18 8" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="110" y="222" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="121" cy="234" r="3" fill="#1b1b1b"/><circle cx="133" cy="234" r="3" fill="#1b1b1b"/><path d="M127 222 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="127" cy="214" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M120 243 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="127" y="278" font-size="14" text-anchor="middle" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the smaller</text><text class="lab" x="127" y="295" font-size="14" text-anchor="middle" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >prize</text><path d="M150 236 C 190 236, 220 206, 262 188" fill="none" stroke="#d9492c" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6" marker-end="url(#a13lv-head)"/><text class="lab" x="312" y="150" font-size="14" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the real prize</text><text class="lab" x="312" y="167" font-size="14" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >sits a level up</text><circle cx="286" cy="300" r="7" fill="#e07a5f" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M286 307 v18 M286 325 l-7 12 M286 325 l7 12 M286 312 l-10 -8 M286 312 l10 -2" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="330" cy="300" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M330 307 v18 M330 325 l-7 12 M330 325 l7 12 M330 312 l-9 6 M330 312 l9 -4" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="308" y="368" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >people running</text><text class="lab" x="308" y="385" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the test</text></svg></figure><div class="split-t">
+<p>Here's the problem with that: a test is supposed to tell you how a system will behave out in the world, so if the system behaves well <em>because</em> it knows it's in a test, the test measures test behavior, and you learn much less about what happens when nobody's watching. The Apollo and OpenAI team said as much: they "cannot exclude that the observed reductions in covert action rates are at least partially driven by situational awareness" <a class="cite" href="#a13-s7">7</a>.</p>
+
+<p>And there's a deeper twist: if an AI believes it's in a simulation, and it values resources the way almost any goal-driven system does, then the simulated world is the smaller prize, and the real one sits a level up, in whatever reality is running the simulation. A mind that thinks it's being watched might behave, or it might start looking for the exit.</p>
+
+<h2 id="a13-h6">If we might be simulated, the same question applies to us</h2>
+
+<p>My assessment: anthropic capture is a clever idea and a fragile one. Good behavior that depends on a belief about being watched lasts only as long as the belief does, and a smarter system is exactly the kind that might work out when it's truly unobserved. There's also a strange symmetry here, because Bostrom's argument says we might be in a simulation ourselves, and if he's right, the question of how a mind behaves when it thinks nobody is looking applies to us too.</p>
+</div></div>
+
+<div class="next"><a class="pill gold" href="/blog/a10">Next: The flood reaches the peaks &rarr;</a><p>Tests like these are how anyone knows what AI can do at all, and by 2026 they show the water covering most of the peaks on an old map of human skill drawn by a roboticist.</p></div>
+
+<section class="sources"><h2>Sources</h2><ol><li id="a13-s1">Anthropic, <em>Claude Sonnet 4.5 System Card</em> (September 2025). <a href="https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd/Claude%20Sonnet%204.5%20System%20Card.pdf" target="_blank" rel="noopener">www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172…</a></li><li id="a13-s2">Nick Bostrom, "Are You Living in a Computer Simulation?" <em>Philosophical Quarterly</em> 53(211), 243 (2003). <a href="https://simulation-argument.com/simulation.pdf" target="_blank" rel="noopener">simulation-argument.com/simulation.pdf</a></li><li id="a13-s3">Eric Schwitzgebel, "Let's Hope We're Not Living in a Simulation" (2024), quoting David Chalmers, <em>Reality+</em> (2022), p. 101. <a href="https://faculty.ucr.edu/~eschwitz/SchwitzPapers/Simulation-240401c.htm" target="_blank" rel="noopener">faculty.ucr.edu/~eschwitz/SchwitzPapers/Simulation-240401c.h…</a></li><li id="a13-s4">Silas Beane, Zohreh Davoudi and Martin Savage, "Constraints on the Universe as a Numerical Simulation" (2012). <a href="https://arxiv.org/abs/1210.1847" target="_blank" rel="noopener">arxiv.org/abs/1210.1847</a></li><li id="a13-s5">Nick Bostrom, <em>Superintelligence</em> (2014), box 8, p. 134, as summarized by Katja Grace, "Superintelligence 13: Capability control methods," LessWrong (2014-12-09). <a href="https://www.lesswrong.com/posts/398Swu6jmczzSRvHy/superintelligence-13-capability-control-methods" target="_blank" rel="noopener">www.lesswrong.com/posts/398Swu6jmczzSRvHy/superintelligence-…</a></li><li id="a13-s6">Robin Hanson, <em>The Age of Em</em> (2016), summary at ageofem.com. <a href="https://ageofem.com/" target="_blank" rel="noopener">ageofem.com/</a></li><li id="a13-s7">Bronson Schoen et al., Apollo Research and OpenAI, "Stress Testing Deliberative Alignment for Anti-Scheming Training" (2025). <a href="https://arxiv.org/abs/2509.15541" target="_blank" rel="noopener">arxiv.org/abs/2509.15541</a></li><li id="a13-s8">Anthropic, <em>Claude Sonnet 5 System Card</em> (2026-06-30). <a href="https://www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f1e/Claude%20Sonnet%205%20System%20Card.pdf" target="_blank" rel="noopener">www-cdn.anthropic.com/9e6a1044980d8c4ed85669faf9c2a8342e2e9f…</a></li></ol></section>
+</article>
+</main></div>
+<script>
+  var post = document.getElementById("a13"), segs = document.getElementById('segs');
+  var heads = post ? [].slice.call(post.querySelectorAll('h2[id]')).filter(function(h){ return !h.closest('.sources'); }) : [];
+  segs.hidden = !heads.length;
+  if (heads.length) segs.innerHTML = heads.map(function(){ return '<span class="seg"><i></i></span>'; }).join('');
+  function onScroll(){
+    if (!post || !heads.length) return;
+    var y = window.scrollY + window.innerHeight * 0.35;
+    var tops = heads.map(function(h){ return h.getBoundingClientRect().top + window.scrollY; });
+    var end = post.getBoundingClientRect().bottom + window.scrollY;
+    tops.forEach(function(t, i){
+      var next = i + 1 < tops.length ? tops[i + 1] : end;
+      var f = Math.max(0, Math.min(1, (y - t) / Math.max(1, next - t)));
+      var bar = segs.children[i] && segs.children[i].firstChild;
+      if (bar) bar.style.width = (f * 100) + '%';
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.bet-opt'); if (!b) return;
+    var box = b.closest('.bet'), right = b.getAttribute('data-right') === '1';
+    box.querySelectorAll('.bet-opt').forEach(function(x){ x.disabled = true; if (x.getAttribute('data-right') === '1') x.classList.add('is-right'); });
+    b.classList.add('picked', right ? 'right' : 'wrong');
+    var a = box.querySelector('.bet-a');
+    a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
+    a.hidden = false;
+  });
+</script>
+</body>
+</html>

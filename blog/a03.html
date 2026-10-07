@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A mind a billion light-years wide|would get about ten thoughts | SafeAGI Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bangers&family=Comic+Neue:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Single light look built on safeagi.ca's comic skin (tools/deck/deck.css).
+   Default skin "mature": same paper, ink, outlines and hard shadows, with editorial type.
+   html.skin-comic restores the full comic treatment for comparison. */
+:root{color-scheme:light;
+  --paper:#f4ecd8; --white:#fffdf6; --ink:#1b1b1b; --ink2:#3b3833; --ink3:#6f6a60; --soft:#cfc4ab; --seg:#e3d8bd;
+  --red:#c8472f; --gold:#e8b53a; --green:#6fae5a; --blue:#4a5fc9;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace; --logo:"Bangers","Impact",sans-serif;
+  /* mature skin */
+  --head:"Archivo","Arial Narrow",sans-serif; --head-w:800; --head-x:76%; --head-ls:-.005em; --head-tt:none; --tsh:none;
+  --body:"Newsreader",Georgia,"Times New Roman",serif; --body-size:19.5px; --body-lh:1.66;
+  --ui:"Archivo",system-ui,sans-serif; --ui-x:100%;
+  --q:"Newsreader",Georgia,serif; --q-w:500; --q-style:normal; --q-size:clamp(25px,1rem + 1.1vw,32px);
+  --bw:2px; --sh:4px; --rad:8px; --dots:.035; --cap:6px;
+  --toc:260px; --bar:62px}
+html.skin-comic{--red:#d2553f;
+  --head:"Bangers","Impact",sans-serif; --head-w:400; --head-x:100%; --head-ls:.03em; --tsh:3px 3px 0 rgba(27,27,27,.17);
+  --body:"Comic Neue","Comic Sans MS",system-ui,sans-serif; --body-size:19px; --body-lh:1.6;
+  --ui:"Comic Neue","Comic Sans MS",system-ui,sans-serif;
+  --q:"Bangers","Impact",sans-serif; --q-w:400; --q-size:clamp(26px,1rem + 1.4vw,36px);
+  --bw:3px; --sh:5px; --rad:10px; --dots:.07; --cap:10px}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + 14px)}
+body{background-color:var(--paper);background-image:radial-gradient(rgba(27,27,27,var(--dots)) 1px,transparent 1.2px);background-size:9px 9px;
+  color:var(--ink);font:400 var(--body-size)/var(--body-lh) var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hd{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh)}
+
+/* ---- top bar ---- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--white);border-bottom:var(--bw) solid var(--ink)}
+.bar-row{display:flex;align-items:center;gap:14px;padding:8px 18px;min-height:56px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.logo{font-family:var(--logo);font-size:26px;letter-spacing:.04em;color:var(--ink);text-shadow:2px 2px 0 rgba(27,27,27,.17);white-space:nowrap}
+.primer{font:600 13px/1.25 var(--ui);color:var(--ink2);letter-spacing:.01em;max-width:34ch}
+.primer b{color:var(--red);font-weight:700}
+.acts{display:flex;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:99px;border:var(--bw) solid var(--ink);background:var(--white);color:var(--ink);
+  font:700 14px/1 var(--ui);text-decoration:none;box-shadow:3px 3px 0 var(--ink);cursor:pointer;white-space:nowrap;transition:transform .08s,box-shadow .08s}
+.pill:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.go{background:var(--green)}
+.pill.gold{background:var(--gold)}
+.pill.ghost{box-shadow:none;border-style:dashed;font-weight:600}
+.menu-btn[aria-expanded="true"]{background:var(--gold)}
+.segs{display:flex;gap:4px;height:5px}
+.segs[hidden]{display:none}
+.seg{flex:1;background:var(--seg);position:relative;overflow:hidden}
+.seg i{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink)}
+
+/* ---- contents ---- */
+.toc{display:none}
+.menu{position:fixed;z-index:60;top:calc(var(--bar) + 8px);left:10px;right:10px;max-height:calc(100% - var(--bar) - 24px);overflow:auto;
+  background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 12px}
+.tc-hide{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border:2px solid var(--ink);border-radius:99px;background:var(--white);font:700 12.5px/1.2 var(--ui);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink);margin:0 0 10px 6px}
+.tc-hide:hover{background:var(--gold)}
+.tc-g{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:18px 6px 6px;line-height:1.3}
+html.skin-comic .tc-g{font-family:var(--head);font-size:19px;letter-spacing:.03em;text-transform:none;color:var(--ink)}
+.tc-sec{margin:2px 0}
+.tc-s{display:block;padding:6px 8px 6px 12px;font:400 14.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border-left:4px solid transparent}
+.tc-s b{font-weight:700;color:var(--ink);margin-right:4px}
+.tc-s:hover{background:var(--paper);color:var(--ink)}
+.tc-sec.cur>.tc-s{background:var(--paper);color:var(--ink);font-weight:700;border-left-color:var(--gold)}
+.tc-parts{display:none;list-style:none;margin:4px 0 6px 16px;padding:0 0 0 10px;border-left:2px dashed var(--soft)}
+.tc-sec.cur .tc-parts{display:block}
+.tc-p{display:block;padding:4px 8px;font:400 13.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border:1.5px solid transparent}
+.tc-p:hover{background:var(--paper)}
+.tc-p.on{background:var(--gold);color:var(--ink);font-weight:700;box-shadow:2px 2px 0 var(--ink);border-color:var(--ink)}
+.tc-show{display:none}
+@media (min-width:1100px){
+  .toc{display:block;position:fixed;left:0;top:var(--bar);bottom:0;width:var(--toc);z-index:30;overflow-y:auto;overscroll-behavior:contain;
+    background:var(--white);border-right:var(--bw) solid var(--ink);padding:14px 12px 60px}
+  .main{margin-left:var(--toc)}
+  .menu-btn,.menu{display:none!important}
+  html.toc-off .toc{display:none}
+  html.toc-off .main{margin-left:0}
+  html.toc-off .tc-show{display:inline-flex}
+}
+@media (max-width:1099px){.primer{display:none}}
+
+/* ---- page ---- */
+.main{padding:0 clamp(16px,4vw,48px) 80px}
+.page{max-width:1000px;margin:0 auto}
+.kick{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:30px 0 12px}
+.title{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(40px,2.7vw + 24px,66px);line-height:1.01;color:var(--ink);margin:0 0 22px;text-wrap:balance}
+html.skin-comic .title{text-shadow:4px 4px 0 rgba(27,27,27,.17)}
+.title .hl{color:var(--red);display:block}
+.box{background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:18px 24px;margin:0 0 28px}
+.box p{margin:0 0 .6em}
+.box p:last-child{margin-bottom:0}
+.lede{font-size:calc(var(--body-size) + 1px);line-height:1.55}
+.lede strong,.post strong{font-weight:600;color:var(--ink)}
+html.skin-comic .lede strong,html.skin-comic .post strong{font-weight:700}
+.bigq-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px!important}
+.bigq-q{font-family:var(--q);font-weight:var(--q-w);font-size:var(--q-size);line-height:1.18;letter-spacing:-.005em;margin:0 0 12px!important;text-wrap:balance}
+html.skin-comic .bigq-q{letter-spacing:.03em;line-height:1.12}
+
+.post p,.post ul{max-width:740px;margin:0 0 1em}
+.post h2{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(28px,1rem + 1.3vw,38px);line-height:1.06;color:var(--ink);margin:50px 0 14px;text-wrap:balance}
+.post p.hook{font-size:calc(var(--body-size) + 2px);line-height:1.55}
+sup{font-size:.66em;line-height:0}
+.cite{font:700 .6em/0 var(--mono);vertical-align:super;text-decoration:none;color:var(--red);padding:0 1px}
+.cite:hover{text-decoration:underline}
+
+.split{display:grid;gap:8px 36px;align-items:start;margin:4px 0 18px}
+.split>.fig{margin:6px auto 22px}
+@media (min-width:1180px){.split{grid-template-columns:minmax(0,1fr) 400px}.split>.split-t{grid-column:1;grid-row:1}.split>.fig{grid-column:2;grid-row:1;margin:4px 0 0;position:sticky;top:calc(var(--bar) + 24px)}}
+.split-t>:last-child{margin-bottom:0}
+.fig{max-width:430px;width:100%;margin:28px auto;background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:8px}
+.fig-svg{display:block;width:100%;height:auto}
+/* mature skin: figure lettering in the page's sans; the drawings stay hand-drawn */
+html:not(.skin-comic) .fig-svg text.big{font-family:"Archivo","Arial Narrow",sans-serif;font-weight:800;font-stretch:72%;letter-spacing:.01em}
+html:not(.skin-comic) .fig-svg text.lab{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-stretch:88%}
+
+.callout{background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--gold);border-radius:6px;box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 20px 4px;margin:24px 0;max-width:740px}
+.callout-k{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);font-size:23px;margin:0 0 4px!important}
+
+.bet{margin:28px 0 32px}
+.bet-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 6px!important}
+.bet-q{font:600 clamp(19px,1rem + .5vw,22px)/1.35 var(--ui);margin:0 0 16px!important;max-width:none!important}
+html.skin-comic .bet-q{font-weight:700;font-size:clamp(20px,1rem + .6vw,24px)}
+.bet-opts{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 6px}
+.bet-opt{min-height:46px;padding:8px 18px;font:600 16px/1.25 var(--ui);color:var(--ink);background:var(--white);border:var(--bw) solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-align:left}
+html.skin-comic .bet-opt{font-weight:700}
+.bet-opt:hover:not(:disabled){background:var(--gold)}
+.bet-opt:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.bet-opt:disabled{cursor:default}
+.bet-opt.is-right{background:#b9d6a8}
+.bet-opt.picked.wrong{background:#f6d5cc;text-decoration:line-through}
+.bet-a{margin:14px 0 0!important;font-size:calc(var(--body-size) - .5px)}
+.bet-verdict{font:700 1em var(--ui);color:var(--red)}
+
+.next{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:44px 0 0}
+.next p{margin:0;max-width:56ch;font-size:17px}
+.draftnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--white);border:2px dashed var(--soft);border-radius:8px;padding:10px 12px;color:var(--ink2);max-width:740px}
+.post .note{font-size:15.5px;color:var(--ink3)}
+.tbl{overflow-x:auto;margin:20px 0;max-width:860px}
+table{border-collapse:separate;border-spacing:0;font:400 16px/1.4 var(--ui);background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad)}
+th,td{text-align:left;padding:8px 12px;border-bottom:1.5px solid var(--soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom:var(--bw) solid var(--ink)}
+.sources{margin-top:50px;padding-top:16px;border-top:2px dashed var(--soft);max-width:860px}
+.sources h2{font-size:24px!important;margin:0 0 10px!important}
+.sources ol{font:400 14.5px/1.5 var(--ui);color:var(--ink2);padding-left:1.5em;margin:0}
+.sources li{margin-bottom:6px;overflow-wrap:anywhere}
+.sources li:target{background:var(--gold)}
+.sources a{color:var(--ink2)}
+
+/* ---- home ---- */
+.devnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink2);border:2px dashed var(--soft);background:var(--white);border-radius:8px;padding:10px 12px;margin:22px 0 0}
+.home-g{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);font-size:clamp(26px,1rem + 1vw,34px);margin:38px 0 16px}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 18px 16px;background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--k,var(--gold));border-radius:6px;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);text-decoration:none;color:var(--ink);transition:transform .1s,box-shadow .1s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--ink)}
+.card-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.card-t{font:700 19px/1.25 var(--ui)}
+html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stretch:84%;font-size:21px;line-height:1.15}
+.card-d{font-size:16px;line-height:1.45;color:var(--ink2)}
+.chip{align-self:flex-start;margin-top:auto;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px;border:2px solid var(--ink);background:var(--paper)}
+.chip-illustrated{background:var(--gold)}
+
+@media (max-width:760px){
+  body{font-size:calc(var(--body-size) - 1.5px)}
+  .bar-row{gap:8px;padding:7px 12px}
+  .logo{font-size:22px}
+  .pill{min-height:36px;padding:0 11px;font-size:13px}
+  .pill.ghost{display:none}
+  .box,.fig,.callout,.card{box-shadow:3px 3px 0 var(--ink)}
+  .box{padding:13px 16px}
+  .fig{padding:4px}
+  .post p.hook{font-size:calc(var(--body-size))}
+}
+@media (prefers-reduced-motion: reduce){.card,.pill{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-row">
+    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <div class="acts">
+      <a class="pill" href="/blog">&larr; All essays</a>
+      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+    </div>
+  </div>
+  <div class="segs" id="segs" hidden></div>
+</header>
+<div class="main"><main class="page">
+<article class="post" id="a03">
+  <p class="kick">The limits of intelligence · part 3 of 4 · by Bill Guan</p>
+  <h1 class="title">A mind a billion light-years wide <span class="hl">would get about ten thoughts</span></h1>
+  <div class="box lede"><p class="bigq-k">The big question</p><p class="bigq-q">Could a single mind ever stretch across the universe?</p><p>It could try, and it would barely get started. You're about to see how <strong>the speed of light</strong> and <strong>the expanding universe</strong> tear a cosmic mind apart, and why the far future of intelligence looks like a scattered network of local minds instead.</p></div>
+
+<p class="hook">Picture a single mind a billion light-years wide, its thoughts carried between galaxies at the speed of light. Max Tegmark makes a claim in his book <em>Life 3.0</em> that I've thought about on and off for years: a mind like that would have time for roughly ten thoughts in total before dark energy, whatever is making the universe expand faster and faster, broke it into disconnected pieces <a class="cite" href="#a03-s1">1</a>.</p>
+
+<p>It sounds like a riddle, but the reasoning behind it is simple, and it says something real about the shape the far future of intelligence has to take.</p>
+
+<div class="bet box" id="a03-bet1"><p class="bet-k">Your guess first</p><p class="bet-q">Of all the galaxies our telescopes can see, what share could a message sent from Earth today ever reach?</p><div class="bet-opts"><button type="button" class="bet-opt" id="a03-bet1-o1" data-right="0">All of them, given enough time</button><button type="button" class="bet-opt" id="a03-bet1-o2" data-right="0">About half</button><button type="button" class="bet-opt" id="a03-bet1-o3" data-right="1">Less than 5%</button></div><p class="bet-a" hidden><span class="bet-verdict"></span> Less than 5%, and the share shrinks every year. The same expansion that carries those galaxies out of reach is what would tear a cosmic mind apart.</p></div>
+
+<h2 id="a03-h1">The universe is carrying its galaxies out of reach</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a03-reach" viewBox="0 0 400 448" role="img" aria-label="Two nested circles centred on us. The big circle is everything we can see, 46.4 billion light-years in radius, with about 400 billion galaxies. The small gold circle inside is everything a signal from Earth could ever reach, 16.5 billion light-years in radius, with about 17.5 billion galaxies, less than 5 percent. Red arrows show the reachable zone shrinking by about one light-year and three galaxies every year." xmlns="http://www.w3.org/2000/svg"><defs><marker id="a03re" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#d9492c"/></marker></defs><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >HOW MUCH CAN WE EVER REACH?</text><circle cx="200" cy="222" r="168" fill="#dfe6fb" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="155.6" cy="160.1" rx="3.6" ry="2" transform="rotate(8 155.6 160.1)" fill="#8f9bc4"/><ellipse cx="275.0" cy="174.2" rx="3.6" ry="2" transform="rotate(-49 275.0 174.2)" fill="#8f9bc4"/><ellipse cx="130.5" cy="252.8" rx="3.6" ry="2" transform="rotate(-49 130.5 252.8)" fill="#8f9bc4"/><ellipse cx="128.8" cy="198.3" rx="3.6" ry="2" transform="rotate(12 128.8 198.3)" fill="#8f9bc4"/><ellipse cx="263.9" cy="284.9" rx="3.6" ry="2" transform="rotate(20 263.9 284.9)" fill="#8f9bc4"/><ellipse cx="134.7" cy="184.5" rx="3.6" ry="2" transform="rotate(14 134.7 184.5)" fill="#8f9bc4"/><ellipse cx="75.0" cy="316.8" rx="3.6" ry="2" transform="rotate(-55 75.0 316.8)" fill="#8f9bc4"/><ellipse cx="123.5" cy="193.5" rx="3.6" ry="2" transform="rotate(-7 123.5 193.5)" fill="#8f9bc4"/><ellipse cx="249.5" cy="285.2" rx="3.6" ry="2" transform="rotate(-21 249.5 285.2)" fill="#8f9bc4"/><ellipse cx="78.6" cy="173.7" rx="3.6" ry="2" transform="rotate(-47 78.6 173.7)" fill="#8f9bc4"/><ellipse cx="89.5" cy="159.8" rx="3.6" ry="2" transform="rotate(-13 89.5 159.8)" fill="#8f9bc4"/><ellipse cx="85.1" cy="172.8" rx="3.6" ry="2" transform="rotate(3 85.1 172.8)" fill="#8f9bc4"/><ellipse cx="107.6" cy="250.0" rx="3.6" ry="2" transform="rotate(41 107.6 250.0)" fill="#8f9bc4"/><ellipse cx="284.1" cy="269.5" rx="3.6" ry="2" transform="rotate(3 284.1 269.5)" fill="#8f9bc4"/><ellipse cx="162.9" cy="374.8" rx="3.6" ry="2" transform="rotate(-45 162.9 374.8)" fill="#8f9bc4"/><ellipse cx="115.8" cy="215.7" rx="3.6" ry="2" transform="rotate(-17 115.8 215.7)" fill="#8f9bc4"/><ellipse cx="325.5" cy="253.6" rx="3.6" ry="2" transform="rotate(37 325.5 253.6)" fill="#8f9bc4"/><ellipse cx="69.1" cy="172.0" rx="3.6" ry="2" transform="rotate(44 69.1 172.0)" fill="#8f9bc4"/><ellipse cx="99.2" cy="154.1" rx="3.6" ry="2" transform="rotate(-2 99.2 154.1)" fill="#8f9bc4"/><ellipse cx="270.9" cy="254.7" rx="3.6" ry="2" transform="rotate(-26 270.9 254.7)" fill="#8f9bc4"/><ellipse cx="72.7" cy="242.9" rx="3.6" ry="2" transform="rotate(-53 72.7 242.9)" fill="#8f9bc4"/><ellipse cx="84.8" cy="160.6" rx="3.6" ry="2" transform="rotate(-3 84.8 160.6)" fill="#8f9bc4"/><ellipse cx="164.9" cy="159.4" rx="3.6" ry="2" transform="rotate(-1 164.9 159.4)" fill="#8f9bc4"/><ellipse cx="110.9" cy="225.5" rx="3.6" ry="2" transform="rotate(-24 110.9 225.5)" fill="#8f9bc4"/><ellipse cx="296.1" cy="275.3" rx="3.6" ry="2" transform="rotate(10 296.1 275.3)" fill="#8f9bc4"/><ellipse cx="92.3" cy="272.3" rx="3.6" ry="2" transform="rotate(30 92.3 272.3)" fill="#8f9bc4"/><ellipse cx="112.3" cy="273.6" rx="3.6" ry="2" transform="rotate(53 112.3 273.6)" fill="#8f9bc4"/><ellipse cx="134.0" cy="283.7" rx="3.6" ry="2" transform="rotate(-50 134.0 283.7)" fill="#8f9bc4"/><ellipse cx="121.0" cy="172.5" rx="3.6" ry="2" transform="rotate(-60 121.0 172.5)" fill="#8f9bc4"/><ellipse cx="124.3" cy="159.5" rx="3.6" ry="2" transform="rotate(-44 124.3 159.5)" fill="#8f9bc4"/><ellipse cx="341.5" cy="271.9" rx="3.6" ry="2" transform="rotate(39 341.5 271.9)" fill="#8f9bc4"/><ellipse cx="324.6" cy="183.2" rx="3.6" ry="2" transform="rotate(11 324.6 183.2)" fill="#8f9bc4"/><ellipse cx="117.8" cy="287.9" rx="3.6" ry="2" transform="rotate(-47 117.8 287.9)" fill="#8f9bc4"/><ellipse cx="95.2" cy="234.2" rx="3.6" ry="2" transform="rotate(-36 95.2 234.2)" fill="#8f9bc4"/><ellipse cx="280.6" cy="258.3" rx="3.6" ry="2" transform="rotate(-40 280.6 258.3)" fill="#8f9bc4"/><ellipse cx="49.6" cy="186.8" rx="3.6" ry="2" transform="rotate(18 49.6 186.8)" fill="#8f9bc4"/><ellipse cx="345.9" cy="245.6" rx="3.6" ry="2" transform="rotate(18 345.9 245.6)" fill="#8f9bc4"/><ellipse cx="318.7" cy="187.9" rx="3.6" ry="2" transform="rotate(0 318.7 187.9)" fill="#8f9bc4"/><ellipse cx="311.2" cy="217.2" rx="3.6" ry="2" transform="rotate(1 311.2 217.2)" fill="#8f9bc4"/><ellipse cx="69.7" cy="239.6" rx="3.6" ry="2" transform="rotate(6 69.7 239.6)" fill="#8f9bc4"/><ellipse cx="353.0" cy="244.4" rx="3.6" ry="2" transform="rotate(7 353.0 244.4)" fill="#8f9bc4"/><ellipse cx="317.9" cy="151.4" rx="3.6" ry="2" transform="rotate(-22 317.9 151.4)" fill="#8f9bc4"/><ellipse cx="345.5" cy="202.2" rx="3.6" ry="2" transform="rotate(29 345.5 202.2)" fill="#8f9bc4"/><ellipse cx="285.1" cy="166.7" rx="3.6" ry="2" transform="rotate(-32 285.1 166.7)" fill="#8f9bc4"/><ellipse cx="63.6" cy="193.7" rx="3.6" ry="2" transform="rotate(-18 63.6 193.7)" fill="#8f9bc4"/><ellipse cx="181.2" cy="65.1" rx="3.6" ry="2" transform="rotate(41 181.2 65.1)" fill="#8f9bc4"/><ellipse cx="55.0" cy="271.9" rx="3.6" ry="2" transform="rotate(-16 55.0 271.9)" fill="#8f9bc4"/><ellipse cx="298.2" cy="193.5" rx="3.6" ry="2" transform="rotate(-32 298.2 193.5)" fill="#8f9bc4"/><ellipse cx="323.7" cy="210.5" rx="3.6" ry="2" transform="rotate(-60 323.7 210.5)" fill="#8f9bc4"/><ellipse cx="73.0" cy="238.5" rx="3.6" ry="2" transform="rotate(42 73.0 238.5)" fill="#8f9bc4"/><ellipse cx="283.1" cy="152.3" rx="3.6" ry="2" transform="rotate(21 283.1 152.3)" fill="#8f9bc4"/><ellipse cx="303.4" cy="203.4" rx="3.6" ry="2" transform="rotate(-9 303.4 203.4)" fill="#8f9bc4"/><ellipse cx="196.8" cy="144.7" rx="3.6" ry="2" transform="rotate(-40 196.8 144.7)" fill="#8f9bc4"/><ellipse cx="228.8" cy="144.4" rx="3.6" ry="2" transform="rotate(45 228.8 144.4)" fill="#8f9bc4"/><ellipse cx="107.6" cy="158.5" rx="3.6" ry="2" transform="rotate(59 107.6 158.5)" fill="#8f9bc4"/><ellipse cx="248.3" cy="274.1" rx="3.6" ry="2" transform="rotate(32 248.3 274.1)" fill="#8f9bc4"/><ellipse cx="299.2" cy="178.1" rx="3.6" ry="2" transform="rotate(51 299.2 178.1)" fill="#8f9bc4"/><ellipse cx="287.4" cy="237.5" rx="3.6" ry="2" transform="rotate(4 287.4 237.5)" fill="#8f9bc4"/><ellipse cx="69.7" cy="146.8" rx="3.6" ry="2" transform="rotate(-7 69.7 146.8)" fill="#8f9bc4"/><ellipse cx="256.7" cy="283.0" rx="3.6" ry="2" transform="rotate(5 256.7 283.0)" fill="#8f9bc4"/><ellipse cx="308.3" cy="234.8" rx="3.6" ry="2" transform="rotate(-37 308.3 234.8)" fill="#8f9bc4"/><ellipse cx="141.0" cy="167.2" rx="3.6" ry="2" transform="rotate(-53 141.0 167.2)" fill="#8f9bc4"/><ellipse cx="68.6" cy="174.3" rx="3.6" ry="2" transform="rotate(-47 68.6 174.3)" fill="#8f9bc4"/><ellipse cx="255.6" cy="171.9" rx="3.6" ry="2" transform="rotate(-36 255.6 171.9)" fill="#8f9bc4"/><ellipse cx="80.3" cy="216.2" rx="3.6" ry="2" transform="rotate(37 80.3 216.2)" fill="#8f9bc4"/><ellipse cx="259.3" cy="175.4" rx="3.6" ry="2" transform="rotate(-19 259.3 175.4)" fill="#8f9bc4"/><ellipse cx="112.7" cy="147.4" rx="3.6" ry="2" transform="rotate(5 112.7 147.4)" fill="#8f9bc4"/><ellipse cx="58.4" cy="214.7" rx="3.6" ry="2" transform="rotate(4 58.4 214.7)" fill="#8f9bc4"/><ellipse cx="323.3" cy="174.5" rx="3.6" ry="2" transform="rotate(52 323.3 174.5)" fill="#8f9bc4"/><ellipse cx="332.2" cy="152.3" rx="3.6" ry="2" transform="rotate(-35 332.2 152.3)" fill="#8f9bc4"/><circle cx="200" cy="222" r="59.7" fill="#ffe29a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="249.7" cy="232.1" rx="3.6" ry="2" transform="rotate(-60 249.7 232.1)" fill="#c08a1e"/><ellipse cx="240.4" cy="252.7" rx="3.6" ry="2" transform="rotate(-23 240.4 252.7)" fill="#c08a1e"/><ellipse cx="223.1" cy="267.2" rx="3.6" ry="2" transform="rotate(14 223.1 267.2)" fill="#c08a1e"/><ellipse cx="201.2" cy="272.7" rx="3.6" ry="2" transform="rotate(51 201.2 272.7)" fill="#c08a1e"/><ellipse cx="179.1" cy="268.2" rx="3.6" ry="2" transform="rotate(-32 179.1 268.2)" fill="#c08a1e"/><ellipse cx="161.1" cy="254.6" rx="3.6" ry="2" transform="rotate(5 161.1 254.6)" fill="#c08a1e"/><ellipse cx="150.8" cy="234.5" rx="3.6" ry="2" transform="rotate(42 150.8 234.5)" fill="#c08a1e"/><ellipse cx="150.3" cy="211.9" rx="3.6" ry="2" transform="rotate(-41 150.3 211.9)" fill="#c08a1e"/><ellipse cx="159.6" cy="191.3" rx="3.6" ry="2" transform="rotate(-4 159.6 191.3)" fill="#c08a1e"/><ellipse cx="176.9" cy="176.8" rx="3.6" ry="2" transform="rotate(33 176.9 176.8)" fill="#c08a1e"/><ellipse cx="198.8" cy="171.3" rx="3.6" ry="2" transform="rotate(-50 198.8 171.3)" fill="#c08a1e"/><ellipse cx="220.9" cy="175.8" rx="3.6" ry="2" transform="rotate(-13 220.9 175.8)" fill="#c08a1e"/><ellipse cx="238.9" cy="189.4" rx="3.6" ry="2" transform="rotate(24 238.9 189.4)" fill="#c08a1e"/><ellipse cx="249.2" cy="209.5" rx="3.6" ry="2" transform="rotate(-59 249.2 209.5)" fill="#c08a1e"/><path d="M275.8 246.6 L261.6 242.0" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round" marker-end="url(#a03re)"/><path d="M124.2 246.6 L138.4 242.0" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round" marker-end="url(#a03re)"/><path d="M143.6 165.6 L154.2 176.2" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round" marker-end="url(#a03re)"/><path d="M256.4 165.6 L245.8 176.2" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round" marker-end="url(#a03re)"/><text class="big" x="200" y="92" font-size="19" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >WHAT WE CAN SEE</text><text class="lab" x="200" y="112" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >radius 46.4 billion light-years</text><text class="lab" x="200" y="130" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 400 billion galaxies</text><text class="big" x="200" y="208" font-size="15" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >LESS THAN</text><text class="big" x="200" y="245" font-size="32" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >5%</text><circle cx="194" cy="265" r="5" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2"/><text class="lab" x="203" y="270" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >us</text><text class="big" x="200" y="314" font-size="17" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >WHAT WE COULD EVER REACH</text><text class="lab" x="200" y="333" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >radius 16.5 billion light-years</text><text class="lab" x="200" y="351" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 17.5 billion galaxies</text><text class="lab" x="200" y="418" font-size="14" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >red arrows: every year the reachable zone shrinks</text><text class="lab" x="200" y="436" font-size="14" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >by about 1 light-year and loses about 3 galaxies</text></svg></figure><div class="split-t">
+<p>In 1998, two teams of astronomers measuring distant exploding stars found that the expansion of the universe is speeding up, a discovery that won the 2011 Nobel Prize in Physics <a class="cite" href="#a03-s2">2</a>. Whatever drives that acceleration is what physicists call dark energy.</p>
+
+<p>The consequence for anyone hoping to reach far-off places is harsh. Toby Ord, a philosopher at Oxford, worked through the numbers in 2021. The observable universe, everything whose light we can see, has a radius of about 46.4 billion light-years, while the <em>affectable</em> universe, everything a signal leaving Earth today could ever reach, has a radius of only about 16.5 billion light-years <a class="cite" href="#a03-s3">3</a>. In his words, "Less than 5% of the galaxies we can currently observe could ever be affected by us, and this is shrinking all the time" <a class="cite" href="#a03-s3">3</a>. He counts roughly 17.5 billion galaxies we could still reach, out of about 400 billion we can see.</p>
+
+<p>The window is closing as we speak. Every year, "the radius of the affectable universe will shrink by about one light year and about 3 galaxies will slip forever beyond our causal reach" <a class="cite" href="#a03-s3">3</a>.</p>
+</div></div>
+
+<h2 id="a03-h2">A mind that big gets one thought every billion years</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a03-torn" viewBox="0 0 400 466" role="img" aria-label="Three snapshots of one mind made of linked galaxies. At thought 1 the galaxies are joined and a signal takes a billion years to cross. By thought 5 space has stretched and the links are thin. By thought 10 the links are broken and the pieces are cut off for good." xmlns="http://www.w3.org/2000/svg"><defs><marker id="a03to" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1b1b1b"/></marker></defs><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >TEN THOUGHTS, THEN SILENCE</text><path d="M196.0 98.0 L234.0 142.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><path d="M234.0 142.0 L272.0 92.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><path d="M272.0 92.0 L308.0 138.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><path d="M308.0 138.0 L340.0 102.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><path d="M196.0 98.0 L272.0 92.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><path d="M234.0 142.0 L308.0 138.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><path d="M272.0 92.0 L340.0 102.0" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(196.0 98.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(234.0 142.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(272.0 92.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(308.0 138.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(340.0 102.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><circle cx="254.9" cy="114.5" r="5" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="266" y="182" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >gold dot: one signal, crossing at light speed</text><text class="big" x="14" y="98" font-size="19" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THOUGHT 1</text><text class="lab" x="14" y="118" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a billion years</text><text class="lab" x="14" y="135" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >per thought</text><path d="M14 188 H386" stroke="#cbbf9f" stroke-width="2" stroke-dasharray="6 6"/><path d="M178.5 233.0 L226.0 288.0" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M226.0 288.0 L273.5 225.5" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M273.5 225.5 L318.5 283.0" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M318.5 283.0 L358.5 238.0" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M178.5 233.0 L273.5 225.5" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M226.0 288.0 L318.5 283.0" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M273.5 225.5 L358.5 238.0" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><g transform="translate(178.5 233.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(226.0 288.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(273.5 225.5) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(318.5 283.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(358.5 238.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><path d="M162.2 229.7 L149.7 227.0" stroke="#5c574e" stroke-width="2" stroke-linecap="round" marker-end="url(#a03to)"/><path d="M212.4 295.2 L202.0 301.2" stroke="#5c574e" stroke-width="2" stroke-linecap="round" marker-end="url(#a03to)"/><path d="M277.3 213.8 L280.2 204.1" stroke="#5c574e" stroke-width="2" stroke-linecap="round" marker-end="url(#a03to)"/><path d="M333.8 288.2 L345.6 292.5" stroke="#5c574e" stroke-width="2" stroke-linecap="round" marker-end="url(#a03to)"/><path d="M375.1 235.5 L387.8 233.4" stroke="#5c574e" stroke-width="2" stroke-linecap="round" marker-end="url(#a03to)"/><text class="big" x="14" y="238" font-size="19" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THOUGHT 5</text><text class="lab" x="14" y="258" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >space keeps</text><text class="lab" x="14" y="275" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >stretching</text><path d="M14 328 H386" stroke="#cbbf9f" stroke-width="2" stroke-dasharray="6 6"/><path d="M161.0 368.0 L178.1 387.8 M218.0 434.0 L200.9 414.2" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M189.5 401.0 l-5 -5 M189.5 401.0 l5 -5 M189.5 401.0 l-5 5 M189.5 401.0 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><path d="M218.0 434.0 L235.1 411.5 M275.0 359.0 L257.9 381.5" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M246.5 396.5 l-5 -5 M246.5 396.5 l5 -5 M246.5 396.5 l-5 5 M246.5 396.5 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><path d="M275.0 359.0 L291.2 379.7 M329.0 428.0 L312.8 407.3" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M302.0 393.5 l-5 -5 M302.0 393.5 l5 -5 M302.0 393.5 l-5 5 M302.0 393.5 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><path d="M329.0 428.0 L343.4 411.8 M377.0 374.0 L362.6 390.2" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M353.0 401.0 l-5 -5 M353.0 401.0 l5 -5 M353.0 401.0 l-5 5 M353.0 401.0 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><path d="M161.0 368.0 L195.2 365.3 M275.0 359.0 L240.8 361.7" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M218.0 363.5 l-5 -5 M218.0 363.5 l5 -5 M218.0 363.5 l-5 5 M218.0 363.5 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><path d="M218.0 434.0 L251.3 432.2 M329.0 428.0 L295.7 429.8" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M273.5 431.0 l-5 -5 M273.5 431.0 l5 -5 M273.5 431.0 l-5 5 M273.5 431.0 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><path d="M275.0 359.0 L305.6 363.5 M377.0 374.0 L346.4 369.5" stroke="#4a5fc9" stroke-width="2" stroke-dasharray="7 5" stroke-linecap="round"/><path d="M326.0 366.5 l-5 -5 M326.0 366.5 l5 -5 M326.0 366.5 l-5 5 M326.0 366.5 l5 5" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(161.0 368.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(218.0 434.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(275.0 359.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(329.0 428.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><g transform="translate(377.0 374.0) scale(1.15)"><ellipse cx="0" cy="0" rx="13" ry="7" fill="#d9cdf0" stroke="#1b1b1b" stroke-width="2"/><path d="M-3 0 c-1 -4 7 -5 9 -1 c2 4 -4 6 -8 5 c-6 -1 -7 -6 -2 -8" fill="none" stroke="#1b1b1b" stroke-width="1.5" stroke-linecap="round"/><circle cx="0" cy="0" r="2.2" fill="#ffd166"/></g><text class="big" x="14" y="378" font-size="19" text-anchor="start" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >THOUGHT 10</text><text class="lab" x="14" y="398" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the pieces are</text><text class="lab" x="14" y="415" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >cut off for good</text></svg></figure><div class="split-t">
+<p>A mind can only coordinate as fast as a signal can cross it. A brain does it in about a millisecond, and a computer the size of the Earth would need about 42 milliseconds, while a mind a billion light-years wide needs a billion years for every single crossing, even with signals moving at the speed of light, the fastest anything can go. On those timescales the universe itself stops being a fixed stage and starts changing underneath the mind.</p>
+
+<p>That's what breaks the cosmic mind. Each of its thoughts takes a billion years, and over a handful of those billion-year stretches the expansion drags its far-flung parts beyond reach of each other, so after about ten thoughts the pieces can never talk again.</p>
+</div></div>
+
+<h2 id="a03-h3">Cosmic intelligence has to think locally</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a03-archipelago" viewBox="0 0 400 400" role="img" aria-label="Four islands in a sea, each holding a small robot mind that thinks fast on its own. Dotted paths between the islands carry envelopes: a blueprint, and a whole mind sent as a signal. Messages between islands take millions to billions of years." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >AN ARCHIPELAGO OF MINDS</text><rect x="10" y="40" width="380" height="350" rx="14" fill="#e6eefb"/><path d="M176 128 q6 -5 12 0 q6 5 12 0" fill="none" stroke="#a9bde6" stroke-width="2" stroke-linecap="round"/><path d="M206 270 q6 -5 12 0 q6 5 12 0" fill="none" stroke="#a9bde6" stroke-width="2" stroke-linecap="round"/><path d="M330 352 q6 -5 12 0 q6 5 12 0" fill="none" stroke="#a9bde6" stroke-width="2" stroke-linecap="round"/><path d="M40 360 q6 -5 12 0 q6 5 12 0" fill="none" stroke="#a9bde6" stroke-width="2" stroke-linecap="round"/><path d="M250 104 q6 -5 12 0 q6 5 12 0" fill="none" stroke="#a9bde6" stroke-width="2" stroke-linecap="round"/><path d="M140 96 Q200 44 262 94" fill="none" stroke="#4a5fc9" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/><path d="M140 316 Q200 372 262 314" fill="none" stroke="#4a5fc9" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/><path d="M44 146 Q18 210 40 268" fill="none" stroke="#4a5fc9" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/><path d="M356 144 Q382 206 360 264" fill="none" stroke="#4a5fc9" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/><rect x="187" y="56" width="26" height="17" rx="2" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M187 57 l13 9 l13 -9" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-linejoin="round"/><rect x="187" y="342" width="26" height="17" rx="2" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M187 343 l13 9 l13 -9" fill="none" stroke="#1b1b1b" stroke-width="2" stroke-linejoin="round"/><path d="M30 128 Q57.0 95.5 90 102 Q126.0 107.2 150 128 Z" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 135 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0" fill="none" stroke="#a9bde6" stroke-width="2.2" stroke-linecap="round"/><rect x="73" y="74" width="34" height="30" rx="6" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="84" cy="86" r="3" fill="#1b1b1b"/><circle cx="96" cy="86" r="3" fill="#1b1b1b"/><path d="M90 74 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="90" cy="66" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M83 95 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(120 76) scale(0.55)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M250 124 Q277.0 91.5 310 98 Q346.0 103.2 370 124 Z" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M254 131 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0" fill="none" stroke="#a9bde6" stroke-width="2.2" stroke-linecap="round"/><rect x="293" y="70" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="304" cy="82" r="3" fill="#1b1b1b"/><circle cx="316" cy="82" r="3" fill="#1b1b1b"/><path d="M310 70 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="310" cy="62" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M303 91 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(340 72) scale(0.55)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 300 Q57.0 267.5 90 274 Q126.0 279.2 150 300 Z" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 307 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0" fill="none" stroke="#a9bde6" stroke-width="2.2" stroke-linecap="round"/><rect x="73" y="246" width="34" height="30" rx="6" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="84" cy="258" r="3" fill="#1b1b1b"/><circle cx="96" cy="258" r="3" fill="#1b1b1b"/><path d="M90 246 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="90" cy="238" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M83 267 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(120 248) scale(0.55)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M250 296 Q277.0 263.5 310 270 Q346.0 275.2 370 296 Z" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M254 303 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0 q8 -5 16 0 q8 5 16 0" fill="none" stroke="#a9bde6" stroke-width="2.2" stroke-linecap="round"/><rect x="293" y="242" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="304" cy="254" r="3" fill="#1b1b1b"/><circle cx="316" cy="254" r="3" fill="#1b1b1b"/><path d="M310 242 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="310" cy="234" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M303 263 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(340 244) scale(0.55)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="200" y="90" font-size="14" text-anchor="middle" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a blueprint</text><text class="lab" x="200" y="378" font-size="14" text-anchor="middle" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a whole mind, as a signal</text><text class="lab" x="200" y="166" font-size="14" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >each island: a fast, dense mind of its own</text><text class="big" x="200" y="200" font-size="18" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >MESSAGES TAKE</text><text class="big" x="200" y="220" font-size="18" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >MILLIONS TO BILLIONS</text><text class="big" x="200" y="240" font-size="18" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >OF YEARS</text></svg></figure><div class="split-t">
+<p>The obvious conclusion is that anything occupying a big chunk of the universe would have to rely on local calculations, with only occasional long-distance messages. A second idea follows that I still find striking. If a civilization can rearrange matter at will, the only thing it ever needs to send across the cosmos is information, so blueprints and even whole minds can travel as signals, and the matter at the other end gets rebuilt into whatever is needed.</p>
+
+<p>My assessment: the picture that falls out of this is something like an archipelago. Each island is a fast, dense mind working mostly on its own, and the islands exchange occasional messages that take millions or billions of years to arrive, which means no single will spans the whole thing in real time.</p>
+</div></div>
+
+<h2 id="a03-h4">Dark energy also ended the dream of thinking forever</h2>
+
+<p>There's a second casualty of dark energy, and it's an older and more beautiful idea. In 1979 the physicist Freeman Dyson argued that intelligent life could keep thinking forever on a finite supply of energy by gradually slowing its thoughts and hibernating between bursts of activity. He concluded that "life and communication can continue for ever, utilizing a finite store of energy, if the assumed scaling laws are valid" <a class="cite" href="#a03-s4">4</a>.</p>
+
+<p>Dyson was working in a universe that expands forever while slowing down. Once the acceleration was found, Lawrence Krauss and Glenn Starkman reran the analysis. In an accelerating universe, space is filled with a faint background glow that never cools below a fixed temperature, which means a thinker can't keep stretching its energy by running colder and colder <a class="cite" href="#a03-s5">5</a>. Their conclusion: "the total information recoverable by any civilization over the entire history of our universe is finite, and assuming that consciousness has a physical computational basis, life cannot be eternal" <a class="cite" href="#a03-s5">5</a>. To be fair, they add that it "can be astronomically long" <a class="cite" href="#a03-s5">5</a>, so what's left is a final budget of thoughts for the whole universe and a shrinking region in which to spend it.</p>
+
+<h2 id="a03-h5">A colony you can never call home</h2>
+
+<p>Here's what keeps pulling me back to this. Picture a civilization that sends a colony to a galaxy a billion light-years away. By the time a message arrives asking how things are going, a billion years have passed, and by the time the reply comes back, two billion. The people who launched it have no way to supervise it or call it home, and eventually the expansion cuts the connection for good.</p>
+
+<p>Whatever that colony becomes, it becomes on its own. Over billions of years of silence its culture and maybe even its values will drift in directions nobody at home will ever hear about, so the far future, if it's full of minds at all, may be full of strangers who share an ancestor and little else.</p>
+
+<div class="next"><a class="pill gold" href="/blog/a09">Next: Walls no mind can climb &rarr;</a><p>Some questions have no shortcut at all, so even a superintelligence sitting in one place has to wait for the answer.</p></div>
+
+<section class="sources"><h2>Sources</h2><ol><li id="a03-s1">Max Tegmark, <em>Life 3.0</em> (2017), ch. 6, as paraphrased by Eann Patterson, "Slow deep thoughts from a planet-sized brain," <em>Realize Engineering</em> (2020-03-25). <a href="https://realizeengineering.blog/2020/03/25/slow-deep-thoughts-from-a-planet-sized-brain/" target="_blank" rel="noopener">realizeengineering.blog/2020/03/25/slow-deep-thoughts-from-a…</a> [TBD: replace with direct book quote]</li><li id="a03-s2">The Nobel Prize in Physics 2011, awarded "for the discovery of the accelerating expansion of the Universe through observations of distant supernovae." <a href="https://www.nobelprize.org/prizes/physics/2011/summary/" target="_blank" rel="noopener">www.nobelprize.org/prizes/physics/2011/summary/</a></li><li id="a03-s3">Toby Ord, "The Edges of Our Universe" (2021). <a href="https://arxiv.org/abs/2104.01191" target="_blank" rel="noopener">arxiv.org/abs/2104.01191</a></li><li id="a03-s4">Freeman Dyson, "Time without end: Physics and biology in an open universe," <em>Reviews of Modern Physics</em> 51, 447 (1979). <a href="https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.51.447" target="_blank" rel="noopener">journals.aps.org/rmp/abstract/10.1103/RevModPhys.51.447</a></li><li id="a03-s5">Lawrence Krauss and Glenn Starkman, "Life, the Universe, and Nothing: Life and Death in an Ever-Expanding Universe," <em>Astrophysical Journal</em> 531, 22 (2000). <a href="https://arxiv.org/abs/astro-ph/9902189" target="_blank" rel="noopener">arxiv.org/abs/astro-ph/9902189</a></li></ol></section>
+</article>
+</main></div>
+<script>
+  var post = document.getElementById("a03"), segs = document.getElementById('segs');
+  var heads = post ? [].slice.call(post.querySelectorAll('h2[id]')).filter(function(h){ return !h.closest('.sources'); }) : [];
+  segs.hidden = !heads.length;
+  if (heads.length) segs.innerHTML = heads.map(function(){ return '<span class="seg"><i></i></span>'; }).join('');
+  function onScroll(){
+    if (!post || !heads.length) return;
+    var y = window.scrollY + window.innerHeight * 0.35;
+    var tops = heads.map(function(h){ return h.getBoundingClientRect().top + window.scrollY; });
+    var end = post.getBoundingClientRect().bottom + window.scrollY;
+    tops.forEach(function(t, i){
+      var next = i + 1 < tops.length ? tops[i + 1] : end;
+      var f = Math.max(0, Math.min(1, (y - t) / Math.max(1, next - t)));
+      var bar = segs.children[i] && segs.children[i].firstChild;
+      if (bar) bar.style.width = (f * 100) + '%';
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.bet-opt'); if (!b) return;
+    var box = b.closest('.bet'), right = b.getAttribute('data-right') === '1';
+    box.querySelectorAll('.bet-opt').forEach(function(x){ x.disabled = true; if (x.getAttribute('data-right') === '1') x.classList.add('is-right'); });
+    b.classList.add('picked', right ? 'right' : 'wrong');
+    var a = box.querySelector('.bet-a');
+    a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
+    a.hidden = false;
+  });
+</script>
+</body>
+</html>

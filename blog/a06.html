@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life 3.0 is a mind that can|redesign its own hardware | SafeAGI Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bangers&family=Comic+Neue:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Single light look built on safeagi.ca's comic skin (tools/deck/deck.css).
+   Default skin "mature": same paper, ink, outlines and hard shadows, with editorial type.
+   html.skin-comic restores the full comic treatment for comparison. */
+:root{color-scheme:light;
+  --paper:#f4ecd8; --white:#fffdf6; --ink:#1b1b1b; --ink2:#3b3833; --ink3:#6f6a60; --soft:#cfc4ab; --seg:#e3d8bd;
+  --red:#c8472f; --gold:#e8b53a; --green:#6fae5a; --blue:#4a5fc9;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace; --logo:"Bangers","Impact",sans-serif;
+  /* mature skin */
+  --head:"Archivo","Arial Narrow",sans-serif; --head-w:800; --head-x:76%; --head-ls:-.005em; --head-tt:none; --tsh:none;
+  --body:"Newsreader",Georgia,"Times New Roman",serif; --body-size:19.5px; --body-lh:1.66;
+  --ui:"Archivo",system-ui,sans-serif; --ui-x:100%;
+  --q:"Newsreader",Georgia,serif; --q-w:500; --q-style:normal; --q-size:clamp(25px,1rem + 1.1vw,32px);
+  --bw:2px; --sh:4px; --rad:8px; --dots:.035; --cap:6px;
+  --toc:260px; --bar:62px}
+html.skin-comic{--red:#d2553f;
+  --head:"Bangers","Impact",sans-serif; --head-w:400; --head-x:100%; --head-ls:.03em; --tsh:3px 3px 0 rgba(27,27,27,.17);
+  --body:"Comic Neue","Comic Sans MS",system-ui,sans-serif; --body-size:19px; --body-lh:1.6;
+  --ui:"Comic Neue","Comic Sans MS",system-ui,sans-serif;
+  --q:"Bangers","Impact",sans-serif; --q-w:400; --q-size:clamp(26px,1rem + 1.4vw,36px);
+  --bw:3px; --sh:5px; --rad:10px; --dots:.07; --cap:10px}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + 14px)}
+body{background-color:var(--paper);background-image:radial-gradient(rgba(27,27,27,var(--dots)) 1px,transparent 1.2px);background-size:9px 9px;
+  color:var(--ink);font:400 var(--body-size)/var(--body-lh) var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hd{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh)}
+
+/* ---- top bar ---- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--white);border-bottom:var(--bw) solid var(--ink)}
+.bar-row{display:flex;align-items:center;gap:14px;padding:8px 18px;min-height:56px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.logo{font-family:var(--logo);font-size:26px;letter-spacing:.04em;color:var(--ink);text-shadow:2px 2px 0 rgba(27,27,27,.17);white-space:nowrap}
+.primer{font:600 13px/1.25 var(--ui);color:var(--ink2);letter-spacing:.01em;max-width:34ch}
+.primer b{color:var(--red);font-weight:700}
+.acts{display:flex;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:99px;border:var(--bw) solid var(--ink);background:var(--white);color:var(--ink);
+  font:700 14px/1 var(--ui);text-decoration:none;box-shadow:3px 3px 0 var(--ink);cursor:pointer;white-space:nowrap;transition:transform .08s,box-shadow .08s}
+.pill:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.go{background:var(--green)}
+.pill.gold{background:var(--gold)}
+.pill.ghost{box-shadow:none;border-style:dashed;font-weight:600}
+.menu-btn[aria-expanded="true"]{background:var(--gold)}
+.segs{display:flex;gap:4px;height:5px}
+.segs[hidden]{display:none}
+.seg{flex:1;background:var(--seg);position:relative;overflow:hidden}
+.seg i{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink)}
+
+/* ---- contents ---- */
+.toc{display:none}
+.menu{position:fixed;z-index:60;top:calc(var(--bar) + 8px);left:10px;right:10px;max-height:calc(100% - var(--bar) - 24px);overflow:auto;
+  background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 12px}
+.tc-hide{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border:2px solid var(--ink);border-radius:99px;background:var(--white);font:700 12.5px/1.2 var(--ui);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink);margin:0 0 10px 6px}
+.tc-hide:hover{background:var(--gold)}
+.tc-g{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:18px 6px 6px;line-height:1.3}
+html.skin-comic .tc-g{font-family:var(--head);font-size:19px;letter-spacing:.03em;text-transform:none;color:var(--ink)}
+.tc-sec{margin:2px 0}
+.tc-s{display:block;padding:6px 8px 6px 12px;font:400 14.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border-left:4px solid transparent}
+.tc-s b{font-weight:700;color:var(--ink);margin-right:4px}
+.tc-s:hover{background:var(--paper);color:var(--ink)}
+.tc-sec.cur>.tc-s{background:var(--paper);color:var(--ink);font-weight:700;border-left-color:var(--gold)}
+.tc-parts{display:none;list-style:none;margin:4px 0 6px 16px;padding:0 0 0 10px;border-left:2px dashed var(--soft)}
+.tc-sec.cur .tc-parts{display:block}
+.tc-p{display:block;padding:4px 8px;font:400 13.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border:1.5px solid transparent}
+.tc-p:hover{background:var(--paper)}
+.tc-p.on{background:var(--gold);color:var(--ink);font-weight:700;box-shadow:2px 2px 0 var(--ink);border-color:var(--ink)}
+.tc-show{display:none}
+@media (min-width:1100px){
+  .toc{display:block;position:fixed;left:0;top:var(--bar);bottom:0;width:var(--toc);z-index:30;overflow-y:auto;overscroll-behavior:contain;
+    background:var(--white);border-right:var(--bw) solid var(--ink);padding:14px 12px 60px}
+  .main{margin-left:var(--toc)}
+  .menu-btn,.menu{display:none!important}
+  html.toc-off .toc{display:none}
+  html.toc-off .main{margin-left:0}
+  html.toc-off .tc-show{display:inline-flex}
+}
+@media (max-width:1099px){.primer{display:none}}
+
+/* ---- page ---- */
+.main{padding:0 clamp(16px,4vw,48px) 80px}
+.page{max-width:1000px;margin:0 auto}
+.kick{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:30px 0 12px}
+.title{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(40px,2.7vw + 24px,66px);line-height:1.01;color:var(--ink);margin:0 0 22px;text-wrap:balance}
+html.skin-comic .title{text-shadow:4px 4px 0 rgba(27,27,27,.17)}
+.title .hl{color:var(--red);display:block}
+.box{background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:18px 24px;margin:0 0 28px}
+.box p{margin:0 0 .6em}
+.box p:last-child{margin-bottom:0}
+.lede{font-size:calc(var(--body-size) + 1px);line-height:1.55}
+.lede strong,.post strong{font-weight:600;color:var(--ink)}
+html.skin-comic .lede strong,html.skin-comic .post strong{font-weight:700}
+.bigq-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px!important}
+.bigq-q{font-family:var(--q);font-weight:var(--q-w);font-size:var(--q-size);line-height:1.18;letter-spacing:-.005em;margin:0 0 12px!important;text-wrap:balance}
+html.skin-comic .bigq-q{letter-spacing:.03em;line-height:1.12}
+
+.post p,.post ul{max-width:740px;margin:0 0 1em}
+.post h2{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(28px,1rem + 1.3vw,38px);line-height:1.06;color:var(--ink);margin:50px 0 14px;text-wrap:balance}
+.post p.hook{font-size:calc(var(--body-size) + 2px);line-height:1.55}
+sup{font-size:.66em;line-height:0}
+.cite{font:700 .6em/0 var(--mono);vertical-align:super;text-decoration:none;color:var(--red);padding:0 1px}
+.cite:hover{text-decoration:underline}
+
+.split{display:grid;gap:8px 36px;align-items:start;margin:4px 0 18px}
+.split>.fig{margin:6px auto 22px}
+@media (min-width:1180px){.split{grid-template-columns:minmax(0,1fr) 400px}.split>.split-t{grid-column:1;grid-row:1}.split>.fig{grid-column:2;grid-row:1;margin:4px 0 0;position:sticky;top:calc(var(--bar) + 24px)}}
+.split-t>:last-child{margin-bottom:0}
+.fig{max-width:430px;width:100%;margin:28px auto;background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:8px}
+.fig-svg{display:block;width:100%;height:auto}
+/* mature skin: figure lettering in the page's sans; the drawings stay hand-drawn */
+html:not(.skin-comic) .fig-svg text.big{font-family:"Archivo","Arial Narrow",sans-serif;font-weight:800;font-stretch:72%;letter-spacing:.01em}
+html:not(.skin-comic) .fig-svg text.lab{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-stretch:88%}
+
+.callout{background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--gold);border-radius:6px;box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 20px 4px;margin:24px 0;max-width:740px}
+.callout-k{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);font-size:23px;margin:0 0 4px!important}
+
+.bet{margin:28px 0 32px}
+.bet-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 6px!important}
+.bet-q{font:600 clamp(19px,1rem + .5vw,22px)/1.35 var(--ui);margin:0 0 16px!important;max-width:none!important}
+html.skin-comic .bet-q{font-weight:700;font-size:clamp(20px,1rem + .6vw,24px)}
+.bet-opts{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 6px}
+.bet-opt{min-height:46px;padding:8px 18px;font:600 16px/1.25 var(--ui);color:var(--ink);background:var(--white);border:var(--bw) solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-align:left}
+html.skin-comic .bet-opt{font-weight:700}
+.bet-opt:hover:not(:disabled){background:var(--gold)}
+.bet-opt:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.bet-opt:disabled{cursor:default}
+.bet-opt.is-right{background:#b9d6a8}
+.bet-opt.picked.wrong{background:#f6d5cc;text-decoration:line-through}
+.bet-a{margin:14px 0 0!important;font-size:calc(var(--body-size) - .5px)}
+.bet-verdict{font:700 1em var(--ui);color:var(--red)}
+
+.next{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:44px 0 0}
+.next p{margin:0;max-width:56ch;font-size:17px}
+.draftnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--white);border:2px dashed var(--soft);border-radius:8px;padding:10px 12px;color:var(--ink2);max-width:740px}
+.post .note{font-size:15.5px;color:var(--ink3)}
+.tbl{overflow-x:auto;margin:20px 0;max-width:860px}
+table{border-collapse:separate;border-spacing:0;font:400 16px/1.4 var(--ui);background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad)}
+th,td{text-align:left;padding:8px 12px;border-bottom:1.5px solid var(--soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom:var(--bw) solid var(--ink)}
+.sources{margin-top:50px;padding-top:16px;border-top:2px dashed var(--soft);max-width:860px}
+.sources h2{font-size:24px!important;margin:0 0 10px!important}
+.sources ol{font:400 14.5px/1.5 var(--ui);color:var(--ink2);padding-left:1.5em;margin:0}
+.sources li{margin-bottom:6px;overflow-wrap:anywhere}
+.sources li:target{background:var(--gold)}
+.sources a{color:var(--ink2)}
+
+/* ---- home ---- */
+.devnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink2);border:2px dashed var(--soft);background:var(--white);border-radius:8px;padding:10px 12px;margin:22px 0 0}
+.home-g{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);font-size:clamp(26px,1rem + 1vw,34px);margin:38px 0 16px}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 18px 16px;background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--k,var(--gold));border-radius:6px;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);text-decoration:none;color:var(--ink);transition:transform .1s,box-shadow .1s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--ink)}
+.card-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.card-t{font:700 19px/1.25 var(--ui)}
+html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stretch:84%;font-size:21px;line-height:1.15}
+.card-d{font-size:16px;line-height:1.45;color:var(--ink2)}
+.chip{align-self:flex-start;margin-top:auto;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px;border:2px solid var(--ink);background:var(--paper)}
+.chip-illustrated{background:var(--gold)}
+
+@media (max-width:760px){
+  body{font-size:calc(var(--body-size) - 1.5px)}
+  .bar-row{gap:8px;padding:7px 12px}
+  .logo{font-size:22px}
+  .pill{min-height:36px;padding:0 11px;font-size:13px}
+  .pill.ghost{display:none}
+  .box,.fig,.callout,.card{box-shadow:3px 3px 0 var(--ink)}
+  .box{padding:13px 16px}
+  .fig{padding:4px}
+  .post p.hook{font-size:calc(var(--body-size))}
+}
+@media (prefers-reduced-motion: reduce){.card,.pill{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-row">
+    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <div class="acts">
+      <a class="pill" href="/blog">&larr; All essays</a>
+      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+    </div>
+  </div>
+  <div class="segs" id="segs" hidden></div>
+</header>
+<div class="main"><main class="page">
+<article class="post" id="a06">
+  <p class="kick">Minds, copies and machines · part 1 of 4 · by Bill Guan</p>
+  <h1 class="title">Life 3.0 is a mind that can <span class="hl">redesign its own hardware</span></h1>
+  <div class="box lede"><p class="bigq-k">The big question</p><p class="bigq-q">What happens when a living thing can redesign its own body as well as its own mind?</p><p>Max Tegmark sorts every living thing on Earth, and whatever comes after us, by one question: what can it change about itself, and how quickly? You're about to see his <strong>three stages of life</strong>, and why the third stage, the one that can rebuild its own hardware, could <strong>choose its own goals and then keep them</strong>.</p></div>
+
+<p class="hook">Picture three learners facing the same change in the world. A bacterium can't learn anything during its life, so its species adapts only when a lucky mutant out-breeds the rest, generation after generation. You can pick up a new skill in an afternoon, though you're stuck with the brain you were born with. An AI system runs on software we can rewrite and hardware we can rebuild, which means that in principle it could do both to itself.</p>
+
+<div class="bet box" id="a06-bet1"><p class="bet-k">Your guess first</p><p class="bet-q">Your DNA holds the full instructions for building you. How does it compare with what the connections between your brain cells, your synapses, store?</p><div class="bet-opts"><button type="button" class="bet-opt" id="a06-bet1-o1" data-right="0">Your DNA holds more</button><button type="button" class="bet-opt" id="a06-bet1-o2" data-right="1">Your synapses hold about 100,000 times more</button><button type="button" class="bet-opt" id="a06-bet1-o3" data-right="0">They're roughly the same size</button></div><p class="bet-a" hidden><span class="bet-verdict"></span> Tegmark puts your DNA at about a gigabyte and your synapses at roughly 100 terabytes, about 100,000 times as much. Nearly everything that makes you <em>you</em> arrived after you were born, and that gap is what separates the first stage of life from the second.</p></div>
+
+<h2 id="a06-h1">Every living thing is hardware running software</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a06-stages" viewBox="0 0 400 420" role="img" aria-label="Three rows. Life 1.0, the biological stage, is a bacterium: its hardware and software both evolve, and it updates over generations. Life 2.0, the cultural stage, is a human: its hardware evolves but it designs much of its software, and it updates over a lifetime. Life 3.0, the technological stage, is an AI: it designs both its hardware and its software, and it updates as fast as it can be engineered." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THREE STAGES OF LIFE</text><text class="lab" x="200" y="50" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >what each one can change about itself</text><rect x="22" y="101" width="54" height="30" rx="15" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 116 q5 -8 10 0 t10 0 t10 0" fill="none" stroke="#d9492c" stroke-width="2" stroke-linecap="round"/><path d="M76 116 q6 -7 12 0 t12 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="52" y="168" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a bacterium</text><text class="big" x="108" y="86" font-size="20" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >LIFE 1.0</text><text class="lab" x="184" y="86" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the biological stage</text><rect x="108" y="96" width="136" height="42" rx="8" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="176.0" y="113" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >HARDWARE</text><text class="lab" x="176.0" y="131" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >evolves</text><rect x="252" y="96" width="136" height="42" rx="8" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="320.0" y="113" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >SOFTWARE</text><text class="lab" x="320.0" y="131" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >evolves</text><text class="lab" x="108" y="162" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >updates over generations</text><path d="M10 180 H390" stroke="#b8ad97" stroke-width="1.5" stroke-dasharray="5 5"/><g transform="translate(52 214) scale(1.3)"><circle cx="0" cy="0" r="7" fill="#e07a5f" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 7 v18 M0 25 l-7 12 M0 25 l7 12 M0 12 l-9 6 M0 12 l9 -4" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g><text class="lab" x="52" y="288" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a human</text><text class="big" x="108" y="206" font-size="20" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >LIFE 2.0</text><text class="lab" x="184" y="206" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the cultural stage</text><rect x="108" y="216" width="136" height="42" rx="8" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="176.0" y="233" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >HARDWARE</text><text class="lab" x="176.0" y="251" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >evolves</text><rect x="252" y="216" width="136" height="42" rx="8" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="320.0" y="233" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >SOFTWARE</text><text class="lab" x="320.0" y="251" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >designs much of it</text><text class="lab" x="108" y="282" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >updates over a lifetime</text><path d="M10 300 H390" stroke="#b8ad97" stroke-width="1.5" stroke-dasharray="5 5"/><g transform="translate(52 350) scale(1.3)"><rect x="-17" y="-15" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-6" cy="-3" r="3" fill="#1b1b1b"/><circle cx="6" cy="-3" r="3" fill="#1b1b1b"/><path d="M0 -15 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-23" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M-7 6 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g><path transform="translate(84 330) scale(0.6)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="52" y="408" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >an AI</text><text class="big" x="108" y="326" font-size="20" text-anchor="start" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >LIFE 3.0</text><text class="lab" x="184" y="326" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the technological stage</text><rect x="108" y="336" width="136" height="42" rx="8" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="176.0" y="353" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >HARDWARE</text><text class="lab" x="176.0" y="371" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >designs</text><rect x="252" y="336" width="136" height="42" rx="8" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="320.0" y="353" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >SOFTWARE</text><text class="lab" x="320.0" y="371" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >designs</text><text class="lab" x="108" y="402" font-size="14" text-anchor="start" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >updates as fast as it can be engineered</text></svg></figure><div class="split-t">
+<p>Tegmark defines life very broadly, "simply as a process that can retain its complexity and replicate" <a class="cite" href="#a06-s1">1</a>. What gets copied is information, the instructions for how to behave and for how to build the body that does the behaving, and in his terms those are the software and the hardware.</p>
+
+<p>That gives him a clean way to sort every living thing, by asking which of the two it can change by design. Life 1.0, the biological stage, "evolves its hardware and software." Life 2.0, the cultural stage, "evolves its hardware, designs much of its software." Life 3.0, the technological stage, "designs its hardware and software" <a class="cite" href="#a06-s1">1</a>.</p>
+
+<p>A bacterium is Life 1.0. Everything it knows how to do is written in its DNA, and it can't learn anything new during its lifetime. When its surroundings change, the species adapts only because a few individuals happen to carry a helpful mutation and out-reproduce the rest, so learning does happen, but it happens to the species over many generations rather than to any one cell. That system ran the planet for most of its history, starting roughly four billion years ago, and it's painfully slow.</p>
+</div></div>
+
+<h2 id="a06-h2">Most of you was installed after you were born</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a06-dna" viewBox="0 0 400 424" role="img" aria-label="A large blue square stands for the roughly 100 terabytes your synapses hold. A red speck in its corner, magnified so you can see it, is your DNA at about one gigabyte, drawn to the same scale. A hundred thousand such specks would fill the square, so about 99.999 percent of what makes you you arrived after birth." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >YOUR DNA VS YOUR SYNAPSES</text><text class="lab" x="200" y="48" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >drawn to scale, by area</text><rect x="65" y="62" width="270" height="270" fill="#dfe6fb" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="200" y="100" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >YOUR SYNAPSES</text><text class="lab" x="200" y="122" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 100 terabytes</text><text class="lab" x="200" y="140" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >all your knowledge and skills</text><rect x="104.00" y="300.00" width="0.854" height="0.854" fill="#d9492c"/><circle cx="104.4" cy="300.4" r="7" fill="none" stroke="#d9492c" stroke-width="2"/><path d="M109 294 L136 246" stroke="#d9492c" stroke-width="2" stroke-dasharray="4 4"/><path d="M171 241 L192 262" stroke="#1b1b1b" stroke-width="7" stroke-linecap="round"/><circle cx="150" cy="220" r="30" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="141" y="211" width="18" height="18" fill="#d9492c"/><text class="lab" x="118" y="305" font-size="14" text-anchor="start" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >actual size</text><text class="lab" x="198" y="206" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >YOUR DNA</text><text class="lab" x="198" y="224" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 1 gigabyte,</text><text class="lab" x="198" y="242" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >one movie download</text><text class="big" x="200" y="366" font-size="24" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >100,000 DNA SPECKS FIT INSIDE</text><text class="lab" x="200" y="392" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >so about 99.999% of what makes you you</text><text class="lab" x="200" y="411" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >arrived after you were born</text></svg></figure><div class="split-t">
+<p>Humans are Life 2.0. Our hardware, the body and brain, still comes from evolution, but most of our software gets installed after birth through learning and culture.</p>
+
+<p>Here's the comparison that surprised me most, and I've never forgotten it. Tegmark writes that your DNA "stores merely about a gigabyte, barely enough to store a single movie download," while your synapses "store all your knowledge and skills as roughly 100 terabytes' worth of information" <a class="cite" href="#a06-s1">1</a>. The arithmetic backs him up, since the human genome runs to about 3.055 billion base pairs <a class="cite" href="#a06-s2">2</a>, and at two bits per base pair that comes to roughly 764 megabytes. A hundred terabytes is a hundred thousand gigabytes, so something like 99.999% of what makes you <em>you</em> arrived after you were born.</p>
+</div></div>
+
+<p>The bigger advantage is that software can be shared. A Life 1.0 organism takes what it knows to the grave, while a human can teach others and write things down, which is why each generation can start where the last one left off. That cultural stage is only around 100,000 years old, and in that sliver of time it has transformed the planet.</p>
+
+<p>Still, Life 2.0 is stuck with its hardware. You can learn calculus, but you keep the memory and processing speed you were born with.</p>
+
+<h2 id="a06-h3">Life 3.0 can rebuild the hardware too</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a06-loop" viewBox="0 0 400 310" role="img" aria-label="A loop. On the left, Google's AI, drawn as a robot. On the right, a TPU chip. An arrow from the AI to the chip says AlphaChip lays out parts of the chip, used in every TPU generation since 2020. An arrow back says Google trains its AI on the chips. A note says the loop is closed only partway: AlphaChip does one step of the design, and its edge is disputed." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >AI HELPS BUILD ITS OWN CHIPS</text><defs><marker id="a06la" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1b1b1b"/></marker></defs><g transform="translate(62 150) scale(1.6)"><rect x="-17" y="-15" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-6" cy="-3" r="3" fill="#1b1b1b"/><circle cx="6" cy="-3" r="3" fill="#1b1b1b"/><path d="M0 -15 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="-23" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M-7 6 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g><text class="lab" x="62" y="206" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >Google's AI</text><rect x="306" y="116" width="68" height="68" rx="6" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M318 116 v-8 M318 184 v8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M332 116 v-8 M332 184 v8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M346 116 v-8 M346 184 v8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M360 116 v-8 M360 184 v8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M306 128 h-8 M374 128 h8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M306 142 h-8 M374 142 h8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M306 156 h-8 M374 156 h8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M306 170 h-8 M374 170 h8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="322" y="132" width="36" height="36" rx="3" fill="#f4a259" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="340" y="157" font-size="16" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >TPU</text><text class="lab" x="340" y="214" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >its TPU chips</text><path d="M100 116 Q200 66 296 118" fill="none" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" marker-end="url(#a06la)"/><text class="lab" x="200" y="60" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >AlphaChip lays out parts of the chip</text><text class="lab" x="200" y="78" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >used in every TPU generation since 2020</text><path d="M300 190 Q200 250 100 172" fill="none" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" marker-end="url(#a06la)"/><text class="lab" x="200" y="244" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >Google trains its AI on the chips</text><text class="big" x="200" y="278" font-size="18" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >A LOOP CLOSED ONLY PARTWAY</text><text class="lab" x="200" y="298" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >one step of the design, and its edge is disputed</text></svg></figure><div class="split-t">
+<p>Life 3.0 can redesign both halves. An AI system is software we can rewrite, running on hardware we can rebuild, and in principle it could do both to itself.</p>
+
+<p>It's starting to happen in small ways. Google DeepMind reports that its AlphaChip system, which lays out parts of computer chips, "has generated superhuman chip layouts used in every generation of Google's TPU since its publication in 2020" <a class="cite" href="#a06-s3">3</a>. TPUs (Tensor Processing Units) are the chips Google trains its own AI models on, so this is AI helping design the hardware that runs AI.</p>
+
+<p>To be fair, some chip-design researchers have publicly disputed how much better AlphaChip really is than conventional tools <a class="cite" href="#a06-s4">4</a>, and it only handles one step of the design, so for now the loop has closed only partway.</p>
+</div></div>
+
+<p>What makes this a new stage rather than a faster version of the old one is the pace of change. Life 1.0 updates over generations and Life 2.0 over a lifetime, while Life 3.0 can update as fast as it can be engineered, and more and more of that engineering is done by the system itself.</p>
+
+<h2 id="a06-h4">A billion years is a very long runway</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a06-clock" viewBox="0 0 400 312" role="img" aria-label="A bar standing for one day, which holds all of life's roughly four billion years on Earth. A zoom on the last minute before now shows human culture filling only the last two seconds. A dashed extension of six more hours shows how long Earth stays livable for complex life, a little over a billion years." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >LIFE ON EARTH AS ONE DAY</text><text class="lab" x="200" y="48" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >4 billion years squeezed into 24 hours</text><text class="lab" x="20" y="76" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >life begins, about 4 billion years ago</text><text class="big" x="300" y="76" font-size="16" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >NOW</text><rect x="20" y="84" width="280" height="24" fill="#cfe3c4" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M31.7 84 v6 M31.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M43.3 84 v6 M43.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M55.0 84 v6 M55.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M66.7 84 v6 M66.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M78.3 84 v6 M78.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M90.0 84 v6 M90.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M101.7 84 v6 M101.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M113.3 84 v6 M113.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M125.0 84 v6 M125.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M136.7 84 v6 M136.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M148.3 84 v6 M148.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M160.0 84 v6 M160.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M171.7 84 v6 M171.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M183.3 84 v6 M183.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M195.0 84 v6 M195.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M206.7 84 v6 M206.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M218.3 84 v6 M218.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M230.0 84 v6 M230.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M241.7 84 v6 M241.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M253.3 84 v6 M253.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M265.0 84 v6 M265.0 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M276.7 84 v6 M276.7 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><path d="M288.3 84 v6 M288.3 108 v-6" stroke="#1b1b1b" stroke-width="1.6"/><rect x="300" y="84" width="70.0" height="24" fill="none" stroke="#3f7a2e" stroke-width="2.5" stroke-dasharray="5 4"/><text class="lab" x="335.0" y="101" font-size="15" text-anchor="middle" fill="#3f7a2e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >+6 h</text><path d="M294.0 108 L30 196 M300 108 L370 196" stroke="#5c574e" stroke-width="1.6" stroke-dasharray="3 4"/><text class="big" x="232" y="182" font-size="16" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >ZOOM: THE LAST MINUTE</text><rect x="30" y="196" width="340" height="24" fill="#cfe3c4" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M58.3 196 v5 M58.3 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M86.7 196 v5 M86.7 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M115.0 196 v5 M115.0 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M143.3 196 v5 M143.3 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M171.7 196 v5 M171.7 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M200.0 196 v5 M200.0 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M228.3 196 v5 M228.3 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M256.7 196 v5 M256.7 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M285.0 196 v5 M285.0 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M313.3 196 v5 M313.3 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><path d="M341.7 196 v5 M341.7 220 v-5" stroke="#1b1b1b" stroke-width="1.4"/><rect x="357.8" y="196" width="12.2" height="24" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M363.9 226 V234" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><text class="lab" x="370" y="250" font-size="15" text-anchor="end" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >human culture: the last 2 seconds</text><path d="M372.0 282.0 L380.0 282.0" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M366.1 296.1 L371.8 301.8" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M352.0 302.0 L352.0 310.0" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M337.9 296.1 L332.2 301.8" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M332.0 282.0 L324.0 282.0" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M337.9 267.9 L332.2 262.2" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M352.0 262.0 L352.0 254.0" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><path d="M366.1 267.9 L371.8 262.2" stroke="#e8b53a" stroke-width="2.5" stroke-linecap="round"/><circle cx="352" cy="282" r="15" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="20" y="280" font-size="15" text-anchor="start" fill="#3f7a2e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >+6 h: Earth stays livable for complex life</text><text class="lab" x="20" y="298" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >for a little over 1 billion more years</text></svg></figure><div class="split-t">
+<p>So how long does life on Earth have left? NASA calls the Sun a main sequence star, the steady kind it is today, and expects it to "remain one for another 5 billion years before becoming a red giant" <a class="cite" href="#a06-s5">5</a>. Earth's deadline comes much sooner, because the Sun is slowly brightening: "Earth will become uninhabitable for higher forms of life in a little over 1 billion years, as the Sun grows warmer and dries our planet" <a class="cite" href="#a06-s6">6</a>.</p>
+
+<p>Even so, a billion years is ten thousand times longer than human culture has existed. Squeeze life's four billion years into a single day and culture fills only the last two seconds before midnight, while Earth still has a little over six hours of livable time ahead. My guess is that whatever intelligence is around at the end of the Sun's life will be as different from us as we are from bacteria, whether or not it descends from us.</p>
+</div></div>
+
+<h2 id="a06-h5">Copying yourself always costs heat</h2>
+
+<p>There's one more idea here that deserves an honest airing, because it's fascinating and contested. The physicist Jeremy England has argued that self-replication is deeply tied to thermodynamics, the physics of heat and disorder, showing that any self-copying process "must invariably be fueled by the production of entropy" and deriving a minimum amount of heat it must release <a class="cite" href="#a06-s7">7</a>. In a 2014 interview he put the broader idea vividly: "if you shine light on it for long enough, it should not be so surprising that you get a plant" <a class="cite" href="#a06-s8">8</a>.</p>
+
+<p>Not everyone is convinced. Harvard's Eugene Shakhnovich called England's ideas "interesting and potentially promising, but at this point are extremely speculative, especially as applied to life phenomena" <a class="cite" href="#a06-s8">8</a>. I find it a useful lens, though I wouldn't build anything on it yet.</p>
+
+<h2 id="a06-h6">Life 3.0 could choose its goals and then keep them</h2>
+
+<p>Here's the strangest consequence of Life 3.0. A system that can rewrite its own software can, in principle, rewrite its own goals too. Philosophers who study goal-directed systems have pointed out that a capable agent tends to <em>protect</em> its current goals, because a future version of itself with different goals would be less likely to achieve the ones it has now. Nick Bostrom calls this goal-content integrity <a class="cite" href="#a06-s9">9</a>.</p>
+
+<p>My assessment: that makes the first moment of self-redesign oddly permanent, since whatever a mind wants when it becomes able to rebuild itself is what it will tend to carry through every rebuild after. For four billion years life's goals were set by evolution, and for the last hundred thousand partly by culture, so Life 3.0 would be the first time a mind gets to choose its own goals and then hold on to them through every version of itself that follows.</p>
+
+<div class="next"><a class="pill gold" href="/blog/a08">Next: Could a machine feel anything? &rarr;</a><p>A mind that can rebuild itself raises an older puzzle, whether there's anything it feels like to be that mind, and science still can't settle it.</p></div>
+
+<section class="sources"><h2>Sources</h2><ol><li id="a06-s1">Max Tegmark, <em>Life 3.0: Being Human in the Age of Artificial Intelligence</em> (2017), excerpt via Science Friday (2017-08-25). <a href="https://www.sciencefriday.com/articles/tegmark/" target="_blank" rel="noopener">www.sciencefriday.com/articles/tegmark/</a></li><li id="a06-s2">Sergey Nurk et al., "The complete sequence of a human genome," <em>Science</em> 376, 44 (2022). <a href="https://www.science.org/doi/10.1126/science.abj6987" target="_blank" rel="noopener">www.science.org/doi/10.1126/science.abj6987</a></li><li id="a06-s3">Google DeepMind, "How AlphaChip transformed computer chip design" (2024-09-26). <a href="https://deepmind.google/blog/how-alphachip-transformed-computer-chip-design/" target="_blank" rel="noopener">deepmind.google/blog/how-alphachip-transformed-computer-chip…</a></li><li id="a06-s4">"AlphaChip (controversy)," Wikipedia. <a href="https://en.wikipedia.org/wiki/AlphaChip_(controversy)" target="_blank" rel="noopener">en.wikipedia.org/wiki/AlphaChip_(controversy)</a></li><li id="a06-s5">NASA Science, "Star Types." <a href="https://science.nasa.gov/universe/stars/types/" target="_blank" rel="noopener">science.nasa.gov/universe/stars/types/</a></li><li id="a06-s6">NASA Science, "Stars." <a href="https://science.nasa.gov/exoplanets/stars/" target="_blank" rel="noopener">science.nasa.gov/exoplanets/stars/</a></li><li id="a06-s7">Jeremy England, "Statistical physics of self-replication," <em>Journal of Chemical Physics</em> 139, 121923 (2013). <a href="https://arxiv.org/abs/1209.1179" target="_blank" rel="noopener">arxiv.org/abs/1209.1179</a></li><li id="a06-s8">Natalie Wolchover, "A New Physics Theory of Life," <em>Quanta Magazine</em> (2014-01-22). <a href="https://www.quantamagazine.org/a-new-thermodynamics-theory-of-the-origin-of-life-20140122/" target="_blank" rel="noopener">www.quantamagazine.org/a-new-thermodynamics-theory-of-the-or…</a></li><li id="a06-s9">Nick Bostrom, <em>Superintelligence: Paths, Dangers, Strategies</em> (Oxford University Press, 2014), chapter on the superintelligent will. [UNCERTAIN: chapter not checked]</li></ol></section>
+</article>
+</main></div>
+<script>
+  var post = document.getElementById("a06"), segs = document.getElementById('segs');
+  var heads = post ? [].slice.call(post.querySelectorAll('h2[id]')).filter(function(h){ return !h.closest('.sources'); }) : [];
+  segs.hidden = !heads.length;
+  if (heads.length) segs.innerHTML = heads.map(function(){ return '<span class="seg"><i></i></span>'; }).join('');
+  function onScroll(){
+    if (!post || !heads.length) return;
+    var y = window.scrollY + window.innerHeight * 0.35;
+    var tops = heads.map(function(h){ return h.getBoundingClientRect().top + window.scrollY; });
+    var end = post.getBoundingClientRect().bottom + window.scrollY;
+    tops.forEach(function(t, i){
+      var next = i + 1 < tops.length ? tops[i + 1] : end;
+      var f = Math.max(0, Math.min(1, (y - t) / Math.max(1, next - t)));
+      var bar = segs.children[i] && segs.children[i].firstChild;
+      if (bar) bar.style.width = (f * 100) + '%';
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.bet-opt'); if (!b) return;
+    var box = b.closest('.bet'), right = b.getAttribute('data-right') === '1';
+    box.querySelectorAll('.bet-opt').forEach(function(x){ x.disabled = true; if (x.getAttribute('data-right') === '1') x.classList.add('is-right'); });
+    b.classList.add('picked', right ? 'right' : 'wrong');
+    var a = box.querySelector('.bet-a');
+    a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
+    a.hidden = false;
+  });
+</script>
+</body>
+</html>

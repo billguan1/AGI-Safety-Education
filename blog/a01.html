@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One kilogram could out-think|every AI chip on Earth | SafeAGI Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bangers&family=Comic+Neue:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Single light look built on safeagi.ca's comic skin (tools/deck/deck.css).
+   Default skin "mature": same paper, ink, outlines and hard shadows, with editorial type.
+   html.skin-comic restores the full comic treatment for comparison. */
+:root{color-scheme:light;
+  --paper:#f4ecd8; --white:#fffdf6; --ink:#1b1b1b; --ink2:#3b3833; --ink3:#6f6a60; --soft:#cfc4ab; --seg:#e3d8bd;
+  --red:#c8472f; --gold:#e8b53a; --green:#6fae5a; --blue:#4a5fc9;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace; --logo:"Bangers","Impact",sans-serif;
+  /* mature skin */
+  --head:"Archivo","Arial Narrow",sans-serif; --head-w:800; --head-x:76%; --head-ls:-.005em; --head-tt:none; --tsh:none;
+  --body:"Newsreader",Georgia,"Times New Roman",serif; --body-size:19.5px; --body-lh:1.66;
+  --ui:"Archivo",system-ui,sans-serif; --ui-x:100%;
+  --q:"Newsreader",Georgia,serif; --q-w:500; --q-style:normal; --q-size:clamp(25px,1rem + 1.1vw,32px);
+  --bw:2px; --sh:4px; --rad:8px; --dots:.035; --cap:6px;
+  --toc:260px; --bar:62px}
+html.skin-comic{--red:#d2553f;
+  --head:"Bangers","Impact",sans-serif; --head-w:400; --head-x:100%; --head-ls:.03em; --tsh:3px 3px 0 rgba(27,27,27,.17);
+  --body:"Comic Neue","Comic Sans MS",system-ui,sans-serif; --body-size:19px; --body-lh:1.6;
+  --ui:"Comic Neue","Comic Sans MS",system-ui,sans-serif;
+  --q:"Bangers","Impact",sans-serif; --q-w:400; --q-size:clamp(26px,1rem + 1.4vw,36px);
+  --bw:3px; --sh:5px; --rad:10px; --dots:.07; --cap:10px}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + 14px)}
+body{background-color:var(--paper);background-image:radial-gradient(rgba(27,27,27,var(--dots)) 1px,transparent 1.2px);background-size:9px 9px;
+  color:var(--ink);font:400 var(--body-size)/var(--body-lh) var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hd{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh)}
+
+/* ---- top bar ---- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--white);border-bottom:var(--bw) solid var(--ink)}
+.bar-row{display:flex;align-items:center;gap:14px;padding:8px 18px;min-height:56px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.logo{font-family:var(--logo);font-size:26px;letter-spacing:.04em;color:var(--ink);text-shadow:2px 2px 0 rgba(27,27,27,.17);white-space:nowrap}
+.primer{font:600 13px/1.25 var(--ui);color:var(--ink2);letter-spacing:.01em;max-width:34ch}
+.primer b{color:var(--red);font-weight:700}
+.acts{display:flex;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:99px;border:var(--bw) solid var(--ink);background:var(--white);color:var(--ink);
+  font:700 14px/1 var(--ui);text-decoration:none;box-shadow:3px 3px 0 var(--ink);cursor:pointer;white-space:nowrap;transition:transform .08s,box-shadow .08s}
+.pill:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.go{background:var(--green)}
+.pill.gold{background:var(--gold)}
+.pill.ghost{box-shadow:none;border-style:dashed;font-weight:600}
+.menu-btn[aria-expanded="true"]{background:var(--gold)}
+.segs{display:flex;gap:4px;height:5px}
+.segs[hidden]{display:none}
+.seg{flex:1;background:var(--seg);position:relative;overflow:hidden}
+.seg i{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink)}
+
+/* ---- contents ---- */
+.toc{display:none}
+.menu{position:fixed;z-index:60;top:calc(var(--bar) + 8px);left:10px;right:10px;max-height:calc(100% - var(--bar) - 24px);overflow:auto;
+  background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 12px}
+.tc-hide{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border:2px solid var(--ink);border-radius:99px;background:var(--white);font:700 12.5px/1.2 var(--ui);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink);margin:0 0 10px 6px}
+.tc-hide:hover{background:var(--gold)}
+.tc-g{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:18px 6px 6px;line-height:1.3}
+html.skin-comic .tc-g{font-family:var(--head);font-size:19px;letter-spacing:.03em;text-transform:none;color:var(--ink)}
+.tc-sec{margin:2px 0}
+.tc-s{display:block;padding:6px 8px 6px 12px;font:400 14.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border-left:4px solid transparent}
+.tc-s b{font-weight:700;color:var(--ink);margin-right:4px}
+.tc-s:hover{background:var(--paper);color:var(--ink)}
+.tc-sec.cur>.tc-s{background:var(--paper);color:var(--ink);font-weight:700;border-left-color:var(--gold)}
+.tc-parts{display:none;list-style:none;margin:4px 0 6px 16px;padding:0 0 0 10px;border-left:2px dashed var(--soft)}
+.tc-sec.cur .tc-parts{display:block}
+.tc-p{display:block;padding:4px 8px;font:400 13.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border:1.5px solid transparent}
+.tc-p:hover{background:var(--paper)}
+.tc-p.on{background:var(--gold);color:var(--ink);font-weight:700;box-shadow:2px 2px 0 var(--ink);border-color:var(--ink)}
+.tc-show{display:none}
+@media (min-width:1100px){
+  .toc{display:block;position:fixed;left:0;top:var(--bar);bottom:0;width:var(--toc);z-index:30;overflow-y:auto;overscroll-behavior:contain;
+    background:var(--white);border-right:var(--bw) solid var(--ink);padding:14px 12px 60px}
+  .main{margin-left:var(--toc)}
+  .menu-btn,.menu{display:none!important}
+  html.toc-off .toc{display:none}
+  html.toc-off .main{margin-left:0}
+  html.toc-off .tc-show{display:inline-flex}
+}
+@media (max-width:1099px){.primer{display:none}}
+
+/* ---- page ---- */
+.main{padding:0 clamp(16px,4vw,48px) 80px}
+.page{max-width:1000px;margin:0 auto}
+.kick{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:30px 0 12px}
+.title{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(40px,2.7vw + 24px,66px);line-height:1.01;color:var(--ink);margin:0 0 22px;text-wrap:balance}
+html.skin-comic .title{text-shadow:4px 4px 0 rgba(27,27,27,.17)}
+.title .hl{color:var(--red);display:block}
+.box{background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:18px 24px;margin:0 0 28px}
+.box p{margin:0 0 .6em}
+.box p:last-child{margin-bottom:0}
+.lede{font-size:calc(var(--body-size) + 1px);line-height:1.55}
+.lede strong,.post strong{font-weight:600;color:var(--ink)}
+html.skin-comic .lede strong,html.skin-comic .post strong{font-weight:700}
+.bigq-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px!important}
+.bigq-q{font-family:var(--q);font-weight:var(--q-w);font-size:var(--q-size);line-height:1.18;letter-spacing:-.005em;margin:0 0 12px!important;text-wrap:balance}
+html.skin-comic .bigq-q{letter-spacing:.03em;line-height:1.12}
+
+.post p,.post ul{max-width:740px;margin:0 0 1em}
+.post h2{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(28px,1rem + 1.3vw,38px);line-height:1.06;color:var(--ink);margin:50px 0 14px;text-wrap:balance}
+.post p.hook{font-size:calc(var(--body-size) + 2px);line-height:1.55}
+sup{font-size:.66em;line-height:0}
+.cite{font:700 .6em/0 var(--mono);vertical-align:super;text-decoration:none;color:var(--red);padding:0 1px}
+.cite:hover{text-decoration:underline}
+
+.split{display:grid;gap:8px 36px;align-items:start;margin:4px 0 18px}
+.split>.fig{margin:6px auto 22px}
+@media (min-width:1180px){.split{grid-template-columns:minmax(0,1fr) 400px}.split>.split-t{grid-column:1;grid-row:1}.split>.fig{grid-column:2;grid-row:1;margin:4px 0 0;position:sticky;top:calc(var(--bar) + 24px)}}
+.split-t>:last-child{margin-bottom:0}
+.fig{max-width:430px;width:100%;margin:28px auto;background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:8px}
+.fig-svg{display:block;width:100%;height:auto}
+/* mature skin: figure lettering in the page's sans; the drawings stay hand-drawn */
+html:not(.skin-comic) .fig-svg text.big{font-family:"Archivo","Arial Narrow",sans-serif;font-weight:800;font-stretch:72%;letter-spacing:.01em}
+html:not(.skin-comic) .fig-svg text.lab{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-stretch:88%}
+
+.callout{background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--gold);border-radius:6px;box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 20px 4px;margin:24px 0;max-width:740px}
+.callout-k{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);font-size:23px;margin:0 0 4px!important}
+
+.bet{margin:28px 0 32px}
+.bet-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 6px!important}
+.bet-q{font:600 clamp(19px,1rem + .5vw,22px)/1.35 var(--ui);margin:0 0 16px!important;max-width:none!important}
+html.skin-comic .bet-q{font-weight:700;font-size:clamp(20px,1rem + .6vw,24px)}
+.bet-opts{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 6px}
+.bet-opt{min-height:46px;padding:8px 18px;font:600 16px/1.25 var(--ui);color:var(--ink);background:var(--white);border:var(--bw) solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-align:left}
+html.skin-comic .bet-opt{font-weight:700}
+.bet-opt:hover:not(:disabled){background:var(--gold)}
+.bet-opt:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.bet-opt:disabled{cursor:default}
+.bet-opt.is-right{background:#b9d6a8}
+.bet-opt.picked.wrong{background:#f6d5cc;text-decoration:line-through}
+.bet-a{margin:14px 0 0!important;font-size:calc(var(--body-size) - .5px)}
+.bet-verdict{font:700 1em var(--ui);color:var(--red)}
+
+.next{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:44px 0 0}
+.next p{margin:0;max-width:56ch;font-size:17px}
+.draftnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--white);border:2px dashed var(--soft);border-radius:8px;padding:10px 12px;color:var(--ink2);max-width:740px}
+.post .note{font-size:15.5px;color:var(--ink3)}
+.tbl{overflow-x:auto;margin:20px 0;max-width:860px}
+table{border-collapse:separate;border-spacing:0;font:400 16px/1.4 var(--ui);background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad)}
+th,td{text-align:left;padding:8px 12px;border-bottom:1.5px solid var(--soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom:var(--bw) solid var(--ink)}
+.sources{margin-top:50px;padding-top:16px;border-top:2px dashed var(--soft);max-width:860px}
+.sources h2{font-size:24px!important;margin:0 0 10px!important}
+.sources ol{font:400 14.5px/1.5 var(--ui);color:var(--ink2);padding-left:1.5em;margin:0}
+.sources li{margin-bottom:6px;overflow-wrap:anywhere}
+.sources li:target{background:var(--gold)}
+.sources a{color:var(--ink2)}
+
+/* ---- home ---- */
+.devnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink2);border:2px dashed var(--soft);background:var(--white);border-radius:8px;padding:10px 12px;margin:22px 0 0}
+.home-g{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);font-size:clamp(26px,1rem + 1vw,34px);margin:38px 0 16px}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 18px 16px;background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--k,var(--gold));border-radius:6px;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);text-decoration:none;color:var(--ink);transition:transform .1s,box-shadow .1s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--ink)}
+.card-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.card-t{font:700 19px/1.25 var(--ui)}
+html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stretch:84%;font-size:21px;line-height:1.15}
+.card-d{font-size:16px;line-height:1.45;color:var(--ink2)}
+.chip{align-self:flex-start;margin-top:auto;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px;border:2px solid var(--ink);background:var(--paper)}
+.chip-illustrated{background:var(--gold)}
+
+@media (max-width:760px){
+  body{font-size:calc(var(--body-size) - 1.5px)}
+  .bar-row{gap:8px;padding:7px 12px}
+  .logo{font-size:22px}
+  .pill{min-height:36px;padding:0 11px;font-size:13px}
+  .pill.ghost{display:none}
+  .box,.fig,.callout,.card{box-shadow:3px 3px 0 var(--ink)}
+  .box{padding:13px 16px}
+  .fig{padding:4px}
+  .post p.hook{font-size:calc(var(--body-size))}
+}
+@media (prefers-reduced-motion: reduce){.card,.pill{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-row">
+    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <div class="acts">
+      <a class="pill" href="/blog">&larr; All essays</a>
+      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+    </div>
+  </div>
+  <div class="segs" id="segs" hidden></div>
+</header>
+<div class="main"><main class="page">
+<article class="post" id="a01">
+  <p class="kick">The limits of intelligence · part 1 of 4 · by Bill Guan</p>
+  <h1 class="title">One kilogram could out-think <span class="hl">every AI chip on Earth</span></h1>
+  <div class="box lede"><p class="bigq-k">The big question</p><p class="bigq-q">Is there a ceiling on how smart anything can get, and if there is, how far above us does it sit?</p><p>Physics has a surprisingly exact answer. You're about to see the <strong>top speed of thought</strong>, worked out from first principles, and <strong>how far above</strong> every brain and computer on Earth it sits.</p></div>
+
+<p class="hook">Start with something you can hold. Pick up a bag of sugar: that's one kilogram of matter, and if you could rearrange it into the best computer the laws of physics allow, it would out-think every AI chip on Earth combined, by a margin that is almost impossible to picture.</p>
+
+<div class="bet box" id="a01-bet1"><p class="bet-k">Your guess first</p><p class="bet-q">If physics were the only limit, how much faster than all of Earth's AI chips could that one kilogram compute?</p><div class="bet-opts"><button type="button" class="bet-opt" id="a01-bet1-o1" data-right="0">About the same speed</button><button type="button" class="bet-opt" id="a01-bet1-o2" data-right="0">A million times faster</button><button type="button" class="bet-opt" id="a01-bet1-o3" data-right="1">10<sup>28</sup> times faster (a 1 with 28 zeros)</button></div><p class="bet-a" hidden><span class="bet-verdict"></span> One kilogram at the physical limit would run about 10<sup>28</sup> times faster than the whole planet's AI hardware in 2026. It's a number I still can't quite picture, so here's where it comes from.</p></div>
+
+<h2 id="a01-h1">Energy sets the speed limit</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a01-hero" viewBox="0 0 400 240" role="img" aria-label="A seesaw. On one side, one kilogram of matter at the physical limit of computing; on the other, every AI chip on Earth in 2026. The kilogram side wins by a factor of ten to the twenty-eighth." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="24" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >WHO CAN THINK FASTER?</text><path d="M182 228 L200 190 L218 228 Z" fill="#cfc4ab" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 229 H392" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(-8 200 190)"><rect x="34" y="186" width="332" height="9" rx="3" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="54" y="146" width="40" height="40" rx="3" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="74" y="172" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >1 kg</text><rect x="262" y="146" width="17" height="40" rx="2" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M266 152 h9 M266 159 h9 M266 166 h9" stroke="#4a5fc9" stroke-width="2" stroke-linecap="round"/><rect x="283" y="134" width="17" height="52" rx="2" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M287 140 h9 M287 147 h9 M287 154 h9" stroke="#4a5fc9" stroke-width="2" stroke-linecap="round"/><rect x="304" y="140" width="17" height="46" rx="2" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M308 146 h9 M308 153 h9 M308 160 h9" stroke="#4a5fc9" stroke-width="2" stroke-linecap="round"/><rect x="325" y="152" width="17" height="34" rx="2" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M329 158 h9 M329 165 h9 M329 172 h9" stroke="#4a5fc9" stroke-width="2" stroke-linecap="round"/></g><path transform="translate(36 150) scale(0.9)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(110 132) scale(0.7)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(24 196) scale(0.6)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="76" y="70" font-size="32" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >×10<tspan dy="-13" font-size="21">28</tspan><tspan dy="13"> </tspan></text><text class="lab" x="76" y="92" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >one kilogram at</text><text class="lab" x="76" y="109" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the physics limit</text><text class="lab" x="298" y="60" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >every AI chip</text><text class="lab" x="298" y="78" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >on Earth, 2026</text><text class="lab" x="298" y="100" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 6×10<tspan dy="-5" font-size="9">22</tspan><tspan dy="5"> </tspan>ops/sec</text><circle cx="372" cy="196" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M372 203 v18 M372 221 l-7 12 M372 221 l7 12 M372 208 l-10 -10 M372 208 l10 -10" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="372" y="178" font-size="16" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >?!</text></svg></figure><div class="split-t">
+<p>Every step a computer takes means flipping some piece of matter from one state to another, like a switch going from off to on. Quantum mechanics caps how fast anything can flip, and the cap depends on how much energy it has <a class="cite" href="#a01-s1">1</a><a class="cite" href="#a01-s2">2</a>.</p>
+
+<p>In 2000 the MIT physicist Seth Lloyd pushed that rule as far as it goes. He imagined a laptop weighing one kilogram, gave it every joule that mass can hold through E = mc² (about 9×10<sup>16</sup> joules), and worked out its top speed: <strong>5.4×10<sup>50</sup> operations per second</strong> <a class="cite" href="#a01-s1">1</a>.</p>
+
+<p>Now compare that with what we've actually built. Epoch AI estimates the world's AI chips add up to about 31.6 million top-of-the-line Nvidia H100s' worth of computing as of September 2026 <a class="cite" href="#a01-s3">3</a>, and each H100 manages roughly 2×10<sup>15</sup> operations per second <a class="cite" href="#a01-s4">4</a>. Multiply them out and the whole planet's AI fleet runs at about 6×10<sup>22</sup>, which leaves 28 powers of ten of empty room above it.</p>
+</div></div>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a01-ladder" viewBox="0 0 400 544" role="img" aria-label="A ladder where each rung is ten times more operations per second. The human brain and one top AI chip sit near ten to the fifteenth. Every AI chip on Earth sits near six times ten to the twenty-second. One kilogram at the physical limit sits near ten to the fiftieth, twenty-eight rungs higher." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="24" font-size="20" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THE LADDER OF THINKING SPEED</text><path d="M40 54.9 V514.0 M96 54.9 V514.0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 508.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 496.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 485.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 473.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 462.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 450.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 439.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 427.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 416.0 H96" stroke="#1b1b1b" stroke-width="2.4"/><path d="M40 404.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 393.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 381.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 370.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 358.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 347.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 335.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 324.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 312.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 301.0 H96" stroke="#1b1b1b" stroke-width="2.4"/><path d="M40 289.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 278.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 266.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 255.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 243.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 232.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 220.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 209.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 197.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 186.0 H96" stroke="#1b1b1b" stroke-width="2.4"/><path d="M40 174.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 163.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 151.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 140.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 128.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 117.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 105.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 94.0 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 82.5 H96" stroke="#8b8170" stroke-width="1.6"/><path d="M40 71.0 H96" stroke="#1b1b1b" stroke-width="2.4"/><path d="M40 59.5 H96" stroke="#8b8170" stroke-width="1.6"/><text class="lab" x="32" y="420.0" font-size="14" text-anchor="end" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >10<tspan dy="-5" font-size="9">20</tspan><tspan dy="5"> </tspan></text><text class="lab" x="32" y="305.0" font-size="14" text-anchor="end" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >10<tspan dy="-5" font-size="9">30</tspan><tspan dy="5"> </tspan></text><text class="lab" x="32" y="190.0" font-size="14" text-anchor="end" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >10<tspan dy="-5" font-size="9">40</tspan><tspan dy="5"> </tspan></text><text class="lab" x="32" y="75.0" font-size="14" text-anchor="end" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >10<tspan dy="-5" font-size="9">50</tspan><tspan dy="5"> </tspan></text><circle cx="68" cy="473.5" r="7" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M80 473.5 H112" stroke="#1b1b1b" stroke-width="2.5" stroke-dasharray="3 4"/><text class="lab" x="116" y="473.5" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >YOUR BRAIN ≈ ONE TOP AI CHIP</text><text class="lab" x="116" y="491.5" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 10<tspan dy="-5" font-size="9">15</tspan><tspan dy="5"> </tspan>operations per second</text><circle cx="68" cy="383.8" r="7" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M80 383.8 H112" stroke="#1b1b1b" stroke-width="2.5" stroke-dasharray="3 4"/><text class="lab" x="116" y="383.8" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >ALL AI CHIPS ON EARTH, 2026</text><text class="lab" x="116" y="401.8" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >about 6×10<tspan dy="-5" font-size="9">22</tspan><tspan dy="5"> </tspan></text><circle cx="68" cy="65.2" r="7" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M80 65.2 H112" stroke="#1b1b1b" stroke-width="2.5" stroke-dasharray="3 4"/><text class="lab" x="116" y="65.25" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >1 KG AT THE PHYSICS LIMIT</text><text class="lab" x="116" y="83.25" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >1.4 to 5.4×10<tspan dy="-5" font-size="9">50</tspan><tspan dy="5"> </tspan>(Bremermann, Lloyd)</text><path d="M372 79.2 V369.8 M364 79.2 H372 M364 369.8 H372" fill="none" stroke="#d9492c" stroke-width="2.5" stroke-linecap="round"/><text class="big" x="236" y="214" font-size="26" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >28 EMPTY RUNGS</text><text class="lab" x="236" y="240" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >nothing we have built</text><text class="lab" x="236" y="258" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >reaches any of these</text><text class="lab" x="236" y="294" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >doubling every 2 years,</text><text class="lab" x="236" y="312" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the climb takes ~190 years</text><circle cx="68" cy="337" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M68 344 v18 M68 362 l-7 12 M68 362 l7 12 M68 349 l-10 -10 M68 349 l10 -10" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="200" y="532" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >each rung = 10× more operations per second</text></svg></figure><div class="split-t">
+<aside class="callout"><p class="callout-k">How big is 10<sup>28</sup>?</p><p>Count one number every second from the Big Bang until today and you'd reach about 4×10<sup>17</sup>. To get to 10<sup>28</sup>, you'd have to repeat that entire count more than 20 billion times.</p></aside>
+
+<p>Lloyd wasn't the first to find a ceiling like this. In 1962 the mathematician Hans Bremermann worked out a similar limit of about 1.4×10<sup>50</sup> bits per second for every kilogram of computer <a class="cite" href="#a01-s5">5</a>. Two different routes landing in the same place is usually a good sign the physics is solid.</p>
+
+<h2 id="a01-h2">Memory has a ceiling too</h2>
+
+<p>Speed is half of a computer, and memory is the other half. Its limit comes from entropy, which counts how many distinct arrangements a lump of matter can take, and Lloyd's kilogram could store about 2×10<sup>31</sup> bits <a class="cite" href="#a01-s1">1</a>. Max Tegmark estimates your synapses hold "roughly 100 terabytes' worth of information" <a class="cite" href="#a01-s6">6</a>, so one ultimate kilogram could hold the memories of about 27 thousand trillion people.</p>
+</div></div>
+
+<h2 id="a01-h3">The ultimate laptop is a fireball</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a01-fireball" viewBox="0 0 400 268" role="img" aria-label="Two drawings of the same kilogram in the same liter. On the left an ordinary laptop. On the right Seth Lloyd's ultimate laptop, a fireball of plasma at about a billion degrees, running five times ten to the fiftieth operations per second on two times ten to the thirty-first bits." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="24" font-size="20" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >SAME KILOGRAM, SAME LITER</text><path d="M44 92 h76 v50 h-76 z" fill="#fffdf6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 142 h96 l-8 12 h-80 z" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 108 h40 M56 118 h52 M56 128 h30" stroke="#9aa3ab" stroke-width="2.5" stroke-linecap="round"/><text class="lab" x="82" y="180" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >an ordinary laptop</text><path d="M146 118 H214" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" marker-end="url(#a01fa)"/><defs><marker id="a01fa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#1b1b1b"/></marker></defs><text class="lab" x="180" y="108" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >push to</text><text class="lab" x="180" y="140" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the limit</text><path d="M350.0 108.0 L364.0 108.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M343.3 133.0 L355.4 140.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M325.0 151.3 L332.0 163.4" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M300.0 158.0 L300.0 172.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M275.0 151.3 L268.0 163.4" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M256.7 133.0 L244.6 140.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M250.0 108.0 L236.0 108.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M256.7 83.0 L244.6 76.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M275.0 64.7 L268.0 52.6" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M300.0 58.0 L300.0 44.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M325.0 64.7 L332.0 52.6" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><path d="M343.3 83.0 L355.4 76.0" stroke="#d9492c" stroke-width="3" stroke-linecap="round"/><circle cx="300" cy="108" r="44" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="300" cy="108" r="29" fill="#f4a259" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="300" cy="108" r="14" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="300" y="194" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the ultimate laptop</text><text class="lab" x="300" y="212" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a plasma at about</text><text class="lab" x="300" y="229" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a billion degrees</text><circle cx="374" cy="56" r="7" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M374 63 v18 M374 81 l-7 12 M374 81 l7 12 M374 68 l-10 -10 M374 68 l10 -10" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="354" y="48" font-size="18" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >!</text><text class="lab" x="200" y="256" font-size="15" text-anchor="middle" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >5×10<tspan dy="-6" font-size="10">50</tspan><tspan dy="6"> </tspan>ops/sec on 2×10<tspan dy="-6" font-size="10">31</tspan><tspan dy="6"> </tspan>bits</text></svg></figure><div class="split-t">
+<p>Here's the catch, and it's my favorite part of the paper. To run that fast and use all that memory, the laptop has to turn essentially all of its matter into energy. Lloyd describes the result as "a plasma at a billion degrees Kelvin: the laptop's memory looks like a thermonuclear explosion or a little piece of the Big Bang!" <a class="cite" href="#a01-s1">1</a></p>
+
+<p>He admits, dryly, that "packaging issues alone make it unlikely that this limit can be obtained" <a class="cite" href="#a01-s1">1</a>. The point of the exercise is to measure how much room exists above us, and the answer is an absurd amount.</p>
+</div></div>
+
+<h2 id="a01-h4">The wall we actually hit is heat</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a01-heat" viewBox="0 0 400 328" role="img" aria-label="A cliff. At the top, today's most efficient supercomputer spends about 1.4 times ten to the minus eleven joules per operation. At the bottom is Landauer's floor, 2.9 times ten to the minus twenty-one joules per bit erased, about five billion times lower. A small robot labelled reversible computing digs below the floor." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="24" font-size="20" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >HOW MUCH HEAT PER STEP?</text><path d="M14 70 H150 V250 H386" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 70 H150 V280 H14 Z" fill="#e3d6b8" stroke="none"/><path d="M150 250 V280 H386 V280 Z" fill="#efe6cf" stroke="none"/><path d="M14 70 H150 V250 H386" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M150 70.0 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 88.6 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 107.1 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 125.7 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 144.2 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 162.8 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 181.3 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 199.9 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 218.5 h10" stroke="#1b1b1b" stroke-width="2"/><path d="M150 237.0 h10" stroke="#1b1b1b" stroke-width="2"/><circle cx="110" cy="36" r="7" fill="#e07a5f" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M110 43 v18 M110 61 l-7 12 M110 61 l7 12 M110 48 l-10 -8 M110 48 l10 -2" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="18" y="92" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >best supercomputer</text><text class="lab" x="18" y="110" font-size="14" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >today (2026)</text><text class="lab" x="18" y="132" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >1.4×10<tspan dy="-5" font-size="9">−11</tspan><tspan dy="5"> </tspan>joules</text><text class="big" x="272" y="140" font-size="26" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >5,000,000,000×</text><text class="lab" x="272" y="162" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >room left to improve</text><text class="big" x="272" y="226" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >LANDAUER'S FLOOR</text><text class="lab" x="272" y="242" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >2.9×10<tspan dy="-5" font-size="9">−21</tspan><tspan dy="5"> </tspan>joules per bit erased</text><path d="M160 276 H386" stroke="#4a5fc9" stroke-width="2.5" stroke-dasharray="6 5"/><rect x="176" y="284" width="34" height="30" rx="6" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="187" cy="296" r="3" fill="#1b1b1b"/><circle cx="199" cy="296" r="3" fill="#1b1b1b"/><path d="M193 284 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="193" cy="276" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M186 305 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="218" y="296" font-size="14" text-anchor="start" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >reversible computing could</text><text class="lab" x="218" y="314" font-size="14" text-anchor="start" fill="#4a5fc9" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >dig below it, in principle</text></svg></figure><div class="split-t">
+<p>Real chips run into a much closer limit. In 1961 Rolf Landauer showed that erasing a single bit of information always releases a tiny puff of heat <a class="cite" href="#a01-s7">7</a>, about 3×10<sup>−21</sup> joules at room temperature. It's a cost no computer that throws information away can avoid, and physicists finally measured it directly in 2012 <a class="cite" href="#a01-s8">8</a>.</p>
+
+<p>Today's machines sit far above that floor. The most efficient supercomputer in the world, KAIROS in Toulouse, does about 73 billion operations per watt <a class="cite" href="#a01-s9">9</a>, which works out to roughly 1.4×10<sup>−11</sup> joules per operation, about five billion times the Landauer cost. That comparison exaggerates the gap a little, since one operation flips many bits, but the room left over is still enormous.</p>
+
+<p>There's even a known way under the floor. Charles Bennett showed in 1973 that a computer which never throws information away could, in principle, spend far less energy per step than Landauer's cost <a class="cite" href="#a01-s10">10</a>, an idea called reversible computing. It has started to leave the blackboard: a startup called Vaire Computing tested a chip in August 2025 that "drew around 30 percent less energy than a regular chip performing the same computation" <a class="cite" href="#a01-s11">11</a>.</p>
+</div></div>
+
+<h2 id="a01-h5">Your brain is a 20-watt marvel</h2>
+
+<p>Your brain does everything it does on about 20 watts, even though it's "just 2% of the body's weight, but 20% of its metabolic load" <a class="cite" href="#a01-s12">12</a>. Joe Carlsmith's 2020 review for Open Philanthropy concluded that 10<sup>15</sup> operations per second is "more likely than not" enough to match it <a class="cite" href="#a01-s13">13</a>, which happens to be about what one top AI chip does today.</p>
+
+<p>Evolution built that under tough constraints. A brain has to fit inside a skull and run on food, and its signals crawl along nerve fibers at around 120 meters per second, constraints a machine simply doesn't share.</p>
+
+<h2 id="a01-h6">How much room is left above us</h2>
+
+<p>My assessment: physics says nothing about <em>when</em> machines will out-think us, and raw speed is only one ingredient, since the software matters enormously. What physics does tell us is that nothing in nature parks the ceiling anywhere near human level. Between a 20-watt brain and Lloyd's billion-degree kilogram there are dozens of powers of ten of room, so whatever thinking looks like a thousand years from now, it will have an almost unimaginable amount of space to grow into.</p>
+
+<div class="next"><a class="pill gold" href="/blog/a02">Next: The densest computer is a black hole &rarr;</a><p>Squeeze that kilogram small enough and it becomes a black hole, which turns out to be the densest computer the universe allows.</p></div>
+
+<section class="sources"><h2>Sources</h2><ol><li id="a01-s1">Seth Lloyd, "Ultimate physical limits to computation," <em>Nature</em> (2000). <a href="https://arxiv.org/abs/quant-ph/9908043" target="_blank" rel="noopener">arxiv.org/abs/quant-ph/9908043</a></li><li id="a01-s2">Norman Margolus and Lev Levitin, "The maximum speed of dynamical evolution," <em>Physica D</em> 120, 188 (1998). <a href="https://arxiv.org/abs/quant-ph/9710043" target="_blank" rel="noopener">arxiv.org/abs/quant-ph/9710043</a></li><li id="a01-s3">Epoch AI, "Scaling Our Global AI Data Center Research" (2026-09-16). <a href="https://epoch.ai/latest/scaling-ai-data-centers-research" target="_blank" rel="noopener">epoch.ai/latest/scaling-ai-data-centers-research</a></li><li id="a01-s4">NVIDIA H100 datasheet (FP8: 3,958 teraFLOPS with sparsity, about half without). <a href="https://www.nvidia.com/en-us/data-center/h100/" target="_blank" rel="noopener">www.nvidia.com/en-us/data-center/h100/</a></li><li id="a01-s5">Gennady Gorelik, "Bremermann's limit and cGh-physics" (2009), citing H. J. Bremermann (1962). <a href="https://arxiv.org/abs/0910.3424" target="_blank" rel="noopener">arxiv.org/abs/0910.3424</a></li><li id="a01-s6">Max Tegmark, <em>Life 3.0</em> (2017), excerpt via Science Friday. <a href="https://www.sciencefriday.com/articles/tegmark/" target="_blank" rel="noopener">www.sciencefriday.com/articles/tegmark/</a></li><li id="a01-s7">Rolf Landauer, "Irreversibility and heat generation in the computing process," <em>IBM Journal of Research and Development</em> 5, 183 (1961).</li><li id="a01-s8">Antoine Bérut et al., "Experimental verification of Landauer's principle linking information and thermodynamics," <em>Nature</em> 483, 187 (2012). <a href="https://www.nature.com/articles/nature10872" target="_blank" rel="noopener">www.nature.com/articles/nature10872</a></li><li id="a01-s9">TOP500, Green500 list, June 2026. <a href="https://top500.org/lists/green500/green500-june-2026/" target="_blank" rel="noopener">top500.org/lists/green500/green500-june-2026/</a></li><li id="a01-s10">Charles Bennett, "Logical reversibility of computation," <em>IBM Journal of Research and Development</em> 17, 525 (1973). <a href="https://cs.princeton.edu/courses/archive/fall04/cos576/papers/bennett73.html" target="_blank" rel="noopener">cs.princeton.edu/courses/archive/fall04/cos576/papers/bennet…</a></li><li id="a01-s11">Kathryn Hulick, "This computer chip reuses energy," <em>Science News</em> (2025-09-23). <a href="https://www.sciencenews.org/article/computer-chip-reuses-energy" target="_blank" rel="noopener">www.sciencenews.org/article/computer-chip-reuses-energy</a></li><li id="a01-s12">Vijay Balasubramanian, "Brain power," <em>PNAS</em> 118(32) (2021). <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8364152/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov/articles/PMC8364152/</a></li><li id="a01-s13">Joseph Carlsmith, "How much computational power does it take to match the human brain?" Open Philanthropy (2020). <a href="https://forum.effectivealtruism.org/posts/nGQJEYp5X2pCbeweg/new-report-on-how-much-computational-power-it-takes-to-match" target="_blank" rel="noopener">forum.effectivealtruism.org/posts/nGQJEYp5X2pCbeweg/new-repo…</a></li></ol></section>
+</article>
+</main></div>
+<script>
+  var post = document.getElementById("a01"), segs = document.getElementById('segs');
+  var heads = post ? [].slice.call(post.querySelectorAll('h2[id]')).filter(function(h){ return !h.closest('.sources'); }) : [];
+  segs.hidden = !heads.length;
+  if (heads.length) segs.innerHTML = heads.map(function(){ return '<span class="seg"><i></i></span>'; }).join('');
+  function onScroll(){
+    if (!post || !heads.length) return;
+    var y = window.scrollY + window.innerHeight * 0.35;
+    var tops = heads.map(function(h){ return h.getBoundingClientRect().top + window.scrollY; });
+    var end = post.getBoundingClientRect().bottom + window.scrollY;
+    tops.forEach(function(t, i){
+      var next = i + 1 < tops.length ? tops[i + 1] : end;
+      var f = Math.max(0, Math.min(1, (y - t) / Math.max(1, next - t)));
+      var bar = segs.children[i] && segs.children[i].firstChild;
+      if (bar) bar.style.width = (f * 100) + '%';
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.bet-opt'); if (!b) return;
+    var box = b.closest('.bet'), right = b.getAttribute('data-right') === '1';
+    box.querySelectorAll('.bet-opt').forEach(function(x){ x.disabled = true; if (x.getAttribute('data-right') === '1') x.classList.add('is-right'); });
+    b.classList.add('picked', right ? 'right' : 'wrong');
+    var a = box.querySelector('.bet-a');
+    a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
+    a.hidden = false;
+  });
+</script>
+</body>
+</html>

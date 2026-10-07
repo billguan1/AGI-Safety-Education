@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI flood has reached the mountaintops|and the last dry land is the physical world | SafeAGI Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Bangers&family=Comic+Neue:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Single light look built on safeagi.ca's comic skin (tools/deck/deck.css).
+   Default skin "mature": same paper, ink, outlines and hard shadows, with editorial type.
+   html.skin-comic restores the full comic treatment for comparison. */
+:root{color-scheme:light;
+  --paper:#f4ecd8; --white:#fffdf6; --ink:#1b1b1b; --ink2:#3b3833; --ink3:#6f6a60; --soft:#cfc4ab; --seg:#e3d8bd;
+  --red:#c8472f; --gold:#e8b53a; --green:#6fae5a; --blue:#4a5fc9;
+  --mono:"Space Mono",ui-monospace,Menlo,monospace; --logo:"Bangers","Impact",sans-serif;
+  /* mature skin */
+  --head:"Archivo","Arial Narrow",sans-serif; --head-w:800; --head-x:76%; --head-ls:-.005em; --head-tt:none; --tsh:none;
+  --body:"Newsreader",Georgia,"Times New Roman",serif; --body-size:19.5px; --body-lh:1.66;
+  --ui:"Archivo",system-ui,sans-serif; --ui-x:100%;
+  --q:"Newsreader",Georgia,serif; --q-w:500; --q-style:normal; --q-size:clamp(25px,1rem + 1.1vw,32px);
+  --bw:2px; --sh:4px; --rad:8px; --dots:.035; --cap:6px;
+  --toc:260px; --bar:62px}
+html.skin-comic{--red:#d2553f;
+  --head:"Bangers","Impact",sans-serif; --head-w:400; --head-x:100%; --head-ls:.03em; --tsh:3px 3px 0 rgba(27,27,27,.17);
+  --body:"Comic Neue","Comic Sans MS",system-ui,sans-serif; --body-size:19px; --body-lh:1.6;
+  --ui:"Comic Neue","Comic Sans MS",system-ui,sans-serif;
+  --q:"Bangers","Impact",sans-serif; --q-w:400; --q-size:clamp(26px,1rem + 1.4vw,36px);
+  --bw:3px; --sh:5px; --rad:10px; --dots:.07; --cap:10px}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--bar) + 14px)}
+body{background-color:var(--paper);background-image:radial-gradient(rgba(27,27,27,var(--dots)) 1px,transparent 1.2px);background-size:9px 9px;
+  color:var(--ink);font:400 var(--body-size)/var(--body-lh) var(--body);-webkit-text-size-adjust:100%}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hd{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh)}
+
+/* ---- top bar ---- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--white);border-bottom:var(--bw) solid var(--ink)}
+.bar-row{display:flex;align-items:center;gap:14px;padding:8px 18px;min-height:56px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
+.logo{font-family:var(--logo);font-size:26px;letter-spacing:.04em;color:var(--ink);text-shadow:2px 2px 0 rgba(27,27,27,.17);white-space:nowrap}
+.primer{font:600 13px/1.25 var(--ui);color:var(--ink2);letter-spacing:.01em;max-width:34ch}
+.primer b{color:var(--red);font-weight:700}
+.acts{display:flex;gap:8px;margin-left:auto}
+.pill{display:inline-flex;align-items:center;gap:6px;min-height:38px;padding:0 14px;border-radius:99px;border:var(--bw) solid var(--ink);background:var(--white);color:var(--ink);
+  font:700 14px/1 var(--ui);text-decoration:none;box-shadow:3px 3px 0 var(--ink);cursor:pointer;white-space:nowrap;transition:transform .08s,box-shadow .08s}
+.pill:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.pill.go{background:var(--green)}
+.pill.gold{background:var(--gold)}
+.pill.ghost{box-shadow:none;border-style:dashed;font-weight:600}
+.menu-btn[aria-expanded="true"]{background:var(--gold)}
+.segs{display:flex;gap:4px;height:5px}
+.segs[hidden]{display:none}
+.seg{flex:1;background:var(--seg);position:relative;overflow:hidden}
+.seg i{position:absolute;inset:0 auto 0 0;width:0;background:var(--ink)}
+
+/* ---- contents ---- */
+.toc{display:none}
+.menu{position:fixed;z-index:60;top:calc(var(--bar) + 8px);left:10px;right:10px;max-height:calc(100% - var(--bar) - 24px);overflow:auto;
+  background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 12px}
+.tc-hide{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border:2px solid var(--ink);border-radius:99px;background:var(--white);font:700 12.5px/1.2 var(--ui);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink);margin:0 0 10px 6px}
+.tc-hide:hover{background:var(--gold)}
+.tc-g{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:18px 6px 6px;line-height:1.3}
+html.skin-comic .tc-g{font-family:var(--head);font-size:19px;letter-spacing:.03em;text-transform:none;color:var(--ink)}
+.tc-sec{margin:2px 0}
+.tc-s{display:block;padding:6px 8px 6px 12px;font:400 14.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border-left:4px solid transparent}
+.tc-s b{font-weight:700;color:var(--ink);margin-right:4px}
+.tc-s:hover{background:var(--paper);color:var(--ink)}
+.tc-sec.cur>.tc-s{background:var(--paper);color:var(--ink);font-weight:700;border-left-color:var(--gold)}
+.tc-parts{display:none;list-style:none;margin:4px 0 6px 16px;padding:0 0 0 10px;border-left:2px dashed var(--soft)}
+.tc-sec.cur .tc-parts{display:block}
+.tc-p{display:block;padding:4px 8px;font:400 13.5px/1.3 var(--ui);color:var(--ink2);text-decoration:none;border-radius:6px;border:1.5px solid transparent}
+.tc-p:hover{background:var(--paper)}
+.tc-p.on{background:var(--gold);color:var(--ink);font-weight:700;box-shadow:2px 2px 0 var(--ink);border-color:var(--ink)}
+.tc-show{display:none}
+@media (min-width:1100px){
+  .toc{display:block;position:fixed;left:0;top:var(--bar);bottom:0;width:var(--toc);z-index:30;overflow-y:auto;overscroll-behavior:contain;
+    background:var(--white);border-right:var(--bw) solid var(--ink);padding:14px 12px 60px}
+  .main{margin-left:var(--toc)}
+  .menu-btn,.menu{display:none!important}
+  html.toc-off .toc{display:none}
+  html.toc-off .main{margin-left:0}
+  html.toc-off .tc-show{display:inline-flex}
+}
+@media (max-width:1099px){.primer{display:none}}
+
+/* ---- page ---- */
+.main{padding:0 clamp(16px,4vw,48px) 80px}
+.page{max-width:1000px;margin:0 auto}
+.kick{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:30px 0 12px}
+.title{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(40px,2.7vw + 24px,66px);line-height:1.01;color:var(--ink);margin:0 0 22px;text-wrap:balance}
+html.skin-comic .title{text-shadow:4px 4px 0 rgba(27,27,27,.17)}
+.title .hl{color:var(--red);display:block}
+.box{background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:18px 24px;margin:0 0 28px}
+.box p{margin:0 0 .6em}
+.box p:last-child{margin-bottom:0}
+.lede{font-size:calc(var(--body-size) + 1px);line-height:1.55}
+.lede strong,.post strong{font-weight:600;color:var(--ink)}
+html.skin-comic .lede strong,html.skin-comic .post strong{font-weight:700}
+.bigq-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 8px!important}
+.bigq-q{font-family:var(--q);font-weight:var(--q-w);font-size:var(--q-size);line-height:1.18;letter-spacing:-.005em;margin:0 0 12px!important;text-wrap:balance}
+html.skin-comic .bigq-q{letter-spacing:.03em;line-height:1.12}
+
+.post p,.post ul{max-width:740px;margin:0 0 1em}
+.post h2{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);
+  font-size:clamp(28px,1rem + 1.3vw,38px);line-height:1.06;color:var(--ink);margin:50px 0 14px;text-wrap:balance}
+.post p.hook{font-size:calc(var(--body-size) + 2px);line-height:1.55}
+sup{font-size:.66em;line-height:0}
+.cite{font:700 .6em/0 var(--mono);vertical-align:super;text-decoration:none;color:var(--red);padding:0 1px}
+.cite:hover{text-decoration:underline}
+
+.split{display:grid;gap:8px 36px;align-items:start;margin:4px 0 18px}
+.split>.fig{margin:6px auto 22px}
+@media (min-width:1180px){.split{grid-template-columns:minmax(0,1fr) 400px}.split>.split-t{grid-column:1;grid-row:1}.split>.fig{grid-column:2;grid-row:1;margin:4px 0 0;position:sticky;top:calc(var(--bar) + 24px)}}
+.split-t>:last-child{margin-bottom:0}
+.fig{max-width:430px;width:100%;margin:28px auto;background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:8px}
+.fig-svg{display:block;width:100%;height:auto}
+/* mature skin: figure lettering in the page's sans; the drawings stay hand-drawn */
+html:not(.skin-comic) .fig-svg text.big{font-family:"Archivo","Arial Narrow",sans-serif;font-weight:800;font-stretch:72%;letter-spacing:.01em}
+html:not(.skin-comic) .fig-svg text.lab{font-family:"Archivo",system-ui,sans-serif;font-weight:600;font-stretch:88%}
+
+.callout{background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--gold);border-radius:6px;box-shadow:var(--sh) var(--sh) 0 var(--ink);padding:14px 20px 4px;margin:24px 0;max-width:740px}
+.callout-k{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);font-size:23px;margin:0 0 4px!important}
+
+.bet{margin:28px 0 32px}
+.bet-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 6px!important}
+.bet-q{font:600 clamp(19px,1rem + .5vw,22px)/1.35 var(--ui);margin:0 0 16px!important;max-width:none!important}
+html.skin-comic .bet-q{font-weight:700;font-size:clamp(20px,1rem + .6vw,24px)}
+.bet-opts{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 6px}
+.bet-opt{min-height:46px;padding:8px 18px;font:600 16px/1.25 var(--ui);color:var(--ink);background:var(--white);border:var(--bw) solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;text-align:left}
+html.skin-comic .bet-opt{font-weight:700}
+.bet-opt:hover:not(:disabled){background:var(--gold)}
+.bet-opt:active:not(:disabled){transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.bet-opt:disabled{cursor:default}
+.bet-opt.is-right{background:#b9d6a8}
+.bet-opt.picked.wrong{background:#f6d5cc;text-decoration:line-through}
+.bet-a{margin:14px 0 0!important;font-size:calc(var(--body-size) - .5px)}
+.bet-verdict{font:700 1em var(--ui);color:var(--red)}
+
+.next{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;margin:44px 0 0}
+.next p{margin:0;max-width:56ch;font-size:17px}
+.draftnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--white);border:2px dashed var(--soft);border-radius:8px;padding:10px 12px;color:var(--ink2);max-width:740px}
+.post .note{font-size:15.5px;color:var(--ink3)}
+.tbl{overflow-x:auto;margin:20px 0;max-width:860px}
+table{border-collapse:separate;border-spacing:0;font:400 16px/1.4 var(--ui);background:var(--white);border:var(--bw) solid var(--ink);border-radius:var(--rad)}
+th,td{text-align:left;padding:8px 12px;border-bottom:1.5px solid var(--soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);border-bottom:var(--bw) solid var(--ink)}
+.sources{margin-top:50px;padding-top:16px;border-top:2px dashed var(--soft);max-width:860px}
+.sources h2{font-size:24px!important;margin:0 0 10px!important}
+.sources ol{font:400 14.5px/1.5 var(--ui);color:var(--ink2);padding-left:1.5em;margin:0}
+.sources li{margin-bottom:6px;overflow-wrap:anywhere}
+.sources li:target{background:var(--gold)}
+.sources a{color:var(--ink2)}
+
+/* ---- home ---- */
+.devnote{font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--ink2);border:2px dashed var(--soft);background:var(--white);border-radius:8px;padding:10px 12px;margin:22px 0 0}
+.home-g{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);text-shadow:var(--tsh);font-size:clamp(26px,1rem + 1vw,34px);margin:38px 0 16px}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.card{display:flex;flex-direction:column;gap:6px;height:100%;padding:14px 18px 16px;background:var(--white);border:var(--bw) solid var(--ink);border-top:var(--cap) solid var(--k,var(--gold));border-radius:6px;
+  box-shadow:var(--sh) var(--sh) 0 var(--ink);text-decoration:none;color:var(--ink);transition:transform .1s,box-shadow .1s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:calc(var(--sh) + 2px) calc(var(--sh) + 2px) 0 var(--ink)}
+.card-n{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.card-t{font:700 19px/1.25 var(--ui)}
+html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stretch:84%;font-size:21px;line-height:1.15}
+.card-d{font-size:16px;line-height:1.45;color:var(--ink2)}
+.chip{align-self:flex-start;margin-top:auto;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px;border:2px solid var(--ink);background:var(--paper)}
+.chip-illustrated{background:var(--gold)}
+
+@media (max-width:760px){
+  body{font-size:calc(var(--body-size) - 1.5px)}
+  .bar-row{gap:8px;padding:7px 12px}
+  .logo{font-size:22px}
+  .pill{min-height:36px;padding:0 11px;font-size:13px}
+  .pill.ghost{display:none}
+  .box,.fig,.callout,.card{box-shadow:3px 3px 0 var(--ink)}
+  .box{padding:13px 16px}
+  .fig{padding:4px}
+  .post p.hook{font-size:calc(var(--body-size))}
+}
+@media (prefers-reduced-motion: reduce){.card,.pill{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="bar-row">
+    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <div class="acts">
+      <a class="pill" href="/blog">&larr; All essays</a>
+      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+    </div>
+  </div>
+  <div class="segs" id="segs" hidden></div>
+</header>
+<div class="main"><main class="page">
+<article class="post" id="a10">
+  <p class="kick">AI and us, right now · part 1 of 2 · by Bill Guan</p>
+  <h1 class="title">The AI flood has reached the mountaintops <span class="hl">and the last dry land is the physical world</span></h1>
+  <div class="box lede"><p class="bigq-k">The big question</p><p class="bigq-q">Which human skills has AI already matched, and which ones are still ours?</p><p>A roboticist drew a map for exactly this back in 1998. You're about to see <strong>how high the water has risen</strong> by October 2026, and why the <strong>last dry peaks</strong> are such a strange mix.</p></div>
+
+<p class="hook">Picture every skill people have as land on a map, with easy ones like arithmetic down in the lowlands and hard ones like walking and hand-eye coordination up on the high peaks. Now picture the sea slowly rising over all of it, and ask which peaks are still above the water today.</p>
+
+<div class="bet box" id="a10-bet1"><p class="bet-k">Your guess first</p><p class="bet-q">In March 2026 a new puzzle test launched, built to be easy for people and hard for AI. Humans scored 100% and the best AI scored 0.51%. How long did it take an AI to score 99.9%?</p><div class="bet-opts"><button type="button" class="bet-opt" id="a10-bet1-o1" data-right="0">About five years</button><button type="button" class="bet-opt" id="a10-bet1-o2" data-right="1">About six months</button><button type="button" class="bet-opt" id="a10-bet1-o3" data-right="0">No AI has done it yet</button></div><p class="bet-a" hidden><span class="bet-verdict"></span> About six months. By September 2026 one model had scored 99.9% using a specialized setup, which gives you a feel for how fast the water moves now, so here's the map it's rising over.</p></div>
+
+<h2 id="a10-h1">Human skill is a landscape, so the water can take it one peak at a time</h2>
+
+<p>The roboticist Hans Moravec gave us one of the best pictures in all of AI. "Imagine a 'landscape of human competence,'" he wrote in 1998, "having lowlands with labels like 'arithmetic' and 'rote memorization', foothills like 'theorem proving' and 'chess playing,' and high mountain peaks labeled 'locomotion,' 'hand-eye coordination' and 'social interaction'" <a class="cite" href="#a10-s1">1</a>.</p>
+
+<p>Then he added the water. "Advancing computer performance is like water slowly flooding the landscape. A half century ago it began to drown the lowlands, driving out human calculators and record clerks, but leaving most of us dry." His forecast for the peaks was that "at the present rate, those too will be submerged within another half century" <a class="cite" href="#a10-s1">1</a>, which puts the deadline at 2048.</p>
+
+<p>Max Tegmark redrew the map in his book <em>Life 3.0</em> with many more peaks, from art to programming, and picked out one of them, "AI design," in red. His definition of intelligence explains why the picture works so well: "the ability to accomplish complex goals" <a class="cite" href="#a10-s2">2</a>, measured across a whole spectrum of goals, which means there's no single intelligence score for a machine. A system can be superhuman at chess and useless at folding a towel, so the useful question is which peaks are underwater.</p>
+
+<h2 id="a10-h2">By October 2026 the water covers most of the peaks</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a10-map" viewBox="0 0 400 480" role="img" aria-label="Moravec's landscape of human skills drawn as a ridge running down into the sea, with the water level for October 2026. Still dry at the top: household tasks such as folding laundry, which works only in the lab, and hard open math, where AI solved 3% of open Erdős problems. At the waterline: science with the water rising fast, art and writing contested but wet, AI design in red as the peak that feeds the flood, and driving going under. Underwater: programming with an asterisk, theorem proving with olympiad gold in 2025, commonsense puzzles since 2019, and arithmetic, the first to drown." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >THE WATER LEVEL IN 2026</text><text class="lab" x="200" y="48" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >Moravec's map: higher peaks are harder for machines</text><path d="M0.0 480.0 L0.0 160.0 L12.0 136.0 L22.0 112.0 L30.0 90.0 L44.0 104.0 L71.8 148.0 L93.8 198.0 L111.8 222.0 L119.8 246.0 L137.7 270.0 L153.2 308.0 L179.8 348.0 L196.4 388.0 L223.0 428.0 L246.0 470.0 L400.0 470.0 L400.0 480.0 Z" fill="#e3d6b8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M44.0 102 V82" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M44.0 82 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M68.8 148 V128" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M68.8 128 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M95.8 198 V178" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M95.8 178 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M108.8 222 V202" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M108.8 202 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M121.8 246 V226" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M121.8 226 l11 4 l-11 4 z" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M134.7 270 V250" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M134.7 250 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M155.2 308 V288" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M155.2 288 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M176.8 348 V328" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M176.8 328 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M198.4 388 V368" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M198.4 368 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M220.0 428 V408" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M220.0 408 l11 4 l-11 4 z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="0" y="228" width="400" height="252" fill="#9fb3f0" fill-opacity=".5"/><path d="M0 228 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 q10 -5 20 0 " fill="none" stroke="#4a5fc9" stroke-width="2.5" stroke-linecap="round"/><text class="lab" x="62.0" y="93" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >HOUSEHOLD TASKS</text><text class="lab" x="62.0" y="110" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >folding laundry: only in the lab</text><text class="lab" x="86.84" y="139" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >HARD OPEN MATH</text><text class="lab" x="86.84" y="156" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >3% of open Erdős problems solved</text><text class="lab" x="113.84" y="193" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >SCIENCE<tspan dx="6" font-size="14" fill="#5c574e">water rising fast</tspan></text><text class="lab" x="126.80000000000001" y="217" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >ART &amp; WRITING<tspan dx="6" font-size="14" fill="#5c574e">contested, but wet</tspan></text><text class="lab" x="139.76" y="241" font-size="15" text-anchor="start" fill="#d9492c" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >AI DESIGN<tspan dx="6" font-size="14" fill="#d9492c">the peak that feeds the flood</tspan></text><text class="lab" x="152.72" y="265" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >DRIVING<tspan dx="6" font-size="14" fill="#5c574e">going under</tspan></text><text class="lab" x="173.24" y="299" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >PROGRAMMING*</text><text class="lab" x="173.24" y="316" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >underwater, with an asterisk</text><text class="lab" x="194.84" y="339" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >THEOREM PROVING</text><text class="lab" x="194.84" y="356" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >olympiad gold in 2025</text><text class="lab" x="216.44" y="379" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >COMMONSENSE PUZZLES</text><text class="lab" x="216.44" y="396" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >underwater since 2019</text><text class="lab" x="238.04000000000002" y="419" font-size="15" text-anchor="start" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >ARITHMETIC</text><text class="lab" x="238.04000000000002" y="436" font-size="14" text-anchor="start" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >the first to drown</text><circle cx="30" cy="53" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 60 v18 M30 78 l-7 12 M30 78 l7 12 M30 65 l-10 -10 M30 65 l10 -10" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="392" y="108" font-size="22" text-anchor="end" fill="#6fae5a" font-family="Bangers,Impact,sans-serif" >STILL DRY</text><text class="big" x="392" y="462" font-size="22" text-anchor="end" fill="#4a5fc9" font-family="Bangers,Impact,sans-serif" >UNDERWATER</text></svg></figure><div class="split-t">
+<p><strong>Commonsense puzzles: underwater since 2019.</strong> The Winograd Schema Challenge, a set of sentences that need real-world knowledge to untangle, fell years ago: "By 2019, a number of AI systems... achieved better than 90% accuracy" <a class="cite" href="#a10-s3">3</a>.</p>
+
+<p><strong>Theorem proving: underwater.</strong> In July 2025, at the International Mathematical Olympiad (IMO), an advanced version of Google DeepMind's Gemini "solved five out of the six IMO problems perfectly, earning 35 total points," a gold-medal score confirmed by the IMO's president <a class="cite" href="#a10-s4">4</a>. In 2026 several companies claimed perfect scores, though those claims came from the companies rather than the IMO <a class="cite" href="#a10-s5">5</a>.</p>
+
+<p><strong>Programming: underwater, with an asterisk.</strong> On SWE-bench Verified, a set of real bug-fixing tasks, the top score was 97% as of September 2026 <a class="cite" href="#a10-s6">6</a>, although OpenAI stopped using that test in February 2026 because models had memorized parts of it <a class="cite" href="#a10-s7">7</a>. A better measure comes from the research group METR (Model Evaluation and Threat Research), which found that the length of tasks AI agents can complete on their own "has been doubling approximately every 7 months for the last 6 years" <a class="cite" href="#a10-s8">8</a>. By May 2026 its estimate for one model was at least 16 hours of skilled human work, near the top of what its tests can even measure <a class="cite" href="#a10-s9">9</a>.</p>
+
+<p><strong>Science: the water is rising fast.</strong> The 2024 Nobel Prize in Chemistry went partly to Demis Hassabis and John Jumper "for protein structure prediction" with AlphaFold <a class="cite" href="#a10-s10">10</a>. In 2026, Google's AI "Co-Scientist" was reported in <em>Nature</em> to have "discovered new drug targets for liver fibrosis," with the caveat that "rigorous preclinical and clinical assessment would be required" <a class="cite" href="#a10-s11">11</a>.</p>
+
+<p><strong>Driving: going under.</strong> Waymo "surpassed 500,000 fully autonomous rides per week" in April 2026, across "11 major U.S. cities" <a class="cite" href="#a10-s12">12</a>.</p>
+
+<p><strong>Art and writing: contested, but wet.</strong> Google's Veo 3 video model can now "generate videos with audio," including "dialogue between characters" <a class="cite" href="#a10-s13">13</a>. In one 2025 study, trained writers strongly preferred human prose over prompted AI text, but once the AI was fine-tuned on an author's own books, they preferred the AI <a class="cite" href="#a10-s14">14</a>.</p>
+
+<p><strong>AI design: the peak that matters most.</strong> Google DeepMind's AlphaEvolve found a way to speed up a key part of Gemini's own architecture "by 23%, leading to a 1% reduction in Gemini's training time" <a class="cite" href="#a10-s15">15</a>, and in September 2026 OpenAI said it had built an automated "research intern" that can do "well-defined research tasks under human direction" <a class="cite" href="#a10-s16">16</a>.</p>
+</div></div>
+
+<h2 id="a10-h3">The newest test fell in six months</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a10-arc" viewBox="0 0 400 370" role="img" aria-label="Three bars for the ARC-AGI-3 puzzle test. Humans score 100%. The best AI scored 0.51% at launch in March 2026. Six months later, in September 2026, one AI with a specialized setup scored 99.9%." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >ONE TEST, SIX MONTHS</text><text class="lab" x="200" y="50" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >ARC-AGI-3: easy for people, hard for AI</text><path d="M26 112 H384" stroke="#8b8170" stroke-width="1.6" stroke-dasharray="5 5"/><rect x="44" y="112.0" width="72" height="188.0" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="164" y="299.0" width="72" height="1.5" fill="#d9492c" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="284" y="112.2" width="72" height="187.8" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 300 H390" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="big" x="80" y="150" font-size="28" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >100%</text><text class="big" x="320" y="150" font-size="28" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >99.9%</text><text class="big" x="200" y="286" font-size="28" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >0.51%</text><defs><marker id="a10arc-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#d9492c"/></marker></defs><path d="M214 262 C 244 250, 262 210, 274 150" fill="none" stroke="#d9492c" stroke-width="3" stroke-linecap="round" marker-end="url(#a10arc-head)"/><text class="big" x="206" y="196" font-size="22" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >SIX</text><text class="big" x="206" y="220" font-size="22" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >MONTHS</text><circle cx="80" cy="74" r="7" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M80 81 v18 M80 99 l-7 12 M80 99 l7 12 M80 86 l-10 -10 M80 86 l10 -10" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="303" y="81" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="314" cy="93" r="3" fill="#1b1b1b"/><circle cx="326" cy="93" r="3" fill="#1b1b1b"/><path d="M320 81 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="320" cy="73" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M313 102 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(283 90) scale(0.8)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(352 82) scale(0.7)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text class="lab" x="80" y="322" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >humans</text><text class="lab" x="200" y="322" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >best AI</text><text class="lab" x="200" y="340" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >March 2026</text><text class="lab" x="320" y="322" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >one AI</text><text class="lab" x="320" y="340" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >September 2026</text><text class="lab" x="320" y="358" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >specialized setup</text></svg></figure><div class="split-t">
+<p>The clearest sign of how fast this moves is ARC-AGI-3 (the AGI in its name stands for artificial general intelligence), a puzzle test built in 2026 specifically to be easy for people and hard for AI. At launch in March, "Humans score 100%. Frontier AI scores 0.51%" <a class="cite" href="#a10-s17">17</a>. By September, one model scored 99.9% with a specialized setup <a class="cite" href="#a10-s18">18</a>.</p>
+
+<p>The test's own makers stress that maxing it out "would not represent 'proof of achieving AGI'" <a class="cite" href="#a10-s18">18</a>, which is fair, but it's a striking six months, and it fits the longer trend METR found, where the length of task an AI agent can finish doubles about every 7 months, which sounds modest until you run it forward.</p>
+
+<aside class="callout"><p class="callout-k">How fast is doubling every 7 months?</p><p>Six years holds about ten doublings, and ten doublings multiply anything by about a thousand. So over the six years METR measured, the tasks AI agents could finish on their own got roughly a thousand times longer.</p></aside>
+</div></div>
+
+<h2 id="a10-h4">The last dry land is what a toddler does without thinking</h2>
+
+<div class="split"><figure class="fig"><svg class="fig-svg fig-a10-paradox" viewBox="0 0 400 296" role="img" aria-label="Moravec's paradox in two panels. Easy for machines: adult-level tests and checkers, shown by a robot with a checkerboard and an olympiad gold medal from 2025. Hard for machines: a one-year-old's perception and mobility, shown by a toddler stacking blocks next to a robot tangled in a shirt, because folding laundry still works only in the lab in 2026." xmlns="http://www.w3.org/2000/svg"><text class="big" x="200" y="28" font-size="22" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >MORAVEC'S PARADOX</text><path d="M200 48 V284" stroke="#8b8170" stroke-width="2" stroke-dasharray="5 6"/><text class="big" x="100" y="60" font-size="18" text-anchor="middle" fill="#6fae5a" font-family="Bangers,Impact,sans-serif" >EASY FOR MACHINES</text><text class="big" x="300" y="60" font-size="18" text-anchor="middle" fill="#d9492c" font-family="Bangers,Impact,sans-serif" >HARD FOR MACHINES</text><rect x="66" y="106" width="34" height="30" rx="6" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="77" cy="118" r="3" fill="#1b1b1b"/><circle cx="89" cy="118" r="3" fill="#1b1b1b"/><path d="M83 106 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="83" cy="98" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M76 127 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M92 136 L101 154 L110 136" fill="none" stroke="#d9492c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="101" cy="162" r="10" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="126" y="112" width="9" height="9" fill="#fffdf6"/><rect x="135" y="112" width="9" height="9" fill="#1b1b1b"/><rect x="144" y="112" width="9" height="9" fill="#fffdf6"/><rect x="153" y="112" width="9" height="9" fill="#1b1b1b"/><rect x="126" y="121" width="9" height="9" fill="#1b1b1b"/><rect x="135" y="121" width="9" height="9" fill="#fffdf6"/><rect x="144" y="121" width="9" height="9" fill="#1b1b1b"/><rect x="153" y="121" width="9" height="9" fill="#fffdf6"/><rect x="126" y="130" width="9" height="9" fill="#fffdf6"/><rect x="135" y="130" width="9" height="9" fill="#1b1b1b"/><rect x="144" y="130" width="9" height="9" fill="#fffdf6"/><rect x="153" y="130" width="9" height="9" fill="#1b1b1b"/><rect x="126" y="139" width="9" height="9" fill="#1b1b1b"/><rect x="135" y="139" width="9" height="9" fill="#fffdf6"/><rect x="144" y="139" width="9" height="9" fill="#1b1b1b"/><rect x="153" y="139" width="9" height="9" fill="#fffdf6"/><rect x="126" y="112" width="36" height="36" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(40 104) scale(0.8)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path transform="translate(46 156) scale(0.6)" d="M0 -10 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(240 136) scale(.85)"><circle cx="0" cy="0" r="7" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 7 v18 M0 25 l-7 12 M0 25 l7 12 M0 12 l-10 -8 M0 12 l10 -2" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="268" y="158" width="16" height="16" rx="2" fill="#9fb3f0" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="270" y="142" width="16" height="16" rx="2" fill="#ffd166" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="268" y="126" width="16" height="16" rx="2" fill="#6fae5a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="322" y="136" width="34" height="30" rx="6" fill="#b9d6a8" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="333" cy="148" r="3" fill="#1b1b1b"/><circle cx="345" cy="148" r="3" fill="#1b1b1b"/><path d="M339 136 v-6" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="339" cy="128" r="3" fill="#e8b53a" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M332 157 q7 5 14 0" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M318 112 l14 -9 h14 l14 9 l-6 13 l-8 -4 v28 h-28 v-28 l-8 4 z" fill="#e07a5f" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-14 339 125)"/><path d="M314 160 q10 8 20 0 q10 -8 22 2 q8 6 14 -4" fill="none" stroke="#1b1b1b" stroke-width="2.5" stroke-linecap="round"/><text class="big" x="378" y="104" font-size="20" text-anchor="middle" fill="#1b1b1b" font-family="Bangers,Impact,sans-serif" >?!</text><text class="lab" x="100" y="212" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >adult-level tests</text><text class="lab" x="100" y="230" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >and checkers</text><text class="lab" x="100" y="258" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >olympiad gold</text><text class="lab" x="100" y="275" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >in 2025</text><text class="lab" x="300" y="212" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >a one-year-old's</text><text class="lab" x="300" y="230" font-size="15" text-anchor="middle" fill="#1b1b1b" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >perception and mobility</text><text class="lab" x="300" y="258" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >folding laundry: only</text><text class="lab" x="300" y="275" font-size="14" text-anchor="middle" fill="#5c574e" font-family="Comic Neue,Comic Sans MS,sans-serif" font-weight="700" >in the lab in 2026</text></svg></figure><div class="split-t">
+<p>Here's the twist Moravec saw coming, and honestly it's the part that surprised me most. He also noticed that "it is comparatively easy to make computers exhibit adult level performance on intelligence tests or playing checkers, and difficult or impossible to give them the skills of a one-year-old when it comes to perception and mobility" <a class="cite" href="#a10-s19">19</a>. That's now called Moravec's paradox, and it has held up beautifully.</p>
+
+<p>A February 2026 review by Epoch AI found that "Navigation is deployed commercially, while most industrial and household tasks are not," and that folding basic laundry is "validated in lab" and still short of everyday use <a class="cite" href="#a10-s20">20</a>. Hard open math is dry too: on a set of open problems posed by the mathematician Paul Erdős, the best system solved 3% <a class="cite" href="#a10-s21">21</a>, and on Humanity's Last Exam, a test of expert-level questions, the top score is around 55% <a class="cite" href="#a10-s22">22</a>.</p>
+
+<p>So the last dry land is a strange mix of the hardest frontier research and the things a toddler does without thinking.</p>
+</div></div>
+
+<h2 id="a10-h5">AI design is the peak that feeds the flood</h2>
+
+<p>My assessment: Tegmark was right to single out AI design. Every other peak that goes under changes what people do for work, while this one changes the speed of the flood itself, because once AI does a large share of AI research, each improvement helps produce the next. Moravec gave the peaks fifty years from 1998 and the water got most of the way up in under thirty, so the peak that feeds the flood is the one I'd keep watching.</p>
+
+<div class="next"><a class="pill gold" href="/blog/a11">Next: Copyable minds and wages &rarr;</a><p>Once the minds doing the work can be copied in seconds, the question becomes who gets paid, and the economics turn out to be stark.</p></div>
+
+<section class="sources"><h2>Sources</h2><ol><li id="a10-s1">Hans Moravec, "When will computer hardware match the human brain?" <em>Journal of Evolution and Technology</em> 1 (1998). <a href="https://jetpress.org/volume1/moravec.htm" target="_blank" rel="noopener">jetpress.org/volume1/moravec.htm</a></li><li id="a10-s2">Max Tegmark, <em>Life 3.0</em> (2017), ch. 2, via reader notes by Tom Rochette. <a href="https://blog.tomrochette.com/agi/books/max-tegmark-life-3-0-being-human-in-the-age-of-artificial-intelligence/" target="_blank" rel="noopener">blog.tomrochette.com/agi/books/max-tegmark-life-3-0-being-hu…</a> [UNCERTAIN: secondary]</li><li id="a10-s3">Vid Kocijan et al., "The Defeat of the Winograd Schema Challenge" (2023). <a href="https://arxiv.org/abs/2201.02387" target="_blank" rel="noopener">arxiv.org/abs/2201.02387</a></li><li id="a10-s4">Thang Luong and Edward Lockhart, Google DeepMind (2025-07-21). <a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noopener">deepmind.google/blog/advanced-version-of-gemini-with-deep-th…</a></li><li id="a10-s5">AFP, via TechXplore (2026-07-23). <a href="https://techxplore.com/news/2026-07-ai-humans-score-math-contest.html" target="_blank" rel="noopener">techxplore.com/news/2026-07-ai-humans-score-math-contest.htm…</a></li><li id="a10-s6">Vals AI, SWE-bench Verified leaderboard (updated 2026-09-01). <a href="https://www.vals.ai/benchmarks/swebench" target="_blank" rel="noopener">www.vals.ai/benchmarks/swebench</a></li><li id="a10-s7">Latent Space, "SWE-bench is dead" (2026-02). <a href="https://www.latent.space/p/swe-bench-dead" target="_blank" rel="noopener">www.latent.space/p/swe-bench-dead</a> [UNCERTAIN: OpenAI's own post not fetched]</li><li id="a10-s8">Thomas Kwa et al., METR, "Measuring AI Ability to Complete Long Tasks" (2025-03-19). <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/" target="_blank" rel="noopener">metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-lo…</a></li><li id="a10-s9">The Decoder (2026-05-10), on METR's time-horizon estimate. <a href="https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/" target="_blank" rel="noopener">the-decoder.com/metr-says-it-can-barely-measure-claude-mytho…</a></li><li id="a10-s10"><em>Science News</em> on the 2024 Nobel Prize in Chemistry. <a href="https://www.sciencenews.org/article/nobel-prize-chemistry-2024-proteins" target="_blank" rel="noopener">www.sciencenews.org/article/nobel-prize-chemistry-2024-prote…</a></li><li id="a10-s11">Nature press release on Gottweis, Weng et al. (2026-05-20). <a href="https://www.natureasia.com/en/info/press-releases/detail/9330" target="_blank" rel="noopener">www.natureasia.com/en/info/press-releases/detail/9330</a></li><li id="a10-s12">Sundar Pichai, Alphabet Q1 2026 earnings remarks (2026-04-29). <a href="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q1-2026/" target="_blank" rel="noopener">blog.google/company-news/inside-google/message-ceo/alphabet-…</a></li><li id="a10-s13">Eli Collins, Google (2025-05-20). <a href="https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/" target="_blank" rel="noopener">blog.google/innovation-and-ai/products/generative-media-mode…</a></li><li id="a10-s14">Tuhin Chakrabarty, Jane Ginsburg and Paramveer Dhillon (2025, rev. 2026). <a href="https://arxiv.org/abs/2510.13939" target="_blank" rel="noopener">arxiv.org/abs/2510.13939</a></li><li id="a10-s15">Google DeepMind, "AlphaEvolve" (2025-05-14). <a href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/" target="_blank" rel="noopener">deepmind.google/discover/blog/alphaevolve-a-gemini-powered-c…</a></li><li id="a10-s16">Jackson Chen, <em>Engadget</em> (2026-09-06). <a href="https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/" target="_blank" rel="noopener">www.engadget.com/2251859/openai-says-it-reached-its-goal-of-…</a></li><li id="a10-s17">Greg Kamradt, ARC Prize, "ARC-AGI-3 launch" (2026-03-25). <a href="https://arcprize.org/blog/arc-agi-3-launch" target="_blank" rel="noopener">arcprize.org/blog/arc-agi-3-launch</a></li><li id="a10-s18">ARC Prize, on GPT-6 Astra (2026-09-03). <a href="https://arcprize.org/blog/astra" target="_blank" rel="noopener">arcprize.org/blog/astra</a></li><li id="a10-s19">Hans Moravec, <em>Mind Children</em> (1988), p. 15, via Wikipedia "Moravec's paradox." <a href="https://en.wikipedia.org/wiki/Moravec's_paradox" target="_blank" rel="noopener">en.wikipedia.org/wiki/Moravec's_paradox</a></li><li id="a10-s20">Rivière and Denain, Epoch AI, "Where autonomy works: evaluating robot capabilities in 2026" (2026-02-10). <a href="https://epoch.ai/publications/where-autonomy-works-evaluating-robot-capabilities-in-2026" target="_blank" rel="noopener">epoch.ai/publications/where-autonomy-works-evaluating-robot-…</a></li><li id="a10-s21">Adamczewski and Bloom (2026-09-06). <a href="https://arxiv.org/abs/2609.25050" target="_blank" rel="noopener">arxiv.org/abs/2609.25050</a></li><li id="a10-s22">Scale AI, Humanity's Last Exam leaderboard (checked 2026-10-05). <a href="https://labs.scale.com/leaderboard/humanitys_last_exam" target="_blank" rel="noopener">labs.scale.com/leaderboard/humanitys_last_exam</a></li></ol></section>
+</article>
+</main></div>
+<script>
+  var post = document.getElementById("a10"), segs = document.getElementById('segs');
+  var heads = post ? [].slice.call(post.querySelectorAll('h2[id]')).filter(function(h){ return !h.closest('.sources'); }) : [];
+  segs.hidden = !heads.length;
+  if (heads.length) segs.innerHTML = heads.map(function(){ return '<span class="seg"><i></i></span>'; }).join('');
+  function onScroll(){
+    if (!post || !heads.length) return;
+    var y = window.scrollY + window.innerHeight * 0.35;
+    var tops = heads.map(function(h){ return h.getBoundingClientRect().top + window.scrollY; });
+    var end = post.getBoundingClientRect().bottom + window.scrollY;
+    tops.forEach(function(t, i){
+      var next = i + 1 < tops.length ? tops[i + 1] : end;
+      var f = Math.max(0, Math.min(1, (y - t) / Math.max(1, next - t)));
+      var bar = segs.children[i] && segs.children[i].firstChild;
+      if (bar) bar.style.width = (f * 100) + '%';
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('.bet-opt'); if (!b) return;
+    var box = b.closest('.bet'), right = b.getAttribute('data-right') === '1';
+    box.querySelectorAll('.bet-opt').forEach(function(x){ x.disabled = true; if (x.getAttribute('data-right') === '1') x.classList.add('is-right'); });
+    b.classList.add('picked', right ? 'right' : 'wrong');
+    var a = box.querySelector('.bet-a');
+    a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
+    a.hidden = false;
+  });
+</script>
+</body>
+</html>
