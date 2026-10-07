@@ -1,0 +1,1 @@
+document.querySelectorAll(".resbar[data-res]").forEach(function(b){var body=b.nextElementSibling;if(!body)return;b.addEventListener("click",function(){var open=body.classList.contains("closed");body.classList.toggle("closed",!open);b.setAttribute("aria-expanded",open?"true":"false");var x=b.querySelector(".rbx");if(x)x.textContent=open?"–":"+";});});

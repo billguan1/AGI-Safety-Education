@@ -35,3 +35,7 @@ tools/gen_story_review.py
 
 # Python bytecode from running the tools
 __pycache__/
+
+# Blog article drafts: internal until Bill approves and they are built into
+# site pages. Same reasoning as comics/.
+blog-drafts/
