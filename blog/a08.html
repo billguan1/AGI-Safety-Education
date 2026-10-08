@@ -187,10 +187,10 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
 <body>
 <header class="bar">
   <div class="bar-row">
-    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <a class="brand" href="/"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
     <div class="acts">
       <a class="pill" href="/blog">&larr; All essays</a>
-      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+      <a class="pill gold" href="/" rel="noopener">Back to the guide</a>
     </div>
   </div>
   <div class="segs" id="segs" hidden></div>
@@ -298,6 +298,14 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
     var a = box.querySelector('.bet-a');
     a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
     a.hidden = false;
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+    var prev = document.querySelector('.next a.pill:not(.gold)');
+    var next = document.querySelector('.next a.pill.gold');
+    if (e.key === 'ArrowLeft' && prev) { e.preventDefault(); window.location.href = prev.href; }
+    if (e.key === 'ArrowRight' && next) { e.preventDefault(); window.location.href = next.href; }
   });
 </script>
 </body>
