@@ -143,6 +143,40 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
 .chip{align-self:flex-start;margin-top:auto;font:700 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:99px;border:2px solid var(--ink);background:var(--paper)}
 .chip-illustrated{background:var(--gold)}
 
+/* ---- left nav ---- */
+.ref-toc .tc-hide,.tc-show,.tc-edge{align-items:center;gap:6px;padding:4px 11px;border:2px solid var(--ink);border-radius:99px;background:var(--white);font:700 12.5px/1.2 var(--ui);color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.ref-toc .tc-hide{display:inline-flex;margin:0 0 10px 6px}
+.tc-show{display:none}
+@media (min-width:1100px){html.toc-off .ref-toc{display:none!important}html.toc-off body{padding-left:0!important}html.toc-off .tc-show{display:inline-flex;min-height:34px}}
+.ref-toc{display:none}
+@media (min-width:1100px){
+  .ref-toc{display:block;position:fixed;left:0;top:0;bottom:0;width:260px;z-index:40;overflow-y:auto;overscroll-behavior:contain;background:var(--white);border-right:3px solid var(--ink);padding:14px 12px 40px;box-sizing:border-box}
+  body{padding-left:260px!important}
+}
+.ref-toc .tc-g{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);letter-spacing:var(--head-ls);font-size:19px;color:var(--ink);margin:16px 6px 6px;line-height:1.1}
+.ref-toc .tc-g:first-child{margin-top:2px}
+.ref-toc .tc-sec{margin:2px 0}
+.ref-toc .tc-s,.ref-toc .tc-p,.ref-toc .dk-col a{color:var(--ink2)!important}
+.ref-toc .tc-s b,.ref-toc .dk-col li.dk-g a,.ref-toc .nav-xbtn,.ref-toc a:hover{color:var(--ink)!important}
+.ref-toc .tc-s,.ref-toc .tc-p{display:block;text-align:left;font-family:var(--body);border-radius:6px;text-decoration:none}
+.ref-toc .tc-s{padding:6px 8px 6px 12px;font-size:14.5px;line-height:1.3;border-left:4px solid transparent}
+.ref-toc .tc-s b{font-weight:700;color:var(--ink);margin-right:4px}
+.ref-toc .tc-s:hover,.ref-toc .tc-p:hover{background:var(--seg);color:var(--ink)}
+.ref-toc .tc-parts{display:none}
+.ref-toc .tc-ref{margin-top:18px;padding-top:12px;border-top:2px dashed var(--soft)}
+.ref-toc .dk-h{font-family:var(--head);font-weight:var(--head-w);font-stretch:var(--head-x);font-size:19px;letter-spacing:var(--head-ls);color:var(--ink);margin:0 0 6px}
+.ref-toc .dk-col ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.ref-toc .dk-col a{display:block;padding:5px 6px;border-radius:6px;color:var(--ink2);font-family:var(--body);font-size:15px;text-decoration:none}
+.ref-toc .dk-col li.dk-g a{color:var(--ink);font-weight:700;margin-top:6px}
+.ref-toc .dk-col a:hover{background:var(--seg);color:var(--ink)}
+.ref-toc .dk-x{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:10px}
+.ref-toc .nav-xbtn{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border-radius:99px;border:2.5px solid var(--ink);color:var(--ink);font-family:var(--body);font-weight:700;font-size:14px;text-decoration:none;box-shadow:3px 3px 0 var(--ink);background:var(--white)}
+.ref-toc .nav-xbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.ref-toc .tc-s:focus-visible,.ref-toc .tc-p:focus-visible,.ref-toc a:focus-visible{outline:3px solid var(--blue);outline-offset:1px}
+.bar .brand{font-family:var(--head)!important;font-size:24px!important;letter-spacing:var(--head-ls);color:var(--ink)!important;text-shadow:2px 2px 0 rgba(27,27,27,.17)}
+.bar .hbtn{font-family:var(--body)!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;border:2.5px solid var(--ink)!important;border-radius:99px!important;background:var(--white)!important;color:var(--ink)!important;box-shadow:3px 3px 0 var(--ink)}
+.bar .hbtn-act{background:var(--gold)!important}
+
 @media (max-width:760px){
   body{font-size:calc(var(--body-size) - 1.5px)}
   .bar-row{gap:8px;padding:7px 12px}
@@ -158,15 +192,17 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
 </style>
 </head>
 <body>
-<header class="bar">
+<header class="bar" id="bar">
   <div class="bar-row">
     <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
     <div class="acts">
+      <button type="button" class="tc-show" data-toc="on" aria-controls="ref-toc"><span aria-hidden="true">&raquo;</span> Contents</button>
       <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
     </div>
   </div>
   <div class="segs" id="segs" hidden></div>
 </header>
+<nav class="ref-toc" id="ref-toc" aria-label="Contents"><button type="button" class="tc-hide" data-toc="off" aria-controls="ref-toc"><span aria-hidden="true">&laquo;</span> Hide contents</button><p class="tc-g">Essays</p><p class="tc-g">Physics and limits</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">01 One kilogram could out-think every AI chip</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">02 The densest computer physics allows</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">03 A mind a billion light-years wide</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">04 Fire unlocks less than a billionth</p><p class="tc-g">Future of intelligence</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">05 The first self-copying probes</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">06 Stars will keep shining for a hundred trillion years</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">07 The AI flood has reached the mountaintops</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">08 If you can be copied, the copy is just as sure</p><p class="tc-g">Consciousness, control and society</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">09 Life 3.0 is a mind that redesigns its hardware</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">10 Science still can't tell if a machine could feel</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">11 Even a superintelligence has to wait</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">12 When a mind can be copied, its wage falls</p><p class="tc-g" style="font-size:14px;color:var(--ink3);margin-left:8px">13 An AI that suspects it's being watched</p><div class="dk-x"><a class="nav-xbtn" href="/comics/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Read the comic</span></a><a class="nav-xbtn" href="https://game.safeagi.ca/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>Play the safety game</span></a></div></nav><button type="button" class="tc-edge" data-toc="on" aria-controls="ref-toc" title="Contents"><span aria-hidden="true">&raquo;</span><b>Contents</b></button><script>(function(){var h=document.documentElement;try{if(localStorage.getItem("toc-off")==="1")h.classList.add("toc-off")}catch(e){}document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-toc]");if(!b)return;var off=b.getAttribute("data-toc")==="off";h.classList.toggle("toc-off",off);try{localStorage.setItem("toc-off",off?"1":"0")}catch(x){}setTimeout(function(){window.dispatchEvent(new Event("resize"));if(window.__lxFitAll)window.__lxFitAll()},50)})})();</script>
 <div class="main"><main class="page">
 
   <p class="kick">Thirteen essays · On intelligence, its limits and its future</p>
@@ -191,7 +227,7 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
       <span class="card-d">Light is too slow and the universe is pulling itself apart, so intelligence at cosmic scale has to be a scattered network of local minds.</span>
     </a></li>
     <li><a class="card" href="/blog/a05" style="--k:var(--red)">
-      <span class="card-n">05</span>
+      <span class="card-n">04</span>
       <span class="card-t">Fire unlocks less than a billionth of the energy in matter, and a spinning black hole unlocks 42%</span>
       <span class="card-d">Every kilogram of matter holds 90 million billion joules, and all of human history has run on the bottom rungs of the ladder for getting them out.</span>
     </a></li>
@@ -200,22 +236,22 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
   <p class="home-g" id="a04">Future of intelligence</p>
   <ul class="cards">
     <li><a class="card" href="/blog/a04" style="--k:var(--blue)">
-      <span class="card-n">04</span>
+      <span class="card-n">05</span>
       <span class="card-t">The first self-copying probes could carry one set of values to billions of galaxies</span>
       <span class="card-d">A machine that copies itself could spread across billions of galaxies, and whatever goal the first fleet carries could be copied faithfully for as long as the universe lasts.</span>
     </a></li>
     <li><a class="card" href="/blog/a07" style="--k:var(--blue)">
-      <span class="card-n">07</span>
+      <span class="card-n">06</span>
       <span class="card-t">Stars will keep shining for a hundred trillion years, so almost all of the future is still ahead of us</span>
       <span class="card-d">A short tour of deep time, from the Sun's last days to the final black holes, and the clever ways a mind might try to last through it.</span>
     </a></li>
     <li><a class="card" href="/blog/a10" style="--k:var(--blue)">
-      <span class="card-n">10</span>
+      <span class="card-n">07</span>
       <span class="card-t">The AI flood has reached the mountaintops and the last dry land is the physical world</span>
       <span class="card-d">Hans Moravec drew human skills as a landscape slowly drowning under rising AI, and by 2026 most of the peaks are underwater.</span>
     </a></li>
     <li><a class="card" href="/blog/a12" style="--k:var(--blue)">
-      <span class="card-n">12</span>
+      <span class="card-n">08</span>
       <span class="card-t">If you can be copied, the copy will be just as sure it's you</span>
       <span class="card-d">Brain mapping has gone from a whole fruit fly to a speck of mouse brain with ten times the connections, and the old puzzle of what survives a copy is turning into an engineering question.</span>
     </a></li>
@@ -224,22 +260,22 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
   <p class="home-g" id="a06">Consciousness, control and society</p>
   <ul class="cards">
     <li><a class="card" href="/blog/a06" style="--k:var(--green)">
-      <span class="card-n">06</span>
+      <span class="card-n">09</span>
       <span class="card-t">Life 3.0 is a mind that can redesign its own hardware</span>
       <span class="card-d">Bacteria, people and AI sit on three rungs of one ladder, sorted by what each can change about itself and how fast.</span>
     </a></li>
     <li><a class="card" href="/blog/a08" style="--k:var(--green)">
-      <span class="card-n">08</span>
+      <span class="card-n">10</span>
       <span class="card-t">Science still can't tell whether a machine could feel anything</span>
       <span class="card-d">The two leading theories of consciousness went head to head in 2025 and neither won, just as AI companies started acting as if the answer might matter.</span>
     </a></li>
     <li><a class="card" href="/blog/a09" style="--k:var(--green)">
-      <span class="card-n">09</span>
+      <span class="card-n">11</span>
       <span class="card-t">Even a superintelligence has to wait for some answers</span>
       <span class="card-d">Chaos, undecidable problems and Gödel put walls around what any mind can know, however smart it gets.</span>
     </a></li>
     <li><a class="card" href="/blog/a11" style="--k:var(--green)">
-      <span class="card-n">11</span>
+      <span class="card-n">12</span>
       <span class="card-t">When a mind can be copied, its wage falls toward the price of its computer</span>
       <span class="card-d">Wages have always rested on workers being scarce, so copyable digital minds would turn the question of who owns the machines into the question of who gets paid at all.</span>
     </a></li>
