@@ -15,6 +15,7 @@
   --paper:#f4ecd8; --white:#fffdf6; --ink:#1b1b1b; --ink2:#3b3833; --ink3:#6f6a60; --soft:#cfc4ab; --seg:#e3d8bd;
   --red:#c8472f; --gold:#e8b53a; --green:#6fae5a; --blue:#4a5fc9;
   --mono:"Space Mono",ui-monospace,Menlo,monospace; --logo:"Bangers","Impact",sans-serif;
+  --comic:"Bangers","ZCOOL KuaiLe","Archivo",sans-serif;
   /* mature skin */
   --head:"Archivo","Arial Narrow",sans-serif; --head-w:800; --head-x:76%; --head-ls:-.005em; --head-tt:none; --tsh:none;
   --body:"Newsreader",Georgia,"Times New Roman",serif; --body-size:19.5px; --body-lh:1.66;
@@ -182,19 +183,64 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
   .post p.hook{font-size:calc(var(--body-size))}
 }
 @media (prefers-reduced-motion: reduce){.card,.pill{transition:none}}
+
+/* ---- left nav ---- */
+.ref-toc .tc-hide,.tc-show,.tc-edge{align-items:center;gap:6px;padding:4px 11px;border:2px solid #1b1b1b;border-radius:99px;background:#fffdf6;font:700 12.5px/1.2 var(--body);color:#1b1b1b;cursor:pointer;box-shadow:2px 2px 0 #1b1b1b}
+.ref-toc .tc-hide{display:inline-flex;margin:0 0 10px 6px}
+.tc-show{display:none}
+@media (min-width:1100px){html.toc-off .ref-toc{display:none!important}html.toc-off body{padding-left:0!important}html.toc-off .tc-show{display:inline-flex;min-height:34px}}
+.ref-toc{display:none}
+@media (min-width:1100px){
+  .ref-toc{display:block;position:fixed;left:0;top:0;bottom:0;width:260px;z-index:40;overflow-y:auto;overscroll-behavior:contain;background:#fffdf6;border-right:3px solid #1b1b1b;padding:14px 12px 40px;box-sizing:border-box}
+  body{padding-left:260px!important}
+  .main{margin-left:0!important}
+}
+.ref-toc .tc-g{font-family:var(--comic);font-size:19px;letter-spacing:.03em;color:#1b1b1b;margin:16px 6px 6px;line-height:1.1}
+.ref-toc .tc-g:first-child{margin-top:2px}
+.ref-toc .tc-sec{margin:2px 0}
+.ref-toc .tc-s,.ref-toc .tc-p,.ref-toc .dk-col a{color:#3b3833!important}
+.ref-toc .tc-s b,.ref-toc .dk-col li.dk-g a,.ref-toc .nav-xbtn,.ref-toc a:hover{color:#1b1b1b!important}
+.ref-toc .tc-s,.ref-toc .tc-p{display:block;text-align:left;font-family:var(--body);border-radius:6px;text-decoration:none}
+.ref-toc .tc-s{padding:6px 8px 6px 12px;font-size:14.5px;line-height:1.3;border-left:4px solid transparent}
+.ref-toc .tc-s b{font-weight:700;color:#1b1b1b;margin-right:4px}
+.ref-toc .tc-s:hover,.ref-toc .tc-p:hover{background:#f4ecd8;color:#1b1b1b}
+.ref-toc .tc-parts{display:none}
+.ref-toc .tc-ref{margin-top:18px;padding-top:12px;border-top:2px dashed #cfc4ab}
+.ref-toc .dk-h{font-family:var(--comic);font-size:19px;letter-spacing:.03em;color:#1b1b1b;margin:0 0 6px}
+.ref-toc .dk-sub{font-size:13px;line-height:1.3;color:#6f6a60;margin:0 0 8px;font-family:var(--body)}
+.ref-toc .dk-col ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.ref-toc .dk-col a{display:block;padding:5px 6px;border-radius:6px;color:#3b3833;font-family:var(--body);font-size:15px;text-decoration:none}
+.ref-toc .dk-col li.dk-g a{color:#1b1b1b;font-weight:700;margin-top:6px}
+.ref-toc .dk-col a:hover{background:#f4ecd8;color:#1b1b1b}
+.ref-toc .dk-x{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-top:10px}
+.ref-toc .nav-xbtn{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border-radius:99px;border:2.5px solid #1b1b1b;color:#1b1b1b;font-family:var(--body);font-weight:700;font-size:14px;text-decoration:none;box-shadow:3px 3px 0 #1b1b1b;background:#fffdf6}
+.ref-toc .nav-xbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.ref-toc .tc-s:focus-visible,.ref-toc .tc-p:focus-visible,.ref-toc a:focus-visible{outline:3px solid #4a5fc9;outline-offset:1px}
+.tc-edge{display:none}
+@media (min-width:1100px){
+  html.toc-off .tc-edge{display:flex;flex-direction:column;align-items:center;gap:8px;position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:45;padding:12px 7px;border:2.5px solid #1b1b1b;border-left:0;border-radius:0 12px 12px 0;background:#fffdf6;box-shadow:3px 3px 0 #1b1b1b;cursor:pointer;color:#1b1b1b;font:700 13px/1 var(--body)}
+  html.toc-off .tc-edge b{writing-mode:vertical-rl;letter-spacing:.06em}
+  html.toc-off .tc-edge:hover{background:#e8b53a}
+  html.toc-off .tc-edge:focus-visible{outline:3px solid #4a5fc9;outline-offset:2px}
+}
+.bar .brand{font-family:var(--comic)!important;font-size:24px!important;letter-spacing:.04em;color:#1b1b1b!important;text-shadow:2px 2px 0 rgba(27,27,27,.17)}
+.bar .hbtn{font-family:var(--comic)!important;font-weight:400!important;letter-spacing:.03em!important;text-transform:none!important;border:2.5px solid #1b1b1b!important;border-radius:99px!important;background:#fffdf6!important;color:#1b1b1b!important;box-shadow:3px 3px 0 #1b1b1b}
+.bar .hbtn-act{background:#e8b53a!important}
 </style>
 </head>
 <body>
 <header class="bar">
   <div class="bar-row">
-    <a class="brand" href="/"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
+    <a class="brand" href="/blog"><span class="logo">SAFEAGI</span><span class="primer">Essays on the far future of intelligence</span></a>
     <div class="acts">
       <a class="pill" href="/blog">&larr; All essays</a>
-      <a class="pill gold" href="/" rel="noopener">Back to the guide</a>
+      <a class="pill go" href="https://safeagi.ca/" target="_blank" rel="noopener">The guide</a>
+      <button type="button" class="pill tc-show" id="tc-show">Contents</button>
     </div>
   </div>
   <div class="segs" id="segs" hidden></div>
 </header>
+<nav class="ref-toc" id="ref-toc" aria-label="Contents"><button type="button" class="tc-hide" data-toc="off" aria-controls="ref-toc"><span aria-hidden="true">&laquo;</span> Hide contents</button><p class="tc-g">Essays</p><p class="tc-g">The limits of intelligence</p><a class="tc-s" href="/blog/a01">01 How much can a kilogram think?</a><a class="tc-s" href="/blog/a02">02 The densest computer is a black hole</a><a class="tc-s" href="/blog/a03">03 The mind with ten thoughts</a><a class="tc-s" href="/blog/a09">09 Walls no mind can climb</a><p class="tc-g">Into deep time</p><a class="tc-s" href="/blog/a04">04 Von Neumann probes</a><a class="tc-s" href="/blog/a05">05 The energy ladder</a><a class="tc-s" href="/blog/a07">07 When the stars go out</a><p class="tc-g">Minds, copies and machines</p><a class="tc-s" href="/blog/a06">06 Life 3.0</a><a class="tc-s" href="/blog/a08">08 Could a machine feel anything?</a><a class="tc-s" href="/blog/a12">12 Which copy is you?</a><a class="tc-s" href="/blog/a13">13 The AI that thinks it is watched</a><p class="tc-g">AI and us, right now</p><a class="tc-s" href="/blog/a10">10 The flood reaches the peaks</a><a class="tc-s" href="/blog/a11">11 Copyable minds and wages</a><div class="dk-col tc-ref"><p class="dk-h">Blog</p><p class="dk-sub">The far future of intelligence</p><ul><li><a href="/blog">All thirteen essays</a></li></ul></div><div class="dk-x tc-x"><a class="nav-xbtn" href="/"><span>Back to the guide</span></a><a class="nav-xbtn" href="/comics/"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span>Read the comic</span></a><a class="nav-xbtn" href="https://game.safeagi.ca/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6l10 6-10 6z"/></svg><span>Play the safety game</span></a></div></nav><button type="button" class="tc-edge" data-toc="on" aria-controls="ref-toc" title="Contents"><span aria-hidden="true">&raquo;</span><b>Contents</b></button>
 <div class="main"><main class="page">
 <article class="post" id="a10">
   <p class="kick">AI and us, right now · part 1 of 2 · by Bill Guan</p>
@@ -255,7 +301,7 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
 
 <p>My assessment: Tegmark was right to single out AI design. Every other peak that goes under changes what people do for work, while this one changes the speed of the flood itself, because once AI does a large share of AI research, each improvement helps produce the next. Moravec gave the peaks fifty years from 1998 and the water got most of the way up in under thirty, so the peak that feeds the flood is the one I'd keep watching.</p>
 
-<div class="next"><a class="pill" href="/blog/a07">&larr; 6. Stars will keep shining for a hundred trillion years</a><a class="pill gold" href="/blog/a12">8. If you can be copied, the copy is just as sure &rarr;</a><p>Copying a mind raises a puzzle of its own, because a perfect copy of you would be just as sure it's you.</p></div>
+<div class="next"><a class="pill gold" href="/blog/a11">Next: Copyable minds and wages &rarr;</a><p>Once the minds doing the work can be copied in seconds, the question becomes who gets paid, and the economics turn out to be stark.</p></div>
 
 <section class="sources"><h2>Sources</h2><ol><li id="a10-s1">Hans Moravec, "When will computer hardware match the human brain?" <em>Journal of Evolution and Technology</em> 1 (1998). <a href="https://jetpress.org/volume1/moravec.htm" target="_blank" rel="noopener">jetpress.org/volume1/moravec.htm</a></li><li id="a10-s2">Max Tegmark, <em>Life 3.0</em> (2017), ch. 2, via reader notes by Tom Rochette. <a href="https://blog.tomrochette.com/agi/books/max-tegmark-life-3-0-being-human-in-the-age-of-artificial-intelligence/" target="_blank" rel="noopener">blog.tomrochette.com/agi/books/max-tegmark-life-3-0-being-hu…</a> [UNCERTAIN: secondary]</li><li id="a10-s3">Vid Kocijan et al., "The Defeat of the Winograd Schema Challenge" (2023). <a href="https://arxiv.org/abs/2201.02387" target="_blank" rel="noopener">arxiv.org/abs/2201.02387</a></li><li id="a10-s4">Thang Luong and Edward Lockhart, Google DeepMind (2025-07-21). <a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noopener">deepmind.google/blog/advanced-version-of-gemini-with-deep-th…</a></li><li id="a10-s5">AFP, via TechXplore (2026-07-23). <a href="https://techxplore.com/news/2026-07-ai-humans-score-math-contest.html" target="_blank" rel="noopener">techxplore.com/news/2026-07-ai-humans-score-math-contest.htm…</a></li><li id="a10-s6">Vals AI, SWE-bench Verified leaderboard (updated 2026-09-01). <a href="https://www.vals.ai/benchmarks/swebench" target="_blank" rel="noopener">www.vals.ai/benchmarks/swebench</a></li><li id="a10-s7">Latent Space, "SWE-bench is dead" (2026-02). <a href="https://www.latent.space/p/swe-bench-dead" target="_blank" rel="noopener">www.latent.space/p/swe-bench-dead</a> [UNCERTAIN: OpenAI's own post not fetched]</li><li id="a10-s8">Thomas Kwa et al., METR, "Measuring AI Ability to Complete Long Tasks" (2025-03-19). <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/" target="_blank" rel="noopener">metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-lo…</a></li><li id="a10-s9">The Decoder (2026-05-10), on METR's time-horizon estimate. <a href="https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/" target="_blank" rel="noopener">the-decoder.com/metr-says-it-can-barely-measure-claude-mytho…</a></li><li id="a10-s10"><em>Science News</em> on the 2024 Nobel Prize in Chemistry. <a href="https://www.sciencenews.org/article/nobel-prize-chemistry-2024-proteins" target="_blank" rel="noopener">www.sciencenews.org/article/nobel-prize-chemistry-2024-prote…</a></li><li id="a10-s11">Nature press release on Gottweis, Weng et al. (2026-05-20). <a href="https://www.natureasia.com/en/info/press-releases/detail/9330" target="_blank" rel="noopener">www.natureasia.com/en/info/press-releases/detail/9330</a></li><li id="a10-s12">Sundar Pichai, Alphabet Q1 2026 earnings remarks (2026-04-29). <a href="https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q1-2026/" target="_blank" rel="noopener">blog.google/company-news/inside-google/message-ceo/alphabet-…</a></li><li id="a10-s13">Eli Collins, Google (2025-05-20). <a href="https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/" target="_blank" rel="noopener">blog.google/innovation-and-ai/products/generative-media-mode…</a></li><li id="a10-s14">Tuhin Chakrabarty, Jane Ginsburg and Paramveer Dhillon (2025, rev. 2026). <a href="https://arxiv.org/abs/2510.13939" target="_blank" rel="noopener">arxiv.org/abs/2510.13939</a></li><li id="a10-s15">Google DeepMind, "AlphaEvolve" (2025-05-14). <a href="https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/" target="_blank" rel="noopener">deepmind.google/discover/blog/alphaevolve-a-gemini-powered-c…</a></li><li id="a10-s16">Jackson Chen, <em>Engadget</em> (2026-09-06). <a href="https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/" target="_blank" rel="noopener">www.engadget.com/2251859/openai-says-it-reached-its-goal-of-…</a></li><li id="a10-s17">Greg Kamradt, ARC Prize, "ARC-AGI-3 launch" (2026-03-25). <a href="https://arcprize.org/blog/arc-agi-3-launch" target="_blank" rel="noopener">arcprize.org/blog/arc-agi-3-launch</a></li><li id="a10-s18">ARC Prize, on GPT-6 Astra (2026-09-03). <a href="https://arcprize.org/blog/astra" target="_blank" rel="noopener">arcprize.org/blog/astra</a></li><li id="a10-s19">Hans Moravec, <em>Mind Children</em> (1988), p. 15, via Wikipedia "Moravec's paradox." <a href="https://en.wikipedia.org/wiki/Moravec's_paradox" target="_blank" rel="noopener">en.wikipedia.org/wiki/Moravec's_paradox</a></li><li id="a10-s20">Rivière and Denain, Epoch AI, "Where autonomy works: evaluating robot capabilities in 2026" (2026-02-10). <a href="https://epoch.ai/publications/where-autonomy-works-evaluating-robot-capabilities-in-2026" target="_blank" rel="noopener">epoch.ai/publications/where-autonomy-works-evaluating-robot-…</a></li><li id="a10-s21">Adamczewski and Bloom (2026-09-06). <a href="https://arxiv.org/abs/2609.25050" target="_blank" rel="noopener">arxiv.org/abs/2609.25050</a></li><li id="a10-s22">Scale AI, Humanity's Last Exam leaderboard (checked 2026-10-05). <a href="https://labs.scale.com/leaderboard/humanitys_last_exam" target="_blank" rel="noopener">labs.scale.com/leaderboard/humanitys_last_exam</a></li></ol></section>
 </article>
@@ -289,14 +335,7 @@ html:not(.skin-comic) .card-t{font-family:var(--head);font-weight:750;font-stret
     a.querySelector('.bet-verdict').textContent = right ? 'Yes.' : 'Not quite.';
     a.hidden = false;
   });
-
-  document.addEventListener('keydown', function(e){
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
-    var prev = document.querySelector('.next a.pill:not(.gold)');
-    var next = document.querySelector('.next a.pill.gold');
-    if (e.key === 'ArrowLeft' && prev) { e.preventDefault(); window.location.href = prev.href; }
-    if (e.key === 'ArrowRight' && next) { e.preventDefault(); window.location.href = next.href; }
-  });
+  (function(){var h=document.documentElement;try{if(localStorage.getItem("toc-off")==="1")h.classList.add("toc-off")}catch(e){}document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-toc]");if(!b)return;var off=b.getAttribute("data-toc")==="off";h.classList.toggle("toc-off",off);try{localStorage.setItem("toc-off",off?"1":"0")}catch(x){}setTimeout(function(){window.dispatchEvent(new Event("resize"));if(window.__lxFitAll)window.__lxFitAll()},50)})();})();
 </script>
 </body>
 </html>
