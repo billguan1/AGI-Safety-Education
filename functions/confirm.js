@@ -1,4 +1,5 @@
 // GET /confirm?t=TOKEN
+const JSON_HEADERS = { "Content-Type": "application/json" };
 export async function onRequestGet({ request, env }) {
   const t = new URL(request.url).searchParams.get("t") || "";
   let msg = "That link is not valid.";
@@ -7,8 +8,22 @@ export async function onRequestGet({ request, env }) {
       `UPDATE subscribers SET status='confirmed', confirmed_at=datetime('now')
        WHERE token=?1 AND status='pending'`
     ).bind(t).run();
-    if (r.meta && r.meta.changes > 0) msg = "You are subscribed. Thank you.";
-    else msg = "This link has already been used, or it has expired.";
+    if (r.meta && r.meta.changes > 0) {
+      msg = "You are subscribed. Thank you.";
+      // notify the owner
+      if (env.RESEND_API_KEY && env.OWNER_EMAIL) {
+        await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: { "Authorization": `Bearer ${env.RESEND_API_KEY}`, ...JSON_HEADERS },
+          body: JSON.stringify({
+            from: "AGI & ASI Safety <hello@safeagi.ca>",
+            to: [env.OWNER_EMAIL],
+            subject: "New safeagi.ca newsletter subscriber",
+            text: `Someone just confirmed a subscription on safeagi.ca.\n\nToken: ${t}`
+          })
+        }).catch(() => {});
+      }
+    } else msg = "This link has already been used, or it has expired.";
   }
   return new Response(page(msg), { headers: { "Content-Type": "text/html; charset=utf-8" } });
 }
