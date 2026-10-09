@@ -15,7 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 FONTS = {'en': 'https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&display=swap',
          'zh': 'https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&family=ZCOOL+KuaiLe&display=swap'}
-USES = {'en': ['index.html', 'reference.html', '404.html'], 'zh': ['index-zh.html', 'reference-zh.html']}
+USES = {'en': ['deck.html', 'index.html', 'reference.html', '404.html'], 'zh': ['deck-zh.html', 'index-zh.html', 'reference-zh.html']}
 
 PAGE = '''<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="%(fonts)s"><style>
 html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#f4ecd8}
