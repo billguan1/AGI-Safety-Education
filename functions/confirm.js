@@ -10,10 +10,10 @@ export async function onRequestGet({ request, env }) {
     ).bind(t).run();
     if (r.meta && r.meta.changes > 0) {
       msg = "You are subscribed. Thank you.";
-      // notify the owner (falls back to the sender address if OWNER_EMAIL is unset)
+      // notify the owner
       if (env.RESEND_API_KEY) {
-      const notifyTo = env.OWNER_EMAIL || "hello@safeagi.ca";
-      await fetch("https://api.resend.com/emails", {
+      const notifyTo = env.OWNER_EMAIL || "billguan1@gmail.com";
+      const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { "Authorization": `Bearer ${env.RESEND_API_KEY}`, ...JSON_HEADERS },
         body: JSON.stringify({
@@ -22,7 +22,8 @@ export async function onRequestGet({ request, env }) {
           subject: "New safeagi.ca newsletter subscriber",
           text: `Someone just confirmed a subscription on safeagi.ca.\n\nToken: ${t}`
         })
-      }).catch(() => {});
+      }).catch(e => { console.error("confirm-notify error:", e); });
+      if (res && !res.ok) console.error("confirm-notify status:", res.status, await res.text());
       }
     } else msg = "This link has already been used, or it has expired.";
   }
