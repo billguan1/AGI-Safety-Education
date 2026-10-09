@@ -58,14 +58,15 @@ export async function onRequestPost({ request, env }) {
     }).catch(() => {});
   }
 
-  // notify the owner of a new (pending) subscriber
-  if (env.RESEND_API_KEY && env.OWNER_EMAIL) {
+  // notify the owner of a new (pending) subscriber (falls back to sender if OWNER_EMAIL unset)
+  if (env.RESEND_API_KEY) {
+    const notifyTo = env.OWNER_EMAIL || "hello@safeagi.ca";
     await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": `Bearer ${env.RESEND_API_KEY}`, ...JSON_HEADERS },
       body: JSON.stringify({
         from: "AGI & ASI Safety <hello@safeagi.ca>",
-        to: [env.OWNER_EMAIL],
+        to: [notifyTo],
         subject: "New safeagi.ca newsletter signup (pending)",
         text: `${email} (${lang}) subscribed on safeagi.ca and needs to confirm.\nToken: ${token}`
       })
