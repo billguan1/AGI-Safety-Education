@@ -55,4 +55,116 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://safeagi.ca/reference-zh"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/reference"/>
   </url>
+  <url>
+    <loc>https://safeagi.ca/blog</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a01</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a01"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a01"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a02</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a02"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a02"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a03</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a03"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a03"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a04</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a04"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a04"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a05</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a05"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a05"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a06</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a06"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a06"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a07</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a07"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a07"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a08</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a08"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a08"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a09</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a09"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a09"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a10</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a10"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a10"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a11</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a11"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a11"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a12</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a12"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a12"/>
+  </url>
+  <url>
+    <loc>https://safeagi.ca/blog/a13</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://safeagi.ca/blog/a13"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safeagi.ca/blog/a13"/>
+  </url>
 </urlset>
